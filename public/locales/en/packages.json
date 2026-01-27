@@ -1,0 +1,83 @@
+{
+  "title": "Architecture Packages",
+  "subtitle": "Choose from our professional architecture packages tailored to your project size and needs",
+  "popular": "Most Popular",
+  "project": "project",
+  "purchase": "Purchase",
+  "purchaseAlert": "Purchasing package: ",
+  "customPackage": {
+    "title": "Request Custom Package",
+    "description": "Let us create a custom package tailored to your specific project requirements",
+    "contact": "Contact Us"
+  },
+  "basic": {
+    "name": "Basic Package",
+    "features": {
+      "concept": "Concept Design",
+      "2dDrawings": "2D Technical Drawings",
+      "consultation": "3 Consultation Meetings",
+      "revisions": "2 Revision Rights"
+    }
+  },
+  "starter": {
+    "name": "Starter Package",
+    "features": {
+      "concept": "Basic Concept Design",
+      "2dDrawings": "2D Technical Drawings",
+      "basic3d": "Basic 3D Modeling",
+      "consultation": "5 Consultation Meetings",
+      "revisions": "3 Revision Rights"
+    }
+  },
+  "professional": {
+    "name": "Professional Package",
+    "features": {
+      "concept": "Detailed Concept Design",
+      "3dModeling": "3D Modeling",
+      "renderings": "Photorealistic Renderings",
+      "technicalDrawings": "Technical Drawings",
+      "consultation": "Unlimited Consultation",
+      "unlimitedRevisions": "Unlimited Revisions"
+    }
+  },
+  "business": {
+    "name": "Business Package",
+    "features": {
+      "concept": "Business Concept Design",
+      "3dModeling": "Advanced 3D Modeling",
+      "premiumRenderings": "Premium Renderings",
+      "technicalDrawings": "Detailed Technical Drawings",
+      "materialSelection": "Material Selection Support",
+      "consultation": "VIP Consultation",
+      "unlimitedRevisions": "Unlimited Revisions"
+    }
+  },
+  "enterprise": {
+    "name": "Enterprise Package",
+    "features": {
+      "concept": "Enterprise Concept Design",
+      "3dModeling": "Professional 3D Modeling",
+      "vrTour": "360° Virtual Tour",
+      "premiumRenderings": "Ultra Premium Renderings",
+      "technicalDrawings": "Enterprise Technical Documentation",
+      "materialSelection": "Professional Material Selection",
+      "consultation": "Strategic Consultation",
+      "unlimitedRevisions": "Unlimited Revisions"
+    }
+  },
+  "premium": {
+    "name": "Premium Package",
+    "features": {
+      "concept": "Custom Concept Design",
+      "3dModeling": "Advanced 3D Modeling",
+      "vrTour": "360° Virtual Tour",
+      "ultraRenderings": "Ultra HD Renderings",
+      "technicalDrawings": "Full Technical Documentation",
+      "materialSelection": "Material Selection Support",
+      "consultation": "VIP Consultation",
+      "unlimitedRevisions": "Unlimited Revisions",
+      "projectManagement": "Project Management",
+      "support": "24/7 Support"
+    }
+  }
+}

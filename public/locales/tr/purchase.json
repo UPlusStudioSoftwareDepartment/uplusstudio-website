@@ -1,0 +1,23 @@
+{
+  "title": "Ödeme Sayfası",
+  "orderSummary": "Sipariş Özeti",
+  "included": "Paket İçeriği",
+  "subtotal": "Ara Toplam",
+  "tax": "KDV (%18)",
+  "total": "Genel Toplam",
+  "paymentInfo": "Ödeme Bilgileri",
+  "cardInfo": "Kart Bilgileri",
+  "cardNumber": "Kart Numarası",
+  "cardName": "Kart Üzerindeki İsim",
+  "expiryDate": "Son Kullanma Tarihi",
+  "cvv": "CVV",
+  "billingInfo": "Fatura Bilgileri",
+  "email": "E-posta",
+  "phone": "Telefon",
+  "address": "Adres",
+  "city": "Şehir",
+  "postalCode": "Posta Kodu",
+  "terms": "Kullanım koşullarını kabul ediyorum",
+  "payNow": "Şimdi Öde",
+  "processing": "İşleniyor..."
+}

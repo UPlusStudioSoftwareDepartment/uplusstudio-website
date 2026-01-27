@@ -1,0 +1,32 @@
+{
+  "title": "Randevu Al",
+  "subtitle": "Uzman mimarlarımızla tanışın ve projeniz için ilk adımı atın",
+  "personalInfo": "Kişisel Bilgiler",
+  "schedule": "Randevu Planla",
+  "name": "Adınız Soyadınız",
+  "namePlaceholder": "Adınızı ve soyadınızı girin",
+  "email": "E-posta",
+  "emailPlaceholder": "ornek@email.com",
+  "phone": "Telefon",
+  "phonePlaceholder": "+90 5XX XXX XX XX",
+  "service": "Hizmet Türü",
+  "selectService": "Hizmet Seçin",
+  "date": "Tarih",
+  "time": "Saat",
+  "selectTime": "Saat Seçin",
+  "selected": "Seçilen",
+  "message": "Mesajınız",
+  "messagePlaceholder": "Projeniz hakkında bilgi verin...",
+  "important": "Önemli Bilgi",
+  "note": "Not",
+  "noteText": "Randevu talebiniz 24 saat içinde değerlendirilecek ve size dönüş yapılacaktır. Lütfen proje detaylarınızı mesaj kısmında paylaşın.",
+  "cancel": "İptal",
+  "book": "Randevu Al",
+  "success": "Randevu talebiniz başarıyla alındı! En kısa sürede size dönüş yapacağız.",
+  "services": {
+    "architectural": "Mimari Tasarım",
+    "interior": "İç Mimarlık",
+    "consulting": "Danışmanlık",
+    "project": "Proje Yönetimi"
+  }
+}

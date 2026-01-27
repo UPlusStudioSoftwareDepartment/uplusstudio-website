@@ -1,0 +1,108 @@
+{
+  "hero": {
+    "title": "We Turn Architecture Into Value",
+    "subtitle": "Transforming dreams into reality with architecture, interior design, and implementation solutions"
+  },
+  "cta": {
+    "appointment": "Book Appointment",
+    "portfolio": "Our Projects"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Since 2010, UPlus Studio has been delivering innovative architectural solutions. From our Istanbul-based office, we serve clients across Turkey and internationally.",
+    "mission": "Our mission is to create spaces that enhance quality of life by combining aesthetics, functionality, and sustainability.",
+    "imageAlt": "Our office or team"
+  },
+  "services": {
+    "title": "Our Services",
+    "imageAlt": "Service image",
+    "service1": {
+      "title": "Architectural Design",
+      "description": "We provide services throughout all processes, from concept design to implementation projects for residential, commercial, and public buildings."
+    },
+    "service2": {
+      "title": "Interior Design",
+      "description": "We offer functional and aesthetic interior space solutions that reflect the character of spaces."
+    },
+    "service3": {
+      "title": "Project Management",
+      "description": "We manage all processes from design to delivery, ensuring projects are completed on time and within budget."
+    }
+  },
+  "projects": {
+    "title": "Our Projects",
+    "imageAlt": "Project image",
+    "project1": {
+      "title": "Modern Villa",
+      "category": "Residential"
+    },
+    "project2": {
+      "title": "Office Building",
+      "category": "Commercial"
+    },
+    "project3": {
+      "title": "Restaurant Design",
+      "category": "Commercial"
+    },
+    "project4": {
+      "title": "Housing Complex",
+      "category": "Residential"
+    },
+    "project5": {
+      "title": "Retail Design",
+      "category": "Commercial"
+    },
+    "project6": {
+      "title": "Cultural Center",
+      "category": "Public"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "getInTouch": "Get in Touch",
+    "address": "Address",
+    "addressText": "Levent, Istanbul, Turkey",
+    "phone": "Phone",
+    "email": "Email",
+    "name": "Your Name",
+    "subject": "Subject",
+    "selectSubject": "Select Subject",
+    "subjects": {
+      "general": "General Inquiry",
+      "project": "Project Consultation",
+      "consultation": "Architectural Consultation",
+      "partnership": "Partnership"
+    },
+    "package": "Package Selection",
+    "selectPackage": "Select Package",
+    "packages": {
+      "basic": "Basic Package",
+      "premium": "Premium Package",
+      "enterprise": "Enterprise Package",
+      "custom": "Custom Project"
+    },
+    "message": "Your Message",
+    "send": "Send",
+    "validation": {
+      "nameRequired": "Name field is required",
+      "emailRequired": "Email field is required",
+      "emailInvalid": "Please enter a valid email address",
+      "messageRequired": "Message field is required",
+      "messageMinLength": "Message must be at least 10 characters",
+      "phoneInvalid": "Please enter a valid phone number"
+    },
+    "sending": "Sending...",
+    "success": "Your message has been sent successfully!",
+    "error": "An error occurred while sending the message. Please try again."
+  },
+  "footer": {
+    "description": "Enhancing quality of life with innovative architectural solutions.",
+    "services": "Services",
+    "contact": "Contact",
+    "follow": "Follow Us",
+    "architecture": "Architectural Design",
+    "interior": "Interior Design",
+    "consulting": "Consulting",
+    "allRights": "All rights reserved."
+  }
+}

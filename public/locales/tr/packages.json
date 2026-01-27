@@ -1,0 +1,83 @@
+{
+  "title": "Mimari Paketleri",
+  "subtitle": "Projenizin büyüklüğüne ve ihtiyaçlarınıza uygun profesyonel mimari paketlerimizden seçim yapın",
+  "popular": "En Popüler",
+  "project": "proje",
+  "purchase": "Satın Al",
+  "purchaseAlert": "Paket satın alınıyor: ",
+  "customPackage": {
+    "title": "Özel Paket İsteyin",
+    "description": "Projenizin spesifik ihtiyaçları için size özel bir paket hazırlayalım",
+    "contact": "İletişime Geç"
+  },
+  "basic": {
+    "name": "Temel Paket",
+    "features": {
+      "concept": "Konsept Tasarım",
+      "2dDrawings": "2D Teknik Çizimler",
+      "consultation": "3 Danışmanlık Görüşmesi",
+      "revisions": "2 Revizyon Hakkı"
+    }
+  },
+  "starter": {
+    "name": "Başlangıç Paketi",
+    "features": {
+      "concept": "Temel Konsept Tasarım",
+      "2dDrawings": "2D Teknik Çizimler",
+      "basic3d": "Basit 3D Modelleme",
+      "consultation": "5 Danışmanlık Görüşmesi",
+      "revisions": "3 Revizyon Hakkı"
+    }
+  },
+  "professional": {
+    "name": "Profesyonel Paket",
+    "features": {
+      "concept": "Detaylı Konsept Tasarım",
+      "3dModeling": "3D Modelleme",
+      "renderings": "Fotorealistik Görseller",
+      "technicalDrawings": "Teknik Çizimler",
+      "consultation": "Sınırsız Danışmanlık",
+      "unlimitedRevisions": "Sınırsız Revizyon"
+    }
+  },
+  "business": {
+    "name": "İş Paketi",
+    "features": {
+      "concept": "İş Konsept Tasarım",
+      "3dModeling": "Gelişmiş 3D Modelleme",
+      "premiumRenderings": "Premium Görseller",
+      "technicalDrawings": "Detaylı Teknik Çizimler",
+      "materialSelection": "Malzeme Seçimi Desteği",
+      "consultation": "VIP Danışmanlık",
+      "unlimitedRevisions": "Sınırsız Revizyon"
+    }
+  },
+  "enterprise": {
+    "name": "Kurumsal Paket",
+    "features": {
+      "concept": "Kurumsal Konsept Tasarım",
+      "3dModeling": "Profesyonel 3D Modelleme",
+      "vrTour": "360° Sanal Gezinti",
+      "premiumRenderings": "Ultra Premium Görseller",
+      "technicalDrawings": "Kurumsal Teknik Dokümantasyon",
+      "materialSelection": "Profesyonel Malzeme Seçimi",
+      "consultation": "Stratejik Danışmanlık",
+      "unlimitedRevisions": "Sınırsız Revizyon"
+    }
+  },
+  "premium": {
+    "name": "Premium Paket",
+    "features": {
+      "concept": "Özel Konsept Tasarım",
+      "3dModeling": "Gelişmiş 3D Modelleme",
+      "vrTour": "360° Sanal Gezinti",
+      "ultraRenderings": "Ultra HD Görseller",
+      "technicalDrawings": "Tam Teknik Dokümantasyon",
+      "materialSelection": "Malzeme Seçimi Desteği",
+      "consultation": "VIP Danışmanlık",
+      "unlimitedRevisions": "Sınırsız Revizyon",
+      "projectManagement": "Proje Yönetimi",
+      "support": "7/24 Destek"
+    }
+  }
+}

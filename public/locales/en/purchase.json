@@ -1,0 +1,23 @@
+{
+  "title": "Payment Page",
+  "orderSummary": "Order Summary",
+  "included": "Package Includes",
+  "subtotal": "Subtotal",
+  "tax": "Tax (18%)",
+  "total": "Total",
+  "paymentInfo": "Payment Information",
+  "cardInfo": "Card Information",
+  "cardNumber": "Card Number",
+  "cardName": "Cardholder Name",
+  "expiryDate": "Expiry Date",
+  "cvv": "CVV",
+  "billingInfo": "Billing Information",
+  "email": "Email",
+  "phone": "Phone",
+  "address": "Address",
+  "city": "City",
+  "postalCode": "Postal Code",
+  "terms": "I agree to the terms and conditions",
+  "payNow": "Pay Now",
+  "processing": "Processing..."
+}

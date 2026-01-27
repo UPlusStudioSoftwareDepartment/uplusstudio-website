@@ -1,0 +1,123 @@
+{
+  "hero": {
+    "title": "Mimariyi Değere Dönüştürüyoruz",
+    "subtitle": "Mimarlık, iç mimarlık ve uygulama çözümleriyle hayallerinizi gerçeğe dönüştürüyoruz",
+    "slide1": {
+      "title": "İkonik Mimarlık Tasarımları",
+      "subtitle": "Sınırları zorlayan, estetik ve fonksiyonelliği birleştiren mimari projeler",
+      "category": "Mimari Tasarım"
+    },
+    "slide2": {
+      "title": "Modern İç Mekan Çözümleri",
+      "subtitle": "Yaşam alanlarınızı dönüştüren yenilikçi ve kişiselleştirilmiş iç tasarım konseptleri",
+      "category": "İç Mimarlık"
+    },
+    "slide3": {
+      "title": "Sürdürülebilir Projeler",
+      "subtitle": "Gelecek nesiller için çevre dostu, enerji verimli ve akıllı bina çözümleri",
+      "category": "Yeşil Mimari"
+    }
+  },
+  "cta": {
+    "appointment": "Randevu Al",
+    "portfolio": "Projelerimiz"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "description": "UPlus Studio olarak 2010 yılından beri yenilikçi mimari çözümler sunuyoruz. İstanbul merkezli ofisimizden, Türkiye'nin dört bir yanına ve uluslararası projelere imza atıyoruz.",
+    "mission": "Misyonumuz, estetik, fonksiyonellik ve sürdürülebilirliği bir araya getirerek yaşam kalitesini artıran mekanlar tasarlamaktır.",
+    "imageAlt": "Ofisimiz veya ekibimiz"
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "imageAlt": "Hizmet görseli",
+    "service1": {
+      "title": "Mimari Tasarım",
+      "description": "Konut, ticari ve kamusal binalar için konsept tasarımdan uygulama projelerine kadar tüm süreçlerde hizmet veriyoruz."
+    },
+    "service2": {
+      "title": "İç Mimarlık",
+      "description": "Mekanların karakterini yansıtan, fonksiyonel ve estetik iç mekan çözümleri sunuyoruz."
+    },
+    "service3": {
+      "title": "Proje Yönetimi",
+      "description": "Tasarımdan teslimata kadar tüm süreçleri yöneterek projelerin zamanında ve bütçesinde tamamlanmasını sağlıyoruz."
+    }
+  },
+  "projects": {
+    "title": "Projelerimiz",
+    "imageAlt": "Proje görseli",
+    "project1": {
+      "title": "Modern Villa",
+      "category": "Konut"
+    },
+    "project2": {
+      "title": "Ofis Binası",
+      "category": "Ticari"
+    },
+    "project3": {
+      "title": "Restoran Tasarımı",
+      "category": "Ticari"
+    },
+    "project4": {
+      "title": "Site Projesi",
+      "category": "Konut"
+    },
+    "project5": {
+      "title": "Mağaza Tasarımı",
+      "category": "Ticari"
+    },
+    "project6": {
+      "title": "Kültür Merkezi",
+      "category": "Kamusal"
+    }
+  },
+  "contact": {
+    "title": "İletişim",
+    "getInTouch": "İletişime Geçin",
+    "address": "Adres",
+    "addressText": "Levent, İstanbul, Türkiye",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "name": "Adınız",
+    "subject": "Konu",
+    "selectSubject": "Konu Seçin",
+    "subjects": {
+      "general": "Genel Bilgi",
+      "project": "Proje Danışmanlığı",
+      "consultation": "Mimari Konsültasyon",
+      "partnership": "İş Birliği"
+    },
+    "package": "Paket Seçimi",
+    "selectPackage": "Paket Seçin",
+    "packages": {
+      "basic": "Temel Paket",
+      "premium": "Premium Paket",
+      "enterprise": "Kurumsal Paket",
+      "custom": "Özel Proje"
+    },
+    "message": "Mesajınız",
+    "send": "Gönder",
+    "validation": {
+      "nameRequired": "Ad alanı zorunludur",
+      "emailRequired": "E-posta alanı zorunludur",
+      "emailInvalid": "Geçerli bir e-posta adresi girin",
+      "messageRequired": "Mesaj alanı zorunludur",
+      "messageMinLength": "Mesaj en az 10 karakter olmalıdır",
+      "phoneInvalid": "Geçerli bir telefon numarası girin"
+    },
+    "sending": "Gönderiliyor...",
+    "success": "Mesajınız başarıyla gönderildi!",
+    "error": "Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin."
+  },
+  "footer": {
+    "description": "Yenilikçi mimari çözümlerle yaşam kalitesini artırıyoruz.",
+    "services": "Hizmetler",
+    "contact": "İletişim",
+    "follow": "Bizi Takip Edin",
+    "architecture": "Mimari Tasarım",
+    "interior": "İç Mimarlık",
+    "consulting": "Danışmanlık",
+    "allRights": "Tüm hakları saklıdır."
+  }
+}

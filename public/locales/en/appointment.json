@@ -1,0 +1,32 @@
+{
+  "title": "Book Appointment",
+  "subtitle": "Meet our expert architects and take the first step for your project",
+  "personalInfo": "Personal Information",
+  "schedule": "Schedule Appointment",
+  "name": "Full Name",
+  "namePlaceholder": "Enter your full name",
+  "email": "Email",
+  "emailPlaceholder": "example@email.com",
+  "phone": "Phone",
+  "phonePlaceholder": "+1 (XXX) XXX-XXXX",
+  "service": "Service Type",
+  "selectService": "Select Service",
+  "date": "Date",
+  "time": "Time",
+  "selectTime": "Select Time",
+  "selected": "Selected",
+  "message": "Message",
+  "messagePlaceholder": "Tell us about your project...",
+  "important": "Important Information",
+  "note": "Note",
+  "noteText": "Your appointment request will be reviewed within 24 hours and we will get back to you. Please share your project details in the message section.",
+  "cancel": "Cancel",
+  "book": "Book Appointment",
+  "success": "Your appointment request has been successfully received! We will get back to you shortly.",
+  "services": {
+    "architectural": "Architectural Design",
+    "interior": "Interior Design",
+    "consulting": "Consulting",
+    "project": "Project Management"
+  }
+}
