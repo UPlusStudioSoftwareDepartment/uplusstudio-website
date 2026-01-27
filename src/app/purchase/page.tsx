@@ -1,5 +1,4 @@
 // src/app/purchase/page.tsx
-import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,10 +6,11 @@ export const metadata: Metadata = {
   description: 'Güvenli ödeme işlemi',
 };
 
-const PurchaseForm = dynamic(
-  () => import('./PurchaseForm'),
-  { ssr: false }
-);
+// Force dynamic rendering to avoid static generation issues
+export const dynamic = 'force-dynamic';
+
+// Import the client component directly
+import PurchaseForm from './PurchaseForm';
 
 export default function PurchasePage() {
   return <PurchaseForm />;

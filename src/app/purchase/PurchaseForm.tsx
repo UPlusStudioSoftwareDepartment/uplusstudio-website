@@ -66,6 +66,7 @@ export default function PurchaseForm() {
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isClient, setIsClient] = useState(false);
+  const [i18nReady, setI18nReady] = useState(false);
   
   const [formData, setFormData] = useState({
     cardNumber: "",
@@ -82,12 +83,19 @@ export default function PurchaseForm() {
 
   useEffect(() => {
     setIsClient(true);
+    // Wait for i18n to be ready
+    const timer = setTimeout(() => {
+      setI18nReady(true);
+    }, 100);
+    
     const packageId = searchParams.get('package');
     if (packageId && packages[packageId]) {
       setSelectedPackage(packages[packageId]);
     } else {
       router.push('/#services');
     }
+    
+    return () => clearTimeout(timer);
   }, [searchParams, router]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -118,7 +126,7 @@ export default function PurchaseForm() {
     }
   };
 
-  if (!isClient) {
+  if (!isClient || !i18nReady) {
     return <div className="min-h-screen flex items-center justify-center">Yükleniyor...</div>;
   }
 
