@@ -2,10 +2,15 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "UPlus Studio - Mimari Tasarım ve İç Mimarlık",
+    default: "U+ Studio ",
     template: "%s | UPlus Studio"
   },
   description: "UPlus Studio, İstanbul merkezli mimari tasarım, iç mimarlık ve proje yönetimi hizmetleri sunar. Konut, ticari ve kamusal projelerde yenilikçi çözümler.",
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   keywords: [
     "mimari tasarım",
     "iç mimarlık", 

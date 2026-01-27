@@ -40,6 +40,10 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
+        <link rel="icon" type="image/png" href="/logo/uplusstudioblacklogo.png" />
+        <link rel="shortcut icon" href="/logo/uplusstudioblacklogo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo/uplusstudioblacklogo.png" />
+        <meta name="theme-color" content="#000000" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ 
