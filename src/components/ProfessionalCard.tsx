@@ -22,17 +22,16 @@ export default function ProfessionalCard({ className = "" }: ProfessionalCardPro
 
     const ua = navigator.userAgent;
 
-    // 📱 GERÇEK TELEFON (Instagram dahil)
     const isMobilePhone = /Android|iPhone|iPod/i.test(ua);
-
     setCanCall(isMobilePhone);
 
+    
     const hasNativeShare =
-      typeof navigator.share === 'function' &&
-      typeof navigator.canShare === 'function';
+      typeof navigator.share === 'function';
 
     setCanShare(hasNativeShare);
   }, []);
+
 
   const handleShare = async () => {
     setIsSharing(true);
