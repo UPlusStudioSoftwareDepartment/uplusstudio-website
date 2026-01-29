@@ -151,7 +151,6 @@ export default function ProfessionalCard({ className = "" }: ProfessionalCardPro
 
 const handleEmail = () => {
   const ua = navigator.userAgent;
-
   const isIOS = /iPhone|iPad|iPod/i.test(ua);
   const isAndroid = /Android/i.test(ua);
   const isWindows = /Win/i.test(ua);
@@ -161,16 +160,13 @@ const handleEmail = () => {
 
   const mailtoUrl = 'mailto:info@uplusstudio.com.tr';
 
-  if (isIOS) {
-    window.location.href = mailtoUrl;
-    return;
-  }
-
-  if (isAndroid || isWindows) {
+  if (isWindows) {
     window.open(gmailUrl, '_blank', 'noopener,noreferrer');
     return;
+  }else{
+  window.open(mailtoUrl, '_blank', 'noopener,noreferrer');
   }
-  window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+
 };
 
 
