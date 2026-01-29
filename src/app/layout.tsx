@@ -1,35 +1,46 @@
 import "@/app/globals.css";
 import I18nProvider from "@/components/I18nProvider";
 import { metadata } from "./metadata";
+import React from "react";
 
+/* -------------------------------
+   STRUCTURED DATA (JSON-LD)
+-------------------------------- */
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "ArchitecturalDesign",
-  "name": "UPlus Studio",
-  "description": "UPlus Studio, İstanbul merkezli mimari tasarım, iç mimarlık ve proje yönetimi hizmetleri sunar.",
-  "url": "https://uplusstudio.com",
-  "telephone": "+90 212 555 0123",
-  "email": "info@uplusstudio.com",
+  "@type": "ArchitecturalService",
+  "name": "U+ Studio",
+  "description":
+    "U+ Studio, Ankara merkezli mimari tasarım, iç mimarlık ve proje yönetimi hizmetleri sunan bir mimarlık ofisidir.",
+  "url": "https://uplusstudio.com.tr",
+  "logo": "https://uplusstudio.com.tr/logo/uplusstudioblacklogo.png",
+  "image": "https://uplusstudio.com.tr/og-image.jpg",
+  "telephone": "+905453204007",
+  "email": "info@uplusstudio.com.tr",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Levent",
-    "addressLocality": "İstanbul",
+    "addressLocality": "Ankara",
     "addressCountry": "TR"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "41.0814",
-    "longitude": "29.0125"
-  },
-  "openingHours": "Mo-Fr 09:00-18:00",
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Hacer Uyar",
+      "jobTitle": "Mimar"
+    },
+    {
+      "@type": "Person",
+      "name": "Rıdvan Uyar",
+      "jobTitle": "İnşaat Mühendisi"
+    }
+  ],
   "sameAs": [
-    "https://instagram.com/uplusstudio",
-    "https://linkedin.com/company/uplusstudio"
+    "https://www.instagram.com/uplu.sstudio"
   ]
 };
 
-// Move JSON.stringify outside component to prevent hydration issues
-const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c');
+// Hydration güvenliği
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
 
 export { metadata };
 
@@ -41,17 +52,34 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
-        <link rel="icon" type="image/png" href="/logo/uplusstudioblacklogo.png" />
-        <link rel="shortcut icon" href="/logo/uplusstudioblacklogo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/logo/uplusstudioblacklogo.png" />
+        {/* Favicon & Icons */}
+        <link
+          rel="icon"
+          type="image/png"
+          href="/logo/uplusstudioblacklogo.png"
+        />
+        <link
+          rel="shortcut icon"
+          type="image/png"
+          href="/logo/uplusstudioblacklogo.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/logo/uplusstudioblacklogo.png"
+        />
+
+        {/* Theme */}
         <meta name="theme-color" content="#000000" />
+
+        {/* Structured Data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ 
-            __html: structuredDataJson
+          dangerouslySetInnerHTML={{
+            __html: structuredDataJson,
           }}
         />
       </head>
+
       <body>
         <I18nProvider>{children}</I18nProvider>
       </body>
