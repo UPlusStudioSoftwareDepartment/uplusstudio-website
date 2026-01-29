@@ -30,7 +30,7 @@ export default function ProfessionalCard({ className = "" }: ProfessionalCardPro
       typeof navigator.share === 'function' &&
       typeof navigator.canShare === 'function';
 
-    setCanShare(true);
+    setCanShare(hasNativeShare);
   }, []);
 
 
