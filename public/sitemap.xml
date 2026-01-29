@@ -3,48 +3,48 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://uplusstudio.com/</loc>
-    <lastmod>2024-01-27</lastmod>
+    <loc>https://uplusstudio.com.tr/</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://uplusstudio.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://uplusstudio.com/" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://uplusstudio.com.tr/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://uplusstudio.com.tr/" />
   </url>
 
   <url>
-    <loc>https://uplusstudio.com/#about</loc>
-    <lastmod>2024-01-27</lastmod>
+    <loc>https://uplusstudio.com.tr/#about</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://uplusstudio.com/#about" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://uplusstudio.com/#about" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://uplusstudio.com.tr/#about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://uplusstudio.com.tr/#about" />
   </url>
 
   <url>
-    <loc>https://uplusstudio.com/#services</loc>
-    <lastmod>2024-01-27</lastmod>
+    <loc>https://uplusstudio.com.tr/#services</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://uplusstudio.com/#services" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://uplusstudio.com/#services" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://uplusstudio.com.tr/#services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://uplusstudio.com.tr/#services" />
   </url>
 
   <url>
-    <loc>https://uplusstudio.com/#projects</loc>
-    <lastmod>2024-01-27</lastmod>
+    <loc>https://uplusstudio.com.tr/#projects</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://uplusstudio.com/#projects" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://uplusstudio.com/#projects" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://uplusstudio.com.tr/#projects" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://uplusstudio.com.tr/#projects" />
   </url>
 
   <url>
-    <loc>https://uplusstudio.com/#contact</loc>
-    <lastmod>2024-01-27</lastmod>
+    <loc>https://uplusstudio.com.tr/#contact</loc>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://uplusstudio.com/#contact" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://uplusstudio.com/#contact" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://uplusstudio.com.tr/#contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://uplusstudio.com.tr/#contact" />
   </url>
 
 </urlset>
