@@ -14,19 +14,25 @@ export default function HeroSection({ onAppointmentClick }: HeroSectionProps) {
 
   const slides = [
     {
-      image: "/hero-1.jpg",
+      image: "/images/home_images/home_1.jpg",
       titleKey: "hero.slide1.title",
       subtitleKey: "hero.slide1.subtitle",
       categoryKey: "hero.slide1.category"
     },
     {
-      image: "/hero-2.jpg", 
+      image: "/images/home_images/home_2.jpg", 
       titleKey: "hero.slide2.title",
       subtitleKey: "hero.slide2.subtitle",
       categoryKey: "hero.slide2.category"
     },
     {
-      image: "/hero-3.jpg",
+      image: "/images/home_images/home_3.jpg",
+      titleKey: "hero.slide3.title", 
+      subtitleKey: "hero.slide3.subtitle",
+      categoryKey: "hero.slide3.category"
+    },
+      {
+      image: "/images/home_images/home_4.jpg",
       titleKey: "hero.slide3.title", 
       subtitleKey: "hero.slide3.subtitle",
       categoryKey: "hero.slide3.category"

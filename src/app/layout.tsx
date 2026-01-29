@@ -28,6 +28,9 @@ const structuredData = {
   ]
 };
 
+// Move JSON.stringify outside component to prevent hydration issues
+const structuredDataJson = JSON.stringify(structuredData).replace(/</g, '\\u003c');
+
 export { metadata };
 
 export default function RootLayout({
@@ -35,8 +38,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const structuredDataJson = JSON.stringify(structuredData);
-  
   return (
     <html lang="tr">
       <head>
@@ -47,7 +48,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ 
-            __html: structuredDataJson.replace(/</g, '\\u003c') 
+            __html: structuredDataJson
           }}
         />
       </head>

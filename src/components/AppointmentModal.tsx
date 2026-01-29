@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import AdvancedCalendar from "./AdvancedCalendar";
 
@@ -11,8 +12,116 @@ interface AppointmentModalProps {
 }
 
 export default function AppointmentModal({ isOpen, onClose }: AppointmentModalProps) {
-  const { t } = useTranslation("appointment");
-  const [formData, setFormData] = useState({
+  const { t, i18n } = useTranslation("appointment");
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+
+  // Dinamik hata mesajları
+  const getErrorMessage = (key: string) => {
+    const isTurkish = i18n.language === 'tr';
+    
+    const messages: Record<string, { tr: string; en: string }> = {
+      nameRequired: {
+        tr: "Ad soyad alanı zorunludur",
+        en: "Name field is required"
+      },
+      nameMin: {
+        tr: "Ad soyad en az 3 karakter olmalıdır",
+        en: "Name must be at least 3 characters"
+      },
+      nameInvalid: {
+        tr: "Ad soyad sadece harflerden oluşmalıdır",
+        en: "Name must contain only letters"
+      },
+      emailRequired: {
+        tr: "E-posta alanı zorunludur",
+        en: "Email field is required"
+      },
+      emailInvalid: {
+        tr: "Geçerli bir e-posta adresi giriniz",
+        en: "Please enter a valid email address"
+      },
+      phoneRequired: {
+        tr: "Telefon alanı zorunludur",
+        en: "Phone field is required"
+      },
+      phoneInvalid: {
+        tr: "Geçerli bir telefon numarası giriniz (05XXXXXXXXX)",
+        en: "Please enter a valid phone number (05XXXXXXXXX)"
+      },
+      serviceRequired: {
+        tr: "Hizmet türü seçimi zorunludur",
+        en: "Service selection is required"
+      },
+      dateRequired: {
+        tr: "Tarih seçimi zorunludur",
+        en: "Date selection is required"
+      },
+      dateFuture: {
+        tr: "Gelecekte bir tarih seçiniz",
+        en: "Please select a future date"
+      },
+      timeRequired: {
+        tr: "Saat seçimi zorunludur",
+        en: "Time selection is required"
+      },
+      messageRequired: {
+        tr: "Mesaj alanı zorunludur",
+        en: "Message field is required"
+      },
+      messageMin: {
+        tr: "Mesaj en az 10 karakter olmalıdır",
+        en: "Message must be at least 10 characters"
+      },
+      messageMax: {
+        tr: "Mesaj en fazla 500 karakter olabilir",
+        en: "Message must be at most 500 characters"
+      }
+    };
+    
+    const message = messages[key];
+    return message ? (isTurkish ? message.tr : message.en) : key;
+  };
+
+  // Yup validation schema
+  const validationSchema = yup.object().shape({
+    name: yup
+      .string()
+      .required(getErrorMessage('nameRequired'))
+      .min(3, getErrorMessage('nameMin'))
+      .matches(/^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/, getErrorMessage('nameInvalid')),
+    email: yup
+      .string()
+      .email(getErrorMessage('emailInvalid'))
+      .required(getErrorMessage('emailRequired')),
+    phone: yup
+      .string()
+      .matches(/^(05)?[0-9]{9}$/, getErrorMessage('phoneInvalid'))
+      .required(getErrorMessage('phoneRequired')),
+    service: yup
+      .string()
+      .required(getErrorMessage('serviceRequired')),
+    date: yup
+      .string()
+      .required(getErrorMessage('dateRequired'))
+      .test("future-date", getErrorMessage('dateFuture'), (value) => {
+        if (!value) return false;
+        const selectedDate = new Date(value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return selectedDate >= today;
+      }),
+    time: yup
+      .string()
+      .required(getErrorMessage('timeRequired')),
+    message: yup
+      .string()
+      .required(getErrorMessage('messageRequired'))
+      .min(10, getErrorMessage('messageMin'))
+      .max(500, getErrorMessage('messageMax'))
+  });
+
+  // Form başlangıç değerleri
+  const initialValues = {
     name: "",
     email: "",
     phone: "",
@@ -20,44 +129,31 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
     time: "",
     service: "",
     message: ""
-  });
-  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+  };
 
-  // Yup validation schema
-  const validationSchema = yup.object().shape({
-    name: yup.string().required(t('validation.nameRequired')),
-    email: yup.string().email(t('validation.emailInvalid')).required(t('validation.emailRequired')),
-    phone: yup.string().matches(/^[+]?[\d\s\-\(\)]+$/, t('validation.phoneInvalid')).required(t('validation.phoneRequired')),
-    service: yup.string().required(t('validation.serviceRequired')),
-    date: yup.string().required(t('validation.dateRequired')),
-    time: yup.string().required(t('validation.timeRequired')),
-    message: yup.string().min(10, t('validation.messageMinLength')).required(t('validation.messageRequired'))
-  });
+  const handleSubmit = async (values: typeof initialValues, { setSubmitting, resetForm }: any) => {
+    setSubmitting(true);
+    setSubmitStatus(null);
 
-  const validateForm = async (): Promise<boolean> => {
     try {
-      await validationSchema.validate(formData, { abortEarly: false });
-      setFormErrors({});
-      return true;
-    } catch (err) {
-      if (err instanceof yup.ValidationError) {
-        const errors: Record<string, string> = {};
-        err.inner.forEach((error) => {
-          if (error.path && error.message) {
-            errors[error.path[0]] = error.message;
-          }
-        });
-        setFormErrors(errors);
-      }
-      return false;
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      setSubmitStatus('success');
+      resetForm();
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setSubmitting(false);
     }
   };
 
-  const handleDownload = () => {
+  const handleDownload = (values: typeof initialValues) => {
     // Check if all required fields are filled
-    if (!formData.name || !formData.email || !formData.phone || !formData.service || !formData.date || !formData.time) {
+    if (!values.name || !values.email || !values.phone || !values.service || !values.date || !values.time) {
       alert('Please fill in all required fields before downloading the appointment card.');
       return;
     }
@@ -121,20 +217,20 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
     
     // Draw appointment details
     const details = [
-      { label: 'Name', value: formData.name },
-      { label: 'Email', value: formData.email },
-      { label: 'Phone', value: formData.phone },
-      { label: 'Service', value: formData.service },
-      { label: 'Date', value: formData.date ? new Date(formData.date).toLocaleDateString('tr-TR', { 
+      { label: 'Name', value: values.name },
+      { label: 'Email', value: values.email },
+      { label: 'Phone', value: values.phone },
+      { label: 'Service', value: values.service },
+      { label: 'Date', value: values.date ? new Date(values.date).toLocaleDateString('tr-TR', { 
           day: 'numeric', 
           month: 'long', 
           year: 'numeric' 
         }) : 'Not selected' },
-      { label: 'Time', value: formData.time }
+      { label: 'Time', value: values.time }
     ];
     
-    if (formData.message) {
-      details.push({ label: 'Message', value: formData.message });
+    if (values.message) {
+      details.push({ label: 'Message', value: values.message });
     }
     
     let yPos = 220;
@@ -184,7 +280,7 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `appointment-card-${formData.name}-${formData.date}.jpg`;
+        a.download = `appointment-card-${values.name}-${values.date}.jpg`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -193,72 +289,9 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
     }, 'image/jpeg', 0.95);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
-    if (formErrors[name]) {
-      setFormErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors[name];
-        return newErrors;
-      });
-    }
-  };
-
-  const resetForm = () => {
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      date: '',
-      time: '',
-      message: ''
-    });
-    setFormErrors({});
-    setSubmitStatus(null);
-    setIsSubmitting(false);
-  };
-
   const handleClose = () => {
-    resetForm();
-    onClose();
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const isValid = await validateForm();
-    if (!isValid) {
-      return;
-    }
-
-    setIsSubmitting(true);
     setSubmitStatus(null);
-
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        date: '',
-        time: '',
-        message: ''
-      });
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000);
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
+    onClose();
   };
 
   if (!isOpen) return null;
@@ -285,236 +318,216 @@ export default function AppointmentModal({ isOpen, onClose }: AppointmentModalPr
         </div>
 
         {/* Main Content */}
-        <div className="flex flex-col lg:flex-row">
-          {/* Left Side - Form */}
-          <div className="flex-1 p-8 pt-12">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* Personal Info Section */}
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
-                  <div className="w-1 h-6 bg-blue-500 rounded-full mr-3"></div>
-                  Personal Information
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      {t("name")} *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 ${
-                        formErrors.name 
-                          ? 'border-red-500 focus:border-red-500' 
-                          : 'border-slate-200 focus:border-blue-500'
-                      }`}
-                      placeholder="John Doe"
-                    />
-                    {formErrors.name && (
-                      <p className="mt-1 text-sm text-red-600">{formErrors.name}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      {t("email")} *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 ${
-                        formErrors.email 
-                          ? 'border-red-500 focus:border-red-500' 
-                          : 'border-slate-200 focus:border-blue-500'
-                      }`}
-                      placeholder="john@example.com"
-                    />
-                    {formErrors.email && (
-                      <p className="mt-1 text-sm text-red-600">{formErrors.email}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      {t("phone")} *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 ${
-                        formErrors.phone 
-                          ? 'border-red-500 focus:border-red-500' 
-                          : 'border-slate-200 focus:border-blue-500'
-                      }`}
-                      placeholder="+90 555 123 4567"
-                    />
-                    {formErrors.phone && (
-                      <p className="mt-1 text-sm text-red-600">{formErrors.phone}</p>
-                    )}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">
-                      {t("service")} *
-                    </label>
-                    <select
-                      required
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 ${
-                        formErrors.service 
-                          ? 'border-red-500 focus:border-red-500' 
-                          : 'border-slate-200 focus:border-blue-500'
-                      }`}
-                    >
-                      <option value="">Select Service</option>
-                      <option value="architectural">Architectural Design</option>
-                      <option value="interior">Interior Design</option>
-                      <option value="consulting">Consulting</option>
-                      <option value="project">Project Management</option>
-                    </select>
-                    {formErrors.service && (
-                      <p className="mt-1 text-sm text-red-600">{formErrors.service}</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Message */}
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
-                  <div className="w-1 h-6 bg-purple-500 rounded-full mr-3"></div>
-                  {t("message")}
-                </h3>
-                <textarea
-                  rows={4}
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Tell us about your project..."
-                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none ${
-                    formErrors.message 
-                      ? 'border-red-500 focus:border-red-500' 
-                      : 'border-slate-200 focus:border-blue-500'
-                  }`}
-                />
-                {formErrors.message && (
-                  <p className="mt-1 text-sm text-red-600">{formErrors.message}</p>
-                )}
-              </div>
-
-              {/* Quick Time Slots */}
-              <div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
-                  <div className="w-1 h-6 bg-green-500 rounded-full mr-3"></div>
-                  Quick Time Selection
-                </h3>
-                <div className="grid grid-cols-4 gap-3">
-                  {['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00', '18:00'].map((time) => (
-                    <button
-                      key={time}
-                      type="button"
-                      onClick={() => setFormData({...formData, time})}
-                      className={`px-4 py-3 text-sm font-medium rounded-xl border transition-all duration-200 ${
-                        formData.time === time
-                          ? 'bg-blue-500 text-white border-blue-500 shadow-lg shadow-blue-500/25'
-                          : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
-                      }`}
-                    >
-                      {time}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex gap-4 pt-6">
-                <button
-                  type="button"
-                  onClick={handleClose}
-                  className="flex-1 px-6 py-3 border border-slate-300 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-all duration-200"
-                >
-                  {t("cancel")}
-                </button>
-                <button
-                  type="submit"
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg shadow-blue-500/25"
-                >
-                  {t("book")}
-                </button>
-              </div>
-            </form>
-          </div>
-
-          {/* Right Side - Calendar */}
-          <div className="lg:w-96 bg-slate-50 border-l border-slate-200 p-8">
-            {/* Calendar */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 mb-6">
-              <h3 className="text-lg font-semibold text-slate-900 mb-6 flex items-center">
-                <div className="w-1 h-6 bg-indigo-500 rounded-full mr-3"></div>
-                {t("schedule")}
-              </h3>
-              <AdvancedCalendar
-                selectedDate={formData.date}
-                onDateSelect={(date) => setFormData({...formData, date})}
-                selectedTime={formData.time}
-                onTimeSelect={(time) => setFormData({...formData, time})}
-              />
-            </div>
-
-            {/* Appointment Card Preview */}
-            {(formData.date || formData.time) && (
-              <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-                <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
-                  <div className="w-1 h-6 bg-emerald-500 rounded-full mr-3"></div>
-                  Appointment Card
-                </h3>
-                <div className="text-center space-y-4">
-                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-200">
-                    <div className="bg-white rounded-lg p-4 shadow-sm">
-                      <div className="text-center mb-3">
-                        <div className="text-lg font-bold text-blue-900 mb-1">UPlus Studio</div>
-                        <div className="text-sm text-blue-600">Appointment Card</div>
-                      </div>
-                      <div className="bg-blue-100 text-blue-700 text-xs font-medium px-3 py-1 rounded-full inline-block">
-                        ID: #APT${Date.now().toString().slice(-6)}
-                      </div>
-                      <div className="mt-3 space-y-1 text-xs">
-                        <div className="flex justify-between">
-                          <span className="text-gray-600">Name:</span>
-                          <span className="font-medium">{formData.name || 'Not provided'}</span>
-                        </div>
-                      </div>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting, values, setFieldValue }) => (
+            <Form className="flex flex-col lg:flex-row">
+              {/* Left Side - Form */}
+              <div className="flex-1 p-8 pt-12 space-y-6">
+                {/* Personal Info Section */}
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
+                    <div className="w-1 h-6 bg-blue-500 rounded-full mr-3"></div>
+                    {t("personalInfo")}
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        {t("name")} *
+                      </label>
+                      <Field
+                        type="text"
+                        name="name"
+                        className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 focus:border-blue-500"
+                        placeholder={t("namePlaceholder")}
+                      />
+                      <ErrorMessage name="name" component="p" className="mt-1 text-sm text-red-600" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        {t("email")} *
+                      </label>
+                      <Field
+                        type="email"
+                        name="email"
+                        className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 focus:border-blue-500"
+                        placeholder={t("emailPlaceholder")}
+                      />
+                      <ErrorMessage name="email" component="p" className="mt-1 text-sm text-red-600" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        {t("phone")} *
+                      </label>
+                      <Field
+                        type="tel"
+                        name="phone"
+                        className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 focus:border-blue-500"
+                        placeholder={t("phonePlaceholder")}
+                      />
+                      <ErrorMessage name="phone" component="p" className="mt-1 text-sm text-red-600" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
+                        {t("service")} *
+                      </label>
+                      <Field
+                        as="select"
+                        name="service"
+                        className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 focus:border-blue-500"
+                      >
+                        <option value="">{t("selectService")}</option>
+                        <option value="architectural">{t("services.architectural")}</option>
+                        <option value="interior">{t("services.interior")}</option>
+                        <option value="consulting">{t("services.consulting")}</option>
+                        <option value="project">{t("services.project")}</option>
+                      </Field>
+                      <ErrorMessage name="service" component="p" className="mt-1 text-sm text-red-600" />
                     </div>
                   </div>
-                  <div className="text-xs text-slate-500">
-                    <div className="mb-2">📱 Download your appointment card as JPEG</div>
-                    <div>All fields are required for download</div>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
+                    <div className="w-1 h-6 bg-purple-500 rounded-full mr-3"></div>
+                    {t("message")} *
+                  </h3>
+                  <Field
+                    as="textarea"
+                    rows={4}
+                    name="message"
+                    placeholder={t("messagePlaceholder")}
+                    className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none focus:border-blue-500"
+                  />
+                  <ErrorMessage name="message" component="p" className="mt-1 text-sm text-red-600" />
+                </div>
+
+                {/* Quick Time Slots */}
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
+                    <div className="w-1 h-6 bg-green-500 rounded-full mr-3"></div>
+                    {t("schedule")}
+                  </h3>
+                  <div className="grid grid-cols-4 gap-3">
+                    {['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00', '18:00'].map((time) => (
+                      <button
+                        key={time}
+                        type="button"
+                        onClick={() => setFieldValue('time', time)}
+                        className={`px-4 py-3 text-sm font-medium rounded-xl border transition-all duration-200 ${
+                          values.time === time
+                            ? 'bg-blue-500 text-white border-blue-500 shadow-lg shadow-blue-500/25'
+                            : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                        }`}
+                      >
+                        {time}
+                      </button>
+                    ))}
                   </div>
+                  <ErrorMessage name="time" component="p" className="mt-2 text-sm text-red-600" />
+                </div>
+
+                {/* Success/Error Messages */}
+                {submitStatus === 'success' && (
+                  <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <p className="text-green-800 font-medium">Appointment booked successfully!</p>
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-red-800 font-medium">Error booking appointment. Please try again.</p>
+                  </div>
+                )}
+
+                {/* Action Buttons */}
+                <div className="flex gap-4 pt-6">
                   <button
                     type="button"
-                    onClick={handleDownload}
-                    className="w-full px-4 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-medium rounded-lg hover:from-emerald-600 hover:to-teal-700 transition-all duration-200 shadow-lg shadow-emerald-500/25"
+                    onClick={handleClose}
+                    className="flex-1 px-6 py-3 border border-slate-300 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-all duration-200"
                   >
-                    <div className="flex items-center justify-center space-x-2">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                      </svg>
-                      <span>Download JPEG Card</span>
-                    </div>
+                    {t("cancel")}
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? t("sending") : t("book")}
                   </button>
                 </div>
               </div>
-            )}
-          </div>
-        </div>
+
+              {/* Right Side - Calendar */}
+              <div className="lg:w-96 bg-slate-50 border-l border-slate-200 p-8">
+                {/* Calendar */}
+                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 mb-6">
+                  <h3 className="text-lg font-semibold text-slate-900 mb-6 flex items-center">
+                    <div className="w-1 h-6 bg-indigo-500 rounded-full mr-3"></div>
+                    {t("schedule")}
+                  </h3>
+                  <ErrorMessage name="date" component="p" className="mb-4 text-sm text-red-600" />
+                  <AdvancedCalendar
+                    selectedDate={values.date}
+                    onDateSelect={(date) => setFieldValue('date', date)}
+                    selectedTime={values.time}
+                    onTimeSelect={(time) => setFieldValue('time', time)}
+                  />
+                </div>
+
+                {/* Appointment Card Preview */}
+                {(values.date || values.time) && (
+                  <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                    <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
+                      <div className="w-1 h-6 bg-emerald-500 rounded-full mr-3"></div>
+                      Appointment Card
+                    </h3>
+                    <div className="text-center space-y-4">
+                      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-200">
+                        <div className="bg-white rounded-lg p-4 shadow-sm">
+                          <div className="text-center mb-3">
+                            <div className="text-lg font-bold text-blue-900 mb-1">UPlus Studio</div>
+                            <div className="text-sm text-blue-600">Appointment Card</div>
+                          </div>
+                          <div className="bg-blue-100 text-blue-700 text-xs font-medium px-3 py-1 rounded-full inline-block">
+                            ID: #APT${Date.now().toString().slice(-6)}
+                          </div>
+                          <div className="mt-3 space-y-1 text-xs">
+                            <div className="flex justify-between">
+                              <span className="text-gray-600">Name:</span>
+                              <span className="font-medium">{values.name || 'Not provided'}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-xs text-slate-500">
+                        <div className="mb-2">📱 Download your appointment card as JPEG</div>
+                        <div>All fields are required for download</div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => handleDownload(values)}
+                        className="w-full px-4 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-medium rounded-lg hover:from-emerald-600 hover:to-teal-700 transition-all duration-200 shadow-lg shadow-emerald-500/25"
+                      >
+                        <div className="flex items-center justify-center space-x-2">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          <span>Download JPEG Card</span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </Form>
+          )}
+        </Formik>
       </div>
     </div>
   );
