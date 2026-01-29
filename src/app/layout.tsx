@@ -10,12 +10,11 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "ArchitecturalService",
   "name": "U+ Studio",
-  "description":
-    "U+ Studio, Ankara merkezli mimari tasarım, iç mimarlık ve proje yönetimi hizmetleri sunan bir mimarlık ofisidir.",
+  "description": "U+ Studio'da mimari proje, uygulama, iç mekân tasarımı, konsept geliştirme, 3D görselleştirme ve tasarım danışmanlığı tek bir çizgide buluşur. Konut, ticari ve kamusal alanlarda fikri projeye, projeyi kusursuz uygulamaya dönüştürüyoruz.",
   "url": "https://uplusstudio.com.tr",
   "logo": "https://uplusstudio.com.tr/logo/uplusstudioblacklogo.png",
   "image": "https://uplusstudio.com.tr/og-image.jpg",
-  "telephone": "+905453204007",
+  "telephone": "+90 545 320 40 07",
   "email": "info@uplusstudio.com.tr",
   "address": {
     "@type": "PostalAddress",
@@ -26,12 +25,14 @@ const structuredData = {
     {
       "@type": "Person",
       "name": "Hacer Uyar",
-      "jobTitle": "Mimar"
+      "jobTitle": "Mimar | Architect | Co-Founder",
+      "telephone": "+90 545 320 40 07"
     },
     {
       "@type": "Person",
       "name": "Rıdvan Uyar",
-      "jobTitle": "İnşaat Mühendisi"
+      "jobTitle": "İnşaat Mühendisi | Construction Engineer | Co-Founder",
+      "telephone": "+90 553 289 45 75"
     }
   ],
   "sameAs": [

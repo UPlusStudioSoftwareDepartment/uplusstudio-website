@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     template: "%s | U+ Studio",
   },
   description:
-    "U+ Studio, Ankara merkezli mimari tasarım, iç mimarlık ve proje yönetimi hizmetleri sunan bir mimarlık ofisidir. Konut, ticari ve kamusal projelerde çağdaş ve uygulanabilir çözümler üretir.",
+    "U+ Studio'da mimari proje, uygulama, iç mekân tasarımı, konsept geliştirme, 3D görselleştirme ve tasarım danışmanlığı tek bir çizgide buluşur. Konut, ticari ve kamusal alanlarda fikri projeye, projeyi kusursuz uygulamaya dönüştürüyoruz. Her detay bilinçli. Her mekân güçlü. U+",
   metadataBase: new URL("https://uplusstudio.com.tr"),
   category: "architecture",
   referrer: "origin-when-cross-origin",
@@ -31,6 +31,14 @@ export const metadata: Metadata = {
     "uygulama projeleri",
     "uplus studio",
     "u+ studio mimarlık",
+    "iç mekân tasarımı",
+    "konsept geliştirme",
+    "3D görselleştirme",
+    "tasarım danışmanlığı",
+    "kamusal alanlar",
+    "mimari proje",
+    "Hacer Uyar",
+    "Rıdvan Uyar",
   ],
 
   authors: [
@@ -61,7 +69,7 @@ export const metadata: Metadata = {
     siteName: "U+ Studio",
     title: "U+ Studio | Mimarlık & Tasarım",
     description:
-      "U+ Studio, Ankara merkezli mimari tasarım ve iç mimarlık ofisidir. Konut, ticari ve kamusal projelerde yenilikçi çözümler sunar.",
+      "U+ Studio'da mimari proje, uygulama, iç mekân tasarımı, konsept geliştirme, 3D görselleştirme ve tasarım danışmanlığı tek bir çizgide buluşur. Konut, ticari ve kamusal alanlarda hizmet veriyoruz.",
     images: [
       {
         url: "https://uplusstudio.com.tr/og-image.jpg",
@@ -76,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "U+ Studio | Mimarlık & Tasarım",
     description:
-      "Ankara merkezli U+ Studio, mimari tasarım, iç mimarlık ve proje yönetimi alanlarında hizmet verir.",
+      "U+ Studio'da mimari proje, uygulama, iç mekân tasarımı, konsept geliştirme, 3D görselleştirme ve tasarım danışmanlığı hizmetleri sunar.",
     images: ["https://uplusstudio.com.tr/og-image.jpg"],
   },
 
