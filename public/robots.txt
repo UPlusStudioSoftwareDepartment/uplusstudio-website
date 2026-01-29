@@ -1,8 +1,7 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://uplusstudio.com/sitemap.xml
+Sitemap: https://uplusstudio.com.tr/sitemap.xml
 
 # Block AI crawlers
 User-agent: GPTBot
