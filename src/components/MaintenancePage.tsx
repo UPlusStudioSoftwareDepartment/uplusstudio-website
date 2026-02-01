@@ -5,6 +5,7 @@ import Image from 'next/image';
 import JumpingGame from '@/components/JumpingGame';
 import ArchitectureAnimation from './ArchitectureAnimation';
 import ProfessionalCard from './ProfessionalCard';
+import CompanyLocation from './CompanyLocation';
 import { useState } from 'react';
 
 export default function MaintenancePage() {
@@ -14,12 +15,12 @@ export default function MaintenancePage() {
 
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
-      <div className="max-w-4xl w-full mx-auto text-center">
+      <div className="w-full mx-auto text-center">
         {/* Logo with Bounce Animation */}
         <motion.div
-          initial={{ y: -20 }}
+          initial={{ y: 20 }}
           animate={{
-            y: [0, -40, 0], 
+            y: [0, -15, 0], 
             transition: {
               y: {
                 duration: 2,
@@ -158,6 +159,8 @@ export default function MaintenancePage() {
           </div>
         </motion.div>
 
+        {/* Company Location Map */}
+        <CompanyLocation />
       
         {/* Copyright */}
        
