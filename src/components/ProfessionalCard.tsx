@@ -395,7 +395,7 @@ const handleLocation = () => {
               {/* Logo Image */}
               <div className=" mx-auto relative">
                 <Image
-                  src="/images/general_black_cuted.jpeg"
+                  src="/images/UplusStudio_black_logo_2.png"
                   width={300}
                   height={120}
                   alt="UPlus Studio"
