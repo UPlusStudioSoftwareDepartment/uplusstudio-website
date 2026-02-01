@@ -36,7 +36,7 @@ const structuredData = {
     }
   ],
   "sameAs": [
-    "https://www.instagram.com/uplu.sstudio"
+    "https://www.instagram.com/u.plusstudio"
   ]
 };
 
