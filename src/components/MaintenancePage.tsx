@@ -38,6 +38,9 @@ export default function MaintenancePage() {
             className="mx-auto"
             priority
           />
+           <div>
+                <p className="text-gray-400 italic text-sm mt-1">Mimarlık & Tasarım  & Mühendislik</p>
+              </div>
         </motion.div>
 
         {/* Main Content */}
@@ -46,6 +49,7 @@ export default function MaintenancePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+             
           <h1 className="text-4xl md:text-5xl font-bold mb-3">
             <span className="text-white">YAKINDA</span>
           </h1>

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   applicationName: "U+ Studio",
   title: {
-    default: "U+ Studio | Mimarlık & Tasarım",
+    default: "U+ Studio | Mimarlık & Tasarım & Mühendislik",
     template: "%s | U+ Studio",
   },
   description:
