@@ -169,7 +169,7 @@ const handleEmail = () => {
 };
 
 const handleLocation = () => {
-  const address = '39°48\'32.2"N 32°41\'51.3"E';
+  const address = 'İncek, Reyhan Cd. No:3, 06830 Gölbaşı/Ankara';
   const encodedAddress = encodeURIComponent(address);
   const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`;
   window.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
