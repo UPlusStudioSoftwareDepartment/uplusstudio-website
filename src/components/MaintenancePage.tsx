@@ -72,13 +72,43 @@ export default function MaintenancePage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowServices(true)}
-              className="flex items-center gap-1 sm:gap-1.5 bg-white hover:bg-gray-100 text-black border border-black hover:border-gray-800 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-sm transition-all duration-300 shadow-sm hover:shadow-md text-xs sm:text-sm mx-auto"
+              className="flex items-center gap-1 sm:gap-1.5 bg-white hover:bg-gray-100 text-black border border-black hover:border-gray-800 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-sm transition-all duration-300 shadow-sm hover:shadow-md text-xs sm:text-sm mx-auto relative group"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <motion.svg 
+                className="w-4 h-4" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                animate={{
+                  rotate: [0, 10, -10, 0],
+                  y: [0, -3, 0],
+                  scale: [1, 1.15, 1]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-              </svg>
-              <span className="text-xs sm:text-sm font-medium">
-                Hizmetlerimiz
+              </motion.svg>
+              <span className="text-xs sm:text-sm font-bold">
+                {"Hizmetlerimiz".split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    className="inline-block"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.1,
+                      delay: index * 0.15,
+                      repeat: Infinity,
+                      repeatDelay: 3
+                    }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
               </span>
             </motion.button>
         </motion.div>
