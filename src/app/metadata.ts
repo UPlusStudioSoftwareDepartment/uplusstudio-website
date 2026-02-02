@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     template: "%s | U+ Studio",
   },
   description:
-    "U+ Studio'da mimari proje, uygulama, iç mekân tasarımı, konsept geliştirme, 3D görselleştirme ve tasarım danışmanlığı tek bir çizgide buluşur. Konut, ticari ve kamusal alanlarda fikri projeye, projeyi kusursuz uygulamaya dönüştürüyoruz. Her detay bilinçli. Her mekân güçlü. U+ Studio - İncek Mahallesi Reyhan caddesi Merkez İncek Plaza No:3 Kat:1 Daire No:2 Gölbaşı/ Ankara",
+    "U+ Studio'da mimari tasarım, iç mekân tasarımı, yeniden işlevlendirme, anahtar teslim projeler, uygulama projeleri, proje yönetimi & teknik koordinasyon ve 3D görselleştirme hizmetleri sunuyoruz. Ankara Gölbaşı'daki ofisimizden konut, ticari ve kamusal projeler için çağdaş çözümler, işlevsel ve estetik mekânlar, kullanıcı odaklı tasarımlar ve gerçekçi sunum görselleri üretiyoruz. Her detay bilinçli. Her mekân güçlü.",
   metadataBase: new URL("https://uplusstudio.com.tr"),
   category: "architecture",
   referrer: "origin-when-cross-origin",
@@ -136,7 +136,36 @@ export const metadata: Metadata = {
     "incek mimari ofisleri",
     "ankara mimarlık şirketleri",
     "gölbaşı mimar danışmanları",
-    "incek tasarım firmaları"
+    "incek tasarım firmaları",
+    "yeniden işlevlendirme",
+    "bina dönüştürme",
+    "yapı yeniden kullanım",
+    "mevcut yapı dönüşüm",
+    "ofis konut dönüşüm",
+    "ticari konut dönüşüm",
+    "anahtar teslim projeler",
+    "tamamlanmış projeler",
+    "proje teslim",
+    "mühendislik uygulama",
+    "teknik koordinasyon",
+    "mimari statik koordinasyon",
+    "disiplinler arası koordinasyon",
+    "proje yönetimi teknik",
+    "uygulanabilir teknik çizimler",
+    "uygulama detay projeleri",
+    "mimari uygulama çizimleri",
+    "teknik çizim hizmetleri",
+    "çözümler çağdaş",
+    "çağdaş mimari çözümler",
+    "modern mimari hizmet",
+    "kullanıcı odaklı tasarım",
+    "işlevsel estetik mekânlar",
+    "kullanıcı merkezli tasarım",
+    "estetik işlevsel mimari",
+    "gerçekçi sunum görselleri",
+    "etkileyici görselleştirme",
+    "gerçekçi 3D sunum",
+    "etkileyici mimari görseller"
   ],
 
   authors: [
@@ -167,7 +196,7 @@ export const metadata: Metadata = {
     siteName: "U+ Studio",
     title: "U+ Studio | Mimarlık & Tasarım & Mühendislik",
     description:
-      "U+ Studio'da mimari proje, uygulama, iç mekân tasarımı, konsept geliştirme, 3D görselleştirme ve tasarım danışmanlığı tek bir çizgide buluşur. Konut, ticari ve kamusal alanlarda hizmet veriyoruz. İncek Mahallesi Reyhan caddesi Merkez İncek Plaza No:3 Kat:1 Daire No:2 Gölbaşı/ Ankara",
+      "U+ Studio'da mimari tasarım, iç mekân tasarımı, yeniden işlevlendirme, anahtar teslim projeler, uygulama projeleri, proje yönetimi & teknik koordinasyon ve 3D görselleştirme hizmetleri. Ankara Gölbaşı'da hizmet veriyoruz.",
     images: [
       {
         url: "https://uplusstudio.com.tr/og-image.jpg",
@@ -182,7 +211,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "U+ Studio | Mimarlık & Tasarım & Mühendislik",
     description:
-      "U+ Studio'da mimari proje, uygulama, iç mekân tasarımı, konsept geliştirme, 3D görselleştirme ve tasarım danışmanlığı hizmetleri sunar. İncek Mahallesi Reyhan caddesi Merkez İncek Plaza No:3 Kat:1 Daire No:2 Gölbaşı/ Ankara",
+      "U+ Studio'da mimari tasarım, iç mekân tasarımı, yeniden işlevlendirme, anahtar teslim projeler, uygulama projeleri, proje yönetimi & teknik koordinasyon ve 3D görselleştirme hizmetleri. Ankara Gölbaşı'da hizmet veriyoruz.",
     images: ["https://uplusstudio.com.tr/og-image.jpg"],
   },
 
@@ -234,14 +263,22 @@ export const metadata: Metadata = {
         }
       ],
       "services": [
-        "Mimari Proje",
-        "İç Mekân Tasarımı",
-        "Konsept Geliştirme",
-        "3D Görselleştirme",
-        "Proje Yönetimi",
+        "Mimari Tasarım",
+        "İç Mekân Tasarımı", 
+        "Yeniden İşlevlendirme",
+        "Anahtar Teslim Projeler",
         "Uygulama Projeleri",
-        "Tasarım Danışmanlığı",
-        "Mühendislik Hizmetleri"
+        "Proje Yönetimi & Teknik Koordinasyon",
+        "3D Görselleştirme",
+        "Konut Projeleri",
+        "Ticari Projeler",
+        "Kamusal Projeler",
+        "Çağdaş Mimari Çözümler",
+        "İşlevsel Estetik Mekânlar",
+        "Kullanıcı Odaklı Tasarım",
+        "Teknik Çizim Hizmetleri",
+        "Mühendislik Uygulamaları",
+        "Gerçekçi Sunum Görselleri"
       ],
       "keywords": [
         "ankara mimarlık ofisi",
@@ -249,7 +286,16 @@ export const metadata: Metadata = {
         "incek mimarlık",
         "mimari tasarım",
         "iç mimarlık",
-        "proje yönetimi"
+        "proje yönetimi",
+        "yeniden işlevlendirme",
+        "anahtar teslim projeler",
+        "uygulama projeleri",
+        "3D görselleştirme",
+        "çağdaş mimari çözümler",
+        "işlevsel estetik mekânlar",
+        "kullanıcı odaklı tasarım",
+        "teknik çizim hizmetleri",
+        "mühendislik uygulamaları"
       ],
       "sameAs": [
         "https://www.instagram.com/u.plusstudio"
