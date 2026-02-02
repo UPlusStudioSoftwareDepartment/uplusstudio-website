@@ -7,7 +7,7 @@ interface CompanyLocationProps {
 }
 
 export default function CompanyLocation({ size = 'lg' }: CompanyLocationProps) {
-  const companyAddress = "İncek, Reyhan Cd. No:3, 06830 Gölbaşı/Ankara";
+  const companyAddress = "İncek Mahallesi Reyhan Caddesi No:3, 06830 Gölbaşı/Ankara";
   const encodedAddress = encodeURIComponent(companyAddress);
   
   // Google Maps embed URL with place marker
@@ -26,10 +26,10 @@ export default function CompanyLocation({ size = 'lg' }: CompanyLocationProps) {
 
   // Size configurations
   const sizeConfig = {
-    sm: { container: 'w-full', height: 'h-64', margin: 'mt-8 mb-4' },
-    md: { container: 'w-full', height: 'h-80', margin: 'mt-10 mb-6' },
-    lg: { container: 'w-full', height: 'h-96', margin: 'mt-12 mb-8' },
-    xl: { container: 'w-full', height: 'h-[32rem]', margin: 'mt-16 mb-10' }
+    sm: { container: 'w-full', height: 'h-64', margin: 'mt-2 mb-1' },
+    md: { container: 'w-full', height: 'h-80', margin: 'mt-4 mb-2' },
+    lg: { container: 'w-full', height: 'h-96', margin: 'mt-6 mb-3' },
+    xl: { container: 'w-full', height: 'h-[32rem]', margin: 'mt-8 mb-4' }
   };
 
   const config = sizeConfig[size];

@@ -15,12 +15,12 @@ export default function MaintenancePage() {
 
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
-      <div className="w-full mx-auto text-center">
+      <div className="w-full mx-auto text-center mt-12">
         {/* Logo with Bounce Animation */}
         <motion.div
-          initial={{ y: 20 }}
+          initial={{ y: -20 }}
           animate={{
-            y: [0, -15, 0], 
+            y: [0, -30, 0], 
             transition: {
               y: {
                 duration: 2,
