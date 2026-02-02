@@ -137,7 +137,7 @@ export default function ProfessionalCard({ className = "" }: ProfessionalCardPro
           await navigator.share({
             files: [file],
             title: 'UPlus Studio',
-            text: 'UPlus Studio - Mimarlık & Tasarım Hizmetleri'
+            text: 'UPlus Studio - Mimarlık & Tasarım & Mühendislik Hizmetleri'
           });
         } else {
           await navigator.clipboard.writeText(window.location.href);
