@@ -196,7 +196,7 @@ export const metadata: Metadata = {
     siteName: "U+ Studio",
     title: "U+ Studio | Mimarlık & Tasarım & Mühendislik",
     description:
-"U+ Studio, Ankara Gölbaşı'nda Mimarlık & Tasarım & Mühendislik; mimari tasarım, iç mekân tasarımı, mühendislik, yeniden işlevlendirme, anahtar teslim projeler, uygulama projeleri, proje yönetimi & teknik koordinasyon ve 3D görselleştirme hizmetleri sunmaktadır. Yaratıcı, sürdürülebilir ve mühendislik odaklı çözümlerle her projeye özel tasarımlar üretiyoruz."   , images: [
+"U+ Studio | Mimarlık & Tasarım & Mühendislik Ofisi, Ankara Gölbaşı'nda mimari tasarım, iç mekân tasarımı, yeniden işlevlendirme, anahtar teslim projeler, uygulama projeleri, proje yönetimi & teknik koordinasyon ve 3D görselleştirme hizmetleri sunmaktadır. Yaratıcı, sürdürülebilir ve mühendislik odaklı çözümlerle her projeye özel tasarımlar üretiyoruz."   , images: [
       {
         url: "images/background.jpeg",
         width: 1200,
