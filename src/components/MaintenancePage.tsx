@@ -100,10 +100,10 @@ export default function MaintenancePage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{
-                      duration: 0.1,
-                      delay: index * 0.15,
+                      duration: 0.05,
+                      delay: index * 0.08,
                       repeat: Infinity,
-                      repeatDelay: 3
+                      repeatDelay: 2
                     }}
                   >
                     {char}
