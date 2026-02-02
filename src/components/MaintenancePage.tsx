@@ -6,12 +6,12 @@ import JumpingGame from '@/components/JumpingGame';
 import ArchitectureAnimation from './ArchitectureAnimation';
 import ProfessionalCard from './ProfessionalCard';
 import CompanyLocation from './CompanyLocation';
+import ServicesModal from './ServicesModal';
 import { useState } from 'react';
 
 export default function MaintenancePage() {
   const [isSharing, setIsSharing] = useState(false);
-
-  
+  const [showServices, setShowServices] = useState(false);
 
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
@@ -54,11 +54,33 @@ export default function MaintenancePage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-3">
             <span className="text-white">YAKINDA</span>
           </h1>
+          {/* Services Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.8 }}
+            className="flex justify-center mb-4"
+          >
+         
+          </motion.div>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-4">
             Sitemiz şu anda yenileniyor.
             <br />
             En kısa sürede daha iyi hizmetle yanınızda olacağız.
           </p>
+             <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowServices(true)}
+              className="flex items-center gap-1 sm:gap-1.5 bg-white hover:bg-gray-100 text-black border border-black hover:border-gray-800 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-sm transition-all duration-300 shadow-sm hover:shadow-md text-xs sm:text-sm mx-auto"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+              <span className="text-xs sm:text-sm font-medium">
+                Hizmetlerimiz
+              </span>
+            </motion.button>
         </motion.div>
 
         {/* Game Section */}
@@ -108,7 +130,7 @@ export default function MaintenancePage() {
           viewport={{ once: true }}
           className=" pt-2"
         >
-          <div className="flex justify-center gap-12 flex-wrap">
+          <div className="flex justify-center gap-4 flex-wrap">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               whileInView={{ 
@@ -162,6 +184,9 @@ export default function MaintenancePage() {
         {/* Company Location Map */}
         <CompanyLocation />
       
+        {/* Services Modal */}
+        <ServicesModal isOpen={showServices} onClose={() => setShowServices(false)} />
+
         {/* Copyright */}
        
       </div>

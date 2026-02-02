@@ -277,7 +277,7 @@ export default function JumpingGame() {
         {!gameStarted ? (
           <button
             onClick={startGame}
-            className="bg-white hover:bg-white/90 text-black font-semibold py-1.5 px-3 rounded-lg transition-colors text-xs"
+            className="bg-white hover:bg-white/90 text-black font-semibold py-1.5 px-3 rounded-sm transition-colors text-xs"
             style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}
           >
             Oyunu Başlat

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState, useRef, useEffect } from 'react';
 import { toPng } from 'html-to-image';
+import ServicesModal from './ServicesModal';
 
 interface ProfessionalCardProps {
   className?: string;
@@ -17,6 +18,7 @@ export default function ProfessionalCard({ className = "" }: ProfessionalCardPro
   const [canCall, setCanCall] = useState(false);
   const [instagramHref, setInstagramHref] = useState('https://www.instagram.com/u.plusstudio/');
   const [isMounted, setIsMounted] = useState(false);
+  const [showServices, setShowServices] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
      useEffect(() => {
@@ -39,6 +41,14 @@ export default function ProfessionalCard({ className = "" }: ProfessionalCardPro
       typeof navigator.canShare === 'function';
 
     setCanShare(hasNativeShare);
+
+    // Listen for openServices event from MaintenancePage
+    const handleOpenServices = () => setShowServices(true);
+    window.addEventListener('openServices', handleOpenServices);
+
+    return () => {
+      window.removeEventListener('openServices', handleOpenServices);
+    };
   }, []);
 
 
@@ -305,6 +315,18 @@ const handleLocation = () => {
           </a>
         )}
 
+        {/* Services Icon */}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setShowServices(true)}
+          className="text-gray-300 hover:text-white transition-colors p-1"
+        >
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+        </motion.button>
+
         {/* Location Icon */}
         <motion.button
           whileHover={{ scale: 1.1 }}
@@ -416,7 +438,7 @@ const handleLocation = () => {
               {/* Logo Image */}
               <div className=" mx-auto relative">
                 <Image
-                  src="/images/UplusStudio_black_logo_2.png"
+                  src="/images/general_black_cuted.jpeg"
                   width={300}
                   height={120}
                   alt="UPlus Studio"
@@ -534,6 +556,9 @@ const handleLocation = () => {
           </motion.div>
         </motion.div>
       )}
+
+      {/* Services Modal */}
+      <ServicesModal isOpen={showServices} onClose={() => setShowServices(false)} />
     </>
   );
 }
