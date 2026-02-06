@@ -439,7 +439,7 @@ export default function MaintenancePage() {
                 rotateY: -5,
                 transition: { duration: 0.3, type: "spring" }
               }}
-              className="group relative text-center px-8 py-6 rounded-2xl bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-md border border-white/10 shadow-2xl hover:shadow-white/10 transition-all duration-300 overflow-hidden cursor-pointer"
+              className="group relative text-center px-7 py-6 rounded-2xl bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-md border border-white/10 shadow-2xl hover:shadow-white/10 transition-all duration-300 overflow-hidden cursor-pointer"
               onClick={() => {
                 setSelectedFounder(founders[1]);
                 setShowFounderModal(true);
