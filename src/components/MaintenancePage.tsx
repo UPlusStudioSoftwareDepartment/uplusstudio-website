@@ -341,10 +341,10 @@ export default function MaintenancePage() {
               <div className="relative z-10">
                 {/* Avatar Placeholder */}
             <motion.div 
-  initial={{ scale: 0 }}
-  whileInView={{ scale: 1 }}
-  transition={{ delay: 0.6, duration: 0.5, type: "spring" }}
-  viewport={{ once: true }}
+  initial={{ scale: 0.9, opacity: 0 }}
+  whileInView={{ scale: 1, opacity: 1 }}
+  transition={{ delay: 0.2, duration: 0.3, type: "spring", stiffness: 100, damping: 10 }}
+  viewport={{ once: true, margin: "-20% 0px" }}
   className="w-[100px] h-[100px] mx-auto mb-4 relative rounded-full overflow-hidden cursor-pointer group"
   onClick={() => {
     setSelectedFounder(founders[0]);
@@ -359,7 +359,9 @@ export default function MaintenancePage() {
     className="object-cover object-center"
     quality={100}
     priority
-    sizes="(max-width: 640px) 100px, (max-width: 768px) 100px, 100px"
+    loading="eager"
+    fetchPriority="high"
+    sizes="100px"
   />
   {/* Hover overlay */}
   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -378,25 +380,25 @@ export default function MaintenancePage() {
 
                 
                 <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7, duration: 0.5 }}
-                  viewport={{ once: true }}
+                  transition={{ delay: 0.3, duration: 0.3 }}
+                  viewport={{ once: true, margin: "-10% 0px" }}
                   className="text-white font-bold text-lg md:text-xl mb-2 group-hover:text-blue-300 transition-colors"
                 >
                   Hacer UYAR
                 </motion.p>
                 <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
-                  viewport={{ once: true }}
+                  transition={{ delay: 0.35, duration: 0.3 }}
+                  viewport={{ once: true, margin: "-10% 0px" }}
                   className="text-blue-300 text-sm md:text-base mb-1 font-medium"
                 >
                   Mimar
                 </motion.p>
                 <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.9, duration: 0.5 }}
                   viewport={{ once: true }}
@@ -452,10 +454,10 @@ export default function MaintenancePage() {
               <div className="relative z-10">
                 {/* Avatar Placeholder */}
                 <motion.div 
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ delay: 0.6, duration: 0.5, type: "spring" }}
-                  viewport={{ once: true }}
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.3, type: "spring", stiffness: 100, damping: 10 }}
+                  viewport={{ once: true, margin: "-20% 0px" }}
                   className="w-[100px] h-[100px] mx-auto mb-4 relative rounded-full overflow-hidden cursor-pointer group"
                   onClick={() => {
                     setSelectedFounder(founders[1]);
@@ -470,7 +472,9 @@ export default function MaintenancePage() {
                     className="object-cover object-center"
                     quality={100}
                     priority
-                    sizes="(max-width: 640px) 100px, (max-width: 768px) 100px, 100px"
+                    loading="eager"
+                    fetchPriority="high"
+                    sizes="100px"
                   />
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -488,28 +492,28 @@ export default function MaintenancePage() {
                 </motion.div>
                 
                 <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9, duration: 0.5 }}
-                  viewport={{ once: true }}
+                  transition={{ delay: 0.3, duration: 0.3 }}
+                  viewport={{ once: true, margin: "-10% 0px" }}
                   className="text-white font-bold text-lg md:text-xl mb-2 group-hover:text-green-300 transition-colors"
                 >
                   Rıdvan UYAR
                 </motion.p>
                 <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.0, duration: 0.5 }}
-                  viewport={{ once: true }}
+                  transition={{ delay: 0.35, duration: 0.3 }}
+                  viewport={{ once: true, margin: "-10% 0px" }}
                   className="text-green-300 text-sm md:text-base mb-1 font-medium"
                 >
                   İnşaat Mühendisi
                 </motion.p>
                 <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.1, duration: 0.5 }}
-                  viewport={{ once: true }}
+                  transition={{ delay: 0.4, duration: 0.3 }}
+                  viewport={{ once: true, margin: "-10% 0px" }}
                   className="text-gray-400 text-sm md:text-base"
                 >
                   Kurucu Ortak
