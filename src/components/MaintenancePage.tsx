@@ -364,7 +364,7 @@ export default function MaintenancePage() {
     sizes="100px"
   />
   {/* Hover overlay */}
-  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+  <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 flex items-center justify-center">
     <motion.div
       initial={{ scale: 0 }}
       whileHover={{ scale: 1 }}
@@ -477,7 +477,7 @@ export default function MaintenancePage() {
                     sizes="100px"
                   />
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/40 opacity-0 transition-opacity duration-300 flex items-center justify-center">
                     <motion.div
                       initial={{ scale: 0 }}
                       whileHover={{ scale: 1 }}
