@@ -66,14 +66,14 @@ export default function MaintenancePage() {
       title: 'Mimar',
       role: 'Kurucu Ortak',
       image: '/images/persons/founders/hacer_uyar/haceruyar_face_2.png',
-      description: 'UPlus Studio\'nun kurucu ortağı olarak mimari projelerin tasarım ve uygulama süreçlerinde liderlik yapmaktadır. Yaratıcı çözümleri ve detaylara olan hassasiyeti ile projelere estetik ve işlevsellik katmaktadır.'
+      description: 'UPlus Studio\'nun kurucu ortağı Kıdemli Mimar olarak mimari projelerin tasarım ve uygulama süreçlerinde liderlik yapmaktadır. Yaratıcı çözümleri ve detaylara olan hassasiyeti ile projelere estetik ve işlevsellik katmaktadır.'
     },
     {
       name: 'Rıdvan UYAR',
       title: 'İnşaat Mühendisi',
       role: 'Kurucu Ortak',
       image: '/images/persons/founders/ridvan_uyar/ridvanuyar_face.jpeg',
-      description: 'İnşaat mühendisi olarak projelerin teknik altyapısını ve yapısal güvenliğini sağlamaktadır. Modern mühendislik çözümleri ve proje yönetimi uzmanlığı ile projelerin zamanında ve kaliteli tamamlanmasını garantilemektedir.'
+      description: 'UPlus Studio\'nun kurucu ortağı İnşaat mühendisi olarak projenin teknik altyapısını ve yapısal güvenliğini sağlamada teknik liderik yapmaktadır. Modern mühendislik çözümleri ve proje yönetimi uzmanlığı ile projelerin zamanında ve kaliteli tamamlanmasını garantilemektedir.'
     }
   ];
 
