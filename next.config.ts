@@ -3,28 +3,57 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  serverExternalPackages: ['react-i18next'],
+  serverExternalPackages: ["react-i18next"],
+
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'uplusstudio.com.tr',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "uplusstudio.com.tr",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3000',
-        pathname: 'https://uplusstudio.com.tr',
+        protocol: "http",
+        hostname: "localhost",
+        port: "3000",
+        pathname: "/**",
       },
     ],
-    formats: ['image/webp', 'image/avif'],
+    formats: ["image/webp", "image/avif"],
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'self'; unsafe-inline; unsafe-eval; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:;",
+
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+
+  // ✅ SEO İÇİN KRİTİK: REDIRECT KONTROLÜ
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.uplusstudio.com.tr",
+          },
+        ],
+        destination: "https://uplusstudio.com.tr/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "uplusstudio.com.tr",
+          },
+        ],
+        destination: "https://uplusstudio.com.tr/:path*",
+        permanent: true,
+      },
+    ];
   },
 
   turbopack: {
