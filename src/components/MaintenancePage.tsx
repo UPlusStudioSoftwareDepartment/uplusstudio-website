@@ -73,7 +73,7 @@ export default function MaintenancePage() {
       title: 'İnşaat Mühendisi',
       role: 'Kurucu Ortak',
       image: '/images/persons/founders/ridvan_uyar/ridvanuyar_face.jpeg',
-      description: 'UPlus Studio\'nun kurucu ortağı İnşaat mühendisi olarak projenin teknik altyapısını ve yapısal güvenliğini sağlamada teknik liderik yapmaktadır. Modern mühendislik çözümleri ve proje yönetimi uzmanlığı ile projelerin zamanında ve kaliteli tamamlanmasını garantilemektedir.'
+      description: 'UPlus Studio\'nun kurucu ortağı İnşaat mühendisi olarak projenin teknik altyapısını ve yapısal güvenliğini sağlamada teknik liderlik yapmaktadır. Modern mühendislik çözümleri ve proje yönetimi uzmanlığı ile projelerin zamanında ve kaliteli tamamlanmasını garantilemektedir.'
     }
   ];
 
