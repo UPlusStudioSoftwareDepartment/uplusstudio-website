@@ -101,7 +101,7 @@ export default function FounderModal({ founder, isOpen, onClose }: FounderModalP
           transition={{ delay: 0.3 }}
           onClick={handleClose}
           onTouchStart={handleTouchStart}
-          className="absolute top-4 right-4 z-10 w-12 h-12 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 border border-white/20 flex items-center justify-center transition-colors touch-manipulation"
+          className="absolute top-4 right-4 z-10 w-8 h-8 sm:w-7 sm:h-7 rounded-full bg-white/10 hover:bg-white/20 active:bg-white/30 border border-white/20 flex items-center justify-center transition-colors touch-manipulation"
           aria-label="Kapat"
           style={{
             WebkitTapHighlightColor: 'transparent',
@@ -117,7 +117,7 @@ export default function FounderModal({ founder, isOpen, onClose }: FounderModalP
             whileHover={{ rotate: 90 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.2 }}
-            className="w-6 h-6 sm:w-5 sm:h-5 text-white"
+            className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
