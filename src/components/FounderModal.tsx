@@ -217,7 +217,7 @@ export default function FounderModal({ founder, isOpen, onClose }: FounderModalP
             </div>
 
             {/* Additional Info */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.0, duration: 0.6 }}
@@ -252,7 +252,7 @@ export default function FounderModal({ founder, isOpen, onClose }: FounderModalP
                   </div>
                 </motion.div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </motion.div>
