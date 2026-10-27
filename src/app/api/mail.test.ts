@@ -55,6 +55,7 @@ describe("studio email for a new request", () => {
     expect(mail.to).toBe("studio@example.com");
     expect(mail.replyTo).toBe("ayse@example.com");
     expect(mail.html).toContain(`&s=${studioSignature(token)}`);
+    expect(mail.html).toContain(`/tr/randevu-kart/${token}?k=mail`);
   });
 });
 
@@ -96,6 +97,17 @@ describe("contact form", () => {
     expect(mail.to).toBe("studio@example.com");
     expect(mail.replyTo).toBe("ayse@example.com");
     expect(mail.subject).toBe("Web sitesinden mesaj · İç Mimarlık · Ayşe Yılmaz");
+    expect(mail.text).toContain("KONU\nİç Mimarlık");
+    expect(mail.html).toContain(">Gönderen</h2>");
+    expect(mail.html).toContain("Mutfak yenilemesi için bilgi almak istiyorum.");
+  });
+
+  it("escapes what the visitor typed in the HTML copy", async () => {
+    mailer.enabled = true;
+    await contact.POST(post("/api/contact", { ...message, message: "<img src=x onerror=alert(1)> merhaba" }));
+    const { html } = mailer.sendMail.mock.calls[0][0];
+    expect(html).not.toContain("<img");
+    expect(html).toContain("&lt;img");
   });
 
   it("returns a labelled plain-text draft when mail is not configured", async () => {

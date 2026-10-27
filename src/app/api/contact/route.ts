@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { checkRateLimit } from "@/lib/rateLimit";
 import { contactSchema } from "@/lib/validations";
-import { buildContactEmail } from "@/lib/contactEmail";
+import { buildContactEmail, buildContactHtml } from "@/lib/contactEmail";
 import { canSendMail, sendMail, studioInbox } from "@/lib/mailer";
 
 export async function POST(req: Request) {
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
   const mail = buildContactEmail(parsed.data);
   if (!canSendMail()) return NextResponse.json({ sent: false, ...mail });
   try {
-    await sendMail({ to: studioInbox(), replyTo: parsed.data.email, ...mail });
+    await sendMail({ to: studioInbox(), replyTo: parsed.data.email, ...mail, html: buildContactHtml(parsed.data) });
   } catch {
     return NextResponse.json({ error: "Mesaj gönderilemedi" }, { status: 502 });
   }

@@ -29,7 +29,12 @@ export async function POST(req: Request) {
   const origin = new URL(req.url).origin;
   const respond = (action: "approve" | "decline") =>
     `${origin}/tr/randevu-yanit?a=${action}&t=${encodeURIComponent(token)}&s=${studioSignature(token)}`;
-  const mail = buildStudioEmail(appointment, { reference: appointmentReference(token), approveUrl: respond("approve"), declineUrl: respond("decline") });
+  const mail = buildStudioEmail(appointment, {
+    reference: appointmentReference(token),
+    approveUrl: respond("approve"),
+    declineUrl: respond("decline"),
+    cardUrl: `${origin}/${appointment.locale === "en" ? "en" : "tr"}/randevu-kart/${token}?k=mail`,
+  });
   try {
     await sendMail({ to: studioInbox(), replyTo: appointment.email, subject: mail.subject, html: mail.html, text: mail.text });
   } catch {
