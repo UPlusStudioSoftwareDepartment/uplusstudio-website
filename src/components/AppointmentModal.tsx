@@ -70,17 +70,15 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     service: z.string()
       .min(1, t("validation.required")),
     date: z.string()
-      .min(1, t("validation.required"))
       .refine((val) => {
-        if (!val) return false;
+        if (!val) return true;
         const selectedDate = new Date(val);
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
         tomorrow.setHours(0, 0, 0, 0);
         return selectedDate >= tomorrow;
       }, { message: t("validation.dateFuture") }),
-    time: z.string()
-      .min(1, t("validation.required")),
+    time: z.string(),
     message: z.string()
       .max(500, t("validation.messageMax"))
       .refine((val) => val.trim().length > 0, { message: t("validation.required") })
@@ -286,7 +284,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     ctx.fillText(t("time").toUpperCase(), 300, currentYPos);
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 22px serif';
-    ctx.fillText(new Date(vals.date).toLocaleDateString(dateLocale), 60, currentYPos + 35);
+    ctx.fillText(vals.date ? new Date(vals.date).toLocaleDateString(dateLocale) : t("flexibleDate"), 60, currentYPos + 35);
     ctx.fillText(vals.time, 300, currentYPos + 35);
     currentYPos += 80;
     currentYPos = drawInfo(ctx, t("phone"), vals.phone, currentYPos, 20);
@@ -440,8 +438,8 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     if (!blob) return;
     const file = new File([blob], PASS_FILE, { type: 'image/jpeg' });
     const text = locale === 'tr'
-      ? `U+ Studio randevum: ${t(`services.${vals.service}`)} · ${new Date(vals.date).toLocaleDateString(dateLocale)} ${vals.time}`
-      : `My U+ Studio appointment: ${t(`services.${vals.service}`)} · ${new Date(vals.date).toLocaleDateString(dateLocale)} ${vals.time}`;
+      ? `U+ Studio randevum: ${t(`services.${vals.service}`)} · ${vals.date ? new Date(vals.date).toLocaleDateString(dateLocale) : t("flexibleDate")} ${vals.time}`
+      : `My U+ Studio appointment: ${t(`services.${vals.service}`)} · ${vals.date ? new Date(vals.date).toLocaleDateString(dateLocale) : t("flexibleDate")} ${vals.time}`;
     try {
       if (typeof navigator.canShare === 'function' && navigator.canShare({ files: [file] })) {
         await navigator.share({ files: [file], title: 'U+ Studio', text });
@@ -473,7 +471,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
   const appointmentText = (v: AppointmentFormValues, cardUrl: string, markup: boolean) => {
     const b = (s: string) => (markup ? `*${s}*` : s);
     const service = t(`services.${v.service}`);
-    const when = new Date(v.date).toLocaleDateString(dateLocale, { day: "numeric", month: "long", year: "numeric", weekday: "long" });
+    const when = v.date ? new Date(v.date).toLocaleDateString(dateLocale, { day: "numeric", month: "long", year: "numeric", weekday: "long" }) : t("flexibleDate");
     const tr = locale === "tr";
     return [
       b(tr ? "Randevu talebi — U+ Studio" : "Appointment request — U+ Studio"),
@@ -771,6 +769,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
 
                 <section className="mb-14">
                   <SectionHeading index="02">{t("schedule")}</SectionHeading>
+                  <p className="-mt-5 mb-8 text-[14px] leading-relaxed text-mute">{t("scheduleOptional")}</p>
                   <div className="grid grid-cols-1 gap-10 xl:grid-cols-[1.3fr_1fr]">
                     <div>
                       <AdvancedCalendar

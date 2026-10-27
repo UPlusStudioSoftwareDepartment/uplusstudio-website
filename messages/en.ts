@@ -120,6 +120,8 @@ const app_en={
     }
   },
   "appointment": {
+    "flexibleDate": "To be agreed",
+    "scheduleOptional": "Optional: pick a day and time that suits you, or leave it empty and we will agree on it together.",
     "title": "Book Appointment",
     "subtitle": "Request an appointment for architectural consultation",
     "name": "Your Full Name",

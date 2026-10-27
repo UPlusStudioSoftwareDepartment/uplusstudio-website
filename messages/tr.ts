@@ -121,6 +121,8 @@ const app_tr = {
     }
   },
   "appointment": {
+    "flexibleDate": "Görüşmede belirleyelim",
+    "scheduleOptional": "İsteğe bağlı: uygun bir gün ve saat seçebilir ya da boş bırakıp görüşmede belirleyebilirsiniz.",
     "title": "Randevu Al",
     "subtitle": "Mimari danışmanlık için randevu talebinde bulunun",
     "name": "Adınız Soyadınız",

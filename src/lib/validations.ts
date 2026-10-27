@@ -24,8 +24,8 @@ export const appointmentSchema = z.object({
   email: z.email({ error: "Invalid email" }),
   phone: z.string().min(1, "Phone is required"),
   service: z.string().min(1, "Service is required"),
-  date: z.string().min(1, "Date is required"),
-  time: z.string().min(1, "Time is required"),
+  date: z.string().default(""),
+  time: z.string().default(""),
   message: z.string().trim().min(10, "Message must be at least 10 characters").max(500),
   passImage: z
     .string()

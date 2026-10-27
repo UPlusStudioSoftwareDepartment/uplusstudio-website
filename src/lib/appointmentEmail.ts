@@ -67,7 +67,7 @@ function whatsappNumber(phone: string) {
 
 function describe(input: AppointmentEmailInput) {
   const slot = parseSlot(input.date, input.time);
-  const dateLine = slot ? `${slot.day} ${MONTHS[slot.m - 1]} ${slot.y}` : input.date;
+  const dateLine = slot ? `${slot.day} ${MONTHS[slot.m - 1]} ${slot.y}` : input.date || "Görüşmede belirlenecek";
   const calTitle = `U+ Studio — ${input.service}`;
   const calDetails = `Hizmet: ${input.service}\nAd Soyad: ${input.name}\nTelefon: ${input.phone}\nE-posta: ${input.email}${input.message.trim() ? `\n\nNot: ${input.message.trim()}` : ""}`;
   const gcal = slot
@@ -366,7 +366,7 @@ function passButton(href: string, label: string, kind: "solid" | "line" | "decli
 function dateTiles(input: AppointmentEmailInput) {
   const slot = parseSlot(input.date, input.time);
   const day = slot ? String(slot.day).padStart(2, "0") : "—";
-  const monthYear = slot ? `${MONTHS[slot.m - 1]} ${slot.y}` : escapeHtml(input.date);
+  const monthYear = slot ? `${MONTHS[slot.m - 1]} ${slot.y}` : escapeHtml(input.date || "Görüşmede belirlenecek");
   const weekday = slot?.dayName ?? "";
   const tile = `border:1px solid rgba(237,233,225,0.18);border-radius:10px;background:#1b1a17;`;
   return `<table role="presentation" class="tiles" width="100%" cellpadding="0" cellspacing="0"><tr>

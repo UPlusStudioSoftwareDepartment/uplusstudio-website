@@ -345,5 +345,39 @@ button[class~="border"]:not([class*="rounded-full"]),
 a[class~="border"]:not([class*="rounded-full"]),
 button[class*="bg-bone"]:not([class*="rounded-full"]),
 a[class*="bg-bone"]:not([class*="rounded-full"]) {
-  border-radius: 6px;
+  border-radius: 3px;
+}
+
+@keyframes phone-ring {
+  0%, 22%, 100% { transform: rotate(0deg); }
+  3%, 11% { transform: rotate(-16deg); }
+  7%, 15% { transform: rotate(16deg); }
+  19% { transform: rotate(-6deg); }
+}
+
+@keyframes phone-pulse {
+  0% { transform: scale(0.6); opacity: 0.55; }
+  60%, 100% { transform: scale(1.9); opacity: 0; }
+}
+
+.phone-ring > svg {
+  transform-origin: 50% 60%;
+  animation: phone-ring 2.6s ease-in-out infinite;
+}
+
+.phone-ring::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  border: 1px solid currentColor;
+  animation: phone-pulse 2.6s ease-out infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-ring > svg,
+  .phone-ring::after {
+    animation: none;
+  }
 }

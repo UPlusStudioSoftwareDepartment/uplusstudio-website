@@ -16,8 +16,10 @@ export default function BookingCta({
   return (
     <>
       <a href={studioInfo.phoneHref} className={`${className} sm:hidden`}>
-        <span className="inline-flex items-center gap-2 [&>svg]:h-4 [&>svg]:w-4">
-          {icons.phone}
+        <span className="inline-flex items-center gap-2">
+          <span className="phone-ring relative inline-flex [&>svg]:!h-[1.3em] [&>svg]:!w-[1.3em]" aria-hidden>
+            {icons.phone}
+          </span>
           {t("nav.callNow")}
         </span>
         {arrow}
