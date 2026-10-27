@@ -103,6 +103,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   const imageRef = useRef<Promise<File> | null>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const [fit, setFit] = useState({ scale: 1, h: 0, w: DESIGN_W });
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -134,6 +135,11 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   }, [open, mounted]);
 
   useScrollLock(open);
+
+  useEffect(() => {
+    const overlay = overlayRef.current;
+    if (panelOpen && overlay) overlay.scrollTo({ top: overlay.scrollHeight, behavior: "smooth" });
+  }, [panelOpen]);
 
   useEffect(() => {
     const id = setTimeout(() => setMounted(true), 0);
@@ -251,6 +257,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
       {open && (
         <motion.div
           key="card"
+          ref={overlayRef}
           className="fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto overscroll-contain px-3 pt-3 sm:items-center sm:overflow-hidden sm:p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

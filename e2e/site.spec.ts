@@ -127,6 +127,22 @@ test.describe("phones", () => {
     await expect(menu).toBeHidden();
   });
 
+  test("business card share options scroll into view above the action bar", async ({ page }) => {
+    await page.addInitScript(() => Object.defineProperty(Navigator.prototype, "share", { value: undefined }));
+    await page.goto("/tr/about");
+    await page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first().click();
+    const card = page.getByRole("dialog", { name: "Dijital kartvizit" });
+    const share = card.getByRole("button", { name: "Paylaş", exact: true });
+    await expect(share).toBeVisible();
+    await card.evaluate((el) => el.scrollTo(0, 0));
+    await share.click();
+    const copyLink = card.getByRole("button", { name: "Bağlantıyı kopyala" });
+    await expect(copyLink).toBeInViewport({ ratio: 1 });
+    await expect
+      .poll(async () => ((await copyLink.boundingBox())?.y ?? 0) + ((await copyLink.boundingBox())?.height ?? 0) <= ((await share.boundingBox())?.y ?? 0))
+      .toBe(true);
+  });
+
   test("booking buttons call the studio, except on the contact page", async ({ page }) => {
     await page.goto("/tr");
     await expect(page.getByRole("link", { name: /Şimdi Ara/ }).first()).toHaveAttribute("href", "tel:+905453204007");
