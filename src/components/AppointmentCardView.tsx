@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Pass } from "@/components/AppointmentCustomerAction";
+import { Pass } from "@/components/AppointmentPass";
 
 interface Appointment {
   name: string;

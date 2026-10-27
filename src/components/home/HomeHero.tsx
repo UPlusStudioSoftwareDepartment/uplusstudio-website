@@ -109,30 +109,30 @@ export default function HomeHero() {
 
           <motion.div className="inline-flex w-fit shrink-0 flex-col items-stretch self-start lg:mb-5 lg:self-end" {...fadeIn(1)}>
             <motion.p
-              className="w-0 min-w-full text-center font-serif text-[10.5px] italic leading-snug text-bone/90 sm:text-[15px] [@media(max-height:560px)]:hidden"
+              className="w-0 min-w-full text-center font-serif text-[15px] italic leading-snug text-bone/90 [@media(max-height:560px)]:hidden"
               animate={celebrating ? { y: JUMP.y } : { y: 0 }}
               transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
             >
               {t("mascots.hero")}
             </motion.p>
-            <div className="relative z-10 -mb-[2px] mt-0.5 flex w-[3.25rem] justify-between self-center sm:-mb-[3px] sm:mx-auto sm:mt-1 sm:w-28" aria-hidden onMouseEnter={() => setMascotsHovered(true)} onMouseLeave={() => setMascotsHovered(false)}>
+            <div className="relative z-10 -mb-[3px] mt-1 flex w-[4.75rem] justify-between self-center sm:mx-auto sm:w-28" aria-hidden onMouseEnter={() => setMascotsHovered(true)} onMouseLeave={() => setMascotsHovered(false)}>
               <motion.div
                 style={{ originY: 1 }}
                 animate={celebrating ? { ...JUMP, x: [0, 0, 0, 0, 0, 0, 0, 0, 0], rotate: [0, -3, 17, 19, 19, 17, 0, 0, 0] } : { y: 0, x: 0, scaleX: 1, scaleY: 1, rotate: 0 }}
                 transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
               >
-                <Hayzer pose={celebrating ? "highfive" : "wave"} joy={mascotsHovered} className="-mr-1 h-[1.85rem] w-[1.85rem] sm:-mr-2 sm:h-16 sm:w-16" />
+                <Hayzer pose={celebrating ? "highfive" : "wave"} joy={mascotsHovered} className="-mr-1.5 h-11 w-11 sm:-mr-2 sm:h-16 sm:w-16" />
               </motion.div>
               <motion.div
                 style={{ originY: 1 }}
                 animate={celebrating ? { ...JUMP, x: [0, 0, 0, 0, 0, 0, 0, 0, 0], rotate: [0, 3, -17, -19, -19, -17, 0, 0, 0] } : { y: 0, x: 0, scaleX: 1, scaleY: 1, rotate: 0 }}
                 transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
               >
-                <Rayzer pose={celebrating ? "highfive" : "idle"} joy={mascotsHovered} className="-ml-1 h-[1.85rem] w-[1.85rem] sm:-ml-2 sm:h-16 sm:w-16" />
+                <Rayzer pose={celebrating ? "highfive" : "idle"} joy={mascotsHovered} className="-ml-1.5 h-11 w-11 sm:-ml-2 sm:h-16 sm:w-16" />
               </motion.div>
               <motion.svg
                 viewBox="-20 -20 40 40"
-                className="pointer-events-none absolute left-1/2 top-0 h-6 w-6 -translate-x-1/2 overflow-visible sm:h-12 sm:w-12"
+                className="pointer-events-none absolute left-1/2 top-0 h-8 w-8 -translate-x-1/2 overflow-visible sm:h-12 sm:w-12"
                 initial={{ opacity: 0, scale: 0.2, y: -8 }}
                 animate={
                   celebrating
@@ -153,7 +153,7 @@ export default function HomeHero() {
               onBook={openAppointment}
               onMouseEnter={celebrate}
               label={t("nav.appointment")}
-              className="inline-flex min-h-[1.9rem] items-center justify-center gap-1.5 border border-bone/50 px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.12em] text-bone transition-colors hover:border-bone hover:bg-night max-sm:[&_svg]:h-3 max-sm:[&_svg]:w-3 sm:min-h-11 sm:gap-2 sm:px-4 sm:py-2 sm:text-[12px]"
+              className="inline-flex min-h-11 items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:border-bone hover:bg-night"
             />
           </motion.div>
         </div>

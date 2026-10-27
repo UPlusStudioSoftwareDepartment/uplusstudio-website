@@ -4,13 +4,7 @@ Disallow: /api/
 Disallow: /tr/payment
 Disallow: /en/payment
 Disallow: /tr/randevu-yanit
-Disallow: /tr/randevu-iptal
-Disallow: /tr/randevu-duzelt
-Disallow: /tr/randevu-onay
 Disallow: /en/randevu-yanit
-Disallow: /en/randevu-iptal
-Disallow: /en/randevu-duzelt
-Disallow: /en/randevu-onay
 
 User-agent: GPTBot
 Disallow: /
@@ -41,12 +35,6 @@ Disallow: /api/
 Disallow: /tr/payment
 Disallow: /en/payment
 Disallow: /tr/randevu-yanit
-Disallow: /tr/randevu-iptal
-Disallow: /tr/randevu-duzelt
-Disallow: /tr/randevu-onay
 Disallow: /en/randevu-yanit
-Disallow: /en/randevu-iptal
-Disallow: /en/randevu-duzelt
-Disallow: /en/randevu-onay
 
 Sitemap: https://www.uplusstudio.com.tr/sitemap.xml
