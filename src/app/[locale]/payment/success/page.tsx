@@ -18,10 +18,13 @@ export default function PaymentSuccessPage() {
   const [order, setOrder] = useState<{ number: string; date: string } | null>(null);
 
   useEffect(() => {
-    setOrder({
-      number: `#UP-2024-${Math.floor(Math.random() * 10000)}`,
-      date: new Date().toLocaleDateString(locale === 'en' ? 'en-GB' : 'tr-TR'),
-    });
+    const frame = requestAnimationFrame(() =>
+      setOrder({
+        number: `#UP-2024-${Math.floor(Math.random() * 10000)}`,
+        date: new Date().toLocaleDateString(locale === 'en' ? 'en-GB' : 'tr-TR'),
+      })
+    );
+    return () => cancelAnimationFrame(frame);
   }, [locale]);
 
   useEffect(() => {

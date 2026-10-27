@@ -97,6 +97,7 @@ function BrandIcon({ d }: Readonly<{ d: string }>) {
 
 async function renderCardImage(node: HTMLElement | null) {
   if (!node) throw new Error("card not ready");
+  await toPng(node, cardCaptureOptions(node));
   const blob = await dataUrlToBlob(await toPng(node, cardCaptureOptions(node)));
   return new File([blob], "uplus-studio-kartvizit.png", { type: "image/png" });
 }
@@ -186,7 +187,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
     try {
       const file = await cardImage();
       if (typeof navigator.canShare === "function" && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: "U+ Studio", text: `${c.message} ${shareUrl}` });
+        await navigator.share({ files: [file] });
       } else {
         setPanelOpen(true);
       }
@@ -244,6 +245,9 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   const actionClass =
     "inline-flex min-h-10 min-w-0 flex-auto items-center justify-center gap-1.5 whitespace-nowrap rounded-[3px] border border-bone/30 px-1.5 py-2 font-mono text-[10px] uppercase tracking-[0.08em] text-bone transition-colors hover:border-bone hover:bg-night disabled:opacity-50 @min-[26rem]:text-[10.5px] @min-[26rem]:tracking-[0.1em] @max-[19rem]:px-1 @max-[19rem]:text-[9.5px] @max-[19rem]:tracking-normal [&>svg]:h-3 [&>svg]:w-3 [&>svg]:shrink-0 @min-[26rem]:[&>svg]:h-3.5 @min-[26rem]:[&>svg]:w-3.5 @max-[17rem]:[&>svg]:hidden";
 
+  const tileClass =
+    "flex h-full min-h-16 w-full flex-col items-center justify-center gap-1.5 rounded-[3px] border border-bone/15 bg-transparent px-1 py-2 text-center text-[10px] leading-tight text-bone transition-colors hover:border-bone hover:bg-night sm:text-[12px] [&>svg]:shrink-0";
+
   return createPortal(
     <AnimatePresence>
       {open && (
@@ -297,35 +301,35 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
                   <div className="rounded-[3px] border border-bone/20 bg-night/95 p-3 shadow-[0_-20px_60px_rgba(0,0,0,0.6)] backdrop-blur-md sm:p-4">
                     <p className="eyebrow text-bone/60">{c.shareVia}</p>
                     <p className="mb-3 mt-1.5 text-[12px] leading-snug text-bone/60">{c.shareHint}</p>
-                    <ul className="grid grid-cols-4 gap-1.5 sm:gap-2">
-                      <li>
+                    <ul className="grid auto-rows-fr grid-cols-4 gap-1.5 sm:gap-2">
+                      <li className="h-full">
                         <button
                           type="button"
                           onClick={handleCopyImage}
-                          className="flex min-h-14 w-full flex-col items-center justify-center gap-1.5 rounded-[3px] border border-bone/15 bg-transparent px-1 py-2 text-center text-[10.5px] leading-tight text-bone sm:text-[12px] transition-colors hover:border-bone hover:bg-night"
+                          className={tileClass}
                         >
                           <svg className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24" aria-hidden><rect x="3" y="5" width="18" height="14" rx="2" /><circle cx="9" cy="10" r="1.6" /><path d="m21 16-5-5-8 8" /></svg>
                           {c.copyImage}
                         </button>
                       </li>
                       {targets.map((tg) => (
-                        <li key={tg.key}>
+                        <li key={tg.key} className="h-full">
                           <a
                             href={tg.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex min-h-14 flex-col items-center justify-center gap-1.5 rounded-[3px] border border-bone/15 bg-transparent px-1 py-2 text-center text-[10.5px] leading-tight text-bone sm:text-[12px] transition-colors hover:border-bone hover:bg-night"
+                            className={tileClass}
                           >
                             {tg.icon}
                             {tg.label}
                           </a>
                         </li>
                       ))}
-                      <li>
+                      <li className="h-full">
                         <button
                           type="button"
                           onClick={handleCopy}
-                          className="flex min-h-14 w-full flex-col items-center justify-center gap-1.5 rounded-[3px] border border-bone/15 bg-transparent px-1 py-2 text-center text-[10.5px] leading-tight text-bone sm:text-[12px] transition-colors hover:border-bone hover:bg-night"
+                          className={tileClass}
                         >
                           <svg className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24" aria-hidden><rect x="8" y="8" width="13" height="13" rx="2" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" /></svg>
                           {c.copyLink}

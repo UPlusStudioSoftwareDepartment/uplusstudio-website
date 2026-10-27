@@ -90,6 +90,29 @@ const SHAPES = [
   'ice', 'snowflake', 'rainbow', 'spiral', 'infinity',
 ] as const;
 
+function generateRandomObstacle() {
+  const randomShape = SHAPES[Math.floor(Math.random() * SHAPES.length)];
+  
+  const maxObstacleWidth = 12;
+  const minObstacleWidth = 3;
+  
+  let randomHeight, randomWidth;
+  if (randomShape === 'star') {
+    randomHeight = Math.floor(Math.random() * 25) + 35; 
+    randomWidth = Math.floor(Math.random() * (maxObstacleWidth - 6)) + 6; 
+  } else {
+    randomHeight = Math.floor(Math.random() * 30) + 15; 
+    randomWidth = Math.floor(Math.random() * (maxObstacleWidth - minObstacleWidth + 1)) + minObstacleWidth; 
+  }
+  
+  return {
+    width: randomWidth,
+    height: randomHeight,
+    shape: randomShape,
+    color: 'bg-white'
+  };
+}
+
 export default function JumpingGame() {
   const [score, setScore] = useState(0);
   const [isJumping, setIsJumping] = useState(false);
@@ -101,30 +124,8 @@ export default function JumpingGame() {
   const [roadLines, setRoadLines] = useState<Array<{id: number, position: number}>>([]);
   
   const lineIdRef = useRef(0);
-  const generateRandomObstacle = () => {
-    const randomShape = SHAPES[Math.floor(Math.random() * SHAPES.length)];
-    
-    const maxObstacleWidth = 12;
-    const minObstacleWidth = 3;
-    
-    let randomHeight, randomWidth;
-    if (randomShape === 'star') {
-      randomHeight = Math.floor(Math.random() * 25) + 35; 
-      randomWidth = Math.floor(Math.random() * (maxObstacleWidth - 6)) + 6; 
-    } else {
-      randomHeight = Math.floor(Math.random() * 30) + 15; 
-      randomWidth = Math.floor(Math.random() * (maxObstacleWidth - minObstacleWidth + 1)) + minObstacleWidth; 
-    }
-    
-    return {
-      width: randomWidth,
-      height: randomHeight,
-      shape: randomShape,
-      color: 'bg-white'
-    };
-  };
   
-  const [currentObstacle, setCurrentObstacle] = useState(generateRandomObstacle());
+  const [currentObstacle, setCurrentObstacle] = useState(generateRandomObstacle);
 
   const handleJump = () => {
     if (!isJumping && gameStarted && !gameOver) {
@@ -161,7 +162,9 @@ export default function JumpingGame() {
   };
 
   const gameSpeedRef = useRef(gameSpeed);
-  gameSpeedRef.current = gameSpeed;
+  useEffect(() => {
+    gameSpeedRef.current = gameSpeed;
+  }, [gameSpeed]);
 
   useEffect(() => {
     if (!gameStarted || gameOver) return;
@@ -235,7 +238,8 @@ export default function JumpingGame() {
       const verticalOverlap = playerBottom >= obstacleTop && playerTop <= obstacleBottom;
       
       if (horizontalOverlap && verticalOverlap && !isJumping) {
-        setGameOver(true);
+        const frame = requestAnimationFrame(() => setGameOver(true));
+        return () => cancelAnimationFrame(frame);
       }
     }
   }, [obstaclePosition, isJumping, gameStarted, gameOver, currentObstacle]);

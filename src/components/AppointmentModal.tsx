@@ -622,10 +622,10 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
             </aside>
 
             <div className="flex min-w-0 flex-1 flex-col">
-              <header className="flex shrink-0 items-start justify-between gap-6 border-b border-line px-6 py-6 sm:px-12 sm:py-8">
+              <header className="flex shrink-0 items-center justify-between gap-6 border-b border-line px-6 py-2 sm:items-start sm:px-12 sm:py-8">
                 <div>
-                  <span className="eyebrow text-mute">U+ Studio — {t("title")}</span>
-                  <h2 id="appointment-modal-title" className="mt-3 font-serif text-4xl sm:text-5xl leading-none text-ink">
+                  <span className="eyebrow hidden text-mute sm:inline">U+ Studio — {t("title")}</span>
+                  <h2 id="appointment-modal-title" className="font-serif text-[1.75rem] leading-none text-ink sm:mt-3 sm:text-5xl">
                     {t("title")}
                   </h2>
                 </div>
@@ -636,7 +636,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                   aria-label={t("cancel")}
                 >
                   <span className="hidden sm:inline">{ts("nav.close")}</span>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-line transition-colors group-hover:border-ink group-hover:bg-night hover:text-bone group-hover:text-bone">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full border border-line transition-colors sm:h-11 sm:w-11 group-hover:border-ink group-hover:bg-night hover:text-bone group-hover:text-bone">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth={1.25} d="M6 18L18 6M6 6l12 12" /></svg>
                   </span>
                 </button>
