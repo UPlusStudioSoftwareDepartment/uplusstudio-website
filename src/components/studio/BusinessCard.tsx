@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { toPng } from "html-to-image";
 import { useLocale } from "next-intl";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { cardCaptureOptions, dataUrlToBlob } from "@/lib/cardCapture";
-import { studioInfo } from "@/lib/studio-info";
+import { mailPlatform } from "@/lib/gmailCompose";
 import ServiceCard from "@/components/ServiceCard";
 import { icons } from "./SocialLinks";
 
@@ -15,18 +16,6 @@ const EASE = [0.76, 0, 0.24, 1] as const;
 const DESIGN_W = 520;
 const GUTTER = 16;
 
-const VCARD = [
-  "BEGIN:VCARD",
-  "VERSION:3.0",
-  "N:;U+ Studio;;;",
-  "FN:U+ Studio Mimarlık & İç Mimarlık & Mühendislik",
-  "ORG:U+ Studio",
-  `TEL;TYPE=WORK,VOICE:${studioInfo.phoneHref.replace("tel:", "")}`,
-  `EMAIL;TYPE=WORK:${studioInfo.email}`,
-  "URL:https://www.uplusstudio.com.tr",
-  "ADR;TYPE=WORK:;;Reyhan Cd. Merkez İncek Plaza No:3 Kat:1 D:2;Gölbaşı;Ankara;06830;Türkiye",
-  "END:VCARD",
-].join("\r\n");
 
 const COPY = {
   tr: {
@@ -42,6 +31,7 @@ const COPY = {
     copyLink: "Bağlantıyı kopyala",
     copyImage: "Kartı kopyala",
     imageCopied: "Kart kopyalandı — sohbete yapıştırabilirsiniz",
+    holdToSave: "Kaydetmek için görsele basılı tutun",
     shareHint: "Kart görselini kopyalayıp WhatsApp, Instagram gibi uygulamalara yapıştırabilir ya da bağlantıyı paylaşabilirsiniz.",
     message: "U+ Studio — Mimarlık & İç Mimarlık & Mühendislik. Projeniz için bize ulaşın:",
     failed: "İşlem tamamlanamadı, tekrar deneyin",
@@ -59,6 +49,7 @@ const COPY = {
     copyLink: "Copy link",
     copyImage: "Copy card",
     imageCopied: "Card copied — paste it into any chat",
+    holdToSave: "Press and hold the image to save it",
     shareHint: "Copy the card image and paste it into WhatsApp, Instagram and other apps, or share the link.",
     message: "U+ Studio — Architecture & Interior Architecture & Engineering. Get in touch about your project:",
     failed: "Something went wrong, please try again",
@@ -116,6 +107,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   const headerRef = useRef<HTMLDivElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
   const [fit, setFit] = useState({ scale: 1, h: 0 });
+  const [preview, setPreview] = useState<string | null>(null);
 
   useEffect(() => {
     if (!open || !mounted) return;
@@ -219,9 +211,22 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   const handleDownload = async () => {
     setBusy("download");
     try {
+      const file = await cardImage();
+      if (mailPlatform() !== "desktop") {
+        try {
+          if (typeof navigator.canShare === "function" && navigator.canShare({ files: [file] })) {
+            await navigator.share({ files: [file] });
+            return;
+          }
+        } catch (e) {
+          if ((e as Error)?.name === "AbortError") return;
+        }
+        setPreview(URL.createObjectURL(file));
+        return;
+      }
       const link = document.createElement("a");
       link.download = "uplus-studio-kartvizit.png";
-      link.href = URL.createObjectURL(await cardImage());
+      link.href = URL.createObjectURL(file);
       link.click();
       setTimeout(() => URL.revokeObjectURL(link.href), 1000);
     } catch {
@@ -231,13 +236,9 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
     }
   };
 
-  const handleSaveContact = () => {
-    const url = URL.createObjectURL(new Blob([VCARD], { type: "text/vcard;charset=utf-8" }));
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "uplus-studio.vcf";
-    link.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  const closePreview = () => {
+    if (preview) URL.revokeObjectURL(preview);
+    setPreview(null);
   };
 
   if (!mounted) return null;
@@ -341,6 +342,23 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
               )}
             </AnimatePresence>
             <AnimatePresence>
+              {preview && (
+                <motion.div
+                  key="preview"
+                  className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-3 bg-night/95 p-3"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <Image src={preview} alt={c.title} width={1040} height={1600} unoptimized className="h-auto max-h-[85%] w-auto rounded-[3px]" />
+                  <p className="text-center font-mono text-[11px] uppercase tracking-[0.12em] text-bone/80">{c.holdToSave}</p>
+                  <button type="button" onClick={closePreview} className="min-h-10 rounded-[3px] border border-bone/40 px-4 font-mono text-[11px] uppercase tracking-[0.12em] text-bone">
+                    {c.close}
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <AnimatePresence>
               {note && (
                 <motion.p
                   className="absolute inset-x-0 top-3 z-20 mx-auto w-fit max-w-[90%] rounded-[3px] border border-bone/25 bg-night px-3 py-2 text-center font-mono text-[11px] uppercase tracking-[0.12em] text-bone"
@@ -365,7 +383,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={1.5} strokeLinecap="round" d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14" /></svg>
                 {busy === "download" ? "…" : c.download}
               </button>
-              <button type="button" onClick={handleSaveContact} className={actionClass}>
+              <button type="button" onClick={() => (globalThis.location.href = "/api/vcard")} className={actionClass}>
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={1.5} strokeLinecap="round" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm10-3v6m3-3h-6" /></svg>
                 {c.save}
               </button>

@@ -323,6 +323,7 @@ const app_tr = {
     "sending": "Gönderiliyor...",
     "success": "Randevu talebiniz Gmail'de hazır. Gönder'e bastığınızda randevu kartınız stüdyomuza ulaşır; kartı aşağıdan paylaşabilir ya da indirebilirsiniz.",
     "successMessage": "Gmail'de e-postanız hazır — göndermeyi unutmayın!",
+    "successMobile": "Randevu talebiniz e-posta olarak hazırlandı. E-posta uygulamanız açılmadıysa aşağıdaki butona dokunun ve Gönder'e basın.",
     "successPaste": "Randevu kartı kopyalandı — Gmail'de mesaj alanına Ctrl+V ile yapıştırıp gönderin.",
     "successPasteLong": "Etkileşimli randevu kartınız kopyalandı ve Gmail açıldı. Mesaj alanına tıklayıp Ctrl+V (Mac'te ⌘+V) ile yapıştırın, ardından Gönder'e basın. Kartı aşağıdan paylaşabilir ya da indirebilirsiniz.",
     "error": "Randevu talebi gönderilirken bir hata oluştu.",
@@ -345,7 +346,7 @@ const app_tr = {
       "nameMin": "Ad en az 3 karakter olmalıdır.",
       "nameInvalid": "Ad yalnızca harf içermelidir.",
       "emailInvalid": "Geçerli bir e-posta adresi giriniz.",
-      "phoneInvalid": "Geçerli bir telefon numarası giriniz (örn. 5XXXXXXXXX).",
+      "phoneInvalid": "Geçerli bir cep telefonu numarası girin (örn. 0532 123 45 67).",
       "dateFuture": "Randevu tarihi yarından sonra olmalıdır.",
       "messageMin": "Mesaj en az 10 karakter olmalıdır.",
       "messageMax": "Mesaj en fazla 500 karakter olabilir."

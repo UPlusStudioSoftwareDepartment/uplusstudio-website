@@ -323,6 +323,7 @@ const app_en={
     "sending": "Sending...",
     "success": "Your appointment request is ready in Gmail. Press Send and your appointment card reaches our studio; you can share or download the card below.",
     "successMessage": "Your email is ready in Gmail — don't forget to send it!",
+    "successMobile": "Your appointment request is ready as an email. If your mail app didn't open, tap the button below and press Send.",
     "successPaste": "Appointment card copied — paste it into the Gmail message with Ctrl+V and send.",
     "successPasteLong": "Your interactive appointment card was copied and Gmail is open. Click the message area, paste with Ctrl+V (⌘+V on Mac), then press Send. You can share or download the card below.",
     "error": "An error occurred while sending the appointment request.",
@@ -345,7 +346,7 @@ const app_en={
       "nameMin": "Name must be at least 3 characters.",
       "nameInvalid": "Name must contain only letters.",
       "emailInvalid": "Please enter a valid email address.",
-      "phoneInvalid": "Please enter a valid phone number (e.g. 5XXXXXXXXX).",
+      "phoneInvalid": "Please enter a valid mobile number (e.g. 0532 123 45 67).",
       "dateFuture": "Appointment date must be after tomorrow.",
       "messageMin": "Message must be at least 10 characters.",
       "messageMax": "Message must be at most 500 characters."

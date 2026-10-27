@@ -9,6 +9,7 @@ export function cardCaptureOptions(node: HTMLElement) {
     pixelRatio: 3,
     backgroundColor: "#0a0a09",
     cacheBust: true,
+    includeQueryParams: true,
     width: node.offsetWidth,
     height: node.offsetHeight,
     style: { margin: "0", transform: "none", boxShadow: "none" },

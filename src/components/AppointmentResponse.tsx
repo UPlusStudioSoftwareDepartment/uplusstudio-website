@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { MascotDuo } from "@/components/mascots/Mascots";
-import { copyRich, gmailComposeUrl, openUrl, pasteableHtml } from "@/lib/gmailCompose";
+import { copyRich, gmailComposeUrl, mailPlatform, mailtoUrl, openUrl, pasteableHtml } from "@/lib/gmailCompose";
 
 interface Appointment {
   name: string;
@@ -74,7 +74,10 @@ export default function AppointmentResponse({
         return;
       }
       const compose = data?.compose as { to: string; subject: string; html: string; text: string } | undefined;
-      if (compose) {
+      if (compose && mailPlatform() !== "desktop") {
+        globalThis.location.href = mailtoUrl(compose.to, compose.subject, compose.text);
+        setPasted(false);
+      } else if (compose) {
         const copied = await copyRich(pasteableHtml(compose.html), compose.text);
         openUrl(gmailComposeUrl(compose.to, compose.subject, copied ? undefined : compose.text));
         setPasted(copied);

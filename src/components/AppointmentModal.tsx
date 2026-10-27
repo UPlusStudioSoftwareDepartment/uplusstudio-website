@@ -11,7 +11,7 @@ import AdvancedCalendar from "./AdvancedCalendar";
 import { useToast } from "@/contexts/ToastContext";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { studioInfo } from "@/lib/studio-info";
-import { copyRich, gmailComposeUrl, openUrl, pasteableHtml } from "@/lib/gmailCompose";
+import { copyRich, gmailAppUrl, gmailComposeUrl, mailPlatform, mailtoUrl, openUrl, pasteableHtml } from "@/lib/gmailCompose";
 import { icons } from "@/components/studio/SocialLinks";
 import type { AppointmentPrefill } from "@/contexts/AppointmentContext";
 import { MascotDuo } from "@/components/mascots/Mascots";
@@ -52,6 +52,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
   const messageValueRef = useRef<string>("");
   const formRef = useRef<HTMLFormElement>(null);
   const [cardCopied, setCardCopied] = useState(false);
+  const [mailLinks, setMailLinks] = useState<{ label: string; href: string }[]>([]);
 
   useScrollLock(isOpen);
 
@@ -65,7 +66,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
       .refine((val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), { message: t("validation.emailInvalid") }),
     phone: z.string()
       .min(1, t("validation.required"))
-      .refine((val) => /^(05)?\d{9}$/.test(val), { message: t("validation.phoneInvalid") }),
+      .refine((val) => /^(?:90)?0?5\d{9}$/.test(val.replace(/\D/g, "")), { message: t("validation.phoneInvalid") }),
     service: z.string()
       .min(1, t("validation.required")),
     date: z.string()
@@ -302,6 +303,27 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
   const onSubmit = async (data: AppointmentFormValues) => {
     setSubmitStatus(null);
     setSubmitErrorMessage(null);
+    const platform = mailPlatform();
+    if (platform !== "desktop") {
+      const { url: cardUrl } = await appointmentLink(data, "mail");
+      const subject = `${locale === "tr" ? "Randevu talebi" : "Appointment request"} — ${data.name} · ${t(`services.${data.service}`)}`;
+      const body = appointmentText(data, cardUrl, false);
+      const mailto = mailtoUrl(studioInfo.email, subject, body);
+      setMailLinks(
+        platform === "ios"
+          ? [
+              { label: locale === "tr" ? "Gmail'de aç" : "Open in Gmail", href: gmailAppUrl(studioInfo.email, subject, body) },
+              { label: locale === "tr" ? "Mail uygulamasında aç" : "Open in Mail", href: mailto },
+            ]
+          : [{ label: locale === "tr" ? "Gmail'de aç" : "Open in Gmail", href: mailto }]
+      );
+      setCardCopied(false);
+      setSentValues({ ...data });
+      setSubmitStatus("success");
+      formRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+      globalThis.location.href = mailto;
+      return;
+    }
     try {
       const prepared = (async () => {
         const link = await appointmentLink(data, "mail");
@@ -341,6 +363,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     setSubmitStatus(null);
     setSentValues(null);
     setCardCopied(false);
+    setMailLinks([]);
     reset();
     messageValueRef.current = '';
     onClose();
@@ -653,7 +676,25 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                   {submitStatus === 'success' && (
                     <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mb-10 flex flex-col items-center gap-5 rounded-[6px] border border-line bg-paper-2 px-6 py-8 text-center text-ink">
                       <MascotDuo pose="cheer" size="sm" />
-                      <p className="max-w-md text-[16px] leading-relaxed text-ink/90">{cardCopied ? t("successPasteLong") : t("success")}</p>
+                      <p className="max-w-md text-[16px] leading-relaxed text-ink/90">
+                        {mailLinks.length ? t("successMobile") : cardCopied ? t("successPasteLong") : t("success")}
+                      </p>
+                      {mailLinks.length > 0 && (
+                        <div className="flex w-full max-w-md flex-col gap-2">
+                          {mailLinks.map((m, i) => (
+                            <a
+                              key={m.href}
+                              href={m.href}
+                              className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-[3px] border px-4 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors ${
+                                i === 0 ? "border-bone bg-bone text-night hover:bg-transparent hover:text-bone" : "border-bone/60 text-ink hover:border-bone hover:bg-night"
+                              }`}
+                            >
+                              {icons.email}
+                              {m.label}
+                            </a>
+                          ))}
+                        </div>
+                      )}
                       {sentValues && (
                         <div className="flex w-full max-w-md flex-col gap-2 sm:flex-row">
                           <button
@@ -698,7 +739,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                     </div>
                     <div>
                       <label htmlFor="appointment-phone" className={labelClass}>{t("phone")}</label>
-                      <input id="appointment-phone" type="tel" inputMode="numeric" {...register("phone")} autoComplete="tel" className={inputClass(!!errors.phone)} placeholder={t("phonePlaceholder")} />
+                      <input id="appointment-phone" type="tel" inputMode="tel" {...register("phone")} autoComplete="tel" className={inputClass(!!errors.phone)} placeholder={t("phonePlaceholder")} />
                       <FieldError message={errors.phone?.message} />
                     </div>
                   </div>
