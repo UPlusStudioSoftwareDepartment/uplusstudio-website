@@ -182,7 +182,7 @@ export default function HomeHero() {
             {featured.map((p) => (
               <li key={p.slug}>
                 <Link href={`/${locale}/projects/${p.slug}`} className="group flex items-baseline gap-3 text-[14px] text-bone/70 hover:text-bone">
-                  <span className="font-mono text-[11px] text-bone/40">{projectNumber(p.slug)}</span>
+                  <span className="font-mono text-[11px] text-bone/60">{projectNumber(p.slug)}</span>
                   <span className="border-b border-transparent group-hover:border-bone/60">{p.title[locale]}</span>
                 </Link>
               </li>

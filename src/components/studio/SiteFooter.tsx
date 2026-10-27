@@ -31,7 +31,7 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-12 border-b border-bone/10 py-20 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p className="eyebrow text-bone/40">{t("footer.studio")}</p>
+            <p className="eyebrow text-bone/60">{t("footer.studio")}</p>
             <p className="mt-6 max-w-md font-serif text-4xl leading-[1.05] sm:text-5xl">
               {t("footer.tagline")}
             </p>
@@ -46,7 +46,7 @@ export default function SiteFooter() {
           </div>
 
           <div className="md:col-span-3 md:col-start-7">
-            <p className="eyebrow text-bone/40">{t("footer.contact")}</p>
+            <p className="eyebrow text-bone/60">{t("footer.contact")}</p>
             <address className="mt-6 space-y-1 not-italic text-[15px] leading-relaxed text-bone/80">
               <a href={studioInfo.mapsUrl} target="_blank" rel="noopener noreferrer" className="block whitespace-pre-line hover:text-bone">
                 {t("footer.address")}
@@ -58,7 +58,7 @@ export default function SiteFooter() {
           </div>
 
           <div className="md:col-span-2">
-            <p className="eyebrow text-bone/40">{t("footer.pages")}</p>
+            <p className="eyebrow text-bone/60">{t("footer.pages")}</p>
             <ul className="mt-6 space-y-2 text-[15px]">
               {pages.map((p) => (
                 <li key={p.href}>
@@ -69,7 +69,7 @@ export default function SiteFooter() {
           </div>
 
           <div className="md:col-span-2">
-            <p className="eyebrow text-bone/40">{t("footer.social")}</p>
+            <p className="eyebrow text-bone/60">{t("footer.social")}</p>
             <ul className="mt-6 space-y-2 text-[15px]">
               <li>
                 <a href={studioInfo.instagramUrl} target="_blank" rel="noopener noreferrer" className="text-bone/80 hover:text-bone">
@@ -101,7 +101,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="pointer-events-none select-none pt-10" aria-hidden>
-          <p className="display whitespace-nowrap text-[24vw] leading-[0.78] text-bone/[0.06] -mb-[3vw]">U+ Studio</p>
+          <p aria-hidden className="display whitespace-nowrap text-[24vw] leading-[0.78] text-bone/[0.06] -mb-[3vw]">U+ Studio</p>
         </div>
 
         <div className="relative flex flex-col gap-4 border-t border-bone/10 py-6 font-mono text-[12px] uppercase tracking-[0.12em] text-bone/45 sm:flex-row sm:items-center sm:justify-between">

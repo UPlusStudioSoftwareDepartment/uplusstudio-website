@@ -222,7 +222,7 @@ export default function Navigation() {
                             onClick={() => setIsMenuOpen(false)}
                             className="group flex items-baseline gap-4 py-[clamp(0.25rem,1.1dvh,1rem)] active:text-clay"
                           >
-                            <span className="w-7 font-mono text-[12px] text-bone/40">{String(i + 1).padStart(2, "0")}</span>
+                            <span className="w-7 font-mono text-[12px] text-bone/60">{String(i + 1).padStart(2, "0")}</span>
                             <span
                               className={`font-sans text-[clamp(1.1rem,min(8.5vw,4.6dvh),3.75rem)] font-light leading-[1.05] tracking-[-0.035em] ${
                                 active ? "text-bone" : "text-bone/65"

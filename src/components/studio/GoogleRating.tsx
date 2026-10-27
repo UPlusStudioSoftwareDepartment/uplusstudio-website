@@ -14,13 +14,12 @@ export default function GoogleRating({ className = "" }: Readonly<{ className?: 
       target="_blank"
       rel="noopener noreferrer"
       className={`group inline-flex items-center gap-3 text-[14px] ${className}`}
-      aria-label={`${studioInfo.googleRating} / 5 — ${reviews}`}
     >
       <span className="flex gap-0.5 text-clay" aria-hidden>
         {"★★★★★"}
       </span>
       <span className="font-medium">{studioInfo.googleRating}</span>
-      <span className="opacity-70 transition-opacity group-hover:opacity-100">
+      <span className="opacity-85 transition-opacity group-hover:opacity-100">
         {reviews} ↗
       </span>
     </a>
