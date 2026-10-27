@@ -33,3 +33,21 @@ jobs:
           GMAIL_USER: ""
           GMAIL_PASS: ""
           CONTACT_EMAIL: ""
+
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+
+      - name: End-to-end tests
+        run: npm run test:e2e
+        env:
+          APPOINTMENT_SECRET: e2e-only-signing-key
+          GMAIL_USER: ""
+          GMAIL_PASS: ""
+
+      - name: Keep test traces
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-traces
+          path: test-results/
+          retention-days: 7

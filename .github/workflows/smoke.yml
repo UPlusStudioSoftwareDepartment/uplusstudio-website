@@ -1,0 +1,38 @@
+name: Production smoke test
+
+on:
+  deployment_status:
+
+jobs:
+  smoke:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment_status.environment == 'Production'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Check the live site
+        run: npx playwright test e2e/site.spec.ts --project=desktop --grep "renders cleanly|internal link|404"
+        env:
+          BASE_URL: https://www.uplusstudio.com.tr
+
+      - name: Keep test traces
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-traces
+          path: test-results/
+          retention-days: 7

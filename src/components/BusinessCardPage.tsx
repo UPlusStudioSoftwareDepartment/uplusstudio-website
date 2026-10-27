@@ -7,8 +7,8 @@ import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
 
 const COPY = {
-  tr: { call: "Ara", whatsapp: "WhatsApp", directions: "Yol tarifi", save: "Rehbere ekle", book: "Randevu al", close: "Kapat ve ana sayfaya dön" },
-  en: { call: "Call", whatsapp: "WhatsApp", directions: "Directions", save: "Save contact", book: "Book a meeting", close: "Close and go to the home page" },
+  tr: { title: "U+ Studio dijital kartviziti", call: "Ara", whatsapp: "WhatsApp", directions: "Yol tarifi", save: "Rehbere ekle", book: "Randevu al", close: "Kapat ve ana sayfaya dön" },
+  en: { title: "U+ Studio digital business card", call: "Call", whatsapp: "WhatsApp", directions: "Directions", save: "Save contact", book: "Book a meeting", close: "Close and go to the home page" },
 };
 
 const action =
@@ -19,6 +19,7 @@ export default function BusinessCardPage({ locale }: Readonly<{ locale: "tr" | "
   const { openAppointment } = useAppointment();
   return (
     <section className="mx-auto w-full max-w-[560px] px-3 pb-16 pt-[8.375rem] sm:pt-36">
+      <h1 className="sr-only">{c.title}</h1>
       <ServiceCard
         locale={locale}
         topAction={

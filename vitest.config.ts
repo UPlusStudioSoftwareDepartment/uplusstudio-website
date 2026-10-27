@@ -4,8 +4,7 @@ import path from "node:path";
 export default defineConfig({
   test: {
     environment: "node",
-    setupFiles: ["./src/test/setup.ts"],
-    include: ["src/lib/**/*.test.ts"],
+    include: ["src/lib/**/*.test.ts", "src/app/api/**/*.test.ts"],
     globals: true,
   },
   resolve: {

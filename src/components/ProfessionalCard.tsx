@@ -8,11 +8,7 @@ import ServiceCard from './ServiceCard';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { cardCaptureOptions, dataUrlToBlob } from '@/lib/cardCapture';
 
-interface ProfessionalCardProps {
-  className?: string;
-}
-
-export default function ProfessionalCard({ className = "" }: Readonly<ProfessionalCardProps>) {
+export default function ProfessionalCard() {
   const [isSharing, setIsSharing] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const [showCard, setShowCard] = useState(false);
