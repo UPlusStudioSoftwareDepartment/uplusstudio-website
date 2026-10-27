@@ -140,7 +140,7 @@ function layout({ title, preheader, reference, body }: { title: string; preheade
       <p style="margin:0;font-family:${SANS};font-size:13px;line-height:1.75;color:${C.mute};">
         <strong style="color:${C.bone};font-weight:600;">U+ Studio</strong> — ${STUDIO.disciplines}<br>
         ${STUDIO.address}<br>
-        <a class="link" href="${STUDIO.phoneHref}" style="color:${C.mute};text-decoration:none;">${STUDIO.phone}</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a class="link" href="mailto:${STUDIO.email}" style="color:${C.mute};text-decoration:none;">${STUDIO.email}</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a class="link" href="https://uplusstudio.com.tr" style="color:${C.mute};text-decoration:none;">uplusstudio.com.tr</a>
+        <a class="link" href="${STUDIO.phoneHref}" style="color:${C.mute};text-decoration:none;">${STUDIO.phone}</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a class="link" href="mailto:${STUDIO.email}" style="color:${C.mute};text-decoration:none;">${STUDIO.email}</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a class="link" href="https://www.uplusstudio.com.tr" style="color:${C.mute};text-decoration:none;">uplusstudio.com.tr</a>
       </p>
     </td></tr>
   </table>

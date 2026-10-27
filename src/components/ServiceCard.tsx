@@ -299,7 +299,7 @@ export default function ServiceCard({
         <div className="mt-6 flex items-end justify-between gap-4 border-t border-bone/15 pt-5">
           <div className="flex items-center gap-3">
             <QR
-              url={`https://${SITE}/${locale}`}
+              url={`https://www.${SITE}/${locale}`}
               className="h-[68px] w-[68px] shrink-0 rounded-[3px]"
             />
             <div className="flex flex-col gap-1">

@@ -3,7 +3,7 @@ import { defaultLocale, isLocaleSupported, locales, type Locale } from "@/lib/i1
 import { studioInfo } from "@/lib/studio-info";
 
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://uplusstudio.com.tr").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.uplusstudio.com.tr").replace(/\/$/, "");
 export const SITE_NAME = "U+ Studio";
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;

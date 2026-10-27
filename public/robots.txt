@@ -49,4 +49,4 @@ Disallow: /en/randevu-iptal
 Disallow: /en/randevu-duzelt
 Disallow: /en/randevu-onay
 
-Sitemap: https://uplusstudio.com.tr/sitemap.xml
+Sitemap: https://www.uplusstudio.com.tr/sitemap.xml
