@@ -17,7 +17,7 @@ export default function BusinessCardPage({ locale }: Readonly<{ locale: "tr" | "
   const c = COPY[locale];
   const { openAppointment } = useAppointment();
   return (
-    <section className="mx-auto w-full max-w-[560px] px-3 pb-16 pt-24 sm:pt-32">
+    <section className="mx-auto w-full max-w-[560px] px-3 pb-16 pt-[9.5rem] sm:pt-40">
       <ServiceCard locale={locale} />
       <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
         <a href={studioInfo.phoneHref} className={action}>
