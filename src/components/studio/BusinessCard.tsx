@@ -179,7 +179,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
     try {
       const file = await cardImage();
       if (typeof navigator.canShare === "function" && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file] });
+        await navigator.share({ files: [file], title: "U+ Studio", text: c.discipline });
       } else {
         setPanelOpen(true);
       }

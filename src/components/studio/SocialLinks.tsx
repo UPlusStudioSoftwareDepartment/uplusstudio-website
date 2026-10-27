@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useLocale } from "next-intl";
 import BusinessCard from "./BusinessCard";
 import { studioInfo } from "@/lib/studio-info";
+import { gmailComposeUrl } from "@/lib/gmailCompose";
 
 const ICON = "h-[18px] w-[18px]";
 
@@ -254,8 +255,8 @@ export default function SocialLinks({
                 </button>
               ) : (
                 <a
-                  href={item.href}
-                  {...(item.external
+                  href={item.key === "email" && !isPhone ? gmailComposeUrl(studioInfo.email, "") : item.href}
+                  {...(item.external || (item.key === "email" && !isPhone)
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
                   aria-label={label}
