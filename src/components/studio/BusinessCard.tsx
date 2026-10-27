@@ -212,26 +212,20 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   };
 
   const handleDownload = async () => {
+    const inApp = /Instagram|FBAN|FBAV|FB_IAB|Line\/|TikTok|Snapchat|LinkedInApp|Twitter/i.test(navigator.userAgent);
+    if (!inApp) {
+      const link = document.createElement("a");
+      link.href = `/api/business-card?locale=${locale}&download=1`;
+      link.download = "uplus-studio-kartvizit.png";
+      link.rel = "noopener";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      return;
+    }
     setBusy("download");
     try {
-      const file = await cardImage();
-      if (mailPlatform() !== "desktop") {
-        try {
-          if (typeof navigator.canShare === "function" && navigator.canShare({ files: [file] })) {
-            await navigator.share({ files: [file] });
-            return;
-          }
-        } catch (e) {
-          if ((e as Error)?.name === "AbortError") return;
-        }
-        setPreview(URL.createObjectURL(file));
-        return;
-      }
-      const link = document.createElement("a");
-      link.download = "uplus-studio-kartvizit.png";
-      link.href = URL.createObjectURL(file);
-      link.click();
-      setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+      setPreview(URL.createObjectURL(await cardImage()));
     } catch {
       flash(c.failed);
     } finally {
