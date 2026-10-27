@@ -4,10 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { toPng } from "html-to-image";
 import { useLocale } from "next-intl";
 import { useScrollLock } from "@/hooks/useScrollLock";
-import { cardCaptureOptions, dataUrlToBlob } from "@/lib/cardCapture";
 import { mailPlatform } from "@/lib/gmailCompose";
 import ServiceCard from "@/components/ServiceCard";
 import { icons } from "./SocialLinks";
@@ -32,7 +30,6 @@ const COPY = {
     copyImage: "Kartı kopyala",
     imageCopied: "Kart kopyalandı — sohbete yapıştırabilirsiniz",
     holdToSave: "Kaydetmek için görsele basılı tutun",
-    pasteCard: "Kart kopyalandı — açılan sohbette Ctrl+V ile yapıştırın",
     shareHint: "Kart görselini kopyalayıp WhatsApp, Instagram gibi uygulamalara yapıştırabilir ya da bağlantıyı paylaşabilirsiniz.",
     message: "U+ Studio — Mimarlık & İç Mimarlık & Mühendislik · İncek, Gölbaşı / Ankara",
     failed: "İşlem tamamlanamadı, tekrar deneyin",
@@ -51,7 +48,6 @@ const COPY = {
     copyImage: "Copy card",
     imageCopied: "Card copied — paste it into any chat",
     holdToSave: "Press and hold the image to save it",
-    pasteCard: "Card copied — paste it into the chat with Ctrl+V",
     shareHint: "Copy the card image and paste it into WhatsApp, Instagram and other apps, or share the link.",
     message: "U+ Studio — Architecture & Interior Architecture & Engineering · İncek, Gölbaşı / Ankara",
     failed: "Something went wrong, please try again",
@@ -71,12 +67,12 @@ function shareTargets(url: string, text: string) {
   const u = encodeURIComponent(url);
   const t = encodeURIComponent(text);
   return [
-    { key: "whatsapp", label: "WhatsApp", href: `https://wa.me/?text=${t}`, icon: icons.whatsapp },
+    { key: "whatsapp", label: "WhatsApp", href: `https://wa.me/?text=${t}%0A${u}`, icon: icons.whatsapp },
     { key: "telegram", label: "Telegram", href: `https://t.me/share/url?url=${u}&text=${t}`, icon: <BrandIcon d={shareIcons.telegram} /> },
-    { key: "x", label: "X", href: `https://twitter.com/intent/tweet?text=${t}`, icon: <BrandIcon d={shareIcons.x} /> },
+    { key: "x", label: "X", href: `https://twitter.com/intent/tweet?text=${t}&url=${u}`, icon: <BrandIcon d={shareIcons.x} /> },
     { key: "facebook", label: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${u}`, icon: <BrandIcon d={shareIcons.facebook} /> },
     { key: "linkedin", label: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`, icon: <BrandIcon d={shareIcons.linkedin} /> },
-    { key: "email", label: "E-posta", href: mailPlatform() === "desktop" ? `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent("U+ Studio")}&body=${t}` : `mailto:?subject=${encodeURIComponent("U+ Studio")}&body=${t}`, icon: icons.email },
+    { key: "email", label: "E-posta", href: mailPlatform() === "desktop" ? `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent("U+ Studio")}&body=${t}%0A${u}` : `mailto:?subject=${encodeURIComponent("U+ Studio")}&body=${t}%0A${u}`, icon: icons.email },
   ];
 }
 
@@ -88,11 +84,10 @@ function BrandIcon({ d }: Readonly<{ d: string }>) {
   );
 }
 
-async function renderCardImage(node: HTMLElement | null) {
-  if (!node) throw new Error("card not ready");
-  await toPng(node, cardCaptureOptions(node));
-  const blob = await dataUrlToBlob(await toPng(node, cardCaptureOptions(node)));
-  return new File([blob], "uplus-studio-kartvizit.png", { type: "image/png" });
+async function renderCardImage(locale: "tr" | "en") {
+  const res = await fetch(`/api/business-card?locale=${locale}`);
+  if (!res.ok) throw new Error("card image unavailable");
+  return new File([await res.blob()], "uplus-studio-kartvizit.png", { type: "image/png" });
 }
 
 export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean; onClose: () => void }>) {
@@ -101,14 +96,14 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   const cardRef = useRef<HTMLDivElement>(null);
   const [busy, setBusy] = useState<"share" | "download" | null>(null);
   const [panelOpen, setPanelOpen] = useState(false);
-  const shareUrl = `${SITE_URL}/${locale}`;
+  const shareUrl = `${SITE_URL}/${locale}/kartvizit`;
   const targets = shareTargets(shareUrl, c.message);
   const [note, setNote] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   const imageRef = useRef<Promise<File> | null>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
-  const [fit, setFit] = useState({ scale: 1, h: 0 });
+  const [fit, setFit] = useState({ scale: 1, h: 0, w: DESIGN_W });
   const [preview, setPreview] = useState<string | null>(null);
 
   useEffect(() => {
@@ -116,13 +111,15 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
     const update = () => {
       const card = cardRef.current;
       if (!card) return;
-      const gutter = globalThis.innerWidth < 640 ? GUTTER : GUTTER * 1.5;
+      const phone = globalThis.innerWidth < 640;
+      const gutter = phone ? 12 : GUTTER * 1.5;
       const chrome = (headerRef.current?.offsetHeight ?? 0) + (actionsRef.current?.offsetHeight ?? 0) + 24;
+      const w = phone ? Math.min(DESIGN_W, globalThis.innerWidth - gutter * 2) : DESIGN_W;
       const availW = Math.min(DESIGN_W, globalThis.innerWidth - gutter * 2);
       const availH = globalThis.innerHeight - gutter * 2 - chrome;
       const h = card.offsetHeight;
-      const scale = Math.min(1, availW / DESIGN_W, availH / h);
-      setFit((f) => (Math.abs(f.scale - scale) < 0.002 && f.h === h ? f : { scale, h }));
+      const scale = phone ? 1 : Math.min(1, availW / DESIGN_W, availH / h);
+      setFit((f) => (Math.abs(f.scale - scale) < 0.002 && f.h === h && f.w === w ? f : { scale, h, w }));
     };
     const raf = requestAnimationFrame(update);
     const ro = new ResizeObserver(update);
@@ -154,9 +151,9 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
     imageRef.current = null;
     if (!open) return;
     const id = setTimeout(() => {
-      imageRef.current = renderCardImage(cardRef.current);
+      imageRef.current = renderCardImage(locale);
       imageRef.current.catch(() => (imageRef.current = null));
-    }, 900);
+    }, 300);
     return () => clearTimeout(id);
   }, [open, locale]);
 
@@ -165,7 +162,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
     setTimeout(() => setNote(null), 2400);
   };
 
-  const renderImage = () => renderCardImage(cardRef.current);
+  const renderImage = () => renderCardImage(locale);
 
   const cardImage = () => {
     imageRef.current ??= renderImage();
@@ -182,6 +179,8 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
       const file = await cardImage();
       if (typeof navigator.canShare === "function" && navigator.canShare({ files: [file] })) {
         await navigator.share({ files: [file], title: "U+ Studio", text: c.discipline });
+      } else if (typeof navigator.share === "function" && mailPlatform() !== "desktop") {
+        await navigator.share({ title: "U+ Studio", text: c.message, url: shareUrl });
       } else {
         setPanelOpen(true);
       }
@@ -192,15 +191,9 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
     }
   };
 
-  const shareTo = async (href: string) => {
-    let copied = false;
-    try {
-      await navigator.clipboard.write([new ClipboardItem({ "image/png": cardImage() })]);
-      copied = true;
-    } catch {}
+  const shareTo = (href: string) => {
     if (href.startsWith("mailto:")) globalThis.location.href = href;
     else if (!globalThis.open(href, "_blank", "noopener,noreferrer")) globalThis.location.href = href;
-    if (copied) flash(c.pasteCard);
   };
 
   const handleCopyImage = async () => {
@@ -267,7 +260,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
       {open && (
         <motion.div
           key="card"
-          className="fixed inset-0 z-[90] flex items-center justify-center overflow-hidden p-4 sm:p-6"
+          className="fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto overscroll-contain px-3 pt-3 sm:items-center sm:overflow-hidden sm:p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -275,22 +268,22 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
           aria-modal="true"
           aria-label={c.title}
         >
-          <button type="button" aria-label={c.close} className="absolute inset-0 cursor-default bg-night/80 backdrop-blur-md" onClick={onClose} />
+          <button type="button" aria-label={c.close} className="fixed inset-0 cursor-default bg-night/80 backdrop-blur-md" onClick={onClose} />
 
           <motion.div
             className="relative z-10 flex flex-col"
-            style={{ width: DESIGN_W * fit.scale, visibility: fit.h ? "visible" : "hidden" }}
+            style={{ width: fit.w * fit.scale, visibility: fit.h ? "visible" : "hidden" }}
             initial={{ y: 30, opacity: 0, rotateX: 12 }}
             animate={{ y: 0, opacity: 1, rotateX: 0 }}
             exit={{ y: 20, opacity: 0 }}
             transition={{ duration: 0.7, ease: EASE }}
           >
-            <div ref={headerRef} className="mb-3 flex items-center justify-between text-bone">
+            <div ref={headerRef} className="mb-2 flex items-center justify-between text-bone sm:mb-3">
               <span className="eyebrow text-bone/60">{c.title}</span>
               <button
                 type="button"
                 onClick={onClose}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-bone/30 transition-colors hover:bg-night"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-bone/30 transition-colors hover:bg-night sm:h-10 sm:w-10"
                 aria-label={c.close}
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={1.25} d="M6 18L18 6M6 6l12 12" /></svg>
@@ -298,7 +291,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
             </div>
 
             <div className="relative" style={{ height: fit.h * fit.scale }}>
-              <div className="absolute left-0 top-0 origin-top-left" style={{ width: DESIGN_W, transform: `scale(${fit.scale})` }}>
+              <div className="absolute left-0 top-0 origin-top-left" style={{ width: fit.w, transform: `scale(${fit.scale})` }}>
                 <ServiceCard ref={cardRef} locale={locale} />
               </div>
 
@@ -358,7 +351,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <Image src={preview} alt={c.title} width={1040} height={1600} unoptimized className="h-auto max-h-[85%] w-auto rounded-[3px]" />
+                  <Image src={preview} alt={c.title} width={1080} height={1350} unoptimized className="h-auto max-h-[85%] w-auto rounded-[3px]" />
                   <p className="text-center font-mono text-[11px] uppercase tracking-[0.12em] text-bone/80">{c.holdToSave}</p>
                   <button type="button" onClick={closePreview} className="min-h-10 rounded-[3px] border border-bone/40 px-4 font-mono text-[11px] uppercase tracking-[0.12em] text-bone">
                     {c.close}
@@ -381,7 +374,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
             </AnimatePresence>
             </div>
 
-            <div ref={actionsRef} className="@container mt-3">
+            <div ref={actionsRef} className="@container sticky bottom-0 z-20 -mx-3 mt-3 bg-night/95 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-md sm:static sm:mx-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
               <div className="flex gap-1.5 @min-[20rem]:grid @min-[20rem]:grid-cols-3 @min-[20rem]:gap-2">
               <button type="button" onClick={handleShare} disabled={busy !== null} className={actionClass}>
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={1.5} strokeLinecap="round" d="M12 3v12m0-12 4 4m-4-4-4 4M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5" /></svg>

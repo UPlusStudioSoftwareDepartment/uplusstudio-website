@@ -4,11 +4,12 @@ import Image from "next/image";
 import { useMemo, type ReactNode, type Ref } from "react";
 import QRCode from "qrcode";
 import { studioInfo } from "@/lib/studio-info";
+import { STUDIO_SERVICES } from "@/lib/services";
 import { icons } from "@/components/studio/SocialLinks";
 import { Hayzer, Rayzer } from "@/components/mascots/Mascots";
 
 const SITE = "uplusstudio.com.tr";
-const LABEL = "font-mono text-[10px] uppercase tracking-[0.18em] text-clay";
+const LABEL = "font-mono text-[11px] uppercase tracking-[0.18em] text-clay @md:text-[10px]";
 
 const COPY = {
   tr: {
@@ -36,21 +37,6 @@ const COPY = {
       { name: "Hacer Uyar", title: "Yüksek Mimar", role: "Kurucu Ortak" },
       { name: "Rıdvan Uyar", title: "İnşaat Mühendisi", role: "Kurucu Ortak" },
     ],
-    serviceList: [
-      ["Mimari Tasarım", "Konsept, avan ve uygulama projeleri"],
-      ["İç Mimarlık", "Mekân kurgusu, malzeme ve aydınlatma tasarımı"],
-      ["Yenileme & Dönüşüm", "Tadilat, cephe ve iç mekân yenileme"],
-      ["Konut & Villa", "Müstakil ev, villa ve daire projeleri"],
-      ["Ticari Mekânlar", "Kafe, ofis, spor salonu ve mağaza"],
-      ["Özel Mobilya & Detay", "Mekâna özel mobilya ve detay çözümleri"],
-      ["3D Görselleştirme", "Fotogerçekçi render ve animasyon"],
-      ["Mühendislik Danışmanlığı", "Yönetmelik uyumu, teknik değerlendirme"],
-      ["İzin & Onay Desteği", "Proje onay ve izin süreçlerinde yardım"],
-      [
-        "Uygulama & Proje Yönetimi",
-        "Şantiye ve bütçe yönetimi, anahtar teslim",
-      ],
-    ],
   },
   en: {
     discipline: "Architecture & Interior Architecture & Engineering",
@@ -71,21 +57,6 @@ const COPY = {
     people: [
       { name: "Hacer Uyar", title: "Master Architect", role: "Co-founder" },
       { name: "Rıdvan Uyar", title: "Civil Engineer", role: "Co-founder" },
-    ],
-    serviceList: [
-      ["Architectural Design", "Concept, schematic and construction drawings"],
-      [
-        "Interior Architecture",
-        "Space planning, materials and lighting design",
-      ],
-      ["Renovation & Conversion", "Refurbishment, façades and interiors"],
-      ["Homes & Villas", "Detached houses, villas and apartments"],
-      ["Commercial Spaces", "Cafés, offices, gyms and retail"],
-      ["Bespoke Furniture & Detail", "Custom joinery and detail solutions"],
-      ["3D Visualisation", "Photorealistic renders and animation"],
-      ["Engineering Consultancy", "Code compliance, technical review"],
-      ["Permits & Approvals", "Support through approval and permit processes"],
-      ["Construction Management", "Site, budget and quality control — turnkey"],
     ],
   },
 };
@@ -146,7 +117,7 @@ export default function ServiceCard({
   return (
     <div
       ref={ref}
-      className={`@container relative w-full overflow-hidden rounded-[6px] border border-bone/15 bg-[#0a0a09] p-7 text-bone shadow-[0_30px_80px_rgba(0,0,0,0.6)] ${className}`}
+      className={`@container relative w-full overflow-hidden rounded-[6px] border border-bone/15 bg-[#0a0a09] p-5 text-bone @md:p-7 shadow-[0_30px_80px_rgba(0,0,0,0.6)] ${className}`}
       data-modal-content="true"
     >
       <div
@@ -180,13 +151,13 @@ export default function ServiceCard({
               </svg>
               {studioInfo.googleRating}
             </span>
-            <span className="font-mono text-[9.5px] uppercase tracking-[0.14em] text-bone/50">
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-bone/60 @md:text-[9.5px]">
               {studioInfo.googleReviewCount} {c.reviews}
             </span>
           </div>
         </div>
 
-        <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-bone/55 @md:text-[11px]">
+        <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-bone/65">
           {c.discipline}
         </p>
         <p className="mt-2 font-serif text-[clamp(1.5rem,5.2vw,2.1rem)] italic leading-[1.1]">
@@ -196,23 +167,23 @@ export default function ServiceCard({
         <div className="mt-6 flex items-baseline justify-between border-b border-bone/15 pb-3">
           <p className={LABEL}>{c.services}</p>
           <span className="font-mono text-[10px] tracking-[0.14em] text-bone/40">
-            {String(c.serviceList.length).padStart(2, "0")}
+            {String(STUDIO_SERVICES[locale].length).padStart(2, "0")}
           </span>
         </div>
         <ol>
-          {c.serviceList.map(([title, desc], i) => (
+          {STUDIO_SERVICES[locale].map(({ title, desc }, i) => (
             <li
               key={title}
               className="grid grid-cols-[1.75rem_1fr] items-baseline border-b border-bone/10 py-2"
             >
-              <span className="font-mono text-[10px] tracking-[0.1em] text-clay">
+              <span className="font-mono text-[11px] tracking-[0.1em] text-clay @md:text-[10px]">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span className="flex flex-col gap-0.5 @md:flex-row @md:items-baseline @md:justify-between @md:gap-4">
-                <span className="text-[13.5px] font-medium leading-snug">
+                <span className="text-[15px] font-medium leading-snug @md:text-[13.5px]">
                   {title}
                 </span>
-                <span className="text-[11.5px] leading-snug text-bone/55 @md:text-right">
+                <span className="text-[13px] leading-snug text-bone/65 @md:text-right @md:text-[11.5px]">
                   {desc}
                 </span>
               </span>
@@ -223,7 +194,7 @@ export default function ServiceCard({
         <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-6 @md:grid-cols-2">
           <div>
             <p className={`${LABEL} mb-3`}>{c.contact}</p>
-            <ul className="space-y-2 text-[12.5px]">
+            <ul className="space-y-2.5 text-[14px] @md:space-y-2 @md:text-[12.5px]">
               <Row icon={icons.phone}>{studioInfo.phoneDisplay}</Row>
               <Row icon={icons.whatsapp}>{studioInfo.phoneDisplay}</Row>
               <Row icon={icons.email}>{studioInfo.email}</Row>
@@ -247,7 +218,7 @@ export default function ServiceCard({
           </div>
           <div>
             <p className={`${LABEL} mb-3`}>{c.studio}</p>
-            <div className="flex gap-2.5 text-[12.5px] leading-relaxed">
+            <div className="flex gap-2.5 text-[14px] leading-relaxed @md:text-[12.5px]">
               <span className="mt-[3px] flex h-3.5 w-3.5 shrink-0 items-center justify-center text-bone/55 [&_svg]:h-3.5 [&_svg]:w-3.5">
                 {icons.google}
               </span>
@@ -267,7 +238,7 @@ export default function ServiceCard({
           </div>
           <div>
             <p className={`${LABEL} mb-3`}>{c.findUs}</p>
-            <ul className="space-y-2 text-[12.5px]">
+            <ul className="space-y-2.5 text-[14px] @md:space-y-2 @md:text-[12.5px]">
               {[
                 icons.google,
                 icons.yandex,
@@ -283,11 +254,11 @@ export default function ServiceCard({
           </div>
           <div>
             <p className={`${LABEL} mb-3`}>{c.founders}</p>
-            <ul className="space-y-2 text-[12.5px]">
+            <ul className="space-y-2.5 text-[14px] @md:space-y-2 @md:text-[12.5px]">
               {c.people.map((p) => (
                 <li key={p.name}>
                   <span className="block font-medium">{p.name}</span>
-                  <span className="block text-[11.5px] text-bone/55">
+                  <span className="block text-[13px] text-bone/65 @md:text-[11.5px]">
                     {p.title} · {p.role}
                   </span>
                 </li>
@@ -303,10 +274,10 @@ export default function ServiceCard({
               className="h-[68px] w-[68px] shrink-0 rounded-[3px]"
             />
             <div className="flex flex-col gap-1">
-              <span className="font-mono text-[11px] tracking-[0.06em]">
+              <span className="font-mono text-[12.5px] tracking-[0.06em] @md:text-[11px]">
                 {SITE}
               </span>
-              <span className="max-w-[150px] font-mono text-[9px] uppercase leading-snug tracking-[0.12em] text-bone/45">
+              <span className="max-w-[160px] font-mono text-[10px] uppercase leading-snug tracking-[0.12em] text-bone/60 @md:text-[9px]">
                 {c.scan}
               </span>
             </div>

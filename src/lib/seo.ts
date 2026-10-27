@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { STUDIO_SERVICES } from "@/lib/services";
 import { defaultLocale, isLocaleSupported, locales, type Locale } from "@/lib/i18n-config";
 import { studioInfo } from "@/lib/studio-info";
 
@@ -216,8 +217,8 @@ export function pageMetadata(locale: Locale, page: PageKey): Metadata {
 type JsonLdNode = Record<string, unknown>;
 
 const SERVICES: Record<Locale, string[]> = {
-  tr: ["Mimari Tasarım", "İç Mimarlık", "Yenileme & Dönüşüm", "Konut & Villa Projeleri", "Ticari Mekân Tasarımı", "3D Görselleştirme", "Uygulama & Proje Yönetimi"],
-  en: ["Architectural Design", "Interior Architecture", "Renovation & Conversion", "Homes & Villas", "Commercial Interiors", "3D Visualisation", "Construction & Project Management"],
+  tr: STUDIO_SERVICES.tr.map((s) => s.title),
+  en: STUDIO_SERVICES.en.map((s) => s.title),
 };
 
 const ORG_DESCRIPTION: Record<Locale, string> = {

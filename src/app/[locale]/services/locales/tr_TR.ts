@@ -14,13 +14,18 @@ export const services_tr = {
             "studioValue": "Ankara, TR"
         },
         "disciplinesEyebrow": "Disiplinler",
+        "allEyebrow": "Hizmet kapsamı",
+        "allTitle": ["Projenize uygun", "*hizmeti seçin.*"],
+        "allIntro": "Mimar ve mühendis aynı ekipte: tek bir hizmetle başlayabilir, ihtiyaç oldukça diğerlerini ekleyebilirsiniz.",
+        "allCta": "Bu hizmet için görüşme",
+        "allMessage": "{service} hizmeti hakkında görüşmek istiyorum. Projemin konumu ve kısa açıklaması: ",
         "disciplinesTitle": ["Ne *yapıyoruz*"],
         "scope": "Kapsam",
         "disciplineImages": {
-            "architectural": "Havuzlu modern villa dış cephesi",
+            "architectural": "Modern villa projesinin alacakaranlıkta dış cephesi",
             "interior": "Konut iç mekân tasarımı, oturma alanı",
-            "consulting": "Villa dönüşümü projesi, uygulama aşaması",
-            "project": "Konut uygulama projesi, merdiven detayı"
+            "consulting": "Villa dönüşümü projesi, dönüşüm öncesi hali",
+            "project": "İncek'te villadan ofise dönüşüm şantiyesi ve U+ Studio önce/sonra afişi"
         },
         "processEyebrow": "Süreç",
         "packagesEyebrow": "Paketler",
@@ -54,7 +59,7 @@ export const services_tr = {
                 "3D Modelleme ve Görselleştirme",
                 "Teknik Çizimler ve Dokümantasyon",
                 "İzin ve Onay Yardımı",
-                "Yapı Denetimi"
+                "Şantiye Takibi"
             ]
         },
         "interior": {

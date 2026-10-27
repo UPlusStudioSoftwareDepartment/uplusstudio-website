@@ -14,13 +14,18 @@ export const services_en = {
             "studioValue": "Ankara, TR"
         },
         "disciplinesEyebrow": "Disciplines",
+        "allEyebrow": "Scope of services",
+        "allTitle": ["Pick the service", "*your project needs.*"],
+        "allIntro": "Architect and engineer on one team: start with a single service and add others as the project grows.",
+        "allCta": "Book this service",
+        "allMessage": "I would like to talk about {service}. My project's location and a short description: ",
         "disciplinesTitle": ["What we *do*"],
         "scope": "Scope",
         "disciplineImages": {
-            "architectural": "Modern villa exterior with pool",
+            "architectural": "Modern villa project exterior at dusk",
             "interior": "Residential interior design, living area",
-            "consulting": "Villa conversion project during construction",
-            "project": "Residential build project, stair detail"
+            "consulting": "Villa conversion project, before the work",
+            "project": "Villa-to-office conversion site in İncek with the U+ Studio before/after banner"
         },
         "processEyebrow": "Process",
         "packagesEyebrow": "Packages",
@@ -54,7 +59,7 @@ export const services_en = {
                 "3D Modeling & Visualization",
                 "Technical Drawings & Documentation",
                 "Permit & Approval Assistance",
-                "Construction Supervision"
+                "Site Follow-up"
             ]
         },
         "interior": {

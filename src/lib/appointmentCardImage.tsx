@@ -7,7 +7,7 @@ export const CARD_COLORS = { night: "#0a0a09", pass: "#141413", tile: "#1b1a17",
 
 export type CardFont = { name: string; data: ArrayBuffer; weight: 400 | 600; style: "normal" | "italic" };
 
-async function googleFont(family: string, axis: string, text: string) {
+export async function googleFont(family: string, axis: string, text: string) {
   try {
     const css = await (
       await fetch(`https://fonts.googleapis.com/css2?family=${family}:${axis}&text=${encodeURIComponent(text)}`, {

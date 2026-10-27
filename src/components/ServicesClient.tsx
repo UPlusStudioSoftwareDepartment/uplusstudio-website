@@ -14,6 +14,7 @@ import { useAppointment } from "@/contexts/AppointmentContext";
 import ShowcaseModal, { type Showcase } from "@/components/studio/ShowcaseModal";
 import { examplePair, type ExamplePair } from "@/lib/showcase";
 import { priceRange } from "@/lib/pricing";
+import { STUDIO_SERVICES } from "@/lib/services";
 import { services_tr } from "@/app/[locale]/services/locales/tr_TR";
 import { services_en } from "@/app/[locale]/services/locales/en_US";
 
@@ -190,7 +191,7 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
   const copy = useServicesCopy();
   const page = copy.page;
   const locale = useLocale();
-  const { openAppointment } = useAppointment();
+  const { openAppointment, openAppointmentWith } = useAppointment();
   const tm = useTranslations("studio.mascots");
   const ts = useTranslations("studio");
   const lang = locale === "en" ? "en" : "tr";
@@ -263,6 +264,35 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
             cta: page.ctaButton,
           }}
         />
+      </section>
+
+      <section aria-labelledby="all-services-title" className={`${CONTAINER} pt-24 sm:pt-32`}>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Eyebrow>{page.allEyebrow}</Eyebrow>
+            <p className="mt-6 max-w-sm text-[16px] leading-relaxed text-mute">{page.allIntro}</p>
+          </div>
+          <h2 id="all-services-title" className={`text-[clamp(2.25rem,5vw,4.5rem)] lg:col-span-8 ${HEADING}`}>
+            <LineReveal lines={page.allTitle.map((l) => withEm(l))} />
+          </h2>
+        </div>
+        <ol className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:mt-16 xl:grid-cols-5">
+          {STUDIO_SERVICES[lang].map((service, i) => (
+            <li key={service.title} className="flex flex-col border-b border-r border-line p-5 sm:p-6">
+              <span className="font-mono text-[12px] tracking-[0.14em] text-clay">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-4 text-[19px] font-medium leading-snug text-ink">{service.title}</h3>
+              <p className="mt-2 flex-1 text-[15px] leading-relaxed text-mute">{service.desc}</p>
+              <button
+                type="button"
+                onClick={() => openAppointmentWith({ service: service.booking, message: page.allMessage.replace("{service}", service.title) })}
+                className="group mt-6 inline-flex min-h-11 items-center justify-between gap-3 border-t border-line pt-4 text-left font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:text-clay"
+              >
+                {page.allCta}
+                <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </button>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section aria-labelledby="services-transform" className={`${CONTAINER} pt-24 sm:pt-32`}>
