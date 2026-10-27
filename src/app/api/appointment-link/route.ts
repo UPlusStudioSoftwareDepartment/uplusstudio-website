@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { appointmentApiSchema } from "@/lib/validations";
+import { appointmentSchema } from "@/lib/validations";
 import { checkRateLimit } from "@/lib/rateLimit";
 import { createAppointmentToken } from "@/lib/appointmentToken";
 
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
   const locale = (raw as { locale?: string })?.locale === "en" ? "en" : "tr";
-  const parsed = appointmentApiSchema.safeParse(raw);
+  const parsed = appointmentSchema.safeParse(raw);
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.issues.map((i) => i.message).join(", ") }, { status: 400 });
   }

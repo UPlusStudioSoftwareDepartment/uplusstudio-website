@@ -1,5 +1,7 @@
 "use client";
 
+import { FLEXIBLE_DATE, NO_DATE_HINT, TR_DAYS, TR_MONTHS, parseAppointmentDate } from "@/lib/appointmentDate";
+
 interface Appointment {
   name: string;
   email: string;
@@ -10,22 +12,18 @@ interface Appointment {
   message: string;
 }
 
-const MONTHS = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
-const DAYS = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
-
 function dateParts(date: string) {
-  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(date);
-  if (!m) return { day: "—", monthYear: date, weekday: "" };
-  const [y, mo, d] = [Number(m[1]), Number(m[2]), Number(m[3])];
+  const p = parseAppointmentDate(date);
+  if (!p) return null;
   return {
-    day: String(d).padStart(2, "0"),
-    monthYear: `${MONTHS[mo - 1]} ${y}`,
-    weekday: DAYS[new Date(Date.UTC(y, mo - 1, d)).getUTCDay()],
+    day: String(p.day).padStart(2, "0"),
+    monthYear: `${TR_MONTHS[p.month - 1]} ${p.year}`,
+    weekday: TR_DAYS[p.weekday],
   };
 }
 
 export function Pass({ appointment, reference, status }: Readonly<{ appointment: Appointment; reference: string; status: string }>) {
-  const { day, monthYear, weekday } = dateParts(appointment.date);
+  const parts = dateParts(appointment.date);
   return (
     <div className="relative mx-auto w-full max-w-[440px] overflow-hidden rounded-[14px] border border-line bg-[#141413] text-bone shadow-[0_40px_100px_-40px_rgba(0,0,0,0.9)]">
       <div className="px-8 pt-10 text-center">
@@ -44,28 +42,37 @@ export function Pass({ appointment, reference, status }: Readonly<{ appointment:
           <dt className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-bone/50">Hizmet</dt>
           <dd className="mt-2 font-serif text-[20px] font-bold text-clay">{appointment.service}</dd>
         </div>
-        <div className="grid grid-cols-[1.4fr_1fr] gap-3">
+        <div className={`grid gap-3 ${appointment.time ? "grid-cols-[1.4fr_1fr]" : "grid-cols-1"}`}>
           <div className="overflow-hidden rounded-[10px] border border-bone/15 bg-paper-2">
             <div className="h-1 bg-clay" />
             <div className="p-4">
               <dt className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-bone/50">Tarih</dt>
-              <dd className="mt-2 flex items-center gap-3">
-                <span className="font-serif text-[44px] font-bold leading-[0.9]">{day}</span>
-                <span className="border-l border-bone/15 pl-3">
-                  <span className="block font-serif text-[16px] italic leading-tight">{monthYear}</span>
-                  <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.14em] text-clay">{weekday}</span>
-                </span>
-              </dd>
+              {parts ? (
+                <dd className="mt-2 flex items-center gap-3">
+                  <span className="font-serif text-[44px] font-bold leading-[0.9]">{parts.day}</span>
+                  <span className="border-l border-bone/15 pl-3">
+                    <span className="block font-serif text-[16px] italic leading-tight">{parts.monthYear}</span>
+                    <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.14em] text-clay">{parts.weekday}</span>
+                  </span>
+                </dd>
+              ) : (
+                <dd className="mt-2">
+                  <span className="block font-serif text-[36px] italic leading-none">{FLEXIBLE_DATE.tr}</span>
+                  <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.14em] text-clay">{NO_DATE_HINT}</span>
+                </dd>
+              )}
             </div>
           </div>
-          <div className="overflow-hidden rounded-[10px] border border-bone/15 bg-paper-2">
-            <div className="h-1 bg-bone/35" />
-            <div className="p-4">
-              <dt className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-bone/50">Saat</dt>
-              <dd className="mt-2 font-serif text-[34px] font-bold leading-none">{appointment.time}</dd>
-              <dd className="mt-2 font-mono text-[9.5px] uppercase tracking-[0.12em] text-mute">1 saat · İncek</dd>
+          {appointment.time && (
+            <div className="overflow-hidden rounded-[10px] border border-bone/15 bg-paper-2">
+              <div className="h-1 bg-bone/35" />
+              <div className="p-4">
+                <dt className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-bone/50">Saat</dt>
+                <dd className="mt-2 font-serif text-[34px] font-bold leading-none">{appointment.time}</dd>
+                <dd className="mt-2 font-mono text-[9.5px] uppercase tracking-[0.12em] text-mute">1 saat · İncek</dd>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </dl>
       <div className="relative mt-8 flex items-center">

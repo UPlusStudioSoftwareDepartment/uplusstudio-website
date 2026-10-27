@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { useForm } from "react-hook-form";
@@ -11,10 +11,15 @@ import AdvancedCalendar from "./AdvancedCalendar";
 import { useToast } from "@/contexts/ToastContext";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { studioInfo } from "@/lib/studio-info";
-import { copyRich, gmailAppUrl, gmailComposeUrl, mailPlatform, mailtoUrl, openUrl, pasteableHtml } from "@/lib/gmailCompose";
+import { type ComposedMail, gmailAppUrl, mailPlatform, mailtoUrl, openGmail } from "@/lib/gmailCompose";
 import { icons } from "@/components/studio/SocialLinks";
 import type { AppointmentPrefill } from "@/contexts/AppointmentContext";
 import { MascotDuo } from "@/components/mascots/Mascots";
+import { TIME_SLOTS, localDate } from "@/lib/appointmentDate";
+import { APPOINTMENT_SERVICES } from "@/lib/services";
+import { formatPhone } from "@/lib/appointmentLinks";
+import { CARD_FILE, canShareFiles, imageAsJpeg } from "@/lib/cardImage";
+import { isPersonName, isPhoneNumber } from "@/lib/validations";
 
 interface AppointmentModalProps {
   isOpen: boolean;
@@ -23,8 +28,7 @@ interface AppointmentModalProps {
 }
 
 const EASE = [0.76, 0, 0.24, 1] as const;
-const TIME_SLOTS = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
-const SERVICES = ["architectural", "interior", "renovation", "villa", "commercial", "office", "visualization", "consulting", "site", "project"] as const;
+const SERVICES = APPOINTMENT_SERVICES;
 
 function FieldError({ message }: Readonly<{ message?: string }>) {
   if (!message) return null;
@@ -51,7 +55,10 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
   const [sentValues, setSentValues] = useState<AppointmentFormValues | null>(null);
   const messageValueRef = useRef<string>("");
   const formRef = useRef<HTMLFormElement>(null);
-  const [cardCopied, setCardCopied] = useState(false);
+  const [preparedMail, setPreparedMail] = useState<ComposedMail | null>(null);
+  const [gmailOpened, setGmailOpened] = useState(true);
+  const [delivered, setDelivered] = useState(false);
+  const [cardImage, setCardImage] = useState("");
   const [mailLinks, setMailLinks] = useState<{ label: string; href: string }[]>([]);
 
   useScrollLock(isOpen);
@@ -59,31 +66,32 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
   const appointmentSchema = useMemo(() => z.object({
     name: z.string()
       .min(1, t("validation.required"))
-      .min(3, t("validation.nameMin"))
-      .refine((val) => /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/.test(val), { message: t("validation.nameInvalid") }),
+      .refine((val) => val.trim().length >= 3, { message: t("validation.nameMin") })
+      .refine((val) => isPersonName(val), { message: t("validation.nameInvalid") }),
     email: z.string()
       .min(1, t("validation.required"))
-      .refine((val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), { message: t("validation.emailInvalid") }),
+      .refine((val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()), { message: t("validation.emailInvalid") }),
     phone: z.string()
       .min(1, t("validation.required"))
-      .refine((val) => /^(?:90)?0?5\d{9}$/.test(val.replace(/\D/g, "")), { message: t("validation.phoneInvalid") }),
+      .refine((val) => isPhoneNumber(val), { message: t("validation.phoneInvalid") }),
     service: z.string()
       .min(1, t("validation.required")),
     date: z.string()
+      .min(1, t("validation.dateRequired"))
       .refine((val) => {
-        if (!val) return true;
-        const selectedDate = new Date(val);
+        const selectedDate = localDate(val);
+        if (!selectedDate) return false;
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
         tomorrow.setHours(0, 0, 0, 0);
         return selectedDate >= tomorrow;
       }, { message: t("validation.dateFuture") }),
-    time: z.string(),
+    time: z.string().min(1, t("validation.timeRequired")),
     message: z.string()
       .max(500, t("validation.messageMax"))
       .refine((val) => val.trim().length > 0, { message: t("validation.required") })
       .refine((val) => val.trim().length === 0 || val.trim().length >= 10, { message: t("validation.messageMin") })
-  }), [t, locale]);
+  }), [t]);
 
   type AppointmentFormValues = z.infer<typeof appointmentSchema>;
 
@@ -134,221 +142,72 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     if (isOpen) messageValueRef.current = values.message ?? "";
   }, [isOpen, values.message]);
 
-  const PASS_CANVAS_WIDTH = 500;
-
-  const drawInfo = (ctx: CanvasRenderingContext2D, label: string, value: string, currentY: number, size = 28) => {
-    ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    ctx.font = 'bold 11px sans-serif';
-    ctx.fillText(label.toUpperCase(), 60, currentY);
-    ctx.fillStyle = '#ffffff';
-    ctx.font = `bold ${size}px serif`;
-    ctx.fillText(value, 60, currentY + 35);
-    return currentY + 95;
+  const sentByStudioMail = async (token: string) => {
+    if (!token) return false;
+    const res = await fetch("/api/appointment-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token }),
+    });
+    return res.ok && Boolean((await res.json()).sent);
   };
 
-  const chunkLongWord = (ctx: CanvasRenderingContext2D, word: string, maxWidth: number): string[] => {
-    const chunks: string[] = [];
-    let remaining = word;
-    while (remaining.length > 0) {
-      let chunk = '';
-      let i = 0;
-      while (i < remaining.length && ctx.measureText(chunk + remaining[i]).width <= maxWidth) {
-        chunk += remaining[i];
-        i++;
-      }
-      if (chunk === '') chunk = remaining[0] ?? '';
-      chunks.push(chunk);
-      remaining = remaining.slice(chunk.length);
-    }
-    return chunks;
+  const requestMail = (data: AppointmentFormValues, cardUrl: string): ComposedMail => ({
+    to: studioInfo.formInbox,
+    subject: `${locale === "tr" ? "Randevu talebi" : "Appointment request"} · ${data.name.trim()} · ${showDate(data.date, { day: "numeric", month: "long", year: "numeric" })} ${data.time}`,
+    text: appointmentText(data, cardUrl, false),
+  });
+
+  const showDelivered = (data: AppointmentFormValues) => {
+    setDelivered(true);
+    setSentValues({ ...data });
+    setSubmitStatus("success");
+    formRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+    toast.success(t("successSent"));
   };
-
-  const wrapTextToLines = (ctx: CanvasRenderingContext2D, text: string, maxLineWidth: number): string[] => {
-    const words = text.split(/\s+/).filter(Boolean);
-    const lines: string[] = [];
-    let line = '';
-    for (const w of words) {
-      const next = line ? `${line} ${w}` : w;
-      const fitsLine = ctx.measureText(next).width <= maxLineWidth;
-      const wordTooLong = ctx.measureText(w).width > maxLineWidth;
-      if (fitsLine) {
-        line = next;
-      } else {
-        if (line) lines.push(line);
-        if (wordTooLong) {
-          lines.push(...chunkLongWord(ctx, w, maxLineWidth));
-          line = '';
-        } else {
-          line = w;
-        }
-      }
-    }
-    if (line) lines.push(line);
-    return lines.length > 0 ? lines : [text.slice(0, 80)];
-  };
-
-  const drawBrandHeader = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
-    ctx.fillStyle = '#141413';
-    ctx.fillRect(0, 0, width, height);
-    ctx.fillStyle = '#ede9e1';
-    ctx.textAlign = 'center';
-    ctx.font = 'bold 72px serif';
-    ctx.fillText('U+', width / 2, 115);
-    ctx.font = 'bold 11px sans-serif';
-    ctx.fillStyle = 'rgba(237,233,225,0.7)';
-    const brandLabel = 'STUDIO ARCHITECTURE';
-    const charSpace = 6;
-    const startXPx = (width - brandLabel.length * charSpace) / 2;
-    for (let i = 0; i < brandLabel.length; i++) {
-      ctx.fillText(brandLabel[i], startXPx + (i * charSpace), 145);
-    }
-    ctx.strokeStyle = 'rgba(237,233,225,0.25)';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(50, 185);
-    ctx.lineTo(450, 185);
-    ctx.stroke();
-    ctx.fillStyle = 'rgba(237,233,225,0.6)';
-    ctx.font = 'bold 10px sans-serif';
-    ctx.fillText(locale === 'tr' ? 'RANDEVU KARTI' : 'APPOINTMENT CARD', width / 2, 215);
-  };
-
-  const drawMessageBlock = (
-    ctx: CanvasRenderingContext2D,
-    messageText: string,
-    startY: number,
-    height: number,
-    messageLabel: string
-  ): number => {
-    const maxLineWidth = 380;
-    const lineHeight = 18;
-    ctx.textAlign = 'left';
-    ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    ctx.font = 'bold 11px Arial';
-    ctx.fillText(messageLabel, 60, startY);
-    ctx.font = '13px Arial';
-    const lines = wrapTextToLines(ctx, messageText, maxLineWidth);
-    ctx.fillStyle = 'rgba(255,255,255,0.9)';
-    let messageY = startY + 25;
-    const maxMessageBottomY = height - 120;
-    for (const lineText of lines) {
-      if (messageY + lineHeight > maxMessageBottomY) break;
-      ctx.fillText(lineText, 60, messageY);
-      messageY += lineHeight;
-    }
-    return messageY + 20;
-  };
-
-  const drawPerforationAndBarcode = (ctx: CanvasRenderingContext2D, width: number, perforationY: number) => {
-    const luxuryBarcodeY = perforationY + 30;
-    ctx.setLineDash([8, 6]);
-    ctx.strokeStyle = 'rgba(255,255,255,0.2)';
-    ctx.beginPath();
-    ctx.moveTo(0, perforationY);
-    ctx.lineTo(width, perforationY);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    const getBarWidth = (i: number): number => {
-      if (i % 3 === 0) return 3;
-      if (i % 7 === 0) return 1;
-      return 2;
-    };
-    for (let i = 0; i < 60; i++) {
-      ctx.fillStyle = i % 2 === 0 ? '#ede9e1' : '#141413';
-      ctx.fillRect(60 + (i * 4), luxuryBarcodeY, getBarWidth(i), 40);
-    }
-    ctx.textAlign = 'right';
-    ctx.fillStyle = 'rgba(255,255,255,0.6)';
-    ctx.font = 'bold 10px monospace';
-    ctx.fillText('U+ STUDIO', width - 60, luxuryBarcodeY + 25);
-    ctx.font = 'bold 8px sans-serif';
-    ctx.fillText('İNCEK · GÖLBAŞI / ANKARA', width - 60, luxuryBarcodeY + 40);
-  };
-
-  function drawPassToCanvas(
-    ctx: CanvasRenderingContext2D,
-    vals: { name: string; email: string; phone: string; service: string; date: string; time: string; message: string },
-    width: number,
-    height: number,
-    dateLocale: string
-  ) {
-    let currentYPos = 285;
-    drawBrandHeader(ctx, width, height);
-    ctx.textAlign = 'left';
-
-    currentYPos = drawInfo(ctx, t("guest"), vals.name, currentYPos, 32);
-    currentYPos = drawInfo(ctx, t("service"), t(`services.${vals.service}`), currentYPos, 22);
-    ctx.fillStyle = 'rgba(255,255,255,0.5)';
-    ctx.font = 'bold 11px sans-serif';
-    ctx.fillText(t("appointmentDate").toUpperCase(), 60, currentYPos);
-    ctx.fillText(t("time").toUpperCase(), 300, currentYPos);
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 22px serif';
-    ctx.fillText(vals.date ? new Date(vals.date).toLocaleDateString(dateLocale) : t("flexibleDate"), 60, currentYPos + 35);
-    ctx.fillText(vals.time, 300, currentYPos + 35);
-    currentYPos += 80;
-    currentYPos = drawInfo(ctx, t("phone"), vals.phone, currentYPos, 20);
-
-    const messageText = vals.message == null ? '' : String(vals.message).trim();
-    currentYPos = messageText
-      ? drawMessageBlock(ctx, messageText, currentYPos, height, t("message").toUpperCase())
-      : currentYPos + 30;
-
-    const perforationY = Math.min(currentYPos + 20, height - 100);
-    drawPerforationAndBarcode(ctx, width, perforationY);
-  }
 
   const onSubmit = async (data: AppointmentFormValues) => {
     setSubmitStatus(null);
     setSubmitErrorMessage(null);
     const platform = mailPlatform();
     if (platform !== "desktop") {
-      const { url: cardUrl } = await appointmentLink(data, "mail");
-      const subject = `${locale === "tr" ? "Randevu talebi" : "Appointment request"} — ${data.name} · ${t(`services.${data.service}`)}`;
-      const body = appointmentText(data, cardUrl, false);
-      const mailto = mailtoUrl(studioInfo.email, subject, body);
+      const { token, image, url: cardUrl } = await appointmentLink(data, "mail");
+      setCardImage(image);
+      if (await sentByStudioMail(token)) {
+        showDelivered(data);
+        return;
+      }
+      const mail = requestMail(data, cardUrl);
+      const mailto = mailtoUrl(mail);
       setMailLinks(
         platform === "ios"
           ? [
-              { label: locale === "tr" ? "Gmail'de aç" : "Open in Gmail", href: gmailAppUrl(studioInfo.email, subject, body) },
+              { label: locale === "tr" ? "Gmail'de aç" : "Open in Gmail", href: gmailAppUrl(mail) },
               { label: locale === "tr" ? "Mail uygulamasında aç" : "Open in Mail", href: mailto },
             ]
           : [{ label: locale === "tr" ? "Gmail'de aç" : "Open in Gmail", href: mailto }]
       );
-      setCardCopied(false);
       setSentValues({ ...data });
       setSubmitStatus("success");
       formRef.current?.scrollTo({ top: 0, behavior: "smooth" });
-      globalThis.location.href = mailto;
+      globalThis.location.assign(mailto);
       return;
     }
     try {
-      const prepared = (async () => {
-        const link = await appointmentLink(data, "mail");
-        let mail = { subject: "", html: "" };
-        if (link.token) {
-          const res = await fetch("/api/appointment-email", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ token: link.token }),
-          });
-          if (res.ok) mail = await res.json();
-        }
-        return { link, mail, text: appointmentText(data, link.url, false) };
-      })();
-      let copied = await copyRich(
-        prepared.then(({ mail, text }) => (mail.html ? pasteableHtml(mail.html) : text)),
-        prepared.then(({ text }) => text)
-      );
-      const { mail, text } = await prepared;
-      copied = copied && Boolean(mail.html);
-      const subject = mail.subject || `${locale === "tr" ? "Randevu talebi" : "Appointment request"} — ${data.name} · ${t(`services.${data.service}`)}`;
-      openUrl(gmailComposeUrl(studioInfo.email, subject, copied ? undefined : text));
-      setCardCopied(copied);
+      const link = await appointmentLink(data, "mail");
+      setCardImage(link.image);
+      if (await sentByStudioMail(link.token)) {
+        showDelivered(data);
+        return;
+      }
+      const mail = requestMail(data, link.url);
+      const opened = openGmail(mail);
+      setPreparedMail(mail);
+      setGmailOpened(opened);
       setSentValues({ ...data });
       setSubmitStatus('success');
       formRef.current?.scrollTo({ top: 0, behavior: "smooth" });
-      toast.success(copied ? t("successPaste") : t("successMessage"));
+      if (opened) toast.success(t("successMessage"));
     } catch {
       const message = t("error");
       setSubmitErrorMessage(message);
@@ -357,15 +216,18 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     }
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setSubmitStatus(null);
     setSentValues(null);
-    setCardCopied(false);
+    setPreparedMail(null);
+    setGmailOpened(true);
+    setDelivered(false);
+    setCardImage("");
     setMailLinks([]);
     reset();
     messageValueRef.current = '';
     onClose();
-  };
+  }, [reset, onClose]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -374,72 +236,47 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     };
     globalThis.addEventListener("keydown", onKey);
     return () => globalThis.removeEventListener("keydown", onKey);
-  }, [isOpen]);
+  }, [isOpen, handleClose]);
 
   const dateLocale = locale === 'tr' ? 'tr-TR' : 'en-US';
+  const showDate = (date: string, options?: Intl.DateTimeFormatOptions) =>
+    localDate(date)?.toLocaleDateString(dateLocale, options) ?? t("flexibleDate");
+  const shortDate = (date: string) => localDate(date)?.toLocaleDateString(dateLocale) ?? t("flexibleShort");
 
-  const calculateCanvasHeight = (messageText: string): number => {
-    let baseHeight = 750;
-    if (messageText.length === 0) return Math.max(baseHeight + 80, 850);
-    const tempCanvas = document.createElement('canvas');
-    const tempCtx = tempCanvas.getContext('2d');
-    if (tempCtx == null) return Math.max(baseHeight + 80, 850);
-    tempCtx.font = '13px Arial';
-    const maxLineWidth = 380;
-    const lineHeight = 18;
-    const words = messageText.split(/\s+/).filter(Boolean);
-    let line = '';
-    let lineCount = 0;
-    for (const w of words) {
-      const next = line ? `${line} ${w}` : w;
-      if (tempCtx.measureText(next).width <= maxLineWidth) {
-        line = next;
-      } else {
-        if (line) lineCount++;
-        line = w;
-      }
-    }
-    if (line) lineCount++;
-    baseHeight += 30 + (lineCount * lineHeight) + 40 + 80;
-    return Math.max(baseHeight, 850);
+  const reopenGmail = () => {
+    if (preparedMail) setGmailOpened(openGmail(preparedMail));
   };
-
-  const PASS_FILE = 'uplus-studio-randevu-karti.jpg';
-
-  const renderPassBlob = (vals: AppointmentFormValues) =>
-    new Promise<Blob | null>((resolve) => {
-      const messageText = vals.message == null ? '' : String(vals.message).trim();
-      const canvasHeight = calculateCanvasHeight(messageText);
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      if (ctx == null) return resolve(null);
-      canvas.width = PASS_CANVAS_WIDTH;
-      canvas.height = canvasHeight;
-      drawPassToCanvas(ctx, vals, PASS_CANVAS_WIDTH, canvasHeight, dateLocale);
-      canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.95);
-    });
 
   const saveBlob = (blob: Blob) => {
     const url = globalThis.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = PASS_FILE;
+    a.download = CARD_FILE;
     a.click();
     setTimeout(() => globalThis.URL.revokeObjectURL(url), 1000);
   };
 
+  const passBlob = async (vals: AppointmentFormValues) => {
+    const image = cardImage || (await appointmentLink(vals, "mail")).image;
+    return image ? imageAsJpeg(image) : null;
+  };
+
   const downloadPass = async (vals: AppointmentFormValues) => {
-    const blob = await renderPassBlob(vals);
+    const blob = await passBlob(vals);
     if (blob) saveBlob(blob);
+    else toast.error(t("error"));
   };
 
   const sharePass = async (vals: AppointmentFormValues) => {
-    const blob = await renderPassBlob(vals);
-    if (!blob) return;
-    const file = new File([blob], PASS_FILE, { type: 'image/jpeg' });
+    const blob = await passBlob(vals);
+    if (!blob) {
+      toast.error(t("error"));
+      return;
+    }
+    const file = new File([blob], CARD_FILE, { type: 'image/jpeg' });
     const text = locale === 'tr'
-      ? `U+ Studio randevum: ${t(`services.${vals.service}`)} · ${vals.date ? new Date(vals.date).toLocaleDateString(dateLocale) : t("flexibleDate")} ${vals.time}`
-      : `My U+ Studio appointment: ${t(`services.${vals.service}`)} · ${vals.date ? new Date(vals.date).toLocaleDateString(dateLocale) : t("flexibleDate")} ${vals.time}`;
+      ? `U+ Studio randevum: ${t(`services.${vals.service}`)} · ${shortDate(vals.date)}${vals.time ? ` ${vals.time}` : ""}`
+      : `My U+ Studio appointment: ${t(`services.${vals.service}`)} · ${shortDate(vals.date)}${vals.time ? ` ${vals.time}` : ""}`;
     try {
       if (typeof navigator.canShare === 'function' && navigator.canShare({ files: [file] })) {
         await navigator.share({ files: [file], title: 'U+ Studio', text });
@@ -469,32 +306,32 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
 
 
   const appointmentText = (v: AppointmentFormValues, cardUrl: string, markup: boolean) => {
-    const b = (s: string) => (markup ? `*${s}*` : s);
-    const service = t(`services.${v.service}`);
-    const when = v.date ? new Date(v.date).toLocaleDateString(dateLocale, { day: "numeric", month: "long", year: "numeric", weekday: "long" }) : t("flexibleDate");
     const tr = locale === "tr";
+    const heading = (text: string) => (markup ? `*${text}*` : text.toLocaleUpperCase(tr ? "tr-TR" : "en-US"));
+    const field = (label: string, value: string) => `${markup ? `*${label}:*` : `${label}:`} ${value}`;
+    const cardLabel = tr ? "Randevu kartı" : "Appointment card";
     return [
-      b(tr ? "Randevu talebi — U+ Studio" : "Appointment request — U+ Studio"),
+      tr ? "Merhaba U+ Studio," : "Hello U+ Studio,",
       "",
-      `${b(tr ? "Ad Soyad:" : "Name:")} ${v.name}`,
-      `${b(tr ? "Hizmet:" : "Service:")} ${service}`,
-      `${b(tr ? "Tarih:" : "Date:")} ${when}`,
-      `${b(tr ? "Saat:" : "Time:")} ${v.time}`,
-      `${b(tr ? "Telefon:" : "Phone:")} ${v.phone}`,
-      `${b(tr ? "E-posta:" : "Email:")} ${v.email}`,
+      tr ? "Randevu formunuz üzerinden yüz yüze görüşme talep ediyorum." : "I would like to book a face-to-face meeting through your booking form.",
       "",
-      markup ? `_${v.message.trim()}_` : `“${v.message.trim()}”`,
-      ...(cardUrl ? ["", `${tr ? "Randevu kartı" : "Appointment card"}: ${cardUrl}`] : []),
+      heading(tr ? "Hizmet" : "Service"),
+      t(`services.${v.service}`),
+      "",
+      heading(tr ? "Tarih ve saat" : "Date and time"),
+      `${showDate(v.date, { day: "numeric", month: "long", year: "numeric", weekday: "long" })}, ${v.time}`,
+      "",
+      heading(tr ? "Mesaj" : "Message"),
+      v.message.trim(),
+      "",
+      heading(tr ? "İletişim bilgilerim" : "My contact details"),
+      field(tr ? "Ad Soyad" : "Name", v.name.trim()),
+      field(tr ? "Telefon" : "Phone", formatPhone(v.phone)),
+      field(tr ? "E-posta" : "Email", v.email.trim()),
+      ...(cardUrl ? ["", ...(markup ? [field(cardLabel, cardUrl)] : [heading(cardLabel), cardUrl])] : []),
+      "",
+      `— ${tr ? "uplusstudio.com.tr randevu formu" : "uplusstudio.com.tr booking form"}`,
     ].join("\n");
-  };
-
-  const cardImageAsJpeg = async (src: string) => {
-    const bitmap = await createImageBitmap(await (await fetch(src)).blob());
-    const canvas = document.createElement("canvas");
-    canvas.width = bitmap.width;
-    canvas.height = bitmap.height;
-    canvas.getContext("2d")?.drawImage(bitmap, 0, 0);
-    return new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.94));
   };
 
   const sendViaWhatsApp = async () => {
@@ -503,16 +340,16 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
       toast.error(t("fillRequired"));
       return;
     }
-    const canShareFiles = typeof navigator.canShare === "function" && navigator.canShare({ files: [new File([""], "x.jpg", { type: "image/jpeg" })] });
-    const popup = canShareFiles ? null : globalThis.open("about:blank", "_blank");
+    const shareFiles = canShareFiles();
+    const popup = shareFiles ? null : globalThis.open("about:blank", "_blank");
     const v = getValues();
     const { url: cardUrl, image: imageUrl } = await appointmentLink(v, "whatsapp");
     const url = `${studioInfo.whatsappUrl}?text=${encodeURIComponent(appointmentText(v, cardUrl, true))}`;
-    if (canShareFiles && imageUrl) {
+    if (shareFiles && imageUrl) {
       try {
-        const jpeg = await cardImageAsJpeg(imageUrl);
+        const jpeg = await imageAsJpeg(imageUrl);
         if (jpeg) {
-          const file = new File([jpeg], PASS_FILE, { type: "image/jpeg" });
+          const file = new File([jpeg], CARD_FILE, { type: "image/jpeg" });
           await navigator.share({ files: [file], text: appointmentText(v, "", true) });
           return;
         }
@@ -539,9 +376,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     }`;
   const labelClass = "block font-mono text-[12px] uppercase tracking-[0.12em] text-mute";
 
-  const formattedDate = values.date
-    ? new Date(values.date).toLocaleDateString(dateLocale, { day: "numeric", month: "long", weekday: "long" })
-    : null;
+  const formattedDate = localDate(values.date)?.toLocaleDateString(dateLocale, { day: "numeric", month: "long", weekday: "long" }) ?? null;
   const completed = [values.name, values.email, values.phone, values.service, values.date, values.time, values.message].filter(Boolean).length;
 
   const passRows: { label: string; value: string | null }[] = [
@@ -675,8 +510,20 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                     <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mb-10 flex flex-col items-center gap-5 rounded-[6px] border border-line bg-paper-2 px-6 py-8 text-center text-ink">
                       <MascotDuo pose="cheer" size="sm" />
                       <p className="max-w-md text-[16px] leading-relaxed text-ink/90">
-                        {mailLinks.length ? t("successMobile") : cardCopied ? t("successPasteLong") : t("success")}
+                        {delivered ? t("successSent") : mailLinks.length ? t("successMobile") : !gmailOpened ? t("successRetry") : t("success")}
                       </p>
+                      {preparedMail && !mailLinks.length && (
+                        <button
+                          type="button"
+                          onClick={reopenGmail}
+                          className={`inline-flex min-h-12 w-full max-w-md items-center justify-center gap-2 rounded-[3px] border px-4 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors ${
+                            gmailOpened ? "border-bone/60 text-ink hover:border-bone hover:bg-night" : "border-bone bg-bone text-night hover:bg-transparent hover:text-bone"
+                          }`}
+                        >
+                          {icons.email}
+                          {t("openGmail")}
+                        </button>
+                      )}
                       {mailLinks.length > 0 && (
                         <div className="flex w-full max-w-md flex-col gap-2">
                           {mailLinks.map((m, i) => (
@@ -769,7 +616,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
 
                 <section className="mb-14">
                   <SectionHeading index="02">{t("schedule")}</SectionHeading>
-                  <p className="-mt-5 mb-8 text-[14px] leading-relaxed text-mute">{t("scheduleOptional")}</p>
+                  <p className="-mt-5 mb-8 text-[14px] leading-relaxed text-mute">{t("scheduleHint")}</p>
                   <div className="grid grid-cols-1 gap-10 xl:grid-cols-[1.3fr_1fr]">
                     <div>
                       <AdvancedCalendar

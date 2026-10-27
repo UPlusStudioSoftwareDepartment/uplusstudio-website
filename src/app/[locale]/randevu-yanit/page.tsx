@@ -11,12 +11,13 @@ export const metadata: Metadata = {
 
 export default async function AppointmentResponsePage({
   searchParams,
-}: Readonly<{ searchParams: Promise<{ t?: string; a?: string }> }>) {
-  const { t, a } = await searchParams;
+}: Readonly<{ searchParams: Promise<{ t?: string; a?: string; s?: string }> }>) {
+  const { t, a, s } = await searchParams;
   const appointment = readAppointmentToken(t);
   return (
     <AppointmentResponse
       token={t ?? ""}
+      signature={s ?? ""}
       initialAction={a === "decline" ? "decline" : "approve"}
       reference={t && appointment ? appointmentReference(t) : ""}
       appointment={
@@ -29,6 +30,7 @@ export default async function AppointmentResponsePage({
               date: appointment.date,
               time: appointment.time,
               message: appointment.message,
+              locale: appointment.locale,
             }
           : null
       }

@@ -1,5 +1,6 @@
 export const studioInfo = {
   email: "info@uplusstudio.com.tr",
+  formInbox: "mimarhaceruyar@gmail.com",
   phoneDisplay: "+90 545 320 40 07",
   phoneHref: "tel:+905453204007",
   whatsappUrl: "https://wa.me/905453204007",

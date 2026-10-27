@@ -1,40 +1,55 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# U+ Studio web sitesi
 
-## Getting Started
+Next.js 16 (App Router, Turbopack) ve next-intl ile yazılmış, Türkçe/İngilizce stüdyo sitesi. Canlı adres: https://www.uplusstudio.com.tr
 
-First, run the development server:
+## Geliştirme
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Site http://localhost:3000 adresinde açılır; varsayılan dil Türkçedir (`/tr`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Ortam değişkenleri
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Gizli değerler yalnızca `.env.local` dosyasında (git'e girmez) ve Vercel → Project → Settings → Environment Variables altında tutulur.
 
-## Learn More
+| Değişken | Gerekli mi | Ne işe yarar |
+| --- | --- | --- |
+| `APPOINTMENT_SECRET` | Önerilir | Randevu kartı ve Onayla/Reddet bağlantılarını imzalar. Yoksa Vercel proje kimliğinden türetilen anahtar kullanılır; anahtar değişirse eski bağlantılar geçersiz olur. |
+| `GMAIL_USER`, `GMAIL_PASS` | Önerilir | Gmail adresi ve 16 haneli uygulama şifresi. Tanımlıysa randevu talebi (tasarımlı kart, yalnızca stüdyoya giden imzalı Onayla/Reddet ile), stüdyonun onay/ret yanıtı ve iletişim mesajı site tarafından doğrudan gönderilir. Tanımlı değilse ziyaretçinin Gmail'i ya da e-posta uygulaması, mesaj yazılı halde açılır. |
+| `APPOINTMENT_TO` | İsteğe bağlı | Randevu ve iletişim e-postalarının gideceği adres (varsayılan `mimarhaceruyar@gmail.com`, `src/lib/studio-info.ts` → `formInbox`). |
+| `NEXT_PUBLIC_SITE_URL` | İsteğe bağlı | Kanonik adres (varsayılan `https://www.uplusstudio.com.tr`). |
+| `NEXT_PUBLIC_IS_IN_MAINTENANCE` | İsteğe bağlı | `true` olduğunda tüm site bakım sayfasını gösterir. |
 
-To learn more about Next.js, take a look at the following resources:
+## Testler
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run lint
+npm run test
+npm run build
+npm run test:e2e
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `npm run test`: Vitest birim testleri (`src/lib/**/*.test.ts`).
+- `npm run test:e2e`: Playwright ile masaüstü ve telefon (Pixel 7) tarayıcı testleri. Çalışan bir sunucu yoksa `npm run start` ile kendi sunucusunu açar; önce `npm run build` gerekir. Başka bir adresi test etmek için `BASE_URL=https://... npm run test:e2e`.
+- Randevu testleri e-posta göndermez: Gmail penceresi ve pano tarayıcı içinde yakalanır.
 
-## Deploy on Vercel
+## Yayına alma
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `main` dalına yapılan her push, Vercel'de otomatik olarak canlıya çıkar. Push'tan önce yukarıdaki dört komutun yerelde geçtiğinden emin olun.
+- GitHub Actions (`.github/workflows/ci.yml`) her push ve pull request'te lint, birim testleri, build ve tarayıcı testlerini çalıştırır.
+- Canlı yayın tamamlandığında `.github/workflows/smoke.yml` canlı sitedeki sayfaları ve iç bağlantıları salt okunur olarak kontrol eder.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# uplusstudio-website
->>>>>>> de5fbb7c4900613e7d31328cc0f4b741a828be5a
+## Geri alma
+
+1. Vercel → Project → Deployments sayfasında son sağlıklı yayını bulun ve **Instant Rollback** (ya da "Promote to Production") seçin. Alan adı birkaç saniye içinde o sürüme döner.
+2. Kodu da eşitlemek için hatalı commit'i geri alın ve push edin:
+
+   ```bash
+   git revert <commit>
+   git push origin main
+   ```
+
+3. Smoke testinin yeşil olduğunu GitHub Actions'ta kontrol edin.

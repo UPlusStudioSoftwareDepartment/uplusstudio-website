@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { CARD_COLORS as C, appointmentCardData, appointmentCardFonts } from "@/lib/appointmentCardImage";
+import { FLEXIBLE_DATE, NO_DATE_HINT } from "@/lib/appointmentDate";
 
 export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
@@ -39,23 +40,32 @@ export default async function Image({ params }: Readonly<{ params: Promise<{ tok
                 <div style={{ height: 5, background: C.clay }} />
                 <div style={{ display: "flex", flexDirection: "column", padding: "12px 20px 14px" }}>
                   <div style={{ ...label, fontSize: 13 }}>TARİH</div>
-                  <div style={{ display: "flex", alignItems: "center", marginTop: 4 }}>
-                    <div style={{ fontFamily: "Serif", fontSize: 70, lineHeight: 0.95, color: C.bone }}>{day}</div>
-                    <div style={{ display: "flex", flexDirection: "column", marginLeft: 16, paddingLeft: 16, borderLeft: "1px solid rgba(237,233,225,0.18)" }}>
-                      <div style={{ fontFamily: "Serif", fontStyle: "italic", fontSize: 28, color: C.bone }}>{monthYear}</div>
-                      <div style={{ marginTop: 4, fontSize: 14, letterSpacing: 3, color: C.clay }}>{weekday.toLocaleUpperCase("tr-TR")}</div>
+                  {day ? (
+                    <div style={{ display: "flex", alignItems: "center", marginTop: 4 }}>
+                      <div style={{ fontFamily: "Serif", fontSize: 70, lineHeight: 0.95, color: C.bone }}>{day}</div>
+                      <div style={{ display: "flex", flexDirection: "column", marginLeft: 16, paddingLeft: 16, borderLeft: "1px solid rgba(237,233,225,0.18)" }}>
+                        <div style={{ fontFamily: "Serif", fontStyle: "italic", fontSize: 28, color: C.bone }}>{monthYear}</div>
+                        <div style={{ marginTop: 4, fontSize: 14, letterSpacing: 3, color: C.clay }}>{weekday.toLocaleUpperCase("tr-TR")}</div>
+                      </div>
                     </div>
+                  ) : (
+                    <div style={{ display: "flex", flexDirection: "column", marginTop: 4 }}>
+                      <div style={{ fontFamily: "Serif", fontStyle: "italic", fontSize: 58, lineHeight: 1, color: C.bone }}>{FLEXIBLE_DATE.tr}</div>
+                      <div style={{ marginTop: 8, fontSize: 14, letterSpacing: 3, color: C.clay }}>{NO_DATE_HINT.toLocaleUpperCase("tr-TR")}</div>
+                    </div>
+                  )}
+                </div>
+              </div>
+              {time ? (
+                <div style={{ display: "flex", flexDirection: "column", flex: 1, background: C.tile, border: "1px solid rgba(237,233,225,0.16)", borderRadius: 14, overflow: "hidden" }}>
+                  <div style={{ height: 5, background: "rgba(237,233,225,0.35)" }} />
+                  <div style={{ display: "flex", flexDirection: "column", padding: "12px 20px 14px" }}>
+                    <div style={{ ...label, fontSize: 13 }}>SAAT</div>
+                    <div style={{ marginTop: 4, fontFamily: "Serif", fontSize: 64, lineHeight: 1, color: C.bone }}>{time}</div>
+                    <div style={{ marginTop: 2, fontSize: 13, letterSpacing: 2, color: C.mute }}>1 saat · İncek</div>
                   </div>
                 </div>
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", flex: 1, background: C.tile, border: "1px solid rgba(237,233,225,0.16)", borderRadius: 14, overflow: "hidden" }}>
-                <div style={{ height: 5, background: "rgba(237,233,225,0.35)" }} />
-                <div style={{ display: "flex", flexDirection: "column", padding: "12px 20px 14px" }}>
-                  <div style={{ ...label, fontSize: 13 }}>SAAT</div>
-                  <div style={{ marginTop: 4, fontFamily: "Serif", fontSize: 64, lineHeight: 1, color: C.bone }}>{time}</div>
-                  <div style={{ marginTop: 2, fontSize: 13, letterSpacing: 2, color: C.mute }}>1 saat · İncek</div>
-                </div>
-              </div>
+              ) : null}
             </div>
 
             {message ? (

@@ -3,18 +3,18 @@ import { gmailComposeUrl, mailPlatform, mailtoUrl } from "./gmailCompose";
 import { STUDIO_SERVICES } from "./services";
 import { SERVICE_LANDINGS, LANDING_BY_BOOKING } from "./serviceLandings";
 import { getProject } from "./projects";
-import { appointmentApiSchema } from "./validations";
+import { appointmentSchema } from "./validations";
 
 describe("mail links", () => {
   it("encodes Turkish text and line breaks in mailto links", () => {
-    const url = mailtoUrl("info@uplusstudio.com.tr", "Randevu — İç Mimarlık", "Ad: Şükrü\nTarih: 4 Kasım");
+    const url = mailtoUrl({ to: "info@uplusstudio.com.tr", subject: "Randevu — İç Mimarlık", text: "Ad: Şükrü\nTarih: 4 Kasım" });
     expect(url.startsWith("mailto:info@uplusstudio.com.tr?subject=")).toBe(true);
     expect(decodeURIComponent(url.split("body=")[1])).toBe("Ad: Şükrü\nTarih: 4 Kasım");
   });
 
-  it("omits the body when the card is pasted instead", () => {
-    expect(gmailComposeUrl("info@uplusstudio.com.tr", "Konu")).not.toContain("body=");
-    expect(gmailComposeUrl("info@uplusstudio.com.tr", "Konu", "Metin")).toContain("body=Metin");
+  it("always puts the message into the Gmail draft", () => {
+    expect(gmailComposeUrl({ to: "info@uplusstudio.com.tr", subject: "Konu", text: "Merhaba\nMetin" })).toContain("body=Merhaba%0AMetin");
+    expect(gmailComposeUrl({ to: "info@uplusstudio.com.tr", subject: "", text: "" })).not.toContain("body=");
   });
 
   it("treats a server render as desktop", () => {
@@ -45,14 +45,18 @@ describe("service architecture", () => {
 });
 
 describe("appointment api schema", () => {
-  it("accepts a request without date and time", () => {
-    const parsed = appointmentApiSchema.safeParse({
-      name: "Test Kişi",
-      email: "test@example.com",
-      phone: "0532 123 45 67",
-      service: "İç Mimarlık",
-      message: "Salon ve mutfak için keşif görüşmesi.",
-    });
-    expect(parsed.success).toBe(true);
+  const request = {
+    name: "Test Kişi",
+    email: "test@example.com",
+    phone: "0532 123 45 67",
+    service: "İç Mimarlık",
+    message: "Salon ve mutfak için keşif görüşmesi.",
+  };
+
+  it("only accepts a request with the day and time the visitor picked", () => {
+    expect(appointmentSchema.safeParse({ ...request, date: "2026-11-04", time: "14:00" }).success).toBe(true);
+    expect(appointmentSchema.safeParse(request).success).toBe(false);
+    expect(appointmentSchema.safeParse({ ...request, date: "2026-11-04" }).success).toBe(false);
+    expect(appointmentSchema.safeParse({ ...request, date: "2026-11-04", time: "13:37" }).success).toBe(false);
   });
 });

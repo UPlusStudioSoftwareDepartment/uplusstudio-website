@@ -6,22 +6,27 @@ import GoogleRating from "@/components/studio/GoogleRating";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import PageHeader from "@/components/studio/PageHeader";
 import { Eyebrow, FadeUp } from "@/components/studio/Reveal";
+import { icons } from "@/components/studio/SocialLinks";
+import Select from "@/components/studio/Select";
 import { useLocale, useTranslations } from "next-intl";
 import { contact_en } from "@/app/[locale]/contact/locales/en_US";
 import { contact_tr } from "@/app/[locale]/contact/locales/tr_TR";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getContactSchema, type ContactFormValues } from "@/lib/validations";
-import { useState, useEffect, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { useToast } from "@/contexts/ToastContext";
 import { useAppointment } from "@/contexts/AppointmentContext";
-import { useSearchParams } from "next/navigation";
 import { studioInfo } from "@/lib/studio-info";
-import { gmailComposeUrl, mailPlatform, mailtoUrl, openUrl } from "@/lib/gmailCompose";
+import { APPOINTMENT_SERVICES } from "@/lib/services";
+import { buildContactEmail } from "@/lib/contactEmail";
+import { type ComposedMail, gmailAppUrl, mailPlatform, mailtoUrl, openGmail, openUrl } from "@/lib/gmailCompose";
 
 const CONTAINER = "mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12";
 const INPUT =
     "w-full rounded-none border-0 border-b border-line bg-transparent px-0 py-3 text-[clamp(1.125rem,1.6vw,1.375rem)] font-light leading-normal text-ink transition-[border-color,box-shadow] duration-300 placeholder:text-mute/50 hover:border-mute focus:border-ink focus:shadow-[0_1px_0_0_var(--color-ink)] focus:outline-none focus-visible:outline-none! aria-[invalid=true]:border-clay";
+const ACTION =
+    "inline-flex min-h-12 items-center justify-center gap-2 rounded-[3px] border px-5 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors";
 
 interface FieldProps {
     id: string;
@@ -37,6 +42,7 @@ function Field({ id, index, label, error, children }: Readonly<FieldProps>) {
             <label htmlFor={id} className="flex items-baseline gap-3 font-mono text-[12px] uppercase tracking-[0.14em] text-mute">
                 <span className="tabular-nums text-ink/40">{index}</span>
                 {label}
+                <span aria-hidden className="text-clay">*</span>
             </label>
             {children}
             {error && (
@@ -78,66 +84,104 @@ function DetailRow({ label, href, external, children }: Readonly<DetailRowProps>
     );
 }
 
+interface Sent {
+    mail: ComposedMail | null;
+    mailLinks: { label: string; href: string }[];
+    opened: boolean;
+}
+
+type ContactReply = { sent: true } | ({ sent: false } & Omit<ComposedMail, "to">);
+
+const DELIVERED: Sent = { mail: null, mailLinks: [], opened: true };
+
 export default function ContactContent() {
     const t = useTranslations("contact");
+    const ta = useTranslations("appointment");
     const tm = useTranslations("studio.mascots");
-    const copy = useLocale() === "en" ? contact_en : contact_tr;
+    const locale = useLocale();
+    const copy = locale === "en" ? contact_en : contact_tr;
     const toast = useToast();
     const { openAppointment } = useAppointment();
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const searchParams = useSearchParams();
+    const [sent, setSent] = useState<Sent | null>(null);
+    const subjects = useMemo(() => [...APPOINTMENT_SERVICES.map((key) => ta(`services.${key}`)), t("subjectOther")], [ta, t]);
 
     const {
         register,
+        control,
         handleSubmit,
-        formState: { errors },
+        trigger,
+        getValues,
         reset,
-        setValue
+        formState: { errors, isSubmitting },
     } = useForm<ContactFormValues>({
         resolver: zodResolver(getContactSchema(t)),
+        defaultValues: { name: "", email: "", phone: "", subject: "", message: "" },
     });
 
-    useEffect(() => {
-        const project = searchParams.get("project");
-        const type = searchParams.get("type");
-        if (project && type) {
-            setValue("subject", `${project} - ${type}`);
-        }
-    }, [searchParams, setValue]);
+    const requestMail = async (data: ContactFormValues) => {
+        const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ ...data, locale }),
+        });
+        if (!res.ok) throw new Error(`contact ${res.status}`);
+        return (await res.json()) as ContactReply;
+    };
 
     const onSubmit = async (data: ContactFormValues) => {
-        setIsSubmitting(true);
+        const platform = mailPlatform();
         try {
-            const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
-            });
-            const json = await res.json().catch(() => ({}));
-            if (!res.ok) {
-                if (json?.error === "Email service not configured") {
-                    const body = `${data.message}\n\n— ${data.name} · ${data.email}`;
-                    if (mailPlatform() === "desktop") openUrl(gmailComposeUrl(studioInfo.email, data.subject, body));
-                    else globalThis.location.href = mailtoUrl(studioInfo.email, data.subject, body);
-                    toast.success(t("mailReady"));
-                    return;
-                }
-                toast.error(t("error"));
+            const reply = await requestMail(data);
+            if (reply.sent) {
+                setSent(DELIVERED);
                 return;
             }
-            reset();
-            toast.success(t("success"));
+            const mail = { to: studioInfo.formInbox, subject: reply.subject, text: reply.text };
+            if (platform === "desktop") {
+                setSent({ mail, mailLinks: [], opened: openGmail(mail) });
+                return;
+            }
+            const mailto = mailtoUrl(mail);
+            const mailLinks =
+                platform === "ios"
+                    ? [
+                          { label: t("openGmailApp"), href: gmailAppUrl(mail) },
+                          { label: t("openMailApp"), href: mailto },
+                      ]
+                    : [{ label: t("openGmailApp"), href: mailto }];
+            setSent({ mail, mailLinks, opened: true });
+            globalThis.location.assign(mailto);
         } catch {
             toast.error(t("error"));
-        } finally {
-            setIsSubmitting(false);
         }
     };
 
-    const nameError = errors.name ? t("nameError") : undefined;
-    const emailError = errors.email?.message;
-    const subjectError = errors.subject ? t("subjectError") : undefined;
-    const messageError = errors.message?.message;
+    const reopenGmail = () => {
+        if (sent?.mail) setSent({ ...sent, opened: openGmail(sent.mail) });
+    };
+
+    const sendViaWhatsApp = async () => {
+        if (!(await trigger())) return;
+        const { text } = buildContactEmail({ ...getValues(), locale: locale === "en" ? "en" : "tr" }, { markup: true });
+        const url = `${studioInfo.whatsappUrl}?text=${encodeURIComponent(text)}`;
+        if (mailPlatform() === "desktop") openUrl(url);
+        else globalThis.location.assign(url);
+    };
+
+    const startOver = () => {
+        reset();
+        setSent(null);
+    };
+
+    const status = !sent
+        ? ""
+        : !sent.mail
+          ? t("successSent")
+          : sent.mailLinks.length
+          ? t("successMobile")
+          : !sent.opened
+            ? t("successRetry")
+            : t("successText");
 
     return (
         <div className="relative text-ink">
@@ -191,72 +235,136 @@ export default function ContactContent() {
 
                     <FadeUp className="lg:col-span-6 lg:col-start-7" delay={0.15}>
                         <Eyebrow>{copy.formLabel}</Eyebrow>
-                        <form onSubmit={handleSubmit(onSubmit)} className="mt-10 space-y-10" noValidate>
-                            <Field id="name" index="01" label={t("name")} error={nameError}>
-                                <input
-                                    {...register("name")}
-                                    type="text"
-                                    id="name"
-                                    autoComplete="name"
-                                    aria-invalid={nameError ? "true" : "false"}
-                                    aria-describedby={nameError ? "name-error" : undefined}
-                                    className={INPUT}
-                                />
-                            </Field>
-
-                            <Field id="email" index="02" label={t("email")} error={emailError}>
-                                <input
-                                    {...register("email")}
-                                    type="email"
-                                    id="email"
-                                    autoComplete="email"
-                                    inputMode="email"
-                                    aria-invalid={emailError ? "true" : "false"}
-                                    aria-describedby={emailError ? "email-error" : undefined}
-                                    className={INPUT}
-                                />
-                            </Field>
-
-                            <Field id="subject" index="03" label={t("subject")} error={subjectError}>
-                                <input
-                                    {...register("subject")}
-                                    type="text"
-                                    id="subject"
-                                    aria-invalid={subjectError ? "true" : "false"}
-                                    aria-describedby={subjectError ? "subject-error" : undefined}
-                                    className={INPUT}
-                                />
-                            </Field>
-
-                            <Field id="message" index="04" label={t("message")} error={messageError}>
-                                <textarea
-                                    {...register("message")}
-                                    id="message"
-                                    rows={5}
-                                    aria-invalid={messageError ? "true" : "false"}
-                                    aria-describedby={messageError ? "message-error" : undefined}
-                                    className={`${INPUT} resize-none`}
-                                />
-                            </Field>
-
-                            <div className="flex flex-col gap-6 pt-4 sm:flex-row sm:items-center sm:justify-between">
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    aria-busy={isSubmitting}
-                                    className="group inline-flex w-full items-center justify-between gap-12 border border-ink bg-transparent px-7 py-5 text-[15px] text-ink transition-colors duration-300 hover:border-bone hover:bg-night hover:text-bone disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-night sm:w-auto"
-                                >
-                                    {isSubmitting ? t("sending") || "Gönderiliyor..." : t("send")}
-                                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                                </button>
-                                <a
-                                    href={`mailto:${studioInfo.email}`}
-                                    className="font-mono text-[12px] uppercase tracking-[0.14em] text-mute transition-colors hover:text-clay"
-                                >
-                                    {studioInfo.email}
-                                </a>
+                        {sent ? (
+                            <div className="mt-10 flex flex-col items-start gap-6 rounded-[3px] border border-line bg-paper-2/40 p-6 sm:p-8" role="status">
+                                <MascotDuo pose="cheer" size="sm" />
+                                <p className="max-w-lg text-[17px] leading-relaxed text-ink/90">{status}</p>
+                                <div className="flex w-full flex-col gap-2 sm:flex-row sm:flex-wrap">
+                                    {sent.mailLinks.map((m, i) => (
+                                        <a
+                                            key={m.href}
+                                            href={m.href}
+                                            className={`${ACTION} ${i === 0 ? "border-bone bg-bone text-night hover:bg-transparent hover:text-bone" : "border-bone/60 text-ink hover:border-bone hover:bg-night"}`}
+                                        >
+                                            {icons.email}
+                                            {m.label}
+                                        </a>
+                                    ))}
+                                    {sent.mail && !sent.mailLinks.length && (
+                                        <button
+                                            type="button"
+                                            onClick={reopenGmail}
+                                            className={`${ACTION} ${sent.opened ? "border-bone/60 text-ink hover:border-bone hover:bg-night" : "border-bone bg-bone text-night hover:bg-transparent hover:text-bone"}`}
+                                        >
+                                            {icons.email}
+                                            {t("openGmail")}
+                                        </button>
+                                    )}
+                                    <button type="button" onClick={startOver} className={`${ACTION} border-line text-mute hover:border-ink hover:text-ink`}>
+                                        {t("newMessage")}
+                                    </button>
+                                </div>
                             </div>
-                        </form>
+                        ) : (
+                            <form onSubmit={handleSubmit(onSubmit)} className="mt-10 space-y-10" noValidate>
+                                <Field id="name" index="01" label={t("name")} error={errors.name?.message}>
+                                    <input
+                                        {...register("name")}
+                                        type="text"
+                                        id="name"
+                                        autoComplete="name"
+                                        required
+                                        aria-invalid={errors.name ? "true" : "false"}
+                                        aria-describedby={errors.name ? "name-error" : undefined}
+                                        className={INPUT}
+                                    />
+                                </Field>
+
+                                <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8">
+                                    <Field id="email" index="02" label={t("email")} error={errors.email?.message}>
+                                        <input
+                                            {...register("email")}
+                                            type="email"
+                                            id="email"
+                                            autoComplete="email"
+                                            inputMode="email"
+                                            required
+                                            aria-invalid={errors.email ? "true" : "false"}
+                                            aria-describedby={errors.email ? "email-error" : undefined}
+                                            className={INPUT}
+                                        />
+                                    </Field>
+
+                                    <Field id="phone" index="03" label={t("phone")} error={errors.phone?.message}>
+                                        <input
+                                            {...register("phone")}
+                                            type="tel"
+                                            id="phone"
+                                            autoComplete="tel"
+                                            inputMode="tel"
+                                            required
+                                            placeholder={ta("phonePlaceholder")}
+                                            aria-invalid={errors.phone ? "true" : "false"}
+                                            aria-describedby={errors.phone ? "phone-error" : undefined}
+                                            className={INPUT}
+                                        />
+                                    </Field>
+                                </div>
+
+                                <Field id="subject" index="04" label={t("subject")} error={errors.subject?.message}>
+                                    <Controller
+                                        name="subject"
+                                        control={control}
+                                        render={({ field }) => (
+                                            <Select
+                                                id="subject"
+                                                value={field.value}
+                                                options={subjects}
+                                                placeholder={t("selectSubject")}
+                                                invalid={Boolean(errors.subject)}
+                                                describedBy={errors.subject ? "subject-error" : undefined}
+                                                onChange={field.onChange}
+                                                onBlur={field.onBlur}
+                                                className={INPUT}
+                                            />
+                                        )}
+                                    />
+                                </Field>
+
+                                <Field id="message" index="05" label={t("message")} error={errors.message?.message}>
+                                    <textarea
+                                        {...register("message")}
+                                        id="message"
+                                        rows={5}
+                                        maxLength={2000}
+                                        required
+                                        aria-invalid={errors.message ? "true" : "false"}
+                                        aria-describedby={errors.message ? "message-error" : undefined}
+                                        className={`${INPUT} resize-none`}
+                                    />
+                                </Field>
+
+                                <div className="flex flex-col gap-3 pt-4 sm:flex-row sm:flex-wrap sm:items-center">
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        aria-busy={isSubmitting}
+                                        className="group inline-flex w-full items-center justify-between gap-12 rounded-[3px] border border-ink bg-transparent px-7 py-5 text-[15px] text-ink transition-colors duration-300 hover:border-bone hover:bg-night hover:text-bone disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                                    >
+                                        {isSubmitting ? t("preparing") : t("send")}
+                                        <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={sendViaWhatsApp}
+                                        className="inline-flex w-full items-center justify-center gap-3 rounded-[3px] border border-line px-7 py-5 text-[15px] text-ink transition-colors duration-300 hover:border-bone hover:bg-night hover:text-bone sm:w-auto"
+                                    >
+                                        {icons.whatsapp}
+                                        WhatsApp
+                                    </button>
+                                </div>
+                            </form>
+                        )}
                     </FadeUp>
                 </div>
             </section>

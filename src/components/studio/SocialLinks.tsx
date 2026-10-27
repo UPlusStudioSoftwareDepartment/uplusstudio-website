@@ -255,7 +255,7 @@ export default function SocialLinks({
                 </button>
               ) : (
                 <a
-                  href={item.key === "email" && !isPhone ? gmailComposeUrl(studioInfo.email, "") : item.href}
+                  href={item.key === "email" && !isPhone ? gmailComposeUrl({ to: studioInfo.email, subject: "", text: "" }) : item.href}
                   {...(item.external || (item.key === "email" && !isPhone)
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}

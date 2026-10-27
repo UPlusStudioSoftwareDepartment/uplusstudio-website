@@ -1,13 +1,17 @@
-
-const windowMs = 60 * 1000; 
-const maxRequests = 5;
+const windowMs = 60 * 1000;
+const maxRequests = 10;
 
 const store = new Map<string, { count: number; resetAt: number }>();
 
 function getClientId(req: Request): string {
   const forwarded = req.headers.get("x-forwarded-for");
   const realIp = req.headers.get("x-real-ip");
-  return forwarded?.split(",")[0]?.trim() || realIp || "unknown";
+  const ip = forwarded?.split(",")[0]?.trim() || realIp || "unknown";
+  return `${new URL(req.url).pathname} ${ip}`;
+}
+
+function dropExpired(now: number) {
+  for (const [id, entry] of store) if (now > entry.resetAt) store.delete(id);
 }
 
 export function checkRateLimit(req: Request): { ok: boolean; retryAfter?: number } {
@@ -15,12 +19,8 @@ export function checkRateLimit(req: Request): { ok: boolean; retryAfter?: number
   const now = Date.now();
   const entry = store.get(id);
 
-  if (!entry) {
-    store.set(id, { count: 1, resetAt: now + windowMs });
-    return { ok: true };
-  }
-
-  if (now > entry.resetAt) {
+  if (!entry || now > entry.resetAt) {
+    if (store.size > 1000) dropExpired(now);
     store.set(id, { count: 1, resetAt: now + windowMs });
     return { ok: true };
   }

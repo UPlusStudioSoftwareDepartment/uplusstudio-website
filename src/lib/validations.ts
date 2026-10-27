@@ -1,44 +1,45 @@
 import { z } from "zod";
+import { TIME_SLOTS } from "./appointmentDate";
 
-export const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.email({ error: "Invalid email address" }),
-  subject: z.string().min(2, "Subject is required"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
+export function isPersonName(value: string) {
+  return /^\p{L}[\p{L}\p{M}\s'’.-]*$/u.test(value.trim());
+}
 
-export type ContactFormValues = z.infer<typeof contactSchema>;
+export function isPhoneNumber(value: string) {
+  const compact = value.replace(/[\s().-]/g, "");
+  const digits = compact.replace(/\D/g, "");
+  if (/^(\+|00)/.test(compact) && !/^(\+|00)90/.test(compact)) return digits.length >= 8 && digits.length <= 15;
+  return /^(?:90)?0?[2-58]\d{9}$/.test(digits);
+}
 
 export const getContactSchema = (t?: (key: string) => string) =>
   z.object({
-    name: z.string().min(2, t?.("nameError") || "Ad en az 2 karakter olmalıdır"),
+    name: z
+      .string()
+      .trim()
+      .min(3, t?.("nameError") || "Adınızı ve soyadınızı yazın")
+      .refine(isPersonName, t?.("nameError") || "Adınızı ve soyadınızı yazın"),
     email: z.email({ error: t?.("emailError") || "Geçersiz e-posta adresi" }),
-    subject: z.string().min(2, t?.("subjectError") || "Konu zorunludur"),
-    message: z.string().min(10, t?.("messageError") || "Mesaj en az 10 karakter olmalıdır"),
+    phone: z.string().refine(isPhoneNumber, t?.("phoneError") || "Geçerli bir telefon numarası girin"),
+    subject: z.string().trim().min(1, t?.("subjectError") || "Konu seçin"),
+    message: z
+      .string()
+      .trim()
+      .min(10, t?.("messageError") || "Mesajınız en az 10 karakter olmalıdır")
+      .max(2000, t?.("messageMax") || "Mesajınız en fazla 2000 karakter olabilir"),
   });
 
-const MAX_BASE64_IMAGE_BYTES = 2 * 1024 * 1024;
+export const contactSchema = getContactSchema().extend({ locale: z.enum(["tr", "en"]).default("tr") });
+
+export type ContactFormValues = z.infer<ReturnType<typeof getContactSchema>>;
 
 export const appointmentSchema = z.object({
-  name: z.string().min(1, "Name is required"),
+  name: z.string().trim().min(3, "Name is required").refine(isPersonName, "Invalid name"),
   email: z.email({ error: "Invalid email" }),
-  phone: z.string().min(1, "Phone is required"),
+  phone: z.string().refine(isPhoneNumber, "Invalid phone"),
   service: z.string().min(1, "Service is required"),
-  date: z.string().default(""),
-  time: z.string().default(""),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date is required"),
+  time: z.enum(TIME_SLOTS, { error: "Time is required" }),
   message: z.string().trim().min(10, "Message must be at least 10 characters").max(500),
-  passImage: z
-    .string()
-    .regex(/^data:image\/\w+;base64,/, "Invalid base64 image")
-    .refine((val) => {
-      const base64 = val.split(",")[1];
-      if (!base64) return false;
-      const size = (base64.length * 3) / 4;
-      return size <= MAX_BASE64_IMAGE_BYTES;
-    }, "Image too large"),
+  locale: z.enum(["tr", "en"]).default("tr"),
 });
-
-export type AppointmentPayload = z.infer<typeof appointmentSchema>;
-
-export const appointmentApiSchema = appointmentSchema.omit({ passImage: true });
-export type AppointmentApiPayload = z.infer<typeof appointmentApiSchema>;

@@ -1,7 +1,5 @@
 import { appointmentReference, readAppointmentToken } from "@/lib/appointmentToken";
-
-const MONTHS = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
-const DAYS = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+import { FLEXIBLE_DATE, NO_DATE_HINT, TR_DAYS, TR_MONTHS, parseAppointmentDate } from "@/lib/appointmentDate";
 
 export const CARD_COLORS = { night: "#0a0a09", pass: "#141413", tile: "#1b1a17", bone: "#ede9e1", mute: "#a29d93", line: "#34312c", clay: "#c4825c" };
 
@@ -24,13 +22,13 @@ export async function googleFont(family: string, axis: string, text: string) {
 
 export function appointmentCardData(token: string, maxMessage = 120) {
   const data = readAppointmentToken(token);
-  const m = data ? /^(\d{4})-(\d{2})-(\d{2})/.exec(data.date) : null;
+  const p = data ? parseAppointmentDate(data.date) : null;
   const fullMessage = (data?.message ?? "").replace(/\s+/g, " ").trim();
   return {
     valid: Boolean(data),
-    day: m ? m[3] : "—",
-    monthYear: m ? `${MONTHS[Number(m[2]) - 1]} ${m[1]}` : "",
-    weekday: m ? DAYS[new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3]))).getUTCDay()] : "",
+    day: p ? String(p.day).padStart(2, "0") : "",
+    monthYear: p ? `${TR_MONTHS[p.month - 1]} ${p.year}` : "",
+    weekday: p ? TR_DAYS[p.weekday] : "",
     name: data?.name ?? "Randevu kartı",
     service: data?.service ?? "U+ Studio",
     time: data?.time ?? "",
@@ -44,7 +42,7 @@ export function appointmentCardData(token: string, maxMessage = 120) {
 export type AppointmentCardData = ReturnType<typeof appointmentCardData>;
 
 export async function appointmentCardFonts(d: AppointmentCardData): Promise<CardFont[]> {
-  const text = `U+STUDIO ${Object.values(d).join(" ")} “” YENİ RANDEVU TALEBİ RANDEVU KARTI TARİH SAAT HİZMET MESAJ TELEFON E-POSTA Mimarlık & İç Mimarlık & Mühendislik İncek · Gölbaşı / Ankara 1 saat ${d.weekday.toLocaleUpperCase("tr-TR")} uplusstudio.com.tr`;
+  const text = `U+STUDIO ${Object.values(d).join(" ")} “” YENİ RANDEVU TALEBİ RANDEVU KARTI TARİH SAAT HİZMET MESAJ TELEFON E-POSTA Mimarlık & İç Mimarlık & Mühendislik İncek · Gölbaşı / Ankara 1 saat ${d.weekday.toLocaleUpperCase("tr-TR")} uplusstudio.com.tr ${FLEXIBLE_DATE.tr} ${NO_DATE_HINT.toLocaleUpperCase("tr-TR")}`;
   const [sans, sansBold, serif, serifItalic] = await Promise.all([
     googleFont("Hanken+Grotesk", "wght@400", text),
     googleFont("Hanken+Grotesk", "wght@600", text),
@@ -92,23 +90,32 @@ export function TallAppointmentCard({ d }: Readonly<{ d: AppointmentCardData }>)
               <div style={{ height: 8, background: C.clay }} />
               <div style={{ display: "flex", flexDirection: "column", padding: "22px 30px 26px" }}>
                 <div style={label}>TARİH</div>
-                <div style={{ display: "flex", alignItems: "center", marginTop: 8 }}>
-                  <div style={{ fontFamily: "Serif", fontSize: 132, lineHeight: 0.95, color: C.bone }}>{d.day}</div>
-                  <div style={{ display: "flex", flexDirection: "column", marginLeft: 26, paddingLeft: 26, borderLeft: "1px solid rgba(237,233,225,0.18)" }}>
-                    <div style={{ fontFamily: "Serif", fontStyle: "italic", fontSize: 44, color: C.bone }}>{d.monthYear}</div>
-                    <div style={{ marginTop: 8, fontSize: 22, letterSpacing: 4, color: C.clay }}>{d.weekday.toLocaleUpperCase("tr-TR")}</div>
+                {d.day ? (
+                  <div style={{ display: "flex", alignItems: "center", marginTop: 8 }}>
+                    <div style={{ fontFamily: "Serif", fontSize: 132, lineHeight: 0.95, color: C.bone }}>{d.day}</div>
+                    <div style={{ display: "flex", flexDirection: "column", marginLeft: 26, paddingLeft: 26, borderLeft: "1px solid rgba(237,233,225,0.18)" }}>
+                      <div style={{ fontFamily: "Serif", fontStyle: "italic", fontSize: 44, color: C.bone }}>{d.monthYear}</div>
+                      <div style={{ marginTop: 8, fontSize: 22, letterSpacing: 4, color: C.clay }}>{d.weekday.toLocaleUpperCase("tr-TR")}</div>
+                    </div>
                   </div>
+                ) : (
+                  <div style={{ display: "flex", flexDirection: "column", marginTop: 8 }}>
+                    <div style={{ fontFamily: "Serif", fontStyle: "italic", fontSize: 110, lineHeight: 1, color: C.bone }}>{FLEXIBLE_DATE.tr}</div>
+                    <div style={{ marginTop: 14, fontSize: 22, letterSpacing: 4, color: C.clay }}>{NO_DATE_HINT.toLocaleUpperCase("tr-TR")}</div>
+                  </div>
+                )}
+              </div>
+            </div>
+            {d.time ? (
+              <div style={{ ...tile, flex: 1 }}>
+                <div style={{ height: 8, background: "rgba(237,233,225,0.35)" }} />
+                <div style={{ display: "flex", flexDirection: "column", padding: "22px 30px 26px" }}>
+                  <div style={label}>SAAT</div>
+                  <div style={{ marginTop: 8, fontFamily: "Serif", fontSize: 120, lineHeight: 1, color: C.bone }}>{d.time}</div>
+                  <div style={{ marginTop: 6, fontSize: 20, letterSpacing: 3, color: C.mute }}>1 saat · İncek</div>
                 </div>
               </div>
-            </div>
-            <div style={{ ...tile, flex: 1 }}>
-              <div style={{ height: 8, background: "rgba(237,233,225,0.35)" }} />
-              <div style={{ display: "flex", flexDirection: "column", padding: "22px 30px 26px" }}>
-                <div style={label}>SAAT</div>
-                <div style={{ marginTop: 8, fontFamily: "Serif", fontSize: 120, lineHeight: 1, color: C.bone }}>{d.time}</div>
-                <div style={{ marginTop: 6, fontSize: 20, letterSpacing: 3, color: C.mute }}>1 saat · İncek</div>
-              </div>
-            </div>
+            ) : null}
           </div>
 
           {d.message ? (

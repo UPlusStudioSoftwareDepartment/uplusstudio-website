@@ -12,6 +12,19 @@ export type AppointmentServiceKey =
   | "site"
   | "project";
 
+export const APPOINTMENT_SERVICES: readonly AppointmentServiceKey[] = [
+  "architectural",
+  "interior",
+  "renovation",
+  "villa",
+  "commercial",
+  "office",
+  "visualization",
+  "consulting",
+  "site",
+  "project",
+];
+
 export type StudioService = { title: string; desc: string; booking: AppointmentServiceKey };
 
 export const STUDIO_SERVICES: Record<Locale, StudioService[]> = {

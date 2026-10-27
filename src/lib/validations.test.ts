@@ -1,89 +1,79 @@
 import { describe, it, expect } from "vitest";
-import { appointmentSchema, contactSchema } from "./validations";
+import { appointmentSchema, contactSchema, isPersonName, isPhoneNumber } from "./validations";
+
+const appointment = {
+  name: "Test User",
+  email: "test@example.com",
+  phone: "05321234567",
+  service: "İç Mimarlık",
+  date: "2025-03-20",
+  time: "10:00",
+  message: "Salon ve mutfak için keşif görüşmesi istiyoruz.",
+};
 
 describe("appointmentSchema", () => {
-  it("accepts valid payload", () => {
-    const valid = {
-      name: "Test User",
-      email: "test@example.com",
-      phone: "05321234567",
-      service: "Architectural Design",
-      date: "2025-03-20",
-      time: "10:00",
-      message: "Salon ve mutfak için keşif görüşmesi istiyoruz.",
-      passImage: "data:image/jpeg;base64," + "a".repeat(100),
-    };
-    expect(appointmentSchema.safeParse(valid).success).toBe(true);
+  it("accepts a valid request and defaults the locale to Turkish", () => {
+    const parsed = appointmentSchema.safeParse(appointment);
+    expect(parsed.success).toBe(true);
+    expect(parsed.data?.locale).toBe("tr");
+  });
+
+  it("keeps the English locale for English visitors", () => {
+    expect(appointmentSchema.parse({ ...appointment, locale: "en" }).locale).toBe("en");
   });
 
   it("rejects a missing or too short message", () => {
-    const base = {
-      name: "Test User",
-      email: "test@example.com",
-      phone: "05321234567",
-      service: "Architectural Design",
-      date: "2025-03-20",
-      time: "10:00",
-      passImage: "data:image/jpeg;base64," + "a".repeat(100),
-    };
+    const base = { ...appointment, message: undefined };
     expect(appointmentSchema.safeParse(base).success).toBe(false);
     expect(appointmentSchema.safeParse({ ...base, message: "   " }).success).toBe(false);
     expect(appointmentSchema.safeParse({ ...base, message: "kısa" }).success).toBe(false);
   });
 
-  it("rejects missing name", () => {
-    const invalid = {
-      email: "test@example.com",
-      service: "Design",
-      date: "2025-03-20",
-      time: "10:00",
-      passImage: "data:image/jpeg;base64,abc",
-    };
-    expect(appointmentSchema.safeParse(invalid).success).toBe(false);
+  it("rejects a missing name, an invalid email and an invalid phone", () => {
+    const noName = { ...appointment, name: undefined };
+    expect(appointmentSchema.safeParse(noName).success).toBe(false);
+    expect(appointmentSchema.safeParse({ ...appointment, email: "not-an-email" }).success).toBe(false);
+    expect(appointmentSchema.safeParse({ ...appointment, phone: "12345" }).success).toBe(false);
+  });
+});
+
+describe("isPersonName", () => {
+  it.each(["Şükrü Öztürk", "Mary-Jane Watson", "Seán O'Neil", "José Álvarez", "  Ayşe Nur  "])("accepts %s", (name) => {
+    expect(isPersonName(name)).toBe(true);
   });
 
-  it("rejects invalid email", () => {
-    const invalid = {
-      name: "Test",
-      email: "not-an-email",
-      service: "Design",
-      date: "2025-03-20",
-      time: "10:00",
-      passImage: "data:image/jpeg;base64,abc",
-    };
-    expect(appointmentSchema.safeParse(invalid).success).toBe(false);
+  it.each(["Ali 2", "-Ali", "<script>", "ali@veli"])("rejects %s", (name) => {
+    expect(isPersonName(name)).toBe(false);
   });
+});
 
-  it("rejects invalid base64 image format", () => {
-    const invalid = {
-      name: "Test",
-      email: "test@example.com",
-      service: "Design",
-      date: "2025-03-20",
-      time: "10:00",
-      passImage: "invalid",
-    };
-    expect(appointmentSchema.safeParse(invalid).success).toBe(false);
-  });
+describe("isPhoneNumber", () => {
+  it.each(["0532 123 45 67", "5321234567", "+90 532 123 45 67", "0312 123 45 67", "(0532) 123-45-67", "+44 20 7946 0000", "0049 30 123456"])(
+    "accepts %s",
+    (phone) => expect(isPhoneNumber(phone)).toBe(true)
+  );
 
-  it("rejects oversized base64 image", () => {
-    const oversized = "a".repeat(3 * 1024 * 1024); 
-    const invalid = {
-      name: "Test",
-      email: "test@example.com",
-      service: "Design",
-      date: "2025-03-20",
-      time: "10:00",
-      passImage: "data:image/jpeg;base64," + oversized,
-    };
-    expect(appointmentSchema.safeParse(invalid).success).toBe(false);
+  it.each(["12345", "0532 123 45", "0132 123 45 67", "+90 532 12", "abc"])("rejects %s", (phone) => {
+    expect(isPhoneNumber(phone)).toBe(false);
   });
 });
 
 describe("contactSchema", () => {
+  const contact = { name: "John Doe", email: "john@example.com", phone: "0532 123 45 67", subject: "İç Mimarlık", message: "Hello, this is a message." };
+
   it("accepts valid contact data", () => {
-    const valid = { name: "John Doe", email: "john@example.com", subject: "Project", message: "Hello, this is a message." };
-    expect(contactSchema.safeParse(valid).success).toBe(true);
+    expect(contactSchema.safeParse(contact).success).toBe(true);
+  });
+
+  it("requires every field", () => {
+    for (const field of Object.keys(contact)) {
+      expect(contactSchema.safeParse({ ...contact, [field]: "" }).success, field).toBe(false);
+    }
+  });
+
+  it("rejects an invalid phone or name", () => {
+    expect(contactSchema.safeParse({ ...contact, phone: "123" }).success).toBe(false);
+    expect(contactSchema.safeParse({ ...contact, name: "John 2" }).success).toBe(false);
   });
 
   it("rejects short name", () => {

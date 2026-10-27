@@ -1,7 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Pass } from "@/components/AppointmentPass";
+import { calendarUrl, whatsappNumber } from "@/lib/appointmentLinks";
+import { CARD_FILE, canShareFiles, imageAsJpeg } from "@/lib/cardImage";
 
 interface Appointment {
   name: string;
@@ -15,26 +18,16 @@ interface Appointment {
 
 const EASE = [0.76, 0, 0.24, 1] as const;
 
-function whatsappNumber(phone: string) {
-  let digits = phone.replace(/\D/g, "");
-  if (digits.startsWith("00")) digits = digits.slice(2);
-  if (digits.startsWith("0")) digits = `90${digits.slice(1)}`;
-  if (digits.length === 10 && digits.startsWith("5")) digits = `90${digits}`;
-  return digits;
-}
+const CARD_BUTTON =
+  "inline-flex min-h-12 w-full items-center justify-center gap-2.5 whitespace-nowrap rounded-[3px] border border-ink/30 px-4 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors hover:border-bone hover:bg-night disabled:opacity-50";
 
-function calendarUrl(a: Appointment) {
-  const d = /^(\d{4})-(\d{2})-(\d{2})/.exec(a.date);
-  const t = /^(\d{1,2}):(\d{2})/.exec(a.time);
-  if (!d) return "";
-  const start = new Date(Date.UTC(Number(d[1]), Number(d[2]) - 1, Number(d[3]), (t ? Number(t[1]) : 10) - 3, t ? Number(t[2]) : 0));
-  const end = new Date(start.getTime() + 60 * 60 * 1000);
-  const stamp = (x: Date) => x.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-  const details = `Hizmet: ${a.service}\nTelefon: ${a.phone}\nE-posta: ${a.email}\n\n${a.message}`;
-  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(`U+ Studio — ${a.name}`)}&dates=${stamp(start)}/${stamp(end)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent("Merkez İncek Plaza, Reyhan Cd. No:3, İncek · Gölbaşı / Ankara")}&ctz=Europe/Istanbul`;
-}
-
-export default function AppointmentCardView({ appointment, reference, via = "whatsapp" }: Readonly<{ appointment: Appointment | null; reference: string; via?: "mail" | "whatsapp" }>) {
+export default function AppointmentCardView({
+  appointment,
+  token,
+  reference,
+  via = "whatsapp",
+}: Readonly<{ appointment: Appointment | null; token: string; reference: string; via?: "mail" | "whatsapp" }>) {
+  const [sharing, setSharing] = useState(false);
   if (!appointment) {
     return (
       <section className="mx-auto flex min-h-[100svh] max-w-xl flex-col items-center justify-center px-4 text-center text-ink">
@@ -47,7 +40,32 @@ export default function AppointmentCardView({ appointment, reference, via = "wha
   const first = appointment.name.trim().split(/\s+/)[0] ?? "";
   const wa = whatsappNumber(appointment.phone);
   const waLink = `https://wa.me/${wa}?text=${encodeURIComponent(`Merhaba ${first}, U+ Studio'dan yazıyoruz. Randevu talebinizi aldık.`)}`;
-  const gcal = calendarUrl(appointment);
+  const image = `/api/appointment-card?t=${encodeURIComponent(token)}`;
+
+  const shareCard = async () => {
+    const download = () => globalThis.location.assign(`${image}&download=1`);
+    if (!canShareFiles()) {
+      download();
+      return;
+    }
+    setSharing(true);
+    try {
+      const jpeg = await imageAsJpeg(image);
+      if (!jpeg) return download();
+      await navigator.share({ files: [new File([jpeg], CARD_FILE, { type: "image/jpeg" })], title: `U+ Studio randevu kartı · UP-${reference}` });
+    } catch (e) {
+      if ((e as Error)?.name !== "AbortError") download();
+    } finally {
+      setSharing(false);
+    }
+  };
+
+  const gcal = calendarUrl({
+    date: appointment.date,
+    time: appointment.time,
+    title: `U+ Studio — ${appointment.name}`,
+    details: `Hizmet: ${appointment.service}\nTelefon: ${appointment.phone}\nE-posta: ${appointment.email}\n\n${appointment.message}`,
+  });
   const actions = [
     { href: waLink, label: "WhatsApp'tan yanıtla", primary: true },
     { href: `tel:${appointment.phone.replace(/[^\d+]/g, "")}`, label: "Ara" },
@@ -75,24 +93,35 @@ export default function AppointmentCardView({ appointment, reference, via = "wha
             <dd className="col-span-2 break-all">{appointment.email}</dd>
           </div>
         </dl>
-        <div className="mt-10 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
+        <div className="mt-10 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
           {actions.map((a) => (
             <a
               key={a.label}
               href={a.href}
               target={a.href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
-              className={`inline-flex min-h-12 items-center justify-center gap-3 whitespace-nowrap rounded-[3px] border px-5 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors hover:bg-night ${
-                a.primary ? "col-span-2 border-bone sm:col-span-1" : "border-ink/30 hover:border-bone"
+              className={`group inline-flex min-h-12 w-full items-center justify-between gap-3 whitespace-nowrap rounded-[3px] border px-5 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors hover:bg-night ${
+                a.primary ? "border-bone" : "border-ink/30 hover:border-bone"
               }`}
             >
-              {a.label} →
+              {a.label}
+              <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           ))}
         </div>
       </motion.div>
       <motion.div className="min-w-0 lg:col-span-5 lg:col-start-8" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}>
         <Pass appointment={appointment} reference={reference} status={via === "mail" ? "E-postayla geldi" : "WhatsApp'tan geldi"} />
+        <div className="mx-auto mt-4 grid w-full max-w-[440px] grid-cols-2 gap-2">
+          <a href={`${image}&download=1`} download className={CARD_BUTTON}>
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={1.5} strokeLinecap="round" d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14" /></svg>
+            Kartı indir
+          </a>
+          <button type="button" onClick={shareCard} disabled={sharing} className={CARD_BUTTON}>
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={1.5} strokeLinecap="round" d="M12 3v12m0-12 4 4m-4-4-4 4M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5" /></svg>
+            Kartı paylaş
+          </button>
+        </div>
       </motion.div>
     </section>
   );
