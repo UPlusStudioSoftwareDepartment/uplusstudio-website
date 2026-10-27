@@ -41,7 +41,6 @@ export default function Navigation() {
     { href: `${prefix}/projects`, label: t("work") },
     { href: `${prefix}/about`, label: t("studio") },
     { href: `${prefix}/services`, label: t("services") },
-    { href: `${prefix}/faq`, label: t("faq") },
     { href: `${prefix}/glossary`, label: t("glossaryShort") },
     { href: `${prefix}/contact`, label: t("contact") },
   ];

@@ -10,7 +10,6 @@ const PATHS = [
   PAGE_PATH.projects,
   ...projects.map((p) => `/projects/${p.slug}`),
   PAGE_PATH.contact,
-  PAGE_PATH.faq,
   PAGE_PATH.glossary,
 ];
 

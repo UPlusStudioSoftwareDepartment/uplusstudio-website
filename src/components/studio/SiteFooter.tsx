@@ -23,7 +23,6 @@ export default function SiteFooter() {
     { href: `${prefix}/about`, label: t("nav.studio") },
     { href: `${prefix}/services`, label: t("nav.services") },
     { href: `${prefix}/contact`, label: t("nav.contact") },
-    { href: `${prefix}/faq`, label: t("nav.faq") },
     { href: `${prefix}/glossary`, label: t("nav.glossary") },
   ];
 

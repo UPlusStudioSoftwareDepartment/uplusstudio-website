@@ -340,3 +340,10 @@ select:focus-visible {
     transform: translateX(-50%);
   }
 }
+
+button[class~="border"]:not([class*="rounded-full"]),
+a[class~="border"]:not([class*="rounded-full"]),
+button[class*="bg-bone"]:not([class*="rounded-full"]),
+a[class*="bg-bone"]:not([class*="rounded-full"]) {
+  border-radius: 6px;
+}

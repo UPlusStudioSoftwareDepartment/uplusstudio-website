@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
+
 interface CompanyLocationProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   directionsLabel?: string;
@@ -24,11 +26,26 @@ export default function CompanyLocation({
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`;
 
   const config = SIZE_CONFIG[size];
+  const boxRef = useRef<HTMLDivElement>(null);
+  const [showMap, setShowMap] = useState(false);
+
+  useEffect(() => {
+    const box = boxRef.current;
+    if (!box) return;
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setShowMap(true);
+        io.disconnect();
+      }
+    }, { rootMargin: '200px' });
+    io.observe(box);
+    return () => io.disconnect();
+  }, []);
 
   return (
     <div className={`w-full ${config.margin}`}>
-      <div className={`relative ${config.height} overflow-hidden border border-line bg-paper-2`}>
-        <iframe
+      <div ref={boxRef} className={`relative ${config.height} overflow-hidden border border-line bg-paper-2`}>
+        {showMap && <iframe
           src={publicMapUrl}
           width="100%"
           height="100%"
@@ -38,7 +55,7 @@ export default function CompanyLocation({
           referrerPolicy="no-referrer-when-downgrade"
           className="h-full w-full"
           title={title}
-        />
+        />}
         <div className="pointer-events-none absolute inset-0 bg-paper mix-blend-multiply opacity-40" aria-hidden />
 
         <a

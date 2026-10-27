@@ -88,8 +88,8 @@ export default function HomeHero() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-night/60 to-transparent" aria-hidden />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-linear-to-t from-night/90 via-night/45 to-transparent" aria-hidden />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[2560px] flex-col justify-end px-4 pb-6 sm:px-8 sm:pb-10 lg:px-12">
-        <motion.p className="eyebrow mb-5 text-bone/75 sm:mb-8" {...fadeIn(0.2)}>
+      <div className="relative z-10 mx-auto flex h-full max-w-[2560px] flex-col px-4 pb-6 pt-[8.75rem] [justify-content:safe_flex-end] sm:px-8 sm:pb-10 sm:pt-32 lg:px-12 [@media(max-height:560px)]:pb-3 [@media(max-height:560px)]:pt-28">
+        <motion.p className="eyebrow mb-5 text-bone/75 sm:mb-8 [@media(max-height:560px)]:mb-2" {...fadeIn(0.2)}>
           {t("hero.eyebrow")}
           <span className="mt-1.5 block text-bone sm:ml-3 sm:mt-0 sm:inline">
             <span className="mr-3 hidden text-bone/40 sm:inline" aria-hidden>·</span>
@@ -97,8 +97,8 @@ export default function HomeHero() {
           </span>
         </motion.p>
 
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
-          <h1 className="display text-[clamp(2.6rem,8vw,9rem)]">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:items-end [@media(max-height:560px)]:justify-between [@media(max-height:560px)]:gap-4">
+          <h1 className="display min-w-0 text-[clamp(1.9rem,min(8vw,10dvh),9rem)]">
             <span className="sr-only">U+ Studio — </span>
             <LineReveal
               immediate
@@ -107,32 +107,32 @@ export default function HomeHero() {
             />
           </h1>
 
-          <motion.div className="inline-flex w-fit flex-col items-stretch self-start lg:mb-5 lg:self-end" {...fadeIn(1)}>
+          <motion.div className="inline-flex w-fit shrink-0 flex-col items-stretch self-start lg:mb-5 lg:self-end" {...fadeIn(1)}>
             <motion.p
-              className="w-0 min-w-full text-center font-serif text-[15px] italic leading-snug text-bone/90"
+              className="w-0 min-w-full text-center font-serif text-[10.5px] italic leading-snug text-bone/90 sm:text-[15px] [@media(max-height:560px)]:hidden"
               animate={celebrating ? { y: JUMP.y } : { y: 0 }}
               transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
             >
               {t("mascots.hero")}
             </motion.p>
-            <div className="relative z-10 mx-auto -mb-[3px] mt-1 flex w-28 justify-between self-center" aria-hidden onMouseEnter={() => setMascotsHovered(true)} onMouseLeave={() => setMascotsHovered(false)}>
+            <div className="relative z-10 -mb-[2px] mt-0.5 flex w-[3.25rem] justify-between self-center sm:-mb-[3px] sm:mx-auto sm:mt-1 sm:w-28" aria-hidden onMouseEnter={() => setMascotsHovered(true)} onMouseLeave={() => setMascotsHovered(false)}>
               <motion.div
                 style={{ originY: 1 }}
                 animate={celebrating ? { ...JUMP, x: [0, 0, 0, 0, 0, 0, 0, 0, 0], rotate: [0, -3, 17, 19, 19, 17, 0, 0, 0] } : { y: 0, x: 0, scaleX: 1, scaleY: 1, rotate: 0 }}
                 transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
               >
-                <Hayzer pose={celebrating ? "highfive" : "wave"} joy={mascotsHovered} className="-mr-2 h-16 w-16" />
+                <Hayzer pose={celebrating ? "highfive" : "wave"} joy={mascotsHovered} className="-mr-1 h-[1.85rem] w-[1.85rem] sm:-mr-2 sm:h-16 sm:w-16" />
               </motion.div>
               <motion.div
                 style={{ originY: 1 }}
                 animate={celebrating ? { ...JUMP, x: [0, 0, 0, 0, 0, 0, 0, 0, 0], rotate: [0, 3, -17, -19, -19, -17, 0, 0, 0] } : { y: 0, x: 0, scaleX: 1, scaleY: 1, rotate: 0 }}
                 transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
               >
-                <Rayzer pose={celebrating ? "highfive" : "idle"} joy={mascotsHovered} className="-ml-2 h-16 w-16" />
+                <Rayzer pose={celebrating ? "highfive" : "idle"} joy={mascotsHovered} className="-ml-1 h-[1.85rem] w-[1.85rem] sm:-ml-2 sm:h-16 sm:w-16" />
               </motion.div>
               <motion.svg
                 viewBox="-20 -20 40 40"
-                className="pointer-events-none absolute left-1/2 top-0 h-12 w-12 -translate-x-1/2 overflow-visible"
+                className="pointer-events-none absolute left-1/2 top-0 h-6 w-6 -translate-x-1/2 overflow-visible sm:h-12 sm:w-12"
                 initial={{ opacity: 0, scale: 0.2, y: -8 }}
                 animate={
                   celebrating
@@ -153,13 +153,13 @@ export default function HomeHero() {
               onBook={openAppointment}
               onMouseEnter={celebrate}
               label={t("nav.appointment")}
-              className="inline-flex min-h-11 items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:border-bone hover:bg-night"
+              className="inline-flex min-h-[1.9rem] items-center justify-center gap-1.5 border border-bone/50 px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.12em] text-bone transition-colors hover:border-bone hover:bg-night max-sm:[&_svg]:h-3 max-sm:[&_svg]:w-3 sm:min-h-11 sm:gap-2 sm:px-4 sm:py-2 sm:text-[12px]"
             />
           </motion.div>
         </div>
 
         <motion.div
-          className="mt-8 grid grid-cols-1 gap-6 border-t border-bone/25 pt-5 sm:mt-12 md:grid-cols-12 md:items-start"
+          className="mt-8 grid grid-cols-1 gap-6 border-t border-bone/25 pt-5 sm:mt-12 md:grid-cols-12 md:items-start [@media(max-height:560px)]:hidden"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
