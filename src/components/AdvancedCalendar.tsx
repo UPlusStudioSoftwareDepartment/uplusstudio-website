@@ -1,160 +1,113 @@
-"use client";
-
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useLocale } from "next-intl";
+import { motion } from "framer-motion";
 
 interface AdvancedCalendarProps {
   selectedDate: string;
   onDateSelect: (date: string) => void;
-  onTimeSelect: (time: string) => void;
-  selectedTime: string;
+  selectedTime?: string;
+  onTimeSelect?: (time: string) => void;
 }
 
-export default function AdvancedCalendar({ selectedDate, onDateSelect, onTimeSelect, selectedTime }: AdvancedCalendarProps) {
-  const { t } = useTranslation("appointment");
-  const [currentMonth, setCurrentMonth] = useState(new Date());
-  
-  const getDaysInMonth = (date: Date) => {
-    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-  };
+const MONTHS = {
+  tr: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+  en: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+};
 
-  const getFirstDayOfMonth = (date: Date) => {
-    return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-  };
+const WEEKDAYS = {
+  tr: ["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz"],
+  en: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+};
 
-  const generateCalendarDays = () => {
-    const daysInMonth = getDaysInMonth(currentMonth);
-    const firstDay = getFirstDayOfMonth(currentMonth);
-    const days = [];
-    
-    // Add empty cells for days before month starts
-    for (let i = 0; i < firstDay; i++) {
-      days.push(null);
-    }
-    
-    // Add days of the month
-    for (let i = 1; i <= daysInMonth; i++) {
-      days.push(i);
-    }
-    
-    return days;
-  };
+function startOfTomorrow(): Date {
+  const d = new Date();
+  d.setDate(d.getDate() + 1);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
 
-  const isDateDisabled = (day: number | null) => {
-    if (!day) return true;
-    const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return date < today;
-  };
+export default function AdvancedCalendar({ selectedDate, onDateSelect }: Readonly<AdvancedCalendarProps>) {
+  const locale = useLocale() === "tr" ? "tr" : "en";
+  const [currentMonth, setCurrentMonth] = useState(() => {
+    const t = startOfTomorrow();
+    return new Date(t.getFullYear(), t.getMonth(), 1);
+  });
 
-  const isDateSelected = (day: number | null) => {
-    if (!day) return false;
-    const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
-    const selected = new Date(selectedDate);
-    return date.toDateString() === selected.toDateString();
-  };
-
-  const handleDateClick = (day: number | null) => {
-    if (!day || isDateDisabled(day)) return;
-    const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
-    // Format date as YYYY-MM-DD in local timezone
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const dayStr = String(date.getDate()).padStart(2, '0');
-    onDateSelect(`${year}-${month}-${dayStr}`);
-  };
-
-  const monthNames = [
-    "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
-    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
+  const year = currentMonth.getFullYear();
+  const month = currentMonth.getMonth();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const leadingBlanks = (new Date(year, month, 1).getDay() + 6) % 7;
+  const cells: (number | null)[] = [
+    ...Array.from({ length: leadingBlanks }, () => null),
+    ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
   ];
 
-  const weekDays = ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"];
+  const tomorrow = startOfTomorrow();
+  const isDisabled = (day: number) => {
+    const date = new Date(year, month, day);
+    return date < tomorrow || date.getDay() === 0;
+  };
+  const isSelected = (day: number) =>
+    !!selectedDate && new Date(year, month, day).toDateString() === new Date(selectedDate).toDateString();
 
-  const navigateMonth = (direction: number) => {
-    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + direction, 1));
+  const now = new Date();
+  const canGoBack = new Date(year, month - 1, 1) >= new Date(now.getFullYear(), now.getMonth(), 1);
+
+  const select = (day: number) => {
+    if (isDisabled(day)) return;
+    onDateSelect(`${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`);
   };
 
+  const navButton = "w-9 h-9 flex items-center justify-center border border-line text-ink transition-colors hover:bg-night hover:text-bone hover:border-ink disabled:opacity-30 disabled:pointer-events-none";
+
   return (
-    <div className="space-y-4">
-      {/* Calendar */}
-      <div className="bg-white rounded-xl shadow-lg p-6">
-        <div className="flex items-center justify-between mb-6">
-          <button
-            onClick={() => navigateMonth(-1)}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
+    <div className="select-none">
+      <div className="flex items-end justify-between mb-5">
+        <p className="text-2xl font-serif text-ink leading-none">
+          {MONTHS[locale][month]} <span className="italic text-mute">{year}</span>
+        </p>
+        <div className="flex gap-1">
+          <button type="button" onClick={() => setCurrentMonth(new Date(year, month - 1, 1))} disabled={!canGoBack} className={navButton} aria-label={locale === "tr" ? "Önceki ay" : "Previous month"}>
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth={1.5} d="M15 19l-7-7 7-7" /></svg>
           </button>
-          
-          <h3 className="text-lg font-semibold">
-            {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
-          </h3>
-          
-          <button
-            onClick={() => navigateMonth(1)}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+          <button type="button" onClick={() => setCurrentMonth(new Date(year, month + 1, 1))} className={navButton} aria-label={locale === "tr" ? "Sonraki ay" : "Next month"}>
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth={1.5} d="M9 5l7 7-7 7" /></svg>
           </button>
-        </div>
-
-        {/* Week days */}
-        <div className="grid grid-cols-7 gap-2 mb-2">
-          {weekDays.map((day) => (
-            <div key={day} className="text-center text-sm font-medium text-gray-500 py-2">
-              {day}
-            </div>
-          ))}
-        </div>
-
-        {/* Calendar days */}
-        <div className="grid grid-cols-7 gap-2">
-          {generateCalendarDays().map((day, index) => (
-            <button
-              key={index}
-              onClick={() => handleDateClick(day)}
-              disabled={isDateDisabled(day)}
-              className={`
-                aspect-square flex items-center justify-center rounded-lg text-sm font-medium transition-all
-                ${!day ? 'invisible' : ''}
-                ${isDateDisabled(day) 
-                  ? 'text-gray-300 cursor-not-allowed' 
-                  : 'hover:bg-blue-50 cursor-pointer'
-                }
-                ${isDateSelected(day) 
-                  ? 'bg-blue-500 text-white hover:bg-blue-600' 
-                  : ''
-                }
-              `}
-            >
-              {day}
-            </button>
-          ))}
         </div>
       </div>
 
-      {/* Selected Info */}
-      {(selectedDate || selectedTime) && (
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-          <h4 className="font-medium text-blue-900 mb-2">{t("selected")}</h4>
-          <div className="text-sm text-blue-700 space-y-1">
-            {selectedDate && (
-              <p>{t("date")}: {new Date(selectedDate).toLocaleDateString('tr-TR', { 
-                day: 'numeric', 
-                month: 'long', 
-                year: 'numeric' 
-              })}</p>
-            )}
-            {selectedTime && <p>{t("time")}: {selectedTime}</p>}
+      <div className="grid grid-cols-7 border-t border-l border-line">
+        {WEEKDAYS[locale].map((d) => (
+          <div key={d} className="border-r border-b border-line py-2 text-center font-mono text-[11px] uppercase tracking-[0.12em] text-mute">
+            {d}
           </div>
-        </div>
-      )}
+        ))}
+        {cells.map((day, index) => {
+          if (day === null) {
+            return <div key={`blank-${index}`} className="border-r border-b border-line aspect-square bg-paper-2/40" aria-hidden />;
+          }
+          const disabled = isDisabled(day);
+          const selected = isSelected(day);
+          return (
+            <button
+              key={`${year}-${month}-${day}`}
+              type="button"
+              onClick={() => select(day)}
+              disabled={disabled}
+              aria-pressed={selected}
+              aria-label={new Date(year, month, day).toLocaleDateString(locale === "tr" ? "tr-TR" : "en-US", { weekday: "long", day: "numeric", month: "long" })}
+              className={`relative aspect-square border-r border-b border-line text-sm transition-colors ${
+                disabled ? "text-line cursor-not-allowed" : "text-ink hover:bg-night hover:text-bone"
+              } ${selected ? "text-paper" : ""}`}
+            >
+              {selected && (
+                <motion.span layoutId="calendar-selected" className="absolute inset-0 bg-ink" transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }} />
+              )}
+              <span className="relative z-10 font-mono text-[13px]">{day}</span>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

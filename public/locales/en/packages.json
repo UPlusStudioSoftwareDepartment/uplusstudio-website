@@ -2,7 +2,7 @@
   "title": "Architecture Packages",
   "subtitle": "Choose from our professional architecture packages tailored to your project size and needs",
   "popular": "Most Popular",
-  "project": "project",
+  "project": "Project",
   "purchase": "Purchase",
   "purchaseAlert": "Purchasing package: ",
   "customPackage": {
@@ -12,6 +12,7 @@
   },
   "basic": {
     "name": "Basic Package",
+    "duration": "2 Weeks",
     "features": {
       "concept": "Concept Design",
       "2dDrawings": "2D Technical Drawings",
@@ -21,6 +22,7 @@
   },
   "starter": {
     "name": "Starter Package",
+    "duration": "3 Weeks",
     "features": {
       "concept": "Basic Concept Design",
       "2dDrawings": "2D Technical Drawings",
@@ -31,17 +33,19 @@
   },
   "professional": {
     "name": "Professional Package",
+    "duration": "4 Weeks",
     "features": {
       "concept": "Detailed Concept Design",
       "3dModeling": "3D Modeling",
       "renderings": "Photorealistic Renderings",
       "technicalDrawings": "Technical Drawings",
       "consultation": "Unlimited Consultation",
-      "unlimitedRevisions": "Unlimited Revisions"
+      "unlimitedRevisions": "3 Revision Rounds"
     }
   },
   "business": {
     "name": "Business Package",
+    "duration": "6 Weeks",
     "features": {
       "concept": "Business Concept Design",
       "3dModeling": "Advanced 3D Modeling",
@@ -49,11 +53,12 @@
       "technicalDrawings": "Detailed Technical Drawings",
       "materialSelection": "Material Selection Support",
       "consultation": "VIP Consultation",
-      "unlimitedRevisions": "Unlimited Revisions"
+      "unlimitedRevisions": "3 Revision Rounds"
     }
   },
   "enterprise": {
     "name": "Enterprise Package",
+    "duration": "8 Weeks",
     "features": {
       "concept": "Enterprise Concept Design",
       "3dModeling": "Professional 3D Modeling",
@@ -62,11 +67,12 @@
       "technicalDrawings": "Enterprise Technical Documentation",
       "materialSelection": "Professional Material Selection",
       "consultation": "Strategic Consultation",
-      "unlimitedRevisions": "Unlimited Revisions"
+      "unlimitedRevisions": "3 Revision Rounds"
     }
   },
   "premium": {
     "name": "Premium Package",
+    "duration": "12 Weeks",
     "features": {
       "concept": "Custom Concept Design",
       "3dModeling": "Advanced 3D Modeling",
@@ -75,7 +81,7 @@
       "technicalDrawings": "Full Technical Documentation",
       "materialSelection": "Material Selection Support",
       "consultation": "VIP Consultation",
-      "unlimitedRevisions": "Unlimited Revisions",
+      "unlimitedRevisions": "3 Revision Rounds",
       "projectManagement": "Project Management",
       "support": "24/7 Support"
     }

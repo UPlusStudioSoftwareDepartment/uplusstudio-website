@@ -1,23 +1,33 @@
 {
-  "title": "Ödeme Sayfası",
-  "orderSummary": "Sipariş Özeti",
-  "included": "Paket İçeriği",
-  "subtotal": "Ara Toplam",
-  "tax": "KDV (%18)",
-  "total": "Genel Toplam",
-  "paymentInfo": "Ödeme Bilgileri",
-  "cardInfo": "Kart Bilgileri",
-  "cardNumber": "Kart Numarası",
-  "cardName": "Kart Üzerindeki İsim",
-  "expiryDate": "Son Kullanma Tarihi",
-  "cvv": "CVV",
-  "billingInfo": "Fatura Bilgileri",
-  "email": "E-posta",
-  "phone": "Telefon",
-  "address": "Adres",
-  "city": "Şehir",
-  "postalCode": "Posta Kodu",
-  "terms": "Kullanım koşullarını kabul ediyorum",
-  "payNow": "Şimdi Öde",
-  "processing": "İşleniyor..."
+  "title": "Projenizi Başlatın",
+  "subtitle": "Hayalinizdeki projeyi gerçeğe dönüştürmek için ilk adımı atın.",
+  "form": {
+    "personalInfo": "Kişisel Bilgiler",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "projectInfo": "Proje Detayları",
+    "companyName": "Şirket / Proje Adı",
+    "projectType": "Proje Türü",
+    "notes": "Proje Hakkında Notlar",
+    "submit": "Başvuruyu Tamamla",
+    "submitting": "İşleniyor...",
+    "terms": "Hizmet Şartları'nı kabul ediyorum."
+  },
+  "validation": {
+    "firstNameRequired": "Ad zorunludur.",
+    "lastNameRequired": "Soyad zorunludur.",
+    "emailRequired": "E-posta zorunludur.",
+    "emailInvalid": "Geçersiz e-posta adresi.",
+    "phoneRequired": "Telefon numarası zorunludur.",
+    "companyNameRequired": "Şirket veya Proje adı zorunludur.",
+    "notesMin": "Lütfen projeniz hakkında biraz daha detay verin."
+  },
+  "summary": {
+    "title": "Sipariş Özeti",
+    "duration": "Teslimat Süresi",
+    "total": "Toplam",
+    "features": "Paket İçeriği"
+  }
 }

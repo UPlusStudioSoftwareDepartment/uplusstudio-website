@@ -9,108 +9,92 @@ interface GoogleMapProps {
   zoom: number;
 }
 
+const STUDIO_POSITION = { lat: 39.8794, lng: 32.7348 };
+
+const GRAYSCALE_STYLES = [
+  { elementType: 'geometry', stylers: [{ saturation: -100 }, { lightness: 8 }] },
+  { elementType: 'labels.text.fill', stylers: [{ color: '#6e6a63' }] },
+  { elementType: 'labels.text.stroke', stylers: [{ color: '#f3f0ea' }] },
+  { elementType: 'labels.icon', stylers: [{ saturation: -100 }, { lightness: 20 }] },
+  { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#ffffff' }] },
+  { featureType: 'road', elementType: 'geometry.stroke', stylers: [{ color: '#d6d0c5' }] },
+  { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#d6d0c5' }] },
+  { featureType: 'poi', stylers: [{ visibility: 'simplified' }, { saturation: -100 }] },
+  { featureType: 'landscape', elementType: 'geometry', stylers: [{ color: '#ede9e1' }] },
+];
+
+function MapStatus({ children }: Readonly<{ children: string }>) {
+  return (
+    <div className="flex h-full items-center justify-center bg-paper-2">
+      <span className="font-mono text-[12px] uppercase tracking-[0.14em] text-mute">{children}</span>
+    </div>
+  );
+}
+
 const render = (status: Status) => {
   switch (status) {
     case Status.LOADING:
-      return <div className="flex items-center justify-center h-full bg-gray-100 rounded-lg">
-        <span className="text-gray-500">Loading map...</span>
-      </div>;
+      return <MapStatus>Loading map…</MapStatus>;
     case Status.FAILURE:
-      return <div className="flex items-center justify-center h-full bg-gray-100 rounded-lg">
-        <span className="text-gray-500">Error loading map</span>
-      </div>;
-    case Status.SUCCESS:
-      return <MapComponent />;
+      return <MapStatus>Error loading map</MapStatus>;
     default:
       return <></>;
   }
 };
 
-const MapComponent = () => {
+const MapComponent = ({ zoom }: Readonly<{ zoom: number }>) => {
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!mapRef.current) return;
 
-    const map = new window.google.maps.Map(mapRef.current, {
-      center: { lat: 39.8794, lng: 32.7348 }, // Ankara coordinates
-      zoom: 16,
-      styles: [
-        {
-          featureType: "all",
-          elementType: "geometry.fill",
-          stylers: [{ weight: "2.00" }]
-        },
-        {
-          featureType: "all",
-          elementType: "geometry.stroke",
-          stylers: [{ color: "#9c9c9c" }]
-        },
-        {
-          featureType: "all",
-          elementType: "labels.text",
-          stylers: [{ visibility: "on" }]
-        }
-      ]
+    const map = new globalThis.google.maps.Map(mapRef.current, {
+      center: STUDIO_POSITION,
+      zoom,
+      disableDefaultUI: true,
+      zoomControl: true,
+      styles: GRAYSCALE_STYLES,
     });
 
-    const marker = new window.google.maps.Marker({
-      position: { lat: 39.8794, lng: 32.7348 },
-      map: map,
-      title: "UPlus Studio"
+    const marker = new globalThis.google.maps.Marker({
+      position: STUDIO_POSITION,
+      map,
+      title: "U+ Studio",
     });
 
     return () => {
-      // Cleanup if needed
+      marker.setMap(null);
     };
-  }, []);
+  }, [zoom]);
 
-  return <div ref={mapRef} style={{ width: '100%', height: '100%' }} />;
+  return <div ref={mapRef} className="h-full w-full" />;
 };
 
-export default function GoogleMap({ address, height, zoom }: GoogleMapProps) {
+export default function GoogleMap({ address, height, zoom }: Readonly<GoogleMapProps>) {
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
-  // Fallback placeholder when API key is not available
   if (!apiKey) {
     return (
-      <div style={{ height }} className="relative bg-gray-100 rounded-lg overflow-hidden">
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-          <div className="text-center">
-            <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <h3 className="text-lg font-semibold text-gray-700 mb-2">Map View</h3>
-            <p className="text-sm text-gray-600 mb-4">{address}</p>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 max-w-sm">
-              <p className="text-xs text-blue-700">
-                <strong>Developer:</strong> Add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to .env.local to enable interactive maps
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="absolute bottom-4 right-4">
-          <a 
-            href={`https://maps.google.com/?q=${encodeURIComponent(address)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors"
-          >
-            Open in Google Maps
-          </a>
-        </div>
+      <div style={{ height }} className="relative flex flex-col justify-between border border-line bg-paper-2 p-6">
+        <span className="font-mono text-[12px] uppercase tracking-[0.14em] text-mute">Map</span>
+        <p className="max-w-sm text-[17px] leading-relaxed text-ink">{address}</p>
+        <a
+          href={`https://maps.google.com/?q=${encodeURIComponent(address)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="self-start border-b border-ink/40 pb-1 text-[15px] text-ink transition-colors hover:border-clay hover:text-clay"
+        >
+          Open in Google Maps ↗
+        </a>
       </div>
     );
   }
 
   return (
-    <div style={{ height }}>
-      <Wrapper 
-        apiKey={apiKey} 
-        render={render}
-        libraries={['places']}
-      />
+    <div style={{ height }} className="overflow-hidden border border-line">
+      <Wrapper apiKey={apiKey} render={render} libraries={['places']}>
+        <MapComponent zoom={zoom} />
+      </Wrapper>
     </div>
   );
 }

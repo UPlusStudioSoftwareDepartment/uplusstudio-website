@@ -1,18 +1,35 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">404 - Sayfa Bulunamadı</h1>
-        <p className="text-gray-600 mb-8">Aradığınız sayfa mevcut değil.</p>
-        <Link 
-          href="/" 
-          className="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors"
-        >
-          Ana Sayfaya Dön
-        </Link>
+    <main className="relative min-h-[100svh] bg-paper text-ink">
+      <div className="mx-auto flex min-h-[100svh] max-w-[2560px] flex-col justify-center px-4 py-20 sm:px-8 lg:px-12">
+        <p className="eyebrow flex flex-wrap items-center gap-x-4 gap-y-2 text-mute">
+          <span className="whitespace-nowrap text-ink">U+ Studio</span>
+          <span className="h-px w-10 bg-ink/40" aria-hidden />
+          <span>Sayfa bulunamadı · Page not found</span>
+        </p>
+
+        <h1 className="display mt-8 text-[clamp(8rem,32vw,30rem)] leading-[0.82] text-ink">
+          4<em className="font-serif font-normal italic tracking-normal">0</em>4
+        </h1>
+
+        <div className="mt-10 flex flex-col gap-6 border-t border-line pt-6 sm:flex-row sm:items-baseline sm:justify-between">
+          <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-mute">Ankara · TR</p>
+          <div className="flex flex-wrap items-baseline gap-x-10 gap-y-4">
+            <Link
+              href="/tr"
+              className="group inline-flex items-center gap-3 border-b border-ink pb-1 text-[17px] text-ink hover:border-clay hover:text-clay"
+            >
+              <span className="transition-transform duration-300 group-hover:-translate-x-1" aria-hidden>←</span>
+              Ana sayfaya dön
+            </Link>
+            <Link href="/en" lang="en" className="font-mono text-[12px] uppercase tracking-[0.14em] text-mute hover:text-clay">
+              Back to home
+            </Link>
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

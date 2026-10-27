@@ -1,0 +1,3620 @@
+{
+  "title": "Architectural Glossary",
+  "subtitle": "Explaining architectural terms in a language everyone can understand.",
+  "searchPlaceholder": "Search terms...",
+  "foundCount": "{{count}} terms found",
+  "terms": [
+    {
+      "key": "abara",
+      "term": "Abara (Vaulted Street Passage)",
+      "definition": "A vaulted (arch-ceilinged) passage built over a street, linking the houses on both sides. It is typical of the old town fabric of Mardin and south-eastern Turkey.",
+      "simple_definition": "A covered, arched passage built over a street that joins the houses on either side.",
+      "image_id": "photo-1548543604-a87c9909abec"
+    },
+    {
+      "key": "acoustic_ceiling",
+      "term": "Acoustic Ceiling",
+      "definition": "A ceiling made of, or covered with, sound-absorbing panels. It cuts down echo and background noise so that speech in the room sounds clearer.",
+      "simple_definition": "A ceiling that soaks up echo and makes a room quieter.",
+      "image_id": "photo-1519710164239-da123dc03ef4"
+    },
+    {
+      "key": "akustik_panel",
+      "term": "Acoustic Panel",
+      "definition": "A panel fixed to a wall or ceiling that absorbs sound and reduces echo. It is usually made of fabric-covered mineral wool, felt, wooden slats or special foam.",
+      "simple_definition": "A panel hung on a wall to reduce echo and soften the sound in a room.",
+      "image_id": ""
+    },
+    {
+      "key": "akustik",
+      "term": "Acoustics",
+      "definition": "The science of how sound travels, bounces and is absorbed in a space; in architecture it is used to design rooms that sound clear and are free of unwanted noise.",
+      "simple_definition": "How sound behaves in a room, and how to make it sound better.",
+      "image_id": "arch_akustik"
+    },
+    {
+      "key": "aderans",
+      "term": "Bond (Adhesion)",
+      "definition": "How strongly two materials grip each other; especially how well concrete grips the steel bars (rebar) inside it. Poor bond lets the bars slip out of the concrete.",
+      "simple_definition": "How tightly concrete holds on to the steel bars inside it.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "estetik",
+      "term": "Aesthetics",
+      "definition": "How pleasing a building or space looks and feels, through the harmony of its shapes, proportions, colours and materials.",
+      "simple_definition": "How beautiful and well put together a building or room looks.",
+      "image_id": "arch_estetik"
+    },
+    {
+      "key": "aglomera",
+      "term": "Engineered Stone (Agglomerate)",
+      "definition": "An artificial stone slab made by binding crushed marble or quartz with resin and pressing it. It is used for kitchen worktops, bathrooms and flooring.",
+      "simple_definition": "Man-made stone made from crushed stone and glue, often used for kitchen countertops.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "agrega",
+      "term": "Aggregate",
+      "definition": "The sand, gravel and crushed stone mixed into concrete, mortar and asphalt. It makes up most of the mix and gives it strength.",
+      "simple_definition": "The sand and gravel mixed into concrete.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "agora",
+      "term": "Agora",
+      "definition": "The open public square of an ancient Greek city, used for markets and gatherings and surrounded by public buildings and covered walkways.",
+      "simple_definition": "The main market and meeting square of an ancient Greek city.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "hava",
+      "term": "Air Gap (Cavity)",
+      "definition": "A narrow space deliberately left between the layers of a wall or behind façade cladding. It lets moisture escape and helps with insulation.",
+      "simple_definition": "A thin gap left inside a wall to keep it dry and better insulated.",
+      "image_id": "arch_hava"
+    },
+    {
+      "key": "amerikan_mutfak",
+      "term": "Open-Plan Kitchen",
+      "definition": "A kitchen layout with no wall between the kitchen and the living room, so both share one space; often a counter or breakfast bar marks the boundary. In Turkey it is commonly called an \"American kitchen\".",
+      "simple_definition": "A kitchen that is open to the living room, with no wall between them.",
+      "image_id": "arch_amerikan_mutfak"
+    },
+    {
+      "key": "ett",
+      "term": "Site Survey (Preliminary Study)",
+      "definition": "Inspecting, measuring and recording a plot, an existing building or its surroundings before a project starts. Design decisions are based on this information.",
+      "simple_definition": "Studying and measuring a site before starting the design.",
+      "image_id": "arch_ett"
+    },
+    {
+      "key": "ankraj",
+      "term": "Anchor (Anchorage)",
+      "definition": "A steel rod, bolt or fixing system used to fasten an element firmly to concrete, a wall or rock. It is common in retaining walls and façade cladding.",
+      "simple_definition": "A steel fixing that locks something firmly into concrete or a wall.",
+      "image_id": "arch_ankraj"
+    },
+    {
+      "key": "daire",
+      "term": "Apartment / Flat",
+      "definition": "A self-contained home within a multi-storey building, with its own front door, kitchen and bathroom.",
+      "simple_definition": "A single home inside a larger building.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "apsit",
+      "term": "Apse",
+      "definition": "A semicircular or polygonal recess, usually covered by a half-dome, at the end of a church or basilica, where the altar typically stands.",
+      "simple_definition": "The rounded end of a church.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "arasta",
+      "term": "Arasta",
+      "definition": "An Ottoman market street, often roofed, where shops of the same trade line both sides. Its rents usually funded a nearby mosque.",
+      "simple_definition": "An old covered shopping street lined with shops of the same trade.",
+      "image_id": "arch_arasta"
+    },
+    {
+      "key": "ardak",
+      "term": "Arbour (Bower)",
+      "definition": "A light garden structure of posts and a lattice roof, covered with vines or climbing plants to create shade.",
+      "simple_definition": "A garden shelter covered with climbing plants for shade.",
+      "image_id": "arch_ardak"
+    },
+    {
+      "key": "arkat",
+      "term": "Arcade",
+      "definition": "A row of arches resting on columns or piers, often forming a covered walkway alongside a building.",
+      "simple_definition": "A row of arches sitting on columns.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "arch",
+      "term": "Arch",
+      "definition": "A curved structure that spans a door, window or passage opening and carries the weight above it down to the supports on each side.",
+      "simple_definition": "A curved top over an opening that holds up the wall above.",
+      "image_id": "photo-1525824236856-8d0434670544"
+    },
+    {
+      "key": "kemerli",
+      "term": "Arched",
+      "definition": "Describes a door, window, passage or building whose top is formed as an arch.",
+      "simple_definition": "Having a rounded, arch-shaped top.",
+      "image_id": "arch_kemerli"
+    },
+    {
+      "key": "mimari",
+      "term": "Architecture",
+      "definition": "The profession of designing buildings and their surroundings so they are useful, safe and beautiful, and of guiding how they are built. An architect thinks about room layout, light, materials and appearance together.",
+      "simple_definition": "The art and job of designing houses and buildings.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "arsitrav",
+      "term": "Architrave",
+      "definition": "In classical architecture, the horizontal stone beam that rests on top of the column capitals and links the columns together.",
+      "simple_definition": "The stone beam laid across the tops of columns in a classical temple.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "pervaz",
+      "term": "Architrave / Door Casing",
+      "definition": "The frame-like trim, usually wood or MDF, that covers the joint between a door or window frame and the wall. It hides the gap and also acts as decoration.",
+      "simple_definition": "The trim strip that frames the edges of a door or window.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "art_deco",
+      "term": "Art Deco",
+      "definition": "An architecture and design style born in France in the 1920s–30s and popular worldwide, known for geometric patterns, stepped forms, glossy materials and elegant ornament.",
+      "simple_definition": "The glamorous 1920s style with bold geometric patterns.",
+      "image_id": "arch_art_deco"
+    },
+    {
+      "key": "asfalt",
+      "term": "Asphalt",
+      "definition": "A black material made by mixing bitumen with sand and gravel, used to surface roads, car parks and some roofs.",
+      "simple_definition": "The black material used to pave roads.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "atrium",
+      "term": "Atrium",
+      "definition": "In ancient Roman houses, an inner court open to the sky; today, a tall, light-filled space several storeys high at the centre of a building, usually under a glass roof.",
+      "simple_definition": "A tall open space in the middle of a building, often with a glass roof.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "tavan_aras",
+      "term": "Attic / Roof Space",
+      "definition": "The space between the ceiling of the top floor and the roof, usually not fitted out as a living area. It is mostly used for storage and roof insulation.",
+      "simple_definition": "The space between the top ceiling and the roof where things are stored.",
+      "image_id": "arch_tavan_aras"
+    },
+    {
+      "key": "at_kat",
+      "term": "Attic Floor (Loft)",
+      "definition": "A storey under a pitched roof that is fitted out as a room, office or storage. Its ceiling is usually sloped and low in places because it follows the roof.",
+      "simple_definition": "A usable top floor tucked under a sloping roof.",
+      "image_id": "arch_at_kat"
+    },
+    {
+      "key": "otomasyon",
+      "term": "Building Automation",
+      "definition": "Controlling systems such as lighting, heating and cooling, blinds, alarms and doors automatically or from a phone, using sensors and software. In homes it is often called a \"smart home\".",
+      "simple_definition": "A system that lets lights, heating or blinds work on their own or from your phone.",
+      "image_id": "arch_otomasyon"
+    },
+    {
+      "key": "avangard",
+      "term": "Avant-Garde",
+      "definition": "An approach in architecture and art that deliberately breaks with tradition to put forward new, experimental and daring ideas.",
+      "simple_definition": "Bold, experimental design that breaks the usual rules.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "aksonometrik",
+      "term": "Axonometric Drawing",
+      "definition": "A type of 3D technical drawing that shows a building from above and from two sides at once, while keeping its measurements true to scale.",
+      "simple_definition": "A 3D-looking drawing of a building that keeps the real proportions.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "balkon",
+      "term": "Balcony",
+      "definition": "An open platform that projects from a building's façade, is enclosed by a railing and is reached through a door from a room.",
+      "simple_definition": "A small railed outdoor platform sticking out from a building.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "balon_cerceve",
+      "term": "Balloon Framing",
+      "definition": "A light timber framing system for houses in which thin, standard-sized studs run continuously through more than one storey and are nailed together. It spread in 19th-century America.",
+      "simple_definition": "A quick way of building a house frame from thin wooden studs.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "besik_tonoz",
+      "term": "Barrel Vault",
+      "definition": "A curved roof or ceiling shaped like half a cylinder, formed by one continuous arch. It is used to cover long rooms and corridors.",
+      "simple_definition": "A long, rounded ceiling shaped like a tunnel.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "barrisol_ceiling",
+      "term": "Stretch Ceiling (Barrisol)",
+      "definition": "A ceiling made of a thin PVC or fabric membrane stretched across tracks fixed around the room's edges. It gives a perfectly smooth finish and can be backlit to glow.",
+      "simple_definition": "A thin sheet stretched tight like a drum across the ceiling, sometimes lit from behind.",
+      "image_id": "photo-1516455590571-18256e5bb9ff"
+    },
+    {
+      "key": "bodrum",
+      "term": "Basement",
+      "definition": "A storey of a building that lies wholly or partly below ground level, used for storage, parking, plant rooms or living space.",
+      "simple_definition": "The floor of a building that is below ground.",
+      "image_id": "arch_bodrum"
+    },
+    {
+      "key": "bauhaus",
+      "term": "Bauhaus",
+      "definition": "A German design school (1919–1933) that brought together art, craft and industrial production; its name became shorthand for plain, functional modern design without ornament.",
+      "simple_definition": "A famous German school whose name stands for simple, practical, unornamented design.",
+      "image_id": "arch_bauhaus"
+    },
+    {
+      "key": "cumbali_ev",
+      "term": "House with Bay Windows (Cumbalı House)",
+      "definition": "A traditional Turkish house whose upper floors have enclosed projecting bays (cumba) overhanging the street, bringing in extra light and views.",
+      "simple_definition": "An old Turkish house with windowed rooms jutting out over the street.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kiris",
+      "term": "Beam",
+      "definition": "A horizontal structural member spanning between columns or walls that carries the load of the floors and walls above and passes it to the columns. It can be concrete, steel or timber.",
+      "simple_definition": "A strong horizontal bar that holds up floors and ceilings.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kirili",
+      "term": "Beamed Ceiling",
+      "definition": "A ceiling where the structural or decorative beams are left exposed rather than hidden. Timber beamed ceilings give a room a warm, rustic feel.",
+      "simple_definition": "A ceiling with its wooden or steel beams left on show.",
+      "image_id": "arch_kirili"
+    },
+    {
+      "key": "bedesten",
+      "term": "Bedesten",
+      "definition": "A thick-walled, domed, lockable market hall in Ottoman bazaars where valuable goods such as fine fabrics and jewellery were stored and sold.",
+      "simple_definition": "A strong, domed Ottoman market hall for valuable goods.",
+      "image_id": "arch_bedesten"
+    },
+    {
+      "key": "biyofilik_tasarm",
+      "term": "Biophilic Design",
+      "definition": "A design approach that strengthens people's connection to nature by bringing daylight, plants, water, natural materials and views of nature into buildings.",
+      "simple_definition": "Designing spaces with plants, daylight and natural materials to feel closer to nature.",
+      "image_id": "arch_biyofilik_tasarm"
+    },
+    {
+      "key": "bitum",
+      "term": "Bitumen",
+      "definition": "A sticky, waterproof black substance derived from petroleum. It is used to waterproof roofs and foundations and as the binder in asphalt.",
+      "simple_definition": "A sticky black material that keeps water out of roofs and foundations.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "bulon",
+      "term": "Bolt",
+      "definition": "A thick threaded metal rod used with a nut to clamp steel or timber parts tightly together.",
+      "simple_definition": "A thick screw used with a nut to hold parts together.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kekl",
+      "term": "Bracket",
+      "definition": "A support, often carved timber or stone, that projects diagonally from a wall to hold up eaves, bay windows or shelves; in traditional Turkish houses it is called \"eli böğründe\".",
+      "simple_definition": "A support sticking out from a wall that holds up a roof edge, bay or shelf.",
+      "image_id": "arch_kekl"
+    },
+    {
+      "key": "brick_facade",
+      "term": "Brick Façade",
+      "definition": "A building façade whose outer surface is built or clad in exposed brick. It is durable, low-maintenance and gives a warm, classic look.",
+      "simple_definition": "The outside of a building finished in visible brick.",
+      "image_id": "photo-1584622650111-993a426fbf0a"
+    },
+    {
+      "key": "brtalizm",
+      "term": "Brutalism",
+      "definition": "An architectural movement popular from the 1950s to the 1970s, known for raw unpainted concrete, rough textures and massive, heavy forms.",
+      "simple_definition": "A style using bare grey concrete and big, chunky shapes.",
+      "image_id": "arch_brtalizm"
+    },
+    {
+      "key": "bina",
+      "term": "Building",
+      "definition": "A permanent structure with walls and a roof in which people live, work or store things, such as a house, school or office.",
+      "simple_definition": "Any structure with walls and a roof that people can go inside.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ankastre",
+      "term": "Built-in (Integrated) Appliance",
+      "definition": "An appliance such as an oven, hob or dishwasher that is fitted into kitchen cabinets or a wall rather than standing on its own.",
+      "simple_definition": "A kitchen appliance fitted inside the cupboards.",
+      "image_id": "arch_ankastre"
+    },
+    {
+      "key": "payanda",
+      "term": "Buttress",
+      "definition": "A thick stone or brick support built against the outside of a tall wall to stop it from leaning outward or toppling. It is common on churches and castle walls.",
+      "simple_definition": "A thick support leaning against a wall from outside so it does not fall over.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "hazeran",
+      "term": "Cane Webbing",
+      "definition": "An open, patterned weave made from thin strips of rattan, used on chair seats, chair backs and cabinet doors.",
+      "simple_definition": "The see-through woven rattan pattern found on chairs.",
+      "image_id": "arch_hazeran"
+    },
+    {
+      "key": "konsol",
+      "term": "Cantilever",
+      "definition": "A structural element fixed at only one end to a wall or column, with the other end projecting freely with no support. Balconies and roof overhangs are often cantilevers.",
+      "simple_definition": "Something that sticks out from a wall with nothing holding up its far end.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "dlger",
+      "term": "Carpenter (Building Carpenter)",
+      "definition": "A tradesperson who builds timber roofs, concrete formwork, scaffolding and other structural woodwork on a building site, as opposed to a cabinetmaker who makes furniture.",
+      "simple_definition": "A builder who makes the wooden parts of a building, such as the roof frame.",
+      "image_id": "arch_dlger"
+    },
+    {
+      "key": "oymaclk",
+      "term": "Carving",
+      "definition": "The craft of creating patterns, figures or decoration by cutting away material such as wood, stone or marble with chisels and similar tools. It is common on traditional doors, ceilings and furniture.",
+      "simple_definition": "The craft of cutting patterns into wood or stone with tools.",
+      "image_id": "arch_oymaclk"
+    },
+    {
+      "key": "tavan_vantilatr",
+      "term": "Ceiling Fan",
+      "definition": "An electric fan hung from the ceiling whose large blades turn to move the air in a room and make it feel cooler. Many models also include a light.",
+      "simple_definition": "A fan fixed to the ceiling that spins to cool the room.",
+      "image_id": "arch_tavan_vantilatr"
+    },
+    {
+      "key": "cimento",
+      "term": "Cement",
+      "definition": "A grey powder made by firing limestone and clay at high temperature and grinding them. It hardens when mixed with water and is the binder in concrete and mortar.",
+      "simple_definition": "The grey powder that hardens with water and glues concrete together.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "pahlama",
+      "term": "Chamfering",
+      "definition": "Cutting a sharp corner of a material at an angle to make a small flat bevel. It is done on wood, stone, concrete and furniture edges for safety and appearance.",
+      "simple_definition": "Cutting off a sharp corner at an angle to soften it.",
+      "image_id": "arch_pahlama"
+    },
+    {
+      "key": "chesterfield",
+      "term": "Chesterfield Sofa",
+      "definition": "A classic English sofa with rolled arms the same height as its back and deep-buttoned (tufted) upholstery, usually in leather.",
+      "simple_definition": "A classic buttoned leather sofa with rolled arms.",
+      "image_id": "arch_chesterfield"
+    },
+    {
+      "key": "sirkulasyon",
+      "term": "Circulation",
+      "definition": "All the spaces people use to move around a building, such as corridors, halls, stairs and lifts. Good circulation makes getting from place to place short and easy.",
+      "simple_definition": "The routes you use to move between rooms in a building.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "rezervuar",
+      "term": "Cistern (Toilet Tank)",
+      "definition": "The water tank behind a toilet or hidden inside the wall that empties to flush the toilet. Ones hidden in the wall are called concealed cisterns.",
+      "simple_definition": "The water tank that empties when you flush the toilet.",
+      "image_id": "arch_rezervuar"
+    },
+    {
+      "key": "ada",
+      "term": "City Block",
+      "definition": "In a zoning plan, an area of land bounded by streets on all sides and divided into one or more plots.",
+      "simple_definition": "A piece of land surrounded by streets on all sides.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cephe_kaplama",
+      "term": "Cladding",
+      "definition": "An outer layer of stone, composite panels, ceramic, timber or metal fixed over a building's external walls. It protects the structure from the weather and defines how the building looks.",
+      "simple_definition": "The protective and decorative outer skin on a building's walls.",
+      "image_id": "arch_cephe_kaplama"
+    },
+    {
+      "key": "klasik",
+      "term": "Classical Architecture",
+      "definition": "Architecture based on the column orders, symmetry, pediments and balanced proportions of ancient Greek and Roman buildings, revived many times in later centuries.",
+      "simple_definition": "The symmetrical, column-based style of ancient Greece and Rome.",
+      "image_id": "arch_klasik"
+    },
+    {
+      "key": "kil",
+      "term": "Clay",
+      "definition": "A fine-grained earth that can be shaped when wet and hardens when dried or fired. It is the main raw material of bricks, roof tiles, ceramics and adobe.",
+      "simple_definition": "Mouldable earth used to make bricks and roof tiles.",
+      "image_id": "arch_kil"
+    },
+    {
+      "key": "muvakkithane",
+      "term": "Muvakkithane (Timekeeper's House)",
+      "definition": "A small Ottoman building, usually in a mosque courtyard, where prayer times were calculated and the town's clocks were set. The official who worked there was called the muvakkit.",
+      "simple_definition": "A small old building where the exact time and prayer times were worked out.",
+      "image_id": "arch_muvakkithane"
+    },
+    {
+      "key": "orta_sehpa",
+      "term": "Coffee Table",
+      "definition": "A low table placed in front of or between sofas and armchairs, used for drinks, books or decorative objects.",
+      "simple_definition": "The low table in front of the sofa in a living room.",
+      "image_id": "arch_orta_sehpa"
+    },
+    {
+      "key": "coffered_ceiling",
+      "term": "Coffered Ceiling",
+      "definition": "A ceiling made of a grid of sunken square, rectangular or octagonal panels. It is decorative and also lightens the ceiling.",
+      "simple_definition": "A ceiling covered in a grid of sunken square panels.",
+      "image_id": "photo-1600585154340-be6161a56a0c"
+    },
+    {
+      "key": "renk_paleti",
+      "term": "Color Palette",
+      "definition": "A group of matching colors chosen to be used together in a room or project. It keeps the colors of walls, furniture, fabrics and accessories consistent.",
+      "simple_definition": "A set of colors chosen to look good together in a room.",
+      "image_id": "arch_renk_paleti"
+    },
+    {
+      "key": "column",
+      "term": "Column",
+      "definition": "A vertical structural member that collects the load of the floors and beams above and carries it down to the foundation. Usually concrete or steel, it must never be cut or drilled carelessly.",
+      "simple_definition": "An upright support that holds up the building and carries its weight to the ground.",
+      "image_id": "photo-1416339134316-0e91dc9deb30"
+    },
+    {
+      "key": "konfor",
+      "term": "Comfort (Indoor Comfort)",
+      "definition": "The state in which temperature, humidity, air quality, light and sound levels in a space make people feel at ease. Good design balances these conditions.",
+      "simple_definition": "When a room's temperature, light and sound make you feel at ease.",
+      "image_id": "arch_konfor"
+    },
+    {
+      "key": "beton",
+      "term": "Concrete",
+      "definition": "A building material made by mixing cement, water, sand and gravel; it is poured into moulds and hardens into a stone-like mass.",
+      "simple_definition": "A mix of cement, sand, gravel and water that sets as hard as stone.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "konstruktivizm",
+      "term": "Constructivism",
+      "definition": "A movement born in 1920s Soviet Russia which held that art and architecture should serve society, featuring industrial materials such as steel, glass and concrete and sharp geometric forms.",
+      "simple_definition": "A 1920s Russian style using industrial materials and bold geometric shapes.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kontrast",
+      "term": "Contrast",
+      "definition": "In design, placing clearly different elements side by side, in colour, light, texture, material or shape, to create interest and emphasis.",
+      "simple_definition": "Putting opposites together, like light and dark or rough and smooth.",
+      "image_id": "arch_kontrast"
+    },
+    {
+      "key": "harpusta",
+      "term": "Coping",
+      "definition": "A sloped stone, concrete or metal cap laid on top of a garden wall, parapet or balustrade wall to stop rainwater soaking into the wall.",
+      "simple_definition": "A sloped cap on top of a wall that sheds rain.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "bindirme",
+      "term": "Corbelling (Overlapping)",
+      "definition": "Laying stones, bricks, tiles or timbers so that each course slightly overhangs or overlaps the one below. Corbelled domes and arches are built this way without true arches.",
+      "simple_definition": "Stacking pieces so each layer sticks out a little further than the one below.",
+      "image_id": "arch_bindirme"
+    },
+    {
+      "key": "kebent",
+      "term": "Angle Profile (L-Section)",
+      "definition": "An L-shaped metal profile bent at a right angle. It is used to join two parts at a corner, support shelves, or protect wall and step edges from knocks.",
+      "simple_definition": "An L-shaped metal strip used to join or protect corners.",
+      "image_id": "arch_kebent"
+    },
+    {
+      "key": "kornis",
+      "term": "Curtain Rail (Curtain Rod)",
+      "definition": "A metal, wooden or plastic track or rod fixed to the ceiling or top of a wall from which curtains hang. In Turkish the same word (korniş) also means a projecting cornice moulding.",
+      "simple_definition": "The rail or rod that curtains hang from.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "koridor",
+      "term": "Corridor",
+      "definition": "A long, narrow passage in a building that connects rooms to each other.",
+      "simple_definition": "A long, narrow passage between rooms.",
+      "image_id": "arch_koridor"
+    },
+    {
+      "key": "tezgah",
+      "term": "Countertop",
+      "definition": "The flat, durable work surface on top of kitchen base cabinets, used for preparing food. It is made from materials such as granite, quartz, marble or laminate.",
+      "simple_definition": "The flat, hard surface in a kitchen where you prepare food.",
+      "image_id": "arch_tezgah"
+    },
+    {
+      "key": "gizli_ik",
+      "term": "Cove Lighting (Concealed Lighting)",
+      "definition": "Indirect lighting hidden in a recess of a ceiling, wall or furniture edge so the light source is not seen. It bounces light off surfaces for a soft, glare-free glow.",
+      "simple_definition": "Lights tucked out of sight in a ceiling or wall recess for a soft glow.",
+      "image_id": "arch_gizli_ik"
+    },
+    {
+      "key": "kartonpiyer",
+      "term": "Coving (Crown Moulding)",
+      "definition": "A decorative plaster or polyurethane moulding fitted where a wall meets the ceiling. It hides the joint and gives the room a classic finish.",
+      "simple_definition": "A decorative strip along the line where wall meets ceiling.",
+      "image_id": "arch_kartonpiyer"
+    },
+    {
+      "key": "capraz_tonoz",
+      "term": "Cross Vault (Groin Vault)",
+      "definition": "A vault formed where two barrel vaults cross at right angles. It gathers the load onto four corner supports, leaving the walls free for large openings.",
+      "simple_definition": "A ceiling made where two tunnel-shaped vaults cross each other.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ciroz",
+      "term": "Cross-Tie",
+      "definition": "A single straight reinforcing bar with hooked ends that ties opposite main bars and stirrups together in concrete columns and beams. It stops the bars bursting outwards in an earthquake.",
+      "simple_definition": "A short hooked steel bar that ties the rebar together inside a column.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "celen",
+      "term": "Eaves (Çelen)",
+      "definition": "The edge of a roof that overhangs the outer walls; \"çelen\" is a regional Anatolian word for it. It throws rainwater clear of the walls and shades the façade.",
+      "simple_definition": "The part of a roof that sticks out past the walls.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kripta",
+      "term": "Crypt",
+      "definition": "A vaulted underground room beneath a church, used as a burial chamber, a place for relics or a small chapel.",
+      "simple_definition": "An underground stone room beneath a church.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kriptoportik",
+      "term": "Cryptoporticus",
+      "definition": "A long, vaulted, partly underground corridor in ancient Roman buildings, used as a cool storeroom, a passage or the supporting base for the structure above.",
+      "simple_definition": "A covered, partly underground Roman corridor.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cumba",
+      "term": "Cumba (Bay Window)",
+      "definition": "An enclosed, windowed projection from the upper floor of a traditional Turkish house over the street. It adds space and light and gives views in three directions.",
+      "simple_definition": "A windowed room-bulge jutting out over the street from an upper floor.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "curtain_wall",
+      "term": "Curtain Wall",
+      "definition": "A non-load-bearing façade system of aluminium-framed glass or panels hung on the outside of a building's structural frame. The big glass skins of skyscrapers are curtain walls.",
+      "simple_definition": "A thin, usually glass outer skin hung on a building's frame.",
+      "image_id": "photo-1486406146926-c627a92ad1ab"
+    },
+    {
+      "key": "baraj",
+      "term": "Dam",
+      "definition": "A large barrier built across a river to hold back water for drinking supply, irrigation or electricity generation.",
+      "simple_definition": "A huge wall built across a river to store water.",
+      "image_id": "arch_baraj"
+    },
+    {
+      "key": "dekonstrktivizm",
+      "term": "Deconstructivism",
+      "definition": "An architectural movement of the 1980s that deliberately breaks traditional order and symmetry with tilted, fragmented, seemingly unstable forms; Frank Gehry and Zaha Hadid are well-known figures.",
+      "simple_definition": "A style that makes buildings look deliberately tilted, broken up and off-balance.",
+      "image_id": "arch_dekonstrktivizm"
+    },
+    {
+      "key": "dekorasyon",
+      "term": "Decoration",
+      "definition": "Making a space more attractive, practical and personal through the choice of colours, furniture, lighting, textiles and accessories.",
+      "simple_definition": "Making a room look nice with colours, furniture and objects.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "nervurlu_demir",
+      "term": "Rebar (Deformed Bar)",
+      "definition": "A steel bar with raised ridges on its surface, placed inside concrete in reinforced concrete buildings. The ridges help the steel grip the concrete firmly.",
+      "simple_definition": "The bumpy steel bars put inside concrete to make it stronger.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "mustakil_ev",
+      "term": "Detached House",
+      "definition": "A house that stands alone on its own plot and shares no walls with any other building. It usually has its own garden and entrance.",
+      "simple_definition": "A house that stands on its own, not attached to any other house.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "sedir",
+      "term": "Sedir (Built-in Divan)",
+      "definition": "A low seating platform running along the walls of a room in traditional Turkish houses, covered with cushions and pillows. It is usually placed beneath the windows.",
+      "simple_definition": "A long, low cushioned seat along the walls of an old Turkish house.",
+      "image_id": "arch_sedir"
+    },
+    {
+      "key": "kubbe",
+      "term": "Dome",
+      "definition": "A roof or ceiling shaped like half a sphere, usually rising from a circular base. It can cover large spaces without inner supports.",
+      "simple_definition": "A rounded roof shaped like half a ball.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "drenaj",
+      "term": "Drainage",
+      "definition": "Leading rainwater and groundwater away from a building's foundations and surroundings using pipes, gravel beds and slopes. It keeps basements and foundations dry.",
+      "simple_definition": "A system that carries water away from a building.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cizim",
+      "term": "Drawing (Construction Drawing)",
+      "definition": "A scaled technical drawing showing a building's plans, sections, elevations and details; builders read from these drawings what to build and how.",
+      "simple_definition": "A measured drawing that shows exactly how to build something.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "dayankllk",
+      "term": "Durability",
+      "definition": "The ability of a building material or component to keep doing its job for a long time without deteriorating from moisture, sun, wear, frost and age.",
+      "simple_definition": "How long a material lasts before it wears out.",
+      "image_id": "arch_dayankllk"
+    },
+    {
+      "key": "deprem_ynetmelii",
+      "term": "Seismic Code (Earthquake Regulation)",
+      "definition": "The official, mandatory technical rules for designing and building earthquake-resistant buildings; in Turkey the current version is the 2018 Turkish Building Earthquake Code.",
+      "simple_definition": "The legal rules that make buildings safe in earthquakes.",
+      "image_id": "arch_deprem_ynetmelii"
+    },
+    {
+      "key": "eleman",
+      "term": "Building Element",
+      "definition": "Any of the parts that make up a building, such as a wall, column, beam, floor slab, stair, roof, door or window.",
+      "simple_definition": "Any part of a building, like a wall, column or staircase.",
+      "image_id": "arch_eleman"
+    },
+    {
+      "key": "kot",
+      "term": "Level (Elevation Height)",
+      "definition": "The height or depth of a point, in metres, measured from a chosen reference level such as sea level or the building's entrance floor (±0.00).",
+      "simple_definition": "A number showing how high or low a point is.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "asansr",
+      "term": "Elevator (Lift)",
+      "definition": "A mechanical system in which a car moving up and down a shaft carries people and goods between floors.",
+      "simple_definition": "A moving cabin that carries people between floors.",
+      "image_id": "arch_asansr"
+    },
+    {
+      "key": "ampir",
+      "term": "Empire Style",
+      "definition": "An early-19th-century architecture and furniture style from Napoleonic France, using ancient Roman and Egyptian motifs, laurel wreaths and grand ornament; it also spread in the Ottoman Empire.",
+      "simple_definition": "A grand, palace-like decorative style from Napoleon's time.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ebeveyn_banyosu",
+      "term": "En-Suite Bathroom",
+      "definition": "A private bathroom opening directly off the main bedroom and used only by its occupants.",
+      "simple_definition": "A private bathroom you enter from the bedroom.",
+      "image_id": "arch_ebeveyn_banyosu"
+    },
+    {
+      "key": "enerji",
+      "term": "Energy Efficiency",
+      "definition": "Keeping the energy a building needs for heating, cooling, lighting and hot water to a minimum through good insulation, smart orientation and efficient systems.",
+      "simple_definition": "A building using less energy for the same comfort.",
+      "image_id": "arch_enerji"
+    },
+    {
+      "key": "giri",
+      "term": "Entrance",
+      "definition": "The door through which you enter a building or space, together with the welcoming area in front of it. It is a key part of design because it sets the first impression.",
+      "simple_definition": "The doorway and area where you enter a building.",
+      "image_id": "arch_giri"
+    },
+    {
+      "key": "antre",
+      "term": "Entry Hall (Foyer)",
+      "definition": "The first indoor space you enter in a house or flat, leading on to the other rooms; shoe cabinets and coat stands are usually placed here.",
+      "simple_definition": "The small area just inside the front door.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "evre",
+      "term": "Site Landscaping (External Works)",
+      "definition": "Arranging the open areas around a building, including footpaths, parking, garden walls, planting and outdoor lighting.",
+      "simple_definition": "Designing the paths, gardens and parking around a building.",
+      "image_id": "arch_evre"
+    },
+    {
+      "key": "epoksi",
+      "term": "Epoxy",
+      "definition": "A tough resin that hardens when two components are mixed. It is used as a strong adhesive and as a seamless, glossy floor coating in garages, factories and homes.",
+      "simple_definition": "A very strong resin used as glue and as a shiny, seamless floor.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ergonomi",
+      "term": "Ergonomics",
+      "definition": "Designing furniture, spaces and equipment to fit the size and movements of the human body so that they are comfortable, safe and not tiring to use.",
+      "simple_definition": "Designing things to fit the human body comfortably.",
+      "image_id": "arch_ergonomi"
+    },
+    {
+      "key": "etejer",
+      "term": "Étagère (Open Shelving Unit)",
+      "definition": "An open, multi-tiered shelving unit without doors for displaying ornaments, books or small items; it can stand on the floor or hang on the wall.",
+      "simple_definition": "An open set of shelves without doors.",
+      "image_id": ""
+    },
+    {
+      "key": "dilatasyon",
+      "term": "Expansion Joint",
+      "definition": "A gap left between parts of a building so they can move independently as temperatures change, the ground settles or an earthquake strikes. It prevents cracking and damage.",
+      "simple_definition": "A gap that lets parts of a building move without cracking.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "brut_beton",
+      "term": "Exposed Concrete (Fair-Faced Concrete)",
+      "definition": "Concrete left bare after the formwork is removed, without plaster or paint, showing the texture of the mould on its surface. It is used decoratively in modern and industrial spaces.",
+      "simple_definition": "Bare grey concrete left unplastered and unpainted.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cephe",
+      "term": "Façade",
+      "definition": "Any of the outer faces of a building, especially the main front, whose windows, entrance and materials give the building its character.",
+      "simple_definition": "The outside face of a building.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kurgu",
+      "term": "Spatial Concept (Layout Scheme)",
+      "definition": "The core design idea that decides how rooms, routes and functions are arranged in relation to each other and how they are experienced as you move through a building.",
+      "simple_definition": "The main idea of how rooms and spaces fit together.",
+      "image_id": "arch_kurgu"
+    },
+    {
+      "key": "yangn_merdiveni",
+      "term": "Fire Escape",
+      "definition": "A staircase built so people can leave a building safely in an emergency such as a fire, usually on the outside wall or in a protected enclosed shaft.",
+      "simple_definition": "The stairs used to get out of a building safely during a fire.",
+      "image_id": "arch_yangn_merdiveni"
+    },
+    {
+      "key": "armatur",
+      "term": "Tap Fittings (Faucets)",
+      "definition": "In plumbing, the taps, mixers and shower heads that turn water on and off and direct it. In Turkish the same word (armatür) is also used for a light fitting.",
+      "simple_definition": "The taps and mixers on sinks and showers.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "lambader",
+      "term": "Floor Lamp",
+      "definition": "A lamp that stands on the floor on a tall stand. It is used in living areas as a reading light or to add soft light to a room.",
+      "simple_definition": "A tall lamp that stands on the floor.",
+      "image_id": "arch_lambader"
+    },
+    {
+      "key": "yer_karosu",
+      "term": "Floor Tile",
+      "definition": "Usually square or rectangular slabs of ceramic, porcelain or stone used to cover floors. Because they are durable and easy to clean, they are common in kitchens, bathrooms and halls.",
+      "simple_definition": "Ceramic or stone pieces laid to cover a floor.",
+      "image_id": "arch_yer_karosu"
+    },
+    {
+      "key": "doseme",
+      "term": "Floor Slab",
+      "definition": "The horizontal structural plate, usually reinforced concrete, that separates storeys and that you walk on; the word is also used for the floor finish laid on top.",
+      "simple_definition": "The flat structural floor that separates one storey from the next.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "yiv",
+      "term": "Flute / Fluting",
+      "definition": "Shallow vertical channels carved along the length of a column or surface. Common on ancient Greek columns, they make the column look taller and slimmer.",
+      "simple_definition": "The long grooves carved down the side of a column.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ucan_payanda",
+      "term": "Flying Buttress",
+      "definition": "A type of buttress that reaches in an arch from the upper part of a tall wall to a separate stone pier outside. On Gothic cathedrals it carries the outward push of the roof, allowing large windows.",
+      "simple_definition": "A stone arm that bridges out from a wall to a pillar outside to hold the wall up.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cebri",
+      "term": "Mechanical Ventilation",
+      "definition": "Supplying fresh air to a space and extracting stale air using fans and ducts instead of relying on open windows. Common in bathrooms, kitchens and car parks.",
+      "simple_definition": "Using fans to bring in fresh air and remove stale air.",
+      "image_id": "arch_cebri"
+    },
+    {
+      "key": "kalip",
+      "term": "Formwork",
+      "definition": "A temporary timber, metal or plastic mould into which fresh concrete is poured and which holds its shape until it hardens; it is removed once the concrete is strong enough.",
+      "simple_definition": "The temporary mould that shapes concrete until it sets.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "fransiz_balkonu",
+      "term": "French Balcony (Juliet Balcony)",
+      "definition": "A railing fixed across a floor-to-ceiling window or door without a projecting platform, so there is no floor to step out onto.",
+      "simple_definition": "A railing across a tall window with no floor to stand on.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "fresk",
+      "term": "Fresco",
+      "definition": "A wall or ceiling painting made with water-based pigments on fresh, wet lime plaster. As the plaster dries the paint becomes part of the wall, so it lasts for centuries.",
+      "simple_definition": "A painting made on wet plaster so it becomes part of the wall.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "friz",
+      "term": "Frieze",
+      "definition": "A horizontal band with carved or painted decoration running along the upper part of a wall, or above the architrave in classical buildings.",
+      "simple_definition": "A decorated band running along the top of a wall.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "fonksiyon",
+      "term": "Function",
+      "definition": "What a space or building is used for, and how well it meets the needs of that use; for example, a kitchen's functions of cooking, storage and cleaning.",
+      "simple_definition": "What a room or building is used for.",
+      "image_id": "arch_fonksiyon"
+    },
+    {
+      "key": "gabari",
+      "term": "Building Envelope Limit (Gabarit)",
+      "definition": "The maximum height, number of storeys and outer limits that zoning rules allow for a building on a plot; the imaginary envelope the building must fit inside.",
+      "simple_definition": "The rule for how tall and big a building is allowed to be.",
+      "image_id": "arch_gabari"
+    },
+    {
+      "key": "gabion_duvar",
+      "term": "Gabion Wall",
+      "definition": "A wall built from galvanised wire cages filled with stones and stacked together. Used for retaining walls, slope protection and landscaping; because water drains through it, it is very stable.",
+      "simple_definition": "A wall made of wire cages filled with stones.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "besik_cati",
+      "term": "Gable Roof",
+      "definition": "A roof with two sloping sides meeting at a ridge at the top, leaving a triangular wall (gable) at each end.",
+      "simple_definition": "The classic triangle-shaped roof that slopes down on two sides.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "galeri",
+      "term": "Gallery (Double-Height Void)",
+      "definition": "A space whose ceiling is left open through two or more storeys, so the lower floor can be seen from above. The word also means a room or building for showing art.",
+      "simple_definition": "A double-height open space you can look down into from the floor above.",
+      "image_id": "arch_galeri"
+    },
+    {
+      "key": "bahe_duvar",
+      "term": "Garden Wall (Boundary Wall)",
+      "definition": "A low or medium-height wall marking the edge of a plot or garden and providing privacy and security; its height is usually limited by local building rules.",
+      "simple_definition": "The wall around a garden or plot.",
+      "image_id": "arch_bahe_duvar"
+    },
+    {
+      "key": "rten",
+      "term": "Gargoyle / Water Spout",
+      "definition": "A spout projecting from a building that throws rainwater from the roof away from the walls. On Gothic buildings it is often carved as an animal or monster.",
+      "simple_definition": "A spout, often carved like a monster, that throws roof rainwater away from the walls.",
+      "image_id": "arch_rten"
+    },
+    {
+      "key": "gazebo",
+      "term": "Gazebo",
+      "definition": "A small, roofed garden pavilion with open sides, often hexagonal or octagonal, built for sitting and relaxing outdoors.",
+      "simple_definition": "A little open-sided, roofed garden shelter for sitting.",
+      "image_id": "arch_gazebo"
+    },
+    {
+      "key": "cam_tula",
+      "term": "Glass Block",
+      "definition": "A hollow, thick-glass block shaped like a brick. It is used for walls and partitions that let light through while keeping privacy.",
+      "simple_definition": "A brick made of thick glass that lets light in but blurs the view.",
+      "image_id": "arch_cam_tula"
+    },
+    {
+      "key": "cam_cephe",
+      "term": "Glass Façade",
+      "definition": "A building façade made entirely or mostly of glass. It lets in plenty of daylight but needs special glazing to control heat and sun.",
+      "simple_definition": "A building face made almost entirely of glass.",
+      "image_id": "arch_cam_cephe"
+    },
+    {
+      "key": "cam_blme",
+      "term": "Glass Partition",
+      "definition": "A framed or frameless glass wall that divides a space without blocking light. Common in offices and open-plan homes.",
+      "simple_definition": "A see-through glass wall that splits one room into two.",
+      "image_id": "arch_cam_blme"
+    },
+    {
+      "key": "gotik_mimari",
+      "term": "Gothic Architecture",
+      "definition": "A European style from the 12th to 16th centuries, known for pointed arches, ribbed vaults, flying buttresses, soaring ceilings and large stained-glass windows.",
+      "simple_definition": "The style of tall medieval cathedrals with pointed arches and stained glass.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "yeil_bina",
+      "term": "Green Building",
+      "definition": "A building designed to use energy and water efficiently, built with eco-friendly materials and to cause as little harm to nature as possible. It can be certified by schemes such as LEED or BREEAM.",
+      "simple_definition": "A building that uses little energy and is kind to the environment.",
+      "image_id": "arch_yeil_bina"
+    },
+    {
+      "key": "green_facade",
+      "term": "Green Façade (Vertical Garden)",
+      "definition": "A building face planted with climbing plants or with modular systems holding soil or a growing medium. It cools the building, cleans the air and reduces noise.",
+      "simple_definition": "A building wall covered in living plants.",
+      "image_id": "photo-1535090467332-80ea24141e1c"
+    },
+    {
+      "key": "glendirme",
+      "term": "Structural Strengthening (Retrofitting)",
+      "definition": "Increasing an existing building's resistance to earthquakes and loads, for example by jacketing columns, adding shear walls or wrapping members with steel or carbon fibre.",
+      "simple_definition": "Making an existing building stronger against earthquakes.",
+      "image_id": "arch_glendirme"
+    },
+    {
+      "key": "alci",
+      "term": "Gypsum Plaster",
+      "definition": "A white powder made by heating and grinding gypsum rock. Mixed with water it forms a paste that sets quickly; it is used for interior wall plaster, ceilings and decorative mouldings.",
+      "simple_definition": "A white powder used to make walls smooth and flat.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "hafifbeton",
+      "term": "Lightweight Concrete",
+      "definition": "Concrete made much lighter than normal by adding pumice, expanded clay or air bubbles. It insulates well; aerated concrete blocks are one type.",
+      "simple_definition": "Concrete filled with tiny air pockets so it weighs much less.",
+      "image_id": "arch_hafifbeton"
+    },
+    {
+      "key": "hol",
+      "term": "Hall (Hallway)",
+      "definition": "A circulation space in a home or building onto which the room doors open and which links the rooms together.",
+      "simple_definition": "The space in a home that connects all the rooms.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "hamam",
+      "term": "Hammam (Turkish Bath)",
+      "definition": "A traditional domed Turkish bathhouse with changing, warm and hot rooms where people bathe in steam. It is heated by a furnace that sends hot air through spaces under the floor.",
+      "simple_definition": "A traditional domed Turkish steam bath.",
+      "image_id": "arch_hamam"
+    },
+    {
+      "key": "han",
+      "term": "Han (Urban Inn)",
+      "definition": "A multi-storey building with a central courtyard in Seljuk and Ottoman towns where merchants stayed, stored goods and traded.",
+      "simple_definition": "An old courtyard building in town where merchants stayed and traded.",
+      "image_id": "arch_han"
+    },
+    {
+      "key": "kpete",
+      "term": "Handrail",
+      "definition": "The horizontal rail at the top of a stair or balcony railing that you hold for support.",
+      "simple_definition": "The rail you hold onto when going up the stairs.",
+      "image_id": "arch_kpete"
+    },
+    {
+      "key": "harem",
+      "term": "Harem",
+      "definition": "The private family quarters of a traditional Turkish house or palace, closed to male visitors and separate from the selamlık where guests were received.",
+      "simple_definition": "The private family part of an old Ottoman house or palace.",
+      "image_id": "arch_harem"
+    },
+    {
+      "key": "harita",
+      "term": "Existing-Conditions Survey Map",
+      "definition": "A scaled map showing the current state of a site, including its buildings, roads, trees and contour lines. It is the base for design and zoning work.",
+      "simple_definition": "A measured map showing what is on a site today.",
+      "image_id": "arch_harita"
+    },
+    {
+      "key": "hasr",
+      "term": "Welded Wire Mesh",
+      "definition": "Ready-made reinforcement of steel wires welded into a square or rectangular grid. It is laid in floor slabs, screeds and concrete walls to prevent cracking.",
+      "simple_definition": "A grid of welded steel wire placed inside concrete.",
+      "image_id": "arch_hasr"
+    },
+    {
+      "key": "havalandrma",
+      "term": "Ventilation",
+      "definition": "Removing stale, humid air from a space and replacing it with fresh outdoor air, either naturally through windows or mechanically with fans and ducts.",
+      "simple_definition": "Letting fresh air in and stale air out of a room.",
+      "image_id": "arch_havalandrma"
+    },
+    {
+      "key": "havuz",
+      "term": "Pool",
+      "definition": "A waterproofed concrete or prefabricated water basin built for swimming, relaxation or decoration; it needs pumps and filters to keep the water clean and circulating.",
+      "simple_definition": "A built water basin for swimming or decoration.",
+      "image_id": "arch_havuz"
+    },
+    {
+      "key": "hayrat",
+      "term": "Charitable Structures (Hayrat)",
+      "definition": "Buildings such as fountains, water kiosks, bridges and soup kitchens that were commissioned as acts of charity in the Ottoman era and offered free to the public.",
+      "simple_definition": "Fountains, bridges and similar buildings donated for public use in Ottoman times.",
+      "image_id": "arch_hayrat"
+    },
+    {
+      "key": "hazire",
+      "term": "Hazire (Mosque Graveyard)",
+      "definition": "A small walled or railed graveyard next to an Ottoman mosque, tomb or dervish lodge.",
+      "simple_definition": "A small enclosed graveyard beside an old mosque.",
+      "image_id": "arch_hazire"
+    },
+    {
+      "key": "isi_yalitimi",
+      "term": "Thermal Insulation",
+      "definition": "Materials and methods used in walls, roofs, floors and windows to slow down heat passing in or out of a building. It lowers heating and cooling costs.",
+      "simple_definition": "A layer that keeps a home warm in winter and cool in summer.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "hendek",
+      "term": "Trench",
+      "definition": "A long, narrow excavation dug in the ground for foundations, pipes or cables, or to collect water.",
+      "simple_definition": "A long, narrow ditch dug for pipes or foundations.",
+      "image_id": "arch_hendek"
+    },
+    {
+      "key": "tarihi_doku",
+      "term": "Historic Fabric",
+      "definition": "The whole of the old buildings, streets and squares that reflect the history of a city or neighborhood, together with the character they create. It is the main focus of conservation and restoration work.",
+      "simple_definition": "The old buildings and streets that give a city its historic character.",
+      "image_id": "arch_tarihi_doku"
+    },
+    {
+      "key": "hiyerari",
+      "term": "Spatial Hierarchy",
+      "definition": "Arranging spaces or elements by importance through size, position and emphasis; for example, making the main hall larger and more central than other rooms.",
+      "simple_definition": "Making the most important spaces stand out by size or position.",
+      "image_id": "arch_hiyerari"
+    },
+    {
+      "key": "asmolen",
+      "term": "Hollow-Block (Rib) Slab",
+      "definition": "A reinforced concrete floor in which the spaces between narrow ribs are filled with lightweight blocks (pumice, polystyrene or clay). It leaves a flat ceiling and makes the floor lighter.",
+      "simple_definition": "A concrete floor with light blocks inside it to save weight.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "yatay_mimari",
+      "term": "Horizontal Architecture",
+      "definition": "An approach to building that spreads out horizontally with low-rise buildings instead of going tall. It aims for neighborhoods that feel human-scaled and closely connected to the street.",
+      "simple_definition": "Building low, spread-out buildings instead of tall towers.",
+      "image_id": "arch_yatay_mimari"
+    },
+    {
+      "key": "konut",
+      "term": "Housing (Residential)",
+      "definition": "The general name for buildings made for people to live in permanently, such as houses, flats and villas; zoning plans mark residential areas for this use.",
+      "simple_definition": "Homes where people live, such as houses and flats.",
+      "image_id": "arch_konut"
+    },
+    {
+      "key": "hcre",
+      "term": "Cell (Madrasa Room)",
+      "definition": "A small single room, usually opening onto a courtyard, where students or dervishes lived in a madrasa, lodge or monastery.",
+      "simple_definition": "A small room where a student or monk lived in an old school or monastery.",
+      "image_id": "arch_hcre"
+    },
+    {
+      "key": "icephe",
+      "term": "Inner Façade (Courtyard Elevation)",
+      "definition": "The face of a building that looks onto an inner courtyard, light well or rear garden rather than the street.",
+      "simple_definition": "The side of a building facing its courtyard, not the street.",
+      "image_id": "arch_icephe"
+    },
+    {
+      "key": "imimar",
+      "term": "Interior Architect",
+      "definition": "A trained professional who designs the inside of buildings, including layout, materials, lighting, furniture and details, so that spaces are practical, safe and attractive.",
+      "simple_definition": "A professional who designs the inside of buildings.",
+      "image_id": "arch_imimar"
+    },
+    {
+      "key": "ifraz",
+      "term": "Land Subdivision (İfraz)",
+      "definition": "The official process of dividing one registered plot of land into two or more separate plots in line with zoning rules.",
+      "simple_definition": "Officially splitting one plot of land into several.",
+      "image_id": "arch_ifraz"
+    },
+    {
+      "key": "imar",
+      "term": "Zoning (Urban Development Planning)",
+      "definition": "The set of plans and rules that decide what kind and size of building can be built on each piece of land in a city, set out in zoning plans and regulations.",
+      "simple_definition": "The official rules on what can be built where, and how big.",
+      "image_id": "arch_imar"
+    },
+    {
+      "key": "imaret",
+      "term": "Imaret (Public Soup Kitchen)",
+      "definition": "A building within an Ottoman mosque complex where free meals were served to the poor, students and travellers.",
+      "simple_definition": "An Ottoman kitchen that gave free food to people in need.",
+      "image_id": "arch_imaret"
+    },
+    {
+      "key": "i_mekan_bitkisi",
+      "term": "Indoor Plant (Houseplant)",
+      "definition": "A plant grown in a pot indoors that tolerates low light and room temperature. Interior designers use it to bring life into a space and freshen the air.",
+      "simple_definition": "A potted plant kept inside the home.",
+      "image_id": "arch_i_mekan_bitkisi"
+    },
+    {
+      "key": "endstriyel_tasarm",
+      "term": "Industrial Style",
+      "definition": "An interior style inspired by old factories and warehouses, combining exposed brick, raw concrete, visible metal pipes, steel and wood.",
+      "simple_definition": "A decor style that looks like a converted factory, with brick, concrete and metal.",
+      "image_id": "arch_endstriyel_tasarm"
+    },
+    {
+      "key": "alt_yapi",
+      "term": "Infrastructure",
+      "definition": "All the roads and the water, sewerage, electricity, gas and telecom networks that a settlement needs in order to function.",
+      "simple_definition": "The roads, pipes and cables that serve buildings.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "inaat",
+      "term": "Construction",
+      "definition": "The process of building a structure according to its design, from excavation to handover; also the site where this work takes place.",
+      "simple_definition": "The work of building something.",
+      "image_id": "arch_inaat"
+    },
+    {
+      "key": "kitabe",
+      "term": "Inscription Panel (Kitabe)",
+      "definition": "A carved stone or marble panel set over the door or on the walls of a historic building, recording when and by whom it was built.",
+      "simple_definition": "A carved stone sign on an old building saying when and by whom it was built.",
+      "image_id": "arch_kitabe"
+    },
+    {
+      "key": "i_mekan",
+      "term": "Interior Space",
+      "definition": "The inside of a building enclosed by walls, floors and ceilings, including rooms, halls and other enclosed areas.",
+      "simple_definition": "All the rooms and areas inside a building.",
+      "image_id": "arch_i_mekan"
+    },
+    {
+      "key": "iskan",
+      "term": "Occupancy Permit",
+      "definition": "The certificate issued by the municipality once a finished building is confirmed to match its approved plans and regulations, allowing people to move in.",
+      "simple_definition": "The official permission to start living in a new building.",
+      "image_id": "arch_iskan"
+    },
+    {
+      "key": "islami",
+      "term": "Islamic Architecture",
+      "definition": "The architectural tradition of the Islamic world, seen in mosques, madrasas and tombs, featuring domes, minarets, courtyards, prayer niches and geometric or floral ornament.",
+      "simple_definition": "The architecture of mosques and madrasas, with domes, minarets and geometric patterns.",
+      "image_id": "arch_islami"
+    },
+    {
+      "key": "ada_mutfak",
+      "term": "Kitchen Island",
+      "definition": "A freestanding counter unit in the middle of a kitchen, reachable from all sides, often containing a hob, sink or breakfast bar.",
+      "simple_definition": "A counter in the middle of the kitchen that you can walk around.",
+      "image_id": "arch_ada_mutfak"
+    },
+    {
+      "key": "eyvan",
+      "term": "Iwan (Eyvan)",
+      "definition": "A usually vaulted hall walled on three sides and completely open on the fourth to a courtyard or central hall. Common in Seljuk and Ottoman madrasas, inns and houses.",
+      "simple_definition": "A room with three walls, fully open on one side to a courtyard.",
+      "image_id": "arch_eyvan"
+    },
+    {
+      "key": "izgara",
+      "term": "Grid (Structural or Street Grid)",
+      "definition": "A regular system of lines crossing at right angles on which a building's columns and walls are placed; in urban planning, a layout where streets cross like a chessboard.",
+      "simple_definition": "A chessboard-like pattern of lines for placing columns or streets.",
+      "image_id": "arch_izgara"
+    },
+    {
+      "key": "jakuzi",
+      "term": "Whirlpool Bath (Jacuzzi)",
+      "definition": "A bathtub or small pool with jets that push out water and air for a massage effect. Used in bathroom and spa design; it needs plumbing and electrical connections.",
+      "simple_definition": "A bathtub with jets that give a water massage.",
+      "image_id": "arch_jakuzi"
+    },
+    {
+      "key": "fuga",
+      "term": "Shadow Gap (Reveal)",
+      "definition": "A thin recessed line deliberately left where two surfaces of plaster, plasterboard, timber or cladding meet. It hides cracks and gives a neat, modern look.",
+      "simple_definition": "A thin recessed line left on a wall or ceiling for a clean look.",
+      "image_id": "arch_fuga"
+    },
+    {
+      "key": "derz",
+      "term": "Joint (Grout Line)",
+      "definition": "The gap between tiles, stones or bricks, and the grout or mortar that fills it.",
+      "simple_definition": "The filled lines between tiles or bricks.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "buat",
+      "term": "Junction Box",
+      "definition": "A covered plastic box, usually set into a wall, where electrical cables are joined or branched.",
+      "simple_definition": "A small box in the wall where electrical wires are connected.",
+      "image_id": ""
+    },
+    {
+      "key": "kafes",
+      "term": "Lattice Screen (Kafes)",
+      "definition": "A screen of thin wooden slats joined in a criss-cross pattern, fitted over windows in traditional Ottoman houses so people inside could see out without being seen.",
+      "simple_definition": "A wooden lattice over old windows that lets you see out but not in.",
+      "image_id": "arch_kafes"
+    },
+    {
+      "key": "kagir",
+      "term": "Masonry",
+      "definition": "Construction made by laying units such as stone, brick or concrete blocks in mortar, and the buildings made this way; in masonry buildings the walls carry the load.",
+      "simple_definition": "Building with stone or bricks stacked and joined with mortar.",
+      "image_id": "arch_kagir"
+    },
+    {
+      "key": "kaid",
+      "term": "Base (Pedestal)",
+      "definition": "The bottom part on which a column, statue or monument stands, raising it above the ground.",
+      "simple_definition": "The block a column or statue stands on.",
+      "image_id": "arch_kaid"
+    },
+    {
+      "key": "kaldrm",
+      "term": "Pavement (Sidewalk)",
+      "definition": "The paved strip alongside a road, slightly raised above the carriageway, reserved for pedestrians.",
+      "simple_definition": "The raised path beside a road where people walk.",
+      "image_id": "arch_kaldrm"
+    },
+    {
+      "key": "kalem",
+      "term": "Kalem İşi (Hand-Painted Ornament)",
+      "definition": "Traditional decoration painted by brush on plaster or timber surfaces, with floral and geometric motifs, seen on mosque domes, ceilings and pavilions.",
+      "simple_definition": "Traditional patterns hand-painted on ceilings and walls.",
+      "image_id": "arch_kalem"
+    },
+    {
+      "key": "kanat",
+      "term": "Leaf (Sash)",
+      "definition": "The moving part of a door or window that is hinged to the frame and opens and closes.",
+      "simple_definition": "The part of a door or window that swings open.",
+      "image_id": "arch_kanat"
+    },
+    {
+      "key": "kap",
+      "term": "Door",
+      "definition": "A building component consisting of a frame and an opening leaf that lets people enter and leave a space.",
+      "simple_definition": "The part that opens and closes so you can go in and out of a room.",
+      "image_id": "arch_kap"
+    },
+    {
+      "key": "kaplama",
+      "term": "Finish (Surface Covering)",
+      "definition": "The layer of material that gives floors, walls or ceilings their final look and protects them, such as parquet, ceramic tile, stone, timber or wallpaper.",
+      "simple_definition": "The top layer covering a floor or wall, like tiles or wood.",
+      "image_id": "arch_kaplama"
+    },
+    {
+      "key": "karlk",
+      "term": "Snow Well (Ice House)",
+      "definition": "A covered pit or structure dug into the ground where winter snow was packed and stored for use in summer before refrigerators existed.",
+      "simple_definition": "An old underground pit used to store winter snow for summer.",
+      "image_id": "arch_karlk"
+    },
+    {
+      "key": "karo",
+      "term": "Floor Tile (Karo)",
+      "definition": "A usually square slab of ceramic, marble or cement used to cover floors and walls; the patterned cement tiles of old houses are a well-known example.",
+      "simple_definition": "A square tile laid on floors.",
+      "image_id": "arch_karo"
+    },
+    {
+      "key": "kasa",
+      "term": "Frame (Door or Window Frame)",
+      "definition": "The fixed frame set into a wall opening, to which the door or window leaf is hinged.",
+      "simple_definition": "The fixed frame that a door or window hangs in.",
+      "image_id": "arch_kasa"
+    },
+    {
+      "key": "kasr",
+      "term": "Kasır (Pavilion Palace)",
+      "definition": "A small palace or pavilion, usually set in a garden or by the water, used by Ottoman sultans and dignitaries for relaxation.",
+      "simple_definition": "A small Ottoman palace for resting, often in a garden.",
+      "image_id": "arch_kasr"
+    },
+    {
+      "key": "kayrak",
+      "term": "Slate (Flagstone)",
+      "definition": "A natural stone that splits easily into thin, flat plates. It is traditionally used for roofing, flooring and wall cladding.",
+      "simple_definition": "A stone that splits into thin flat sheets, used on roofs and floors.",
+      "image_id": "arch_kayrak"
+    },
+    {
+      "key": "kazan",
+      "term": "Boiler Room",
+      "definition": "A plant room, usually in the basement, housing the boiler, pumps and pipework that supply a building's heating and hot water.",
+      "simple_definition": "The room where a building's heating boiler is kept.",
+      "image_id": "arch_kazan"
+    },
+    {
+      "key": "kepenk",
+      "term": "Roller Shutter",
+      "definition": "A security cover of metal or aluminium slats fitted over a shopfront, garage or window that rolls up to open.",
+      "simple_definition": "A metal cover that rolls down over a shop window or door.",
+      "image_id": "arch_kepenk"
+    },
+    {
+      "key": "kerpi",
+      "term": "Adobe (Mud Brick)",
+      "definition": "An unfired brick made by pouring a mix of clay, water and straw into moulds and drying it in the sun. Used in Anatolia for thousands of years, it keeps indoor temperatures steady.",
+      "simple_definition": "A brick made of mud and straw dried in the sun.",
+      "image_id": "arch_kerpi"
+    },
+    {
+      "key": "kervansaray",
+      "term": "Caravanserai",
+      "definition": "A large, thick-walled courtyard building on Seljuk and Ottoman trade routes where caravans and travellers could stay safely overnight.",
+      "simple_definition": "A big walled roadside inn for travelling merchants and their animals.",
+      "image_id": "arch_kervansaray"
+    },
+    {
+      "key": "kilit_tasi",
+      "term": "Keystone",
+      "definition": "The wedge-shaped stone placed last at the very top of a stone arch. It locks the other stones together and keeps the arch standing.",
+      "simple_definition": "The top stone of an arch that holds all the others in place.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kilim",
+      "term": "Kilim",
+      "definition": "A traditional Anatolian flat-woven rug with no pile and geometric patterns, laid on floors or hung on walls in interiors.",
+      "simple_definition": "A thin, flat-woven rug with geometric patterns.",
+      "image_id": "arch_kilim"
+    },
+    {
+      "key": "kilise",
+      "term": "Church",
+      "definition": "A Christian place of worship, usually with a long central nave, an altar area (apse) and a bell tower.",
+      "simple_definition": "A building where Christians worship.",
+      "image_id": "arch_kilise"
+    },
+    {
+      "key": "kilitleme",
+      "term": "Interlocking Pavers",
+      "definition": "Concrete paving blocks shaped so their sides lock into each other. Laid without mortar, they are used for sidewalks, car parks and garden paths.",
+      "simple_definition": "Concrete paving stones that fit together like a puzzle.",
+      "image_id": "arch_kilitleme"
+    },
+    {
+      "key": "kble",
+      "term": "Qibla",
+      "definition": "The direction of the Kaaba in Mecca, which Muslims face in prayer. In a mosque the prayer niche (mihrab) is set in the wall facing this direction, which shapes the whole layout.",
+      "simple_definition": "The direction of Mecca that a mosque is built to face.",
+      "image_id": "arch_kble"
+    },
+    {
+      "key": "ky",
+      "term": "Shoreline Boundary",
+      "definition": "The legally defined line marking how far water reaches along seas, lakes and rivers. Permanent buildings are not allowed within a set distance of this line.",
+      "simple_definition": "The official waterfront line that limits how close you can build.",
+      "image_id": "arch_ky"
+    },
+    {
+      "key": "kulliye",
+      "term": "Külliye (Mosque Complex)",
+      "definition": "An Ottoman group of buildings centred on a mosque, including a madrasa, soup kitchen, bath, hospital and tomb.",
+      "simple_definition": "A group of buildings around a mosque, such as a school, kitchen and bath.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "l_merdiven",
+      "term": "L-Shaped Staircase",
+      "definition": "A staircase that turns 90 degrees at a landing, forming the shape of the letter L. It saves space because it can fit into a corner.",
+      "simple_definition": "A staircase that turns a corner halfway, like the letter L.",
+      "image_id": "arch_l_merdiven"
+    },
+    {
+      "key": "lamba",
+      "term": "Lamp / Light Fixture",
+      "definition": "An electrical device made of a bulb and the body that holds it, used to light a space. It can be ceiling, wall, table or floor mounted and strongly shapes the mood of a room.",
+      "simple_definition": "An electric light that brightens a room.",
+      "image_id": "arch_lamba"
+    },
+    {
+      "key": "abajur",
+      "term": "Lampshade (Table Lamp)",
+      "definition": "A fabric, paper, metal or glass cover that softens a lamp's light and directs it downwards or to one side; in Turkish the word also means a table or floor lamp with such a shade.",
+      "simple_definition": "The hat-like cover that softens a lamp's light.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "sahanlk",
+      "term": "Landing",
+      "definition": "The flat area at the top, bottom or between two flights of a staircase. It lets the stairs change direction and gives people a place to pause.",
+      "simple_definition": "The flat part at the top of or in the middle of a staircase.",
+      "image_id": "arch_sahanlk"
+    },
+    {
+      "key": "peyzaj",
+      "term": "Landscaping / Landscape Design",
+      "definition": "Planning and shaping the outdoor space around a building with plants, trees, paths, water features and seating areas. It applies at every scale, from a garden to a city park.",
+      "simple_definition": "Designing the garden and outdoor space around a building.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "fener",
+      "term": "Lantern (Roof Lantern)",
+      "definition": "A small tower-like structure with windows all around, set on top of a dome or roof to let light and air in from above.",
+      "simple_definition": "A little windowed tower on top of a dome.",
+      "image_id": "arch_fener"
+    },
+    {
+      "key": "badadi",
+      "term": "Lath and Plaster (Bağdadi)",
+      "definition": "A traditional technique in which thin timber strips are nailed in rows across a timber-framed wall or ceiling and then covered with lime or gypsum plaster; common in old Turkish houses.",
+      "simple_definition": "An old way of making walls by plastering over thin wooden strips.",
+      "image_id": "arch_badadi"
+    },
+    {
+      "key": "grobeton",
+      "term": "Lean Concrete (Blinding)",
+      "definition": "Unreinforced concrete with little cement, poured as a thin layer at the bottom of a foundation pit to give a flat, clean base for the real foundation.",
+      "simple_definition": "A thin, simple concrete layer poured to level the ground under a foundation.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "aydnlatma",
+      "term": "Lighting (Lighting Design)",
+      "definition": "Planning daylight and artificial light so that a space gets the right amount and quality of light for its use, typically in layers of general, task and accent lighting.",
+      "simple_definition": "Planning how a space is lit so it has the right light.",
+      "image_id": "arch_aydnlatma"
+    },
+    {
+      "key": "aydnlatma_armatr",
+      "term": "Light Fitting (Luminaire)",
+      "definition": "The complete lighting unit, such as a chandelier, spotlight or wall light, that holds the bulb or LED, spreads the light and connects to the power supply.",
+      "simple_definition": "The lamp body that a bulb fits into, like a ceiling light or spotlight.",
+      "image_id": "arch_aydnlatma_armatr"
+    },
+    {
+      "key": "kuranglez",
+      "term": "Lightwell (Areaway)",
+      "definition": "A walled, below-ground space dug in front of basement windows so that daylight and fresh air can reach the basement.",
+      "simple_definition": "A pit dug in front of a basement window so it gets light.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "lento",
+      "term": "Lintel",
+      "definition": "A horizontal beam placed over a door or window opening to carry the weight of the wall above. It can be made of reinforced concrete, steel, stone or timber.",
+      "simple_definition": "The horizontal piece above a door or window that holds up the wall.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "yaam_alan",
+      "term": "Living Space",
+      "definition": "The general name for the parts of a home where daily life happens, such as the living room, kitchen and dining area. Bedrooms and bathrooms are usually counted separately.",
+      "simple_definition": "The rooms where you spend most of your day, like the living room and kitchen.",
+      "image_id": "arch_yaam_alan"
+    },
+    {
+      "key": "lks_konut",
+      "term": "Luxury Housing",
+      "definition": "High-priced homes, usually in a prime location, that stand out for quality materials, generous space, bespoke design and extras such as a pool, security or a gym.",
+      "simple_definition": "An expensive, spacious home with high-quality materials and many extras.",
+      "image_id": "arch_lks_konut"
+    },
+    {
+      "key": "medrese",
+      "term": "Madrasa",
+      "definition": "A traditional higher-education building in the Islamic world, common in the Ottoman Empire. It usually has student rooms and a lecture hall arranged around a courtyard with a covered colonnade.",
+      "simple_definition": "An old school building where students studied and lived around a courtyard.",
+      "image_id": "arch_medrese"
+    },
+    {
+      "key": "mermer_tezgah",
+      "term": "Marble Countertop",
+      "definition": "A kitchen or bathroom countertop made of marble. Its natural veining looks elegant, but because marble is porous it needs regular care against acids and stains.",
+      "simple_definition": "A kitchen or bathroom counter made of marble stone.",
+      "image_id": "arch_mermer_tezgah"
+    },
+    {
+      "key": "baoda",
+      "term": "Başoda (Principal Room)",
+      "definition": "The largest, most richly decorated room with the best view in a traditional Turkish house, usually used to receive guests.",
+      "simple_definition": "The biggest and finest room of an old Turkish house, used for guests.",
+      "image_id": "arch_baoda"
+    },
+    {
+      "key": "malzeme",
+      "term": "Building Material",
+      "definition": "The general name for substances such as concrete, brick, stone, timber, steel and glass used to build and finish a building. The choice of material shapes a building's durability, cost and appearance.",
+      "simple_definition": "The stuff used to make buildings, like brick, concrete and wood.",
+      "image_id": "arch_malzeme"
+    },
+    {
+      "key": "membran",
+      "term": "Membrane",
+      "definition": "A thin, flexible waterproofing sheet laid on roofs, foundations or wet areas to stop water getting into the building. There are bitumen-based and synthetic (such as PVC or TPO) types.",
+      "simple_definition": "A thin waterproof sheet laid to keep water out of a building.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "mezanin",
+      "term": "Mezzanine",
+      "definition": "An intermediate floor built inside a double-height space, partly open to the floor below. It is common in shops, offices and loft apartments to gain extra space.",
+      "simple_definition": "A half-floor inside a tall room that looks down on the floor below.",
+      "image_id": "arch_mezanin"
+    },
+    {
+      "key": "minimalizm",
+      "term": "Minimalism",
+      "definition": "A design approach that removes unnecessary decoration and objects, focusing on simple forms, open space and a few well-chosen materials. It is summed up by the phrase \"less is more\".",
+      "simple_definition": "Creating calm, uncluttered spaces with few objects and simple lines.",
+      "image_id": "arch_minimalizm"
+    },
+    {
+      "key": "ayna",
+      "term": "Door Panel (Ayna)",
+      "definition": "In joinery, the flat or raised board, stone or glass sheet fitted inside the frame of a door or cabinet door.",
+      "simple_definition": "The flat or raised panel set inside a door's frame.",
+      "image_id": "arch_ayna"
+    },
+    {
+      "key": "modernizm",
+      "term": "Modernism",
+      "definition": "An architectural movement from the early 20th century that rejected ornament and put function first. It uses concrete, steel and glass in simple geometric forms, with large windows and open plans.",
+      "simple_definition": "A 20th-century style of plain, undecorated buildings using lots of glass and steel.",
+      "image_id": "arch_modernizm"
+    },
+    {
+      "key": "moduler",
+      "term": "Modular Design",
+      "definition": "A design system built by combining units of standard sizes that can be added or removed as needed. Modular kitchen cabinets and furniture are the best-known examples.",
+      "simple_definition": "A design made of same-size pieces that can be combined and rearranged.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "modler_yap",
+      "term": "Modular Building",
+      "definition": "A building made in a factory as rooms or sections, transported to the site and assembled there. It is completed much faster than a traditionally built building.",
+      "simple_definition": "A building made in a factory in pieces and quickly put together on site.",
+      "image_id": "arch_modler_yap"
+    },
+    {
+      "key": "anit",
+      "term": "Monument",
+      "definition": "A statue, building or symbolic structure built to commemorate an important person or event and to remind future generations of it.",
+      "simple_definition": "A structure built to remember an important person or event.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "moodboard",
+      "term": "Moodboard",
+      "definition": "A board that brings together photos, colors, fabrics and material samples to show the intended feel and style of a project. It helps the designer and client share the same vision.",
+      "simple_definition": "A board of pictures and color samples that shows how a space will look.",
+      "image_id": "arch_moodboard"
+    },
+    {
+      "key": "har",
+      "term": "Mortar",
+      "definition": "A paste of sand, a binder (cement or lime) and water used to bond bricks and stones together or to plaster walls.",
+      "simple_definition": "The paste used to stick bricks together.",
+      "image_id": "arch_har"
+    },
+    {
+      "key": "cami",
+      "term": "Mosque",
+      "definition": "A Muslim place of communal prayer, usually with a prayer niche (mihrab), pulpit (minbar), dome, minaret and a courtyard with an ablution fountain.",
+      "simple_definition": "A building where Muslims pray, usually with a dome and minaret.",
+      "image_id": "arch_cami"
+    },
+    {
+      "key": "doal_ta_duvar",
+      "term": "Natural Stone Wall",
+      "definition": "A durable wall built from quarried stones, cut or left rough, laid with or without mortar.",
+      "simple_definition": "A wall built from real stones stacked together.",
+      "image_id": "arch_doal_ta_duvar"
+    },
+    {
+      "key": "neoklasik_mimari",
+      "term": "Neoclassical Architecture",
+      "definition": "An architectural style that emerged in the mid-18th century, inspired by ancient Greek and Roman buildings. It features symmetry, columns, triangular pediments and plain but grand facades.",
+      "simple_definition": "Columned, symmetrical buildings that look like ancient Greek and Roman temples.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "nis",
+      "term": "Niche",
+      "definition": "A shallow recess set into a wall. It is used to display a statue, vase or ornament, or simply to add depth to the wall.",
+      "simple_definition": "A small recess in a wall where you can place decorations.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "komodin",
+      "term": "Bedside Table (Nightstand)",
+      "definition": "A small cabinet, often with drawers, placed beside the bed to hold a lamp, books and other items.",
+      "simple_definition": "A small table or cabinet next to the bed.",
+      "image_id": "arch_komodin"
+    },
+    {
+      "key": "gozpencere",
+      "term": "Oculus",
+      "definition": "A round window or opening at the top of a dome or in a wall. The opening in the dome of the Pantheon in Rome is the most famous example.",
+      "simple_definition": "A round window or hole at the top of a dome or in a wall.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "namazgah",
+      "term": "Namazgah (Open-Air Prayer Place)",
+      "definition": "An open-air place for prayer built in Ottoman times outside towns, along roads or in recreation areas. It usually consists of a prayer-niche stone and a stone-paved area.",
+      "simple_definition": "An outdoor, stone-paved spot made for praying.",
+      "image_id": "arch_namazgah"
+    },
+    {
+      "key": "at",
+      "term": "Opening (Wall Opening)",
+      "definition": "A gap left in a wall for a door, window or ventilation. The wall above it is carried by a lintel or an arch.",
+      "simple_definition": "The hole in a wall where a door or window goes.",
+      "image_id": "arch_at"
+    },
+    {
+      "key": "mtemilat",
+      "term": "Outbuilding",
+      "definition": "Auxiliary structures that belong to a main building but stand apart from it, such as a garage, shed, storeroom or caretaker's house. In deeds and plans they are shown as part of the main property.",
+      "simple_definition": "Small separate buildings next to a main house, like a garage or shed.",
+      "image_id": "arch_mtemilat"
+    },
+    {
+      "key": "nakkahane",
+      "term": "Nakkashane (Ottoman Design Workshop)",
+      "definition": "The Ottoman palace art workshop where designs such as book illumination, tile patterns and building ornament were created. Patterns drawn here were applied in mosques and palaces.",
+      "simple_definition": "An Ottoman workshop where artists drew decorative patterns for buildings.",
+      "image_id": "arch_nakkahane"
+    },
+    {
+      "key": "panel_kap",
+      "term": "Panel Door",
+      "definition": "A door whose frame holds rectangular sections (panels) that are recessed or raised from the surface. It is common in classic and traditional interiors.",
+      "simple_definition": "A door with framed rectangular sections on its surface.",
+      "image_id": "arch_panel_kap"
+    },
+    {
+      "key": "lambiri",
+      "term": "Tongue-and-Groove Paneling",
+      "definition": "Long, narrow strips of wood, PVC or metal that slot into each other along their edges to cover a wall or ceiling. It is common in saunas, balcony ceilings and country houses.",
+      "simple_definition": "Long thin boards that slot together to cover a wall or ceiling.",
+      "image_id": ""
+    },
+    {
+      "key": "kiler",
+      "term": "Pantry (Larder)",
+      "definition": "A small, cool room or cupboard in a home where food, supplies and kitchen items are stored.",
+      "simple_definition": "A small room for storing food.",
+      "image_id": "arch_kiler"
+    },
+    {
+      "key": "parapet",
+      "term": "Parapet",
+      "definition": "A low protective wall along the edge of a roof, terrace, balcony or bridge that prevents falls. On flat roofs it also forms the top edge of the facade.",
+      "simple_definition": "A low wall along the edge of a roof or balcony that stops people falling.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "parsel",
+      "term": "Parcel / Plot",
+      "definition": "A piece of land whose boundaries and plot number are fixed in the land registry. The zoning plan decides how much and what kind of building can go on it.",
+      "simple_definition": "A piece of land with officially marked borders.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "parke",
+      "term": "Parquet / Wood Flooring",
+      "definition": "Flooring made of wooden or wood-look strips. There are solid, engineered and laminate types, and it can be laid in patterns such as herringbone.",
+      "simple_definition": "Wooden or wood-look boards that cover a floor.",
+      "image_id": "arch_parke"
+    },
+    {
+      "key": "blc_duvar",
+      "term": "Partition Wall",
+      "definition": "A non-load-bearing wall built only to divide a space into rooms; it can be made of brick, aerated concrete blocks or plasterboard.",
+      "simple_definition": "A wall that splits a room in two but doesn't hold up the building.",
+      "image_id": "arch_blc_duvar"
+    },
+    {
+      "key": "alinlik",
+      "term": "Pediment",
+      "definition": "The triangular wall formed by the roof at the front of a classical building, often decorated with sculpture; also used as an ornament over doors and windows.",
+      "simple_definition": "The triangle-shaped decoration above a classical building's entrance.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "sarkt",
+      "term": "Pendant Light",
+      "definition": "A light fixture that hangs down from the ceiling on a cord, chain or rod. It is often used above dining tables and kitchen islands.",
+      "simple_definition": "A lamp that hangs down from the ceiling on a cord.",
+      "image_id": "arch_sarkt"
+    },
+    {
+      "key": "pandantif",
+      "term": "Pendentive",
+      "definition": "A curved triangular element in the corners of a square room that allows a round dome to sit on top. It can be seen in Hagia Sophia and Ottoman mosques.",
+      "simple_definition": "The curved triangle in a corner that lets a round dome sit on square walls.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "pivot_kap",
+      "term": "Pivot Door",
+      "definition": "A door that opens by rotating on a pin fitted at its top and bottom instead of on side hinges. It lets very large, heavy doors open easily and is popular for modern entrances.",
+      "simple_definition": "A door that swings open by turning on a central pin instead of side hinges.",
+      "image_id": "arch_pivot_kap"
+    },
+    {
+      "key": "plan",
+      "term": "Floor Plan",
+      "definition": "A drawing of a building as if it were sliced horizontally and seen from above. It shows the layout and sizes of rooms, walls, doors and windows.",
+      "simple_definition": "A map of a building drawn as if seen from above.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "pleyvut",
+      "term": "Plywood",
+      "definition": "A board made by gluing thin layers of wood on top of each other with the grain of each layer at right angles. Being strong and light, it is used in furniture, formwork and cladding.",
+      "simple_definition": "A strong board made from thin layers of wood glued together.",
+      "image_id": "arch_pleyvut"
+    },
+    {
+      "key": "podyum",
+      "term": "Podium",
+      "definition": "A platform raised above the ground. In architecture it also means the wide, low base block underneath a tall tower.",
+      "simple_definition": "A raised flat platform.",
+      "image_id": "arch_podyum"
+    },
+    {
+      "key": "sundurma",
+      "term": "Porch / Canopy",
+      "definition": "A small covered structure with open sides, built in front of an entrance or against a wall. It protects the entrance from rain and sun.",
+      "simple_definition": "A small roof over the front door that keeps the rain off.",
+      "image_id": "arch_sundurma"
+    },
+    {
+      "key": "portik",
+      "term": "Portico",
+      "definition": "A covered entrance in front of a building, supported by columns. It is often topped by a triangular pediment and is typical of classical buildings.",
+      "simple_definition": "A grand entrance with a roof held up by columns.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "revak",
+      "term": "Arcade / Colonnade",
+      "definition": "A covered gallery open on one side, formed by a row of columns or piers and the arches they carry along the edge of a courtyard or building. It is common in mosque and madrasa courtyards.",
+      "simple_definition": "A shaded, roofed walkway with a row of columns along one side.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "dikme",
+      "term": "Post (Prop)",
+      "definition": "A vertical member in a timber or steel structure that carries load or holds a frame upright; temporary supports on building sites are also called props.",
+      "simple_definition": "An upright pole that holds something up.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "avan_proje",
+      "term": "Preliminary Design (Schematic Design)",
+      "definition": "The first design stage, before the final project, showing the building's overall layout, plans and elevations; it is agreed with the client and authorities at this stage.",
+      "simple_definition": "The first overall design of a building before the details.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "n_gerilmeli_beton",
+      "term": "Prestressed Concrete",
+      "definition": "Concrete that is squeezed in advance by tensioning steel cables inside it before or after casting. This lets thinner members span longer distances; it is used in bridges and car parks.",
+      "simple_definition": "Concrete made stronger by tightly stretched steel cables inside it.",
+      "image_id": "arch_n_gerilmeli_beton"
+    },
+    {
+      "key": "kma",
+      "term": "Projection (Overhang)",
+      "definition": "An enclosed or open part of the upper floors that sticks out beyond the main line of a façade. Zoning rules limit how far such projections may extend.",
+      "simple_definition": "A part of an upper floor that sticks out from the building's face.",
+      "image_id": "arch_kma"
+    },
+    {
+      "key": "promenad",
+      "term": "Promenade",
+      "definition": "A wide pedestrian path designed for walking and strolling, often along a waterfront. In architecture it also describes a walking route through a building that reveals changing views.",
+      "simple_definition": "A long, wide path made for strolling, such as a seafront walk.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "koruma",
+      "term": "Conservation (Heritage Conservation)",
+      "definition": "The recording, maintenance, repair and legal protection carried out to keep historic buildings and townscapes alive without losing their original character.",
+      "simple_definition": "Protecting historic buildings so they survive unspoilt.",
+      "image_id": "arch_koruma"
+    },
+    {
+      "key": "korkuluk",
+      "term": "Railing (Balustrade)",
+      "definition": "A protective barrier of posts and a top rail along the edges of stairs, balconies and terraces that stops people from falling.",
+      "simple_definition": "The barrier on balconies and stairs that stops you falling.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ramp",
+      "term": "Ramp",
+      "definition": "A sloping surface that links two different levels, in addition to or instead of stairs. It makes access easier for wheelchairs, pushchairs and vehicles.",
+      "simple_definition": "A sloping path that lets you go up without using steps.",
+      "image_id": "arch_ramp"
+    },
+    {
+      "key": "betonarme",
+      "term": "Reinforced Concrete",
+      "definition": "Concrete with steel bars (rebar) set inside it. Concrete resists squeezing and steel resists pulling, so together they form a very strong, earthquake-resistant structure.",
+      "simple_definition": "Concrete made stronger with steel bars inside.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "donat",
+      "term": "Reinforcement (Rebar)",
+      "definition": "The ribbed steel bars placed inside reinforced concrete members to make up for concrete's weakness in tension.",
+      "simple_definition": "The steel bars placed inside concrete.",
+      "image_id": "arch_donat"
+    },
+    {
+      "key": "rlyef",
+      "term": "Relief",
+      "definition": "A sculpture or decoration carved or raised from a flat surface such as a wall, stone or wood. The figures stay attached to the surface rather than standing free.",
+      "simple_definition": "A picture or pattern that sticks out from a wall surface.",
+      "image_id": "arch_rlyef"
+    },
+    {
+      "key": "tamirat",
+      "term": "Repair",
+      "definition": "Fixing broken, damaged or worn parts of a building so they can be used again. It covers jobs such as fixing a plumbing fault, a roof leak or crumbling plaster.",
+      "simple_definition": "Fixing things in a building that are broken or worn out.",
+      "image_id": "arch_tamirat"
+    },
+    {
+      "key": "cumhuriyet_mimarl",
+      "term": "Early Republican Architecture (Turkey)",
+      "definition": "Architecture developed in Turkey after the Republic was founded in 1923, covering the First National Style with Ottoman motifs, then plain modernist buildings and the Second National Style.",
+      "simple_definition": "The building styles that developed after the Turkish Republic was founded.",
+      "image_id": "arch_cumhuriyet_mimarl"
+    },
+    {
+      "key": "restorasyon",
+      "term": "Restoration",
+      "definition": "Repairing the damaged parts of a historic building and returning it to its earlier state while staying true to its original materials and techniques. It is carried out with research and official permits.",
+      "simple_definition": "Repairing an old historic building so it looks as it originally did.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kaburgali_tonoz",
+      "term": "Ribbed Vault",
+      "definition": "A vault with stone ribs (slender arches) running along the lines where its curved surfaces meet. In Gothic cathedrals it channels the load to set points, allowing taller, lighter ceilings.",
+      "simple_definition": "A vaulted ceiling with curved stone ribs showing like a skeleton.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "rijitlik",
+      "term": "Rigidity / Stiffness",
+      "definition": "How strongly a building or structural element resists bending and changing shape when forces act on it. It limits how much a building sways in earthquakes and wind.",
+      "simple_definition": "How well a building resists bending or swaying when pushed.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "rht",
+      "term": "Riser",
+      "definition": "The vertical face between two treads of a staircase; it sets the height of each step. On a comfortable stair the riser is usually about 15-18 cm.",
+      "simple_definition": "The upright part between two stair steps.",
+      "image_id": "arch_rht"
+    },
+    {
+      "key": "rokoko_mimari",
+      "term": "Rococo Architecture",
+      "definition": "An 18th-century decorative style from France, lighter and more playful than Baroque. It uses curving lines, shell and plant motifs, pastel colors and plenty of gilding.",
+      "simple_definition": "A very ornate 18th-century style full of curly decoration and pastel colors.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "romanesk_mimari",
+      "term": "Romanesque Architecture",
+      "definition": "A medieval architectural style common in Europe from roughly the 10th to 12th centuries, known for thick walls, semicircular arches, small windows and massive towers.",
+      "simple_definition": "A medieval style of thick-walled churches and castles with round arches.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cati",
+      "term": "Roof",
+      "definition": "The covering on top of a building that protects it from rain, snow, sun and wind, made up of a supporting frame, insulation and an outer covering such as tiles.",
+      "simple_definition": "The top covering of a building that keeps out rain and sun.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kaba_inaat",
+      "term": "Shell Construction (Rough Works)",
+      "definition": "The building stage in which the main structure, including foundations, columns, beams, slabs, walls and roof, is built, before plastering, painting and finishes.",
+      "simple_definition": "Building the bare structure of a house before the finishing work.",
+      "image_id": "arch_kaba_inaat"
+    },
+    {
+      "key": "i̇skele",
+      "term": "Scaffolding",
+      "definition": "A temporary metal or timber platform system put up against a building so workers can safely reach and work at height during construction or repair.",
+      "simple_definition": "A temporary frame workers stand on to reach high parts of a building.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "olcek",
+      "term": "Scale",
+      "definition": "The ratio between sizes on a drawing or model and the real sizes. For example, on a 1:100 plan, 1 cm represents 1 meter in reality.",
+      "simple_definition": "How many times smaller a drawing is than the real building.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kesit",
+      "term": "Section",
+      "definition": "A technical drawing showing the inside of a building as if it were sliced through vertically, revealing floor heights, stairs and slabs.",
+      "simple_definition": "A drawing that shows a building as if sliced in half.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ke_koltuk",
+      "term": "Corner Sofa (Sectional Sofa)",
+      "definition": "A large L-shaped seating unit made of joined sections, designed to fit into the corner of a room.",
+      "simple_definition": "An L-shaped sofa that fits into a corner.",
+      "image_id": "arch_ke_koltuk"
+    },
+    {
+      "key": "seki",
+      "term": "Seki (Raised Platform)",
+      "definition": "In a traditional Turkish house, the raised part of a room beyond the entrance area where shoes are not worn; also a raised stone platform for sitting in courtyards or gardens.",
+      "simple_definition": "A slightly raised area in a room or courtyard used for sitting.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "selamlk",
+      "term": "Selamlik (Reception Quarters)",
+      "definition": "In traditional Ottoman mansions, the outward-facing part of the house where men received guests. The private family section was called the harem.",
+      "simple_definition": "The part of an old Ottoman house where guests were welcomed.",
+      "image_id": "arch_selamlk"
+    },
+    {
+      "key": "i̇kiz_evler",
+      "term": "Semi-Detached Houses",
+      "definition": "A pair of houses built side by side as mirror images of each other, sharing one common wall.",
+      "simple_definition": "Two houses that share one wall in the middle.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kanalizasyon",
+      "term": "Sewerage System",
+      "definition": "The network of pipes and channels that collects wastewater (and sometimes rainwater) from buildings and carries it to a treatment plant.",
+      "simple_definition": "The underground pipes that carry waste water away from homes.",
+      "image_id": "arch_kanalizasyon"
+    },
+    {
+      "key": "glgelik",
+      "term": "Awning (Canopy)",
+      "definition": "A fixed or retractable cover fitted above a door, window, balcony or terrace to keep off sun and rain.",
+      "simple_definition": "A cover over a door or balcony that blocks the sun.",
+      "image_id": "arch_glgelik"
+    },
+    {
+      "key": "adrvan",
+      "term": "Şadırvan (Ablution Fountain)",
+      "definition": "A fountain, often roofed, with taps around it, usually in a mosque courtyard, where worshippers wash before prayer.",
+      "simple_definition": "A fountain in a mosque courtyard where people wash before praying.",
+      "image_id": "arch_adrvan"
+    },
+    {
+      "key": "perde_duvar",
+      "term": "Shear Wall",
+      "definition": "A load-bearing reinforced concrete wall, much longer than a column, built to resist sideways forces such as earthquakes and wind. It greatly reduces how much a building sways.",
+      "simple_definition": "A strong concrete wall that keeps a building from swaying in earthquakes and wind.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "panjur",
+      "term": "Shutter",
+      "definition": "A panel or roller fitted outside a window that can be closed to block sun, light and outside views. Traditional ones are made of slatted wood; modern ones are often rolling aluminum slats.",
+      "simple_definition": "A cover on the outside of a window that you close to block sun or views.",
+      "image_id": "arch_panjur"
+    },
+    {
+      "key": "fon_perde",
+      "term": "Side Curtains (Dress Curtains)",
+      "definition": "Usually heavy, decorative curtains hung at either side of a window, framing the sheer curtain.",
+      "simple_definition": "Thick decorative curtains hung at the sides of a window.",
+      "image_id": "arch_fon_perde"
+    },
+    {
+      "key": "vaziyet_plani",
+      "term": "Site Plan",
+      "definition": "A drawing showing where a building sits on its plot, its distances to neighboring plots and the road, and the layout of entrances, parking and garden. It is a required part of permit drawings.",
+      "simple_definition": "A drawing that shows where a building sits on its land.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "karkas",
+      "term": "Structural Frame (Skeleton Frame)",
+      "definition": "The skeleton of columns, beams and slabs that carries a building's load; the walls are built in between afterwards.",
+      "simple_definition": "The bones of a building that keep it standing.",
+      "image_id": "arch_karkas"
+    },
+    {
+      "key": "eskiz",
+      "term": "Sketch",
+      "definition": "A quick, freehand first drawing, not to scale, made to capture and communicate a design idea.",
+      "simple_definition": "A quick first drawing of an idea.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "supurgelik",
+      "term": "Skirting Board / Baseboard",
+      "definition": "A strip running along the bottom of a wall where it meets the floor. It covers the joint and protects the wall from knocks by brooms, furniture and feet.",
+      "simple_definition": "The strip along the bottom of a wall where it meets the floor.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "iklk",
+      "term": "Skylight",
+      "definition": "A window or glazed panel set into a roof or ceiling to bring daylight in from above; the word is also used for a light shaft left in the middle of a building.",
+      "simple_definition": "A window in the roof that lets in sunlight.",
+      "image_id": "arch_iklk"
+    },
+    {
+      "key": "rayl_dolap",
+      "term": "Sliding Wardrobe",
+      "definition": "A wardrobe or cupboard whose doors slide sideways on tracks instead of swinging open on hinges. It saves space in small rooms because the doors need no clearance in front.",
+      "simple_definition": "A wardrobe whose doors slide sideways to open.",
+      "image_id": "arch_rayl_dolap"
+    },
+    {
+      "key": "akll_ev",
+      "term": "Smart Home",
+      "definition": "A home whose lighting, heating, blinds, security and appliances can be controlled remotely by phone, voice commands or automatic routines.",
+      "simple_definition": "A home whose lights, heating and devices you can control from your phone.",
+      "image_id": "arch_akll_ev"
+    },
+    {
+      "key": "sofa",
+      "term": "Sofa (Central Hall)",
+      "definition": "The shared central space in a traditional Turkish house, around which the rooms are arranged and through which they connect. It is where the household gathers and moves around.",
+      "simple_definition": "The shared central hall of an old Turkish house that all rooms open onto.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "sofit",
+      "term": "Soffit",
+      "definition": "The underside of a building element such as roof eaves, a balcony, an arch or a staircase, and the cladding of that surface.",
+      "simple_definition": "The underside of an overhang, balcony or arch seen from below.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "zemin_etd",
+      "term": "Soil Investigation",
+      "definition": "A study of the soil and rock on a plot using drilling and tests before a building is constructed. It is needed to choose the right foundation and assess earthquake risk.",
+      "simple_definition": "Checking whether the ground is strong enough before building on it.",
+      "image_id": "arch_zemin_etd"
+    },
+    {
+      "key": "gne_paneli",
+      "term": "Solar Panel",
+      "definition": "A panel of photovoltaic cells that converts sunlight directly into electricity, mounted on roofs, façades or open land.",
+      "simple_definition": "A panel on the roof that makes electricity from sunlight.",
+      "image_id": "arch_gne_paneli"
+    },
+    {
+      "key": "mekan",
+      "term": "Space",
+      "definition": "An area defined by elements such as walls, floors and ceilings that people occupy and use. It is considered the core material of architecture; a room, courtyard or square are all spaces.",
+      "simple_definition": "Any place people are in and use, like a room, hall or courtyard.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "aciklik",
+      "term": "Span",
+      "definition": "The horizontal distance a beam, arch or slab covers between its two supports (columns or walls). The longer the span, the stronger the member must be.",
+      "simple_definition": "The distance between two supports, like two columns.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "dner_merdiven",
+      "term": "Spiral Staircase",
+      "definition": "A staircase whose steps wind upwards around a central post. It takes up little floor space, so it suits tight areas.",
+      "simple_definition": "A staircase that winds round and round a central pole.",
+      "image_id": "arch_dner_merdiven"
+    },
+    {
+      "key": "karnyark",
+      "term": "Central-Hall Plan (Karnıyarık)",
+      "definition": "A traditional Turkish house layout in which rooms line both sides of a central hall (sofa) running the full depth of the house.",
+      "simple_definition": "A house plan with a long central hall and rooms on both sides.",
+      "image_id": "arch_karnyark"
+    },
+    {
+      "key": "spot_aydnlatma",
+      "term": "Spotlighting",
+      "definition": "Lighting that directs light at a particular point or object instead of spreading it widely, usually with small fixtures recessed into the ceiling.",
+      "simple_definition": "Small ceiling lights that point light at a specific spot.",
+      "image_id": "arch_spot_aydnlatma"
+    },
+    {
+      "key": "uzengi_tasi",
+      "term": "Springer",
+      "definition": "The lowest stone at each end of an arch, where the curve begins. It passes the arch's weight down to the wall or pier below.",
+      "simple_definition": "The bottom stone where an arch starts to curve.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "vitray",
+      "term": "Stained Glass",
+      "definition": "A patterned window or panel made of colored glass pieces joined with lead strips. Common in Gothic cathedrals, it colors the light and gives a space atmosphere.",
+      "simple_definition": "A window made of pieces of colored glass that form a picture.",
+      "image_id": "arch_vitray"
+    },
+    {
+      "key": "limon_kiris",
+      "term": "Stair Stringer",
+      "definition": "The sloping beam running along the side or underneath a staircase that carries the steps.",
+      "simple_definition": "The sloping side piece of a staircase that holds up the steps.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "celik_konstruksiyon",
+      "term": "Steel Construction (Steel Frame)",
+      "definition": "A building system whose load-bearing columns, beams and connections are made of steel sections. It is quick to erect, light and can span large distances.",
+      "simple_definition": "Building with a strong skeleton made of steel.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "basamak",
+      "term": "Step (Tread)",
+      "definition": "Each stage of a staircase, made up of the horizontal surface you step on (tread) and the vertical face between treads (riser).",
+      "simple_definition": "Each flat part of a staircase that you step on.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "etriye",
+      "term": "Stirrup (Tie)",
+      "definition": "A reinforcing bar bent into a closed loop that wraps the long bars in concrete columns and beams. It holds them in place and keeps the member from bursting apart, especially in earthquakes.",
+      "simple_definition": "Steel loops that wrap around the bars inside a column.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "stoa",
+      "term": "Stoa",
+      "definition": "A long covered gallery in ancient Greek cities, usually along the edge of the agora (market square), open at the front with a row of columns and closed at the back by a wall. It was used for shade, meetings and trade.",
+      "simple_definition": "A long, roofed, column-lined walkway beside an ancient Greek market square.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "stone_facade",
+      "term": "Stone Cladding",
+      "definition": "Thin slabs of natural or manufactured stone fixed to a building's facade or interior walls. It gives the look of a stone building and protects against the weather.",
+      "simple_definition": "Thin stone slabs fixed to a wall to give it a stone look.",
+      "image_id": "photo-1516455590571-18256e5bb9ff"
+    },
+    {
+      "key": "briz",
+      "term": "Brise-Soleil (Sun Breaker)",
+      "definition": "Fixed or movable horizontal or vertical fins on a façade that block direct sunlight without cutting off air or views.",
+      "simple_definition": "Slats on a building's face that block the sun but let air through.",
+      "image_id": "arch_briz"
+    },
+    {
+      "key": "suspended_ceiling",
+      "term": "Suspended Ceiling",
+      "definition": "A second ceiling of plasterboard or panels hung on rods below the main ceiling. It hides cables, pipes and ducts and makes it easy to fit recessed lights.",
+      "simple_definition": "A second ceiling hung below the real one to hide cables and pipes.",
+      "image_id": "photo-1497366754035-f200968a6e72"
+    },
+    {
+      "key": "srdrlebilirlik",
+      "term": "Sustainability",
+      "definition": "The principle of designing, building and running buildings so they use resources such as energy, water and materials efficiently and cause as little harm as possible to nature and future generations.",
+      "simple_definition": "Building in a way that does not waste resources or harm nature.",
+      "image_id": "arch_srdrlebilirlik"
+    },
+    {
+      "key": "simetri",
+      "term": "Symmetry",
+      "definition": "When the parts on either side of a central line through a building or layout are identical or mirror images of each other. In classical architecture it creates a sense of order and balance.",
+      "simple_definition": "When the left and right sides of a building match each other.",
+      "image_id": "arch_simetri"
+    },
+    {
+      "key": "zivana",
+      "term": "Mortise and Tenon",
+      "definition": "A woodworking joint where a projection left on the end of one piece (the tenon) fits into a matching hole (the mortise) in another. It joins two pieces of wood firmly without nails or screws.",
+      "simple_definition": "A wood joint where a peg on one piece fits into a hole in another.",
+      "image_id": "arch_zivana"
+    },
+    {
+      "key": "teras",
+      "term": "Terrace",
+      "definition": "A flat, open-air outdoor area on a building's roof or at ground level beside it. It is used for sitting, relaxing or as a garden.",
+      "simple_definition": "A large flat outdoor area on a roof or next to a building.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "sira_evler",
+      "term": "Terraced Houses / Row Houses",
+      "definition": "Similar-looking houses built in a row, each sharing its side walls with its neighbors. Each house usually has its own entrance and a small garden.",
+      "simple_definition": "Houses built side by side in a row, sharing their side walls.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "eik",
+      "term": "Threshold (Door Sill)",
+      "definition": "A strip of stone, wood or metal at the bottom of a doorway that joins two floor finishes or keeps water out.",
+      "simple_definition": "The strip at the bottom of a doorway that you step over.",
+      "image_id": "arch_eik"
+    },
+    {
+      "key": "fayans",
+      "term": "Wall Tile (Ceramic Tile)",
+      "definition": "A thin, glazed, easy-to-clean ceramic tile used to cover bathroom and kitchen walls.",
+      "simple_definition": "The shiny ceramic tiles on bathroom and kitchen walls.",
+      "image_id": "arch_fayans"
+    },
+    {
+      "key": "ahsap",
+      "term": "Timber (Wood)",
+      "definition": "Wood that has been dried and processed for building and furniture, used in structures, floors, doors and windows, and cladding.",
+      "simple_definition": "Wood prepared for building houses and furniture.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ahap_kagir",
+      "term": "Mixed Masonry-Timber Construction",
+      "definition": "A traditional building method with stone or brick (masonry) lower floors and timber-framed upper floors, very common in old Turkish houses.",
+      "simple_definition": "A house with a stone ground floor and wooden upper floors.",
+      "image_id": "arch_ahap_kagir"
+    },
+    {
+      "key": "havlupan",
+      "term": "Heated Towel Rail",
+      "definition": "A ladder-shaped bathroom radiator that both holds towels and heats the room.",
+      "simple_definition": "A warm ladder-shaped radiator for drying towels in the bathroom.",
+      "image_id": "arch_havlupan"
+    },
+    {
+      "key": "ray_spot",
+      "term": "Track Lighting",
+      "definition": "Spotlights mounted on a track fixed to the ceiling or wall, which can be slid along it and aimed in any direction. It gives flexible lighting in shops, galleries and kitchens.",
+      "simple_definition": "Lights on a ceiling rail that can be slid along and turned.",
+      "image_id": "arch_ray_spot"
+    },
+    {
+      "key": "geleneksel_mimari",
+      "term": "Traditional (Vernacular) Architecture",
+      "definition": "Building traditions shaped over generations by a region's climate, local materials and way of life; the houses of Safranbolu and Mardin are well-known examples.",
+      "simple_definition": "Old local ways of building with local materials.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "tray_ceiling",
+      "term": "Tray Ceiling",
+      "definition": "A stepped ceiling whose central section is higher than its edges, like an upside-down tray. Hidden LED strip lighting is often fitted in the step around the edge.",
+      "simple_definition": "A ceiling whose middle part is raised higher than its edges, like an upside-down tray.",
+      "image_id": "photo-1600607687946-3b090d2820d6"
+    },
+    {
+      "key": "u_merdiven",
+      "term": "U-Shaped Staircase",
+      "definition": "A staircase that turns 180 degrees at a middle landing and continues in the opposite direction, forming a U. It is the most common type in apartment buildings.",
+      "simple_definition": "A staircase that turns right back on itself halfway, like the letter U.",
+      "image_id": "arch_u_merdiven"
+    },
+    {
+      "key": "kullanm",
+      "term": "Usable Floor Area (Net Area)",
+      "definition": "The floor area of a flat or building that can actually be used, excluding wall thicknesses; it is smaller than the gross area.",
+      "simple_definition": "The floor space you can actually use, not counting the walls.",
+      "image_id": "arch_kullanm"
+    },
+    {
+      "key": "tonoz",
+      "term": "Vault",
+      "definition": "A curved covering built from stone or brick on the principle of the arch, laid side by side. It roofs a space without needing columns; types include barrel, groin and ribbed vaults.",
+      "simple_definition": "A curved stone or brick roof or ceiling shaped like a tunnel.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "vaulted_ceiling",
+      "term": "Vaulted Ceiling",
+      "definition": "A ceiling that curves or rises following the roof slope instead of being flat. It makes a room feel more open and tall; in modern homes it is usually a non-structural interior finish.",
+      "simple_definition": "A high ceiling that curves or slopes upward instead of being flat.",
+      "image_id": "photo-1548543604-a87c9909abec"
+    },
+    {
+      "key": "jaluzi",
+      "term": "Venetian Blind",
+      "definition": "A window blind made of thin horizontal slats that can be tilted to control light and privacy.",
+      "simple_definition": "A window blind of thin strips that you can tilt.",
+      "image_id": "arch_jaluzi"
+    },
+    {
+      "key": "ventilated_facade",
+      "term": "Ventilated Facade",
+      "definition": "A facade system with an air gap between the building's wall and its outer cladding. Air moving through the gap carries moisture away and helps keep the building cooler in summer and warmer in winter.",
+      "simple_definition": "A building skin with an air gap behind it that lets the wall breathe.",
+      "image_id": "photo-1486325212027-8a90e34c1ec0"
+    },
+    {
+      "key": "veranda",
+      "term": "Veranda",
+      "definition": "A roofed sitting area attached to a building's outer wall, open or glazed at the sides. Overlooking the garden, it is a transition zone between inside and outside.",
+      "simple_definition": "A roofed sitting area on the side of a house that looks onto the garden.",
+      "image_id": "arch_veranda"
+    },
+    {
+      "key": "vestibl",
+      "term": "Vestibule",
+      "definition": "A small entrance hall between a building's outer door and its interior. It also acts as a buffer that reduces heat loss and drafts.",
+      "simple_definition": "The small entry area you pass through right after the front door.",
+      "image_id": "arch_vestibl"
+    },
+    {
+      "key": "viyadk",
+      "term": "Viaduct",
+      "definition": "A long bridge standing on many piers or arches, built to carry a road or railway over a deep valley, river or built-up area.",
+      "simple_definition": "A long, tall bridge on many supports that crosses a valley.",
+      "image_id": "arch_viyadk"
+    },
+    {
+      "key": "manzara",
+      "term": "View",
+      "definition": "The scenery seen from a building's windows, balcony or terrace. In architectural design, room orientation and window positions are often chosen to capture the best view.",
+      "simple_definition": "What you can see outside from a window or balcony.",
+      "image_id": "arch_manzara"
+    },
+    {
+      "key": "grselletirme",
+      "term": "Visualisation (3D Render)",
+      "definition": "Showing a design as realistic 3D computer images before it is built, so materials, lighting and furniture choices can be seen in advance.",
+      "simple_definition": "A computer picture showing how a space will look before it is built.",
+      "image_id": "arch_grselletirme"
+    },
+    {
+      "key": "hacim",
+      "term": "Volume (Massing)",
+      "definition": "In architecture, the three-dimensional size of a building or space and how its mass is perceived from outside; designers compose buildings as combinations of volumes.",
+      "simple_definition": "The 3D space a building or room takes up.",
+      "image_id": "arch_hacim"
+    },
+    {
+      "key": "lambri",
+      "term": "Wainscoting",
+      "definition": "Covering the lower part of a wall, up to a certain height, with wood, MDF or marble panels. It protects the wall and gives the room a classic look.",
+      "simple_definition": "Wood or stone panels covering the lower part of a wall.",
+      "image_id": "arch_lambri"
+    },
+    {
+      "key": "giyinme_odas",
+      "term": "Walk-in Closet (Dressing Room)",
+      "definition": "A small room, usually off the bedroom, large enough to walk into, where clothes and accessories are kept on shelves and rails.",
+      "simple_definition": "A room-sized wardrobe you can walk into.",
+      "image_id": "arch_giyinme_odas"
+    },
+    {
+      "key": "duvar",
+      "term": "Wall",
+      "definition": "A vertical building element that encloses or divides a space; load-bearing walls also carry the building's weight, while partition walls only separate areas.",
+      "simple_definition": "The upright structure that closes in a house or separates rooms.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "talama",
+      "term": "Wall Molding / Picture-Frame Molding",
+      "definition": "Fixing thin strips of wood, polyurethane or MDF to a wall to create rectangular frames or patterns. It adds depth and a classic feel to a plain wall.",
+      "simple_definition": "Thin strips stuck to a wall to make decorative frames.",
+      "image_id": "arch_talama"
+    },
+    {
+      "key": "duvar_nii",
+      "term": "Wall Niche (Recess)",
+      "definition": "A recess cut into a wall or formed while building it, used for shelves, ornaments or lighting.",
+      "simple_definition": "A hollow in a wall for displaying objects.",
+      "image_id": "arch_duvar_nii"
+    },
+    {
+      "key": "aplik",
+      "term": "Wall Light (Sconce)",
+      "definition": "A light fitting mounted on a wall rather than the ceiling, usually giving indirect or decorative light.",
+      "simple_definition": "A lamp fixed to the wall.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "gardrop",
+      "term": "Wardrobe",
+      "definition": "A large cupboard with doors in which clothes are hung or folded; it can be freestanding or built into the wall.",
+      "simple_definition": "A big cupboard for hanging clothes.",
+      "image_id": "arch_gardrop"
+    },
+    {
+      "key": "su_yaltm",
+      "term": "Waterproofing",
+      "definition": "Stopping water and moisture from getting into a building at points such as foundations, roofs, terraces and bathrooms, using membranes, coatings and careful detailing. It extends a building's life and prevents damp.",
+      "simple_definition": "Keeping rain and moisture from leaking into a building.",
+      "image_id": "arch_su_yaltm"
+    },
+    {
+      "key": "pencere_etegi",
+      "term": "Window Sill",
+      "definition": "The horizontal slab of stone, marble, wood or metal at the bottom edge of a window, inside or outside. The outer sill throws rainwater away from the wall.",
+      "simple_definition": "The narrow shelf at the bottom of a window.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "karanlk_oda",
+      "term": "Windowless Room",
+      "definition": "A room with no window to the outside, so it gets no daylight and needs artificial lighting and mechanical ventilation; often used for storage or dressing.",
+      "simple_definition": "A room with no windows and no daylight.",
+      "image_id": "arch_karanlk_oda"
+    },
+    {
+      "key": "berjer",
+      "term": "Wingback Chair (Bergère)",
+      "definition": "A comfortable upholstered armchair with a high back and side 'wings' that support the head.",
+      "simple_definition": "A comfy armchair with a tall back and side wings for your head.",
+      "image_id": "arch_berjer"
+    },
+    {
+      "key": "k_bahesi",
+      "term": "Winter Garden (Conservatory)",
+      "definition": "A room with glass walls, and often a glass roof, where plants are kept through winter and people can sit in the sun even in cold months.",
+      "simple_definition": "A glass room for plants where you can sit in the sun in winter.",
+      "image_id": "arch_k_bahesi"
+    },
+    {
+      "key": "saakl",
+      "term": "Eaves",
+      "definition": "The edge of a roof that projects beyond the outer wall. It protects walls and windows from rain and summer sun.",
+      "simple_definition": "The edge of a roof that sticks out past the wall, like the brim of a hat.",
+      "image_id": "arch_saakl"
+    },
+    {
+      "key": "ferforje",
+      "term": "Wrought Iron",
+      "definition": "The craft of heating and hammering iron into curved, decorative shapes, and the railings, gates and window grilles made this way.",
+      "simple_definition": "Decorative curly ironwork used for railings and gates.",
+      "image_id": "arch_ferforje"
+    },
+    {
+      "key": "yukluk",
+      "term": "Yüklük (Built-in Bedding Cupboard)",
+      "definition": "A large built-in wall cupboard in traditional Turkish houses where mattresses, quilts and pillows were stored during the day. It often also contained a small washing cubicle.",
+      "simple_definition": "A big built-in wall cupboard where bedding was kept in old Turkish houses.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ziggurat",
+      "term": "Ziggurat",
+      "definition": "A stepped, tower-like temple structure built in ancient Mesopotamia, made of progressively smaller levels. A small shrine usually stood on top.",
+      "simple_definition": "A huge ancient temple shaped like a stepped pyramid.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cekme-kat",
+      "term": "Setback Storey",
+      "definition": "The top floor of a building built set back from the facade line of the floors below, usually leaving a terrace in front of it. Whether it is allowed, and its dimensions, are set by the zoning plan and building regulations.",
+      "simple_definition": "A top floor pulled back from the building's front so that a terrace is left in front of it.",
+      "image_id": ""
+    },
+    {
+      "key": "cift-cam",
+      "term": "Double Glazing",
+      "definition": "A window unit made of two panes of glass sealed together at the edges with a gap of air or special gas between them. Compared with a single pane it greatly reduces heat loss and outside noise.",
+      "simple_definition": "A window with two layers of glass and a gap between them, keeping the home warmer and quieter.",
+      "image_id": ""
+    },
+    {
+      "key": "cini",
+      "term": "Iznik Tile (Çini)",
+      "definition": "A decorative ceramic tile made from a clay-based body that is painted with patterns, glazed and fired at high temperature. Tiles from Iznik are the best-known example, used widely to clad walls in Seljuk and Ottoman buildings.",
+      "simple_definition": "A traditional Turkish glazed tile with painted patterns, used to decorate walls.",
+      "image_id": ""
+    },
+    {
+      "key": "cesme",
+      "term": "Fountain (Çeşme)",
+      "definition": "A water structure built into a wall or standing on its own that delivers running water from a tap or spout for public use. Charitable Ottoman fountains, with their inscriptions and carvings, are important pieces of city architecture.",
+      "simple_definition": "A public spot in a street or wall where running water flows for everyone to use.",
+      "image_id": ""
+    },
+    {
+      "key": "cati-terasi",
+      "term": "Roof Terrace",
+      "definition": "An open area on top of a flat roof that is fitted out for sitting, gardening or relaxing. It needs careful detailing of waterproofing, drainage and guard rails.",
+      "simple_definition": "An open terrace on top of a flat roof where you can sit and spend time.",
+      "image_id": ""
+    },
+    {
+      "key": "camasir-odasi",
+      "term": "Laundry Room",
+      "definition": "A small utility room with water and drain connections set aside for the washing machine, dryer, ironing and cleaning supplies. As a wet area, its floor and walls should be water-resistant.",
+      "simple_definition": "A small room in the home for washing, drying and ironing clothes.",
+      "image_id": ""
+    },
+    {
+      "key": "calisma-odasi",
+      "term": "Study",
+      "definition": "A room in a home set aside for desk work, reading or studying, ideally well lit and kept quiet. It is often used as a home office.",
+      "simple_definition": "A quiet room in the home used for working or reading.",
+      "image_id": ""
+    },
+    {
+      "key": "catlak",
+      "term": "Crack",
+      "definition": "A split that forms in plaster, concrete, walls or slabs when the material separates under stress. Hairline cracks are often only cosmetic, but wide, diagonal or growing cracks can signal a structural problem and should be checked by an expert.",
+      "simple_definition": "A thin split that appears in a wall, plaster or concrete.",
+      "image_id": ""
+    },
+    {
+      "key": "cinko-kaplama",
+      "term": "Zinc Roofing",
+      "definition": "A metal covering for roofs and facades made of zinc sheets joined with folded seams. It is long-lasting and forms a matte grey protective layer (patina) over time.",
+      "simple_definition": "Long-lasting zinc metal sheets used to cover a roof or wall.",
+      "image_id": ""
+    },
+    {
+      "key": "caprazlama",
+      "term": "X-Bracing",
+      "definition": "Diagonal members, usually steel, fixed corner to corner across a frame of columns and beams in an X shape. They stop the structure from racking under sideways forces such as wind and earthquakes.",
+      "simple_definition": "Bars set in an X shape across a frame to stop a building from swaying.",
+      "image_id": ""
+    },
+    {
+      "key": "cift-dikmeli-makas",
+      "term": "Queen Post Truss",
+      "definition": "A triangular timber roof frame in which two vertical posts connect the sloping rafters to the horizontal tie beam below. It can span wider openings than a king post truss.",
+      "simple_definition": "A wooden triangular roof frame with two upright posts in the middle.",
+      "image_id": ""
+    },
+    {
+      "key": "on-bahce-mesafesi",
+      "term": "Front Setback",
+      "definition": "The required open distance between a building's front facade and the plot boundary facing the street. In Türkiye it is at least 5 metres under the Planned Areas Zoning Regulation unless the zoning plan says otherwise.",
+      "simple_definition": "The distance that must be left empty between a building and the street in front.",
+      "image_id": ""
+    },
+    {
+      "key": "ondokum-beton",
+      "term": "Precast Concrete",
+      "definition": "Concrete elements cast and cured in moulds at a factory, then transported to site and assembled, instead of being poured in place. It offers easier quality control and faster construction.",
+      "simple_definition": "Concrete pieces made in a factory and brought to the site ready to install.",
+      "image_id": ""
+    },
+    {
+      "key": "olu-yuk",
+      "term": "Dead Load",
+      "definition": "The permanent, unchanging load made up of the structure's own weight and fixed elements such as walls, finishes and services. Engineers combine it with live loads, like people and furniture, when designing the structure.",
+      "simple_definition": "The weight of the building itself and everything permanently fixed to it.",
+      "image_id": ""
+    },
+    {
+      "key": "ornek-daire",
+      "term": "Show Flat (Model Unit)",
+      "definition": "A fully furnished and decorated sample apartment prepared to show buyers the quality and layout of a project before purchase. It is usually set up on site or next to the sales office.",
+      "simple_definition": "A furnished sample apartment that shows buyers what the finished home will look like.",
+      "image_id": ""
+    },
+    {
+      "key": "onuretimli-yapi",
+      "term": "Prefabricated Building",
+      "definition": "A building whose parts, such as walls, floors or whole room modules, are made in a factory and assembled on site. It goes up quickly and its quality is easier to control.",
+      "simple_definition": "A building made of factory-built parts that are put together on site.",
+      "image_id": ""
+    },
+    {
+      "key": "orgu-duzeni",
+      "term": "Brick Bond",
+      "definition": "The pattern in which bricks or stones are laid and staggered in a wall. A proper bond keeps vertical joints from lining up, which makes the wall stronger and gives the facade its texture.",
+      "simple_definition": "The pattern in which bricks are stacked to build a wall.",
+      "image_id": ""
+    },
+    {
+      "key": "ozgunluk",
+      "term": "Authenticity",
+      "definition": "In conservation and restoration, the degree to which a building keeps its original materials, techniques, form and historical traces. International conservation principles require that interventions do not destroy it.",
+      "simple_definition": "How true a historic building has stayed to its original state.",
+      "image_id": ""
+    },
+    {
+      "key": "olculendirme",
+      "term": "Dimensioning",
+      "definition": "Showing sizes such as wall thicknesses, room dimensions and door and window widths on architectural drawings using dimension lines and figures. Drawings must be fully dimensioned so builders can construct them correctly.",
+      "simple_definition": "Writing the measurements of everything on a drawing.",
+      "image_id": ""
+    },
+    {
+      "key": "sap",
+      "term": "Screed",
+      "definition": "A cement-based layer poured over the structural concrete slab to level it and prepare it for final finishes such as parquet or tiles. Underfloor heating pipes are often embedded in it.",
+      "simple_definition": "A thin layer of cement poured to level a floor before the final covering.",
+      "image_id": ""
+    },
+    {
+      "key": "sev",
+      "term": "Embankment Slope",
+      "definition": "The sloping face left at an excavation or fill so that the soil stays stable without sliding. Its angle depends on the soil type, and it may be supported by a retaining wall if needed.",
+      "simple_definition": "A sloped bank of earth shaped so that it doesn't slide.",
+      "image_id": ""
+    },
+    {
+      "key": "santiye",
+      "term": "Jobsite (Construction Site)",
+      "definition": "The enclosed work area where a building is being constructed, with its materials, machinery and workers. Safety signage, site safety measures and a site manager are legally required.",
+      "simple_definition": "The place where a building is being built.",
+      "image_id": ""
+    },
+    {
+      "key": "saft",
+      "term": "Service Shaft",
+      "definition": "An enclosed vertical void running through the floors of a building that carries water, drainage, electrical and ventilation lines. It must be accessible for maintenance and protected against fire.",
+      "simple_definition": "A vertical channel that carries pipes and cables between floors.",
+      "image_id": ""
+    },
+    {
+      "key": "sehir-planlamasi",
+      "term": "Urban Planning",
+      "definition": "The discipline of organising a city's land use, building density, transport, infrastructure and green spaces over the long term. In Türkiye it is put into practice through regional, master and implementation zoning plans.",
+      "simple_definition": "Planning in advance what gets built where in a city.",
+      "image_id": ""
+    },
+    {
+      "key": "somine",
+      "term": "Fireplace",
+      "definition": "An open hearth built against or into a wall, with a chimney, burning wood or gas. Beyond heating, it acts as a strong decorative focal point in a living room.",
+      "simple_definition": "An open place in a wall with a chimney where a fire is lit.",
+      "image_id": ""
+    },
+    {
+      "key": "sakul",
+      "term": "Plumb Bob",
+      "definition": "A simple tool made of a weight hung on a string, which shows a true vertical line thanks to gravity. It is used to check that walls, columns and frames are perfectly upright.",
+      "simple_definition": "A weight on a string used to check that a wall is perfectly upright.",
+      "image_id": ""
+    },
+    {
+      "key": "serit-temel",
+      "term": "Strip Foundation",
+      "definition": "A continuous foundation running beneath walls or a row of columns, spreading their load into the ground along a wide strip. It is common in masonry and low-rise buildings.",
+      "simple_definition": "A long strip of foundation running underneath the walls.",
+      "image_id": ""
+    },
+    {
+      "key": "sartname",
+      "term": "Specification",
+      "definition": "A written document describing the quality of materials, construction methods and standards required for building work. Together with the drawings it forms part of the contract and is referred to in disputes.",
+      "simple_definition": "A document that says which materials to use and how the work should be done.",
+      "image_id": ""
+    },
+    {
+      "key": "serefe",
+      "term": "Şerefe (Minaret Balcony)",
+      "definition": "The narrow balcony with a railing that runs around the shaft of a minaret. Traditionally it is where the muezzin calls to prayer, and the number of balconies reflects the mosque's importance.",
+      "simple_definition": "The small balcony that wraps around a minaret.",
+      "image_id": ""
+    },
+    {
+      "key": "ust-yapi",
+      "term": "Superstructure",
+      "definition": "The part of a building above its foundations, made up of columns, beams, slabs and walls. At city scale the term refers to buildings and facilities that sit on top of infrastructure.",
+      "simple_definition": "The part of a building above the foundations that you can see.",
+      "image_id": ""
+    },
+    {
+      "key": "uclu-cam",
+      "term": "Triple Glazing",
+      "definition": "A window unit made of three panes of glass with two sealed gaps between them. It insulates against heat loss and noise better than double glazing and is preferred in cold climates and energy-efficient buildings.",
+      "simple_definition": "A window with three layers of glass that insulates very well.",
+      "image_id": ""
+    },
+    {
+      "key": "ust-dolap",
+      "term": "Upper Cabinet (Wall Cabinet)",
+      "definition": "Kitchen cabinets hung on the wall above the worktop. Together with base cabinets they provide the kitchen's storage, usually with about 55–65 cm of clearance above the counter.",
+      "simple_definition": "Kitchen cupboards hung on the wall above the counter.",
+      "image_id": ""
+    },
+    {
+      "key": "ust-gecit",
+      "term": "Overpass",
+      "definition": "A bridge-like structure that carries pedestrians or vehicles over a road, railway or junction. It allows safe crossing without interrupting traffic below.",
+      "simple_definition": "A bridge built to cross over a road.",
+      "image_id": ""
+    },
+    {
+      "key": "utopya",
+      "term": "Utopia",
+      "definition": "In architecture and urbanism, imaginary designs for cities and buildings in which society would live in an ideal order. Even when never built, utopian projects deeply influenced city planning and modern architecture.",
+      "simple_definition": "An imagined perfect city or building designed for an ideal way of life.",
+      "image_id": ""
+    },
+    {
+      "key": "ust-olcekli-plan",
+      "term": "Upper-Tier Plan",
+      "definition": "A plan covering a large area, such as a regional plan or environmental plan, that guides the more detailed master and implementation zoning plans beneath it. Lower-tier plans may not contradict it.",
+      "simple_definition": "A large-area plan that sets the rules for the more detailed city plans.",
+      "image_id": ""
+    },
+    {
+      "key": "uc-boyutlu-model",
+      "term": "Three-Dimensional (3D) Model",
+      "definition": "A volumetric model of a building or interior created on a computer or as a physical maquette. It lets clients see a design from every angle and make decisions before construction.",
+      "simple_definition": "A virtual or physical model of a building or room you can see from all sides.",
+      "image_id": ""
+    },
+    {
+      "key": "ust-baslik",
+      "term": "Top Chord",
+      "definition": "The continuous member forming the upper edge of a truss, usually working in compression. Together with the bottom chord and the posts and diagonals between them, it carries loads to the supports.",
+      "simple_definition": "The long piece along the top of a roof truss.",
+      "image_id": ""
+    },
+    {
+      "key": "yapi-ruhsati",
+      "term": "Building Permit",
+      "definition": "The official permission issued by the municipality or governorship to construct, extend or substantially alter a building. It is granted once the approved drawings are found to comply with zoning law; building without it is illegal.",
+      "simple_definition": "Official permission from the municipality needed before starting to build.",
+      "image_id": ""
+    },
+    {
+      "key": "yapi-denetimi",
+      "term": "Building Inspection (Construction Supervision)",
+      "definition": "In Türkiye, the checking of construction by licensed supervision firms, from the drawings through to the occupancy permit, to make sure the work follows the approved design, standards and regulations. Concrete pours, reinforcement and material tests are part of it.",
+      "simple_definition": "An independent firm checking that a building is being built by the rules.",
+      "image_id": ""
+    },
+    {
+      "key": "yagmur-inis-borusu",
+      "term": "Downpipe (Downspout)",
+      "definition": "A vertical pipe that carries rainwater collected in the roof gutters down to the ground or a stormwater drain. If it clogs, damp problems can appear on the facade and foundations.",
+      "simple_definition": "A vertical pipe that brings rainwater down from the roof.",
+      "image_id": ""
+    },
+    {
+      "key": "yerden-isitma",
+      "term": "Underfloor Heating",
+      "definition": "Heating a room from the floor using hot-water pipes or electric cables laid within the floor, usually under the screed. It spreads heat evenly and frees walls because no radiators are needed.",
+      "simple_definition": "A heating system under the floor that warms the room without radiators.",
+      "image_id": ""
+    },
+    {
+      "key": "yangin-kapisi",
+      "term": "Fire Door",
+      "definition": "A self-closing door built to hold back fire and smoke for a rated period, such as 30, 60 or 90 minutes. Regulations require it at stairwells, car parks and plant rooms.",
+      "simple_definition": "A special door that holds back fire and smoke for a set time.",
+      "image_id": ""
+    },
+    {
+      "key": "yigma-yapi",
+      "term": "Load-Bearing Masonry",
+      "definition": "A building system in which loads are carried to the ground by walls built of stone, brick or blocks rather than by a frame of columns and beams. It is common in traditional houses, and earthquake codes limit its number of floors and wall layout.",
+      "simple_definition": "A building held up by thick stone or brick walls instead of columns.",
+      "image_id": ""
+    },
+    {
+      "key": "yesil-cati",
+      "term": "Green Roof",
+      "definition": "A roof planted with vegetation over layers of waterproofing, root barrier, drainage and soil. It insulates the building, holds back rainwater and reduces the urban heat island effect.",
+      "simple_definition": "A roof covered with plants and grass.",
+      "image_id": ""
+    },
+    {
+      "key": "yali",
+      "term": "Yalı",
+      "definition": "A large, often timber mansion built right on the water's edge, especially along the Bosphorus in Istanbul. Yalıs are among the best-known examples of Ottoman residential architecture.",
+      "simple_definition": "A large historic waterside house built right on the Bosphorus shore.",
+      "image_id": ""
+    },
+    {
+      "key": "yapi-yaklasma-siniri",
+      "term": "Building Line",
+      "definition": "The outermost line a building may reach on its plot once the required front, side and rear setbacks have been left. The building may not cross it; the area inside it is where construction is allowed.",
+      "simple_definition": "The line on a plot that a building is not allowed to go beyond.",
+      "image_id": ""
+    },
+    {
+      "key": "yuksek-yapi",
+      "term": "High-Rise Building",
+      "definition": "In Turkish regulations, generally a building whose height exceeds 21.50 metres (or whose total structure height exceeds 30.50 metres). Such buildings are subject to extra rules for fire safety, seismic design and evacuation.",
+      "simple_definition": "A tall building that must follow stricter safety rules because of its height.",
+      "image_id": ""
+    },
+    {
+      "key": "yatay-surme-pencere",
+      "term": "Yorkshire Light (Horizontal Sliding Window)",
+      "definition": "A window in which one or both sashes slide sideways along a track to open. Because the sash does not swing in or out, it is practical in tight spaces; the traditional English version is called a Yorkshire light.",
+      "simple_definition": "A window that opens by sliding sideways.",
+      "image_id": ""
+    },
+    {
+      "key": "yakisugi",
+      "term": "Yakisugi (Charred Timber)",
+      "definition": "A traditional Japanese technique in which the surface of timber is deliberately charred, then brushed and oiled. It protects the wood against moisture, insects and sun and gives it a dark, textured look; also known as shou sugi ban.",
+      "simple_definition": "Wood cladding that is burnt on purpose to make it dark and long-lasting.",
+      "image_id": ""
+    },
+    {
+      "key": "yurt-topakev",
+      "term": "Yurt",
+      "definition": "A round, portable tent-house of Central Asian nomadic culture, made of a wooden lattice frame covered with felt and easily taken down and moved. It is an early example of portable architecture built from local materials.",
+      "simple_definition": "A round felt-covered tent home used by nomads.",
+      "image_id": ""
+    },
+    {
+      "key": "yahcal",
+      "term": "Yakhchal",
+      "definition": "A traditional mud-brick structure from Iran, with a tall dome over an underground store, used to make and keep ice in the desert climate. It is a famous example of passive cooling without electricity.",
+      "simple_definition": "An ancient domed building used to store ice in the desert without electricity.",
+      "image_id": ""
+    },
+    {
+      "key": "y-ajur",
+      "term": "Y-Tracery",
+      "definition": "Stone bars in Gothic architecture that branch in a Y shape to divide the upper part of a window opening in two. It is one of the earliest and simplest forms of tracery.",
+      "simple_definition": "Stone bars in a Gothic window that divide the glass in a Y shape.",
+      "image_id": ""
+    },
+    {
+      "key": "yaya-gecidi",
+      "term": "Zebra Crossing",
+      "definition": "A section of road marked with stripes where pedestrians can cross safely. In urban design it is a basic element of walkability and accessibility.",
+      "simple_definition": "A striped place on the road where people can cross safely.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-kat",
+      "term": "Ground Floor",
+      "definition": "The storey of a building at or nearest to street or natural ground level, where the entrance usually is. Zoning rules treat it as the reference level between basements and upper floors.",
+      "simple_definition": "The floor of a building at street level, where you usually enter.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-iyilestirme",
+      "term": "Ground Improvement",
+      "definition": "Strengthening soil that has low bearing capacity or a liquefaction risk, using methods such as jet grouting, bored piles, stone columns or injection. It is done before the foundations when the soil survey calls for it.",
+      "simple_definition": "Making weak ground stronger before a building is built on it.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-sivilasmasi",
+      "term": "Soil Liquefaction",
+      "definition": "The loss of strength in loose, water-saturated sandy soils during earthquake shaking, causing them to behave like a liquid. Because it can make buildings sink or tilt, it must be assessed in the soil survey.",
+      "simple_definition": "When wet ground turns almost liquid in an earthquake and can no longer hold a building.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-oturmasi",
+      "term": "Settlement",
+      "definition": "The downward movement of a building as the soil beneath it compresses over time under its load. When parts settle by different amounts, cracks in walls and sticking doors and windows can result.",
+      "simple_definition": "When the ground squeezes under a building's weight and the building sinks slightly.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-sinifi",
+      "term": "Site Soil Class",
+      "definition": "The classification of ground in the Turkish Building Earthquake Code from ZA (hard rock) to ZF (weak soils needing special study), based on how it behaves in earthquakes. This class directly affects the building's seismic design.",
+      "simple_definition": "A grade that shows how firm the ground under a building is in an earthquake.",
+      "image_id": ""
+    },
+    {
+      "key": "zaviye",
+      "term": "Zawiya",
+      "definition": "A small lodge in the Seljuk and early Ottoman periods where dervishes lived and travellers were given food and shelter. It is the origin of the early Ottoman zawiya-type (inverted-T plan) mosques.",
+      "simple_definition": "A small historic lodge where dervishes lived and travellers were fed.",
+      "image_id": ""
+    },
+    {
+      "key": "zimparalama",
+      "term": "Sanding",
+      "definition": "Smoothing and levelling a wood, plaster or painted surface by abrading it with sandpaper. It is a key step in refinishing parquet and preparing surfaces before painting.",
+      "simple_definition": "Rubbing a surface with sandpaper to make it smooth.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-emniyet-gerilmesi",
+      "term": "Allowable Bearing Capacity",
+      "definition": "The maximum load per unit area that the ground can safely carry without excessive settlement or failure. It is found in the soil survey, and foundation sizes are calculated from it.",
+      "simple_definition": "The most weight the ground can safely carry.",
+      "image_id": ""
+    },
+    {
+      "key": "zellige",
+      "term": "Zellige",
+      "definition": "Mosaic tilework from Moroccan and Andalusian architecture in which small hand-cut pieces of glazed terracotta are set in geometric patterns. Today it is popular on kitchen and bathroom walls for its handmade texture.",
+      "simple_definition": "Moroccan mosaic made of small hand-cut coloured tiles.",
+      "image_id": ""
+    },
+    {
+      "key": "zen-bahcesi",
+      "term": "Zen Garden",
+      "definition": "A Japanese dry garden of rocks, raked sand or gravel, moss and a few plants, designed for simplicity and calm. It is used as a meditative landscape in courtyards and small gardens.",
+      "simple_definition": "A calm, simple Japanese garden made of stones, sand and few plants.",
+      "image_id": ""
+    },
+    {
+      "key": "zikzak-desen",
+      "term": "Zigzag (Chevron) Pattern",
+      "definition": "A pattern of broken lines repeated in a row of V shapes. It is common in parquet flooring, tiling, and Romanesque and Art Deco ornament.",
+      "simple_definition": "A pattern of repeating V-shaped lines.",
+      "image_id": ""
+    },
+    {
+      "key": "zenital-aydinlatma",
+      "term": "Zenithal Lighting (Toplighting)",
+      "definition": "Bringing daylight into a space directly from above through roof windows, skylights or ceiling openings. It gives even, soft light in deep-plan spaces and museums.",
+      "simple_definition": "Lighting a room with daylight coming in from openings in the ceiling.",
+      "image_id": ""
+    },
+    {
+      "key": "bolgeleme",
+      "term": "Zoning",
+      "definition": "Dividing urban land in zoning plans into use zones such as residential, commercial, industrial and green space, and setting building rules for each. It determines what can be built on each plot and at what density.",
+      "simple_definition": "Deciding which parts of a city are for homes, shops, factories or parks.",
+      "image_id": ""
+    },
+    {
+      "key": "uygulama-projesi",
+      "term": "Working Drawings",
+      "definition": "The detailed set of drawings prepared after the preliminary design is approved, containing all the dimensions, materials and details needed to build the project. Permits and on-site work are based on them.",
+      "simple_definition": "The final, fully detailed drawings used to actually build the building.",
+      "image_id": ""
+    },
+    {
+      "key": "uzay-kafes",
+      "term": "Space Frame",
+      "definition": "A lightweight three-dimensional structure made of struts joined at nodes to form a grid. It is used to span large areas such as sports halls, exhibition centres and hangars without intermediate columns.",
+      "simple_definition": "A 3D grid of connected bars that holds up large roofs without columns.",
+      "image_id": ""
+    },
+    {
+      "key": "ulu-cami",
+      "term": "Grand Mosque (Ulu Cami)",
+      "definition": "The largest and main congregational mosque of a city, where Friday prayers are held. Seljuk and early Ottoman examples, such as those in Bursa and Divriği, have wide prayer halls with many supports.",
+      "simple_definition": "The largest and most important mosque of a city.",
+      "image_id": ""
+    },
+    {
+      "key": "uydu-kent",
+      "term": "Satellite Town",
+      "definition": "A new settlement planned around a large city, linked to it but with its own housing, jobs and services. It is created to reduce population pressure on the main city.",
+      "simple_definition": "A new town built near a big city that has its own homes and services.",
+      "image_id": ""
+    },
+    {
+      "key": "ulusal-mimarlik-akimi",
+      "term": "First National Architectural Movement",
+      "definition": "An early 20th-century movement in Türkiye that combined Ottoman and Seljuk elements such as arches, domes and tiles with modern construction techniques. Vedat Tek and Architect Kemaleddin were its leading figures.",
+      "simple_definition": "A Turkish style that used Ottoman and Seljuk decoration on modern buildings.",
+      "image_id": ""
+    },
+    {
+      "key": "ufuk-cizgisi",
+      "term": "Skyline",
+      "definition": "The line and profile that a city's buildings form against the sky when seen from a distance. It is an important consideration in decisions about tall buildings and in protecting historic cities.",
+      "simple_definition": "The outline of a city's buildings against the sky seen from far away.",
+      "image_id": ""
+    },
+    {
+      "key": "ustabasi",
+      "term": "Foreman",
+      "definition": "An experienced worker who leads the tradespeople and labourers of a particular trade on site and oversees daily planning and quality. The foreman acts as a link between the site manager and the workers.",
+      "simple_definition": "The experienced worker who leads the other workers on a building site.",
+      "image_id": ""
+    },
+    {
+      "key": "ulasim-planlamasi",
+      "term": "Transport Planning",
+      "definition": "Planning a city's roads, public transport, cycling and pedestrian networks to meet its needs. Considered together with land use, it aims to reduce traffic and improve access.",
+      "simple_definition": "Planning how people will get around a city.",
+      "image_id": ""
+    },
+    {
+      "key": "u-degeri",
+      "term": "U-Value (Thermal Transmittance)",
+      "definition": "A value showing how much heat passes through a wall, roof or window per unit area per degree of temperature difference (W/m²K). The lower the value, the better the insulation.",
+      "simple_definition": "A number that shows how much heat escapes through a wall or window.",
+      "image_id": ""
+    },
+    {
+      "key": "nem-bariyeri",
+      "term": "Vapour Barrier",
+      "definition": "A thin sheet or membrane placed within wall, roof or floor layers to stop indoor water vapour from passing into the insulation and condensing. It is usually placed on the warm (inner) side of the insulation.",
+      "simple_definition": "A thin layer that stops indoor moisture from getting inside walls and causing mould.",
+      "image_id": ""
+    },
+    {
+      "key": "nazim-imar-plani",
+      "term": "Master Development Plan",
+      "definition": "A plan, usually at 1:5000 scale, showing a city's general land uses, densities, main transport network and directions of growth. It forms the basis of the more detailed implementation zoning plans.",
+      "simple_definition": "The main zoning plan showing how a city will grow overall.",
+      "image_id": ""
+    },
+    {
+      "key": "nervurlu-doseme",
+      "term": "Ribbed Slab",
+      "definition": "A reinforced concrete floor made of a thin slab with closely spaced small beams (ribs) running underneath. It spans wide openings with less concrete; the spaces between ribs are often filled with hollow blocks.",
+      "simple_definition": "A lighter concrete floor with many small beams underneath.",
+      "image_id": ""
+    },
+    {
+      "key": "nirengi-noktasi",
+      "term": "Triangulation Point",
+      "definition": "A reference point fixed on the ground with a concrete block or metal marker, whose position and height are precisely known, used in mapping and cadastral surveys. Plot boundaries and building setting-out are measured from it.",
+      "simple_definition": "A fixed point with an exactly known location that surveyors measure from.",
+      "image_id": ""
+    },
+    {
+      "key": "neo-gotik",
+      "term": "Neo-Gothic Architecture",
+      "definition": "A style from the late 18th century onward, especially in England, that revived medieval Gothic elements such as pointed arches, stained glass and spires. It was widely used for churches, universities and parliament buildings; also called Gothic Revival.",
+      "simple_definition": "A later style that copied the pointed-arch Gothic look of the Middle Ages.",
+      "image_id": ""
+    },
+    {
+      "key": "yapi-nizami",
+      "term": "Building Arrangement (Detached / Attached / Block)",
+      "definition": "The zoning rule for how buildings sit on their plots relative to neighbours: detached buildings have gardens on all sides, attached buildings share a wall with their neighbours, and block arrangement joins several buildings into one block.",
+      "simple_definition": "The rule that says whether a building stands alone or is joined to its neighbours.",
+      "image_id": ""
+    },
+    {
+      "key": "numune",
+      "term": "Concrete Test Specimen",
+      "definition": "Samples taken during a concrete pour and cured in cube or cylinder moulds, then crushed in a laboratory to measure their strength. Building inspection uses them to confirm the concrete meets the specified class.",
+      "simple_definition": "A small sample of concrete tested to check how strong it is.",
+      "image_id": ""
+    },
+    {
+      "key": "nem-rutubet",
+      "term": "Damp",
+      "definition": "Wetness in building elements caused by water rising from the ground, leaking in from rain or condensing indoors. It leads to mould, blistering paint and crumbling plaster and is fixed with waterproofing or ventilation depending on its source.",
+      "simple_definition": "Wetness in walls that causes mould and peeling paint.",
+      "image_id": ""
+    },
+    {
+      "key": "net-alan",
+      "term": "Net Floor Area",
+      "definition": "The actual usable floor area of a flat measured between the inner faces of its walls. It excludes wall thicknesses and any share of common areas, so it is smaller than the gross area.",
+      "simple_definition": "The floor space inside a home that you can actually use.",
+      "image_id": ""
+    },
+    {
+      "key": "nef",
+      "term": "Nave",
+      "definition": "The long central part of a church or basilica running from the entrance towards the apse, where the congregation gathers. It is usually separated from the side aisles by rows of columns.",
+      "simple_definition": "The long main hall of a church from the entrance to the front.",
+      "image_id": ""
+    },
+    {
+      "key": "narteks",
+      "term": "Narthex",
+      "definition": "The entrance hall running across the width of a Byzantine church, passed through before entering the main space. Hagia Sophia has two, an inner and an outer narthex.",
+      "simple_definition": "The entrance hall you pass through before the main hall of an old church.",
+      "image_id": ""
+    },
+    {
+      "key": "nseb",
+      "term": "Nearly Zero-Energy Building (nZEB)",
+      "definition": "A building with very low energy demand that covers part of that demand with renewable energy produced on site, such as solar panels. In Türkiye the Energy Performance of Buildings Regulation requires it for new buildings above a certain size.",
+      "simple_definition": "A building that uses very little energy and makes some of its own.",
+      "image_id": ""
+    },
+    {
+      "key": "merdiven-babasi",
+      "term": "Newel Post",
+      "definition": "The thick vertical post at the start, end or turns of a staircase that supports the handrail. It is often decorated with a carved or turned cap.",
+      "simple_definition": "The thick upright post at the bottom or top of a stair railing.",
+      "image_id": ""
+    },
+    {
+      "key": "basamak-burnu",
+      "term": "Nosing",
+      "definition": "The front edge of a stair tread that projects slightly beyond the riser below. It gives the foot more room, and a non-slip profile improves safety.",
+      "simple_definition": "The front edge of a stair step that sticks out slightly.",
+      "image_id": ""
+    },
+    {
+      "key": "komsuluk-birimi",
+      "term": "Neighbourhood Unit",
+      "definition": "A planning unit for a residential area in which daily needs such as a primary school, park and local shops are within walking distance. Developed in the early 20th century, it underpins pedestrian-scale neighbourhood design.",
+      "simple_definition": "A neighbourhood planned so that school, park and shops are within walking distance.",
+      "image_id": ""
+    },
+    {
+      "key": "ses-yalitimi",
+      "term": "Noise Insulation (Soundproofing)",
+      "definition": "Reducing the passage of sound from one space to another using dense materials, resilient layers and air gaps in walls, floors and windows. It is important for blocking noise between flats and from outside traffic.",
+      "simple_definition": "Stopping sound from passing between rooms or homes.",
+      "image_id": ""
+    },
+    {
+      "key": "otopark",
+      "term": "Car Park",
+      "definition": "An open area or covered floors set aside for parking vehicles. Under Türkiye's Parking Regulation, new buildings must provide a set number of spaces based on their number of homes or businesses.",
+      "simple_definition": "An area or floor where cars are parked.",
+      "image_id": ""
+    },
+    {
+      "key": "oturma-odasi",
+      "term": "Living Room",
+      "definition": "The shared room in a home where the family sits and relaxes day to day, watches television and receives guests. It can be combined with or separate from a formal lounge.",
+      "simple_definition": "The room where the family sits and spends time together.",
+      "image_id": ""
+    },
+    {
+      "key": "oryantasyon",
+      "term": "Orientation",
+      "definition": "The direction a building and its rooms face in relation to sun, wind, views and streets. Good orientation increases daylight and lowers heating and cooling costs.",
+      "simple_definition": "Which way a building and its rooms face towards the sun and view.",
+      "image_id": ""
+    },
+    {
+      "key": "ortak-alan",
+      "term": "Common Area",
+      "definition": "The parts of an apartment building or complex used jointly by all owners, such as the entrance hall, stairs, lift, roof, car park and garden. Under Turkish condominium law they are jointly owned and their costs are shared.",
+      "simple_definition": "Parts of a building everyone shares, like stairs and the garden.",
+      "image_id": ""
+    },
+    {
+      "key": "organik-mimari",
+      "term": "Organic Architecture",
+      "definition": "An approach that designs buildings in harmony with their natural setting and site, using natural materials and flowing forms. Frank Lloyd Wright's Fallingwater is its best-known example.",
+      "simple_definition": "Designing buildings to blend in with nature as if they were part of it.",
+      "image_id": ""
+    },
+    {
+      "key": "osmanli-mimarisi",
+      "term": "Ottoman Architecture",
+      "definition": "The architectural tradition that developed across Ottoman lands from the 14th to the early 20th century, known for central-domed mosques, külliye complexes, inns and timber houses. Mimar Sinan is its greatest master.",
+      "simple_definition": "The architecture of the Ottoman era, known for domed mosques and timber houses.",
+      "image_id": ""
+    },
+    {
+      "key": "oluk",
+      "term": "Gutter",
+      "definition": "A half-pipe channel running along the edge of the roof eaves that collects rainwater and directs it to the downpipes. If not cleaned regularly it can overflow and damage the facade and foundations.",
+      "simple_definition": "A channel along the roof edge that catches rainwater.",
+      "image_id": ""
+    },
+    {
+      "key": "ortak-duvar",
+      "term": "Party Wall",
+      "definition": "A wall on the plot boundary that separates two neighbouring attached buildings. It must meet special fire and sound insulation requirements.",
+      "simple_definition": "A wall shared by two buildings next to each other.",
+      "image_id": ""
+    },
+    {
+      "key": "dis-mekan",
+      "term": "Outdoor Space",
+      "definition": "Designed open areas outside the building, such as gardens, terraces, courtyards and balconies. With landscaping, shading and outdoor furniture they can work as an extension of the interior.",
+      "simple_definition": "Areas outside the building that people use, like gardens and terraces.",
+      "image_id": ""
+    },
+    {
+      "key": "acik-plan",
+      "term": "Open-Plan Layout",
+      "definition": "A layout in which functions such as living, dining and kitchen are combined in one large space without dividing walls. It makes the home feel brighter and more spacious.",
+      "simple_definition": "A layout where the living room, kitchen and dining area share one space with no walls.",
+      "image_id": ""
+    },
+    {
+      "key": "dikilitas",
+      "term": "Obelisk",
+      "definition": "A tall, single-piece stone monument with a square section that tapers upwards and ends in a pyramid-shaped top. The Obelisk of Theodosius in Istanbul's Sultanahmet Square is a well-known example.",
+      "simple_definition": "A tall pointed stone pillar made from a single piece.",
+      "image_id": ""
+    },
+    {
+      "key": "kas-kemer",
+      "term": "Ogee Arch",
+      "definition": "An arch made of two S-shaped curves, each combining a concave and a convex part, meeting at a pointed top. It is common in late Gothic architecture and Ottoman decoration.",
+      "simple_definition": "An arch with S-shaped sides that meet in a point at the top.",
+      "image_id": ""
+    },
+    {
+      "key": "sebekeden-bagimsiz-ev",
+      "term": "Off-Grid House",
+      "definition": "A home that meets its own needs without connecting to electricity, water or sewer networks, using solar panels, batteries, rainwater harvesting and on-site treatment.",
+      "simple_definition": "A home that makes its own power and water without being connected to city supplies.",
+      "image_id": ""
+    },
+    {
+      "key": "duvar-kagidi",
+      "term": "Wallpaper",
+      "definition": "A wall covering made of paper, vinyl or textile, produced in patterned or textured rolls and pasted onto walls. It offers richer patterns and textures than paint.",
+      "simple_definition": "A patterned paper covering glued onto walls.",
+      "image_id": ""
+    },
+    {
+      "key": "dograma",
+      "term": "Joinery (Window and Door Frames)",
+      "definition": "All the timber, PVC or aluminium frames, sashes and leaves of a building's windows and doors. Joinery quality directly affects heat and sound insulation.",
+      "simple_definition": "The frames and opening parts of a building's windows and doors.",
+      "image_id": ""
+    },
+    {
+      "key": "dolgu-duvar",
+      "term": "Infill Wall",
+      "definition": "A non-load-bearing wall that fills the spaces between columns and beams in a concrete or steel frame. It is built from lightweight materials such as brick, aerated concrete or pumice blocks.",
+      "simple_definition": "A wall that fills the gaps in a building's frame but doesn't hold it up.",
+      "image_id": ""
+    },
+    {
+      "key": "dubleks",
+      "term": "Duplex",
+      "definition": "A home spread over two floors connected by its own internal staircase. Usually the living areas are downstairs and the bedrooms upstairs.",
+      "simple_definition": "A two-storey apartment with its own staircase inside.",
+      "image_id": ""
+    },
+    {
+      "key": "davlumbaz",
+      "term": "Extractor Hood (Range Hood)",
+      "definition": "An appliance mounted above the cooktop that draws in steam, smoke and odours from cooking and either vents them outside or filters them. It is both a functional and decorative element in kitchen design.",
+      "simple_definition": "The appliance above the cooker that sucks up cooking smells and steam.",
+      "image_id": ""
+    },
+    {
+      "key": "dusey-sirkulasyon",
+      "term": "Vertical Circulation",
+      "definition": "The system of stairs, lifts and ramps that moves people between floors of a building. Its position and size are key planning decisions for ease of use and fire safety.",
+      "simple_definition": "How people move between floors using stairs and lifts.",
+      "image_id": ""
+    },
+    {
+      "key": "tadilat",
+      "term": "Renovation",
+      "definition": "Updating an existing building or space by changing partitions, services, finishes and fittings. Renovations affecting the structure or exterior require a renovation permit from the municipality.",
+      "simple_definition": "Changing and updating an existing home.",
+      "image_id": ""
+    },
+    {
+      "key": "tesisat",
+      "term": "Building Services (MEP)",
+      "definition": "All the pipes, cables and equipment of a building's water, drainage, heating, ventilation, gas and electrical systems. They are designed in separate mechanical and electrical drawings.",
+      "simple_definition": "The pipes and cables for water, electricity, gas and heating in a building.",
+      "image_id": ""
+    },
+    {
+      "key": "tasiyici-sistem",
+      "term": "Structural System",
+      "definition": "The combination of foundations, columns, beams, shear walls and slabs that carries a building's own weight, its contents and forces such as earthquakes and wind down to the ground. Load-bearing elements must not be altered during renovations.",
+      "simple_definition": "The columns, beams and foundations that hold a building up.",
+      "image_id": ""
+    },
+    {
+      "key": "taks",
+      "term": "Site Coverage Ratio (TAKS)",
+      "definition": "The ratio of the building's ground footprint to the plot area. For example, with a ratio of 0.30 on a 1,000 m² plot, the footprint can be at most 300 m²; the value is set in the zoning plan.",
+      "simple_definition": "The share of a plot that a building is allowed to cover.",
+      "image_id": ""
+    },
+    {
+      "key": "emsal-kaks",
+      "term": "Floor Area Ratio (FAR / KAKS)",
+      "definition": "The ratio of the total floor area that may be built on a plot to the plot area. For example, a ratio of 1.50 on a 500 m² plot allows at most 750 m² of countable floor area.",
+      "simple_definition": "The ratio that tells how much total floor space can be built on a plot.",
+      "image_id": ""
+    },
+    {
+      "key": "temel",
+      "term": "Foundation",
+      "definition": "The structural part at the very bottom of a building that safely transfers its whole load into the ground. Depending on the soil survey it is designed as pad, strip, raft (covering the whole area) or piled foundations.",
+      "simple_definition": "The bottom part of a building that passes all its weight into the ground.",
+      "image_id": ""
+    },
+    {
+      "key": "tugla",
+      "term": "Brick",
+      "definition": "A rectangular building unit made by moulding clay and firing it in a kiln. Solid and perforated types exist; bricks are used to build walls and as decorative facade cladding.",
+      "simple_definition": "A rectangular block of baked clay used to build walls.",
+      "image_id": ""
+    },
+    {
+      "key": "tente",
+      "term": "Awning",
+      "definition": "A shade cover of fabric or similar material, often retractable, fitted over a window, balcony or terrace. It blocks sun and light rain.",
+      "simple_definition": "A fabric shade over a window or balcony that can open and close.",
+      "image_id": ""
+    },
+    {
+      "key": "tefris",
+      "term": "Furnishing",
+      "definition": "Fitting out a space with furniture, lighting, textiles and accessories so it is ready to use. Interior design projects include a furnishing plan alongside the layout plan.",
+      "simple_definition": "Filling a space with furniture and items so it is ready to live in.",
+      "image_id": ""
+    },
+    {
+      "key": "terakota-karo",
+      "term": "Quarry Tile",
+      "definition": "A durable, unglazed floor tile made by firing natural clay at high temperature, with warm red-brown tones. It is widely used in kitchens, terraces and country houses.",
+      "simple_definition": "A reddish, unglazed floor tile made of baked clay.",
+      "image_id": ""
+    },
+    {
+      "key": "tas-ocagi",
+      "term": "Quarry",
+      "definition": "An open-pit site where natural stones such as marble, granite and limestone, and aggregates, are extracted from the ground. When choosing natural stone, the quarry it comes from determines its colour and texture.",
+      "simple_definition": "A place where natural stone is dug out of the ground.",
+      "image_id": ""
+    },
+    {
+      "key": "tek-dikmeli-makas",
+      "term": "King Post Truss",
+      "definition": "A triangular timber roof frame in which two sloping rafters meet at the apex and a single central vertical post connects the apex to the tie beam below. It is used for small to medium roof spans.",
+      "simple_definition": "A wooden triangular roof frame with one upright post in the middle.",
+      "image_id": ""
+    },
+    {
+      "key": "temel-takviyesi",
+      "term": "Underpinning",
+      "definition": "Deepening and strengthening the foundation of an existing building by adding new concrete or piles beneath it, because of settlement, soil problems or extra loads.",
+      "simple_definition": "Strengthening an existing building's foundation from underneath.",
+      "image_id": ""
+    },
+    {
+      "key": "kentsel-donusum",
+      "term": "Urban Regeneration (Urban Transformation)",
+      "definition": "The process of demolishing and rebuilding, or upgrading, earthquake-vulnerable or run-down buildings and neighbourhoods. In Türkiye it is carried out under Law No. 6306 on the Transformation of Areas under Disaster Risk.",
+      "simple_definition": "Replacing old, unsafe buildings and neighbourhoods with new ones.",
+      "image_id": ""
+    },
+    {
+      "key": "kentsel-yayilma",
+      "term": "Urban Sprawl",
+      "definition": "The low-density, unplanned and car-dependent spread of a city into surrounding farmland and natural areas. It increases infrastructure costs and transport problems.",
+      "simple_definition": "A city spreading outward in a scattered, unplanned way.",
+      "image_id": ""
+    },
+    {
+      "key": "evrensel-tasarim",
+      "term": "Universal Design",
+      "definition": "Designing spaces and products so that everyone, regardless of age, size or disability, can use them without special adaptation. Step-free entrances and wide doorways are typical examples.",
+      "simple_definition": "Designing spaces so that everyone, young, old or disabled, can use them easily.",
+      "image_id": ""
+    },
+    {
+      "key": "kose-tasi",
+      "term": "Quoin",
+      "definition": "Large dressed stones set at the corners of a building, often differing in size, texture or colour from the wall surface. They strengthen the corner and accentuate the facade.",
+      "simple_definition": "Large, eye-catching stones set at the corners of a building.",
+      "image_id": ""
+    },
+    {
+      "key": "dortyaprak",
+      "term": "Quatrefoil",
+      "definition": "A clover-like ornamental motif of four rounded lobes arranged around a common centre. It is common in Gothic window tracery, balustrades and reliefs.",
+      "simple_definition": "A decorative shape like a four-leaf clover.",
+      "image_id": ""
+    },
+    {
+      "key": "dortgen-avlu",
+      "term": "Quadrangle",
+      "definition": "A square or rectangular open courtyard enclosed by buildings on all four sides. It is a common plan element of universities, monasteries, madrasas and inns.",
+      "simple_definition": "A square open courtyard surrounded by buildings on all four sides.",
+      "image_id": ""
+    },
+    {
+      "key": "kuvars-tezgah",
+      "term": "Quartz Countertop",
+      "definition": "A kitchen or bathroom worktop made from engineered stone produced by pressing natural quartz particles with resins and pigments. It is non-porous and resistant to scratches and stains.",
+      "simple_definition": "A tough, easy-to-clean kitchen counter made from quartz stone.",
+      "image_id": ""
+    },
+    {
+      "key": "metraj",
+      "term": "Quantity Take-Off",
+      "definition": "Measuring and calculating from the drawings the quantities of each work item, such as concrete, masonry, plaster and paint. It is the basis of cost estimates, bills of quantities and progress payments.",
+      "simple_definition": "Calculating how much material and work a building project needs.",
+      "image_id": ""
+    },
+    {
+      "key": "radyal-kesim",
+      "term": "Quarter-Sawn Timber",
+      "definition": "Timber cut from the log so that the growth rings are roughly perpendicular to the face of the board. It moves and warps less and shows a straight, tight grain, making it preferred for quality flooring and furniture.",
+      "simple_definition": "Wood cut in a special way so it stays straight and shows a fine grain.",
+      "image_id": ""
+    },
+    {
+      "key": "kuvarsit",
+      "term": "Quartzite",
+      "definition": "A very hard, durable natural metamorphic stone formed when sandstone is transformed by heat and pressure. Its marble-like veining makes it popular for countertops, floors and facade cladding.",
+      "simple_definition": "A natural stone that looks like marble but is much harder.",
+      "image_id": ""
+    },
+    {
+      "key": "kurakcil-peyzaj",
+      "term": "Xeriscaping",
+      "definition": "A landscaping approach designed to use little water, relying on drought-tolerant native plants, mulch and efficient irrigation. It saves water in hot, dry climates.",
+      "simple_definition": "Garden design using plants that need very little water.",
+      "image_id": ""
+    },
+    {
+      "key": "ksistos",
+      "term": "Xystus",
+      "definition": "In ancient Greece, a long covered portico at a gymnasium used for exercise in bad weather; in Roman times, a tree-lined garden walk or terrace.",
+      "simple_definition": "A long covered walkway used in ancient times for exercise and strolling.",
+      "image_id": ""
+    },
+    {
+      "key": "xps-yalitim",
+      "term": "XPS (Extruded Polystyrene) Insulation",
+      "definition": "A rigid, closed-cell thermal insulation board made by melting polystyrene and forcing it through a die. It resists water and compression and is used especially for foundations, basement walls and flat terrace roofs.",
+      "simple_definition": "A rigid, water-resistant foam board used to insulate buildings.",
+      "image_id": ""
+    },
+    {
+      "key": "akma-dayanimi",
+      "term": "Yield Strength",
+      "definition": "The highest stress a material, especially reinforcing steel, can carry before it starts to deform permanently. Rebar grades (for example B420C) are defined by this value.",
+      "simple_definition": "The most force steel can take before it bends permanently.",
+      "image_id": ""
+    },
+    {
+      "key": "elastisite-modulu",
+      "term": "Young's Modulus (Modulus of Elasticity)",
+      "definition": "A coefficient showing how much a material stretches or compresses under load, i.e. its stiffness. The higher the value, the less the material deforms under the same load; it is used in calculations for concrete and steel.",
+      "simple_definition": "A value that shows how much a material bends or stretches under load.",
+      "image_id": ""
+    },
+    {
+      "key": "sove",
+      "term": "Jamb (Opening Surround)",
+      "definition": "The side faces and surrounding frame of a door or window opening, made of stone, marble, plaster or timber. It protects the edge of the opening and adds decoration to the facade.",
+      "simple_definition": "The frame around the sides of a door or window opening.",
+      "image_id": ""
+    },
+    {
+      "key": "doseme-kirisi",
+      "term": "Joist",
+      "definition": "Small beams laid parallel at close spacing in timber or steel floors to support the floor decking. They carry the load to main beams or walls.",
+      "simple_definition": "Thin beams laid side by side to hold up a floor.",
+      "image_id": ""
+    },
+    {
+      "key": "bordur",
+      "term": "Kerb (Curb)",
+      "definition": "An edging stone of concrete or stone that separates the pavement from the road, or a planted area from a path. It guides surface water and marks the boundary.",
+      "simple_definition": "The edge stone between the pavement and the road.",
+      "image_id": ""
+    },
+    {
+      "key": "rogar",
+      "term": "Inspection Chamber (Manhole)",
+      "definition": "A covered underground chamber built where drainage and stormwater pipes meet, used for inspection and cleaning. Blockages are cleared through its cover.",
+      "simple_definition": "A covered pit in the ground used to check and clean drain pipes.",
+      "image_id": ""
+    },
+    {
+      "key": "mantolama",
+      "term": "External Wall Insulation (ETICS)",
+      "definition": "Covering a building's outer walls with insulation boards, then applying mesh and a decorative render on top. It reduces heat loss and condensation and lowers heating bills considerably.",
+      "simple_definition": "Wrapping a building's outside walls in insulation to keep heat in.",
+      "image_id": ""
+    },
+    {
+      "key": "avlu",
+      "term": "Courtyard",
+      "definition": "An open area enclosed by walls or buildings, within or in front of a building or group of buildings. It is the centre of daily life in traditional Turkish houses, mosques and inns.",
+      "simple_definition": "An open space surrounded by buildings or walls.",
+      "image_id": ""
+    },
+    {
+      "key": "brut-alan",
+      "term": "Gross Floor Area",
+      "definition": "The area of a unit measured to its outer wall faces, including walls, plus its share of the common areas. The larger figure in property listings is usually the gross area.",
+      "simple_definition": "A home's total area including walls and its share of shared spaces.",
+      "image_id": ""
+    },
+    {
+      "key": "alcipan",
+      "term": "Drywall (Plasterboard)",
+      "definition": "A board made of gypsum pressed between two layers of paper, screwed onto metal studs to build partition walls and suspended ceilings. It is a fast, light, dry construction method.",
+      "simple_definition": "Light gypsum boards used to build interior walls and ceilings.",
+      "image_id": ""
+    },
+    {
+      "key": "isiklik-light-well",
+      "term": "Light Well",
+      "definition": "A vertical shaft left open to the sky, or covered with glass, that brings daylight and fresh air to inner rooms and stairs of a building.",
+      "simple_definition": "An open shaft inside a building that lets light and air reach inner rooms.",
+      "image_id": ""
+    },
+    {
+      "key": "isi-koprusu-thermal-bridge",
+      "term": "Thermal Bridge",
+      "definition": "A spot where insulation is interrupted, such as at a column, beam or balcony slab, letting heat escape; it often causes cold walls, condensation and mould.",
+      "simple_definition": "A weak spot in insulation where a home's heat leaks outside.",
+      "image_id": ""
+    },
+    {
+      "key": "islak-hacim-wet-area",
+      "term": "Wet Area",
+      "definition": "The general name for rooms that come into contact with water, such as bathrooms, toilets, kitchens and laundries, where waterproofing and plumbing matter most.",
+      "simple_definition": "Rooms where water is used, such as bathrooms and kitchens.",
+      "image_id": ""
+    },
+    {
+      "key": "jeotekstil-geotextile",
+      "term": "Geotextile",
+      "definition": "A durable synthetic fabric used in groundworks, drainage and landscaping to separate layers, filter water and reinforce the soil.",
+      "simple_definition": "A special fabric laid in the ground that lets water through but holds soil in place.",
+      "image_id": ""
+    },
+    {
+      "key": "jeotermal-isitma-geothermal",
+      "term": "Geothermal Heating",
+      "definition": "A way of heating and cooling a building using the earth's natural underground warmth through heat pumps and pipes buried in the ground.",
+      "simple_definition": "Heating a home with the natural warmth found underground.",
+      "image_id": ""
+    },
+    {
+      "key": "vasistas-hopper-window",
+      "term": "Hopper Window",
+      "definition": "A window sash hinged at the bottom that tilts inward from the top, giving ventilation without opening fully.",
+      "simple_definition": "A window that tips inward at the top to let air in.",
+      "image_id": ""
+    },
+    {
+      "key": "vestiyer-cloakroom",
+      "term": "Cloakroom",
+      "definition": "A cupboard or small room at the entrance where coats, umbrellas and shoes are left.",
+      "simple_definition": "A cupboard or small room by the door for coats.",
+      "image_id": ""
+    }
+  ]
+}

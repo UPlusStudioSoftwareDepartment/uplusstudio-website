@@ -1,0 +1,61 @@
+export const contact_tr = {
+    "title": "İletişim",
+    "subtitle": "Bizimle iletişime geçin",
+    "heading": "İletişime Geçin",
+    "getInTouch": "Bize Ulaşın",
+    "address": "Adres",
+    "addressText": "Reyhan Cd. Merkez İncek Plaza No:3 Kat:1 D:2, 06830 İncek, Gölbaşı/Ankara",
+    "header": {
+        "line1": "Bir projeyi",
+        "accent": "konuşalım.",
+        "intro": "Yeni bir yapı, bir iç mekân dönüşümü ya da yalnızca bir fikir. Bize yazın; en geç iki iş günü içinde dönüş yapalım."
+    },
+    "instagram": "Instagram",
+    "formLabel": "Mesaj gönderin",
+    "directions": "Yol Tarifi",
+    "openInMaps": "Haritada aç",
+    "appointment": {
+        "prompt": "Yüz yüze görüşmeyi mi tercih edersiniz?",
+        "button": "Randevu Al"
+    },
+    "findUs": "Bizi Bulun",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "name": "Adınız Soyadınız",
+    "subject": "Konu",
+    "selectSubject": "Konu Seçin",
+    "subjects": {
+        "general": "Genel Bilgi",
+        "project": "Proje Danışmanlığı",
+        "consultation": "Mimari Danışmanlık",
+        "partnership": "İş Ortaklığı"
+    },
+    "package": "Paket Seçimi",
+    "selectPackage": "Paket Seçin",
+    "packages": {
+        "basic": "Temel Paket",
+        "premium": "Premium Paket",
+        "enterprise": "Kurumsal Paket",
+        "custom": "Özel Proje"
+    },
+    "message": "Mesajınız",
+    "send": "Gönder",
+    "validation": {
+        "nameRequired": "Adınız soyadınız gereklidir.",
+        "nameMin": "Adınız en az 2 karakter olmalıdır.",
+        "emailRequired": "E-posta adresi gereklidir.",
+        "emailInvalid": "Lütfen geçerli bir e-posta adresi girin.",
+        "subjectRequired": "Konu zorunludur.",
+        "subjectMin": "Konu en az 2 karakter olmalıdır.",
+        "messageRequired": "Lütfen bir mesaj yazın.",
+        "messageMin": "Mesajınız en az 10 karakter olmalıdır."
+    },
+    "nameError": "Adınız en az 2 karakter olmalıdır",
+    "emailError": "Geçersiz e-posta adresi",
+    "subjectError": "Konu zorunludur",
+    "messageError": "Mesajınız en az 10 karakter olmalıdır",
+    "sending": "Gönderiliyor...",
+    "success": "Mesajınız başarıyla gönderildi!",
+    "error": "Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.",
+    "errorNotConfigured": "E-posta servisi şu an yapılandırılmadı. Lütfen daha sonra tekrar deneyin veya doğrudan e-posta ile yazın."
+}

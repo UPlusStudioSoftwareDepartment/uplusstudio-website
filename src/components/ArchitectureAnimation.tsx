@@ -10,7 +10,7 @@ const ArchitectureAnimation = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 5000); // 5 saniye sonra göster
+    }, 5000); 
 
     return () => clearTimeout(timer);
   }, []);
@@ -18,12 +18,8 @@ const ArchitectureAnimation = () => {
   useEffect(() => {
     if (isVisible) {
       const structureTimer = setInterval(() => {
-        setCurrentStructure((prevStructure) => {
-          const next = (prevStructure + 1) % drawingStructures.length;
-          console.log('Switching to structure:', next, drawingStructures[next].name);
-          return next;
-        });
-      }, 5000); // Her 5 saniyede bir sonraki yapı
+        setCurrentStructure((prevStructure) => (prevStructure + 1) % drawingStructures.length);
+      }, 5000); 
 
       return () => clearInterval(structureTimer);
     }
@@ -288,7 +284,6 @@ const ArchitectureAnimation = () => {
           variants={containerVariants}
           className="w-full max-w-6xl mx-auto p-6"
         >
-          {/* Başlık */}
           <motion.div
             variants={itemVariants}
             className="text-center mb-12"
@@ -301,19 +296,16 @@ const ArchitectureAnimation = () => {
             </p>
           </motion.div>
 
-          {/* Sadece Çizim Alanı - Farklı Yapılar */}
           <motion.div
             variants={itemVariants}
             className="mb-12"
           >
-            {/* Sadece Çizim Alanı - Transparent Arka Plan */}
             <div className="relative bg-transparent rounded-lg h-96 overflow-hidden">
               <svg
                 className="w-full h-full"
                 viewBox="0 0 800 400"
                 preserveAspectRatio="xMidYMid meet"
               >
-                {/* Mevcut Yapı Çizimi */}
                 <motion.g
                   key={currentStructure}
                   initial={{ opacity: 0 }}
@@ -321,10 +313,9 @@ const ArchitectureAnimation = () => {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                  {/* Ana Yapı Çizgileri */}
                   {drawingStructures[currentStructure].paths.map((path, pathIndex) => (
                     <motion.path
-                      key={pathIndex}
+                      key={`path-${currentStructure}-${path.slice(0, 30)}`}
                       d={path}
                       fill="none"
                       stroke="white"
@@ -339,14 +330,13 @@ const ArchitectureAnimation = () => {
                     />
                   ))}
                   
-                  {/* Pencereler */}
-                  {drawingStructures[currentStructure].windows.map((window, windowIndex) => (
+                  {drawingStructures[currentStructure].windows.map((win, winIdx) => (
                     <motion.rect
-                      key={windowIndex}
-                      x={window.x}
-                      y={window.y}
-                      width={window.w}
-                      height={window.h}
+                      key={`win-${currentStructure}-${winIdx}`}
+                      x={win.x}
+                      y={win.y}
+                      width={win.w}
+                      height={win.h}
                       fill="none"
                       stroke="white"
                       strokeWidth="1"
@@ -354,13 +344,12 @@ const ArchitectureAnimation = () => {
                       animate={{ scale: 1 }}
                       transition={{ 
                         duration: 0.4, 
-                        delay: 2 + windowIndex * 0.1,
+                        delay: 2 + winIdx * 0.1,
                         ease: "easeOut" 
                       }}
                     />
                   ))}
                   
-                  {/* Kapı */}
                   {drawingStructures[currentStructure].door && (
                     <motion.rect
                       x={drawingStructures[currentStructure].door.x}
@@ -381,7 +370,6 @@ const ArchitectureAnimation = () => {
                   )}
                 </motion.g>
                 
-                {/* Kalem İmleci - Beyaz Kalem */}
                 <motion.div
                   className="absolute w-4 h-4 bg-white rounded-full pointer-events-none"
                   style={{
@@ -390,55 +378,31 @@ const ArchitectureAnimation = () => {
                   initial={{ x: 0, y: 0, opacity: 0 }}
                   animate={{
                     x: [
-                      // Modern Villa çizimi
                       [100, 150, 200, 250, 300, 250, 200, 150, 100],
-                      // Skyscraper çizimi
                       [350, 400, 450, 400, 350, 400, 450, 400, 350],
-                      // Church çizimi
                       [550, 580, 570, 560, 550, 580, 570, 560, 550],
-                      // Bridge çizimi
                       [50, 150, 200, 250, 300, 250, 200, 150, 50],
-                      // Tower çizimi
                       [650, 700, 680, 670, 660, 680, 670, 660, 650],
-                      // Pyramid çizimi
                       [150, 200, 250, 300, 350, 300, 250, 200, 150],
-                      // Dome Building çizimi
                       [450, 500, 550, 500, 450, 500, 550, 500, 450],
-                      // Pagoda çizimi
                       [650, 700, 680, 670, 660, 680, 670, 660, 650],
-                      // Castle Tower çizimi
                       [100, 150, 120, 110, 100, 120, 110, 100, 90],
-                      // Lighthouse çizimi
                       [250, 300, 280, 270, 260, 280, 270, 260, 250],
-                      // Windmill çizimi
                       [400, 450, 430, 420, 410, 430, 420, 410, 400],
-                      // Observatory çizimi
                       [550, 600, 580, 570, 560, 580, 570, 560, 550]
                     ][currentStructure],
                     y: [
-                      // Modern Villa çizimi
                       [100, 150, 200, 250, 300, 250, 200, 150, 100],
-                      // Skyscraper çizimi
                       [80, 120, 160, 200, 250, 200, 160, 120, 80],
-                      // Church çizimi
                       [200, 150, 100, 180, 160, 100, 180, 160, 200],
-                      // Bridge çizimi
                       [250, 200, 150, 200, 250, 200, 150, 200, 250],
-                      // Tower çizimi
                       [150, 100, 120, 140, 160, 120, 140, 160, 150],
-                      // Pyramid çizimi
                       [300, 200, 150, 200, 300, 200, 150, 200, 300],
-                      // Dome Building çizimi
                       [300, 200, 150, 200, 300, 200, 150, 200, 300],
-                      // Pagoda çizimi
                       [320, 280, 260, 240, 220, 240, 260, 280, 320],
-                      // Castle Tower çizimi
                       [300, 200, 180, 160, 140, 160, 180, 200, 300],
-                      // Lighthouse çizimi
                       [300, 200, 100, 80, 60, 80, 100, 200, 300],
-                      // Windmill çizimi
                       [300, 200, 120, 80, 60, 80, 120, 200, 300],
-                      // Observatory çizimi
                       [300, 200, 180, 150, 120, 150, 180, 200, 300]
                     ][currentStructure],
                     opacity: [1, 1, 1, 1, 1, 1, 1, 1, 0]
@@ -450,10 +414,9 @@ const ArchitectureAnimation = () => {
                   }}
                 />
                 
-                {/* Kalem İzleri - Beyaz Kalem Etkisi */}
                 {[100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, 400].map((x, i) => (
                   <motion.circle
-                    key={`trail-${i}`}
+                    key={`trail-${x}`}
                     cx={x}
                     cy={120 + Math.sin(i * 0.6) * 60}
                     r="2"
@@ -471,14 +434,13 @@ const ArchitectureAnimation = () => {
             </div>
           </motion.div>
 
-          {/* Hizmet Kartları */}
           <motion.div
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {services.map((service, index) => (
+            {services.map((service) => (
               <motion.div
-                key={index}
+                key={service.title}
                 variants={itemVariants}
                 whileHover={{ 
                   scale: 1.05,
@@ -486,7 +448,7 @@ const ArchitectureAnimation = () => {
                 }}
                 className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-gray-600/50 transition-all duration-300"
               >
-                <div className={`w-12 h-12 bg-gradient-to-br ${service.color} rounded-lg flex items-center justify-center text-2xl mb-4`}>
+                <div className={`w-12 h-12 bg-linear-to-br ${service.color} rounded-lg flex items-center justify-center text-2xl mb-4`}>
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-white mb-2">
@@ -499,7 +461,6 @@ const ArchitectureAnimation = () => {
             ))}
           </motion.div>
 
-          {/* Alt Bilgi */}
           <motion.div
             variants={itemVariants}
             className="text-center mt-12"

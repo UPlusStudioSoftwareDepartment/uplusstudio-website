@@ -1,9 +1,26 @@
 import type { NextConfig } from "next";
-import path from "path";
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  serverExternalPackages: ["react-i18next"],
+
+  turbopack: {
+    root: __dirname,
+  },
+
+  compress: true,
+  poweredByHeader: false,
+  
+  experimental: {
+    optimizeCss: true,
+  },
+  
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+    reactRemoveProperties: process.env.NODE_ENV === 'production',
+  },
 
   images: {
     remotePatterns: [
@@ -19,18 +36,61 @@ const nextConfig: NextConfig = {
         port: "3000",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
-    formats: ["image/webp", "image/avif"],
-    minimumCacheTTL: 60,
+    formats: ["image/avif", "image/webp"], 
+    minimumCacheTTL: 31536000, 
     dangerouslyAllowSVG: true,
-
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    
+    deviceSizes: [640, 828, 1200, 1920], 
+    imageSizes: [16, 32, 48, 64, 96, 128, 256], 
+    
+    unoptimized: false,
   },
 
-  turbopack: {
-    root: path.resolve(__dirname),
+  productionBrowserSourceMaps: false,
+  
+  webpack: (config, { dev, isServer, webpack }) => {
+    if (!dev && !isServer) {
+      config.devtool = 'source-map';
+      
+      config.plugins.push(
+        new webpack.BannerPlugin({
+          banner: '//# sourceMappingURL=[file].map',
+          entryOnly: false,
+          raw: false,
+        })
+      );
+      
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              chunks: 'all',
+              priority: 10,
+            },
+            common: {
+              name: 'common',
+              minChunks: 2,
+              chunks: 'all',
+              priority: 5,
+              reuseExistingChunk: true,
+            },
+          },
+        },
+      };
+    }
+    return config;
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

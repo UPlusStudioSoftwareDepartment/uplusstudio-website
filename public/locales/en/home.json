@@ -1,16 +1,56 @@
 {
   "hero": {
     "title": "We Turn Architecture Into Value",
-    "subtitle": "Transforming dreams into reality with architecture, interior design, and implementation solutions"
+    "subtitle": "Transforming dreams into reality with architecture, interior design, and implementation solutions",
+    "slide1": {
+      "title": "Iconic Architectural Designs",
+      "subtitle": "Architectural projects that push boundaries, combining aesthetics and functionality",
+      "category": "Architectural Design"
+    },
+    "slide2": {
+      "title": "Modern Interior Solutions",
+      "subtitle": "Innovative and personalized interior design concepts that transform your living spaces",
+      "category": "Interior Design"
+    },
+    "slide3": {
+      "title": "Sustainable Projects",
+      "subtitle": "Eco-friendly, energy-efficient and smart building solutions for future generations",
+      "category": "Green Architecture"
+    },
+    "slide4": {
+      "title": "Urban Planning",
+      "subtitle": "Strategic urban design and master planning solutions that shape sustainable and livable cities",
+      "category": "Urban Planning"
+    }
   },
   "cta": {
     "appointment": "Book Appointment",
-    "portfolio": "Our Projects"
+    "glossary": "Architectural Glossary",
+    "portfolio": "Our Projects",
+    "scrollDown": "Scroll Down"
   },
   "about": {
     "title": "About Us",
     "description": "Since 2010, UPlus Studio has been delivering innovative architectural solutions. From our Istanbul-based office, we serve clients across Turkey and internationally.",
     "mission": "Our mission is to create spaces that enhance quality of life by combining aesthetics, functionality, and sustainability.",
+    "vision": "To create human-centric and nature-respecting living spaces by designing the architecture of the future today.",
+    "philosophy": {
+      "title": "Design Philosophy",
+      "description": "Every project tells a unique story. We create timeless and functional spaces by analyzing context, culture, and user needs."
+    },
+    "stats": {
+      "years": "Years of Experience",
+      "projects": "Projects Completed",
+      "clients": "Happy Clients",
+      "awards": "Design Awards"
+    },
+    "values": {
+      "title": "Our Values",
+      "v1": "Innovation",
+      "v2": "Sustainability",
+      "v3": "Excellence",
+      "v4": "Transparency"
+    },
     "imageAlt": "Our office or team"
   },
   "services": {
@@ -59,6 +99,7 @@
   },
   "contact": {
     "title": "Contact",
+    "heading": "Get in Touch",
     "getInTouch": "Get in Touch",
     "address": "Address",
     "addressText": "Incek, Turkan Soray Cd. No: 4, 06830 Golbasi/Ankara",
@@ -85,12 +126,12 @@
     "message": "Your Message",
     "send": "Send",
     "validation": {
-      "nameRequired": "Name field is required",
-      "emailRequired": "Email field is required",
-      "emailInvalid": "Please enter a valid email address",
-      "messageRequired": "Message field is required",
-      "messageMinLength": "Message must be at least 10 characters",
-      "phoneInvalid": "Please enter a valid phone number"
+      "nameRequired": "Name is required.",
+      "nameMin": "Name must be at least 2 characters.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageRequired": "Please write a message.",
+      "messageMin": "Message must be at least 10 characters."
     },
     "sending": "Sending...",
     "success": "Your message has been sent successfully!",

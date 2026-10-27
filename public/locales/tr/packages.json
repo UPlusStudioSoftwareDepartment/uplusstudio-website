@@ -2,7 +2,7 @@
   "title": "Mimari Paketleri",
   "subtitle": "Projenizin büyüklüğüne ve ihtiyaçlarınıza uygun profesyonel mimari paketlerimizden seçim yapın",
   "popular": "En Popüler",
-  "project": "proje",
+  "project": "Proje",
   "purchase": "Satın Al",
   "purchaseAlert": "Paket satın alınıyor: ",
   "customPackage": {
@@ -12,6 +12,7 @@
   },
   "basic": {
     "name": "Temel Paket",
+    "duration": "2 Hafta",
     "features": {
       "concept": "Konsept Tasarım",
       "2dDrawings": "2D Teknik Çizimler",
@@ -21,6 +22,7 @@
   },
   "starter": {
     "name": "Başlangıç Paketi",
+    "duration": "3 Hafta",
     "features": {
       "concept": "Temel Konsept Tasarım",
       "2dDrawings": "2D Teknik Çizimler",
@@ -31,17 +33,19 @@
   },
   "professional": {
     "name": "Profesyonel Paket",
+    "duration": "4 Hafta",
     "features": {
       "concept": "Detaylı Konsept Tasarım",
       "3dModeling": "3D Modelleme",
       "renderings": "Fotorealistik Görseller",
       "technicalDrawings": "Teknik Çizimler",
       "consultation": "Sınırsız Danışmanlık",
-      "unlimitedRevisions": "Sınırsız Revizyon"
+      "unlimitedRevisions": "3 Revizyon Hakkı"
     }
   },
   "business": {
-    "name": "İş Paketi",
+    "name": "İşletme Paketi",
+    "duration": "6 Hafta",
     "features": {
       "concept": "İş Konsept Tasarım",
       "3dModeling": "Gelişmiş 3D Modelleme",
@@ -49,11 +53,12 @@
       "technicalDrawings": "Detaylı Teknik Çizimler",
       "materialSelection": "Malzeme Seçimi Desteği",
       "consultation": "VIP Danışmanlık",
-      "unlimitedRevisions": "Sınırsız Revizyon"
+      "unlimitedRevisions": "3 Revizyon Hakkı"
     }
   },
   "enterprise": {
     "name": "Kurumsal Paket",
+    "duration": "8 Hafta",
     "features": {
       "concept": "Kurumsal Konsept Tasarım",
       "3dModeling": "Profesyonel 3D Modelleme",
@@ -62,11 +67,12 @@
       "technicalDrawings": "Kurumsal Teknik Dokümantasyon",
       "materialSelection": "Profesyonel Malzeme Seçimi",
       "consultation": "Stratejik Danışmanlık",
-      "unlimitedRevisions": "Sınırsız Revizyon"
+      "unlimitedRevisions": "3 Revizyon Hakkı"
     }
   },
   "premium": {
     "name": "Premium Paket",
+    "duration": "12 Hafta",
     "features": {
       "concept": "Özel Konsept Tasarım",
       "3dModeling": "Gelişmiş 3D Modelleme",
@@ -75,7 +81,7 @@
       "technicalDrawings": "Tam Teknik Dokümantasyon",
       "materialSelection": "Malzeme Seçimi Desteği",
       "consultation": "VIP Danışmanlık",
-      "unlimitedRevisions": "Sınırsız Revizyon",
+      "unlimitedRevisions": "3 Revizyon Hakkı",
       "projectManagement": "Proje Yönetimi",
       "support": "7/24 Destek"
     }

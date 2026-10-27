@@ -1,0 +1,3620 @@
+{
+  "title": "Mimarlık Sözlüğü",
+  "subtitle": "Mimari terimleri herkesin anlayacağı dilde açıklıyoruz.",
+  "searchPlaceholder": "Terim ara...",
+  "foundCount": "{{count}} terim bulundu",
+  "terms": [
+    {
+      "key": "abara",
+      "term": "Abara",
+      "definition": "Bir sokağın üstünü örten, iki yakadaki evleri birbirine bağlayan tonozlu (kemerli tavanlı) geçit. Özellikle Mardin ve Güneydoğu Anadolu'nun eski kent dokusunda sık görülür.",
+      "simple_definition": "Sokağın üstünden geçip iki evi birleştiren, altından yürünebilen kemerli kapalı geçit.",
+      "image_id": "photo-1548543604-a87c9909abec"
+    },
+    {
+      "key": "acoustic_ceiling",
+      "term": "Akustik Tavan",
+      "definition": "Sesi emen panellerden yapılan veya bu panellerle kaplanan tavan. Odadaki yankıyı ve uğultuyu azaltarak konuşmaların daha net duyulmasını sağlar.",
+      "simple_definition": "Yankıyı yutan, odayı daha sessiz ve rahat yapan tavan.",
+      "image_id": "photo-1519710164239-da123dc03ef4"
+    },
+    {
+      "key": "akustik_panel",
+      "term": "Akustik Panel",
+      "definition": "Duvara veya tavana takılan, sesi emerek yankıyı azaltan panel. Genellikle kumaş kaplı yünlü dolgu, keçe, ahşap çıta veya özel köpükten yapılır.",
+      "simple_definition": "Duvara asılan, yankıyı azaltıp odadaki sesi yumuşatan pano.",
+      "image_id": ""
+    },
+    {
+      "key": "akustik",
+      "term": "Akustik",
+      "definition": "Sesin bir mekânda nasıl yayıldığı, yansıdığı ve emildiği ile ilgilenen bilim; mimaride iyi duyulan, gürültüsüz mekânlar tasarlamak için kullanılır.",
+      "simple_definition": "Bir odada sesin nasıl duyulduğu ve nasıl daha iyi duyulabileceği.",
+      "image_id": "arch_akustik"
+    },
+    {
+      "key": "aderans",
+      "term": "Aderans",
+      "definition": "İki malzemenin birbirine tutunma gücü; özellikle betonarmede betonun içindeki çelik çubukları (donatıyı) kavraması. Aderans iyi değilse demir betondan sıyrılabilir.",
+      "simple_definition": "Betonun, içindeki demiri ne kadar sıkı kavradığı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "estetik",
+      "term": "Estetik",
+      "definition": "Bir yapının veya mekânın biçim, oran, renk ve malzeme uyumuyla göze hoş görünmesi ve insanda bıraktığı güzellik duygusu.",
+      "simple_definition": "Bir binanın ya da odanın göze ne kadar güzel ve uyumlu göründüğü.",
+      "image_id": "arch_estetik"
+    },
+    {
+      "key": "aglomera",
+      "term": "Aglomera (Kompozit Taş)",
+      "definition": "Kırılmış mermer veya kuvars tanelerinin reçine ile bağlanıp preslenmesiyle üretilen yapay taş levha. Mutfak tezgâhı, banyo ve zemin kaplamasında kullanılır.",
+      "simple_definition": "Taş kırıntılarının yapıştırılmasıyla yapılan, tezgâhlarda kullanılan yapay taş.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "agrega",
+      "term": "Agrega",
+      "definition": "Beton, harç ve asfaltın içine karıştırılan kum, çakıl ve kırma taş. Karışımın hacminin büyük kısmını oluşturur ve ona dayanım kazandırır.",
+      "simple_definition": "Betonun içine katılan kum ve çakıl.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "agora",
+      "term": "Agora",
+      "definition": "Antik Yunan kentlerinde pazar kurulan, halkın toplanıp tartıştığı, çevresi kamu yapıları ve revaklarla çevrili açık kent meydanı.",
+      "simple_definition": "Antik Yunan kentlerinde pazar ve buluşma yeri olan büyük meydan.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "hava",
+      "term": "Hava Boşluğu (Hava Payı)",
+      "definition": "Duvar katmanları arasında veya cephe kaplamasının arkasında bilerek bırakılan ince boşluk. Nemin dışarı çıkmasını sağlar ve ısı yalıtımına yardımcı olur.",
+      "simple_definition": "Duvarın katmanları arasında nem ve ısı için bırakılan ince boşluk.",
+      "image_id": "arch_hava"
+    },
+    {
+      "key": "amerikan_mutfak",
+      "term": "Amerikan Mutfak (Açık Mutfak)",
+      "definition": "Salon veya oturma odasıyla arasında duvar bulunmayan, aynı mekânı paylaşan mutfak düzeni. Genellikle bir tezgâh veya bar ile hafifçe ayrılır.",
+      "simple_definition": "Salonla arasında duvar olmayan, salona açılan mutfak.",
+      "image_id": "arch_amerikan_mutfak"
+    },
+    {
+      "key": "ett",
+      "term": "Etüt",
+      "definition": "Bir proje başlamadan önce arazinin, mevcut yapının veya çevrenin yerinde incelenip ölçülmesi ve belgelenmesi. Tasarım kararları bu bilgilere göre verilir.",
+      "simple_definition": "Tasarıma başlamadan önce yerin incelenip ölçülmesi.",
+      "image_id": "arch_ett"
+    },
+    {
+      "key": "ankraj",
+      "term": "Ankraj",
+      "definition": "Bir elemanı betona, duvara veya kayaya sağlam şekilde sabitlemek için kullanılan çelik çubuk, dübel veya bağlantı sistemi. İstinat duvarlarında ve cephe kaplamalarında sık kullanılır.",
+      "simple_definition": "Bir parçayı betona veya duvara sıkıca bağlayan çelik bağlantı.",
+      "image_id": "arch_ankraj"
+    },
+    {
+      "key": "daire",
+      "term": "Daire",
+      "definition": "Çok katlı bir binada, kendi giriş kapısı, mutfağı ve banyosu olan bağımsız konut birimi.",
+      "simple_definition": "Bir apartmanın içindeki tek bir ev.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "apsit",
+      "term": "Apsis",
+      "definition": "Kiliselerde ve bazilikalarda, genellikle sunağın bulunduğu, yarım daire veya çokgen planlı, üstü yarım kubbeyle örtülü çıkıntı.",
+      "simple_definition": "Kilisenin en ucundaki yarım yuvarlak bölüm.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "arasta",
+      "term": "Arasta",
+      "definition": "Osmanlı kentlerinde aynı meslekten esnafın dükkânlarının karşılıklı sıralandığı, çoğu zaman üstü örtülü çarşı sokağı. Gelirleri genellikle yakındaki caminin bakımına ayrılırdı.",
+      "simple_definition": "Aynı işi yapan dükkânların yan yana dizildiği eski çarşı sokağı.",
+      "image_id": "arch_arasta"
+    },
+    {
+      "key": "ardak",
+      "term": "Çardak",
+      "definition": "Bahçede direkler üzerine kurulan, üstü asma veya sarmaşık gibi tırmanıcı bitkilerle örtülü, gölgelik oluşturan hafif yapı.",
+      "simple_definition": "Bahçede üstü asma veya sarmaşıkla kaplı gölgelik.",
+      "image_id": "arch_ardak"
+    },
+    {
+      "key": "arkat",
+      "term": "Arkad (Kemer Dizisi)",
+      "definition": "Sütun veya ayaklar üzerine oturan, yan yana sıralanmış kemerler dizisi. Çoğu zaman önünde üstü örtülü bir yürüme yolu oluşturur.",
+      "simple_definition": "Sütunların üzerinde yan yana dizilmiş kemerler.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "arch",
+      "term": "Kemer",
+      "definition": "Bir kapı, pencere veya geçit açıklığını eğri biçimiyle geçen ve üstündeki yükü iki yandaki ayaklara aktaran taşıyıcı eleman.",
+      "simple_definition": "Kapı ya da pencerenin üstündeki yay biçimli taşıyıcı.",
+      "image_id": "photo-1525824236856-8d0434670544"
+    },
+    {
+      "key": "kemerli",
+      "term": "Kemerli",
+      "definition": "Üst kısmı kemer biçiminde yapılmış kapı, pencere, geçit veya yapı için kullanılan nitelik.",
+      "simple_definition": "Üstü yuvarlak, kemer biçiminde olan.",
+      "image_id": "arch_kemerli"
+    },
+    {
+      "key": "mimari",
+      "term": "Mimarlık",
+      "definition": "Binaları ve çevrelerini hem kullanışlı hem güvenli hem de güzel olacak şekilde tasarlama ve inşa sürecini yönetme mesleği. Mimar; mekânların düzenini, ışığı, malzemeyi ve yapının görünüşünü birlikte düşünür.",
+      "simple_definition": "Evleri ve binaları tasarlama sanatı ve mesleği.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "arsitrav",
+      "term": "Arşitrav",
+      "definition": "Klasik mimaride sütun başlıklarının üzerine oturan ve sütunları birbirine bağlayan yatay taş kiriş.",
+      "simple_definition": "Antik tapınaklarda sütunların üstüne yatırılmış taş kiriş.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "pervaz",
+      "term": "Pervaz",
+      "definition": "Kapı veya pencere kasası ile duvar arasındaki birleşim yerini kapatan, çoğunlukla ahşap ya da MDF'den yapılan çerçeve şeklindeki kaplama çıtası. Hem boşluğu gizler hem de süs işlevi görür.",
+      "simple_definition": "Kapı ve pencerelerin etrafını çerçeveleyen kenar şeridi.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "art_deco",
+      "term": "Art Deco",
+      "definition": "1920–30'larda Fransa'da doğup tüm dünyaya yayılan; geometrik desenler, basamaklı formlar, parlak malzemeler ve şık süslemelerle tanınan mimari ve tasarım üslubu.",
+      "simple_definition": "1920'lerin geometrik desenli, şık ve gösterişli tasarım tarzı.",
+      "image_id": "arch_art_deco"
+    },
+    {
+      "key": "asfalt",
+      "term": "Asfalt",
+      "definition": "Bitüm ile kum ve çakılın karıştırılmasıyla elde edilen, yol, otopark ve bazı çatılarda kaplama olarak kullanılan siyah malzeme.",
+      "simple_definition": "Yolları kaplayan siyah malzeme.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "atrium",
+      "term": "Atriyum",
+      "definition": "Antik Roma evlerinde ortası açık iç avlu; günümüzde ise binanın ortasında, birkaç kat yüksekliğinde, genellikle cam çatıyla örtülü ve ışık alan iç mekân.",
+      "simple_definition": "Binanın ortasında, birkaç kat yükseklikte, üstü camla kaplı geniş boşluk.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "tavan_aras",
+      "term": "Tavan Arası",
+      "definition": "En üst katın tavanı ile çatı arasında kalan, genellikle yaşam için düzenlenmemiş boşluk. Çoğunlukla depolama ve çatı yalıtımı için kullanılır.",
+      "simple_definition": "Evin en üst tavanı ile çatı arasında kalan, eşya saklanan boşluk.",
+      "image_id": "arch_tavan_aras"
+    },
+    {
+      "key": "at_kat",
+      "term": "Çatı Katı",
+      "definition": "Eğimli çatının altında kalan ve oda, ofis veya depo olarak kullanılabilecek şekilde düzenlenmiş kat. Tavanı çatı eğimi nedeniyle genellikle yer yer alçaktır.",
+      "simple_definition": "Çatının hemen altında, yaşamak için düzenlenmiş en üst kat.",
+      "image_id": "arch_at_kat"
+    },
+    {
+      "key": "otomasyon",
+      "term": "Bina Otomasyonu",
+      "definition": "Aydınlatma, ısıtma-soğutma, perde, alarm ve kapı gibi sistemlerin sensörler ve yazılım yardımıyla kendi kendine ya da telefondan kontrol edilmesi. Konutlarda \"akıllı ev\" olarak da bilinir.",
+      "simple_definition": "Işıkların, kombinin ya da perdelerin kendiliğinden veya telefondan çalışmasını sağlayan sistem.",
+      "image_id": "arch_otomasyon"
+    },
+    {
+      "key": "avangard",
+      "term": "Avangard",
+      "definition": "Alışılmış kuralları ve gelenekleri bilerek bir kenara bırakıp yeni, deneysel ve cesur fikirler öne süren mimari ve sanat yaklaşımı.",
+      "simple_definition": "Alışılmışın dışında, öncü ve deneysel tasarım.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "aksonometrik",
+      "term": "Aksonometrik Çizim",
+      "definition": "Bir yapıyı aynı anda hem üstten hem de iki yandan gösteren, ölçülerin bozulmadan korunduğu üç boyutlu teknik çizim türü.",
+      "simple_definition": "Binayı üç boyutlu ama ölçüleri bozmadan gösteren çizim.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "balkon",
+      "term": "Balkon",
+      "definition": "Bina cephesinden dışarı taşan, çevresi korkulukla çevrili, bir odaya kapıyla açılan açık platform.",
+      "simple_definition": "Evin dışına taşan, korkuluklu küçük açık alan.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "balon_cerceve",
+      "term": "Balon Çerçeve Sistemi",
+      "definition": "Ahşap evlerde, ince ve standart ölçülü kerestelerin çivilerle birleştirilip birden fazla kat boyunca uzanan dikmelerle kurulduğu hafif taşıyıcı iskelet sistemi. 19. yüzyılda Amerika'da yaygınlaşmıştır.",
+      "simple_definition": "İnce ahşap çıtalarla hızlıca kurulan hafif ev iskeleti.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "besik_tonoz",
+      "term": "Beşik Tonoz",
+      "definition": "Kesintisiz uzanan bir kemerin oluşturduğu, yarım silindir biçimindeki kavisli örtü. Uzun mekânların ve koridorların üstünü kapatmak için kullanılır.",
+      "simple_definition": "Tünel gibi uzayıp giden yarım yuvarlak tavan.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "barrisol_ceiling",
+      "term": "Gergi Tavan (Barrisol)",
+      "definition": "Tavan kenarlarına sabitlenen profillere gerilen ince PVC veya kumaş membrandan oluşan asma tavan. Pürüzsüz bir yüzey verir; arkasına ışık yerleştirilerek aydınlatmalı tavan yapılabilir.",
+      "simple_definition": "Tavana davul derisi gibi gerilen, pürüzsüz ve isteğe göre ışıklı ince örtü.",
+      "image_id": "photo-1516455590571-18256e5bb9ff"
+    },
+    {
+      "key": "bodrum",
+      "term": "Bodrum Kat",
+      "definition": "Binanın tamamen veya kısmen zemin seviyesinin altında kalan katı. Depo, otopark, teknik oda veya yaşam alanı olarak kullanılabilir.",
+      "simple_definition": "Binanın toprak seviyesinin altında kalan katı.",
+      "image_id": "arch_bodrum"
+    },
+    {
+      "key": "bauhaus",
+      "term": "Bauhaus",
+      "definition": "1919–1933 yılları arasında Almanya'da faaliyet gösteren, sanatı, zanaati ve endüstriyel üretimi birleştiren tasarım okulu; adı, süssüz ve işlevsel modern tasarım anlayışıyla özdeşleşmiştir.",
+      "simple_definition": "Sade, kullanışlı ve süssüz tasarımı yaygınlaştıran ünlü Alman okulu ve tarzı.",
+      "image_id": "arch_bauhaus"
+    },
+    {
+      "key": "cumbali_ev",
+      "term": "Cumbalı Ev",
+      "definition": "Üst katlarında sokağa doğru taşan kapalı çıkmalar (cumbalar) bulunan geleneksel Türk evi. Cumbalar odaya ışık ve sokak manzarası kazandırır.",
+      "simple_definition": "Üst katında sokağa taşan pencereli çıkıntıları olan eski Türk evi.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kiris",
+      "term": "Kiriş",
+      "definition": "İki kolon veya duvar arasında yatay uzanan, üstündeki döşeme ve duvarların yükünü taşıyıp kolonlara aktaran yapı elemanı. Betonarme, çelik veya ahşap olabilir.",
+      "simple_definition": "Tavanı ve üst katları taşıyan yatay kalın parça.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kirili",
+      "term": "Kirişli Tavan",
+      "definition": "Taşıyıcı veya dekoratif kirişlerin gizlenmeyip görünür bırakıldığı tavan. Ahşap kirişli tavanlar mekâna sıcak ve rustik bir hava katar.",
+      "simple_definition": "Kirişleri açıkta görünen tavan.",
+      "image_id": "arch_kirili"
+    },
+    {
+      "key": "bedesten",
+      "term": "Bedesten",
+      "definition": "Osmanlı çarşılarında değerli kumaş, mücevher gibi malların saklanıp satıldığı, kalın duvarlı, kubbeli ve kapıları kilitlenebilen kapalı çarşı yapısı.",
+      "simple_definition": "Eskiden değerli malların satıldığı, sağlam duvarlı kubbeli çarşı binası.",
+      "image_id": "arch_bedesten"
+    },
+    {
+      "key": "biyofilik_tasarm",
+      "term": "Biyofilik Tasarım",
+      "definition": "Gün ışığı, bitkiler, su, doğal malzemeler ve doğa manzarası gibi öğeleri yapıya katarak insanın doğayla bağını güçlendirmeyi amaçlayan tasarım yaklaşımı.",
+      "simple_definition": "Bitki, gün ışığı ve doğal malzemelerle mekânı doğaya yaklaştıran tasarım.",
+      "image_id": "arch_biyofilik_tasarm"
+    },
+    {
+      "key": "bitum",
+      "term": "Bitüm",
+      "definition": "Petrolden elde edilen, yapışkan ve su geçirmez siyah madde. Çatı ve temel su yalıtımında ve asfaltın bağlayıcısı olarak kullanılır.",
+      "simple_definition": "Çatıyı ve temeli su almaktan koruyan yapışkan siyah madde.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "bulon",
+      "term": "Bulon (Cıvata)",
+      "definition": "Somunla birlikte kullanılarak çelik veya ahşap parçaları birbirine sıkıca bağlayan kalın, dişli metal çubuk.",
+      "simple_definition": "Parçaları somunla sıkıştırarak birleştiren kalın vida.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kekl",
+      "term": "Eli Böğründe (Destek Dirseği)",
+      "definition": "Geleneksel yapılarda saçakları, cumbaları veya rafları alttan desteklemek için duvardan çapraz uzanan, çoğu zaman oymalı ahşap veya taş destek parçası.",
+      "simple_definition": "Saçağı ya da cumbayı alttan tutan, duvardan çıkan süslü destek.",
+      "image_id": "arch_kekl"
+    },
+    {
+      "key": "brick_facade",
+      "term": "Tuğla Cephe",
+      "definition": "Dış yüzeyi görünür tuğlalarla örülen veya kaplanan bina cephesi. Dayanıklıdır, az bakım ister ve sıcak, klasik bir görünüm verir.",
+      "simple_definition": "Dış yüzü tuğlalarla kaplı bina cephesi.",
+      "image_id": "photo-1584622650111-993a426fbf0a"
+    },
+    {
+      "key": "brtalizm",
+      "term": "Brütalizm",
+      "definition": "1950–70'ler arasında yaygınlaşan, sıvasız brüt beton, kaba dokular ve büyük kütleli, ağır formlarla tanınan mimari akım.",
+      "simple_definition": "Çıplak gri beton ve iri, sert biçimler kullanan mimari tarz.",
+      "image_id": "arch_brtalizm"
+    },
+    {
+      "key": "bina",
+      "term": "Bina",
+      "definition": "Duvarları ve çatısı olan, insanların içinde yaşadığı, çalıştığı veya eşya sakladığı kalıcı yapı; ev, okul, ofis gibi.",
+      "simple_definition": "Duvarları ve çatısı olan, içine girilebilen yapı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ankastre",
+      "term": "Ankastre",
+      "definition": "Fırın, ocak, bulaşık makinesi gibi cihazların mutfak dolaplarının veya duvarın içine gömülerek yerleştirilmesi; ya da bu şekilde takılmak üzere üretilmiş cihaz.",
+      "simple_definition": "Dolabın içine gömülü olarak takılan fırın, ocak gibi mutfak cihazı.",
+      "image_id": "arch_ankastre"
+    },
+    {
+      "key": "payanda",
+      "term": "Payanda",
+      "definition": "Yüksek bir duvarın dışa doğru yatmasını ya da devrilmesini önlemek için duvara dışarıdan dayanan, taş veya tuğladan yapılmış kalın destek. Özellikle kiliselerde ve kale surlarında görülür.",
+      "simple_definition": "Duvarın devrilmemesi için ona dışarıdan yaslanan kalın destek.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "hazeran",
+      "term": "Hazeran (Hezaren) Örgü",
+      "definition": "Rattan bitkisinin ince şeritleriyle yapılan, sandalye oturağı, sırtlık veya dolap kapağında kullanılan delikli, desenli örgü.",
+      "simple_definition": "Sandalyelerde görülen, rattandan yapılmış delikli hasır örgü.",
+      "image_id": "arch_hazeran"
+    },
+    {
+      "key": "konsol",
+      "term": "Konsol (Konsol Kiriş)",
+      "definition": "Yalnızca bir ucundan duvar veya kolona bağlı olup diğer ucu desteksiz biçimde boşlukta duran taşıyıcı eleman. Balkon ve saçaklar çoğu zaman konsol olarak yapılır.",
+      "simple_definition": "Bir ucu duvara bağlı, öbür ucu havada duran çıkıntı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "dlger",
+      "term": "Dülger",
+      "definition": "İnşaatlarda ahşap çatı, kalıp, iskele ve ahşap yapı işlerini yapan usta. Mobilya yapan marangozdan farklı olarak yapının kaba ahşap işleriyle ilgilenir.",
+      "simple_definition": "İnşaatta ahşap çatı ve kalıp işlerini yapan usta.",
+      "image_id": "arch_dlger"
+    },
+    {
+      "key": "oymaclk",
+      "term": "Oymacılık",
+      "definition": "Ahşap, taş veya mermer gibi malzemelerden keski ve benzeri aletlerle parça kazıyarak desen, figür ya da süsleme oluşturma sanatı. Geleneksel kapılarda, tavanlarda ve mobilyalarda sık görülür.",
+      "simple_definition": "Tahtaya ya da taşa aletle desen kazıma sanatı.",
+      "image_id": "arch_oymaclk"
+    },
+    {
+      "key": "tavan_vantilatr",
+      "term": "Tavan Vantilatörü",
+      "definition": "Tavana asılan, geniş kanatları dönerek odadaki havayı hareket ettiren ve serinlik hissi veren elektrikli fan. Çoğu modelde aydınlatma da bulunur.",
+      "simple_definition": "Tavana takılan, kanatları dönerek odayı serinleten pervane.",
+      "image_id": "arch_tavan_vantilatr"
+    },
+    {
+      "key": "cimento",
+      "term": "Çimento",
+      "definition": "Kireç taşı ve kilin yüksek ısıda pişirilip öğütülmesiyle elde edilen gri toz. Su ile karışınca sertleşir; beton ve harcın bağlayıcısıdır.",
+      "simple_definition": "Su ile karışınca taş gibi sertleşen, beton yapımında kullanılan gri toz.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "pahlama",
+      "term": "Pahlama",
+      "definition": "Bir malzemenin keskin köşesinin eğik bir kesimle düzleştirilmesi. Ahşap, taş, beton ve mobilya kenarlarında hem güvenlik hem de görünüm için yapılır.",
+      "simple_definition": "Sivri bir köşeyi eğik keserek yumuşatmak.",
+      "image_id": "arch_pahlama"
+    },
+    {
+      "key": "chesterfield",
+      "term": "Chesterfield Koltuk",
+      "definition": "Kolları sırtlığıyla aynı yükseklikte olan, kapitone (düğmeli dikişli) deri döşemesi ve kıvrık kollarıyla tanınan klasik İngiliz kanepesi.",
+      "simple_definition": "Düğmeli deri döşemeli, kıvrık kollu klasik İngiliz kanepesi.",
+      "image_id": "arch_chesterfield"
+    },
+    {
+      "key": "sirkulasyon",
+      "term": "Sirkülasyon",
+      "definition": "Bir binada insanların bir yerden başka bir yere geçmek için kullandığı koridor, hol, merdiven ve asansör gibi alanların tümü. İyi bir sirkülasyon, kısa ve rahat bir hareket düzeni sağlar.",
+      "simple_definition": "Evin içinde odalar arasında dolaşmak için kullandığımız yollar.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "rezervuar",
+      "term": "Rezervuar",
+      "definition": "Klozetin arkasında ya da duvarın içinde bulunan, sifon çekildiğinde boşalarak klozeti yıkayan su deposu. Duvar içine gömülenlerine gömme rezervuar denir.",
+      "simple_definition": "Klozete sifon çekince boşalan su deposu.",
+      "image_id": "arch_rezervuar"
+    },
+    {
+      "key": "ada",
+      "term": "Ada (Yapı Adası)",
+      "definition": "İmar planında dört yanı yollarla çevrili, içinde bir veya daha fazla parsel bulunan arazi bölümü.",
+      "simple_definition": "Dört tarafı sokaklarla çevrili, içinde binalar olan arazi parçası.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cephe_kaplama",
+      "term": "Cephe Kaplama",
+      "definition": "Binanın dış duvarlarının üzerine; taş, kompozit panel, seramik, ahşap veya metal gibi malzemelerle yapılan dış katman. Yapıyı hava koşullarından korur ve görünümünü belirler.",
+      "simple_definition": "Binanın dış duvarlarını örten koruyucu ve süsleyici kaplama.",
+      "image_id": "arch_cephe_kaplama"
+    },
+    {
+      "key": "klasik",
+      "term": "Klasik Mimari",
+      "definition": "Antik Yunan ve Roma yapılarından gelen sütun düzenleri, simetri, alınlık ve dengeli oranlara dayanan mimari anlayış; sonraki yüzyıllarda defalarca yeniden yorumlanmıştır.",
+      "simple_definition": "Antik Yunan ve Roma'dan gelen, sütunlu ve simetrik mimari tarz.",
+      "image_id": "arch_klasik"
+    },
+    {
+      "key": "kil",
+      "term": "Kil",
+      "definition": "Islakken şekil verilebilen, kuruyunca veya pişirilince sertleşen ince taneli toprak. Tuğla, kiremit, seramik ve kerpicin ana hammaddesidir.",
+      "simple_definition": "Tuğla ve kiremit yapımında kullanılan, ıslakken şekil alan toprak.",
+      "image_id": "arch_kil"
+    },
+    {
+      "key": "muvakkithane",
+      "term": "Muvakkithane",
+      "definition": "Osmanlı döneminde genellikle cami avlusunda bulunan, namaz vakitlerinin hesaplandığı ve şehrin saatlerinin ayarlandığı küçük yapı. Burada çalışan görevliye muvakkit denirdi.",
+      "simple_definition": "Eskiden namaz vakitlerinin ve saatin belirlendiği küçük bina.",
+      "image_id": "arch_muvakkithane"
+    },
+    {
+      "key": "orta_sehpa",
+      "term": "Orta Sehpa",
+      "definition": "Oturma grubunun önüne ya da ortasına konan, üzerine içecek, kitap veya süs eşyası bırakılan alçak masa.",
+      "simple_definition": "Salonda koltukların önünde duran alçak masa.",
+      "image_id": "arch_orta_sehpa"
+    },
+    {
+      "key": "coffered_ceiling",
+      "term": "Kasetli Tavan",
+      "definition": "Kare, dikdörtgen veya sekizgen çukur bölmelerin ızgara biçiminde sıralandığı tavan. Hem süsleyicidir hem de tavanı hafifletir.",
+      "simple_definition": "Kare kare çukur bölmelerden oluşan desenli tavan.",
+      "image_id": "photo-1600585154340-be6161a56a0c"
+    },
+    {
+      "key": "renk_paleti",
+      "term": "Renk Paleti",
+      "definition": "Bir mekânda ya da projede birlikte kullanılmak üzere seçilen, birbiriyle uyumlu renkler grubu. Duvar, mobilya, kumaş ve aksesuar renklerinin tutarlı olmasını sağlar.",
+      "simple_definition": "Bir odada birlikte kullanılan, birbirine yakışan renkler.",
+      "image_id": "arch_renk_paleti"
+    },
+    {
+      "key": "column",
+      "term": "Kolon",
+      "definition": "Binada üstteki döşeme ve kirişlerin yükünü toplayıp temele aktaran dikey taşıyıcı eleman. Genellikle betonarme veya çeliktir; bina güvenliği için kesilmemeli ya da delinmemelidir.",
+      "simple_definition": "Binayı ayakta tutan, yükü temele indiren dikey taşıyıcı.",
+      "image_id": "photo-1416339134316-0e91dc9deb30"
+    },
+    {
+      "key": "konfor",
+      "term": "Konfor (Yapı Konforu)",
+      "definition": "Bir mekânda sıcaklık, nem, hava kalitesi, ışık ve ses düzeyinin insanın kendini rahat hissedeceği düzeyde olması. İyi tasarım bu koşulları dengeler.",
+      "simple_definition": "Bir odada sıcaklık, ışık ve sesin insanı rahat ettirmesi.",
+      "image_id": "arch_konfor"
+    },
+    {
+      "key": "beton",
+      "term": "Beton",
+      "definition": "Çimento, su, kum ve çakılın karıştırılmasıyla elde edilen; kalıba dökülüp sertleşince taş gibi dayanıklı hâle gelen yapı malzemesi.",
+      "simple_definition": "Kalıba dökülünce taş gibi sertleşen çimento, kum ve çakıl karışımı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "konstruktivizm",
+      "term": "Konstrüktivizm",
+      "definition": "1920'lerde Sovyet Rusya'da doğan, sanatın ve mimarinin topluma hizmet etmesi gerektiğini savunan; çelik, cam ve beton gibi endüstriyel malzemeleri ve keskin geometrik biçimleri öne çıkaran akım.",
+      "simple_definition": "Endüstriyel malzemeler ve keskin geometrik biçimler kullanan 1920'ler Rus akımı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kontrast",
+      "term": "Kontrast",
+      "definition": "Tasarımda renk, ışık, doku, malzeme veya biçim bakımından birbirinden belirgin şekilde farklı öğeleri yan yana kullanarak dikkat çekme ve hareket yaratma yöntemi.",
+      "simple_definition": "Açık-koyu ya da sert-yumuşak gibi zıt şeyleri yan yana kullanmak.",
+      "image_id": "arch_kontrast"
+    },
+    {
+      "key": "harpusta",
+      "term": "Harpuşta",
+      "definition": "Bahçe duvarı, parapet veya korkuluk duvarının üstüne konan, yağmur suyunun duvara sızmasını önleyen eğimli taş, beton veya metal başlık.",
+      "simple_definition": "Duvarın tepesine konan, yağmuru dışarı akıtan eğimli kapak.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "bindirme",
+      "term": "Bindirme",
+      "definition": "Taş, tuğla, kiremit veya ahşap parçaların her sırada bir öncekinin üzerine biraz taşacak ya da onu örtecek şekilde dizilmesi. Bindirme kubbe ve kemerler bu yöntemle, gerçek kemer kurmadan yapılır.",
+      "simple_definition": "Parçaların her sırada bir öncekinin üstüne biraz taşarak dizilmesi.",
+      "image_id": "arch_bindirme"
+    },
+    {
+      "key": "kebent",
+      "term": "Köşebent",
+      "definition": "Dik açıyla bükülmüş L biçimli metal profil. İki parçayı köşeden birleştirmek, raf taşımak veya duvar ve basamak köşelerini darbelere karşı korumak için kullanılır.",
+      "simple_definition": "Köşeleri birleştiren veya koruyan L biçimli metal parça.",
+      "image_id": "arch_kebent"
+    },
+    {
+      "key": "kornis",
+      "term": "Korniş",
+      "definition": "Tavana veya duvarın üst kısmına sabitlenen, perdelerin takıldığı metal, ahşap ya da plastik ray veya çubuk. Mimaride ayrıca duvarın üst kenarındaki çıkıntılı silme anlamında da kullanılır.",
+      "simple_definition": "Perdenin asıldığı ray veya çubuk.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "koridor",
+      "term": "Koridor",
+      "definition": "Bir binada odaları birbirine bağlayan, dar ve uzun geçiş alanı.",
+      "simple_definition": "Odalar arasında yürünen dar ve uzun geçit.",
+      "image_id": "arch_koridor"
+    },
+    {
+      "key": "tezgah",
+      "term": "Tezgâh",
+      "definition": "Mutfakta alt dolapların üzerini kaplayan ve yemek hazırlamak için kullanılan düz, dayanıklı çalışma yüzeyi. Granit, kuvars, mermer veya laminat gibi malzemelerden yapılır.",
+      "simple_definition": "Mutfakta yemek hazırladığımız düz ve sağlam yüzey.",
+      "image_id": "arch_tezgah"
+    },
+    {
+      "key": "gizli_ik",
+      "term": "Gizli Işık",
+      "definition": "Asma tavan, duvar veya mobilya kenarındaki bir girintinin içine yerleştirilen, kaynağı görünmeyen dolaylı aydınlatma. Işığı yüzeye yansıtarak yumuşak ve göz almayan bir ortam yaratır.",
+      "simple_definition": "Tavanın veya duvarın girintisine saklanmış, yumuşak ışık veren aydınlatma.",
+      "image_id": "arch_gizli_ik"
+    },
+    {
+      "key": "kartonpiyer",
+      "term": "Kartonpiyer",
+      "definition": "Duvarla tavanın birleştiği köşeye yerleştirilen, alçı veya poliüretandan yapılmış süs pervazı. Köşedeki birleşim çizgisini gizler ve mekâna klasik bir hava katar.",
+      "simple_definition": "Duvarla tavanın birleştiği köşeye konan süslü pervaz.",
+      "image_id": "arch_kartonpiyer"
+    },
+    {
+      "key": "capraz_tonoz",
+      "term": "Çapraz Tonoz",
+      "definition": "İki beşik tonozun dik açıyla kesişmesinden oluşan örtü. Yükü köşelerdeki dört ayağa topladığı için duvarlarda geniş açıklıklar bırakmaya izin verir.",
+      "simple_definition": "İki tünel biçimli tavanın çaprazlama kesişmesiyle oluşan tavan.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ciroz",
+      "term": "Çiroz",
+      "definition": "Betonarme kolon ve kirişlerde, ana demirleri ve etriyeleri karşılıklı bağlayan, uçları kancalı tek parça düz donatı çubuğu. Depremde demirlerin dışa doğru açılmasını önler.",
+      "simple_definition": "Kolon içindeki demirleri birbirine bağlayan, uçları kancalı kısa demir.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "celen",
+      "term": "Çelen (Saçak)",
+      "definition": "Çatının dış duvarlardan taşan kenarı; Anadolu'da halk arasında saçağa verilen ad. Yağmur suyunu duvarlardan uzak tutar ve cepheyi gölgeler.",
+      "simple_definition": "Çatının duvardan dışarı taşan kenarı, yani saçak.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kripta",
+      "term": "Kripta",
+      "definition": "Kiliselerin altında, genellikle tonozlu olarak yapılan; mezar odası, kalıntı saklama yeri veya küçük ibadet alanı olarak kullanılan yer altı mekânı.",
+      "simple_definition": "Kilisenin altındaki taş tavanlı yeraltı odası.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kriptoportik",
+      "term": "Kriptoportik",
+      "definition": "Antik Roma yapılarında, yarı yer altında yapılmış, tonozlu ve üstü kapalı uzun koridor. Serin depo, geçit veya üstteki yapının taşıyıcı temeli olarak kullanılırdı.",
+      "simple_definition": "Antik Roma'da yarı yer altında yapılmış kapalı, tonozlu koridor.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cumba",
+      "term": "Cumba",
+      "definition": "Geleneksel evlerde üst katın sokağa doğru taşan, pencerelerle çevrili kapalı çıkıntısı. Odaya ek alan, ışık ve sokağı üç yönden görme imkânı sağlar.",
+      "simple_definition": "Evin üst katından sokağa taşan, pencereli kapalı çıkıntı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "curtain_wall",
+      "term": "Giydirme Cephe",
+      "definition": "Binanın taşıyıcı iskeletine dışarıdan asılan, yük taşımayan, alüminyum çerçeveli cam veya panel cephe sistemi. Gökdelenlerdeki büyük cam cepheler buna örnektir.",
+      "simple_definition": "Binanın dışına asılan, çoğunlukla camdan ince dış kabuk.",
+      "image_id": "photo-1486406146926-c627a92ad1ab"
+    },
+    {
+      "key": "baraj",
+      "term": "Baraj",
+      "definition": "Bir akarsuyun önüne yapılan, suyu biriktirerek içme suyu, sulama veya elektrik üretimi için kullanılmasını sağlayan büyük set yapısı.",
+      "simple_definition": "Nehrin önüne yapılıp suyu biriktiren büyük duvar.",
+      "image_id": "arch_baraj"
+    },
+    {
+      "key": "dekonstrktivizm",
+      "term": "Dekonstrüktivizm",
+      "definition": "1980'lerde ortaya çıkan; eğik, parçalı ve dengesiz görünen biçimlerle geleneksel düzen ve simetri anlayışını bilerek bozan mimari akım. Frank Gehry ve Zaha Hadid öne çıkan temsilcileridir.",
+      "simple_definition": "Binaları bilerek eğri, parçalı ve dağınık görünecek şekilde tasarlayan akım.",
+      "image_id": "arch_dekonstrktivizm"
+    },
+    {
+      "key": "dekorasyon",
+      "term": "Dekorasyon",
+      "definition": "Bir mekânın renk, mobilya, aydınlatma, tekstil ve aksesuar seçimiyle daha güzel, kullanışlı ve kişisel hâle getirilmesi.",
+      "simple_definition": "Bir odayı renk, mobilya ve eşyalarla güzelleştirmek.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "nervurlu_demir",
+      "term": "Nervürlü Demir",
+      "definition": "Betonarme yapılarda betonun içine yerleştirilen, yüzeyinde kabartmalı çıkıntılar (nervürler) bulunan çelik çubuk. Bu çıkıntılar demirin betona sıkıca tutunmasını sağlar.",
+      "simple_definition": "Betonun içine konan, yüzeyi tırtıklı inşaat demiri.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "mustakil_ev",
+      "term": "Müstakil Ev",
+      "definition": "Başka bir binayla ortak duvarı olmayan, kendi arsası üzerinde tek başına duran konut. Genellikle bahçesi ve ayrı girişi bulunur.",
+      "simple_definition": "Başka evlere bitişik olmayan, tek başına duran ev.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "sedir",
+      "term": "Sedir",
+      "definition": "Geleneksel Türk evlerinde oda duvarları boyunca uzanan, üzeri minder ve yastıklarla döşenmiş alçak oturma yeri. Çoğunlukla pencerelerin önüne yerleştirilir.",
+      "simple_definition": "Eski evlerde duvar boyunca uzanan, minderli alçak oturak.",
+      "image_id": "arch_sedir"
+    },
+    {
+      "key": "kubbe",
+      "term": "Kubbe",
+      "definition": "Genellikle dairesel bir taban üzerine oturan, yarım küre biçimindeki çatı veya tavan örtüsü. Ara destek olmadan geniş mekânları örtebilir.",
+      "simple_definition": "Yarım top biçimindeki yuvarlak çatı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "drenaj",
+      "term": "Drenaj",
+      "definition": "Yağmur ve yeraltı suyunun bina temeli ve çevresinden borular, çakıl dolgu ve eğimler yardımıyla uzaklaştırılması. Bodrum ve temellerin nem almasını önler.",
+      "simple_definition": "Yağmur ve yeraltı suyunu binadan uzaklaştıran sistem.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cizim",
+      "term": "Çizim (Proje Çizimi)",
+      "definition": "Bir yapının plan, kesit, görünüş ve detaylarını ölçekli olarak gösteren teknik çizim; ustaların neyi nasıl yapacağını bu çizimlerden okur.",
+      "simple_definition": "Binanın nasıl yapılacağını ölçüleriyle gösteren teknik çizim.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "dayankllk",
+      "term": "Dayanıklılık",
+      "definition": "Bir yapı malzemesinin veya elemanının; nem, güneş, aşınma, don ve zaman karşısında bozulmadan uzun süre görevini sürdürebilme yeteneği.",
+      "simple_definition": "Bir malzemenin yıllarca bozulmadan kullanılabilmesi.",
+      "image_id": "arch_dayankllk"
+    },
+    {
+      "key": "deprem_ynetmelii",
+      "term": "Deprem Yönetmeliği",
+      "definition": "Türkiye'de binaların depreme dayanıklı tasarlanıp inşa edilmesi için uyulması zorunlu teknik kuralları belirleyen resmî düzenleme; güncel hâli 2018 Türkiye Bina Deprem Yönetmeliği'dir.",
+      "simple_definition": "Binaların depreme dayanıklı yapılması için uyulması zorunlu kurallar.",
+      "image_id": "arch_deprem_ynetmelii"
+    },
+    {
+      "key": "eleman",
+      "term": "Yapı Elemanı",
+      "definition": "Bir binayı oluşturan duvar, kolon, kiriş, döşeme, merdiven, çatı, kapı ve pencere gibi her bir parça.",
+      "simple_definition": "Binayı oluşturan duvar, kolon, merdiven gibi her parça.",
+      "image_id": "arch_eleman"
+    },
+    {
+      "key": "kot",
+      "term": "Kot",
+      "definition": "Bir noktanın, belirlenmiş bir başlangıç seviyesine (örneğin deniz seviyesi veya bina giriş zemini ±0,00) göre metre cinsinden yüksekliği veya derinliği.",
+      "simple_definition": "Bir noktanın ne kadar yukarıda ya da aşağıda olduğunu gösteren yükseklik değeri.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "asansr",
+      "term": "Asansör",
+      "definition": "Bir kuyu içinde hareket eden kabinle insanları ve yükleri katlar arasında taşıyan mekanik sistem.",
+      "simple_definition": "İnsanları katlar arasında taşıyan hareketli kabin.",
+      "image_id": "arch_asansr"
+    },
+    {
+      "key": "ampir",
+      "term": "Ampir Üslubu",
+      "definition": "19. yüzyıl başında Napolyon döneminde Fransa'da doğan; antik Roma ve Mısır motiflerini, defne çelenklerini ve görkemli süslemeleri kullanan mimari ve mobilya üslubu. Osmanlı'da da 19. yüzyılda yaygınlaşmıştır.",
+      "simple_definition": "Napolyon döneminden kalma, görkemli ve saray havasındaki süsleme tarzı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ebeveyn_banyosu",
+      "term": "Ebeveyn Banyosu",
+      "definition": "Doğrudan ana yatak odasına açılan, yalnızca o odayı kullananlara ait özel banyo.",
+      "simple_definition": "Yatak odasının içinden girilen özel banyo.",
+      "image_id": "arch_ebeveyn_banyosu"
+    },
+    {
+      "key": "enerji",
+      "term": "Enerji Verimliliği",
+      "definition": "Bir binanın ısınma, soğuma, aydınlatma ve sıcak su için gereken enerjiyi; iyi yalıtım, doğru yönlenme ve verimli sistemlerle en az düzeye indirmesi.",
+      "simple_definition": "Binanın aynı konfor için daha az enerji harcaması.",
+      "image_id": "arch_enerji"
+    },
+    {
+      "key": "giri",
+      "term": "Giriş",
+      "definition": "Bir binaya veya mekâna dışarıdan girilen kapı ve onun önündeki karşılama alanı. Mimari tasarımda binanın ilk izlenimini belirleyen önemli bir bölümdür.",
+      "simple_definition": "Binaya girdiğimiz kapı ve hemen önündeki alan.",
+      "image_id": "arch_giri"
+    },
+    {
+      "key": "antre",
+      "term": "Antre",
+      "definition": "Bir eve veya daireye girildiğinde karşılaşılan, diğer odalara geçişi sağlayan ilk iç alan; genellikle ayakkabılık ve portmanto burada bulunur.",
+      "simple_definition": "Eve girince ilk girdiğin küçük alan.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "evre",
+      "term": "Çevre Düzenlemesi",
+      "definition": "Bir binanın etrafındaki açık alanların; yürüyüş yolları, otopark, bahçe duvarları, bitkilendirme ve aydınlatma gibi işlerle düzenlenmesi.",
+      "simple_definition": "Binanın etrafındaki yol, bahçe ve otoparkın düzenlenmesi.",
+      "image_id": "arch_evre"
+    },
+    {
+      "key": "epoksi",
+      "term": "Epoksi",
+      "definition": "İki bileşenin karıştırılmasıyla sertleşen dayanıklı reçine. Güçlü yapıştırıcı olarak ve garaj, fabrika veya evlerde dikişsiz, parlak zemin kaplaması olarak kullanılır.",
+      "simple_definition": "Çok güçlü yapıştırıcı ve parlak, dikişsiz zemin kaplaması olarak kullanılan reçine.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ergonomi",
+      "term": "Ergonomi",
+      "definition": "Mobilya, mekân ve donanımların insan vücudunun ölçülerine ve hareketlerine uygun tasarlanması; böylece kullanımın rahat, güvenli ve yorucu olmaması sağlanır.",
+      "simple_definition": "Eşyaların ve mekânların insan vücuduna rahat gelecek şekilde tasarlanması.",
+      "image_id": "arch_ergonomi"
+    },
+    {
+      "key": "etejer",
+      "term": "Etajer",
+      "definition": "Süs eşyası, kitap veya küçük eşyaların konulduğu, kapaksız, çok katlı açık raf ünitesi. Yere oturabilir veya duvara asılabilir.",
+      "simple_definition": "Kapağı olmayan, katlı açık raf.",
+      "image_id": ""
+    },
+    {
+      "key": "dilatasyon",
+      "term": "Dilatasyon Derzi",
+      "definition": "Bina bölümlerinin sıcaklık değişimi, oturma veya deprem nedeniyle birbirinden bağımsız hareket edebilmesi için aralarında bırakılan boşluk. Çatlamayı ve hasarı önler.",
+      "simple_definition": "Binanın parçaları çatlamadan hareket edebilsin diye aralarında bırakılan boşluk.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "brut_beton",
+      "term": "Brüt Beton",
+      "definition": "Kalıptan çıktıktan sonra sıva veya boya ile kaplanmayan, kalıbın dokusunu yüzeyinde taşıyan çıplak beton. Modern ve endüstriyel mekânlarda dekoratif olarak tercih edilir.",
+      "simple_definition": "Sıvanmamış, boyanmamış, olduğu gibi bırakılmış gri beton.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cephe",
+      "term": "Cephe",
+      "definition": "Bir binanın dışarıdan görülen yüzlerinden her biri; özellikle pencereleri, girişi ve malzemesiyle binanın kimliğini belirleyen ön yüz.",
+      "simple_definition": "Binanın dışarıdan görünen yüzü.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kurgu",
+      "term": "Kurgu (Mekânsal Kurgu)",
+      "definition": "Bir binada odaların, geçişlerin ve işlevlerin birbirine göre nasıl yerleştirildiğini ve nasıl bir akış içinde deneyimlendiğini belirleyen temel tasarım fikri.",
+      "simple_definition": "Odaların ve alanların birbirine göre nasıl yerleştirildiğinin ana fikri.",
+      "image_id": "arch_kurgu"
+    },
+    {
+      "key": "yangn_merdiveni",
+      "term": "Yangın Merdiveni",
+      "definition": "Yangın gibi acil durumlarda binadaki insanların güvenle dışarı çıkabilmesi için yapılan, genellikle binanın dış cephesinde ya da korunaklı bir kovada yer alan merdiven.",
+      "simple_definition": "Yangın çıkınca binadan güvenle kaçmak için kullanılan merdiven.",
+      "image_id": "arch_yangn_merdiveni"
+    },
+    {
+      "key": "armatur",
+      "term": "Armatür (Batarya)",
+      "definition": "Tesisatta musluk, batarya, duş başlığı gibi suyu açıp kapatan ve yönlendiren parçalar. Halk arasında aydınlatma gövdesi için de kullanılır.",
+      "simple_definition": "Lavabo ve duştaki musluk, batarya gibi parçalar.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "lambader",
+      "term": "Lambader",
+      "definition": "Yere konan, uzun bir ayak üzerinde yükselen ayaklı lamba. Oturma alanlarında okuma ışığı ya da ortama yumuşak ışık vermek için kullanılır.",
+      "simple_definition": "Yerde duran, uzun ayaklı lamba.",
+      "image_id": "arch_lambader"
+    },
+    {
+      "key": "yer_karosu",
+      "term": "Yer Karosu",
+      "definition": "Zemini kaplamak için kullanılan, seramik, porselen veya taştan yapılmış genellikle kare ya da dikdörtgen plakalar. Dayanıklı ve kolay temizlenir oldukları için mutfak, banyo ve hollerde sık kullanılır.",
+      "simple_definition": "Yerleri kaplamak için döşenen seramik veya taş plakalar.",
+      "image_id": "arch_yer_karosu"
+    },
+    {
+      "key": "doseme",
+      "term": "Döşeme",
+      "definition": "Katları birbirinden ayıran ve üzerinde yürünen yatay taşıyıcı plak (genellikle betonarme). Halk arasında üzerine serilen zemin kaplamasını da ifade eder.",
+      "simple_definition": "Katları birbirinden ayıran, üstünde yürüdüğümüz yatay zemin.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "yiv",
+      "term": "Yiv",
+      "definition": "Bir sütunun ya da yüzeyin üzerine boydan boya oyulmuş, dikey ve sığ kanallar. Antik Yunan sütunlarında sık görülür ve sütunu daha ince ve uzun gösterir.",
+      "simple_definition": "Sütunların üzerine yukarıdan aşağı oyulmuş ince oluklar.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ucan_payanda",
+      "term": "Uçan Payanda",
+      "definition": "Yüksek bir duvarın üst kısmından dışarıdaki ayrı bir taş ayağa doğru kemer şeklinde uzanan payanda türü. Gotik katedrallerde duvarları dışarı iten çatı yükünü taşıyarak büyük pencerelere yer açar.",
+      "simple_definition": "Duvardan dışarıdaki bir ayağa köprü gibi uzanıp duvarı destekleyen taş kol.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cebri",
+      "term": "Cebri Havalandırma",
+      "definition": "Pencereden doğal hava akışı yerine fanlar ve kanallar kullanılarak bir mekâna temiz hava verilmesi ve kirli havanın dışarı atılması. Banyo, mutfak ve otoparklarda sık kullanılır.",
+      "simple_definition": "Fanlarla bir odaya temiz hava verip kirli havayı dışarı atmak.",
+      "image_id": "arch_cebri"
+    },
+    {
+      "key": "kalip",
+      "term": "Kalıp",
+      "definition": "Taze betonun döküldüğü ve beton sertleşene kadar ona şekil veren ahşap, metal veya plastik geçici kap. Beton dayanım kazanınca sökülür.",
+      "simple_definition": "Beton sertleşene kadar ona şekil veren geçici kutu.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "fransiz_balkonu",
+      "term": "Fransız Balkon",
+      "definition": "Yere kadar inen bir pencere veya kapının önüne, dışarı çıkıntı yapmadan takılan korkuluk. Üzerine çıkılabilecek bir zemini yoktur.",
+      "simple_definition": "Basılacak zemini olmayan, yere kadar pencerenin önündeki korkuluk.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "fresk",
+      "term": "Fresk",
+      "definition": "Duvar veya tavandaki henüz yaş kireç sıvanın üzerine suyla karıştırılmış boyalarla yapılan resim. Sıva kurudukça boya duvarın parçası hâline gelir ve çok uzun ömürlü olur.",
+      "simple_definition": "Yaş sıvanın üstüne yapılan, duvarın bir parçası olan resim.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "friz",
+      "term": "Friz",
+      "definition": "Duvarın üst kısmında veya klasik yapılarda arşitravın üzerinde yatay olarak uzanan, kabartma ya da boyalı süslemeli bant.",
+      "simple_definition": "Duvarın üst kısmında boydan boya uzanan süslü şerit.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "fonksiyon",
+      "term": "Fonksiyon (İşlev)",
+      "definition": "Bir mekânın veya yapının ne amaçla kullanıldığı ve bu kullanımın gereklerini ne kadar iyi karşıladığı; örneğin bir mutfağın pişirme, saklama ve temizlik işlevleri.",
+      "simple_definition": "Bir odanın veya binanın ne için kullanıldığı.",
+      "image_id": "arch_fonksiyon"
+    },
+    {
+      "key": "gabari",
+      "term": "Gabari",
+      "definition": "İmar planında bir parsele yapılacak binanın izin verilen en büyük yüksekliği, kat sayısı ve dış sınırları; yani binanın sığması gereken hayali zarf.",
+      "simple_definition": "Bir binanın en fazla ne kadar yüksek ve büyük olabileceğini belirleyen kural.",
+      "image_id": "arch_gabari"
+    },
+    {
+      "key": "gabion_duvar",
+      "term": "Gabyon Duvar",
+      "definition": "Galvanizli tel kafeslerin taşla doldurulup üst üste dizilmesiyle yapılan duvar. İstinat duvarı, şev koruma ve peyzajda kullanılır; suyu geçirdiği için kolay kolay devrilmez.",
+      "simple_definition": "Taş doldurulmuş tel kafeslerin üst üste dizilmesiyle yapılan duvar.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "besik_cati",
+      "term": "Beşik Çatı",
+      "definition": "İki eğimli yüzeyin en üstte bir mahya çizgisinde birleştiği, iki ucunda üçgen duvarlar oluşan çatı türü.",
+      "simple_definition": "İki tarafa eğimli, klasik üçgen ev çatısı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "galeri",
+      "term": "Galeri Boşluğu",
+      "definition": "Bir mekânın tavanının iki veya daha fazla kat yüksekliğinde açık bırakıldığı, üst kattan aşağıya bakılabilen boşluk. Sanat eserlerinin sergilendiği salon anlamında da kullanılır.",
+      "simple_definition": "Tavanı iki kat yükseklikte olan, üst kattan aşağısı görülen açık alan.",
+      "image_id": "arch_galeri"
+    },
+    {
+      "key": "bahe_duvar",
+      "term": "Bahçe Duvarı",
+      "definition": "Bir parselin veya bahçenin sınırını belirleyen, mahremiyet ve güvenlik sağlayan alçak ya da orta yükseklikte duvar. Yüksekliği genellikle imar yönetmeliğiyle sınırlanır.",
+      "simple_definition": "Bahçenin çevresini saran duvar.",
+      "image_id": "arch_bahe_duvar"
+    },
+    {
+      "key": "rten",
+      "term": "Çörten",
+      "definition": "Çatıda toplanan yağmur suyunu duvardan uzağa akıtmak için cepheden dışarı taşan oluk ağzı. Gotik yapılarda çoğunlukla hayvan veya canavar figürü şeklinde oyulmuştur.",
+      "simple_definition": "Çatıdaki yağmur suyunu duvardan uzağa döken, çoğu zaman canavar şeklindeki oluk ağzı.",
+      "image_id": "arch_rten"
+    },
+    {
+      "key": "gazebo",
+      "term": "Kameriye (Gazebo)",
+      "definition": "Bahçede oturup dinlenmek için yapılan, yanları açık, üstü örtülü, çoğu zaman altıgen veya sekizgen planlı küçük köşk.",
+      "simple_definition": "Bahçede oturmak için yapılmış, yanları açık, çatılı küçük köşk.",
+      "image_id": "arch_gazebo"
+    },
+    {
+      "key": "cam_tula",
+      "term": "Cam Tuğla",
+      "definition": "İçi boş, kalın camdan yapılmış tuğla biçimli blok. Işığı geçirirken mahremiyeti koruyan duvar ve bölmelerde kullanılır.",
+      "simple_definition": "Işığı geçiren ama içerisi net görünmeyen, camdan yapılmış tuğla.",
+      "image_id": "arch_cam_tula"
+    },
+    {
+      "key": "cam_cephe",
+      "term": "Cam Cephe",
+      "definition": "Dış yüzeyinin tamamı veya büyük kısmı camdan oluşan bina cephesi. İçeri bol gün ışığı alır; ısı ve güneş kontrolü için özel camlar gerekir.",
+      "simple_definition": "Dış yüzü neredeyse tamamen camdan olan bina cephesi.",
+      "image_id": "arch_cam_cephe"
+    },
+    {
+      "key": "cam_blme",
+      "term": "Cam Bölme",
+      "definition": "Bir mekânı ışığı engellemeden ikiye ayıran, çerçeveli veya çerçevesiz cam duvar. Ofislerde ve açık planlı evlerde sık kullanılır.",
+      "simple_definition": "Bir odayı ışığı kesmeden ikiye ayıran cam duvar.",
+      "image_id": "arch_cam_blme"
+    },
+    {
+      "key": "gotik_mimari",
+      "term": "Gotik Mimari",
+      "definition": "12.–16. yüzyıllar arasında Avrupa'da gelişen; sivri kemerler, kaburgalı tonozlar, uçan payandalar, çok yüksek tavanlar ve büyük vitray pencerelerle tanınan mimari üslup.",
+      "simple_definition": "Sivri kemerli, çok yüksek ve renkli camlı Orta Çağ katedrallerinin tarzı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "yeil_bina",
+      "term": "Yeşil Bina",
+      "definition": "Enerji ve suyu verimli kullanan, çevre dostu malzemelerle yapılan ve doğaya en az zararı verecek şekilde tasarlanan bina. LEED veya BREEAM gibi sertifikalarla belgelenebilir.",
+      "simple_definition": "Az enerji harcayan ve doğaya zarar vermeyen bina.",
+      "image_id": "arch_yeil_bina"
+    },
+    {
+      "key": "green_facade",
+      "term": "Yeşil Cephe (Dikey Bahçe)",
+      "definition": "Bina cephesinin tırmanıcı bitkiler veya toprak/besin ortamı içeren modüler sistemlerle bitkilendirilmesi. Binayı serinletir, havayı temizler ve sesi azaltır.",
+      "simple_definition": "Bitkilerle kaplanmış bina duvarı.",
+      "image_id": "photo-1535090467332-80ea24141e1c"
+    },
+    {
+      "key": "glendirme",
+      "term": "Güçlendirme",
+      "definition": "Mevcut bir binanın depreme ve yüklere karşı dayanımının; mantolama, perde duvar ekleme veya çelik/karbon lif sargı gibi yöntemlerle artırılması.",
+      "simple_definition": "Eski bir binayı depreme karşı daha sağlam hâle getirmek.",
+      "image_id": "arch_glendirme"
+    },
+    {
+      "key": "alci",
+      "term": "Alçı",
+      "definition": "Alçı taşının pişirilip öğütülmesiyle elde edilen beyaz toz. Suyla karışınca hamur olur ve kısa sürede sertleşir; iç duvar sıvası, tavan ve süsleme işlerinde kullanılır.",
+      "simple_definition": "Duvarları düzgün ve pürüzsüz yapmakta kullanılan beyaz toz.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "hafifbeton",
+      "term": "Hafif Beton",
+      "definition": "İçine pomza, genleştirilmiş kil veya hava kabarcıkları katılarak normal betondan çok daha hafif hâle getirilmiş beton. Isıyı iyi yalıtır; gaz beton (ytong) bunun bir türüdür.",
+      "simple_definition": "İçinde hava boşlukları olan, normal betondan çok daha hafif beton.",
+      "image_id": "arch_hafifbeton"
+    },
+    {
+      "key": "hol",
+      "term": "Hol",
+      "definition": "Bir evde veya binada odaların kapılarının açıldığı, onları birbirine bağlayan geniş geçiş ve dağılım alanı.",
+      "simple_definition": "Odaların kapılarının açıldığı, evin ortasındaki geçiş alanı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "hamam",
+      "term": "Hamam",
+      "definition": "Soyunmalık, ılıklık ve sıcaklık bölümlerinden oluşan, kubbeli, buharla yıkanılan geleneksel Türk yıkanma yapısı. Isıtma, zeminin altındaki boşluklardan (külhan ve cehennemlik) sağlanır.",
+      "simple_definition": "Kubbeli, sıcak buharlı geleneksel Türk yıkanma yeri.",
+      "image_id": "arch_hamam"
+    },
+    {
+      "key": "han",
+      "term": "Han",
+      "definition": "Osmanlı ve Selçuklu kentlerinde tüccarların konakladığı, mallarını depoladığı ve ticaret yaptığı, ortasında avlu bulunan çok katlı yapı.",
+      "simple_definition": "Eskiden tüccarların kaldığı ve ticaret yaptığı avlulu bina.",
+      "image_id": "arch_han"
+    },
+    {
+      "key": "kpete",
+      "term": "Küpeşte",
+      "definition": "Merdiven veya balkon korkuluğunun en üstünde bulunan, elle tutulup destek alınan yatay tutamak.",
+      "simple_definition": "Merdiven korkuluğunun elle tuttuğumuz üst kısmı.",
+      "image_id": "arch_kpete"
+    },
+    {
+      "key": "harem",
+      "term": "Harem",
+      "definition": "Geleneksel Türk evi ve saraylarda ailenin özel yaşamına ayrılmış, yabancı erkeklerin giremediği bölüm; misafir kabul edilen selamlıktan ayrıdır.",
+      "simple_definition": "Eski evlerde ailenin yaşadığı, misafirlere kapalı özel bölüm.",
+      "image_id": "arch_harem"
+    },
+    {
+      "key": "harita",
+      "term": "Halihazır Harita",
+      "definition": "Bir arazinin mevcut durumunu, yani binalarını, yollarını, ağaçlarını ve yükseklik eğrilerini ölçekli olarak gösteren harita. Proje ve imar çalışmalarının temelini oluşturur.",
+      "simple_definition": "Bir arazinin bugünkü hâlini ölçüleriyle gösteren harita.",
+      "image_id": "arch_harita"
+    },
+    {
+      "key": "hasr",
+      "term": "Hasır Çelik",
+      "definition": "Çelik tellerin kare veya dikdörtgen ağ biçiminde kaynaklanmasıyla üretilen hazır donatı. Döşeme, şap ve perde betonlarında çatlamayı önlemek için kullanılır.",
+      "simple_definition": "Betonun içine konan, kafes biçiminde kaynaklı çelik tel ağı.",
+      "image_id": "arch_hasr"
+    },
+    {
+      "key": "havalandrma",
+      "term": "Havalandırma",
+      "definition": "Bir mekândaki kirli, nemli havanın dışarı atılıp yerine temiz dış havanın alınması. Pencerelerle doğal yoldan veya fan ve kanallarla mekanik olarak yapılabilir.",
+      "simple_definition": "Bir odaya temiz hava girmesini ve kirli havanın çıkmasını sağlamak.",
+      "image_id": "arch_havalandrma"
+    },
+    {
+      "key": "havuz",
+      "term": "Havuz",
+      "definition": "Yüzme, dinlenme veya süs amaçlı yapılan, su yalıtımlı betonarme ya da hazır gövdeli su haznesi; temizlik ve dolaşım için pompa ve filtre sistemi gerektirir.",
+      "simple_definition": "Yüzmek ya da süs için yapılmış su dolu yapı.",
+      "image_id": "arch_havuz"
+    },
+    {
+      "key": "hayrat",
+      "term": "Hayrat",
+      "definition": "Osmanlı döneminde hayır amacıyla yaptırılıp halkın ücretsiz kullanımına sunulan çeşme, sebil, köprü, imaret gibi yapılar.",
+      "simple_definition": "Eskiden halk için hayır amaçlı yaptırılan çeşme, köprü gibi yapılar.",
+      "image_id": "arch_hayrat"
+    },
+    {
+      "key": "hazire",
+      "term": "Hazire",
+      "definition": "Osmanlı döneminde camilerin, türbelerin veya tekkelerin yanında bulunan, çevresi duvar ya da parmaklıkla çevrili küçük mezarlık.",
+      "simple_definition": "Caminin yanındaki duvarla çevrili küçük mezarlık.",
+      "image_id": "arch_hazire"
+    },
+    {
+      "key": "isi_yalitimi",
+      "term": "Isı Yalıtımı",
+      "definition": "Duvar, çatı, döşeme ve pencerelerde ısının içeriden dışarıya veya dışarıdan içeriye geçişini azaltan malzeme ve uygulamalar. Kışın ısınma, yazın serinletme giderlerini düşürür.",
+      "simple_definition": "Evi kışın sıcak, yazın serin tutan koruyucu katman.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "hendek",
+      "term": "Hendek",
+      "definition": "Temel, boru veya kablo döşemek ya da su toplamak için toprakta açılan uzun ve dar kazı.",
+      "simple_definition": "Boru veya temel için toprağa kazılan uzun, dar çukur.",
+      "image_id": "arch_hendek"
+    },
+    {
+      "key": "tarihi_doku",
+      "term": "Tarihi Doku",
+      "definition": "Bir şehrin ya da mahallenin geçmişini yansıtan eski binaların, sokakların, meydanların ve bunların oluşturduğu genel dokunun bütünü. Koruma ve restorasyon çalışmalarının temel konusudur.",
+      "simple_definition": "Bir şehrin eski binaları ve sokaklarının oluşturduğu tarihi görünüm.",
+      "image_id": "arch_tarihi_doku"
+    },
+    {
+      "key": "hiyerari",
+      "term": "Hiyerarşi (Mekânsal Hiyerarşi)",
+      "definition": "Bir tasarımda mekânların veya öğelerin önem sırasına göre büyüklük, konum ve vurgu bakımından düzenlenmesi; örneğin ana salonun diğer odalardan daha büyük ve merkezde olması.",
+      "simple_definition": "Önemli alanların daha büyük ve öne çıkacak şekilde düzenlenmesi.",
+      "image_id": "arch_hiyerari"
+    },
+    {
+      "key": "asmolen",
+      "term": "Asmolen Döşeme",
+      "definition": "Kirişçikler (dar nervürler) arasındaki boşlukların hafif dolgu blokları (bims, EPS veya tuğla) ile doldurulduğu betonarme döşeme türü. Tavanı düz bırakır ve döşemeyi hafifletir.",
+      "simple_definition": "İçine hafif bloklar konarak yapılan, altı düz görünen beton döşeme.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "yatay_mimari",
+      "term": "Yatay Mimari",
+      "definition": "Yükseğe çıkmak yerine yatayda yayılan, az katlı binalardan oluşan yapılaşma anlayışı. İnsan ölçeğine daha yakın, sokakla ilişkisi güçlü yerleşimler hedefler.",
+      "simple_definition": "Yüksek kuleler yerine az katlı, yayvan binalar yapma anlayışı.",
+      "image_id": "arch_yatay_mimari"
+    },
+    {
+      "key": "konut",
+      "term": "Konut",
+      "definition": "İnsanların sürekli olarak yaşaması için yapılan ev, daire, villa gibi yapıların genel adı; imar planlarında bu kullanıma ayrılmış alanlara konut alanı denir.",
+      "simple_definition": "İnsanların içinde yaşadığı ev ve daireler.",
+      "image_id": "arch_konut"
+    },
+    {
+      "key": "hcre",
+      "term": "Hücre",
+      "definition": "Medrese, tekke veya manastırlarda öğrencilerin ya da dervişlerin kaldığı, genellikle avluya açılan küçük, tek kişilik oda.",
+      "simple_definition": "Eski medreselerde öğrencilerin kaldığı küçük oda.",
+      "image_id": "arch_hcre"
+    },
+    {
+      "key": "icephe",
+      "term": "İç Cephe",
+      "definition": "Bir binanın sokağa değil iç avluya, ışıklığa veya bina arkasındaki bahçeye bakan yüzü.",
+      "simple_definition": "Binanın sokağa değil iç avluya bakan yüzü.",
+      "image_id": "arch_icephe"
+    },
+    {
+      "key": "imimar",
+      "term": "İç Mimar",
+      "definition": "Binaların iç mekânlarını; plan düzeni, malzeme, aydınlatma, mobilya ve detaylarıyla kullanışlı, güvenli ve estetik olacak şekilde tasarlayan, bu alanda eğitim almış meslek insanı.",
+      "simple_definition": "Evlerin ve binaların içini tasarlayan uzman.",
+      "image_id": "arch_imimar"
+    },
+    {
+      "key": "ifraz",
+      "term": "İfraz",
+      "definition": "Tapuda tek parça olan bir arazinin, imar kurallarına uygun olarak iki veya daha fazla ayrı parsele bölünmesi işlemi.",
+      "simple_definition": "Bir arsayı resmî olarak birkaç ayrı parçaya bölmek.",
+      "image_id": "arch_ifraz"
+    },
+    {
+      "key": "imar",
+      "term": "İmar",
+      "definition": "Bir kentte hangi arazide ne tür ve hangi büyüklükte yapı yapılabileceğini belirleyen planlama ve kurallar bütünü; imar planı ve imar yönetmeliğiyle düzenlenir.",
+      "simple_definition": "Nereye, ne büyüklükte bina yapılabileceğini belirleyen resmî kurallar.",
+      "image_id": "arch_imar"
+    },
+    {
+      "key": "imaret",
+      "term": "İmaret",
+      "definition": "Osmanlı külliyelerinde yoksullara, öğrencilere ve yolculara ücretsiz yemek dağıtılan aşevi yapısı.",
+      "simple_definition": "Eskiden yoksullara bedava yemek verilen aşevi.",
+      "image_id": "arch_imaret"
+    },
+    {
+      "key": "i_mekan_bitkisi",
+      "term": "İç Mekân Bitkisi",
+      "definition": "Saksı içinde ev ve ofislerde yetiştirilen, az ışığa ve oda sıcaklığına dayanıklı bitki. İç mekân tasarımında canlılık katmak ve havayı tazelemek için kullanılır.",
+      "simple_definition": "Evin içinde saksıda yetiştirilen bitki.",
+      "image_id": "arch_i_mekan_bitkisi"
+    },
+    {
+      "key": "endstriyel_tasarm",
+      "term": "Endüstriyel Stil",
+      "definition": "Eski fabrika ve depo yapılarından esinlenen; açıkta bırakılmış tuğla, brüt beton, metal borular, çelik ve ahşabı bir arada kullanan iç mekân tarzı.",
+      "simple_definition": "Tuğla, beton ve metalle fabrika havası veren dekorasyon tarzı.",
+      "image_id": "arch_endstriyel_tasarm"
+    },
+    {
+      "key": "alt_yapi",
+      "term": "Altyapı",
+      "definition": "Bir yerleşimin işleyebilmesi için gereken yol, su, kanalizasyon, elektrik, doğalgaz ve iletişim şebekelerinin tümü.",
+      "simple_definition": "Yer altındaki su, elektrik, kanalizasyon boruları ve hatları ile yollar.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "inaat",
+      "term": "İnşaat",
+      "definition": "Bir yapının projeye göre, kazıdan teslimata kadar yapılması süreci; ayrıca bu işin yürütüldüğü şantiye.",
+      "simple_definition": "Bir binanın yapılması işi.",
+      "image_id": "arch_inaat"
+    },
+    {
+      "key": "kitabe",
+      "term": "Kitabe",
+      "definition": "Tarihi yapıların kapı üstüne veya duvarlarına yerleştirilen, yapının ne zaman ve kim tarafından yaptırıldığını anlatan yazılı taş veya mermer levha.",
+      "simple_definition": "Eski binaların kapısı üstünde, yapılış tarihini yazan yazılı taş.",
+      "image_id": "arch_kitabe"
+    },
+    {
+      "key": "i_mekan",
+      "term": "İç Mekân",
+      "definition": "Bir binanın duvarlar, döşeme ve tavanla çevrilmiş iç kısmı; odalar, holler ve diğer kapalı alanlar.",
+      "simple_definition": "Bir binanın içindeki tüm odalar ve alanlar.",
+      "image_id": "arch_i_mekan"
+    },
+    {
+      "key": "iskan",
+      "term": "İskân (Yapı Kullanma İzni)",
+      "definition": "Bitmiş bir binanın projeye ve yönetmeliklere uygun yapıldığının belediye tarafından onaylanmasıyla verilen, binada oturulabileceğini gösteren belge.",
+      "simple_definition": "Yeni binaya taşınmak için belediyeden alınan izin belgesi.",
+      "image_id": "arch_iskan"
+    },
+    {
+      "key": "islami",
+      "term": "İslam Mimarisi",
+      "definition": "İslam dünyasında gelişen; cami, medrese, türbe gibi yapılarda kubbe, minare, avlu, mihrap ve geometrik veya bitkisel süslemeleri öne çıkaran mimari gelenek.",
+      "simple_definition": "Kubbe, minare ve geometrik desenleriyle tanınan cami ve medrese mimarisi.",
+      "image_id": "arch_islami"
+    },
+    {
+      "key": "ada_mutfak",
+      "term": "Ada Mutfak",
+      "definition": "Mutfağın ortasında, duvarlara bitişik olmayan, dört yanından erişilebilen tezgâh ünitesi; çoğunlukla ocak, evye veya kahvaltı bölümü içerir.",
+      "simple_definition": "Mutfağın ortasında duran, etrafında dolaşılabilen tezgâh.",
+      "image_id": "arch_ada_mutfak"
+    },
+    {
+      "key": "eyvan",
+      "term": "Eyvan",
+      "definition": "Üç yanı duvarla kapalı, bir yanı tamamen avluya veya sofaya açık, üstü genellikle tonozla örtülü mekân. Selçuklu ve Osmanlı medreseleri, hanları ve evlerinde sık görülür.",
+      "simple_definition": "Üç tarafı duvarlı, bir tarafı avluya tamamen açık oda.",
+      "image_id": "arch_eyvan"
+    },
+    {
+      "key": "izgara",
+      "term": "Izgara (Aks Sistemi)",
+      "definition": "Bir binanın planında kolonların ve duvarların yerleştirildiği, birbirini dik kesen düzenli çizgilerden oluşan sistem; kentsel planlamada ise sokakların dama tahtası gibi dik açıyla kesiştiği düzen.",
+      "simple_definition": "Kolonların ya da sokakların yerleştiği dama tahtası gibi düzenli çizgiler.",
+      "image_id": "arch_izgara"
+    },
+    {
+      "key": "jakuzi",
+      "term": "Jakuzi",
+      "definition": "Suyu ve havayı jetlerle püskürterek masaj etkisi yaratan küvet veya küçük havuz. Banyo ve spa tasarımlarında kullanılır; tesisat ve elektrik bağlantısı gerektirir.",
+      "simple_definition": "Su fışkırtarak masaj yapan küvet.",
+      "image_id": "arch_jakuzi"
+    },
+    {
+      "key": "fuga",
+      "term": "Fuga (Gölge Derzi)",
+      "definition": "Sıva, alçı, ahşap veya cephe kaplamasında iki yüzeyin birleştiği yerde bilerek bırakılan ince, girintili çizgi. Çatlakları gizler ve yüzeye düzenli, modern bir görünüm verir.",
+      "simple_definition": "Duvarda veya tavanda süs için bırakılan ince girinti çizgisi.",
+      "image_id": "arch_fuga"
+    },
+    {
+      "key": "derz",
+      "term": "Derz",
+      "definition": "Fayans, seramik, taş veya tuğla gibi parçaların arasında kalan boşluk ve bu boşluğu dolduran harç ya da dolgu malzemesi.",
+      "simple_definition": "Fayanslar veya tuğlalar arasındaki dolgulu ince çizgiler.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "buat",
+      "term": "Buat",
+      "definition": "Elektrik tesisatında kabloların birleştirildiği veya ayrıldığı, genellikle duvar içine gömülü, kapaklı plastik kutu.",
+      "simple_definition": "Duvar içinde elektrik kablolarının birleştirildiği kapaklı kutu.",
+      "image_id": ""
+    },
+    {
+      "key": "kafes",
+      "term": "Kafes",
+      "definition": "Geleneksel Osmanlı evlerinde pencerelerin önüne takılan, ince ahşap çıtaların çaprazlama birleştirilmesiyle yapılan perde. İçeriden dışarısı görülürken dışarıdan içerisi görülmez.",
+      "simple_definition": "Eski evlerin pencerelerindeki, içeriyi gizleyen ahşap çıtalı perde.",
+      "image_id": "arch_kafes"
+    },
+    {
+      "key": "kagir",
+      "term": "Kâgir",
+      "definition": "Taş, tuğla veya briket gibi birimlerin harçla örülmesiyle yapılan yapı ve bu yapım tekniği. Kâgir binalarda yükü duvarlar taşır.",
+      "simple_definition": "Taş veya tuğla örülerek yapılmış bina.",
+      "image_id": "arch_kagir"
+    },
+    {
+      "key": "kaid",
+      "term": "Kaide",
+      "definition": "Bir sütunun, heykelin veya anıtın oturduğu, onu zeminden yükselten taban bölümü.",
+      "simple_definition": "Sütunun ya da heykelin üzerinde durduğu taban.",
+      "image_id": "arch_kaid"
+    },
+    {
+      "key": "kaldrm",
+      "term": "Kaldırım",
+      "definition": "Yolun kenarında, araç yolundan biraz yüksekte yapılan ve yayaların yürümesi için ayrılan döşeli şerit.",
+      "simple_definition": "Yolun kenarında insanların yürüdüğü yüksek kısım.",
+      "image_id": "arch_kaldrm"
+    },
+    {
+      "key": "kalem",
+      "term": "Kalem İşi",
+      "definition": "Sıva veya ahşap yüzeyler üzerine fırçayla yapılan, bitkisel ve geometrik motifli geleneksel boyalı süsleme. Cami kubbeleri, tavanlar ve köşklerde görülür.",
+      "simple_definition": "Tavana ve duvarlara fırçayla yapılmış geleneksel desenli süsleme.",
+      "image_id": "arch_kalem"
+    },
+    {
+      "key": "kanat",
+      "term": "Kanat",
+      "definition": "Bir kapının veya pencerenin kasaya menteşeyle bağlanan, açılıp kapanan hareketli bölümü.",
+      "simple_definition": "Kapının ya da pencerenin açılıp kapanan kısmı.",
+      "image_id": "arch_kanat"
+    },
+    {
+      "key": "kap",
+      "term": "Kapı",
+      "definition": "Bir mekâna girip çıkmayı sağlayan, kasa ve açılıp kapanan kanattan oluşan doğrama elemanı.",
+      "simple_definition": "Bir odaya veya binaya girip çıktığımız açılır kapanır bölüm.",
+      "image_id": "arch_kap"
+    },
+    {
+      "key": "kaplama",
+      "term": "Kaplama",
+      "definition": "Zemin, duvar veya tavan yüzeylerine son görünümünü veren ve onları koruyan malzeme katmanı; örneğin parke, seramik, taş, ahşap veya duvar kâğıdı.",
+      "simple_definition": "Zemini veya duvarı örten son kat malzeme, parke ya da fayans gibi.",
+      "image_id": "arch_kaplama"
+    },
+    {
+      "key": "karlk",
+      "term": "Karlık (Kar Kuyusu)",
+      "definition": "Buzdolabı yokken kışın yağan karın sıkıştırılıp yazın kullanılmak üzere saklandığı, toprağa kazılmış ve üstü örtülü kuyu veya yapı.",
+      "simple_definition": "Eskiden kışın karın yaz için saklandığı yer altı kuyusu.",
+      "image_id": "arch_karlk"
+    },
+    {
+      "key": "karo",
+      "term": "Karo",
+      "definition": "Zemin ve duvar kaplamasında kullanılan, genellikle kare biçimli çini, seramik, mermer veya çimento esaslı levha; eski evlerdeki desenli karo mozaikler bilinen örnektir.",
+      "simple_definition": "Yerlere döşenen kare biçimli kaplama parçası.",
+      "image_id": "arch_karo"
+    },
+    {
+      "key": "kasa",
+      "term": "Kasa",
+      "definition": "Kapı veya pencerenin duvar boşluğuna sabitlenen, kanadın menteşelerle takıldığı sabit çerçevesi.",
+      "simple_definition": "Kapı ya da pencerenin duvara sabitlenen çerçevesi.",
+      "image_id": "arch_kasa"
+    },
+    {
+      "key": "kasr",
+      "term": "Kasır",
+      "definition": "Osmanlı döneminde padişahların ve ileri gelenlerin dinlenmek için kullandığı, genellikle bahçe içinde veya su kenarında yapılmış küçük saray ya da köşk.",
+      "simple_definition": "Padişahların dinlenmek için kullandığı küçük köşk.",
+      "image_id": "arch_kasr"
+    },
+    {
+      "key": "kayrak",
+      "term": "Kayrak Taşı",
+      "definition": "Kolayca ince ve yassı plakalara ayrılabilen doğal taş. Geleneksel olarak çatı örtüsü, zemin ve duvar kaplamasında kullanılır.",
+      "simple_definition": "İnce yassı plakalara ayrılan, çatı ve zemin kaplamasında kullanılan taş.",
+      "image_id": "arch_kayrak"
+    },
+    {
+      "key": "kazan",
+      "term": "Kazan Dairesi",
+      "definition": "Binanın ısıtma ve sıcak su sistemini besleyen kazanın, pompaların ve tesisatın bulunduğu, genellikle bodrumdaki teknik oda.",
+      "simple_definition": "Binanın kalorifer kazanının bulunduğu teknik oda.",
+      "image_id": "arch_kazan"
+    },
+    {
+      "key": "kepenk",
+      "term": "Kepenk",
+      "definition": "Dükkân, garaj veya pencere önüne takılan, yukarı sarılarak açılan metal ya da alüminyum lamellerden oluşan güvenlik kapağı.",
+      "simple_definition": "Dükkân vitrinlerini kapatan, yukarı sarılan metal kapak.",
+      "image_id": "arch_kepenk"
+    },
+    {
+      "key": "kerpi",
+      "term": "Kerpiç",
+      "definition": "Kil, su ve saman karışımının kalıplara dökülüp güneşte kurutulmasıyla yapılan, fırınlanmamış tuğla. Anadolu'da binlerce yıldır kullanılır ve ısıyı iyi dengeler.",
+      "simple_definition": "Çamur ve samanla yapılıp güneşte kurutulan tuğla.",
+      "image_id": "arch_kerpi"
+    },
+    {
+      "key": "kervansaray",
+      "term": "Kervansaray",
+      "definition": "Selçuklu ve Osmanlı dönemlerinde ticaret yolları üzerinde, kervanların ve yolcuların güvenle konaklaması için yapılan, kalın duvarlı ve avlulu büyük yapı.",
+      "simple_definition": "Eski ticaret yollarında yolcuların konakladığı büyük, avlulu han.",
+      "image_id": "arch_kervansaray"
+    },
+    {
+      "key": "kilit_tasi",
+      "term": "Kilit Taşı",
+      "definition": "Bir taş kemerin en tepesine yerleştirilen kama biçimli son taş. Diğer taşları birbirine kilitleyerek kemerin ayakta kalmasını sağlar.",
+      "simple_definition": "Kemerin tam tepesindeki, bütün taşları yerinde tutan taş.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kilim",
+      "term": "Kilim",
+      "definition": "Havsız, düz dokuma tekniğiyle yapılan, geometrik desenli geleneksel Anadolu yaygısı. İç mekânda zemine serilir veya duvara asılır.",
+      "simple_definition": "Geometrik desenli, ince ve havsız el dokuması yaygı.",
+      "image_id": "arch_kilim"
+    },
+    {
+      "key": "kilise",
+      "term": "Kilise",
+      "definition": "Hristiyanların ibadet ettiği yapı; genellikle uzun bir orta nef, sunak bölümü (apsis) ve çan kulesinden oluşur.",
+      "simple_definition": "Hristiyanların ibadet ettiği bina.",
+      "image_id": "arch_kilise"
+    },
+    {
+      "key": "kilitleme",
+      "term": "Kilitli Parke Taşı",
+      "definition": "Yan yüzleri birbirine geçecek şekilde üretilen beton yer döşeme taşı. Harçsız döşenir, kaldırım, otopark ve bahçe yollarında kullanılır.",
+      "simple_definition": "Kaldırımlarda birbirine geçirilerek döşenen beton taşlar.",
+      "image_id": "arch_kilitleme"
+    },
+    {
+      "key": "kble",
+      "term": "Kıble",
+      "definition": "Müslümanların namaz kılarken döndüğü, Mekke'deki Kâbe'nin yönü. Camilerde mihrap bu yöndeki duvara yerleştirilir ve yapının yerleşimini belirler.",
+      "simple_definition": "Namaz kılarken dönülen Kâbe yönü; camiler buna göre yerleşir.",
+      "image_id": "arch_kble"
+    },
+    {
+      "key": "ky",
+      "term": "Kıyı Kenar Çizgisi",
+      "definition": "Deniz, göl ve akarsu kenarlarında suyun ulaştığı son noktayı gösteren, yasayla belirlenmiş sınır çizgisi. Bu çizgiye belirli mesafe içinde kalıcı yapı yapılamaz.",
+      "simple_definition": "Su kenarında, belli mesafeye bina yapılmasını yasaklayan resmî sınır.",
+      "image_id": "arch_ky"
+    },
+    {
+      "key": "kulliye",
+      "term": "Külliye",
+      "definition": "Merkezinde bir cami bulunan; medrese, imaret, hamam, darüşşifa (hastane) ve türbe gibi yapılardan oluşan Osmanlı yapı topluluğu.",
+      "simple_definition": "Cami, okul, aşevi ve hamam gibi binaların bir arada yapıldığı yapı topluluğu.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "l_merdiven",
+      "term": "L Merdiven",
+      "definition": "Bir sahanlıkta 90 derece dönerek L harfi şeklini alan merdiven. Köşelere yerleştirilebildiği için yerden tasarruf sağlar.",
+      "simple_definition": "Ortasında bir köşe dönerek L harfi şeklini alan merdiven.",
+      "image_id": "arch_l_merdiven"
+    },
+    {
+      "key": "lamba",
+      "term": "Lamba / Aydınlatma Armatürü",
+      "definition": "Bir mekânı aydınlatmak için kullanılan, ampul ve onu taşıyan gövdeden oluşan elektrikli araç. Tavan, duvar, masa veya yer tipi olabilir ve odanın havasını büyük ölçüde belirler.",
+      "simple_definition": "Odayı aydınlatan elektrikli ışık kaynağı.",
+      "image_id": "arch_lamba"
+    },
+    {
+      "key": "abajur",
+      "term": "Abajur",
+      "definition": "Lambanın ışığını yumuşatıp aşağıya veya belli bir yöne toplayan kumaş, kâğıt, metal ya da camdan siper; bu siperi olan masa veya ayaklı lambaya da abajur denir.",
+      "simple_definition": "Lambanın ışığını yumuşatan şapka biçimli siper ya da böyle bir masa lambası.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "sahanlk",
+      "term": "Sahanlık",
+      "definition": "Merdivenin başında, sonunda ya da iki kolu arasında bulunan düz alan. Merdivenin yön değiştirmesine ve çıkarken dinlenmeye imkân verir.",
+      "simple_definition": "Merdivenin ortasında veya sonunda bulunan düz bölüm.",
+      "image_id": "arch_sahanlk"
+    },
+    {
+      "key": "peyzaj",
+      "term": "Peyzaj",
+      "definition": "Bir binanın çevresindeki açık alanın bitkiler, ağaçlar, yollar, su öğeleri ve oturma alanlarıyla planlanıp düzenlenmesi. Bahçeden kent parkına kadar her ölçekte uygulanır.",
+      "simple_definition": "Bina çevresindeki bahçeyi bitkiler ve yollarla tasarlamak.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "fener",
+      "term": "Fener (Kubbe Feneri)",
+      "definition": "Bir kubbenin veya çatının tepesine oturtulan, çevresi pencerelerle açılmış küçük kule biçimli yapı. İçeriye yukarıdan ışık ve hava girmesini sağlar.",
+      "simple_definition": "Kubbenin tepesindeki pencereli küçük kule.",
+      "image_id": "arch_fener"
+    },
+    {
+      "key": "badadi",
+      "term": "Bağdadi",
+      "definition": "Ahşap iskeletli duvar ve tavanlara ince ahşap çıtaların aralıklı çakılıp üzerinin kireç veya alçı sıvayla kaplandığı geleneksel yapım tekniği; eski Türk evlerinde yaygındır.",
+      "simple_definition": "İnce ahşap çıtaların üstüne sıva yapılarak oluşturulan eski duvar tekniği.",
+      "image_id": "arch_badadi"
+    },
+    {
+      "key": "grobeton",
+      "term": "Grobeton",
+      "definition": "Çimentosu az, donatısız beton. Temel kazısının tabanına ince bir tabaka olarak dökülerek asıl temele düz ve temiz bir zemin hazırlar.",
+      "simple_definition": "Temelin altına zemini düzlemek için dökülen ince, basit beton katmanı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "aydnlatma",
+      "term": "Aydınlatma",
+      "definition": "Bir mekânın gün ışığı ve yapay ışıkla, kullanımına uygun miktarda ve nitelikte ışık alacak şekilde planlanması; genel, görev ve vurgu aydınlatması gibi katmanlardan oluşur.",
+      "simple_definition": "Bir mekânın doğru ve yeterli ışık almasını planlamak.",
+      "image_id": "arch_aydnlatma"
+    },
+    {
+      "key": "aydnlatma_armatr",
+      "term": "Aydınlatma Armatürü",
+      "definition": "Ampul veya LED kaynağı taşıyan, ışığı dağıtan ve elektrik bağlantısını sağlayan avize, spot, aplik gibi aydınlatma gövdesi.",
+      "simple_definition": "Ampulün takıldığı avize, spot gibi lamba gövdesi.",
+      "image_id": "arch_aydnlatma_armatr"
+    },
+    {
+      "key": "kuranglez",
+      "term": "Kuranglez",
+      "definition": "Bodrum kat pencerelerinin önünde, toprak seviyesinin altında bırakılan, istinat duvarıyla çevrili boşluk. Bodruma ışık ve hava girmesini sağlar.",
+      "simple_definition": "Bodrum penceresi ışık alsın diye önünde kazılan çukur alan.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "lento",
+      "term": "Lento",
+      "definition": "Kapı ve pencere boşluklarının üstüne yatay olarak yerleştirilen, üstündeki duvarın yükünü taşıyan kiriş. Betonarme, çelik, taş veya ahşaptan yapılabilir.",
+      "simple_definition": "Kapı ve pencerelerin üstünde duvarı taşıyan yatay parça.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "yaam_alan",
+      "term": "Yaşam Alanı",
+      "definition": "Bir evde günlük hayatın geçtiği salon, oturma odası, mutfak ve yemek alanı gibi bölümlerin genel adı. Yatak odaları ve ıslak hacimler genellikle ayrı değerlendirilir.",
+      "simple_definition": "Evde gün boyu vakit geçirdiğimiz salon ve mutfak gibi alanlar.",
+      "image_id": "arch_yaam_alan"
+    },
+    {
+      "key": "lks_konut",
+      "term": "Lüks Konut",
+      "definition": "Kaliteli malzemeleri, geniş alanları, özel tasarımı ve havuz, güvenlik ya da spor salonu gibi ayrıcalıklı olanaklarıyla öne çıkan, genellikle iyi konumdaki yüksek fiyatlı konut.",
+      "simple_definition": "Kaliteli malzemeli, geniş ve çok sayıda olanağı olan pahalı ev.",
+      "image_id": "arch_lks_konut"
+    },
+    {
+      "key": "medrese",
+      "term": "Medrese",
+      "definition": "İslam dünyasında, Osmanlılarda da yaygın olan geleneksel yükseköğretim yapısı. Genellikle revaklı bir avlunun çevresine dizilmiş öğrenci odaları ve derslikten oluşur.",
+      "simple_definition": "Eskiden öğrencilerin okuyup kaldığı, avlulu okul binası.",
+      "image_id": "arch_medrese"
+    },
+    {
+      "key": "mermer_tezgah",
+      "term": "Mermer Tezgâh",
+      "definition": "Mermerden yapılmış mutfak veya banyo tezgâhı. Doğal damarlı görünümüyle şıktır ancak gözenekli olduğu için asit ve lekelere karşı düzenli bakım ister.",
+      "simple_definition": "Mermer taşından yapılmış mutfak ya da banyo tezgâhı.",
+      "image_id": "arch_mermer_tezgah"
+    },
+    {
+      "key": "baoda",
+      "term": "Başoda",
+      "definition": "Geleneksel Türk evinde en büyük, en süslü ve en iyi manzaraya sahip oda; genellikle misafir ağırlamak için kullanılırdı.",
+      "simple_definition": "Eski Türk evinin misafir ağırlanan en büyük ve en süslü odası.",
+      "image_id": "arch_baoda"
+    },
+    {
+      "key": "malzeme",
+      "term": "Yapı Malzemesi",
+      "definition": "Bir binanın yapımında ve kaplanmasında kullanılan beton, tuğla, taş, ahşap, çelik, cam gibi maddelerin genel adı. Malzeme seçimi yapının dayanıklılığını, maliyetini ve görünüşünü belirler.",
+      "simple_definition": "Bina yaparken kullanılan tuğla, beton, ahşap gibi malzemeler.",
+      "image_id": "arch_malzeme"
+    },
+    {
+      "key": "membran",
+      "term": "Membran",
+      "definition": "Çatı, temel veya ıslak hacimlerde suyun yapıya girmesini önlemek için serilen ince, esnek yalıtım örtüsü. Bitümlü veya sentetik (PVC, TPO gibi) türleri vardır.",
+      "simple_definition": "Binayı sudan korumak için serilen ince, su geçirmez örtü.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "mezanin",
+      "term": "Asma Kat / Mezanin",
+      "definition": "Yüksek tavanlı bir katın içine kurulan, alt kata kısmen açık kalan ara kat. Alanı çoğaltmak için mağazalarda, ofislerde ve loft dairelerde sık kullanılır.",
+      "simple_definition": "Yüksek tavanlı bir odanın içine yapılan, aşağıyı gören yarım kat.",
+      "image_id": "arch_mezanin"
+    },
+    {
+      "key": "minimalizm",
+      "term": "Minimalizm",
+      "definition": "Gereksiz süsleri ve eşyaları ortadan kaldırıp sade biçimlere, açık alanlara ve az sayıda iyi seçilmiş malzemeye odaklanan tasarım yaklaşımı. \"Az çoktur\" sözüyle özetlenir.",
+      "simple_definition": "Az eşya ve sade çizgilerle ferah, düzenli mekânlar yaratma anlayışı.",
+      "image_id": "arch_minimalizm"
+    },
+    {
+      "key": "ayna",
+      "term": "Ayna (Kapı Aynası)",
+      "definition": "Doğramacılıkta kapı veya dolap kapağının çerçevesi içine yerleştirilen düz ya da kabartmalı tahta, taş veya cam levha.",
+      "simple_definition": "Kapının çerçevesi içindeki düz veya kabartmalı pano.",
+      "image_id": "arch_ayna"
+    },
+    {
+      "key": "modernizm",
+      "term": "Modernizm",
+      "definition": "20. yüzyılın başında ortaya çıkan, süslemeyi reddedip işlevi ön plana alan mimarlık akımı. Beton, çelik ve camı sade geometrik biçimlerle, geniş pencereler ve açık planlarla kullanır.",
+      "simple_definition": "Süssüz, sade biçimli ve camla çeliği bolca kullanan 20. yüzyıl mimarlık akımı.",
+      "image_id": "arch_modernizm"
+    },
+    {
+      "key": "moduler",
+      "term": "Modüler Tasarım",
+      "definition": "Standart ölçülerdeki birimlerin bir araya getirilmesiyle oluşturulan, gerektiğinde eklenip çıkarılabilen tasarım sistemi. Modüler mutfak dolapları ve mobilyalar en bilinen örneklerdir.",
+      "simple_definition": "Aynı ölçüdeki parçaları birleştirerek kurulan, istenince değiştirilebilen tasarım.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "modler_yap",
+      "term": "Modüler Yapı",
+      "definition": "Odalar veya bölümler halinde fabrikada üretilip şantiyeye taşınan ve orada birleştirilerek kurulan bina. Geleneksel yapıma göre çok daha hızlı tamamlanır.",
+      "simple_definition": "Parçaları fabrikada hazırlanıp yerinde birleştirilen hızlı kurulan bina.",
+      "image_id": "arch_modler_yap"
+    },
+    {
+      "key": "anit",
+      "term": "Anıt",
+      "definition": "Önemli bir kişiyi veya olayı anmak ve gelecek kuşaklara hatırlatmak için yapılan heykel, yapı veya simgesel eser.",
+      "simple_definition": "Önemli bir kişiyi ya da olayı hatırlatmak için yapılan yapı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "moodboard",
+      "term": "Moodboard (İlham Panosu)",
+      "definition": "Bir projenin istenen havasını ve tarzını göstermek için fotoğraf, renk, kumaş ve malzeme örneklerinin bir araya getirildiği pano. Tasarımcı ile müşterinin aynı görüntüyü paylaşmasını sağlar.",
+      "simple_definition": "Bir mekânın nasıl görüneceğini gösteren fotoğraf ve renk örnekleri panosu.",
+      "image_id": "arch_moodboard"
+    },
+    {
+      "key": "har",
+      "term": "Harç",
+      "definition": "Kum, bağlayıcı (çimento veya kireç) ve suyun karıştırılmasıyla elde edilen, tuğla ve taşları birbirine yapıştırmak ya da sıva yapmak için kullanılan hamur.",
+      "simple_definition": "Tuğlaları birbirine yapıştıran çamur kıvamlı karışım.",
+      "image_id": "arch_har"
+    },
+    {
+      "key": "cami",
+      "term": "Cami",
+      "definition": "Müslümanların toplu namaz kıldığı ibadet yapısı; genellikle mihrap, minber, kubbe, minare ve şadırvanlı bir avludan oluşur.",
+      "simple_definition": "Müslümanların namaz kıldığı, genellikle kubbeli ve minareli yapı.",
+      "image_id": "arch_cami"
+    },
+    {
+      "key": "doal_ta_duvar",
+      "term": "Doğal Taş Duvar",
+      "definition": "Ocaktan çıkarılan taşların kesilerek veya doğal hâliyle harçlı ya da harçsız örülmesiyle yapılan dayanıklı duvar.",
+      "simple_definition": "Gerçek taşların üst üste örülmesiyle yapılmış duvar.",
+      "image_id": "arch_doal_ta_duvar"
+    },
+    {
+      "key": "neoklasik_mimari",
+      "term": "Neoklasik Mimari",
+      "definition": "18. yüzyılın ortalarında Antik Yunan ve Roma yapılarından esinlenerek ortaya çıkan mimari üslup. Simetri, sütunlar, üçgen alınlıklar ve sade, görkemli cepheler öne çıkar.",
+      "simple_definition": "Antik Yunan ve Roma tapınaklarına benzeyen, sütunlu ve simetrik binalar.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "nis",
+      "term": "Niş",
+      "definition": "Duvarın içine doğru açılmış sığ oyuk. Heykel, vazo veya süs eşyası koymak için ya da duvara derinlik katmak için kullanılır.",
+      "simple_definition": "Duvara açılmış, içine süs eşyası konan küçük oyuk.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "komodin",
+      "term": "Komodin",
+      "definition": "Yatağın yanına konan, üzerinde lamba, kitap gibi eşyaların durduğu, çoğu zaman çekmeceli küçük dolap.",
+      "simple_definition": "Yatağın yanındaki küçük çekmeceli dolap.",
+      "image_id": "arch_komodin"
+    },
+    {
+      "key": "gozpencere",
+      "term": "Göz Pencere (Okulus)",
+      "definition": "Kubbenin tepesinde veya bir duvarda açılan yuvarlak pencere ya da boşluk. Roma'daki Pantheon'un kubbesindeki açıklık en ünlü örneğidir.",
+      "simple_definition": "Kubbenin tepesindeki ya da duvardaki yuvarlak pencere.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "namazgah",
+      "term": "Namazgâh",
+      "definition": "Osmanlı döneminde şehir dışında, yol kenarlarında veya mesire yerlerinde yapılan açık hava namaz yeri. Genellikle bir mihrap taşı ve taş döşeli bir alandan oluşur.",
+      "simple_definition": "Açık havada namaz kılmak için yapılmış taş döşeli alan.",
+      "image_id": "arch_namazgah"
+    },
+    {
+      "key": "at",
+      "term": "Duvar Boşluğu (Kapı ve Pencere Boşluğu)",
+      "definition": "Duvarda kapı, pencere veya havalandırma için bırakılan açıklık. Üstündeki duvar yükü bir lento veya kemerle taşınır.",
+      "simple_definition": "Duvarda kapı veya pencere için bırakılan delik.",
+      "image_id": "arch_at"
+    },
+    {
+      "key": "mtemilat",
+      "term": "Müştemilat",
+      "definition": "Bir ana binaya ait olan ancak ondan ayrı duran garaj, depo, kiler, bekçi evi gibi yardımcı yapılar. Tapu ve projelerde ana binanın eklentisi olarak gösterilir.",
+      "simple_definition": "Ana evin yanında bulunan garaj, depo gibi küçük yardımcı yapılar.",
+      "image_id": "arch_mtemilat"
+    },
+    {
+      "key": "nakkahane",
+      "term": "Nakkaşhane",
+      "definition": "Osmanlı sarayında kitap süslemeleri, çini desenleri ve yapı bezemeleri gibi tasarımların hazırlandığı sanat atölyesi. Burada çizilen desenler camiler ve saraylarda uygulanırdı.",
+      "simple_definition": "Osmanlı'da sanatçıların binalar için süsleme desenleri çizdiği atölye.",
+      "image_id": "arch_nakkahane"
+    },
+    {
+      "key": "panel_kap",
+      "term": "Panel Kapı",
+      "definition": "Çerçevesinin içinde, yüzeyden çökük ya da kabarık dikdörtgen bölmeler (paneller) bulunan kapı. Klasik ve geleneksel iç mekânlarda sık kullanılır.",
+      "simple_definition": "Yüzeyinde dikdörtgen çerçeveli bölmeler bulunan kapı.",
+      "image_id": "arch_panel_kap"
+    },
+    {
+      "key": "lambiri",
+      "term": "Lambiri (Geçmeli Kaplama)",
+      "definition": "Kenarlarındaki dil ve yuvalarla birbirine geçerek duvar veya tavanı kaplayan, ahşap, PVC ya da metalden yapılmış ince uzun şeritler. Sauna, balkon tavanı ve kır evlerinde sık görülür.",
+      "simple_definition": "Birbirine geçerek duvarı ya da tavanı kaplayan uzun ince tahta şeritler.",
+      "image_id": ""
+    },
+    {
+      "key": "kiler",
+      "term": "Kiler",
+      "definition": "Evde yiyecek, erzak ve mutfak malzemelerinin saklandığı, serin tutulan küçük oda veya bölüm.",
+      "simple_definition": "Evde yiyeceklerin saklandığı küçük oda.",
+      "image_id": "arch_kiler"
+    },
+    {
+      "key": "parapet",
+      "term": "Parapet",
+      "definition": "Çatı, teras, balkon veya köprü kenarında düşmeyi önlemek için yapılan alçak koruma duvarı. Düz çatılarda cephenin üst bitişini de oluşturur.",
+      "simple_definition": "Çatı veya balkon kenarında insanların düşmesini önleyen alçak duvar.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "parsel",
+      "term": "Parsel",
+      "definition": "Sınırları ve ada-parsel numarası tapu ve kadastro kayıtlarında belirlenmiş arazi parçası. Bir parsele ne kadar ve nasıl bina yapılabileceğini imar planı belirler.",
+      "simple_definition": "Sınırları resmi olarak belirlenmiş arsa parçası.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "parke",
+      "term": "Parke",
+      "definition": "Zemini kaplamak için kullanılan, ahşap ya da ahşap görünümlü şeritlerden oluşan döşeme. Masif, lamine ve laminat gibi türleri vardır; balıksırtı gibi desenlerle de döşenebilir.",
+      "simple_definition": "Yerleri kaplayan ahşap veya ahşap görünümlü döşeme.",
+      "image_id": "arch_parke"
+    },
+    {
+      "key": "blc_duvar",
+      "term": "Bölme Duvar",
+      "definition": "Yük taşımayan, yalnızca bir mekânı odalara ayırmak için yapılan duvar; tuğla, gaz beton veya alçı panelden yapılabilir.",
+      "simple_definition": "Bir odayı ikiye ayıran, yük taşımayan duvar.",
+      "image_id": "arch_blc_duvar"
+    },
+    {
+      "key": "alinlik",
+      "term": "Alınlık",
+      "definition": "Klasik yapılarda çatının ön cephede oluşturduğu, genellikle kabartmalarla süslü üçgen duvar; kapı ve pencere üstlerinde süs olarak da kullanılır.",
+      "simple_definition": "Binanın girişinin üstündeki üçgen biçimli süs.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "sarkt",
+      "term": "Sarkıt Lamba",
+      "definition": "Tavandan bir kablo, zincir veya çubukla aşağı sarkan aydınlatma armatürü. Yemek masası ve mutfak adası üzerinde sık kullanılır.",
+      "simple_definition": "Tavandan kabloyla aşağı sarkan lamba.",
+      "image_id": "arch_sarkt"
+    },
+    {
+      "key": "pandantif",
+      "term": "Pandantif",
+      "definition": "Kare planlı bir mekânın üzerine yuvarlak bir kubbe oturtabilmek için köşelerde yapılan, kavisli üçgen biçimli geçiş öğesi. Ayasofya ve Osmanlı camilerinde görülür.",
+      "simple_definition": "Kare odanın köşelerinde yuvarlak kubbeyi taşıyan kavisli üçgen parça.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "pivot_kap",
+      "term": "Pivot Kapı",
+      "definition": "Menteşe yerine alt ve üst kenarına yerleştirilmiş bir mil üzerinde dönerek açılan kapı. Büyük ve ağır kapı kanatlarının kolayca açılmasını sağlar, modern girişlerde sık kullanılır.",
+      "simple_definition": "Yandan değil, ortaya yakın bir eksen üzerinde dönerek açılan kapı.",
+      "image_id": "arch_pivot_kap"
+    },
+    {
+      "key": "plan",
+      "term": "Plan",
+      "definition": "Bir binanın belli bir yükseklikten yatay olarak kesilip yukarıdan bakıldığında görünen çizimi. Odaların, duvarların, kapıların ve pencerelerin yerleşimini ve ölçülerini gösterir.",
+      "simple_definition": "Evin yukarıdan bakılarak çizilmiş haritası.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "pleyvut",
+      "term": "Kontrplak",
+      "definition": "İnce ahşap katmanların lifleri birbirine dik gelecek şekilde üst üste yapıştırılmasıyla üretilen levha. Sağlam ve hafif olduğu için mobilyada, kalıp işlerinde ve kaplamalarda kullanılır.",
+      "simple_definition": "İnce tahta katmanlarının yapıştırılmasıyla yapılan sağlam levha.",
+      "image_id": "arch_pleyvut"
+    },
+    {
+      "key": "podyum",
+      "term": "Podyum",
+      "definition": "Zeminden yükseltilmiş platform. Mimaride ayrıca yüksek bir kulenin altındaki geniş ve alçak taban bloğunu ifade eder.",
+      "simple_definition": "Yerden biraz yükseltilmiş düz platform.",
+      "image_id": "arch_podyum"
+    },
+    {
+      "key": "sundurma",
+      "term": "Sundurma",
+      "definition": "Bir binanın girişinin önünde ya da duvarına bitişik olarak yapılan, üstü örtülü yanları açık küçük çatı. Girişi yağmurdan ve güneşten korur.",
+      "simple_definition": "Kapının önünde yağmurdan koruyan küçük çatı.",
+      "image_id": "arch_sundurma"
+    },
+    {
+      "key": "portik",
+      "term": "Portik",
+      "definition": "Bir binanın girişinin önünde sütunlarla taşınan, üstü örtülü giriş bölümü. Genellikle üçgen bir alınlıkla taçlanır ve klasik yapılarda görülür.",
+      "simple_definition": "Binanın girişinde sütunlarla taşınan çatılı bölüm.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "revak",
+      "term": "Revak",
+      "definition": "Bir avlunun veya yapının kenarı boyunca sıralanan sütun ya da ayaklar ve bunların taşıdığı kemerlerle oluşan, üstü örtülü yan tarafı açık galeri. Cami ve medrese avlularında sık görülür.",
+      "simple_definition": "Avlu kenarında sütunlarla taşınan, üstü örtülü gölgelik yol.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "dikme",
+      "term": "Dikme",
+      "definition": "Ahşap veya çelik yapılarda, yük taşıyan ya da bir çerçeveyi ayakta tutan dikey eleman; inşaatta geçici destek olarak kullanılan direklere de dikme denir.",
+      "simple_definition": "Bir şeyi dik tutan veya taşıyan direk.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "avan_proje",
+      "term": "Avan Proje",
+      "definition": "Kesin projeden önce hazırlanan, yapının genel yerleşimini, planlarını ve görünüşlerini gösteren ilk tasarım aşaması. İşveren ve belediye ile bu aşamada uzlaşılır.",
+      "simple_definition": "Binanın detaylara geçmeden önceki ilk tasarımı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "n_gerilmeli_beton",
+      "term": "Öngerilmeli Beton",
+      "definition": "İçindeki çelik halatların beton dökülmeden önce ya da sonra gerilmesiyle önceden sıkıştırılmış beton. Bu sayede daha uzun açıklıkları daha ince elemanlarla geçebilir; köprülerde ve otoparklarda kullanılır.",
+      "simple_definition": "İçindeki çelik teller gerilerek daha güçlü hale getirilmiş beton.",
+      "image_id": "arch_n_gerilmeli_beton"
+    },
+    {
+      "key": "kma",
+      "term": "Çıkma",
+      "definition": "Bir binanın üst katlarında, ana cephe hattından dışarıya doğru taşan kapalı veya açık bölüm. İmar yönetmeliği çıkmaların ne kadar taşabileceğini sınırlar.",
+      "simple_definition": "Binanın üst katlarında cepheden dışarı taşan kısım.",
+      "image_id": "arch_kma"
+    },
+    {
+      "key": "promenad",
+      "term": "Promenad / Gezinti Yolu",
+      "definition": "Yürüyüş ve gezinti için tasarlanmış, genellikle sahil boyunca uzanan geniş yaya yolu. Mimaride bir bina içinde manzaralar sunan yürüyüş rotası için de kullanılır.",
+      "simple_definition": "Yürüyüş yapmak için yapılmış uzun ve geniş yol, örneğin sahil yolu.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "koruma",
+      "term": "Koruma (Tarihi Yapı Koruma)",
+      "definition": "Tarihi ve kültürel değeri olan yapıların ve kent dokularının özgün niteliklerini kaybetmeden yaşatılması için yapılan belgeleme, bakım, onarım ve yasal düzenlemeler.",
+      "simple_definition": "Tarihi binaları bozmadan geleceğe aktarmak.",
+      "image_id": "arch_koruma"
+    },
+    {
+      "key": "korkuluk",
+      "term": "Korkuluk",
+      "definition": "Merdiven, balkon ve teras kenarlarında insanların düşmesini önlemek için yapılan, dikmeler ve üstte bir küpeşteden oluşan koruyucu engel.",
+      "simple_definition": "Balkon ve merdivenlerde düşmemizi önleyen parmaklık.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ramp",
+      "term": "Rampa",
+      "definition": "Merdivene ek olarak ya da onun yerine, iki farklı seviyeyi birbirine bağlayan eğimli yüzey. Tekerlekli sandalye, bebek arabası ve araç geçişini kolaylaştırır.",
+      "simple_definition": "Basamak yerine kullanılan, yukarı çıkmayı kolaylaştıran eğimli yol.",
+      "image_id": "arch_ramp"
+    },
+    {
+      "key": "betonarme",
+      "term": "Betonarme",
+      "definition": "Betonun içine çelik çubuklar (donatı) yerleştirilerek yapılan yapı malzemesi. Beton basınca, çelik çekmeye dayanır; birlikte çok güçlü ve depreme dayanıklı bir taşıyıcı sistem oluştururlar.",
+      "simple_definition": "İçine demir konarak güçlendirilmiş beton.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "donat",
+      "term": "Donatı",
+      "definition": "Betonarme elemanların içine konulan, betonun çekmeye karşı zayıflığını karşılayan nervürlü çelik çubuklar; halk arasında 'inşaat demiri' denir.",
+      "simple_definition": "Betonun içine konan inşaat demiri.",
+      "image_id": "arch_donat"
+    },
+    {
+      "key": "rlyef",
+      "term": "Rölyef (Kabartma)",
+      "definition": "Duvar, taş veya ahşap gibi düz bir yüzeyden kabartılarak ya da oyularak yapılan heykel ve süsleme. Figürler yüzeyden tamamen ayrılmaz, ona bağlı kalır.",
+      "simple_definition": "Duvar yüzeyinden dışarı taşan kabartma resim veya desen.",
+      "image_id": "arch_rlyef"
+    },
+    {
+      "key": "tamirat",
+      "term": "Tamirat / Onarım",
+      "definition": "Bir binada bozulmuş, kırılmış ya da yıpranmış bölümlerin düzeltilerek tekrar kullanılabilir hale getirilmesi. Tesisat arızası, çatı akıntısı veya sıva dökülmesinin giderilmesi gibi işleri kapsar.",
+      "simple_definition": "Binada bozulan ya da kırılan şeyleri düzeltmek.",
+      "image_id": "arch_tamirat"
+    },
+    {
+      "key": "cumhuriyet_mimarl",
+      "term": "Cumhuriyet Dönemi Mimarlığı",
+      "definition": "1923'te Cumhuriyet'in ilanından sonra Türkiye'de gelişen mimarlık; önce Osmanlı motiflerini kullanan Birinci Ulusal Mimarlık, ardından sade modernist yapılar ve İkinci Ulusal Mimarlık dönemlerini kapsar.",
+      "simple_definition": "Türkiye Cumhuriyeti'nin kuruluşundan sonra gelişen bina tarzları.",
+      "image_id": "arch_cumhuriyet_mimarl"
+    },
+    {
+      "key": "restorasyon",
+      "term": "Restorasyon",
+      "definition": "Tarihi değeri olan bir yapının, özgün malzeme ve tekniklere sadık kalınarak bozulmuş kısımlarının onarılması ve eski haline kavuşturulması. Bilimsel araştırma ve izinlerle yürütülür.",
+      "simple_definition": "Eski, tarihi binaları aslına uygun şekilde onarmak.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kaburgali_tonoz",
+      "term": "Kaburgalı Tonoz",
+      "definition": "Kesişen tonozların birleşim çizgileri boyunca taş kaburgaların (ince taşıyıcı kemerlerin) uzandığı örtü. Gotik katedrallerde yükü belirli noktalara toplayarak daha yüksek ve hafif tavanlara olanak verir.",
+      "simple_definition": "Tavanında iskelet gibi kavisli taş çizgiler görünen tonoz.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "rijitlik",
+      "term": "Rijitlik",
+      "definition": "Bir yapının veya yapı elemanının üzerine gelen kuvvetler karşısında eğilmeye ve şekil değiştirmeye karşı gösterdiği direnç. Deprem ve rüzgârda binanın sallanmasını sınırlar.",
+      "simple_definition": "Bir binanın kuvvet karşısında eğilmeden ne kadar sağlam durduğu.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "rht",
+      "term": "Rıht",
+      "definition": "Merdivende iki basamak arasındaki dikey yüzey; basamağın yüksekliğini belirler. Rahat bir merdivende rıht yüksekliği genellikle 15-18 cm civarındadır.",
+      "simple_definition": "Merdivende basamaklar arasındaki dik kısım.",
+      "image_id": "arch_rht"
+    },
+    {
+      "key": "rokoko_mimari",
+      "term": "Rokoko Mimari",
+      "definition": "18. yüzyılda Fransa'da ortaya çıkan, Barok'tan daha hafif ve oyunbaz olan süsleme üslubu. Kıvrımlı çizgiler, deniz kabuğu ve bitki motifleri, pastel renkler ve bol yaldız kullanılır.",
+      "simple_definition": "Kıvrımlı süslemeler ve pastel renklerle dolu, çok gösterişli 18. yüzyıl üslubu.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "romanesk_mimari",
+      "term": "Romanesk Mimari",
+      "definition": "Yaklaşık 10. ve 12. yüzyıllar arasında Avrupa'da yaygın olan, kalın duvarlar, yarım daire kemerler, küçük pencereler ve masif kulelerle tanınan Orta Çağ mimari üslubu.",
+      "simple_definition": "Kalın duvarlı, yuvarlak kemerli Orta Çağ kiliseleri ve kaleleri üslubu.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cati",
+      "term": "Çatı",
+      "definition": "Binanın en üstünü örterek yağmur, kar, güneş ve rüzgârdan koruyan; taşıyıcı iskelet, yalıtım ve kiremit gibi örtü malzemesinden oluşan bölüm.",
+      "simple_definition": "Binanın en üstünde yağmuru ve güneşi dışarıda tutan örtü.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kaba_inaat",
+      "term": "Kaba İnşaat",
+      "definition": "Bir binanın temel, kolon, kiriş, döşeme, duvar ve çatı gibi ana iskeletinin yapıldığı, sıva, boya ve kaplamalardan önceki inşaat aşaması.",
+      "simple_definition": "Binanın iskeletinin ve duvarlarının yapıldığı, süslemelerden önceki ilk aşama.",
+      "image_id": "arch_kaba_inaat"
+    },
+    {
+      "key": "i̇skele",
+      "term": "İskele",
+      "definition": "İnşaat veya onarım sırasında işçilerin yüksek yerlere güvenle ulaşıp çalışabilmesi için binanın önüne kurulan geçici metal ya da ahşap platform sistemi.",
+      "simple_definition": "Binanın önüne kurulan, işçilerin yüksekte çalıştığı geçici çatkı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "olcek",
+      "term": "Ölçek",
+      "definition": "Bir çizimdeki veya maketteki ölçülerin gerçek ölçülere oranı. Örneğin 1/100 ölçekli bir planda 1 cm, gerçekte 1 metreye karşılık gelir.",
+      "simple_definition": "Çizimin gerçek binadan kaç kat küçültüldüğünü gösteren oran.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kesit",
+      "term": "Kesit",
+      "definition": "Binanın dikey olarak bir düzlemle kesildiği varsayılarak içinin gösterildiği teknik çizim; kat yükseklikleri, merdivenler ve döşemeler bu çizimde görülür.",
+      "simple_definition": "Binayı pasta gibi dikine kesip içini gösteren çizim.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ke_koltuk",
+      "term": "Köşe Koltuk",
+      "definition": "Birleşen parçalardan oluşan, L biçiminde odanın köşesine yerleşecek şekilde tasarlanmış geniş oturma grubu.",
+      "simple_definition": "Odanın köşesine oturan L biçimli kanepe.",
+      "image_id": "arch_ke_koltuk"
+    },
+    {
+      "key": "seki",
+      "term": "Seki",
+      "definition": "Geleneksel Türk evinde odanın giriş kısmından daha yüksek tutulan, ayakkabıyla basılmayan bölüm; ayrıca avlu veya bahçelerde oturmak için yapılan yükseltilmiş taş set.",
+      "simple_definition": "Odada ya da avluda zeminden biraz yükseltilmiş oturma yeri.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "selamlk",
+      "term": "Selamlık",
+      "definition": "Geleneksel Osmanlı konaklarında erkeklerin misafir kabul ettiği, evin dışarıya açık bölümü. Aile yaşamının sürdüğü özel bölüme ise harem denir.",
+      "simple_definition": "Eski konaklarda misafirlerin ağırlandığı bölüm.",
+      "image_id": "arch_selamlk"
+    },
+    {
+      "key": "i̇kiz_evler",
+      "term": "İkiz Evler",
+      "definition": "Ortak bir duvarı paylaşan, birbirinin ayna görüntüsü olarak yan yana yapılmış iki müstakil ev.",
+      "simple_definition": "Ortadaki bir duvarı paylaşan iki ev.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "kanalizasyon",
+      "term": "Kanalizasyon",
+      "definition": "Binalardan çıkan atık suların ve bazen yağmur suyunun borular ve kanallarla toplanıp arıtma tesisine taşındığı şebeke.",
+      "simple_definition": "Evlerden çıkan pis suyu taşıyan yer altı boru sistemi.",
+      "image_id": "arch_kanalizasyon"
+    },
+    {
+      "key": "glgelik",
+      "term": "Gölgelik (Tente)",
+      "definition": "Kapı, pencere, balkon veya teras üstüne takılan; güneşi ve yağmuru engelleyen sabit ya da açılır kapanır örtü.",
+      "simple_definition": "Kapı veya balkon üstünde güneşi kesen örtü.",
+      "image_id": "arch_glgelik"
+    },
+    {
+      "key": "adrvan",
+      "term": "Şadırvan",
+      "definition": "Genellikle cami avlusunda bulunan, çevresinde musluklar olan ve namaz öncesi abdest almak için kullanılan, üstü çoğu zaman örtülü çeşme yapısı.",
+      "simple_definition": "Cami avlusunda abdest almak için kullanılan çok musluklu çeşme.",
+      "image_id": "arch_adrvan"
+    },
+    {
+      "key": "perde_duvar",
+      "term": "Perde Duvar",
+      "definition": "Betonarme binalarda deprem ve rüzgâr gibi yatay kuvvetlere karşı koymak için yapılan, kolondan çok daha uzun ve geniş, taşıyıcı beton duvar. Binanın sallanmasını büyük ölçüde azaltır.",
+      "simple_definition": "Binayı depremde ve rüzgârda sallanmaya karşı tutan kalın beton duvar.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "panjur",
+      "term": "Panjur",
+      "definition": "Pencerenin dışına takılan, güneşi, ışığı ve dış bakışları kesmek için kapatılabilen kanat veya kepenk. Geleneksel olanlar aralıklı tahtalardan, günümüzdekiler çoğunlukla sarmal alüminyum şeritlerden yapılır.",
+      "simple_definition": "Güneşi ve dışarıdan görünmeyi engellemek için pencerenin dışından kapatılan kepenk.",
+      "image_id": "arch_panjur"
+    },
+    {
+      "key": "fon_perde",
+      "term": "Fon Perde",
+      "definition": "Pencerenin iki yanına asılan, genellikle kalın ve dekoratif kumaştan yapılmış, tül perdeyi çerçeveleyen yan perde.",
+      "simple_definition": "Pencerenin iki yanına asılan kalın süs perdesi.",
+      "image_id": "arch_fon_perde"
+    },
+    {
+      "key": "vaziyet_plani",
+      "term": "Vaziyet Planı",
+      "definition": "Binanın arsa üzerindeki konumunu, komşu parsellere ve yola olan mesafelerini, giriş, otopark ve bahçe düzenini gösteren çizim. Ruhsat projelerinin zorunlu bir parçasıdır.",
+      "simple_definition": "Binanın arsanın neresinde durduğunu gösteren çizim.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "karkas",
+      "term": "Karkas",
+      "definition": "Bir binanın yükünü taşıyan kolon, kiriş ve döşemelerden oluşan iskelet sistemi; duvarlar bu iskeletin arasına sonradan örülür.",
+      "simple_definition": "Binayı ayakta tutan kolon ve kirişlerden oluşan iskelet.",
+      "image_id": "arch_karkas"
+    },
+    {
+      "key": "eskiz",
+      "term": "Eskiz",
+      "definition": "Bir tasarım fikrini hızlıca ifade etmek için elle yapılan, ölçüsüz ve serbest ilk çizim.",
+      "simple_definition": "Bir fikri anlatmak için çizilen ilk hızlı karalama.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "supurgelik",
+      "term": "Süpürgelik",
+      "definition": "Duvarın zeminle birleştiği alt kenar boyunca uzanan şerit. Birleşim yerindeki boşluğu kapatır ve duvarı süpürge, mobilya ve ayak darbelerinden korur.",
+      "simple_definition": "Duvarın alt kenarında zeminle birleştiği yeri kapatan şerit.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "iklk",
+      "term": "Işıklık",
+      "definition": "Çatıya veya tavana yerleştirilen, iç mekâna yukarıdan gün ışığı alan pencere ya da cam örtü; binanın ortasında ışık almak için bırakılan boşluğa da ışıklık denir.",
+      "simple_definition": "Tavana veya çatıya açılan, içeriye güneş ışığı alan pencere.",
+      "image_id": "arch_iklk"
+    },
+    {
+      "key": "rayl_dolap",
+      "term": "Raylı Dolap",
+      "definition": "Kapakları menteşeyle açılmak yerine raylar üzerinde yana kayan gardırop veya dolap. Kapak açılırken önünde boşluk gerektirmediği için dar odalarda yer kazandırır.",
+      "simple_definition": "Kapakları yana kayarak açılan dolap.",
+      "image_id": "arch_rayl_dolap"
+    },
+    {
+      "key": "akll_ev",
+      "term": "Akıllı Ev",
+      "definition": "Aydınlatma, ısıtma, perde, güvenlik ve cihazların telefon, sesli komut veya otomatik senaryolarla uzaktan kontrol edilebildiği ev.",
+      "simple_definition": "Işıklarını, ısıtmasını ve cihazlarını telefonla yönetebildiğiniz ev.",
+      "image_id": "arch_akll_ev"
+    },
+    {
+      "key": "sofa",
+      "term": "Sofa",
+      "definition": "Geleneksel Türk evinde odaların etrafına dizildiği ve hepsini birbirine bağlayan ortak orta alan. Ev halkının toplandığı yaşam ve dolaşım mekânıdır.",
+      "simple_definition": "Eski Türk evlerinde bütün odaların açıldığı ortak orta salon.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "sofit",
+      "term": "Sofit",
+      "definition": "Çatı saçağı, balkon, kemer veya merdiven gibi bir yapı elemanının alttan görünen yüzü ve bu yüzeyin kaplaması.",
+      "simple_definition": "Saçak, balkon ya da kemerin aşağıdan bakınca görünen alt yüzü.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "zemin_etd",
+      "term": "Zemin Etüdü",
+      "definition": "Bina yapılmadan önce arsadaki toprağın ve kayanın özelliklerinin sondaj ve deneylerle incelendiği çalışma. Temel türüne karar vermek ve deprem riskini değerlendirmek için gereklidir.",
+      "simple_definition": "Bina yapmadan önce toprağın sağlam olup olmadığının kontrol edilmesi.",
+      "image_id": "arch_zemin_etd"
+    },
+    {
+      "key": "gne_paneli",
+      "term": "Güneş Paneli",
+      "definition": "Güneş ışığını doğrudan elektriğe dönüştüren fotovoltaik hücrelerden oluşan panel; çatı, cephe veya arazi üzerine yerleştirilir.",
+      "simple_definition": "Çatıya konan, güneşten elektrik üreten panel.",
+      "image_id": "arch_gne_paneli"
+    },
+    {
+      "key": "mekan",
+      "term": "Mekân",
+      "definition": "Duvar, döşeme ve tavan gibi öğelerle sınırlanmış, insanların içinde bulunup kullandığı alan. Mimarlığın temel malzemesi olarak kabul edilir; bir oda, avlu ya da meydan birer mekândır.",
+      "simple_definition": "İnsanların içinde bulunduğu ve kullandığı oda, salon veya avlu gibi yer.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "aciklik",
+      "term": "Açıklık",
+      "definition": "Bir kiriş, kemer veya döşemenin iki desteği (kolon ya da duvar) arasında geçtiği yatay mesafe. Açıklık büyüdükçe taşıyıcı elemanın daha güçlü olması gerekir.",
+      "simple_definition": "İki kolon ya da duvar arasındaki boşluğun genişliği.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "dner_merdiven",
+      "term": "Döner Merdiven (Helezon Merdiven)",
+      "definition": "Basamakları ortadaki bir direğin çevresinde dönerek yükselen merdiven. Az yer kapladığı için dar alanlarda tercih edilir.",
+      "simple_definition": "Bir direğin etrafında döne döne çıkan merdiven.",
+      "image_id": "arch_dner_merdiven"
+    },
+    {
+      "key": "karnyark",
+      "term": "Karnıyarık Plan",
+      "definition": "Geleneksel Türk evinde, ortadan boydan boya uzanan bir sofanın (orta hol) iki yanına odaların sıralandığı plan tipi.",
+      "simple_definition": "Ortada uzun bir hol, iki yanında odalar olan eski ev planı.",
+      "image_id": "arch_karnyark"
+    },
+    {
+      "key": "spot_aydnlatma",
+      "term": "Spot Aydınlatma",
+      "definition": "Işığı geniş bir alana yaymak yerine belirli bir noktaya veya nesneye yönlendiren, çoğunlukla tavana gömülü küçük armatürlerle yapılan aydınlatma.",
+      "simple_definition": "Tavandaki küçük lambalarla ışığı belli bir noktaya yöneltmek.",
+      "image_id": "arch_spot_aydnlatma"
+    },
+    {
+      "key": "uzengi_tasi",
+      "term": "Üzengi Taşı",
+      "definition": "Bir kemerin her iki ucunda, kavsin başladığı en alttaki taş. Kemerin yükünü altındaki duvara veya ayağa aktarır.",
+      "simple_definition": "Kemerin kavislenmeye başladığı en alttaki taş.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "vitray",
+      "term": "Vitray",
+      "definition": "Renkli cam parçalarının kurşun şeritlerle birleştirilmesiyle oluşturulan desenli pencere veya panel. Gotik katedrallerde yaygın olup ışığı renklendirerek mekâna atmosfer katar.",
+      "simple_definition": "Renkli cam parçalarından yapılmış desenli pencere.",
+      "image_id": "arch_vitray"
+    },
+    {
+      "key": "limon_kiris",
+      "term": "Limon (Merdiven Limonu)",
+      "definition": "Merdivenin iki yanında ya da altında boydan boya uzanan ve basamakları taşıyan eğik kiriş.",
+      "simple_definition": "Merdivenin yanında uzanıp basamakları taşıyan eğik parça.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "celik_konstruksiyon",
+      "term": "Çelik Konstrüksiyon",
+      "definition": "Taşıyıcı kolon, kiriş ve bağlantıları çelik profillerden oluşan yapım sistemi. Hızlı kurulur, hafiftir ve geniş açıklıkları geçebilir.",
+      "simple_definition": "İskeleti çelikten yapılan bina sistemi.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "basamak",
+      "term": "Basamak",
+      "definition": "Merdivende üzerine basılan yatay yüzey (basış) ile iki basış arasındaki dikey yüzeyden (rıht) oluşan her bir adım.",
+      "simple_definition": "Merdivenin üzerine bastığımız her bir adımı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "etriye",
+      "term": "Etriye",
+      "definition": "Betonarme kolon ve kirişlerde boyuna demirleri saran, kapalı çerçeve biçiminde bükülmüş donatı. Demirleri yerinde tutar ve özellikle depremde elemanın dağılmasını önler.",
+      "simple_definition": "Kolonun içindeki demirleri çember gibi saran demir halkalar.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "stoa",
+      "term": "Stoa",
+      "definition": "Antik Yunan kentlerinde, çoğunlukla agora (pazar meydanı) kenarında yer alan, önü sütun dizisiyle açık, arkası duvarla kapalı, üstü örtülü uzun galeri. Gölgelik, toplanma ve ticaret alanı olarak kullanılırdı.",
+      "simple_definition": "Antik Yunan'da pazar yerinin kenarındaki sütunlu, üstü örtülü uzun yürüyüş yolu.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "stone_facade",
+      "term": "Taş Kaplama",
+      "definition": "Bina cephesine veya iç duvarlara yapıştırılan ya da tutturulan ince doğal veya yapay taş plakalar. Yapıya taş bina görünümü verir ve dış etkilere karşı korur.",
+      "simple_definition": "Duvarın üzerine taş görünümü vermek için yapıştırılan ince taş plakalar.",
+      "image_id": "photo-1516455590571-18256e5bb9ff"
+    },
+    {
+      "key": "briz",
+      "term": "Briz Soley (Güneş Kırıcı)",
+      "definition": "Cepheye yatay veya dikey olarak yerleştirilen, doğrudan güneş ışığını keserken hava ve manzarayı engellemeyen sabit ya da hareketli lameller.",
+      "simple_definition": "Cepheye takılan, güneşi kesip havayı geçiren lameller.",
+      "image_id": "arch_briz"
+    },
+    {
+      "key": "suspended_ceiling",
+      "term": "Asma Tavan",
+      "definition": "Asıl tavanın altına askı çubuklarıyla asılan, alçıpan veya plakalardan oluşan ikinci tavan. Kablo, boru ve havalandırma kanallarını gizler; gömme aydınlatma yerleştirmeyi kolaylaştırır.",
+      "simple_definition": "Gerçek tavanın altına asılarak kabloları ve boruları gizleyen ikinci tavan.",
+      "image_id": "photo-1497366754035-f200968a6e72"
+    },
+    {
+      "key": "srdrlebilirlik",
+      "term": "Sürdürülebilirlik",
+      "definition": "Binaların, enerji, su ve malzeme gibi kaynakları verimli kullanarak, doğaya ve gelecek nesillere en az zarar verecek şekilde tasarlanıp yapılması ve işletilmesi ilkesi.",
+      "simple_definition": "Binaları doğaya zarar vermeden ve kaynakları israf etmeden yapmak.",
+      "image_id": "arch_srdrlebilirlik"
+    },
+    {
+      "key": "simetri",
+      "term": "Simetri",
+      "definition": "Bir yapının ya da düzenlemenin ortasından geçen bir çizginin iki yanındaki parçaların birbirinin aynısı veya ayna görüntüsü olması. Klasik mimaride düzen ve denge duygusu yaratır.",
+      "simple_definition": "Bir binanın sağ ve sol tarafının birbirinin aynısı olması.",
+      "image_id": "arch_simetri"
+    },
+    {
+      "key": "zivana",
+      "term": "Zıvana",
+      "definition": "Ahşap birleştirmede bir parçanın ucunda bırakılan çıkıntı ve onun geçtiği yuva. Çivi veya vida kullanmadan iki ahşap parçayı sağlam şekilde birleştirir.",
+      "simple_definition": "İki tahtayı birleştirmek için birinin ucundaki çıkıntının diğerindeki deliğe geçmesi.",
+      "image_id": "arch_zivana"
+    },
+    {
+      "key": "teras",
+      "term": "Teras",
+      "definition": "Binanın çatısında ya da zemin seviyesinde bina önünde yer alan, üstü açık, düz ve geniş dış alan. Oturma, dinlenme veya bahçe düzenlemesi için kullanılır.",
+      "simple_definition": "Binanın çatısında veya önünde bulunan, üstü açık geniş düzlük.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "sira_evler",
+      "term": "Sıra Evler",
+      "definition": "Yan duvarlarını komşularıyla paylaşarak bir sıra halinde dizilen, benzer görünümlü evler. Her evin genellikle kendi girişi ve küçük bir bahçesi vardır.",
+      "simple_definition": "Yan yana dizilmiş, ortak yan duvarları olan evler.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "eik",
+      "term": "Eşik",
+      "definition": "Kapı boşluğunun alt kısmında, iki farklı zemini birleştiren veya suyun içeri girmesini önleyen taş, ahşap ya da metal parça.",
+      "simple_definition": "Kapının altında üzerinden geçtiğimiz parça.",
+      "image_id": "arch_eik"
+    },
+    {
+      "key": "fayans",
+      "term": "Fayans",
+      "definition": "Banyo ve mutfak duvarlarını kaplamak için kullanılan, sırlı ve kolay temizlenen ince seramik plaka.",
+      "simple_definition": "Banyo ve mutfak duvarlarına döşenen parlak seramik.",
+      "image_id": "arch_fayans"
+    },
+    {
+      "key": "ahsap",
+      "term": "Ahşap",
+      "definition": "Yapı ve mobilya yapımında kullanılmak üzere kurutulup işlenmiş ağaç malzemesi; taşıyıcı sistemde, döşemede, doğramada ve kaplamada kullanılır.",
+      "simple_definition": "Ev ve mobilya yapımında kullanılan işlenmiş tahta.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ahap_kagir",
+      "term": "Yarı Kâgir (Ahşap-Kâgir Karma Yapı)",
+      "definition": "Alt katları taş veya tuğladan (kâgir), üst katları ahşap iskeletten yapılan geleneksel yapım tekniği; eski Türk evlerinde çok yaygındır.",
+      "simple_definition": "Alt katı taş, üst katı ahşap olan geleneksel ev.",
+      "image_id": "arch_ahap_kagir"
+    },
+    {
+      "key": "havlupan",
+      "term": "Havlupan",
+      "definition": "Banyoda hem havlu asmaya hem de ortamı ısıtmaya yarayan, merdiven biçimli radyatör.",
+      "simple_definition": "Banyoda havluları ısıtan merdiven biçimli radyatör.",
+      "image_id": "arch_havlupan"
+    },
+    {
+      "key": "ray_spot",
+      "term": "Ray Spot",
+      "definition": "Tavana veya duvara monte edilen bir ray üzerine takılan, yeri kaydırılabilen ve yönü ayarlanabilen spot lambalar. Mağaza, galeri ve mutfaklarda esnek aydınlatma sağlar.",
+      "simple_definition": "Tavandaki bir ray üzerinde kaydırılabilen ve çevrilebilen lambalar.",
+      "image_id": "arch_ray_spot"
+    },
+    {
+      "key": "geleneksel_mimari",
+      "term": "Geleneksel Mimari",
+      "definition": "Bir bölgenin iklimine, yerel malzemelerine ve yaşam biçimine göre kuşaktan kuşağa aktarılarak gelişmiş yapı gelenekleri; Safranbolu ve Mardin evleri bilinen örneklerdir.",
+      "simple_definition": "Bir yörenin kendi malzemesi ve gelenekleriyle yaptığı eski tip evler.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "tray_ceiling",
+      "term": "Kademeli Tavan (Tepsi Tavan)",
+      "definition": "Orta bölümü kenarlarından daha yüksekte kalan, ters çevrilmiş bir tepsiyi andıran basamaklı tavan. Kenarlardaki boşluklara genellikle gizli LED aydınlatma yerleştirilir.",
+      "simple_definition": "Ortası kenarlarından daha yüksek olan, basamaklı tavan.",
+      "image_id": "photo-1600607687946-3b090d2820d6"
+    },
+    {
+      "key": "u_merdiven",
+      "term": "U Merdiven",
+      "definition": "Ortadaki bir sahanlıkta 180 derece dönerek geldiği yönün tersine devam eden, U harfi şeklindeki merdiven. Apartmanlarda en sık görülen merdiven tipidir.",
+      "simple_definition": "Ortadaki düzlükte tamamen geri dönen, U harfi şeklindeki merdiven.",
+      "image_id": "arch_u_merdiven"
+    },
+    {
+      "key": "kullanm",
+      "term": "Kullanım Alanı (Net Alan)",
+      "definition": "Bir dairenin veya binanın duvar kalınlıkları hariç, içinde fiilen kullanılabilen zemin alanı; brüt alandan küçüktür.",
+      "simple_definition": "Bir evde duvarlar hariç gerçekten kullanabildiğiniz alan.",
+      "image_id": "arch_kullanm"
+    },
+    {
+      "key": "tonoz",
+      "term": "Tonoz",
+      "definition": "Taş veya tuğlanın kemer mantığıyla yan yana dizilmesiyle oluşturulan kavisli örtü sistemi. Bir mekânın üstünü kolon gerektirmeden örter; beşik, çapraz ve kaburgalı gibi türleri vardır.",
+      "simple_definition": "Taş veya tuğladan yapılmış, tünel gibi kavisli tavan ya da çatı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "vaulted_ceiling",
+      "term": "Tonozlu Tavan",
+      "definition": "Düz olmak yerine kavisli veya çatı eğimini izleyerek yükselen tavan. Mekânı daha ferah ve yüksek gösterir; günümüz evlerinde çoğunlukla taşıyıcı olmayan bir iç kaplamayla yapılır.",
+      "simple_definition": "Düz olmayan, yukarı doğru kavisli veya eğimli yüksek tavan.",
+      "image_id": "photo-1548543604-a87c9909abec"
+    },
+    {
+      "key": "jaluzi",
+      "term": "Jaluzi",
+      "definition": "Yatay ince lamellerden oluşan, lamellerin açısı çevrilerek ışığın ve görüşün ayarlanabildiği pencere perdesi.",
+      "simple_definition": "İnce şeritleri çevrilerek ışığı ayarlayan pencere perdesi.",
+      "image_id": "arch_jaluzi"
+    },
+    {
+      "key": "ventilated_facade",
+      "term": "Havalandırmalı Cephe",
+      "definition": "Bina duvarı ile dış kaplama arasında hava boşluğu bırakılarak yapılan cephe sistemi. Boşlukta dolaşan hava nemi dışarı atar ve binanın yazın daha serin, kışın daha sıcak kalmasına yardım eder.",
+      "simple_definition": "Duvar ile dış kaplama arasında havanın dolaştığı, nefes alan cephe.",
+      "image_id": "photo-1486325212027-8a90e34c1ec0"
+    },
+    {
+      "key": "veranda",
+      "term": "Veranda",
+      "definition": "Binanın dış duvarına bitişik, üstü örtülü, yanları açık ya da camlı geniş oturma alanı. Bahçeye bakan, evin iç ve dış mekânı arasında bir geçiş alanıdır.",
+      "simple_definition": "Evin önünde ya da yanında üstü kapalı, bahçeye bakan oturma yeri.",
+      "image_id": "arch_veranda"
+    },
+    {
+      "key": "vestibl",
+      "term": "Vestibül",
+      "definition": "Binanın dış kapısı ile iç mekânları arasında yer alan küçük giriş holü. Isı kaybını ve rüzgârı azaltan bir ara bölge olarak da işlev görür.",
+      "simple_definition": "Dış kapıdan girince ilk geçilen küçük giriş bölümü.",
+      "image_id": "arch_vestibl"
+    },
+    {
+      "key": "viyadk",
+      "term": "Viyadük",
+      "definition": "Derin bir vadi, nehir veya yerleşim alanı üzerinden karayolu ya da demiryolu geçirmek için yapılan, çok sayıda ayak veya kemer üzerinde yükselen uzun köprü.",
+      "simple_definition": "Bir vadinin üzerinden geçen, çok ayaklı uzun ve yüksek köprü.",
+      "image_id": "arch_viyadk"
+    },
+    {
+      "key": "manzara",
+      "term": "Manzara",
+      "definition": "Bir binanın pencere, balkon veya terasından görülen çevre görüntüsü. Mimari tasarımda odaların yönü ve pencere yerleri çoğu zaman en iyi manzarayı alacak şekilde belirlenir.",
+      "simple_definition": "Evin penceresinden ya da balkonundan görünen dış görüntü.",
+      "image_id": "arch_manzara"
+    },
+    {
+      "key": "grselletirme",
+      "term": "Görselleştirme (3D Render)",
+      "definition": "Bir tasarımın, henüz yapılmadan bilgisayarda gerçekçi üç boyutlu görüntülerle gösterilmesi. Malzeme, ışık ve mobilya seçimlerini önceden görmeyi sağlar.",
+      "simple_definition": "Bina yapılmadan nasıl görüneceğini gösteren bilgisayar resmi.",
+      "image_id": "arch_grselletirme"
+    },
+    {
+      "key": "hacim",
+      "term": "Hacim (Kütle)",
+      "definition": "Mimaride bir yapının veya mekânın üç boyutlu büyüklüğü ve dışarıdan algılanan kütlesi; tasarımcılar binayı farklı hacimlerin birleşimi olarak kurgular.",
+      "simple_definition": "Bir binanın veya odanın kapladığı üç boyutlu yer.",
+      "image_id": "arch_hacim"
+    },
+    {
+      "key": "lambri",
+      "term": "Lambri",
+      "definition": "Duvarların belli bir yüksekliğe kadar, genellikle alt bölümünün ahşap, MDF veya mermer panellerle kaplanması. Hem duvarı korur hem de mekâna klasik bir görünüm verir.",
+      "simple_definition": "Duvarın alt kısmını kaplayan ahşap veya taş paneller.",
+      "image_id": "arch_lambri"
+    },
+    {
+      "key": "giyinme_odas",
+      "term": "Giyinme Odası",
+      "definition": "Genellikle yatak odasına bağlanan, içine girilebilen, giysi ve aksesuarların raf ve askılarda düzenli saklandığı küçük oda.",
+      "simple_definition": "Kıyafetlerin saklandığı, içine girilebilen dolap odası.",
+      "image_id": "arch_giyinme_odas"
+    },
+    {
+      "key": "duvar",
+      "term": "Duvar",
+      "definition": "Bir mekânı çevreleyen veya bölen dikey yapı elemanı; taşıyıcı duvarlar binanın yükünü de taşır, bölme duvarlar yalnızca alanı ayırır.",
+      "simple_definition": "Odaları ayıran ve evi dışarıdan kapatan dik yapı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "talama",
+      "term": "Çıtalama",
+      "definition": "Duvar yüzeyine ince ahşap, poliüretan veya MDF çıtalar yapıştırılarak dikdörtgen çerçeveler veya desenler oluşturulması. Düz bir duvara derinlik ve klasik bir hava katar.",
+      "simple_definition": "Duvara ince çıtalar yapıştırarak süslü çerçeveler oluşturmak.",
+      "image_id": "arch_talama"
+    },
+    {
+      "key": "duvar_nii",
+      "term": "Duvar Nişi",
+      "definition": "Duvarın içine oyulmuş veya duvar yapılırken bırakılmış, raf, süs eşyası ya da aydınlatma için kullanılan girinti.",
+      "simple_definition": "Duvarın içinde eşya koymak için bırakılmış oyuk.",
+      "image_id": "arch_duvar_nii"
+    },
+    {
+      "key": "aplik",
+      "term": "Aplik",
+      "definition": "Tavana değil duvara monte edilen, çoğu zaman dolaylı ve dekoratif ışık veren aydınlatma armatürü.",
+      "simple_definition": "Duvara takılan lamba.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "gardrop",
+      "term": "Gardırop",
+      "definition": "Giysilerin asılarak veya katlanarak saklandığı, kapaklı büyük dolap; serbest duran ya da duvara gömme olabilir.",
+      "simple_definition": "Kıyafetlerin asıldığı büyük dolap.",
+      "image_id": "arch_gardrop"
+    },
+    {
+      "key": "su_yaltm",
+      "term": "Su Yalıtımı",
+      "definition": "Temel, çatı, teras ve banyo gibi bölümlerde, suyun ve nemin yapıya girmesini membran, sürme malzemeler ve özel detaylarla önleme işlemi. Yapının ömrünü uzatır ve rutubeti engeller.",
+      "simple_definition": "Yağmur suyunun ve nemin binanın içine sızmasını önlemek.",
+      "image_id": "arch_su_yaltm"
+    },
+    {
+      "key": "pencere_etegi",
+      "term": "Denizlik (Pencere Eteği)",
+      "definition": "Pencerenin alt kenarında, iç veya dış tarafta bulunan yatay taş, mermer, ahşap ya da metal plaka. Dış denizlik yağmur suyunu duvardan uzaklaştırır.",
+      "simple_definition": "Pencerenin altındaki küçük raf gibi düz parça.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "karanlk_oda",
+      "term": "Karanlık Oda (Penceresiz Oda)",
+      "definition": "Dış cepheye açılan penceresi bulunmayan, gün ışığı almayan ve yapay aydınlatma ile mekanik havalandırmaya ihtiyaç duyan oda; genellikle depo veya giyinme odası olarak kullanılır.",
+      "simple_definition": "Hiç penceresi olmayan, gün ışığı almayan oda.",
+      "image_id": "arch_karanlk_oda"
+    },
+    {
+      "key": "berjer",
+      "term": "Berjer",
+      "definition": "Yüksek sırtlıklı, yanlarında başı destekleyen kulak biçimli çıkıntılar ve kolçaklar bulunan, döşemeli tek kişilik rahat koltuk.",
+      "simple_definition": "Başını yaslayabileceğin yüksek, kulaklı tekli koltuk.",
+      "image_id": "arch_berjer"
+    },
+    {
+      "key": "k_bahesi",
+      "term": "Kış Bahçesi",
+      "definition": "Duvarları ve çoğu zaman çatısı camdan yapılan, bitkilerin kışın korunduğu ve soğuk aylarda da güneşten yararlanılarak oturulabilen mekân.",
+      "simple_definition": "Kışın bile bitkilerle güneşte oturulabilen camlı oda.",
+      "image_id": "arch_k_bahesi"
+    },
+    {
+      "key": "saakl",
+      "term": "Saçak",
+      "definition": "Çatının dış duvarın ötesine taşan kenar kısmı. Duvarları ve pencereleri yağmurdan ve yaz güneşinden korur.",
+      "simple_definition": "Çatının duvardan dışarı taşan, şapka siperi gibi kenarı.",
+      "image_id": "arch_saakl"
+    },
+    {
+      "key": "ferforje",
+      "term": "Ferforje",
+      "definition": "Demirin ısıtılıp dövülerek kıvrımlı ve süslü biçimler verilmesi sanatı ve bu yolla yapılan korkuluk, kapı, pencere parmaklığı gibi ürünler.",
+      "simple_definition": "Demirden yapılmış kıvrımlı, süslü korkuluk ve kapılar.",
+      "image_id": "arch_ferforje"
+    },
+    {
+      "key": "yukluk",
+      "term": "Yüklük",
+      "definition": "Geleneksel Türk evlerinde yatak, yorgan ve yastıkların gündüz saklandığı, duvara gömülü büyük dolap. Çoğu zaman içinde gusülhane (küçük yıkanma yeri) de bulunurdu.",
+      "simple_definition": "Eski evlerde yatak ve yorganların saklandığı büyük duvar dolabı.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "ziggurat",
+      "term": "Zigurat",
+      "definition": "Antik Mezopotamya'da yapılan, giderek küçülen katlardan oluşan basamaklı kule biçimindeki tapınak yapısı. Tepesinde genellikle küçük bir tapınak bulunurdu.",
+      "simple_definition": "Antik Mezopotamya'da yapılmış, basamaklı piramide benzeyen dev tapınak.",
+      "image_id": "photo-1503387762-592deb58ef4e"
+    },
+    {
+      "key": "cekme-kat",
+      "term": "Çekme Kat",
+      "definition": "Binanın en üst katının, alttaki katların cephe hattından geriye çekilerek yapılmasıyla oluşan kattır; önünde genellikle bir teras kalır. Yapılıp yapılamayacağı ve ölçüleri imar planı ve yönetmeliklerle belirlenir.",
+      "simple_definition": "Binanın en üstünde, önünde teras kalacak şekilde geriye çekilmiş kat.",
+      "image_id": ""
+    },
+    {
+      "key": "celik-hasir",
+      "term": "Çelik Hasır",
+      "definition": "İnce çelik çubukların kare ya da dikdörtgen bir ızgara oluşturacak şekilde birbirine kaynaklanmasıyla üretilen hazır donatı ağıdır. Özellikle döşemelerde, şapta ve perde duvarlarda betonu çatlamaya karşı güçlendirmek için kullanılır.",
+      "simple_definition": "Betonun içine konan, kaynaklı çelik tellerden yapılmış hazır bir ızgara.",
+      "image_id": ""
+    },
+    {
+      "key": "cift-cam",
+      "term": "Çift Cam (Isıcam)",
+      "definition": "Aralarında hava ya da özel bir gaz bulunan, kenarlarından sızdırmaz şekilde birleştirilmiş iki cam katmanından oluşan pencere camıdır. Tek cama göre ısı kaybını ve dış sesi önemli ölçüde azaltır.",
+      "simple_definition": "Arasında boşluk olan iki camdan yapılmış, evi daha sıcak ve sessiz tutan pencere camı.",
+      "image_id": ""
+    },
+    {
+      "key": "cini",
+      "term": "Çini",
+      "definition": "Kil esaslı bir hamurun şekillendirilip üzerine desen çizilmesi, sırlanması ve yüksek ısıda pişirilmesiyle yapılan süsleme karosudur. Başta İznik çinileri olmak üzere Selçuklu ve Osmanlı yapılarında duvarları kaplamak için yaygın olarak kullanılmıştır.",
+      "simple_definition": "Duvarları süslemek için kullanılan, desenli ve parlak sırlı geleneksel Türk karosu.",
+      "image_id": ""
+    },
+    {
+      "key": "cesme",
+      "term": "Çeşme",
+      "definition": "Bir duvara ya da bağımsız bir yapıya yerleştirilmiş, musluk veya oluktan halkın kullanımına su akıtan su yapısıdır. Osmanlı döneminde hayır amacıyla yaptırılan çeşmeler, kitabeleri ve süslemeleriyle kent mimarisinin önemli parçalarıdır.",
+      "simple_definition": "Sokakta ya da duvarda, herkesin su içebilmesi için yapılmış akan su noktası.",
+      "image_id": ""
+    },
+    {
+      "key": "cati-terasi",
+      "term": "Çatı Terası",
+      "definition": "Düz çatının üzerinde, oturma, bahçe ya da dinlenme amacıyla kullanılmak üzere düzenlenmiş açık alandır. Su yalıtımı, drenaj ve korkuluk gibi ayrıntıların özenle çözülmesini gerektirir.",
+      "simple_definition": "Binanın düz çatısının üstünde oturulup vakit geçirilebilen açık teras.",
+      "image_id": ""
+    },
+    {
+      "key": "camasir-odasi",
+      "term": "Çamaşır Odası",
+      "definition": "Çamaşır makinesi, kurutma makinesi, ütü ve temizlik malzemeleri için ayrılmış, su ve gider bağlantısı olan küçük yardımcı odadır. Islak hacimler arasında sayıldığından zemin ve duvarların suya dayanıklı olması gerekir.",
+      "simple_definition": "Evde çamaşır yıkama, kurutma ve ütü işleri için ayrılmış küçük oda.",
+      "image_id": ""
+    },
+    {
+      "key": "calisma-odasi",
+      "term": "Çalışma Odası",
+      "definition": "Evde masa başı çalışma, okuma veya ders için ayrılmış, iyi aydınlatılmış ve sessiz tutulmaya çalışılan odadır. Ev ofisi olarak da kullanılır.",
+      "simple_definition": "Evde çalışmak ya da okumak için ayrılmış sessiz oda.",
+      "image_id": ""
+    },
+    {
+      "key": "catlak",
+      "term": "Çatlak",
+      "definition": "Sıva, beton, duvar veya döşemede malzemenin gerilme altında ayrılmasıyla oluşan yarıktır. Kılcal çatlaklar çoğu zaman yüzeyseldir; geniş, çapraz veya ilerleyen çatlaklar ise yapısal bir sorunun işareti olabilir ve uzman incelemesi gerektirir.",
+      "simple_definition": "Duvarda, sıvada ya da betonda oluşan ince yarık.",
+      "image_id": ""
+    },
+    {
+      "key": "cinko-kaplama",
+      "term": "Çinko Kaplama",
+      "definition": "Çatı ve cephelerde kullanılan, levha hâlindeki çinkonun kenet adı verilen katlamalarla birleştirilmesiyle yapılan metal kaplamadır. Uzun ömürlüdür ve zamanla mat gri bir koruyucu tabaka oluşturur.",
+      "simple_definition": "Çatıyı veya cepheyi örten, uzun ömürlü çinko metal levhalar.",
+      "image_id": ""
+    },
+    {
+      "key": "caprazlama",
+      "term": "Çaprazlama (Çapraz Bağlantı)",
+      "definition": "Kolon ve kirişlerden oluşan bir çerçeveye köşeden köşeye konan, genellikle X biçimindeki çelik elemanlardır. Yapının rüzgâr ve deprem gibi yatay kuvvetler karşısında yamulmasını önler.",
+      "simple_definition": "Binanın sallanmasını önlemek için çerçevelere X şeklinde konan çubuklar.",
+      "image_id": ""
+    },
+    {
+      "key": "cift-dikmeli-makas",
+      "term": "Çift Dikmeli Çatı Makası",
+      "definition": "Ahşap çatılarda, iki eğik kiriş ile alttaki yatay kirişi iki düşey dikmeyle birbirine bağlayan üçgen taşıyıcı sistemdir. Tek dikmeli makasa göre daha geniş açıklıkları geçebilir.",
+      "simple_definition": "Çatıyı taşıyan, ortasında iki dikey direk bulunan ahşap üçgen çerçeve.",
+      "image_id": ""
+    },
+    {
+      "key": "on-bahce-mesafesi",
+      "term": "Ön Bahçe Mesafesi",
+      "definition": "Binanın ön cephesi ile parselin yola bakan sınırı arasında bırakılması zorunlu boşluktur. İmar planında aksi belirtilmedikçe Planlı Alanlar İmar Yönetmeliği'ne göre en az 5 metredir.",
+      "simple_definition": "Bina ile önündeki yol arasında boş bırakılması gereken mesafe.",
+      "image_id": ""
+    },
+    {
+      "key": "ondokum-beton",
+      "term": "Öndöküm (Prekast) Beton",
+      "definition": "Şantiyede yerinde dökülmek yerine fabrikada kalıplara dökülüp kürlenen, sonra yerine taşınarak monte edilen beton elemanlardır. Kalite kontrolü kolaydır ve inşaat süresini kısaltır.",
+      "simple_definition": "Fabrikada önceden dökülüp şantiyeye hazır getirilen beton parçalar.",
+      "image_id": ""
+    },
+    {
+      "key": "olu-yuk",
+      "term": "Ölü Yük (Sabit Yük)",
+      "definition": "Yapının kendi ağırlığı ile duvar, kaplama ve tesisat gibi kalıcı elemanların ağırlığından oluşan, zamanla değişmeyen yüktür. Taşıyıcı sistem hesabında insan ve eşya gibi hareketli yüklerle birlikte dikkate alınır.",
+      "simple_definition": "Binanın kendi ağırlığı ve hiç yer değiştirmeyen parçalarının yükü.",
+      "image_id": ""
+    },
+    {
+      "key": "ornek-daire",
+      "term": "Örnek Daire",
+      "definition": "Satış öncesinde alıcılara projenin kalitesini ve yaşam düzenini göstermek için tamamen döşenip dekore edilen gösterim dairesidir. Genellikle şantiye içinde veya satış ofisinin yanında hazırlanır.",
+      "simple_definition": "Alıcılara evin bitmiş hâlini göstermek için döşenmiş tanıtım dairesi.",
+      "image_id": ""
+    },
+    {
+      "key": "onuretimli-yapi",
+      "term": "Önüretimli (Prefabrik) Yapı",
+      "definition": "Duvar, döşeme veya oda modülleri gibi parçaları fabrikada üretilip şantiyede birleştirilerek kurulan yapıdır. Hızlı kurulur ve üretim kalitesi daha kolay denetlenir.",
+      "simple_definition": "Parçaları fabrikada yapılıp yerinde birleştirilen hazır bina.",
+      "image_id": ""
+    },
+    {
+      "key": "orgu-duzeni",
+      "term": "Örgü Düzeni (Tuğla Örgüsü)",
+      "definition": "Tuğla veya taşların duvarda hangi sırayla ve nasıl kaydırılarak dizileceğini belirleyen yerleşim biçimidir. Doğru örgü, derzlerin üst üste gelmesini önleyerek duvarı sağlamlaştırır ve cepheye görsel bir doku kazandırır.",
+      "simple_definition": "Tuğlaların duvarda hangi desenle üst üste dizileceği.",
+      "image_id": ""
+    },
+    {
+      "key": "ozgunluk",
+      "term": "Özgünlük",
+      "definition": "Koruma ve restorasyonda bir yapının malzeme, teknik, biçim ve tarihî izleri bakımından asıl niteliğini koruma derecesidir. Müdahalelerin bu niteliği bozmaması uluslararası koruma ilkelerinin temelidir.",
+      "simple_definition": "Tarihî bir yapının aslına ne kadar sadık kaldığı.",
+      "image_id": ""
+    },
+    {
+      "key": "olculendirme",
+      "term": "Ölçülendirme",
+      "definition": "Mimari çizimlerde duvar kalınlıkları, oda boyutları, kapı-pencere genişlikleri gibi ölçülerin ölçü çizgileri ve rakamlarla gösterilmesidir. Uygulamanın doğru yapılabilmesi için çizimlerin eksiksiz ölçülendirilmesi gerekir.",
+      "simple_definition": "Çizimlerin üzerine her şeyin ölçüsünün yazılması.",
+      "image_id": ""
+    },
+    {
+      "key": "sap",
+      "term": "Şap",
+      "definition": "Kaba betonarme döşemenin üzerine dökülen, yüzeyi düzleştiren ve parke, seramik gibi son kaplamalara hazır hâle getiren çimento esaslı tabakadır. Yerden ısıtma boruları çoğu zaman şapın içine gömülür.",
+      "simple_definition": "Zemini düzleştirmek için kaplamadan önce dökülen ince beton tabakası.",
+      "image_id": ""
+    },
+    {
+      "key": "sev",
+      "term": "Şev",
+      "definition": "Kazı veya dolgu yapılan bir zeminin, kaymadan durabilmesi için belirli bir eğimle bırakılan eğik yüzüdür. Eğimi zeminin türüne göre belirlenir; gerekirse istinat duvarı ile desteklenir.",
+      "simple_definition": "Toprağın kaymaması için eğimli bırakılmış yamaç.",
+      "image_id": ""
+    },
+    {
+      "key": "santiye",
+      "term": "Şantiye",
+      "definition": "Bir yapının inşa edildiği, malzeme, makine ve çalışanların bulunduğu çevrili çalışma alanıdır. Güvenlik tabelaları, iş güvenliği önlemleri ve şantiye şefi denetimi yasal olarak zorunludur.",
+      "simple_definition": "Binanın yapıldığı inşaat alanı.",
+      "image_id": ""
+    },
+    {
+      "key": "saft",
+      "term": "Şaft",
+      "definition": "Binada katlar boyunca düşey olarak uzanan, içinden su, gider, elektrik ve havalandırma hatlarının geçtiği kapalı boşluktur. Bakım için erişilebilir olması ve yangına karşı korunması gerekir.",
+      "simple_definition": "Boruların ve kabloların katlar arasında geçtiği dikey kanal.",
+      "image_id": ""
+    },
+    {
+      "key": "sehir-planlamasi",
+      "term": "Şehir Planlaması",
+      "definition": "Bir kentin arazi kullanımını, yapılaşma yoğunluğunu, ulaşımını, altyapısını ve yeşil alanlarını uzun vadeli olarak düzenleyen disiplindir. Türkiye'de çevre düzeni, nazım ve uygulama imar planları ile hayata geçirilir.",
+      "simple_definition": "Bir şehirde nereye ne yapılacağını önceden planlama işi.",
+      "image_id": ""
+    },
+    {
+      "key": "somine",
+      "term": "Şömine",
+      "definition": "Duvara bitişik veya içine yapılan, bacası olan, odun ya da gazla yanan açık ocaktır. Isıtmanın yanında, salonlarda güçlü bir odak noktası oluşturan dekoratif bir öğedir.",
+      "simple_definition": "Salonda ateş yakılan, bacalı ocak.",
+      "image_id": ""
+    },
+    {
+      "key": "sakul",
+      "term": "Şakul",
+      "definition": "Ucuna ağırlık bağlanmış bir ipten oluşan, yerçekimi sayesinde tam düşey doğrultuyu gösteren basit ölçü aracıdır. Duvar, kolon ve kasaların dik olup olmadığını kontrol etmek için kullanılır.",
+      "simple_definition": "Duvarın dik olup olmadığını gösteren, ucunda ağırlık olan ip.",
+      "image_id": ""
+    },
+    {
+      "key": "serit-temel",
+      "term": "Şerit Temel",
+      "definition": "Duvarların veya bir sıra kolonun altında boydan boya uzanan, yükü zemine geniş bir şerit boyunca aktaran sürekli temeldir. Özellikle yığma yapılarda ve az katlı binalarda kullanılır.",
+      "simple_definition": "Duvarların altında uzun bir şerit hâlinde uzanan temel.",
+      "image_id": ""
+    },
+    {
+      "key": "sartname",
+      "term": "Şartname",
+      "definition": "Bir inşaat işinde kullanılacak malzemelerin niteliğini, uygulama yöntemlerini ve kalite koşullarını yazılı olarak tanımlayan belgedir. Çizimlerle birlikte sözleşmenin parçası olur ve anlaşmazlıklarda başvurulur.",
+      "simple_definition": "İnşaatta hangi malzemenin nasıl kullanılacağını yazan belge.",
+      "image_id": ""
+    },
+    {
+      "key": "serefe",
+      "term": "Şerefe",
+      "definition": "Minarenin gövdesini çepeçevre dolaşan, korkuluklu dar balkondur. Geleneksel olarak müezzinin ezan okuduğu yerdir; şerefe sayısı minarenin önemini de gösterir.",
+      "simple_definition": "Minarenin etrafını saran küçük balkon.",
+      "image_id": ""
+    },
+    {
+      "key": "ust-yapi",
+      "term": "Üst Yapı",
+      "definition": "Bir binanın temelin üzerinde kalan, kolon, kiriş, döşeme ve duvarlardan oluşan bölümüdür. Kentsel ölçekte ise altyapının üzerinde yer alan binalar ve donatılar için kullanılır.",
+      "simple_definition": "Binanın temelin üstünde kalan, gözle gördüğümüz kısmı.",
+      "image_id": ""
+    },
+    {
+      "key": "uclu-cam",
+      "term": "Üçlü Cam",
+      "definition": "Aralarında iki boşluk bulunan üç cam katmanından oluşan pencere camı birimidir. Çift cama göre daha yüksek ısı ve ses yalıtımı sağlar; soğuk iklimlerde ve enerji verimli binalarda tercih edilir.",
+      "simple_definition": "Üç kat camdan yapılmış, çok iyi yalıtım sağlayan pencere camı.",
+      "image_id": ""
+    },
+    {
+      "key": "ust-dolap",
+      "term": "Üst Dolap",
+      "definition": "Mutfakta tezgâhın üzerinde duvara asılan dolaplardır. Alt dolaplarla birlikte mutfağın depolama kapasitesini oluşturur; tezgâhla arasında genellikle 55–65 cm boşluk bırakılır.",
+      "simple_definition": "Mutfakta tezgâhın üstünde duvara asılan dolaplar.",
+      "image_id": ""
+    },
+    {
+      "key": "ust-gecit",
+      "term": "Üst Geçit",
+      "definition": "Yaya veya taşıtların bir yolu, demiryolunu ya da kavşağı üstünden geçmesini sağlayan köprü biçimli yapıdır. Trafiği kesmeden güvenli geçiş sağlar.",
+      "simple_definition": "Yolun üstünden geçmek için yapılmış köprü.",
+      "image_id": ""
+    },
+    {
+      "key": "utopya",
+      "term": "Ütopya",
+      "definition": "Mimarlık ve şehircilikte, toplumun ideal düzende yaşayacağı hayalî kent ve yapı tasarımlarını ifade eder. Ütopik projeler hiç gerçekleşmese de kent planlamasını ve modern mimariyi derinden etkilemiştir.",
+      "simple_definition": "Mükemmel bir yaşam için hayal edilmiş ideal şehir ya da yapı.",
+      "image_id": ""
+    },
+    {
+      "key": "ust-olcekli-plan",
+      "term": "Üst Ölçekli Plan",
+      "definition": "Bölge planı ve çevre düzeni planı gibi geniş alanları kapsayan, alt ölçekteki nazım ve uygulama imar planlarına yön veren planlardır. Alt ölçekli planlar bunlara aykırı yapılamaz.",
+      "simple_definition": "Bir bölgenin tamamı için yapılan ve şehir planlarına yön veren büyük plan.",
+      "image_id": ""
+    },
+    {
+      "key": "uc-boyutlu-model",
+      "term": "Üç Boyutlu Model (3B)",
+      "definition": "Bir yapının veya iç mekânın bilgisayarda ya da maket olarak hacimli şekilde oluşturulmuş modelidir. Müşterinin tasarımı uygulamadan önce her açıdan görmesini ve kararlarını kolayca vermesini sağlar.",
+      "simple_definition": "Binanın ya da odanın her açıdan görülebilen sanal veya fiziksel modeli.",
+      "image_id": ""
+    },
+    {
+      "key": "ust-baslik",
+      "term": "Üst Başlık",
+      "definition": "Kafes kirişlerde (makaslarda) üçgen sistemin üst kenarını oluşturan, genellikle basınca çalışan sürekli elemandır. Alt başlık ve aradaki dikme ile çaprazlarla birlikte yükü mesnetlere aktarır.",
+      "simple_definition": "Bir çatı makasının en üstündeki uzun parça.",
+      "image_id": ""
+    },
+    {
+      "key": "yapi-ruhsati",
+      "term": "Yapı Ruhsatı",
+      "definition": "Bir binanın yapılabilmesi, büyütülmesi veya esaslı biçimde değiştirilmesi için belediye ya da valilikten alınan resmî izin belgesidir. Onaylı projelerin imar mevzuatına uygun olduğu görüldükten sonra verilir; ruhsatsız yapı kaçak sayılır.",
+      "simple_definition": "Bina yapmaya başlamadan önce belediyeden alınması gereken resmî izin.",
+      "image_id": ""
+    },
+    {
+      "key": "yapi-denetimi",
+      "term": "Yapı Denetimi",
+      "definition": "Türkiye'de inşaatın projesine, standartlara ve mevzuata uygun yapılıp yapılmadığının, yetkili yapı denetim kuruluşları tarafından projeden iskâna kadar kontrol edilmesidir. Beton dökümü, donatı ve malzeme testleri bu denetimin parçasıdır.",
+      "simple_definition": "Binanın kurallara uygun yapılıp yapılmadığını bağımsız bir firmanın kontrol etmesi.",
+      "image_id": ""
+    },
+    {
+      "key": "yagmur-inis-borusu",
+      "term": "Yağmur İniş Borusu",
+      "definition": "Çatıdaki oluklarda toplanan yağmur suyunu düşey olarak zemine veya yağmur suyu kanalına indiren borudur. Tıkanması cephede ve temelde nem sorunlarına yol açabilir.",
+      "simple_definition": "Çatıdaki yağmur suyunu aşağıya indiren dikey boru.",
+      "image_id": ""
+    },
+    {
+      "key": "yerden-isitma",
+      "term": "Yerden Isıtma",
+      "definition": "Döşemenin içine, genellikle şapın altına döşenen sıcak su boruları veya elektrikli kablolarla odanın zeminden ısıtılmasıdır. Isıyı eşit dağıtır ve radyatör gerektirmediği için duvarları serbest bırakır.",
+      "simple_definition": "Odayı yerin altından ısıtan, radyatörsüz ısıtma sistemi.",
+      "image_id": ""
+    },
+    {
+      "key": "yangin-kapisi",
+      "term": "Yangın Kapısı",
+      "definition": "Yangını ve dumanı belirli bir süre (örneğin 30, 60 veya 90 dakika) geçirmeyecek şekilde üretilmiş, kendiliğinden kapanan kapıdır. Merdiven yuvaları, otopark ve teknik hacim girişlerinde yönetmelikle zorunlu tutulur.",
+      "simple_definition": "Yangın sırasında ateşi ve dumanı bir süre durduran özel kapı.",
+      "image_id": ""
+    },
+    {
+      "key": "yigma-yapi",
+      "term": "Yığma Yapı",
+      "definition": "Yüklerin kolon-kiriş iskeleti yerine taş, tuğla veya briket gibi malzemelerle örülmüş taşıyıcı duvarlarla zemine aktarıldığı yapı sistemidir. Geleneksel konutlarda yaygındır; deprem yönetmeliği kat sayısını ve duvar düzenini sınırlar.",
+      "simple_definition": "Kolon yerine kalın duvarların taşıdığı, taş veya tuğladan örülmüş bina.",
+      "image_id": ""
+    },
+    {
+      "key": "yesil-cati",
+      "term": "Yeşil Çatı",
+      "definition": "Su yalıtımı, kök tutucu, drenaj ve toprak katmanları üzerine bitki yetiştirilen çatıdır. Binayı yalıtır, yağmur suyunu tutar ve kentteki ısı adası etkisini azaltır.",
+      "simple_definition": "Üzeri bitki ve çimle kaplı çatı.",
+      "image_id": ""
+    },
+    {
+      "key": "yali",
+      "term": "Yalı",
+      "definition": "Özellikle İstanbul Boğazı kıyısında, denize sıfır inşa edilmiş, çoğunlukla ahşap, büyük ve gösterişli konuttur. Osmanlı sivil mimarisinin en tanınmış örnekleri arasındadır.",
+      "simple_definition": "Boğaz kıyısında, denizin hemen kenarında yapılmış büyük tarihî ev.",
+      "image_id": ""
+    },
+    {
+      "key": "yapi-yaklasma-siniri",
+      "term": "Yapı Yaklaşma Sınırı",
+      "definition": "Parselde ön, yan ve arka bahçe mesafeleri bırakıldıktan sonra binanın yaklaşabileceği en son çizgidir. Bina bu sınırın dışına taşamaz; sınırın içinde kalan alan yapılaşmaya açıktır.",
+      "simple_definition": "Binanın arsada en fazla ne kadar ileri gidebileceğini gösteren çizgi.",
+      "image_id": ""
+    },
+    {
+      "key": "yuksek-yapi",
+      "term": "Yüksek Yapı",
+      "definition": "Türk mevzuatında genellikle bina yüksekliği 21,50 metreyi veya yapı yüksekliği 30,50 metreyi aşan yapılar için kullanılan sınıflandırmadır. Bu binalar yangın, deprem ve tahliye açısından ek kurallara tabidir.",
+      "simple_definition": "Yüksekliği nedeniyle daha sıkı güvenlik kurallarına tabi olan çok katlı bina.",
+      "image_id": ""
+    },
+    {
+      "key": "yatay-surme-pencere",
+      "term": "Yatay Sürme Pencere",
+      "definition": "Kanatlarından birinin veya ikisinin ray üzerinde yana kayarak açıldığı penceredir. Kanat dışarı ya da içeri açılmadığı için dar alanlarda ve balkon kapılarında pratiktir.",
+      "simple_definition": "Kanadı yana kaydırılarak açılan pencere.",
+      "image_id": ""
+    },
+    {
+      "key": "yakisugi",
+      "term": "Yakisugi (Yakılmış Ahşap)",
+      "definition": "Ahşap yüzeyin kontrollü biçimde yakılıp kömürleştirildikten sonra fırçalanıp yağlandığı geleneksel Japon tekniğidir. Ahşabı neme, böceklere ve güneşe karşı korur ve koyu, dokulu bir görünüm verir.",
+      "simple_definition": "Dayanıklı olması için yüzeyi bilerek yakılmış, koyu renkli ahşap kaplama.",
+      "image_id": ""
+    },
+    {
+      "key": "yurt-topakev",
+      "term": "Yurt (Topakev)",
+      "definition": "Orta Asya göçebe kültürüne ait, ahşap kafes iskeletin keçe ile örtülmesiyle kurulan, kolayca sökülüp taşınabilen yuvarlak çadır-evdir. Yerel malzeme ve taşınabilir mimarinin erken örneklerindendir.",
+      "simple_definition": "Göçebelerin kurup söktüğü, keçe kaplı yuvarlak çadır ev.",
+      "image_id": ""
+    },
+    {
+      "key": "yahcal",
+      "term": "Yahçal (Buzhane)",
+      "definition": "İran'da çöl ikliminde buz üretmek ve saklamak için yapılan, yeraltı deposunun üzerinde yüksek kubbe bulunan geleneksel kerpiç yapıdır. Elektrik olmadan serinliği koruyan pasif iklimlendirmenin ünlü bir örneğidir.",
+      "simple_definition": "Çölde elektrik olmadan buz saklamak için yapılmış kubbeli eski yapı.",
+      "image_id": ""
+    },
+    {
+      "key": "y-ajur",
+      "term": "Y Ajur (Y Biçimli Pencere Süslemesi)",
+      "definition": "Gotik mimaride bir pencere açıklığının üst kısmını ortasından ikiye ayıran, Y harfi biçiminde dallanan taş süsleme çubuklarıdır. Daha karmaşık taş ajurların en erken ve en sade biçimidir.",
+      "simple_definition": "Gotik pencerelerde camı Y harfi şeklinde bölen taş süsleme.",
+      "image_id": ""
+    },
+    {
+      "key": "yaya-gecidi",
+      "term": "Yaya Geçidi",
+      "definition": "Taşıt yolunun yayaların güvenli biçimde karşıya geçmesi için zemin çizgileriyle işaretlenmiş bölümüdür. Kentsel tasarımda yürünebilirliğin ve erişilebilirliğin temel öğelerinden biridir.",
+      "simple_definition": "Yayaların yolun karşısına geçmesi için çizgilerle işaretlenmiş yer.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-kat",
+      "term": "Zemin Kat",
+      "definition": "Binanın girişinin bulunduğu, tabii zemin veya yol seviyesine en yakın katıdır. İmar mevzuatında bodrum katlar ile normal katlar arasındaki referans kat olarak kabul edilir.",
+      "simple_definition": "Binanın sokak seviyesindeki giriş katı.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-iyilestirme",
+      "term": "Zemin İyileştirme",
+      "definition": "Taşıma gücü düşük veya sıvılaşma riski olan zeminin, jet grout, fore kazık, taş kolon ya da enjeksiyon gibi yöntemlerle güçlendirilmesidir. Zemin etüdü sonucunda gerekli görülürse temelden önce yapılır.",
+      "simple_definition": "Zayıf toprağı bina yapmadan önce sağlamlaştırma işlemi.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-sivilasmasi",
+      "term": "Zemin Sıvılaşması",
+      "definition": "Suya doygun gevşek kumlu zeminlerin deprem sarsıntısı sırasında taşıma gücünü kaybederek sıvı gibi davranmasıdır. Binaların batmasına veya devrilmesine yol açabileceğinden zemin etüdünde mutlaka değerlendirilir.",
+      "simple_definition": "Depremde ıslak toprağın sıvı gibi olup binayı taşıyamaması.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-oturmasi",
+      "term": "Zemin Oturması",
+      "definition": "Bina yükü altında zeminin zamanla sıkışarak çökmesi sonucu yapının aşağı doğru hareket etmesidir. Farklı noktaların farklı miktarda oturması duvarlarda çatlaklara ve kapı-pencere sıkışmalarına neden olabilir.",
+      "simple_definition": "Binanın ağırlığıyla toprağın sıkışıp binanın biraz aşağı inmesi.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-sinifi",
+      "term": "Zemin Sınıfı",
+      "definition": "Türkiye Bina Deprem Yönetmeliği'nde zeminin deprem davranışına göre ZA (sağlam kaya) ile ZF (özel inceleme gerektiren zayıf zemin) arasında sınıflandırılmasıdır. Bu sınıf, binanın depreme göre hesabını doğrudan etkiler.",
+      "simple_definition": "Binanın yapılacağı toprağın depreme karşı ne kadar sağlam olduğunu gösteren sınıf.",
+      "image_id": ""
+    },
+    {
+      "key": "zaviye",
+      "term": "Zaviye",
+      "definition": "Selçuklu ve erken Osmanlı döneminde dervişlerin barındığı, yolculara konaklama ve yemek sağlanan küçük tekke yapısıdır. Erken Osmanlı'daki zaviyeli (ters T planlı) camilerin kökeninde yer alır.",
+      "simple_definition": "Dervişlerin yaşadığı ve yolculara yemek verilen küçük eski yapı.",
+      "image_id": ""
+    },
+    {
+      "key": "zimparalama",
+      "term": "Zımparalama",
+      "definition": "Ahşap, alçı veya boya yüzeyinin zımpara ile aşındırılarak pürüzlerinin giderilmesi ve düzleştirilmesidir. Parke yenilemede ve boya öncesi yüzey hazırlığında temel adımdır.",
+      "simple_definition": "Bir yüzeyi zımpara ile sürterek pürüzsüz hâle getirme.",
+      "image_id": ""
+    },
+    {
+      "key": "zemin-emniyet-gerilmesi",
+      "term": "Zemin Emniyet Gerilmesi",
+      "definition": "Zeminin, aşırı oturma veya göçme olmadan güvenle taşıyabileceği birim alan başına en yüksek yüktür. Zemin etüdüyle belirlenir ve temel boyutları bu değere göre hesaplanır.",
+      "simple_definition": "Toprağın güvenle taşıyabileceği en fazla ağırlık.",
+      "image_id": ""
+    },
+    {
+      "key": "zellige",
+      "term": "Zellige",
+      "definition": "Fas ve Endülüs mimarisine özgü, sırlı pişmiş topraktan elle kesilmiş küçük parçaların geometrik desenler oluşturacak şekilde dizildiği mozaik karodur. Günümüzde mutfak ve banyo duvarlarında el yapımı dokusuyla tercih edilir.",
+      "simple_definition": "Elle kesilmiş küçük renkli seramiklerden yapılan Fas mozaiği.",
+      "image_id": ""
+    },
+    {
+      "key": "zen-bahcesi",
+      "term": "Zen Bahçesi",
+      "definition": "Taş, tırmıklanmış kum veya çakıl, yosun ve az sayıda bitkiyle düzenlenen, sadeliği ve dinginliği amaçlayan Japon kuru bahçesidir. Avlu ve küçük iç bahçelerde meditatif bir peyzaj olarak kullanılır.",
+      "simple_definition": "Taş, kum ve az bitkiyle yapılan sade ve huzurlu Japon bahçesi.",
+      "image_id": ""
+    },
+    {
+      "key": "zikzak-desen",
+      "term": "Zikzak Desen (Şevron)",
+      "definition": "Kırık çizgilerin V biçiminde art arda tekrarlandığı desendir. Parke döşemede, karo kaplamada, Romanesk ve Art Deco süslemelerinde sık kullanılır.",
+      "simple_definition": "V şeklindeki çizgilerin art arda tekrarlandığı desen.",
+      "image_id": ""
+    },
+    {
+      "key": "zenital-aydinlatma",
+      "term": "Zenital Aydınlatma (Tepe Işığı)",
+      "definition": "Gün ışığının mekâna çatı pencereleri, ışıklıklar veya tavan açıklıkları yoluyla doğrudan yukarıdan alınmasıdır. Derin plana sahip mekânlarda ve müzelerde eşit, yumuşak bir ışık sağlar.",
+      "simple_definition": "Odanın ışığını tavandaki açıklıklardan, yukarıdan alma.",
+      "image_id": ""
+    },
+    {
+      "key": "bolgeleme",
+      "term": "Bölgeleme",
+      "definition": "İmar planlarında kent toprağının konut, ticaret, sanayi, yeşil alan gibi kullanım bölgelerine ayrılması ve her bölge için yapılaşma kurallarının belirlenmesidir. Hangi parselde neyin, ne yoğunlukta yapılabileceğini tanımlar.",
+      "simple_definition": "Şehirde hangi bölgeye ev, hangisine iş yeri yapılacağını belirleme.",
+      "image_id": ""
+    },
+    {
+      "key": "uygulama-projesi",
+      "term": "Uygulama Projesi",
+      "definition": "Avan projenin onaylanmasından sonra hazırlanan, yapının inşa edilebilmesi için gereken tüm ölçü, malzeme ve detayları içeren ayrıntılı çizim setidir. Ruhsat ve şantiyede uygulama bu projeye göre yapılır.",
+      "simple_definition": "Binanın yapılabilmesi için her ayrıntının çizildiği son proje.",
+      "image_id": ""
+    },
+    {
+      "key": "uzay-kafes",
+      "term": "Uzay Kafes",
+      "definition": "Çubukların düğüm noktalarında birleşerek üç boyutlu bir ağ oluşturduğu hafif taşıyıcı sistemdir. Spor salonu, fuar alanı ve hangar gibi büyük açıklıkları ara kolonsuz geçmek için kullanılır.",
+      "simple_definition": "Büyük çatıları kolonsuz taşıyan, birbirine bağlı çubuklardan oluşan üç boyutlu ağ.",
+      "image_id": ""
+    },
+    {
+      "key": "ulu-cami",
+      "term": "Ulu Cami",
+      "definition": "Bir kentin en büyük ve cuma namazı kılınan ana camisidir. Özellikle Selçuklu ve erken Osmanlı döneminde, çok sayıda destekli geniş harim düzeniyle inşa edilmiştir; Bursa ve Divriği Ulu Camileri bilinen örneklerdir.",
+      "simple_definition": "Bir şehrin en büyük ve en önemli camisi.",
+      "image_id": ""
+    },
+    {
+      "key": "uydu-kent",
+      "term": "Uydu Kent",
+      "definition": "Büyük bir kentin çevresinde, ana kente bağlı fakat kendi konut, iş ve hizmet alanlarına sahip olarak planlanan yeni yerleşimdir. Ana kentteki nüfus yoğunluğunu azaltmak amacıyla kurulur.",
+      "simple_definition": "Büyük bir şehrin yakınında kurulan, kendi ihtiyaçlarını karşılayan yeni şehir.",
+      "image_id": ""
+    },
+    {
+      "key": "ulusal-mimarlik-akimi",
+      "term": "Ulusal Mimarlık Akımı",
+      "definition": "20. yüzyılın başında Türkiye'de Osmanlı ve Selçuklu mimarisinin kemer, kubbe, çini gibi öğelerini modern yapı tekniklerle birleştiren mimari akımdır. Vedat Tek ve Mimar Kemaleddin bu akımın öncüleridir.",
+      "simple_definition": "Osmanlı ve Selçuklu süslemelerini modern binalarda kullanan Türk mimarlık akımı.",
+      "image_id": ""
+    },
+    {
+      "key": "ufuk-cizgisi",
+      "term": "Ufuk Çizgisi (Silüet)",
+      "definition": "Bir kentin uzaktan bakıldığında yapıların gökyüzüne karşı oluşturduğu çizgi ve profildir. Yüksek yapı kararlarında ve tarihî kentlerin korunmasında önemli bir ölçüttür.",
+      "simple_definition": "Şehrin uzaktan bakıldığında gökyüzüne karşı görünen binalarının çizgisi.",
+      "image_id": ""
+    },
+    {
+      "key": "ustabasi",
+      "term": "Ustabaşı",
+      "definition": "Şantiyede belirli bir iş kolundaki ustaları ve işçileri yöneten, işin günlük planlamasını ve kalitesini takip eden deneyimli kişidir. Şantiye şefi ile işçiler arasında köprü görevi görür.",
+      "simple_definition": "Şantiyede ustaları ve işçileri yöneten deneyimli usta.",
+      "image_id": ""
+    },
+    {
+      "key": "ulasim-planlamasi",
+      "term": "Ulaşım Planlaması",
+      "definition": "Bir kentteki yollar, toplu taşıma, bisiklet ve yaya ağlarının ihtiyaçlara göre planlanmasıdır. Arazi kullanımıyla birlikte ele alınarak trafiği azaltmayı ve erişimi kolaylaştırmayı amaçlar.",
+      "simple_definition": "Bir şehirde insanların nasıl ve hangi yollarla ulaşacağını planlama.",
+      "image_id": ""
+    },
+    {
+      "key": "u-degeri",
+      "term": "U Değeri (Isı Geçirgenlik Katsayısı)",
+      "definition": "Bir duvar, çatı veya pencereden birim alan ve birim sıcaklık farkı başına ne kadar ısı geçtiğini gösteren değerdir (W/m²K). Değer ne kadar düşükse yalıtım o kadar iyidir.",
+      "simple_definition": "Bir duvarın veya pencerenin ne kadar ısı kaçırdığını gösteren sayı.",
+      "image_id": ""
+    },
+    {
+      "key": "nem-bariyeri",
+      "term": "Nem Bariyeri (Buhar Kesici)",
+      "definition": "Duvar, çatı veya döşeme katmanları arasına konan, iç mekândaki su buharının yalıtım malzemesine geçip yoğuşmasını önleyen ince örtü ya da membrandır. Genellikle yalıtımın sıcak (iç) tarafına yerleştirilir.",
+      "simple_definition": "Evin içindeki buharın duvarın içine girip küf yapmasını önleyen ince katman.",
+      "image_id": ""
+    },
+    {
+      "key": "nazim-imar-plani",
+      "term": "Nazım İmar Planı",
+      "definition": "Genellikle 1/5000 ölçekte hazırlanan, bir kentin genel arazi kullanımını, yoğunluklarını, ana ulaşım ağını ve gelişme yönlerini gösteren plandır. Daha ayrıntılı uygulama imar planlarına esas oluşturur.",
+      "simple_definition": "Bir şehrin genel olarak nasıl gelişeceğini gösteren ana imar planı.",
+      "image_id": ""
+    },
+    {
+      "key": "nervurlu-doseme",
+      "term": "Nervürlü Döşeme",
+      "definition": "İnce bir plak ile altında sık aralıklarla uzanan küçük kirişlerden (nervürlerden) oluşan betonarme döşeme türüdür. Daha az beton kullanarak geniş açıklıkları geçmeyi sağlar; nervür araları çoğu zaman asmolen blokla doldurulur.",
+      "simple_definition": "Altında sık aralıklı küçük kirişler bulunan hafif beton döşeme.",
+      "image_id": ""
+    },
+    {
+      "key": "nirengi-noktasi",
+      "term": "Nirengi Noktası",
+      "definition": "Harita ve kadastro ölçümlerinde konumu ve yüksekliği hassas olarak bilinen, arazide beton blok veya metal işaretle sabitlenmiş referans noktasıdır. Parsel sınırları ve yapı aplikasyonu bu noktalara göre belirlenir.",
+      "simple_definition": "Haritacıların ölçüm yaparken referans aldığı, yeri kesin olarak bilinen sabit nokta.",
+      "image_id": ""
+    },
+    {
+      "key": "neo-gotik",
+      "term": "Neo-Gotik Mimari",
+      "definition": "18. yüzyılın sonlarından itibaren özellikle İngiltere'de Orta Çağ Gotik mimarisinin sivri kemer, vitray ve kuleler gibi öğelerini yeniden canlandıran üsluptur. Kiliseler, üniversiteler ve parlamento binalarında yaygın kullanılmıştır.",
+      "simple_definition": "Orta Çağ'daki sivri kemerli Gotik tarzı taklit eden sonraki dönem mimarisi.",
+      "image_id": ""
+    },
+    {
+      "key": "yapi-nizami",
+      "term": "Nizam (Yapı Nizamı)",
+      "definition": "İmar planında binaların parsel içinde komşularına göre nasıl yerleşeceğini belirleyen düzendir: ayrık nizamda dört yanda bahçe bırakılır, bitişik nizamda bina komşusuna yaslanır, blok nizamda birden çok bina birleşik blok oluşturur.",
+      "simple_definition": "Binanın komşu binalara bitişik mi yoksa ayrı mı yapılacağını belirten kural.",
+      "image_id": ""
+    },
+    {
+      "key": "numune",
+      "term": "Numune (Beton Numunesi)",
+      "definition": "Beton dökümü sırasında alınıp küp veya silindir kalıplarda bekletilen, sonra laboratuvarda kırılarak dayanımı ölçülen örneklerdir. Yapı denetiminde betonun projede istenen sınıfta olup olmadığı bu yolla kontrol edilir.",
+      "simple_definition": "Betonun ne kadar sağlam olduğunu test etmek için alınan küçük örnek.",
+      "image_id": ""
+    },
+    {
+      "key": "nem-rutubet",
+      "term": "Nem (Rutubet)",
+      "definition": "Yapı elemanlarında zeminden yükselen, yağmurdan sızan veya iç mekânda yoğuşan suyun yol açtığı ıslaklıktır. Küf, boya kabarması ve sıva dökülmesine neden olur; kaynağına göre yalıtım veya havalandırmayla çözülür.",
+      "simple_definition": "Duvarlarda küf ve boya kabarmasına yol açan ıslaklık.",
+      "image_id": ""
+    },
+    {
+      "key": "net-alan",
+      "term": "Net Alan",
+      "definition": "Bir dairenin duvarların iç yüzleri arasında kalan, gerçekten kullanılabilen zemin alanıdır. Duvar kalınlıkları ve ortak alanlardan pay dahil değildir; bu nedenle brüt alandan küçüktür.",
+      "simple_definition": "Evin duvarlar arasında kalan, gerçekten kullanabildiğiniz alanı.",
+      "image_id": ""
+    },
+    {
+      "key": "nef",
+      "term": "Nef",
+      "definition": "Kilise ve bazilikalarda girişten apsise doğru uzanan, cemaatin bulunduğu uzun ana bölümdür. Genellikle sütun dizileriyle yan neflerden ayrılır.",
+      "simple_definition": "Bir kilisenin girişten öne doğru uzanan büyük ana salonu.",
+      "image_id": ""
+    },
+    {
+      "key": "narteks",
+      "term": "Narteks",
+      "definition": "Bizans kiliselerinde ana mekâna girmeden önce geçilen, binanın genişliği boyunca uzanan giriş holüdür. Ayasofya'da iç ve dış olmak üzere iki narteks bulunur.",
+      "simple_definition": "Eski kiliselerde ana salondan önce geçilen giriş holü.",
+      "image_id": ""
+    },
+    {
+      "key": "nseb",
+      "term": "Neredeyse Sıfır Enerjili Bina (NSEB)",
+      "definition": "Enerji ihtiyacı çok düşük olan ve bu ihtiyacın bir kısmını güneş paneli gibi yerinde üretilen yenilenebilir enerjiyle karşılayan binadır. Türkiye'de Binalarda Enerji Performansı Yönetmeliği belirli büyüklükteki yeni binalar için bu şartı getirmiştir.",
+      "simple_definition": "Çok az enerji harcayan ve enerjisinin bir kısmını kendi üreten bina.",
+      "image_id": ""
+    },
+    {
+      "key": "merdiven-babasi",
+      "term": "Merdiven Babası",
+      "definition": "Merdiven korkuluğunun başında, sonunda veya dönüş noktalarında yer alan, küpeşteyi taşıyan kalın düşey dikmedir. Çoğu zaman oyma veya tornalanmış başlıkla süslenir.",
+      "simple_definition": "Merdiven korkuluğunun başındaki kalın dikey direk.",
+      "image_id": ""
+    },
+    {
+      "key": "basamak-burnu",
+      "term": "Basamak Burnu",
+      "definition": "Merdiven basamağının yatay yüzünün, alttaki rıhtın önüne doğru hafifçe taşan ön kenarıdır. Ayağın daha rahat basmasını sağlar; kaymaz bir profil ile güvenlik artırılır.",
+      "simple_definition": "Merdiven basamağının öne doğru çıkıntı yapan kenarı.",
+      "image_id": ""
+    },
+    {
+      "key": "komsuluk-birimi",
+      "term": "Komşuluk Birimi",
+      "definition": "Bir ilkokul, park ve günlük alışveriş gibi temel ihtiyaçların yürüme mesafesinde karşılandığı konut alanının planlama birimidir. 20. yüzyıl başında geliştirilen bu kavram, yaya ölçekli mahalle tasarımının temelidir.",
+      "simple_definition": "Okul, park ve marketin yürüme mesafesinde olduğu mahalle planı.",
+      "image_id": ""
+    },
+    {
+      "key": "ses-yalitimi",
+      "term": "Ses Yalıtımı",
+      "definition": "Duvar, döşeme ve pencerelerde yoğun malzemeler, esnek katmanlar ve boşluklar kullanılarak sesin bir mekândan diğerine geçişinin azaltılmasıdır. Daireler arası gürültüyü ve dış trafik sesini önlemek için önemlidir.",
+      "simple_definition": "Seslerin odalar ya da daireler arasında geçmesini engelleme.",
+      "image_id": ""
+    },
+    {
+      "key": "otopark",
+      "term": "Otopark",
+      "definition": "Taşıtların park edilmesi için ayrılmış açık alan veya kapalı katlardır. Otopark Yönetmeliği'ne göre yeni yapılarda konut veya işyeri sayısına bağlı olarak belirli sayıda park yeri ayrılması zorunludur.",
+      "simple_definition": "Arabaların park edildiği alan ya da kat.",
+      "image_id": ""
+    },
+    {
+      "key": "oturma-odasi",
+      "term": "Oturma Odası",
+      "definition": "Evde ailenin günlük olarak oturup dinlendiği, televizyon izlediği ve misafir ağırladığı ortak odadır. Salonla birleşik veya ayrı olarak tasarlanabilir.",
+      "simple_definition": "Evde ailenin oturup vakit geçirdiği oda.",
+      "image_id": ""
+    },
+    {
+      "key": "oryantasyon",
+      "term": "Oryantasyon (Yönlenme)",
+      "definition": "Bir binanın ve odalarının güneş, rüzgâr, manzara ve yol gibi etkenlere göre hangi yöne bakacak şekilde yerleştirildiğidir. Doğru yönlenme gün ışığını artırır, ısıtma ve soğutma giderlerini düşürür.",
+      "simple_definition": "Binanın ve odaların güneşe ve manzaraya göre hangi yöne baktığı.",
+      "image_id": ""
+    },
+    {
+      "key": "ortak-alan",
+      "term": "Ortak Alan",
+      "definition": "Bir apartman veya sitede giriş holü, merdiven, asansör, çatı, otopark ve bahçe gibi tüm maliklerin birlikte kullandığı bölümlerdir. Kat Mülkiyeti Kanunu'na göre ortak mülkiyettedir ve giderleri paylaşılır.",
+      "simple_definition": "Bir binada merdiven, bahçe gibi herkesin birlikte kullandığı yerler.",
+      "image_id": ""
+    },
+    {
+      "key": "organik-mimari",
+      "term": "Organik Mimari",
+      "definition": "Yapıyı çevresindeki doğa ve araziyle bütünleşik, doğal malzemeler ve akışkan biçimlerle tasarlamayı amaçlayan mimarlık yaklaşımıdır. Frank Lloyd Wright'ın Şelale Evi bu yaklaşımın en bilinen örneğidir.",
+      "simple_definition": "Binayı doğayla uyumlu ve onun bir parçası gibi tasarlama anlayışı.",
+      "image_id": ""
+    },
+    {
+      "key": "osmanli-mimarisi",
+      "term": "Osmanlı Mimarisi",
+      "definition": "14. yüzyıldan 20. yüzyıl başına kadar Osmanlı topraklarında gelişen, merkezi kubbeli camileri, külliyeleri, hanları ve ahşap konutlarıyla tanınan mimari gelenektir. Mimar Sinan bu geleneğin en önemli ustasıdır.",
+      "simple_definition": "Osmanlı döneminde gelişen, kubbeli camileri ve ahşap evleriyle bilinen mimari.",
+      "image_id": ""
+    },
+    {
+      "key": "oluk",
+      "term": "Oluk (Yağmur Oluğu)",
+      "definition": "Çatı saçağının kenarı boyunca uzanan, çatıdan akan yağmur suyunu toplayıp iniş borularına yönlendiren yarım boru biçimli kanaldır. Düzenli temizlenmezse taşarak cephe ve temele zarar verebilir.",
+      "simple_definition": "Çatının kenarında yağmur suyunu toplayan kanal.",
+      "image_id": ""
+    },
+    {
+      "key": "ortak-duvar",
+      "term": "Ortak Duvar (Kalkan Duvarı)",
+      "definition": "Bitişik nizam yapılarda iki komşu binayı ayıran ve parsel sınırı üzerinde yer alan duvardır. Yangın ve ses yalıtımı bakımından özel koşullar taşır.",
+      "simple_definition": "Yan yana iki binanın paylaştığı duvar.",
+      "image_id": ""
+    },
+    {
+      "key": "dis-mekan",
+      "term": "Dış Mekân",
+      "definition": "Bahçe, teras, avlu ve balkon gibi binanın dışında kalan ancak tasarlanarak kullanılan açık alanlardır. Peyzaj, gölgeleme ve dış mekân mobilyalarıyla iç mekânın devamı gibi düzenlenebilir.",
+      "simple_definition": "Bahçe ve teras gibi binanın dışında kullanılan alanlar.",
+      "image_id": ""
+    },
+    {
+      "key": "acik-plan",
+      "term": "Açık Plan",
+      "definition": "Salon, yemek alanı ve mutfak gibi işlevlerin duvarlarla ayrılmadan tek ve geniş bir mekânda birleştiği plan düzenidir. Mekânı daha ferah ve aydınlık gösterir.",
+      "simple_definition": "Salon, mutfak ve yemek alanının duvarsız tek bir alanda olduğu düzen.",
+      "image_id": ""
+    },
+    {
+      "key": "dikilitas",
+      "term": "Dikilitaş (Obelisk)",
+      "definition": "Kare kesitli, yukarıya doğru incelen ve tepesi piramit biçiminde biten tek parça yüksek taş anıttır. İstanbul Sultanahmet Meydanı'ndaki Theodosius Dikilitaşı bilinen bir örnektir.",
+      "simple_definition": "Yukarıya doğru incelen, tepesi sivri, tek parça taş anıt.",
+      "image_id": ""
+    },
+    {
+      "key": "kas-kemer",
+      "term": "Kaş Kemer",
+      "definition": "Her biri bir iç bükey ve bir dış bükey eğriden oluşan iki yayın tepede sivri bir uçla birleştiği kemer türüdür. Geç Gotik mimaride ve Osmanlı süslemelerinde sık görülür.",
+      "simple_definition": "Kaş şeklinde kıvrılarak tepede sivrilen kemer.",
+      "image_id": ""
+    },
+    {
+      "key": "sebekeden-bagimsiz-ev",
+      "term": "Şebekeden Bağımsız Ev",
+      "definition": "Elektrik, su ve kanalizasyon şebekelerine bağlı olmadan; güneş paneli, batarya, yağmur suyu toplama ve arıtma sistemleriyle kendi ihtiyacını karşılayan evdir.",
+      "simple_definition": "Elektrik ve suyunu kendisi sağlayan, şehir şebekesine bağlı olmayan ev.",
+      "image_id": ""
+    },
+    {
+      "key": "duvar-kagidi",
+      "term": "Duvar Kâğıdı",
+      "definition": "Kâğıt, vinil veya tekstil esaslı, desenli ya da dokulu rulolar hâlinde üretilen ve duvara yapıştırılan kaplama malzemesidir. Boyaya göre daha zengin desen ve doku seçenekleri sunar.",
+      "simple_definition": "Duvara yapıştırılan desenli kâğıt kaplama.",
+      "image_id": ""
+    },
+    {
+      "key": "dograma",
+      "term": "Doğrama",
+      "definition": "Bir yapıdaki pencere ve kapıların kasa, kanat ve çerçevelerinden oluşan ahşap, PVC veya alüminyum bölümlerinin tamamıdır. Doğrama kalitesi ısı ve ses yalıtımını doğrudan etkiler.",
+      "simple_definition": "Binadaki kapı ve pencerelerin çerçeveleri ve kanatları.",
+      "image_id": ""
+    },
+    {
+      "key": "dolgu-duvar",
+      "term": "Dolgu Duvar",
+      "definition": "Betonarme veya çelik iskelette kolon ve kirişler arasındaki boşlukları dolduran, yük taşımayan duvardır. Tuğla, gazbeton veya bims gibi hafif malzemelerle örülür.",
+      "simple_definition": "Bina iskeletindeki boşlukları dolduran, yük taşımayan duvar.",
+      "image_id": ""
+    },
+    {
+      "key": "dubleks",
+      "term": "Dubleks",
+      "definition": "İki kata yayılan ve katları kendi iç merdiveniyle birbirine bağlanan konut birimidir. Genellikle alt katta yaşam alanları, üst katta yatak odaları yer alır.",
+      "simple_definition": "İçinde merdiveni olan, iki katlı daire.",
+      "image_id": ""
+    },
+    {
+      "key": "davlumbaz",
+      "term": "Davlumbaz",
+      "definition": "Ocağın üzerine yerleştirilen, pişirme sırasında oluşan buhar, duman ve kokuyu emerek dışarı atan veya filtreleyen cihazdır. Mutfak tasarımında hem işlevsel hem de dekoratif bir öğedir.",
+      "simple_definition": "Ocağın üstünde yemek kokusunu ve buharı çeken cihaz.",
+      "image_id": ""
+    },
+    {
+      "key": "dusey-sirkulasyon",
+      "term": "Düşey Sirkülasyon",
+      "definition": "Bir binada katlar arası ulaşımı sağlayan merdiven, asansör ve rampaların oluşturduğu sistemdir. Konumu ve boyutları, kullanım kolaylığı ve yangın güvenliği açısından planın temel kararlarındandır.",
+      "simple_definition": "Binada katlar arasında merdiven ve asansörle gidip gelme düzeni.",
+      "image_id": ""
+    },
+    {
+      "key": "tadilat",
+      "term": "Tadilat",
+      "definition": "Mevcut bir yapı veya mekânda bölme, tesisat, kaplama ve donatıların değiştirilerek yenilenmesidir. Taşıyıcı sistemi veya dış görünüşü etkileyen tadilatlar için belediyeden tadilat ruhsatı alınması gerekir.",
+      "simple_definition": "Var olan bir evi değiştirip yenileme işi.",
+      "image_id": ""
+    },
+    {
+      "key": "tesisat",
+      "term": "Tesisat",
+      "definition": "Bir binadaki su, gider, ısıtma, havalandırma, doğalgaz ve elektrik sistemlerinin borularından, kablolarından ve cihazlarından oluşan bütündür. Mekanik ve elektrik tesisat olarak ayrı projelerle tasarlanır.",
+      "simple_definition": "Binadaki su, elektrik, doğalgaz ve ısıtma boruları ile kabloları.",
+      "image_id": ""
+    },
+    {
+      "key": "tasiyici-sistem",
+      "term": "Taşıyıcı Sistem",
+      "definition": "Bir yapının kendi ağırlığını, içindeki yükleri ve deprem, rüzgâr gibi dış etkileri zemine aktaran temel, kolon, kiriş, perde ve döşemelerin oluşturduğu bütündür. Tadilatlarda taşıyıcı elemanlara dokunulmaması gerekir.",
+      "simple_definition": "Binayı ayakta tutan kolon, kiriş ve temeller.",
+      "image_id": ""
+    },
+    {
+      "key": "taks",
+      "term": "TAKS (Taban Alanı Katsayısı)",
+      "definition": "Binanın zemine oturduğu alanın parsel alanına oranıdır. Örneğin 1.000 m² parselde TAKS 0,30 ise bina tabanı en fazla 300 m² olabilir; değer imar planında belirlenir.",
+      "simple_definition": "Arsanın ne kadarının bina ile kaplanabileceğini gösteren oran.",
+      "image_id": ""
+    },
+    {
+      "key": "emsal-kaks",
+      "term": "Emsal (KAKS)",
+      "definition": "Kat alanı katsayısı; bir parselde yapılabilecek toplam kat alanının parsel alanına oranıdır. Örneğin 500 m² parselde emsal 1,50 ise emsale dahil toplam inşaat alanı en fazla 750 m² olabilir.",
+      "simple_definition": "Bir arsaya toplam ne kadar büyüklükte bina yapılabileceğini gösteren oran.",
+      "image_id": ""
+    },
+    {
+      "key": "temel",
+      "term": "Temel",
+      "definition": "Binanın en altında yer alan ve tüm yapı yükünü güvenle zemine aktaran taşıyıcı bölümdür. Zemin etüdüne göre tekil, şerit, radye (tüm alanı kaplayan) veya kazıklı temel olarak tasarlanır.",
+      "simple_definition": "Binanın en altında, tüm ağırlığı toprağa aktaran kısım.",
+      "image_id": ""
+    },
+    {
+      "key": "tugla",
+      "term": "Tuğla",
+      "definition": "Kilin kalıplanıp fırında pişirilmesiyle üretilen dikdörtgen yapı birimidir. Dolu ve delikli türleri vardır; duvar örmede ve dekoratif cephe kaplamalarında kullanılır.",
+      "simple_definition": "Pişmiş kilden yapılan, duvar örmede kullanılan dikdörtgen blok.",
+      "image_id": ""
+    },
+    {
+      "key": "tente",
+      "term": "Tente",
+      "definition": "Pencere, balkon veya teras üzerine takılan, kumaş ya da benzeri malzemeden yapılmış, genellikle açılıp kapanabilen gölgelik örtüdür. Güneşi ve hafif yağmuru keser.",
+      "simple_definition": "Balkon ya da pencere üstüne takılan, açılıp kapanan kumaş gölgelik.",
+      "image_id": ""
+    },
+    {
+      "key": "tefris",
+      "term": "Tefriş",
+      "definition": "Bir mekânın mobilya, aydınlatma, tekstil ve aksesuarlarla döşenip kullanıma hazır hâle getirilmesidir. İç mimari projelerde yerleşim planı ile birlikte tefriş planı da hazırlanır.",
+      "simple_definition": "Bir mekânı mobilya ve eşyalarla döşeyip hazır hâle getirme.",
+      "image_id": ""
+    },
+    {
+      "key": "terakota-karo",
+      "term": "Terakota Karo",
+      "definition": "Doğal kilin sırlanmadan yüksek ısıda pişirilmesiyle elde edilen, sıcak kırmızı-kahve tonlu, dayanıklı zemin karosudur. Mutfak, teras ve kır evlerinde yaygın olarak kullanılır.",
+      "simple_definition": "Kilden pişirilmiş, kırmızımsı renkte, sırsız yer karosu.",
+      "image_id": ""
+    },
+    {
+      "key": "tas-ocagi",
+      "term": "Taş Ocağı",
+      "definition": "Mermer, granit, kireç taşı gibi doğal taşların ve agregaların topraktan çıkarıldığı açık işletme alanıdır. Doğal taş seçiminde taşın hangi ocaktan geldiği renk ve dokusunu belirler.",
+      "simple_definition": "Doğal taşın topraktan çıkarıldığı yer.",
+      "image_id": ""
+    },
+    {
+      "key": "tek-dikmeli-makas",
+      "term": "Tek Dikmeli Çatı Makası",
+      "definition": "İki eğik kirişin tepede birleştiği ve ortadaki tek düşey dikmenin bu tepeyi alttaki yatay kirişe bağladığı üçgen ahşap çatı taşıyıcısıdır. Küçük ve orta açıklıklı çatılarda kullanılır.",
+      "simple_definition": "Ortasında tek dikey direk olan, çatıyı taşıyan ahşap üçgen.",
+      "image_id": ""
+    },
+    {
+      "key": "temel-takviyesi",
+      "term": "Temel Takviyesi",
+      "definition": "Mevcut bir binanın temelinin, oturma, zemin sorunları veya ek yük nedeniyle altına yeni beton ya da kazıklar eklenerek derinleştirilmesi ve güçlendirilmesidir.",
+      "simple_definition": "Var olan bir binanın temelini altından güçlendirme.",
+      "image_id": ""
+    },
+    {
+      "key": "kentsel-donusum",
+      "term": "Kentsel Dönüşüm",
+      "definition": "Depreme dayanıksız veya köhneleşmiş yapı ve mahallelerin yıkılıp yeniden yapılması ya da iyileştirilmesi sürecidir. Türkiye'de 6306 sayılı Afet Riski Altındaki Alanların Dönüştürülmesi Hakkında Kanun ile yürütülür.",
+      "simple_definition": "Eski ve depreme dayanıksız binaların yıkılıp yenilerinin yapılması.",
+      "image_id": ""
+    },
+    {
+      "key": "kentsel-yayilma",
+      "term": "Kentsel Yayılma",
+      "definition": "Kentin düşük yoğunluklu, plansız ve araca bağımlı biçimde çevresindeki tarım ve doğal alanlara doğru genişlemesidir. Altyapı maliyetlerini ve ulaşım sorunlarını artırır.",
+      "simple_definition": "Şehrin plansız şekilde dışarıya doğru dağınık büyümesi.",
+      "image_id": ""
+    },
+    {
+      "key": "evrensel-tasarim",
+      "term": "Evrensel Tasarım",
+      "definition": "Mekân ve ürünlerin yaşı, boyu veya engel durumu ne olursa olsun herkes tarafından ek düzenleme gerekmeden kullanılabilecek şekilde tasarlanmasıdır. Eşiksiz girişler ve geniş kapılar tipik örneklerdir.",
+      "simple_definition": "Mekânları yaşlı, çocuk, engelli herkesin rahatça kullanabileceği şekilde tasarlama.",
+      "image_id": ""
+    },
+    {
+      "key": "kose-tasi",
+      "term": "Köşe Taşı",
+      "definition": "Bina köşelerine, duvar yüzeyinden farklı boyut, doku veya renkte yerleştirilen iri kesme taşlardır. Köşeyi sağlamlaştırır ve cepheye vurgu katar.",
+      "simple_definition": "Bina köşelerine konan, dikkat çeken büyük kesme taşlar.",
+      "image_id": ""
+    },
+    {
+      "key": "dortyaprak",
+      "term": "Dörtyaprak Motifi",
+      "definition": "Ortak bir merkez etrafında dizilen dört yuvarlak yapraktan oluşan, yonca benzeri süsleme motifidir. Gotik pencere ajurlarında, korkuluk ve kabartmalarda yaygındır.",
+      "simple_definition": "Dört yapraklı yonca şeklinde süsleme deseni.",
+      "image_id": ""
+    },
+    {
+      "key": "dortgen-avlu",
+      "term": "Dörtgen Avlu",
+      "definition": "Dört tarafı binalarla çevrili, kare veya dikdörtgen biçimli açık iç avludur. Üniversiteler, manastırlar, medreseler ve hanlarda yaygın bir plan öğesidir.",
+      "simple_definition": "Dört tarafı binalarla çevrili kare biçimli açık bahçe.",
+      "image_id": ""
+    },
+    {
+      "key": "kuvars-tezgah",
+      "term": "Kuvars Tezgâh",
+      "definition": "Doğal kuvars kırıntılarının reçine ve pigmentlerle preslenmesiyle üretilen kompozit taştan yapılmış mutfak veya banyo tezgâhıdır. Çizilmeye ve lekelenmeye karşı dayanıklı ve gözeneksizdir.",
+      "simple_definition": "Kuvars taşından üretilen, dayanıklı ve kolay temizlenen mutfak tezgâhı.",
+      "image_id": ""
+    },
+    {
+      "key": "metraj",
+      "term": "Metraj",
+      "definition": "Projedeki beton, duvar, sıva, boya gibi iş kalemlerinin miktarlarının çizimlerden ölçülüp hesaplanmasıdır. Maliyet hesabının, keşif özetinin ve hakedişlerin temelini oluşturur.",
+      "simple_definition": "Bir inşaatta ne kadar malzeme ve iş gerektiğinin hesaplanması.",
+      "image_id": ""
+    },
+    {
+      "key": "radyal-kesim",
+      "term": "Radyal Kesim Kereste",
+      "definition": "Tomruğun yıllık halkalara dik olacak şekilde, merkezden dışa doğru biçilmesiyle elde edilen kerestedir. Daha az çalışır (eğilip bükülmez) ve düz, sık damarlı bir görünüm verir; kaliteli parke ve mobilyada tercih edilir.",
+      "simple_definition": "Daha az eğrilen, düz damarlı olacak şekilde özel biçilmiş ahşap.",
+      "image_id": ""
+    },
+    {
+      "key": "kuvarsit",
+      "term": "Kuvarsit",
+      "definition": "Kumtaşının ısı ve basınç altında dönüşmesiyle oluşan, çok sert ve dayanıklı doğal metamorfik taştır. Mermere benzeyen damarlı görünümü nedeniyle tezgâh, zemin ve cephe kaplamalarında kullanılır.",
+      "simple_definition": "Mermere benzeyen ama ondan daha sert, doğal bir taş.",
+      "image_id": ""
+    },
+    {
+      "key": "kurakcil-peyzaj",
+      "term": "Kurakçıl Peyzaj",
+      "definition": "Kuraklığa dayanıklı yerli bitkiler, malç ve verimli sulama kullanılarak az su tüketecek şekilde tasarlanan peyzaj yaklaşımıdır. Sıcak ve kurak iklimlerde su tasarrufu sağlar.",
+      "simple_definition": "Çok az su gerektiren bitkilerle yapılan bahçe düzenlemesi.",
+      "image_id": ""
+    },
+    {
+      "key": "ksistos",
+      "term": "Ksistos",
+      "definition": "Antik Yunan'da gimnazyumlarda kötü havada idman yapmak için kullanılan üstü örtülü uzun revak; Roma döneminde ise ağaçlıklı bahçe yürüyüş yolu ya da terasıdır.",
+      "simple_definition": "Antik çağda spor ve yürüyüş için yapılmış üstü örtülü uzun yol.",
+      "image_id": ""
+    },
+    {
+      "key": "xps-yalitim",
+      "term": "Ekstrüde Polistiren (XPS)",
+      "definition": "Polistirenin eritilip kalıptan basınçla geçirilmesiyle üretilen, kapalı gözenekli, suya ve basınca dayanıklı ısı yalıtım levhasıdır. Özellikle temel, bodrum duvarı ve teras çatılarda kullanılır.",
+      "simple_definition": "Suya dayanıklı, sert köpük ısı yalıtım levhası.",
+      "image_id": ""
+    },
+    {
+      "key": "akma-dayanimi",
+      "term": "Akma Dayanımı",
+      "definition": "Bir malzemenin, özellikle inşaat çeliğinin, kalıcı olarak şekil değiştirmeye başlamadan önce taşıyabildiği en yüksek gerilmedir. Donatı sınıfı (örneğin B420C) bu değere göre belirlenir.",
+      "simple_definition": "Çeliğin kalıcı olarak eğilmeden önce dayanabildiği en büyük kuvvet.",
+      "image_id": ""
+    },
+    {
+      "key": "elastisite-modulu",
+      "term": "Elastisite Modülü",
+      "definition": "Bir malzemenin yük altında ne kadar esneyeceğini, yani rijitliğini gösteren katsayıdır. Değer büyüdükçe malzeme aynı yük altında daha az şekil değiştirir; beton ve çelik için hesaplarda kullanılır.",
+      "simple_definition": "Bir malzemenin yük altında ne kadar esnediğini gösteren değer.",
+      "image_id": ""
+    },
+    {
+      "key": "sove",
+      "term": "Söve",
+      "definition": "Kapı ve pencere açıklıklarının kenarlarını çevreleyen, taş, mermer, alçı veya ahşaptan yapılmış çerçeve ve yan yüzlerdir. Hem açıklığın kenarını korur hem de cepheye süsleme katar.",
+      "simple_definition": "Kapı ve pencere boşluklarının kenarını çevreleyen çerçeve.",
+      "image_id": ""
+    },
+    {
+      "key": "doseme-kirisi",
+      "term": "Döşeme Kirişi (Kirişleme)",
+      "definition": "Ahşap veya çelik döşemelerde, döşeme kaplamasını taşımak için sık aralıklarla paralel dizilen küçük kirişlerdir. Yükü ana kirişlere veya duvarlara aktarır.",
+      "simple_definition": "Zemini taşımak için yan yana dizilen ince kirişler.",
+      "image_id": ""
+    },
+    {
+      "key": "bordur",
+      "term": "Bordür",
+      "definition": "Kaldırımı taşıt yolundan veya yeşil alanı yürüme yolundan ayıran, beton ya da taştan yapılmış kenar taşıdır. Su akışını yönlendirir ve sınırı belirgin kılar.",
+      "simple_definition": "Kaldırım ile yolu ayıran kenar taşı.",
+      "image_id": ""
+    },
+    {
+      "key": "rogar",
+      "term": "Rögar",
+      "definition": "Atık su ve yağmur suyu borularının birleştiği noktalarda yapılan, kapaklı, kontrol ve temizlik amaçlı yeraltı bacasıdır. Tıkanmalarda bu kapaktan müdahale edilir.",
+      "simple_definition": "Kanalizasyon borularını kontrol etmek için yapılan kapaklı yeraltı bacası.",
+      "image_id": ""
+    },
+    {
+      "key": "mantolama",
+      "term": "Mantolama",
+      "definition": "Binanın dış duvarlarının ısı yalıtım levhalarıyla kaplanıp üzerine file ve dekoratif sıva uygulanmasıdır. Isı kaybını ve yoğuşmayı azaltarak ısınma giderlerini önemli ölçüde düşürür.",
+      "simple_definition": "Binanın dış duvarlarını yalıtım levhalarıyla kaplayarak ısı kaybını önleme.",
+      "image_id": ""
+    },
+    {
+      "key": "avlu",
+      "term": "Avlu",
+      "definition": "Bir yapının veya yapı grubunun içinde ya da önünde yer alan, duvar veya binalarla çevrili açık alandır. Geleneksel Türk evlerinde, camilerde ve hanlarda yaşamın merkezidir.",
+      "simple_definition": "Binaların ya da duvarların çevrelediği açık iç bahçe.",
+      "image_id": ""
+    },
+    {
+      "key": "brut-alan",
+      "term": "Brüt Alan",
+      "definition": "Bir bağımsız bölümün duvarlar dahil dış ölçülerle hesaplanan alanına, ortak alanlardan düşen payın eklenmesiyle bulunan alandır. Satış ilanlarındaki büyük rakam genellikle brüt alandır.",
+      "simple_definition": "Evin duvarlar ve ortak alanlardan payı dahil toplam alanı.",
+      "image_id": ""
+    },
+    {
+      "key": "alcipan",
+      "term": "Alçıpan",
+      "definition": "İki karton tabaka arasına sıkıştırılmış alçıdan oluşan, metal profiller üzerine vidalanarak bölme duvar ve asma tavan yapımında kullanılan levhadır. Hızlı, hafif ve kuru bir yapım yöntemidir.",
+      "simple_definition": "Bölme duvar ve tavan yapımında kullanılan hafif alçı levha.",
+      "image_id": ""
+    },
+    {
+      "key": "isi-koprusu-thermal-bridge",
+      "term": "Isı Köprüsü",
+      "definition": "Yalıtımın kesildiği kolon, kiriş veya balkon döşemesi gibi noktalarda ısının dışarı kaçtığı bölge; buralarda soğuk duvar, terleme ve küf görülebilir.",
+      "simple_definition": "Evin ısısının dışarıya kaçtığı, yalıtımı zayıf nokta.",
+      "image_id": ""
+    },
+    {
+      "key": "islak-hacim-wet-area",
+      "term": "Islak Hacim",
+      "definition": "Banyo, tuvalet, mutfak ve çamaşır odası gibi suyla temas eden mekânların ortak adı; bu alanlarda su yalıtımı ve tesisat özellikle önemlidir.",
+      "simple_definition": "Banyo, mutfak gibi suyun kullanıldığı odalar.",
+      "image_id": ""
+    },
+    {
+      "key": "jeotekstil-geotextile",
+      "term": "Jeotekstil",
+      "definition": "Zeminde, drenajda ve bahçe düzenlemelerinde katmanları birbirinden ayırmak, suyu süzmek ve toprağı güçlendirmek için kullanılan dayanıklı yapay kumaş.",
+      "simple_definition": "Toprağın altına serilen, suyu geçirip toprağı tutan özel kumaş.",
+      "image_id": ""
+    },
+    {
+      "key": "jeotermal-isitma-geothermal",
+      "term": "Jeotermal Isıtma",
+      "definition": "Yerin altındaki doğal ısıdan, ısı pompaları ve toprağa gömülü borular aracılığıyla yararlanarak binayı ısıtma ve soğutma yöntemi.",
+      "simple_definition": "Yerin altındaki doğal ısıyla evi ısıtma yöntemi.",
+      "image_id": ""
+    },
+    {
+      "key": "vasistas-hopper-window",
+      "term": "Vasistas",
+      "definition": "Alt kenarından menteşeli olup üst kısmı içeri doğru eğilerek açılan pencere kanadı; havalandırma sağlar ama tam açılmaz.",
+      "simple_definition": "Üstten hafifçe içeri yatarak açılan havalandırma penceresi.",
+      "image_id": ""
+    },
+    {
+      "key": "vestiyer-cloakroom",
+      "term": "Vestiyer",
+      "definition": "Girişte mont, şemsiye ve ayakkabıların bırakıldığı dolap veya küçük oda.",
+      "simple_definition": "Girişte montların asıldığı dolap ya da oda.",
+      "image_id": ""
+    }
+  ]
+}

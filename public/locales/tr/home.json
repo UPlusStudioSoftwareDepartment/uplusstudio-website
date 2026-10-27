@@ -16,17 +16,42 @@
       "title": "Sürdürülebilir Projeler",
       "subtitle": "Gelecek nesiller için çevre dostu, enerji verimli ve akıllı bina çözümleri",
       "category": "Yeşil Mimari"
+    },
+    "slide4": {
+      "title": "Kentsel Planlama",
+      "subtitle": "Süreçsel kentsel tasarım ve master plan geliştirme çözümleri",
+      "category": "Kentsel Planlama"
     }
   },
   "cta": {
     "appointment": "Randevu Al",
-    "portfolio": "Projelerimiz"
+    "glossary": "Mimarlık Sözlüğü",
+    "portfolio": "Projelerimiz",
+    "scrollDown": "Aşağı Kaydır"
   },
   "about": {
     "title": "Hakkımızda",
     "description": "UPlus Studio olarak 2010 yılından beri yenilikçi mimari çözümler sunuyoruz. İstanbul merkezli ofisimizden, Türkiye'nin dört bir yanına ve uluslararası projelere imza atıyoruz.",
     "mission": "Misyonumuz, estetik, fonksiyonellik ve sürdürülebilirliği bir araya getirerek yaşam kalitesini artıran mekanlar tasarlamaktır.",
-    "imageAlt": "Ofisimiz veya ekibimiz"
+    "vision": "Geleceğin mimarisini bugünden tasarlayarak, insan odaklı ve doğaya saygılı yaşam alanları oluşturmak.",
+    "imageAlt": "Ofisimiz veya ekibimiz",
+    "philosophy": {
+      "title": "Tasarım Felsefemiz",
+      "description": "Her proje, benzersiz bir hikaye anlatır. Bağlamı, kültürü ve kullanıcı ihtiyaçlarını analiz ederek, zamansız ve işlevsel mekanlar yaratıyoruz."
+    },
+    "stats": {
+      "years": "Yıllık Deneyim",
+      "projects": "Tamamlanan Proje",
+      "clients": "Mutlu Müşteri",
+      "awards": "Tasarım Ödülü"
+    },
+    "values": {
+      "title": "Değerlerimiz",
+      "v1": "Yenilikçilik",
+      "v2": "Sürdürülebilirlik",
+      "v3": "Mükemmeliyet",
+      "v4": "Şeffaflık"
+    }
   },
   "services": {
     "title": "Hizmetlerimiz",
@@ -74,6 +99,7 @@
   },
   "contact": {
     "title": "İletişim",
+    "heading": "Bize Ulaşın",
     "getInTouch": "İletişime Geçin",
     "address": "Adres",
     "addressText": "İncek, Türkan Şoray Cd. No: 4, 06830 Gölbaşı/Ankara",
@@ -100,12 +126,12 @@
     "message": "Mesajınız",
     "send": "Gönder",
     "validation": {
-      "nameRequired": "Ad alanı zorunludur",
-      "emailRequired": "E-posta alanı zorunludur",
-      "emailInvalid": "Geçerli bir e-posta adresi girin",
-      "messageRequired": "Mesaj alanı zorunludur",
-      "messageMinLength": "Mesaj en az 10 karakter olmalıdır",
-      "phoneInvalid": "Geçerli bir telefon numarası girin"
+      "nameRequired": "Adınızı girmeniz gereklidir.",
+      "nameMin": "Adınız en az 2 karakter olmalıdır.",
+      "emailRequired": "E-posta adresi gereklidir.",
+      "emailInvalid": "Geçerli bir e-posta adresi giriniz.",
+      "messageRequired": "Lütfen bir mesaj yazınız.",
+      "messageMin": "Mesajınız en az 10 karakter olmalıdır."
     },
     "sending": "Gönderiliyor...",
     "success": "Mesajınız başarıyla gönderildi!",

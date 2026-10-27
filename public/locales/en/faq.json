@@ -1,0 +1,576 @@
+{
+    "title": "Frequently Asked Questions",
+    "subtitle": "Comprehensive information regarding our architectural processes, service details, and working principles.",
+    "categories": {
+        "architectural": "Architectural Design",
+        "interior": "Interior Design",
+        "adaptive_reuse": "Adaptive Reuse",
+        "turnkey": "Turnkey Projects",
+        "implementation": "Implementation Projects",
+        "project_management": "Project Management",
+        "visualization": "3D Visualization",
+        "process": "Process & Payment"
+    },
+    "questions": {
+        "architectural": [
+            {
+                "q": "How much does an architectural project cost?",
+                "a": "It varies based on square meters, complexity, and scope. Typically 50-150 TL per m² for residential projects. We offer free preliminary consultation for detailed quotes."
+            },
+            {
+                "q": "How long does the architectural design process take?",
+                "a": "For an average residential project, from concept to permit projects takes 2-4 months. Expedited programs can be arranged for urgent cases."
+            },
+            {
+                "q": "What projects are needed to obtain permits?",
+                "a": "Architectural, structural, electrical, mechanical, landscape, and fire safety projects are required. We coordinate all engineering disciplines for complete documentation."
+            },
+            {
+                "q": "Do you design according to earthquake regulations?",
+                "a": "Yes, all our projects are designed according to current Turkish Building Earthquake Code (TBDY 2018) in collaboration with structural engineers."
+            },
+            {
+                "q": "Is 3D visualization included in the price?",
+                "a": "Yes, all packages include minimum 3 photorealistic 3D renders as standard. Additional renders are charged separately."
+            },
+            {
+                "q": "Which cities do you serve?",
+                "a": "Our office is in Ankara, but we provide architectural services throughout Turkey and internationally through online collaboration."
+            },
+            {
+                "q": "Do you serve buildings under urban transformation?",
+                "a": "Yes, we are experienced in demolition, new projects, and permits for buildings identified as risky under Urban Transformation Law."
+            },
+            {
+                "q": "How can I learn the zoning status?",
+                "a": "If you provide your land's block/parcel information, we can query current zoning status and report your building rights."
+            },
+            {
+                "q": "Is it reasonable to demolish and rebuild an old building?",
+                "a": "This decision depends on structure condition and zoning rights. We provide feasibility reports for the most economical solution."
+            },
+            {
+                "q": "What is a concept project and why is it important?",
+                "a": "Concept project determines the general form, plan scheme, and architectural character. Detail design begins after your approval."
+            },
+            {
+                "q": "Do we have revision rights?",
+                "a": "3 main revision rounds are free during concept phase. Additional revisions are subject to extra charge."
+            },
+            {
+                "q": "Can I get only design service?",
+                "a": "Yes, we offer partial services like concept design only or permit project only."
+            },
+            {
+                "q": "Do you provide soil survey and mapping services?",
+                "a": "We coordinate soil analysis, surveying, and cadastral processing through our solution partners."
+            },
+            {
+                "q": "Do you design energy-efficient (Green Building)?",
+                "a": "Yes, sustainability is our core principle. We use passive design strategies, solar energy, and proper insulation details."
+            },
+            {
+                "q": "Do you work on commercial projects besides villas?",
+                "a": "Yes, we are experienced in commercial and public projects like offices, restaurants, stores, hotels, hospitals, and educational buildings."
+            },
+            {
+                "q": "Do you also do landscape design?",
+                "a": "Building-environment relationship is important to us. Garden arrangement and landscape design are parts of our architectural project."
+            },
+            {
+                "q": "Do you integrate smart home systems into projects?",
+                "a": "With our technology partner, we integrate lighting, HVAC, and security systems from the beginning of design."
+            },
+            {
+                "q": "Do you work on international projects?",
+                "a": "Yes, we work on international projects through online meetings and local partners. We adapt standards to relevant countries."
+            },
+            {
+                "q": "Can I renovate in a conservation area?",
+                "a": "Conservation Board permission is required in conservation areas. We manage this process on your behalf."
+            },
+            {
+                "q": "Do you design Tiny Houses?",
+                "a": "Yes, we design minimal living spaces, modular structures, and tourism-purpose bungalow facilities."
+            }
+        ],
+        "interior": [
+            {
+                "q": "What is the interior design project fee?",
+                "a": "Varies by square meters and service scope. Typically 80-200 TL per m² for residences, different pricing for commercial spaces."
+            },
+            {
+                "q": "How long does renovation take?",
+                "a": "Average 3+1 apartment renovation takes 45-60 days. Decoration-only changes complete in 20-30 days."
+            },
+            {
+                "q": "Where do you source furniture?",
+                "a": "We produce custom pieces in our own workshop and use quality products from trusted suppliers."
+            },
+            {
+                "q": "Do you renovate wet areas (bathroom/kitchen)?",
+                "a": "Yes, we provide complete bathroom and kitchen renovation including plumbing renewal, tiling, and cabinet installation."
+            },
+            {
+                "q": "Can we live in the house during renovation?",
+                "a": "No for comprehensive renovations (demolition). Yes for furniture-only changes."
+            },
+            {
+                "q": "Do you design according to my budget?",
+                "a": "We determine your budget in the first meeting and make material/furniture selections accordingly."
+            },
+            {
+                "q": "Do we select materials together?",
+                "a": "Yes, we take you to showrooms to select all materials together by touch and sight."
+            },
+            {
+                "q": "Is lighting design included in the service?",
+                "a": "Yes, space-specific lighting calculation and fixture selection are standard services."
+            },
+            {
+                "q": "Do you design just one room?",
+                "a": "Yes, we provide services for singular spaces like living room, kitchen, or bedroom only."
+            },
+            {
+                "q": "Can I use my existing furniture?",
+                "a": "Absolutely. We integrate your valued furniture into the new design."
+            },
+            {
+                "q": "Do you design offices?",
+                "a": "Yes, we design office projects focused on employee efficiency, acoustic comfort, and corporate identity."
+            },
+            {
+                "q": "Do you have experience in store/restaurant design?",
+                "a": "Yes, we specialize in creating spatial identity suitable for your brand's target audience."
+            },
+            {
+                "q": "Do you install gypsum board suspended ceilings?",
+                "a": "Yes, we install illuminated suspended ceilings, hidden lighting, and acoustic ceiling applications."
+            },
+            {
+                "q": "Do you recommend flooring for underfloor heating?",
+                "a": "We recommend porcelain tiles, stone, or compatible laminate flooring for underfloor heating."
+            },
+            {
+                "q": "Which do you recommend: double or triple glazing?",
+                "a": "Depending on climate zone and needs, we recommend low-E double glazing or sound-insulated triple glazing."
+            },
+            {
+                "q": "I received unpainted delivery, what should I do?",
+                "a": "We offer complete package service including painting, plastering, floor covering, and plumbing infrastructure."
+            },
+            {
+                "q": "Can I get consultancy before buying a home?",
+                "a": "Yes, 'Pre-Purchase Consultancy' evaluates the home's potential and renovation costs."
+            },
+            {
+                "q": "Do you have online design service?",
+                "a": "Yes, with 'E-Design' package, we prepare layout plans and moodboards remotely."
+            },
+            {
+                "q": "Do you help with color selection?",
+                "a": "We offer color palette suggestions based on space lighting and psychological effects."
+            },
+            {
+                "q": "Do you provide acoustic solutions?",
+                "a": "We prepare acoustic arrangement projects especially for offices, meeting rooms, and home theaters."
+            }
+        ],
+        "adaptive_reuse": [
+            {
+                "q": "What is adaptive reuse?",
+                "a": "Converting an existing building from its original function to a different use, such as transforming an old factory into an office."
+            },
+            {
+                "q": "What types of buildings can you repurpose?",
+                "a": "We convert abandoned structures like old factories, warehouses, barns, inns, schools into modern offices, residences, galleries, and cafes."
+            },
+            {
+                "q": "Do you do historical building restoration?",
+                "a": "Yes, we draw restoration and survey projects for protected historical buildings with Conservation Board permission."
+            },
+            {
+                "q": "Can old buildings be structurally strengthened?",
+                "a": "We offer earthquake strengthening and structural reinforcement. We prepare strengthening projects with structural engineers."
+            },
+            {
+                "q": "What is a survey project?",
+                "a": "Measuring and drawing all details of existing structure. It's the fundamental document for restoration and renovation projects."
+            },
+            {
+                "q": "Do you do loft conversions?",
+                "a": "Yes, we specialize in converting high-ceiling industrial structures into modern living spaces."
+            },
+            {
+                "q": "Do you design SOHO (Small Office Home Office) concepts?",
+                "a": "Yes, we design flexible spaces for home-office combined use."
+            },
+            {
+                "q": "Is attic conversion possible?",
+                "a": "Attic or roof floor creation is possible depending on zoning and ceiling height. Municipality permission required."
+            },
+            {
+                "q": "Can I convert basement to living space?",
+                "a": "Basements can be converted to habitable areas with moisture insulation, ventilation, and lighting solutions."
+            },
+            {
+                "q": "Can an old house be converted to apartments?",
+                "a": "If zoning allows multi-unit buildings, conversion to apartments is possible by establishing condominium rights."
+            },
+            {
+                "q": "Can I convert commercial to residential?",
+                "a": "Use change requires municipality permission. Conversion is possible if zoning plan allows."
+            },
+            {
+                "q": "What can be done with registered cultural heritage buildings?",
+                "a": "No intervention without Conservation Board decision on registered buildings. We do restoration per Board decision."
+            },
+            {
+                "q": "Do you design in industrial style?",
+                "a": "Yes, we create unique spaces using industrial design elements like brick-concrete and exposed pipes."
+            },
+            {
+                "q": "Do you design container homes/offices?",
+                "a": "Yes, we provide architectural design and structural calculations for modular container structures."
+            },
+            {
+                "q": "Is there cost advantage in adaptive reuse?",
+                "a": "Can be 20-40% more economical than new construction. Also environmentally friendly in terms of sustainability."
+            }
+        ],
+        "turnkey": [
+            {
+                "q": "How is turnkey project cost calculated?",
+                "a": "Calculated per square meter. Varies 8,000-15,000 TL per m² depending on quality level."
+            },
+            {
+                "q": "What does turnkey service cover?",
+                "a": "Covers entire process from design, permits, rough construction, finishing works, furniture installation to cleaning."
+            },
+            {
+                "q": "Do you provide cost guarantee?",
+                "a": "We offer fixed price guarantee based on technical specifications determined in contract."
+            },
+            {
+                "q": "How long is construction time?",
+                "a": "Average 10-12 months for 200 m² villa. Varies by building size."
+            },
+            {
+                "q": "Is there a supervisor on site?",
+                "a": "Yes, a site chief architect or engineer is permanently present at all our sites."
+            },
+            {
+                "q": "Do you do rough construction?",
+                "a": "Yes, we do rough construction of reinforced concrete, steel, and timber frame structures from foundation to roof."
+            },
+            {
+                "q": "Which brands do you work with?",
+                "a": "We work with quality-certified brands like VitrA, Çanakkale Seramik, Schneider, Grohe."
+            },
+            {
+                "q": "What is your warranty period?",
+                "a": "2 years for workmanship and installation, legal periods for structural system."
+            },
+            {
+                "q": "Are occupational safety measures taken?",
+                "a": "All safety measures are implemented under occupational health and safety expert supervision."
+            },
+            {
+                "q": "How is sound and heat insulation done?",
+                "a": "We use sheathing and acoustic mats in accordance with energy identity certificate standards."
+            },
+            {
+                "q": "Do you build steel construction houses?",
+                "a": "Yes, we build earthquake-resistant modern houses with light steel systems."
+            },
+            {
+                "q": "Do you have prefabricated house service?",
+                "a": "We work on high-quality modular and panel system structures."
+            },
+            {
+                "q": "Do you construct pools?",
+                "a": "We build reinforced concrete or liner-covered swimming pools and landscape irrigation systems."
+            },
+            {
+                "q": "Who gets site subscriptions?",
+                "a": "We follow up on site electricity and water subscriptions with power of attorney on your behalf."
+            },
+            {
+                "q": "Is construction insurance provided?",
+                "a": "We have All-Risk insurance on all our sites."
+            },
+            {
+                "q": "What happens to construction debris?",
+                "a": "We transport excavation and debris to municipality dumping sites with licensed vehicles."
+            },
+            {
+                "q": "Do you install smart building automation?",
+                "a": "We install comprehensive building automation via KNX or wireless protocols."
+            },
+            {
+                "q": "How is earthquake code compliance ensured?",
+                "a": "Structural calculations per TBDY 2018 and construction proceeds under building inspection company control."
+            }
+        ],
+        "implementation": [
+            {
+                "q": "What is an implementation project?",
+                "a": "Detailed technical drawings to be used on site. Includes formwork, reinforcement, plumbing, and details."
+            },
+            {
+                "q": "Is implementation project different from permit project?",
+                "a": "Yes, permit project is for municipality approval, implementation project is for site production."
+            },
+            {
+                "q": "Can only implementation project be commissioned?",
+                "a": "Yes, if concept and permit projects are ready, we can provide only implementation project service."
+            },
+            {
+                "q": "What is the implementation project fee?",
+                "a": "Approximately 60-80% of permit project fee. Varies by square meters and detail level."
+            },
+            {
+                "q": "What are detail drawings?",
+                "a": "Technical details of special construction points drawn at 1/20, 1/10, 1/5 scales."
+            },
+            {
+                "q": "How long to prepare implementation project?",
+                "a": "Takes 3-4 weeks for average residence."
+            },
+            {
+                "q": "Do you provide bill of quantities?",
+                "a": "Yes, we provide bill of quantities service for exact material list and cost estimate."
+            },
+            {
+                "q": "What is room schedule?",
+                "a": "Document listing all spaces in building with names, areas, and use purposes."
+            },
+            {
+                "q": "How is building approach value calculated?",
+                "a": "Construction square meters x unit m² cost = estimated approach value."
+            },
+            {
+                "q": "Is structural implementation project also drawn?",
+                "a": "Yes, our structural engineer prepares column-beam formwork plans, foundation details, and reinforcement plans."
+            },
+            {
+                "q": "Are mechanical installation projects done?",
+                "a": "Yes, heating-cooling, ventilation, and plumbing projects prepared with solution partners."
+            },
+            {
+                "q": "What does electrical implementation project include?",
+                "a": "Includes lighting, outlet, switch layouts, panel schemas, and grounding details."
+            },
+            {
+                "q": "What is As-Built project?",
+                "a": "Updated project showing final state with changes made during construction."
+            },
+            {
+                "q": "What happens if changes made on site?",
+                "a": "All changes are recorded in As-Built projects and archived."
+            },
+            {
+                "q": "How are project outputs delivered?",
+                "a": "Delivered digitally in PDF and DWG formats, A3/A1 prints upon request."
+            }
+        ],
+        "project_management": [
+            {
+                "q": "What is project management service?",
+                "a": "Professional planning, coordination, budget, and time management of construction process."
+            },
+            {
+                "q": "What does technical coordination mean?",
+                "a": "Ensuring architectural, structural, mechanical, electrical disciplines work in harmony."
+            },
+            {
+                "q": "Is project manager present on site?",
+                "a": "Site monitoring done permanently or weekly visits depending on project scale."
+            },
+            {
+                "q": "What is your relationship with building inspection company?",
+                "a": "Building inspection is legal requirement. We cooperate with inspection company as technical coordinator."
+            },
+            {
+                "q": "Do you track progress payments?",
+                "a": "Yes, we prepare progress payment reports by measuring and surveying completed works."
+            },
+            {
+                "q": "Is time planning (CPM) done?",
+                "a": "Yes, we prepare and keep updated detailed work program with Critical Path Method."
+            },
+            {
+                "q": "Do you manage material procurement?",
+                "a": "If requested, we can manage material ordering, shipment, and quality control processes."
+            },
+            {
+                "q": "Do you have subcontractor management service?",
+                "a": "Yes, we do selection, contracting, and performance management of specialist subcontractors."
+            },
+            {
+                "q": "How is your reporting system?",
+                "a": "We provide weekly progress reports, photo site reports, and monthly budget reports."
+            },
+            {
+                "q": "Do you provide problem-solving support?",
+                "a": "We produce quick solutions to technical problems encountered on site."
+            },
+            {
+                "q": "Do you do quality control?",
+                "a": "Yes, we continuously monitor material and workmanship quality."
+            },
+            {
+                "q": "Is there risk management service?",
+                "a": "We identify potential risks in advance and take preventive actions."
+            },
+            {
+                "q": "How do you prevent budget overruns?",
+                "a": "We maintain budget discipline with detailed cost tracking and early warning system."
+            },
+            {
+                "q": "Do you manage occupational safety?",
+                "a": "We provide support on compliance with safety legislation, risk analyses, and safety training."
+            },
+            {
+                "q": "Do you prepare pre-delivery snagging list?",
+                "a": "Yes, we identify all deficiencies before delivery and ensure their correction."
+            }
+        ],
+        "visualization": [
+            {
+                "q": "What is the 3D visualization fee?",
+                "a": "Varies 2,000-5,000 TL per visual. Discounts on package purchases."
+            },
+            {
+                "q": "What does photorealistic render mean?",
+                "a": "High-quality visuals that look like real photos with light-shadow-material details processed."
+            },
+            {
+                "q": "How many 3D visuals do you provide?",
+                "a": "3-10 renders standard depending on packages, additional visuals prepared on request."
+            },
+            {
+                "q": "How long to prepare 3D visual?",
+                "a": "Takes 3-5 business days per visual. Revision requests add +2 days."
+            },
+            {
+                "q": "Are night and day visuals rendered?",
+                "a": "Yes, both daytime and nighttime versions can be prepared for exterior facade visuals."
+            },
+            {
+                "q": "Do you make interior visuals?",
+                "a": "Yes, we render all interior spaces like kitchen, living room, bedroom, bathroom."
+            },
+            {
+                "q": "Do you have 360-degree panoramic visual service?",
+                "a": "Yes, we create virtual tour images similar to Matterport."
+            },
+            {
+                "q": "Do you offer VR (Virtual Reality) experience?",
+                "a": "In premium packages, we provide virtual tours where you can walk inside project with VR glasses."
+            },
+            {
+                "q": "Do you prepare animation (fly-through) videos?",
+                "a": "Yes, we prepare camera walkthrough videos in both interior and exterior spaces."
+            },
+            {
+                "q": "Do you shoot drone visuals?",
+                "a": "We combine drone footage of existing site with simulation visuals for presentations."
+            },
+            {
+                "q": "Furnished or empty visuals?",
+                "a": "Your choice. Generally furnished and decorated visuals are more effective."
+            },
+            {
+                "q": "Do we have visual revision rights?",
+                "a": "1 revision right per visual. Additional revisions are subject to fee."
+            },
+            {
+                "q": "Which programs do you use?",
+                "a": "We use professional software like 3ds Max, SketchUp, Lumion, V-Ray, Corona Render."
+            },
+            {
+                "q": "What is the resolution of visuals?",
+                "a": "Standard Full HD (1920x1080), 4K resolution renders available upon request."
+            },
+            {
+                "q": "Can I get only 3D visualization service?",
+                "a": "Yes, we can provide render-only service if you have existing project."
+            }
+        ],
+        "process": [
+            {
+                "q": "What are your payment terms?",
+                "a": "Generally scheduled as 30% contract, 40% interim payments, 30% delivery."
+            },
+            {
+                "q": "Can I pay by credit card?",
+                "a": "Yes, we offer installment options for credit cards in design services."
+            },
+            {
+                "q": "Is the price quote paid?",
+                "a": "Preliminary meeting and draft quote are free. Detailed survey report may be subject to fee."
+            },
+            {
+                "q": "Do you make contracts?",
+                "a": "Yes, detailed contract covering scope, duration, and cost is signed."
+            },
+            {
+                "q": "Is there risk of exceeding project budget?",
+                "a": "Budget is 95% fixed once implementation project is finalized. Extra requests invoiced separately."
+            },
+            {
+                "q": "Do you give discounts?",
+                "a": "List prices are fixed, but advantages may exist in package purchases."
+            },
+            {
+                "q": "Are refunds possible?",
+                "a": "After design process starts, labor done is deducted, remaining amount refunded."
+            },
+            {
+                "q": "Do you work on progress payment basis?",
+                "a": "Progress payment system where payment received as much as work done applies in large-scale projects."
+            },
+            {
+                "q": "What are VAT rates?",
+                "a": "20% VAT for design services, 1-20% VAT for residential construction depending on m²."
+            },
+            {
+                "q": "Who pays official fees?",
+                "a": "Municipality fees, building inspection, and other official expenses paid by employer."
+            },
+            {
+                "q": "Is payment accepted in foreign currency?",
+                "a": "Payment accepted in TL or foreign currency at contract date exchange rate."
+            },
+            {
+                "q": "Do you help with bank loans?",
+                "a": "We prepare technical documents and appraisal files requested by banks for housing loans."
+            },
+            {
+                "q": "Is price difference charged if project duration extends?",
+                "a": "No difference for delays from us. Revision may be made over current prices for employer-caused pauses."
+            },
+            {
+                "q": "Is consultancy charged hourly?",
+                "a": "Hourly/daily pricing for short-term consultancies, monthly fee for long-term jobs."
+            },
+            {
+                "q": "Can I see your references?",
+                "a": "With pleasure. We can share references of clients we've worked with before."
+            },
+            {
+                "q": "Which programs do you use?",
+                "a": "Licensed professional software like Autocad, Revit (BIM), 3ds Max, SketchUp, Lumion, Corona Render."
+            },
+            {
+                "q": "How is communication maintained?",
+                "a": "Continuous updates through WhatsApp groups, weekly email reports, and online meetings."
+            },
+            {
+                "q": "Is As-Built project delivered?",
+                "a": "Yes, we deliver updated 'As-Built' projects showing current state with site revisions."
+            }
+        ]
+    }
+}

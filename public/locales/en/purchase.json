@@ -1,23 +1,33 @@
 {
-  "title": "Payment Page",
-  "orderSummary": "Order Summary",
-  "included": "Package Includes",
-  "subtotal": "Subtotal",
-  "tax": "Tax (18%)",
-  "total": "Total",
-  "paymentInfo": "Payment Information",
-  "cardInfo": "Card Information",
-  "cardNumber": "Card Number",
-  "cardName": "Cardholder Name",
-  "expiryDate": "Expiry Date",
-  "cvv": "CVV",
-  "billingInfo": "Billing Information",
-  "email": "Email",
-  "phone": "Phone",
-  "address": "Address",
-  "city": "City",
-  "postalCode": "Postal Code",
-  "terms": "I agree to the terms and conditions",
-  "payNow": "Pay Now",
-  "processing": "Processing..."
+  "title": "Start Your Project",
+  "subtitle": "Take the first step to turn your dream project into reality.",
+  "form": {
+    "personalInfo": "Personal Information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "projectInfo": "Project Details",
+    "companyName": "Company / Project Name",
+    "projectType": "Project Type",
+    "notes": "Project Notes",
+    "submit": "Submit Application",
+    "submitting": "Processing...",
+    "terms": "I agree to the Terms of Service."
+  },
+  "validation": {
+    "firstNameRequired": "First name is required.",
+    "lastNameRequired": "Last name is required.",
+    "emailRequired": "Email is required.",
+    "emailInvalid": "Invalid email address.",
+    "phoneRequired": "Phone number is required.",
+    "companyNameRequired": "Company or Project name is required.",
+    "notesMin": "Please provide more details about your project."
+  },
+  "summary": {
+    "title": "Order Summary",
+    "duration": "Delivery Time",
+    "total": "Total",
+    "features": "Package Contents"
+  }
 }

@@ -1,88 +1,55 @@
 import "@/app/globals.css";
-import I18nProvider from "@/components/I18nProvider";
-import { metadata } from "./metadata";
-import React from "react";
+export { metadata } from "./metadata";
+import { Hanken_Grotesk, Instrument_Serif, IBM_Plex_Mono } from "next/font/google";
+import MaintenancePage from "@/components/MaintenancePage";
+import { isInMaintenance } from "@/lib/app-config";
+import { getLocale } from "next-intl/server";
+import { defaultLocale, isLocaleSupported, type Locale } from "@/lib/i18n-config";
+import { siteGraph } from "@/lib/seo";
+import JsonLd from "@/components/seo/JsonLd";
 
-/* -------------------------------
-   STRUCTURED DATA (JSON-LD)
--------------------------------- */
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "ArchitecturalService",
-  "name": "U+ Studio",
-  "description": "U+ Studio'da mimari proje, uygulama, iç mekân tasarımı, konsept geliştirme, 3D görselleştirme ve tasarım danışmanlığı tek bir çizgide buluşur. Konut, ticari ve kamusal alanlarda fikri projeye, projeyi kusursuz uygulamaya dönüştürüyoruz.",
-  "url": "https://uplusstudio.com.tr",
-  "logo": "https://uplusstudio.com.tr/logo/uplusstudioblacklogo.png",
-  "image": "https://uplusstudio.com.tr/og-image.jpg",
-  "telephone": "+90 545 320 40 07",
-  "email": "info@uplusstudio.com.tr",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Ankara",
-    "addressCountry": "TR"
-  },
-  "founder": [
-    {
-      "@type": "Person",
-      "name": "Hacer Uyar",
-      "jobTitle": "Mimar | Architect | Co-Founder",
-      "telephone": "+90 545 320 40 07"
-    },
-    {
-      "@type": "Person",
-      "name": "Rıdvan Uyar",
-      "jobTitle": "İnşaat Mühendisi | Construction Engineer | Co-Founder",
-      "telephone": "+90 553 289 45 75"
-    }
-  ],
-  "sameAs": [
-    "https://www.instagram.com/u.plusstudio"
-  ]
-};
+const sans = Hanken_Grotesk({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-sans-family",
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
+});
 
-// Hydration güvenliği
-const structuredDataJson = JSON.stringify(structuredData).replace(/</g, "\\u003c");
+const serif = Instrument_Serif({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-serif-family",
+  weight: ["400"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
 
-export { metadata };
+const mono = IBM_Plex_Mono({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-mono-family",
+  weight: ["400", "500"],
+  display: "swap",
+});
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
+  const requested = await getLocale();
+  const locale: Locale = isLocaleSupported(requested) ? requested : defaultLocale;
   return (
-    <html lang="tr">
+    <html
+      lang={locale}
+      className={`${sans.variable} ${serif.variable} ${mono.variable}`}
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
       <head>
-        {/* Favicon & Icons */}
-        <link
-          rel="icon"
-          type="image/png"
-          href="/logo/uplusstudioblacklogo.png"
-        />
-        <link
-          rel="shortcut icon"
-          type="image/png"
-          href="/logo/uplusstudioblacklogo.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          href="/logo/uplusstudioblacklogo.png"
-        />
-
-        {/* Theme */}
-        <meta name="theme-color" content="#000000" />
-
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: structuredDataJson,
-          }}
-        />
+        <meta name="theme-color" content="#121110" />
+        <JsonLd data={siteGraph(locale)} />
       </head>
-
-      <body>
-        <I18nProvider>{children}</I18nProvider>
+      <body className="font-sans antialiased bg-paper text-ink">
+        {isInMaintenance ? <MaintenancePage /> : children}
       </body>
     </html>
   );

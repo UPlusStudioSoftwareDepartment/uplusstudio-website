@@ -1,534 +1,841 @@
 "use client";
 
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as yup from "yup";
+import { useState, useMemo, useRef, useEffect } from "react";
+import Image from "next/image";
+import { useTranslations, useLocale } from "next-intl";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { motion, AnimatePresence } from "framer-motion";
 import AdvancedCalendar from "./AdvancedCalendar";
+import { useToast } from "@/contexts/ToastContext";
+import { useScrollLock } from "@/hooks/useScrollLock";
+import { studioInfo } from "@/lib/studio-info";
+import { copyRich, gmailComposeUrl, openUrl, pasteableHtml } from "@/lib/gmailCompose";
+import { icons } from "@/components/studio/SocialLinks";
+import type { AppointmentPrefill } from "@/contexts/AppointmentContext";
+import { MascotDuo } from "@/components/mascots/Mascots";
 
 interface AppointmentModalProps {
   isOpen: boolean;
   onClose: () => void;
+  prefill?: AppointmentPrefill | null;
 }
 
-export default function AppointmentModal({ isOpen, onClose }: AppointmentModalProps) {
-  const { t, i18n } = useTranslation("appointment");
+const EASE = [0.76, 0, 0.24, 1] as const;
+const TIME_SLOTS = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
+const SERVICES = ["architectural", "interior", "renovation", "villa", "commercial", "office", "visualization", "consulting", "site", "project"] as const;
+
+function FieldError({ message }: Readonly<{ message?: string }>) {
+  if (!message) return null;
+  return <p className="mt-2 font-mono text-[12px] text-clay">{message}</p>;
+}
+
+function SectionHeading({ index, children }: Readonly<{ index: string; children: React.ReactNode }>) {
+  return (
+    <div className="flex items-baseline gap-4 mb-8">
+      <span className="font-mono text-[12px] text-mute">{index}</span>
+      <h3 className="font-sans text-[13px] font-medium uppercase tracking-[0.14em] text-ink">{children}</h3>
+      <span className="h-px flex-1 bg-line translate-y-[-3px]" aria-hidden />
+    </div>
+  );
+}
+
+export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<AppointmentModalProps>) {
+  const t = useTranslations("appointment");
+  const ts = useTranslations("studio");
+  const locale = useLocale();
+  const toast = useToast();
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+  const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null);
+  const [sentValues, setSentValues] = useState<AppointmentFormValues | null>(null);
+  const messageValueRef = useRef<string>("");
+  const formRef = useRef<HTMLFormElement>(null);
+  const [cardCopied, setCardCopied] = useState(false);
 
-  // Dinamik hata mesajları
-  const getErrorMessage = (key: string) => {
-    const isTurkish = i18n.language === 'tr';
-    
-    const messages: Record<string, { tr: string; en: string }> = {
-      nameRequired: {
-        tr: "Ad soyad alanı zorunludur",
-        en: "Name field is required"
-      },
-      nameMin: {
-        tr: "Ad soyad en az 3 karakter olmalıdır",
-        en: "Name must be at least 3 characters"
-      },
-      nameInvalid: {
-        tr: "Ad soyad sadece harflerden oluşmalıdır",
-        en: "Name must contain only letters"
-      },
-      emailRequired: {
-        tr: "E-posta alanı zorunludur",
-        en: "Email field is required"
-      },
-      emailInvalid: {
-        tr: "Geçerli bir e-posta adresi giriniz",
-        en: "Please enter a valid email address"
-      },
-      phoneRequired: {
-        tr: "Telefon alanı zorunludur",
-        en: "Phone field is required"
-      },
-      phoneInvalid: {
-        tr: "Geçerli bir telefon numarası giriniz (05XXXXXXXXX)",
-        en: "Please enter a valid phone number (05XXXXXXXXX)"
-      },
-      serviceRequired: {
-        tr: "Hizmet türü seçimi zorunludur",
-        en: "Service selection is required"
-      },
-      dateRequired: {
-        tr: "Tarih seçimi zorunludur",
-        en: "Date selection is required"
-      },
-      dateFuture: {
-        tr: "Gelecekte bir tarih seçiniz",
-        en: "Please select a future date"
-      },
-      timeRequired: {
-        tr: "Saat seçimi zorunludur",
-        en: "Time selection is required"
-      },
-      messageRequired: {
-        tr: "Mesaj alanı zorunludur",
-        en: "Message field is required"
-      },
-      messageMin: {
-        tr: "Mesaj en az 10 karakter olmalıdır",
-        en: "Message must be at least 10 characters"
-      },
-      messageMax: {
-        tr: "Mesaj en fazla 500 karakter olabilir",
-        en: "Message must be at most 500 characters"
-      }
-    };
-    
-    const message = messages[key];
-    return message ? (isTurkish ? message.tr : message.en) : key;
-  };
+  useScrollLock(isOpen);
 
-  // Yup validation schema
-  const validationSchema = yup.object().shape({
-    name: yup
-      .string()
-      .required(getErrorMessage('nameRequired'))
-      .min(3, getErrorMessage('nameMin'))
-      .matches(/^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/, getErrorMessage('nameInvalid')),
-    email: yup
-      .string()
-      .email(getErrorMessage('emailInvalid'))
-      .required(getErrorMessage('emailRequired')),
-    phone: yup
-      .string()
-      .matches(/^(05)?[0-9]{9}$/, getErrorMessage('phoneInvalid'))
-      .required(getErrorMessage('phoneRequired')),
-    service: yup
-      .string()
-      .required(getErrorMessage('serviceRequired')),
-    date: yup
-      .string()
-      .required(getErrorMessage('dateRequired'))
-      .test("future-date", getErrorMessage('dateFuture'), (value) => {
-        if (!value) return false;
-        const selectedDate = new Date(value);
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        return selectedDate >= today;
-      }),
-    time: yup
-      .string()
-      .required(getErrorMessage('timeRequired')),
-    message: yup
-      .string()
-      .required(getErrorMessage('messageRequired'))
-      .min(10, getErrorMessage('messageMin'))
-      .max(500, getErrorMessage('messageMax'))
+  const appointmentSchema = useMemo(() => z.object({
+    name: z.string()
+      .min(1, t("validation.required"))
+      .min(3, t("validation.nameMin"))
+      .refine((val) => /^[a-zA-ZğüşıöçĞÜŞİÖÇ\s]+$/.test(val), { message: t("validation.nameInvalid") }),
+    email: z.string()
+      .min(1, t("validation.required"))
+      .refine((val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val), { message: t("validation.emailInvalid") }),
+    phone: z.string()
+      .min(1, t("validation.required"))
+      .refine((val) => /^(05)?\d{9}$/.test(val), { message: t("validation.phoneInvalid") }),
+    service: z.string()
+      .min(1, t("validation.required")),
+    date: z.string()
+      .min(1, t("validation.required"))
+      .refine((val) => {
+        if (!val) return false;
+        const selectedDate = new Date(val);
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(0, 0, 0, 0);
+        return selectedDate >= tomorrow;
+      }, { message: t("validation.dateFuture") }),
+    time: z.string()
+      .min(1, t("validation.required")),
+    message: z.string()
+      .max(500, t("validation.messageMax"))
+      .refine((val) => val.trim().length > 0, { message: t("validation.required") })
+      .refine((val) => val.trim().length === 0 || val.trim().length >= 10, { message: t("validation.messageMin") })
+  }), [t, locale]);
+
+  type AppointmentFormValues = z.infer<typeof appointmentSchema>;
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    getValues,
+    reset,
+    trigger,
+    formState: { errors, isSubmitting }
+  } = useForm<AppointmentFormValues>({
+    resolver: zodResolver(appointmentSchema),
+    mode: "onChange",
+    reValidateMode: "onChange",
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      date: "",
+      time: "",
+      service: "",
+      message: ""
+    }
   });
 
-  // Form başlangıç değerleri
-  const initialValues = {
-    name: "",
-    email: "",
-    phone: "",
-    date: "",
-    time: "",
-    service: "",
-    message: ""
-  };
-
-  const handleSubmit = async (values: typeof initialValues, { setSubmitting, resetForm }: any) => {
-    setSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      setSubmitStatus('success');
-      resetForm();
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000);
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
-  const handleDownload = (values: typeof initialValues) => {
-    // Check if all required fields are filled
-    if (!values.name || !values.email || !values.phone || !values.service || !values.date || !values.time) {
-      alert('Please fill in all required fields before downloading the appointment card.');
-      return;
-    }
-
-    // Create a canvas element
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    
-    if (!ctx) {
-      alert('Unable to generate appointment card. Please try again.');
-      return;
-    }
-    
-    // Set canvas size (card size)
-    canvas.width = 400;
-    canvas.height = 600;
-    
-    // Draw background gradient
-    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, '#667eea');
-    gradient.addColorStop(1, '#764ba2');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    // Draw white card
-    ctx.fillStyle = 'white';
-    ctx.beginPath();
-    ctx.roundRect(20, 20, canvas.width - 40, canvas.height - 40, 20);
-    ctx.fill();
-    
-    // Draw header
-    const headerGradient = ctx.createLinearGradient(0, 60, 0, 120);
-    headerGradient.addColorStop(0, '#1e3c72');
-    headerGradient.addColorStop(1, '#2a5298');
-    ctx.fillStyle = headerGradient;
-    ctx.beginPath();
-    ctx.roundRect(40, 60, canvas.width - 80, 80, 15);
-    ctx.fill();
-    
-    // Draw logo and title
-    ctx.fillStyle = 'white';
-    ctx.font = 'bold 24px Segoe UI';
-    ctx.textAlign = 'center';
-    ctx.fillText('UPlus Studio', canvas.width / 2, 90);
-    
-    ctx.font = '16px Segoe UI';
-    ctx.fillText('Appointment Card', canvas.width / 2, 115);
-    
-    ctx.font = '12px Segoe UI';
-    ctx.globalAlpha = 0.8;
-    ctx.fillText('Architecture & Design', canvas.width / 2, 130);
-    ctx.globalAlpha = 1;
-    
-    // Draw appointment ID
-    ctx.fillStyle = '#e3f2fd';
-    ctx.fillRect(60, 160, canvas.width - 120, 30);
-    ctx.fillStyle = '#1976d2';
-    ctx.font = '12px Segoe UI';
-    ctx.textAlign = 'center';
-    ctx.fillText(`ID: #APT${Date.now().toString().slice(-6)}`, canvas.width / 2, 180);
-    
-    // Draw appointment details
-    const details = [
-      { label: 'Name', value: values.name },
-      { label: 'Email', value: values.email },
-      { label: 'Phone', value: values.phone },
-      { label: 'Service', value: values.service },
-      { label: 'Date', value: values.date ? new Date(values.date).toLocaleDateString('tr-TR', { 
-          day: 'numeric', 
-          month: 'long', 
-          year: 'numeric' 
-        }) : 'Not selected' },
-      { label: 'Time', value: values.time }
-    ];
-    
-    if (values.message) {
-      details.push({ label: 'Message', value: values.message });
-    }
-    
-    let yPos = 220;
-    details.forEach(detail => {
-      // Draw line
-      ctx.strokeStyle = '#f0f0f0';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(60, yPos);
-      ctx.lineTo(canvas.width - 60, yPos);
-      ctx.stroke();
-      
-      // Draw label
-      ctx.fillStyle = '#666';
-      ctx.font = '14px Segoe UI';
-      ctx.textAlign = 'left';
-      ctx.fillText(detail.label, 60, yPos + 20);
-      
-      // Draw value
-      ctx.fillStyle = '#333';
-      ctx.font = 'bold 14px Segoe UI';
-      ctx.textAlign = 'right';
-      ctx.fillText(detail.value, canvas.width - 60, yPos + 20);
-      
-      yPos += 40;
+  useEffect(() => {
+    if (!isOpen || !prefill) return;
+    const serviceKey =
+      SERVICES.find((k) => k === prefill.service || t(`services.${k}`) === prefill.service) ?? "";
+    reset({
+      name: prefill.name ?? "",
+      email: prefill.email ?? "",
+      phone: prefill.phone ?? "",
+      date: prefill.date ?? "",
+      time: prefill.time ?? "",
+      service: serviceKey,
+      message: prefill.message ?? "",
     });
-    
-    // Draw footer
-    ctx.fillStyle = '#f8f9fa';
-    ctx.fillRect(40, canvas.height - 100, canvas.width - 80, 60);
-    
-    ctx.fillStyle = '#1e3c72';
-    ctx.font = 'bold 16px Segoe UI';
-    ctx.textAlign = 'center';
-    ctx.fillText('UPlus Studio', canvas.width / 2, canvas.height - 70);
-    
-    ctx.fillStyle = '#666';
-    ctx.font = '12px Segoe UI';
-    ctx.fillText('📞 +90 212 555 0123 | ✉️ info@uplusstudio.com', canvas.width / 2, canvas.height - 50);
-    
-    ctx.font = '10px Segoe UI';
-    ctx.fillText(`Scheduled on: ${new Date().toLocaleString('tr-TR')}`, canvas.width / 2, canvas.height - 30);
-    
-    // Convert canvas to blob and download
-    canvas.toBlob((blob) => {
-      if (blob) {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `appointment-card-${values.name}-${values.date}.jpg`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
+    messageValueRef.current = prefill.message ?? "";
+  }, [isOpen, prefill, reset, t]);
+
+  const values = watch();
+  const messageRegister = register("message");
+
+  useEffect(() => {
+    if (isOpen) messageValueRef.current = values.message ?? "";
+  }, [isOpen, values.message]);
+
+  const PASS_CANVAS_WIDTH = 500;
+
+  const drawInfo = (ctx: CanvasRenderingContext2D, label: string, value: string, currentY: number, size = 28) => {
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.fillText(label.toUpperCase(), 60, currentY);
+    ctx.fillStyle = '#ffffff';
+    ctx.font = `bold ${size}px serif`;
+    ctx.fillText(value, 60, currentY + 35);
+    return currentY + 95;
+  };
+
+  const chunkLongWord = (ctx: CanvasRenderingContext2D, word: string, maxWidth: number): string[] => {
+    const chunks: string[] = [];
+    let remaining = word;
+    while (remaining.length > 0) {
+      let chunk = '';
+      let i = 0;
+      while (i < remaining.length && ctx.measureText(chunk + remaining[i]).width <= maxWidth) {
+        chunk += remaining[i];
+        i++;
       }
-    }, 'image/jpeg', 0.95);
+      if (chunk === '') chunk = remaining[0] ?? '';
+      chunks.push(chunk);
+      remaining = remaining.slice(chunk.length);
+    }
+    return chunks;
+  };
+
+  const wrapTextToLines = (ctx: CanvasRenderingContext2D, text: string, maxLineWidth: number): string[] => {
+    const words = text.split(/\s+/).filter(Boolean);
+    const lines: string[] = [];
+    let line = '';
+    for (const w of words) {
+      const next = line ? `${line} ${w}` : w;
+      const fitsLine = ctx.measureText(next).width <= maxLineWidth;
+      const wordTooLong = ctx.measureText(w).width > maxLineWidth;
+      if (fitsLine) {
+        line = next;
+      } else {
+        if (line) lines.push(line);
+        if (wordTooLong) {
+          lines.push(...chunkLongWord(ctx, w, maxLineWidth));
+          line = '';
+        } else {
+          line = w;
+        }
+      }
+    }
+    if (line) lines.push(line);
+    return lines.length > 0 ? lines : [text.slice(0, 80)];
+  };
+
+  const drawBrandHeader = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
+    ctx.fillStyle = '#141413';
+    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = '#ede9e1';
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 72px serif';
+    ctx.fillText('U+', width / 2, 115);
+    ctx.font = 'bold 11px sans-serif';
+    ctx.fillStyle = 'rgba(237,233,225,0.7)';
+    const brandLabel = 'STUDIO ARCHITECTURE';
+    const charSpace = 6;
+    const startXPx = (width - brandLabel.length * charSpace) / 2;
+    for (let i = 0; i < brandLabel.length; i++) {
+      ctx.fillText(brandLabel[i], startXPx + (i * charSpace), 145);
+    }
+    ctx.strokeStyle = 'rgba(237,233,225,0.25)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(50, 185);
+    ctx.lineTo(450, 185);
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(237,233,225,0.6)';
+    ctx.font = 'bold 10px sans-serif';
+    ctx.fillText('ACCESS PRIVILEGE PASS', width / 2, 215);
+  };
+
+  const drawMessageBlock = (
+    ctx: CanvasRenderingContext2D,
+    messageText: string,
+    startY: number,
+    height: number,
+    messageLabel: string
+  ): number => {
+    const maxLineWidth = 380;
+    const lineHeight = 18;
+    ctx.textAlign = 'left';
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.font = 'bold 11px Arial';
+    ctx.fillText(messageLabel, 60, startY);
+    ctx.font = '13px Arial';
+    const lines = wrapTextToLines(ctx, messageText, maxLineWidth);
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    let messageY = startY + 25;
+    const maxMessageBottomY = height - 120;
+    for (const lineText of lines) {
+      if (messageY + lineHeight > maxMessageBottomY) break;
+      ctx.fillText(lineText, 60, messageY);
+      messageY += lineHeight;
+    }
+    return messageY + 20;
+  };
+
+  const drawPerforationAndBarcode = (ctx: CanvasRenderingContext2D, width: number, perforationY: number) => {
+    const luxuryBarcodeY = perforationY + 30;
+    ctx.setLineDash([8, 6]);
+    ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+    ctx.beginPath();
+    ctx.moveTo(0, perforationY);
+    ctx.lineTo(width, perforationY);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    const getBarWidth = (i: number): number => {
+      if (i % 3 === 0) return 3;
+      if (i % 7 === 0) return 1;
+      return 2;
+    };
+    for (let i = 0; i < 60; i++) {
+      ctx.fillStyle = i % 2 === 0 ? '#ede9e1' : '#141413';
+      ctx.fillRect(60 + (i * 4), luxuryBarcodeY, getBarWidth(i), 40);
+    }
+    ctx.textAlign = 'right';
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+    ctx.font = 'bold 10px monospace';
+    ctx.fillText('UP-' + Math.random().toString(36).slice(2, 11).toUpperCase(), width - 60, luxuryBarcodeY + 25);
+    ctx.font = 'bold 8px sans-serif';
+    ctx.fillText('VERIFIED AUTHENTIC', width - 60, luxuryBarcodeY + 40);
+  };
+
+  function drawPassToCanvas(
+    ctx: CanvasRenderingContext2D,
+    vals: { name: string; email: string; phone: string; service: string; date: string; time: string; message: string },
+    width: number,
+    height: number,
+    dateLocale: string
+  ) {
+    let currentYPos = 285;
+    drawBrandHeader(ctx, width, height);
+    ctx.textAlign = 'left';
+
+    currentYPos = drawInfo(ctx, t("guest"), vals.name, currentYPos, 32);
+    currentYPos = drawInfo(ctx, t("service"), t(`services.${vals.service}`), currentYPos, 22);
+    ctx.fillStyle = 'rgba(255,255,255,0.5)';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.fillText(t("appointmentDate").toUpperCase(), 60, currentYPos);
+    ctx.fillText(t("time").toUpperCase(), 300, currentYPos);
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 22px serif';
+    ctx.fillText(new Date(vals.date).toLocaleDateString(dateLocale), 60, currentYPos + 35);
+    ctx.fillText(vals.time, 300, currentYPos + 35);
+    currentYPos += 80;
+    currentYPos = drawInfo(ctx, t("phone"), vals.phone, currentYPos, 20);
+
+    const messageText = vals.message == null ? '' : String(vals.message).trim();
+    currentYPos = messageText
+      ? drawMessageBlock(ctx, messageText, currentYPos, height, t("message").toUpperCase())
+      : currentYPos + 30;
+
+    const perforationY = Math.min(currentYPos + 20, height - 100);
+    drawPerforationAndBarcode(ctx, width, perforationY);
+  }
+
+  const onSubmit = async (data: AppointmentFormValues) => {
+    setSubmitStatus(null);
+    setSubmitErrorMessage(null);
+    try {
+      const prepared = (async () => {
+        const link = await appointmentLink(data, "mail");
+        let mail = { subject: "", html: "" };
+        if (link.token) {
+          const res = await fetch("/api/appointment-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token: link.token }),
+          });
+          if (res.ok) mail = await res.json();
+        }
+        return { link, mail, text: appointmentText(data, link.url, false) };
+      })();
+      let copied = await copyRich(
+        prepared.then(({ mail, text }) => (mail.html ? pasteableHtml(mail.html) : text)),
+        prepared.then(({ text }) => text)
+      );
+      const { mail, text } = await prepared;
+      copied = copied && Boolean(mail.html);
+      const subject = mail.subject || `${locale === "tr" ? "Randevu talebi" : "Appointment request"} — ${data.name} · ${t(`services.${data.service}`)}`;
+      openUrl(gmailComposeUrl(studioInfo.email, subject, copied ? undefined : text));
+      setCardCopied(copied);
+      setSentValues({ ...data });
+      setSubmitStatus('success');
+      formRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+      toast.success(copied ? t("successPaste") : t("successMessage"));
+    } catch {
+      const message = t("error");
+      setSubmitErrorMessage(message);
+      setSubmitStatus('error');
+      toast.error(message);
+    }
   };
 
   const handleClose = () => {
     setSubmitStatus(null);
+    setSentValues(null);
+    setCardCopied(false);
+    reset();
+    messageValueRef.current = '';
     onClose();
   };
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+    };
+    globalThis.addEventListener("keydown", onKey);
+    return () => globalThis.removeEventListener("keydown", onKey);
+  }, [isOpen]);
+
+  const dateLocale = locale === 'tr' ? 'tr-TR' : 'en-US';
+
+  const calculateCanvasHeight = (messageText: string): number => {
+    let baseHeight = 750;
+    if (messageText.length === 0) return Math.max(baseHeight + 80, 850);
+    const tempCanvas = document.createElement('canvas');
+    const tempCtx = tempCanvas.getContext('2d');
+    if (tempCtx == null) return Math.max(baseHeight + 80, 850);
+    tempCtx.font = '13px Arial';
+    const maxLineWidth = 380;
+    const lineHeight = 18;
+    const words = messageText.split(/\s+/).filter(Boolean);
+    let line = '';
+    let lineCount = 0;
+    for (const w of words) {
+      const next = line ? `${line} ${w}` : w;
+      if (tempCtx.measureText(next).width <= maxLineWidth) {
+        line = next;
+      } else {
+        if (line) lineCount++;
+        line = w;
+      }
+    }
+    if (line) lineCount++;
+    baseHeight += 30 + (lineCount * lineHeight) + 40 + 80;
+    return Math.max(baseHeight, 850);
+  };
+
+  const PASS_FILE = 'uplus-studio-randevu-karti.jpg';
+
+  const renderPassBlob = (vals: AppointmentFormValues) =>
+    new Promise<Blob | null>((resolve) => {
+      const messageText = vals.message == null ? '' : String(vals.message).trim();
+      const canvasHeight = calculateCanvasHeight(messageText);
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      if (ctx == null) return resolve(null);
+      canvas.width = PASS_CANVAS_WIDTH;
+      canvas.height = canvasHeight;
+      drawPassToCanvas(ctx, vals, PASS_CANVAS_WIDTH, canvasHeight, dateLocale);
+      canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.95);
+    });
+
+  const saveBlob = (blob: Blob) => {
+    const url = globalThis.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = PASS_FILE;
+    a.click();
+    setTimeout(() => globalThis.URL.revokeObjectURL(url), 1000);
+  };
+
+  const downloadPass = async (vals: AppointmentFormValues) => {
+    const blob = await renderPassBlob(vals);
+    if (blob) saveBlob(blob);
+  };
+
+  const sharePass = async (vals: AppointmentFormValues) => {
+    const blob = await renderPassBlob(vals);
+    if (!blob) return;
+    const file = new File([blob], PASS_FILE, { type: 'image/jpeg' });
+    const text = locale === 'tr'
+      ? `U+ Studio randevum: ${t(`services.${vals.service}`)} · ${new Date(vals.date).toLocaleDateString(dateLocale)} ${vals.time}`
+      : `My U+ Studio appointment: ${t(`services.${vals.service}`)} · ${new Date(vals.date).toLocaleDateString(dateLocale)} ${vals.time}`;
+    try {
+      if (typeof navigator.canShare === 'function' && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: 'U+ Studio', text });
+        return;
+      }
+    } catch (e) {
+      if ((e as Error)?.name === 'AbortError') return;
+    }
+    saveBlob(blob);
+    toast.success(locale === 'tr' ? 'Paylaşım bu tarayıcıda desteklenmiyor; kart indirildi.' : 'Sharing isn\'t supported here; the card was downloaded.');
+  };
+
+  const appointmentLink = async (v: AppointmentFormValues, via: "mail" | "whatsapp") => {
+    try {
+      const res = await fetch("/api/appointment-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...v, service: t(`services.${v.service}`), locale, via }),
+      });
+      if (res.ok) {
+        const json = await res.json();
+        return { token: String(json.token ?? ""), url: String(json.url ?? ""), image: String(json.image ?? "") };
+      }
+    } catch {}
+    return { token: "", url: "", image: "" };
+  };
+
+
+  const appointmentText = (v: AppointmentFormValues, cardUrl: string, markup: boolean) => {
+    const b = (s: string) => (markup ? `*${s}*` : s);
+    const service = t(`services.${v.service}`);
+    const when = new Date(v.date).toLocaleDateString(dateLocale, { day: "numeric", month: "long", year: "numeric", weekday: "long" });
+    const tr = locale === "tr";
+    return [
+      b(tr ? "Randevu talebi — U+ Studio" : "Appointment request — U+ Studio"),
+      "",
+      `${b(tr ? "Ad Soyad:" : "Name:")} ${v.name}`,
+      `${b(tr ? "Hizmet:" : "Service:")} ${service}`,
+      `${b(tr ? "Tarih:" : "Date:")} ${when}`,
+      `${b(tr ? "Saat:" : "Time:")} ${v.time}`,
+      `${b(tr ? "Telefon:" : "Phone:")} ${v.phone}`,
+      `${b(tr ? "E-posta:" : "Email:")} ${v.email}`,
+      "",
+      markup ? `_${v.message.trim()}_` : `“${v.message.trim()}”`,
+      ...(cardUrl ? ["", `${tr ? "Randevu kartı" : "Appointment card"}: ${cardUrl}`] : []),
+    ].join("\n");
+  };
+
+  const cardImageAsJpeg = async (src: string) => {
+    const bitmap = await createImageBitmap(await (await fetch(src)).blob());
+    const canvas = document.createElement("canvas");
+    canvas.width = bitmap.width;
+    canvas.height = bitmap.height;
+    canvas.getContext("2d")?.drawImage(bitmap, 0, 0);
+    return new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.94));
+  };
+
+  const sendViaWhatsApp = async () => {
+    const isValid = await trigger();
+    if (!isValid) {
+      toast.error(t("fillRequired"));
+      return;
+    }
+    const canShareFiles = typeof navigator.canShare === "function" && navigator.canShare({ files: [new File([""], "x.jpg", { type: "image/jpeg" })] });
+    const popup = canShareFiles ? null : globalThis.open("about:blank", "_blank");
+    const v = getValues();
+    const { url: cardUrl, image: imageUrl } = await appointmentLink(v, "whatsapp");
+    const url = `${studioInfo.whatsappUrl}?text=${encodeURIComponent(appointmentText(v, cardUrl, true))}`;
+    if (canShareFiles && imageUrl) {
+      try {
+        const jpeg = await cardImageAsJpeg(imageUrl);
+        if (jpeg) {
+          const file = new File([jpeg], PASS_FILE, { type: "image/jpeg" });
+          await navigator.share({ files: [file], text: appointmentText(v, "", true) });
+          return;
+        }
+      } catch (e) {
+        if ((e as Error)?.name === "AbortError") return;
+      }
+    }
+    if (popup) popup.location.href = url;
+    else globalThis.location.href = url;
+  };
+
+  const handleDownload = async () => {
+    const isValid = await trigger();
+    if (!isValid) {
+      toast.error(t("fillRequired"));
+      return;
+    }
+    await downloadPass({ ...getValues() });
+  };
+
+  const inputClass = (hasError: boolean) =>
+    `w-full bg-transparent border-0 border-b py-3 text-lg text-ink placeholder:text-mute/50 outline-none transition-colors rounded-none ${
+      hasError ? "border-clay" : "border-line focus:border-ink"
+    }`;
+  const labelClass = "block font-mono text-[12px] uppercase tracking-[0.12em] text-mute";
+
+  const formattedDate = values.date
+    ? new Date(values.date).toLocaleDateString(dateLocale, { day: "numeric", month: "long", weekday: "long" })
+    : null;
+  const completed = [values.name, values.email, values.phone, values.service, values.date, values.time, values.message].filter(Boolean).length;
+
+  const passRows: { label: string; value: string | null }[] = [
+    { label: t("guest"), value: values.name || null },
+    { label: t("service"), value: values.service ? t(`services.${values.service}`) : null },
+    { label: t("date"), value: formattedDate },
+    { label: t("time"), value: values.time || null },
+  ];
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-gray-100">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-slate-800 to-slate-900 px-8 py-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h2 className="text-2xl font-bold text-white">{t("title")}</h2>
-              <p className="text-slate-300 text-sm mt-1">{t("subtitle")}</p>
-            </div>
-            <button
-              onClick={handleClose}
-              className="text-slate-400 hover:text-white hover:bg-white/10 p-2 rounded-lg transition-all duration-200"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          key="appointment-overlay"
+          className="fixed inset-0 z-[70] flex justify-end"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0, transition: { delay: 0.25, duration: 0.3 } }}
         >
-          {({ isSubmitting, values, setFieldValue }) => (
-            <Form className="flex flex-col lg:flex-row">
-              {/* Left Side - Form */}
-              <div className="flex-1 p-8 pt-12 space-y-6">
-                {/* Personal Info Section */}
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
-                    <div className="w-1 h-6 bg-blue-500 rounded-full mr-3"></div>
-                    {t("personalInfo")}
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        {t("name")} *
-                      </label>
-                      <Field
-                        type="text"
-                        name="name"
-                        className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 focus:border-blue-500"
-                        placeholder={t("namePlaceholder")}
-                      />
-                      <ErrorMessage name="name" component="p" className="mt-1 text-sm text-red-600" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        {t("email")} *
-                      </label>
-                      <Field
-                        type="email"
-                        name="email"
-                        className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 focus:border-blue-500"
-                        placeholder={t("emailPlaceholder")}
-                      />
-                      <ErrorMessage name="email" component="p" className="mt-1 text-sm text-red-600" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        {t("phone")} *
-                      </label>
-                      <Field
-                        type="tel"
-                        name="phone"
-                        className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 focus:border-blue-500"
-                        placeholder={t("phonePlaceholder")}
-                      />
-                      <ErrorMessage name="phone" component="p" className="mt-1 text-sm text-red-600" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-700 mb-2">
-                        {t("service")} *
-                      </label>
-                      <Field
-                        as="select"
-                        name="service"
-                        className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 focus:border-blue-500"
-                      >
-                        <option value="">{t("selectService")}</option>
-                        <option value="architectural">{t("services.architectural")}</option>
-                        <option value="interior">{t("services.interior")}</option>
-                        <option value="consulting">{t("services.consulting")}</option>
-                        <option value="project">{t("services.project")}</option>
-                      </Field>
-                      <ErrorMessage name="service" component="p" className="mt-1 text-sm text-red-600" />
-                    </div>
-                  </div>
-                </div>
+          <button
+            type="button"
+            aria-label={t("cancel")}
+            className="absolute inset-0 bg-night/60 backdrop-blur-sm cursor-default"
+            onClick={handleClose}
+          />
 
-                {/* Message */}
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
-                    <div className="w-1 h-6 bg-purple-500 rounded-full mr-3"></div>
-                    {t("message")} *
-                  </h3>
-                  <Field
-                    as="textarea"
-                    rows={4}
-                    name="message"
-                    placeholder={t("messagePlaceholder")}
-                    className="w-full px-4 py-3 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-200 resize-none focus:border-blue-500"
-                  />
-                  <ErrorMessage name="message" component="p" className="mt-1 text-sm text-red-600" />
-                </div>
+          <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="appointment-modal-title"
+            className="relative z-10 flex h-full w-full max-w-[1320px] bg-paper shadow-[0_0_80px_rgba(0,0,0,0.35)]"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.8, ease: EASE }}
+          >
+            <aside className="relative hidden lg:flex w-[40%] shrink-0 flex-col justify-between overflow-hidden bg-night text-bone p-10 xl:p-12">
+              <Image
+                src="/media/projects/modern-villa/exterior-dusk.jpg"
+                alt=""
+                fill
+                sizes="40vw"
+                className="object-cover opacity-55"
+                priority
+              />
+              <div className="absolute inset-0 bg-linear-to-b from-night/70 via-night/20 to-night/90" aria-hidden />
 
-                {/* Quick Time Slots */}
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
-                    <div className="w-1 h-6 bg-green-500 rounded-full mr-3"></div>
-                    {t("schedule")}
-                  </h3>
-                  <div className="grid grid-cols-4 gap-3">
-                    {['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00', '18:00'].map((time) => (
-                      <button
-                        key={time}
-                        type="button"
-                        onClick={() => setFieldValue('time', time)}
-                        className={`px-4 py-3 text-sm font-medium rounded-xl border transition-all duration-200 ${
-                          values.time === time
-                            ? 'bg-blue-500 text-white border-blue-500 shadow-lg shadow-blue-500/25'
-                            : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
-                        }`}
-                      >
-                        {time}
-                      </button>
+              <div className="relative flex items-center justify-between">
+                <span className="font-sans text-lg tracking-tight">U+ Studio</span>
+                <span className="eyebrow text-bone/60">{t("title")}</span>
+              </div>
+
+              <div className="relative">
+                <motion.p
+                  className="font-serif text-5xl xl:text-6xl leading-[0.95] max-w-md"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, ease: EASE, delay: 0.45 }}
+                >
+                  {ts("cta.title")}
+                </motion.p>
+                <p className="mt-6 max-w-sm text-sm leading-relaxed text-bone/70">{t("subtitle")}</p>
+              </div>
+
+              <motion.div
+                className="relative border border-bone/20 bg-night/50 backdrop-blur-md"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: EASE, delay: 0.6 }}
+              >
+                <div className="flex items-center justify-between border-b border-bone/15 px-6 py-4">
+                  <span className="eyebrow text-bone/60">{t("digitalPass")}</span>
+                  <span className="font-mono text-[12px] text-bone/50">{String(completed).padStart(2, "0")} / 07</span>
+                </div>
+                <dl className="grid grid-cols-2">
+                  {passRows.map((row, i) => (
+                    <div key={row.label} className={`px-6 py-4 ${i % 2 === 0 ? "border-r border-bone/15" : ""} ${i < 2 ? "border-b border-bone/15" : ""}`}>
+                      <dt className="font-mono text-[11px] uppercase tracking-[0.12em] text-bone/45">{row.label}</dt>
+                      <dd className={`mt-1.5 truncate text-[15px] ${row.value ? "text-bone" : "text-bone/30"}`}>{row.value ?? "—"}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <div className="flex items-center justify-between border-t border-bone/15 px-6 py-4">
+                  <div className="flex items-end gap-[3px]" aria-hidden>
+                    {Array.from({ length: 22 }, (_, i) => (
+                      <span key={i} className="w-px bg-bone/50" style={{ height: `${8 + ((i * 7) % 4) * 4}px` }} />
                     ))}
                   </div>
-                  <ErrorMessage name="time" component="p" className="mt-2 text-sm text-red-600" />
+                  <button
+                    type="button"
+                    onClick={handleDownload}
+                    className="group inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone/80 hover:text-bone"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14" strokeWidth={1.25} /></svg>
+                    {locale === "tr" ? "Kartı indir" : "Download pass"}
+                  </button>
                 </div>
+              </motion.div>
+            </aside>
 
-                {/* Success/Error Messages */}
-                {submitStatus === 'success' && (
-                  <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                    <p className="text-green-800 font-medium">Appointment booked successfully!</p>
-                  </div>
-                )}
-                
-                {submitStatus === 'error' && (
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-                    <p className="text-red-800 font-medium">Error booking appointment. Please try again.</p>
-                  </div>
-                )}
+            <div className="flex min-w-0 flex-1 flex-col">
+              <header className="flex shrink-0 items-start justify-between gap-6 border-b border-line px-6 py-6 sm:px-12 sm:py-8">
+                <div>
+                  <span className="eyebrow text-mute">U+ Studio — {t("title")}</span>
+                  <h2 id="appointment-modal-title" className="mt-3 font-serif text-4xl sm:text-5xl leading-none text-ink">
+                    {t("title")}
+                  </h2>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="group flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.12em] text-ink"
+                  aria-label={t("cancel")}
+                >
+                  <span className="hidden sm:inline">{ts("nav.close")}</span>
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full border border-line transition-colors group-hover:border-ink group-hover:bg-night hover:text-bone group-hover:text-bone">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth={1.25} d="M6 18L18 6M6 6l12 12" /></svg>
+                  </span>
+                </button>
+              </header>
 
-                {/* Action Buttons */}
-                <div className="flex gap-4 pt-6">
+              <form
+                id="appointment-form"
+                ref={formRef}
+                onSubmit={handleSubmit(onSubmit)}
+                className="custom-scrollbar flex-1 min-h-0 overflow-y-auto px-6 py-10 sm:px-12"
+                noValidate
+              >
+                <AnimatePresence>
+                  {submitStatus === 'success' && (
+                    <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mb-10 flex flex-col items-center gap-5 rounded-[6px] border border-line bg-paper-2 px-6 py-8 text-center text-ink">
+                      <MascotDuo pose="cheer" size="sm" />
+                      <p className="max-w-md text-[16px] leading-relaxed text-ink/90">{cardCopied ? t("successPasteLong") : t("success")}</p>
+                      {sentValues && (
+                        <div className="flex w-full max-w-md flex-col gap-2 sm:flex-row">
+                          <button
+                            type="button"
+                            onClick={() => sharePass(sentValues)}
+                            className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-[3px] border border-bone/60 bg-transparent px-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night"
+                          >
+                            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={1.5} strokeLinecap="round" d="M12 3v12m0-12 4 4m-4-4-4 4M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5" /></svg>
+                            {locale === "tr" ? "Kartı paylaş" : "Share card"}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => downloadPass(sentValues)}
+                            className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-[3px] border border-bone/60 bg-transparent px-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night"
+                          >
+                            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={1.5} strokeLinecap="round" d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14" /></svg>
+                            {locale === "tr" ? "Kartı indir" : "Download card"}
+                          </button>
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+                  {submitStatus === 'error' && submitErrorMessage && (
+                    <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mb-10 border border-clay px-6 py-5 text-clay">
+                      {submitErrorMessage}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <section className="mb-14">
+                  <SectionHeading index="01">{t("personalInfo")}</SectionHeading>
+                  <div className="grid grid-cols-1 gap-x-10 gap-y-8 md:grid-cols-2">
+                    <div className="md:col-span-2">
+                      <label htmlFor="appointment-name" className={labelClass}>{t("name")}</label>
+                      <input id="appointment-name" {...register("name")} autoComplete="name" className={inputClass(!!errors.name)} placeholder={t("namePlaceholder")} />
+                      <FieldError message={errors.name?.message} />
+                    </div>
+                    <div>
+                      <label htmlFor="appointment-email" className={labelClass}>{t("email")}</label>
+                      <input id="appointment-email" type="email" {...register("email")} autoComplete="email" className={inputClass(!!errors.email)} placeholder={t("emailPlaceholder")} />
+                      <FieldError message={errors.email?.message} />
+                    </div>
+                    <div>
+                      <label htmlFor="appointment-phone" className={labelClass}>{t("phone")}</label>
+                      <input id="appointment-phone" type="tel" inputMode="numeric" {...register("phone")} autoComplete="tel" className={inputClass(!!errors.phone)} placeholder={t("phonePlaceholder")} />
+                      <FieldError message={errors.phone?.message} />
+                    </div>
+                  </div>
+
+                  <fieldset className="mt-10">
+                    <legend className={labelClass}>{t("service")}</legend>
+                    <div className="mt-4 grid grid-cols-2 gap-px border border-line bg-line xl:grid-cols-5">
+                      {SERVICES.map((service) => {
+                        const active = values.service === service;
+                        return (
+                          <button
+                            key={service}
+                            type="button"
+                            aria-pressed={active}
+                            onClick={() => setValue("service", service, { shouldValidate: true })}
+                            className={`px-4 py-5 text-left text-sm transition-colors ${active ? "bg-ink text-paper" : "bg-paper text-ink hover:bg-night hover:text-bone"}`}
+                          >
+                            <span className={`block font-mono text-[11px] mb-2 ${active ? "text-paper/60" : "text-mute"}`}>
+                              {String(SERVICES.indexOf(service) + 1).padStart(2, "0")}
+                            </span>
+                            {t(`services.${service}`)}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <FieldError message={errors.service?.message} />
+                  </fieldset>
+                </section>
+
+                <section className="mb-14">
+                  <SectionHeading index="02">{t("schedule")}</SectionHeading>
+                  <div className="grid grid-cols-1 gap-10 xl:grid-cols-[1.3fr_1fr]">
+                    <div>
+                      <AdvancedCalendar
+                        selectedDate={values.date}
+                        onDateSelect={(date) => setValue('date', date, { shouldValidate: true })}
+                        selectedTime={values.time}
+                        onTimeSelect={(time) => setValue('time', time, { shouldValidate: true })}
+                      />
+                      <FieldError message={errors.date?.message} />
+                    </div>
+                    <div>
+                      <p className={labelClass}>{t("time")}</p>
+                      <div className="mt-4 grid grid-cols-4 gap-px border border-line bg-line xl:grid-cols-2">
+                        {TIME_SLOTS.map((slot) => {
+                          const active = values.time === slot;
+                          return (
+                            <button
+                              key={slot}
+                              type="button"
+                              aria-pressed={active}
+                              onClick={() => setValue('time', slot, { shouldValidate: true })}
+                              className={`py-4 font-mono text-[13px] transition-colors ${active ? "bg-ink text-paper" : "bg-paper text-ink hover:bg-night hover:text-bone"}`}
+                            >
+                              {slot}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <FieldError message={errors.time?.message} />
+                      {formattedDate && (
+                        <p className="mt-6 text-sm text-mute">
+                          <span className="text-ink">{formattedDate}</span>
+                          {values.time && <> · <span className="text-ink">{values.time}</span></>}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </section>
+
+                <section className="mb-6">
+                  <SectionHeading index="03">{t("message")}</SectionHeading>
+                  <label htmlFor="appointment-message" className="sr-only">{t("message")}</label>
+                  <textarea
+                    id="appointment-message"
+                    {...messageRegister}
+                    onChange={(e) => {
+                      messageRegister.onChange(e);
+                      messageValueRef.current = e.target.value;
+                    }}
+                    rows={4}
+                    maxLength={500}
+                    required
+                    aria-required="true"
+                    aria-invalid={!!errors.message}
+                    className={`${inputClass(!!errors.message)} resize-none`}
+                    placeholder={t("messagePlaceholder")}
+                  />
+                  <div className="mt-2 flex justify-between">
+                    <FieldError message={errors.message?.message} />
+                    <span className="ml-auto font-mono text-[12px] text-mute">{values.message?.length ?? 0} / 500</span>
+                  </div>
+                </section>
+
+                <p className="mt-10 text-sm text-mute lg:hidden">
+                  {studioInfo.phoneDisplay} · {studioInfo.email}
+                </p>
+              </form>
+
+              <footer className="flex shrink-0 flex-col-reverse gap-3 border-t border-line px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-12">
+                <div className="hidden sm:flex items-center gap-4">
+                  <div className="h-px w-32 bg-line overflow-hidden">
+                    <motion.div className="h-full bg-ink" animate={{ width: `${(completed / 7) * 100}%` }} transition={{ duration: 0.5, ease: EASE }} />
+                  </div>
+                  <span className="font-mono text-[12px] text-mute">{String(completed).padStart(2, "0")} / 07</span>
+                </div>
+                <div className="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:gap-3">
                   <button
                     type="button"
                     onClick={handleClose}
-                    className="flex-1 px-6 py-3 border border-slate-300 text-slate-700 font-medium rounded-lg hover:bg-slate-50 transition-all duration-200"
+                    className="order-2 min-h-12 whitespace-nowrap rounded-[3px] border border-line px-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-ink hover:bg-night sm:order-1 sm:px-6"
                   >
                     {t("cancel")}
                   </button>
                   <button
+                    type="button"
+                    onClick={sendViaWhatsApp}
+                    className="order-3 inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[3px] border border-line px-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night sm:order-2 sm:px-5"
+                  >
+                    {icons.whatsapp}
+                    WhatsApp
+                  </button>
+                  <button
                     type="submit"
+                    form="appointment-form"
                     disabled={isSubmitting}
-                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="group order-1 col-span-2 inline-flex min-h-12 items-center justify-center gap-4 whitespace-nowrap rounded-[3px] border border-ink bg-transparent px-6 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone disabled:opacity-50 sm:order-3 sm:px-8"
                   >
                     {isSubmitting ? t("sending") : t("book")}
+                    <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
                   </button>
                 </div>
-              </div>
-
-              {/* Right Side - Calendar */}
-              <div className="lg:w-96 bg-slate-50 border-l border-slate-200 p-8">
-                {/* Calendar */}
-                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 mb-6">
-                  <h3 className="text-lg font-semibold text-slate-900 mb-6 flex items-center">
-                    <div className="w-1 h-6 bg-indigo-500 rounded-full mr-3"></div>
-                    {t("schedule")}
-                  </h3>
-                  <ErrorMessage name="date" component="p" className="mb-4 text-sm text-red-600" />
-                  <AdvancedCalendar
-                    selectedDate={values.date}
-                    onDateSelect={(date) => setFieldValue('date', date)}
-                    selectedTime={values.time}
-                    onTimeSelect={(time) => setFieldValue('time', time)}
-                  />
-                </div>
-
-                {/* Appointment Card Preview */}
-                {(values.date || values.time) && (
-                  <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 mb-4 flex items-center">
-                      <div className="w-1 h-6 bg-emerald-500 rounded-full mr-3"></div>
-                      Appointment Card
-                    </h3>
-                    <div className="text-center space-y-4">
-                      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-200">
-                        <div className="bg-white rounded-lg p-4 shadow-sm">
-                          <div className="text-center mb-3">
-                            <div className="text-lg font-bold text-blue-900 mb-1">UPlus Studio</div>
-                            <div className="text-sm text-blue-600">Appointment Card</div>
-                          </div>
-                          <div className="bg-blue-100 text-blue-700 text-xs font-medium px-3 py-1 rounded-full inline-block">
-                            ID: #APT${Date.now().toString().slice(-6)}
-                          </div>
-                          <div className="mt-3 space-y-1 text-xs">
-                            <div className="flex justify-between">
-                              <span className="text-gray-600">Name:</span>
-                              <span className="font-medium">{values.name || 'Not provided'}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-xs text-slate-500">
-                        <div className="mb-2">📱 Download your appointment card as JPEG</div>
-                        <div>All fields are required for download</div>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => handleDownload(values)}
-                        className="w-full px-4 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-medium rounded-lg hover:from-emerald-600 hover:to-teal-700 transition-all duration-200 shadow-lg shadow-emerald-500/25"
-                      >
-                        <div className="flex items-center justify-center space-x-2">
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                          <span>Download JPEG Card</span>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </Form>
-          )}
-        </Formik>
-      </div>
-    </div>
+              </footer>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
