@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { preload } from "react-dom";
 import BookingCta from "@/components/studio/BookingCta";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
@@ -21,7 +22,7 @@ const JUMP = {
 const VIDEO = {
   large: "/media/video/villa-transformation.mp4",
   small: "/media/video/villa-transformation-sm.mp4",
-  poster: "/media/video/villa-transformation.jpg",
+  poster: "/media/video/villa-transformation.webp",
 };
 
 export default function HomeHero() {
@@ -41,11 +42,18 @@ export default function HomeHero() {
   const progressRef = useRef<HTMLSpanElement>(null);
   const featured = projects.filter((p) => p.featured);
 
+  preload(VIDEO.poster, { as: "image", fetchPriority: "high" });
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video || reduce) return;
-    video.src = globalThis.innerWidth < 768 ? VIDEO.small : VIDEO.large;
-    video.play().catch(() => {});
+    const start = () => {
+      video.src = globalThis.innerWidth < 768 ? VIDEO.small : VIDEO.large;
+      video.play().catch(() => {});
+    };
+    if (document.readyState === "complete") start();
+    else globalThis.addEventListener("load", start, { once: true });
+    return () => globalThis.removeEventListener("load", start);
   }, [reduce]);
 
   useEffect(() => {
@@ -68,8 +76,8 @@ export default function HomeHero() {
     <section id="home" className="relative h-[100svh] min-h-[540px] overflow-hidden bg-night text-bone">
       <motion.div
         className="absolute inset-0"
-        initial={reduce ? false : { scale: 1.06, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        initial={reduce ? false : { scale: 1.06 }}
+        animate={{ scale: 1 }}
         transition={{ duration: 2, ease: EASE_OUT }}
       >
         <video
@@ -79,7 +87,7 @@ export default function HomeHero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="none"
           aria-label={t("motion.items.villa")}
           disableRemotePlayback
         />
