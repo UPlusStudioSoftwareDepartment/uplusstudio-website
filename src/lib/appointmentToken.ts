@@ -14,7 +14,11 @@ export interface AppointmentTokenData {
 const MAX_AGE_MS = 30 * 24 * 60 * 60 * 1000;
 
 function secret() {
-  return process.env.APPOINTMENT_SECRET || process.env.GMAIL_PASS || "";
+  return (
+    process.env.APPOINTMENT_SECRET ||
+    process.env.GMAIL_PASS ||
+    (process.env.VERCEL_PROJECT_ID ? `uplus-appointment:${process.env.VERCEL_PROJECT_ID}` : "")
+  );
 }
 
 const b64 = (s: string | Buffer) => Buffer.from(s).toString("base64url");
