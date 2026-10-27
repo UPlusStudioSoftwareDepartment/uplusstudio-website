@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import BookingCta from "@/components/studio/BookingCta";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { studioInfo } from "@/lib/studio-info";
@@ -35,14 +36,12 @@ export default function SiteFooter() {
             <p className="mt-6 max-w-md font-serif text-4xl leading-[1.05] sm:text-5xl">
               {t("footer.tagline")}
             </p>
-            <button
-              type="button"
-              onClick={openAppointment}
-              className="group mt-10 inline-flex items-center gap-4 border-b border-bone/40 pb-2 text-lg hover:border-clay hover:text-clay"
-            >
-              {t("nav.appointment")}
-              <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
-            </button>
+            <BookingCta
+              onBook={openAppointment}
+              label={t("nav.appointment")}
+              arrow={<span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>}
+              className="group mt-10 inline-flex min-h-11 items-center gap-4 border-b border-bone/40 pb-2 text-lg hover:border-clay hover:text-clay"
+            />
           </div>
 
           <div className="md:col-span-3 md:col-start-7">

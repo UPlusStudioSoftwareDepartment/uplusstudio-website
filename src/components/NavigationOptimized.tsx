@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import BookingCta from "@/components/studio/BookingCta";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
@@ -258,17 +259,15 @@ export default function Navigation() {
                   <LanguageSelector isDarkText={false} />
                 </div>
                 <SocialLinks className="mt-3 w-full justify-between" tooltip="above" />
-                <button
-                  type="button"
-                  onClick={() => {
+                <BookingCta
+                  onBook={() => {
                     setIsMenuOpen(false);
                     openAppointment();
                   }}
-                  className="mt-[clamp(0.5rem,2dvh,1.25rem)] flex min-h-[clamp(2.5rem,7dvh,3.5rem)] w-full items-center justify-between border border-bone bg-transparent px-5 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:bg-night hover:text-bone active:bg-night active:text-bone"
-                >
-                  {t("appointment")}
-                  <span aria-hidden>→</span>
-                </button>
+                  label={t("appointment")}
+                  arrow={<span aria-hidden>→</span>}
+                  className="mt-[clamp(0.5rem,2dvh,1.25rem)] flex min-h-[clamp(2.75rem,7dvh,3.5rem)] w-full items-center justify-between border border-bone bg-transparent px-5 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:bg-night hover:text-bone active:bg-night active:text-bone"
+                />
               </motion.div>
             </div>
           </motion.div>

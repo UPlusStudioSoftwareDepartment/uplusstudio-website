@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import BookingCta from "@/components/studio/BookingCta";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
@@ -153,14 +154,12 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
               <p className="mt-1 text-2xl font-light tracking-[-0.02em] sm:text-3xl">{t("project.similar")}</p>
             </div>
           </div>
-          <button
-            type="button"
-            onClick={openAppointment}
+          <BookingCta
+            onBook={openAppointment}
+            label={t("nav.appointment")}
+            arrow={<span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>}
             className="group inline-flex min-h-12 items-center justify-between gap-4 border border-ink bg-transparent px-7 py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone"
-          >
-            {t("nav.appointment")}
-            <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
-          </button>
+          />
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import BookingCta from "@/components/studio/BookingCta";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useState, type ReactNode } from "react";
@@ -527,14 +528,12 @@ export default function AboutContent() {
                 {t("cta.button")}
                 <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </Link>
-              <button
-                type="button"
-                onClick={openAppointment}
-                className="group inline-flex items-center gap-3 self-start whitespace-nowrap border-b border-ink/40 pb-1 text-[15px] transition-colors hover:border-clay hover:text-clay sm:self-auto"
-              >
-                {t("cta.appointment")}
-                <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </button>
+              <BookingCta
+                onBook={openAppointment}
+                label={t("cta.appointment")}
+                arrow={<span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>}
+                className="group inline-flex min-h-11 items-center gap-3 self-start whitespace-nowrap border-b border-ink/40 pb-1 text-[15px] transition-colors hover:border-clay hover:text-clay sm:self-auto"
+              />
             </div>
           </FadeUp>
         </div>

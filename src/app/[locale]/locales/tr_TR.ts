@@ -12,6 +12,7 @@ export const studio_tr = {
     "menu": "Menü",
     "close": "Kapat",
     "appointment": "Randevu Al",
+    "callNow": "Şimdi Ara",
     "reachUs": "Bize ulaşın",
     "follow": "Takip edin"
   },

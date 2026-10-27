@@ -12,6 +12,7 @@ export const studio_en = {
     "menu": "Menu",
     "close": "Close",
     "appointment": "Book a meeting",
+    "callNow": "Call now",
     "reachUs": "Get in touch",
     "follow": "Follow"
   },

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import BookingCta from "@/components/studio/BookingCta";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
@@ -148,14 +149,12 @@ export default function HomeHero() {
                 <path d="M0 -4 L1.2 -1.2 L4 0 L1.2 1.2 L0 4 L-1.2 1.2 L-4 0 L-1.2 -1.2 Z" fill="#fff6d6" />
               </motion.svg>
             </div>
-            <button
-              type="button"
-              onClick={openAppointment}
+            <BookingCta
+              onBook={openAppointment}
               onMouseEnter={celebrate}
-              className="inline-flex items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:border-bone hover:bg-night"
-            >
-              {t("nav.appointment")}
-            </button>
+              label={t("nav.appointment")}
+              className="inline-flex min-h-11 items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:border-bone hover:bg-night"
+            />
           </motion.div>
         </div>
 
