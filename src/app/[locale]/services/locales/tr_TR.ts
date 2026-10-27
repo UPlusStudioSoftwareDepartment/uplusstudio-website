@@ -18,6 +18,7 @@ export const services_tr = {
         "allTitle": ["Projenize uygun", "*hizmeti seçin.*"],
         "allIntro": "Mimar ve mühendis aynı ekipte: tek bir hizmetle başlayabilir, ihtiyaç oldukça diğerlerini ekleyebilirsiniz.",
         "allCta": "Bu hizmet için görüşme",
+        "allDetail": "Hizmet detayı",
         "allMessage": "{service} hizmeti hakkında görüşmek istiyorum. Projemin konumu ve kısa açıklaması: ",
         "disciplinesTitle": ["Ne *yapıyoruz*"],
         "scope": "Kapsam",

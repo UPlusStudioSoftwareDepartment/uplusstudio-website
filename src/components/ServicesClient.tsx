@@ -15,6 +15,7 @@ import ShowcaseModal, { type Showcase } from "@/components/studio/ShowcaseModal"
 import { examplePair, type ExamplePair } from "@/lib/showcase";
 import { priceRange } from "@/lib/pricing";
 import { STUDIO_SERVICES } from "@/lib/services";
+import { LANDING_BY_BOOKING } from "@/lib/serviceLandings";
 import { services_tr } from "@/app/[locale]/services/locales/tr_TR";
 import { services_en } from "@/app/[locale]/services/locales/en_US";
 
@@ -290,6 +291,14 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
                 {page.allCta}
                 <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </button>
+              {LANDING_BY_BOOKING[service.booking] && (
+                <Link
+                  href={`/${lang}/services/${LANDING_BY_BOOKING[service.booking]}`}
+                  className="mt-3 inline-flex min-h-11 items-center font-mono text-[12px] uppercase tracking-[0.12em] text-mute underline-offset-4 hover:text-ink hover:underline"
+                >
+                  {page.allDetail} →
+                </Link>
+              )}
             </li>
           ))}
         </ol>

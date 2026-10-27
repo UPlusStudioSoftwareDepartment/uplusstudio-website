@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import { locales } from "@/lib/i18n-config";
 import { projects } from "@/lib/projects";
+import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
 import { localePath, PAGE_PATH, SITE_URL } from "@/lib/seo";
 
 const PATHS = [
   PAGE_PATH.home,
   PAGE_PATH.about,
   PAGE_PATH.services,
+  ...SERVICE_LANDINGS.map((s) => `/services/${s.slug}`),
   PAGE_PATH.projects,
   ...projects.map((p) => `/projects/${p.slug}`),
   PAGE_PATH.contact,

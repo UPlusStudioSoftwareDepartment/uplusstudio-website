@@ -18,6 +18,7 @@ export const services_en = {
         "allTitle": ["Pick the service", "*your project needs.*"],
         "allIntro": "Architect and engineer on one team: start with a single service and add others as the project grows.",
         "allCta": "Book this service",
+        "allDetail": "Service details",
         "allMessage": "I would like to talk about {service}. My project's location and a short description: ",
         "disciplinesTitle": ["What we *do*"],
         "scope": "Scope",

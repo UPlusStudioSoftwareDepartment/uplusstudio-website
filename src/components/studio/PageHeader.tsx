@@ -44,7 +44,7 @@ export default function PageHeader({ index, label, titleLines, intro, image, met
 
       <div className="mx-auto w-full max-w-[2560px] px-4 pb-10 pt-36 sm:px-8 sm:pb-14 lg:px-12">
         <motion.div
-          className="flex items-center justify-between gap-4 font-mono text-[12px] uppercase tracking-[0.14em] text-bone/70"
+          className="flex items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.14em] text-bone/70 sm:text-[12px]"
           initial={reduce ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.15 }}
@@ -58,12 +58,12 @@ export default function PageHeader({ index, label, titleLines, intro, image, met
         </motion.div>
 
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
-          <h1 className="display text-[clamp(3rem,9.5vw,9.5rem)] lg:col-span-8 [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal">
+          <h1 className="display text-[clamp(2rem,6.4vw,9.5rem)] sm:text-[clamp(3rem,9.5vw,9.5rem)] lg:col-span-8 [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal">
             <LineReveal lines={titleLines} immediate delay={0.25} />
           </h1>
           {intro && (
             <motion.div
-              className="max-w-md text-[17px] leading-relaxed text-bone/75 lg:col-span-4 lg:pb-3"
+              className="max-w-md text-[12px] leading-relaxed text-bone/75 sm:text-[17px] lg:col-span-4 lg:pb-3"
               initial={reduce ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: EASE_OUT, delay: 0.6 }}
@@ -82,8 +82,8 @@ export default function PageHeader({ index, label, titleLines, intro, image, met
           >
             {meta.map((m) => (
               <div key={m.label} className="min-w-0 pt-5">
-                <dt className="font-mono text-[12px] uppercase tracking-[0.12em] text-bone/50">{m.label}</dt>
-                <dd className="mt-2 text-[15px] text-bone [&_a:hover]:text-bone [&_a]:text-bone">{m.value}</dd>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.12em] text-bone/60 sm:text-[12px]">{m.label}</dt>
+                <dd className="mt-2 text-[11px] text-bone sm:text-[15px] [&_a:hover]:text-bone [&_a]:text-bone">{m.value}</dd>
               </div>
             ))}
           </motion.dl>

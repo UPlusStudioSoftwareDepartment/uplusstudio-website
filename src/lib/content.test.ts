@@ -1,0 +1,58 @@
+import { describe, it, expect } from "vitest";
+import { gmailComposeUrl, mailPlatform, mailtoUrl } from "./gmailCompose";
+import { STUDIO_SERVICES } from "./services";
+import { SERVICE_LANDINGS, LANDING_BY_BOOKING } from "./serviceLandings";
+import { getProject } from "./projects";
+import { appointmentApiSchema } from "./validations";
+
+describe("mail links", () => {
+  it("encodes Turkish text and line breaks in mailto links", () => {
+    const url = mailtoUrl("info@uplusstudio.com.tr", "Randevu — İç Mimarlık", "Ad: Şükrü\nTarih: 4 Kasım");
+    expect(url.startsWith("mailto:info@uplusstudio.com.tr?subject=")).toBe(true);
+    expect(decodeURIComponent(url.split("body=")[1])).toBe("Ad: Şükrü\nTarih: 4 Kasım");
+  });
+
+  it("omits the body when the card is pasted instead", () => {
+    expect(gmailComposeUrl("info@uplusstudio.com.tr", "Konu")).not.toContain("body=");
+    expect(gmailComposeUrl("info@uplusstudio.com.tr", "Konu", "Metin")).toContain("body=Metin");
+  });
+
+  it("treats a server render as desktop", () => {
+    expect(mailPlatform()).toBe("desktop");
+  });
+});
+
+describe("service architecture", () => {
+  it("lists the same ten services in both languages", () => {
+    expect(STUDIO_SERVICES.tr).toHaveLength(10);
+    expect(STUDIO_SERVICES.en).toHaveLength(10);
+    expect(STUDIO_SERVICES.tr.map((s) => s.booking)).toEqual(STUDIO_SERVICES.en.map((s) => s.booking));
+  });
+
+  it("only links service pages to real projects and unique slugs", () => {
+    const slugs = SERVICE_LANDINGS.map((s) => s.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+    for (const landing of SERVICE_LANDINGS) {
+      for (const slug of landing.projects) expect(getProject(slug), `${landing.slug} → ${slug}`).toBeDefined();
+      expect(landing.copy.tr.description.length).toBeLessThanOrEqual(160);
+      expect(landing.copy.en.description.length).toBeLessThanOrEqual(160);
+    }
+  });
+
+  it("maps each landing page to a bookable service", () => {
+    for (const landing of SERVICE_LANDINGS) expect(LANDING_BY_BOOKING[landing.booking]).toBe(landing.slug);
+  });
+});
+
+describe("appointment api schema", () => {
+  it("accepts a request without date and time", () => {
+    const parsed = appointmentApiSchema.safeParse({
+      name: "Test Kişi",
+      email: "test@example.com",
+      phone: "0532 123 45 67",
+      service: "İç Mimarlık",
+      message: "Salon ve mutfak için keşif görüşmesi.",
+    });
+    expect(parsed.success).toBe(true);
+  });
+});
