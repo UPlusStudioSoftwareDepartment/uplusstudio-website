@@ -1,22 +1,31 @@
 import { useEffect } from "react";
 
+let locks = 0;
+let savedScrollY = 0;
+
 export function useScrollLock(open: boolean): void {
   useEffect(() => {
     if (!open) return;
 
-    const scrollY = globalThis.scrollY;
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = "100%";
-    document.body.style.overflow = "hidden";
+    if (locks === 0) {
+      savedScrollY = globalThis.scrollY;
+      const body = document.body.style;
+      body.position = "fixed";
+      body.top = `-${savedScrollY}px`;
+      body.width = "100%";
+      body.overflow = "hidden";
+    }
+    locks += 1;
 
     return () => {
-      const savedScrollY = document.body.style.top;
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-      document.body.style.overflow = "";
-      globalThis.scrollTo(0, Number.parseInt(savedScrollY ?? "0", 10) * -1);
+      locks -= 1;
+      if (locks > 0) return;
+      const body = document.body.style;
+      body.position = "";
+      body.top = "";
+      body.width = "";
+      body.overflow = "";
+      globalThis.scrollTo({ top: savedScrollY, left: 0, behavior: "instant" });
     };
   }, [open]);
 }
