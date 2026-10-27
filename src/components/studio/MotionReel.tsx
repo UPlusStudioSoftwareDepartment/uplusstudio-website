@@ -33,7 +33,7 @@ export default function MotionReel() {
         </h2>
         <div className="flex items-end justify-between gap-6 lg:col-span-3 lg:flex-col lg:items-end">
           <p className="max-w-xs text-[15px] leading-relaxed text-mute lg:text-right">{t("body")}</p>
-          <div className="flex gap-2">
+          <div className="hidden gap-2 sm:flex">
             {([-1, 1] as const).map((dir) => (
               <button
                 key={dir}
@@ -51,15 +51,15 @@ export default function MotionReel() {
 
       <div
         ref={trackRef}
-        className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 px-4 sm:gap-6 sm:scroll-px-8 sm:px-8 lg:scroll-px-12 lg:px-12"
+        className="no-scrollbar flex flex-col gap-12 px-4 sm:snap-x sm:snap-mandatory sm:flex-row sm:gap-6 sm:overflow-x-auto sm:scroll-px-8 sm:px-8 lg:scroll-px-12 lg:px-12"
       >
         {REELS.map((reel, i) => (
           <Link
             key={reel.key}
             href={`/${locale}/projects/${reel.slug}`}
-            className="group shrink-0 snap-start"
+            className="group block sm:shrink-0 sm:snap-start"
           >
-            <Fullscreenable className={`relative h-[62vh] max-h-[640px] min-h-[380px] overflow-hidden bg-paper-2 ${reel.aspect}`}>
+            <Fullscreenable className={`relative w-full overflow-hidden bg-paper-2 sm:h-[62vh] sm:max-h-[640px] sm:min-h-[380px] sm:w-auto ${reel.aspect}`}>
               <InViewVideo src={reel.src} poster={reel.poster} label={t(`items.${reel.key}`)} className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-[1.03]" />
             </Fullscreenable>
             <div className="mt-4 flex items-baseline gap-4">

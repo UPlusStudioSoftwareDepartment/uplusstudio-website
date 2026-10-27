@@ -261,10 +261,10 @@ interface DuoProps {
   pose?: MascotPose;
   message?: string;
   className?: string;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md";
 }
 
-const SIZES = { sm: "h-20 w-20", md: "h-32 w-32", lg: "h-44 w-44 sm:h-52 sm:w-52" };
+const SIZES = { sm: "h-11 w-11 sm:h-20 sm:w-20", md: "h-11 w-11 sm:h-32 sm:w-32" };
 
 export function MascotDuo({ pose = "idle", message, className = "", size = "md" }: Readonly<DuoProps>) {
   const reduce = useReducedMotion();
@@ -273,7 +273,7 @@ export function MascotDuo({ pose = "idle", message, className = "", size = "md" 
     <div className={`relative inline-flex flex-col items-center ${className}`}>
       {message && (
         <motion.p
-          className="mb-3 max-w-[18rem] text-center font-serif text-[17px] italic leading-snug text-current opacity-90"
+          className="mb-3 max-w-[18rem] text-center font-serif text-[15px] italic leading-snug text-current opacity-90 sm:text-[17px]"
           initial={reduce ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 0.9, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -281,7 +281,7 @@ export function MascotDuo({ pose = "idle", message, className = "", size = "md" 
           {message}
         </motion.p>
       )}
-      <div className="flex items-end -space-x-5" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+      <div className="flex items-end -space-x-3 sm:-space-x-5" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
         <Hayzer pose={pose} joy={hovered} className={SIZES[size]} offset={0} />
         <Rayzer pose={pose === "wave" ? "idle" : pose} joy={hovered} className={SIZES[size]} offset={0.45} />
       </div>

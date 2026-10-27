@@ -104,7 +104,7 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
             <Eyebrow tone="light" className="mb-10">{t("project.film")}</Eyebrow>
             <FadeUp>
               <div
-                className={`relative mx-auto overflow-hidden ${isPortrait(project.video) ? "h-[min(82svh,900px)] aspect-[9/16]" : "w-full"}`}
+                className={`relative mx-auto overflow-hidden ${isPortrait(project.video) ? "aspect-[9/16] w-[min(100%,calc(min(82svh,900px)*9/16))]" : "w-full"}`}
                 style={isPortrait(project.video) ? undefined : { aspectRatio: `${project.video.width} / ${project.video.height}` }}
               >
                 <Fullscreenable className="absolute inset-0">
@@ -147,7 +147,7 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
 
       <section className="mx-auto max-w-[2560px] px-4 pb-24 sm:px-8 lg:px-12">
         <div className="flex flex-col gap-6 border-y border-line py-10 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-end gap-6">
+          <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:gap-6">
             <MascotDuo pose="wave" size="sm" />
             <div>
               <p className="font-serif text-lg italic text-mute">{t("mascots.project")}</p>

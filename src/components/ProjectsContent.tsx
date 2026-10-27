@@ -225,7 +225,7 @@ export default function ProjectsContent() {
           <button
             type="button"
             onClick={openAppointment}
-            className="group inline-flex min-h-12 items-center gap-4 border border-ink bg-transparent px-7 py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone"
+            className="group inline-flex min-h-12 w-full items-center justify-between gap-4 border border-ink bg-transparent px-7 py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone sm:w-auto sm:justify-start"
           >
             {tm("projectsCta")}
             <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
