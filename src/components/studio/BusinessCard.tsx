@@ -32,8 +32,9 @@ const COPY = {
     copyImage: "Kartı kopyala",
     imageCopied: "Kart kopyalandı — sohbete yapıştırabilirsiniz",
     holdToSave: "Kaydetmek için görsele basılı tutun",
+    pasteCard: "Kart kopyalandı — açılan sohbette Ctrl+V ile yapıştırın",
     shareHint: "Kart görselini kopyalayıp WhatsApp, Instagram gibi uygulamalara yapıştırabilir ya da bağlantıyı paylaşabilirsiniz.",
-    message: "U+ Studio — Mimarlık & İç Mimarlık & Mühendislik. Projeniz için bize ulaşın:",
+    message: "U+ Studio — Mimarlık & İç Mimarlık & Mühendislik · İncek, Gölbaşı / Ankara",
     failed: "İşlem tamamlanamadı, tekrar deneyin",
   },
   en: {
@@ -50,8 +51,9 @@ const COPY = {
     copyImage: "Copy card",
     imageCopied: "Card copied — paste it into any chat",
     holdToSave: "Press and hold the image to save it",
+    pasteCard: "Card copied — paste it into the chat with Ctrl+V",
     shareHint: "Copy the card image and paste it into WhatsApp, Instagram and other apps, or share the link.",
-    message: "U+ Studio — Architecture & Interior Architecture & Engineering. Get in touch about your project:",
+    message: "U+ Studio — Architecture & Interior Architecture & Engineering · İncek, Gölbaşı / Ankara",
     failed: "Something went wrong, please try again",
   },
 };
@@ -69,12 +71,12 @@ function shareTargets(url: string, text: string) {
   const u = encodeURIComponent(url);
   const t = encodeURIComponent(text);
   return [
-    { key: "whatsapp", label: "WhatsApp", href: `https://wa.me/?text=${t}%20${u}`, icon: icons.whatsapp },
+    { key: "whatsapp", label: "WhatsApp", href: `https://wa.me/?text=${t}`, icon: icons.whatsapp },
     { key: "telegram", label: "Telegram", href: `https://t.me/share/url?url=${u}&text=${t}`, icon: <BrandIcon d={shareIcons.telegram} /> },
-    { key: "x", label: "X", href: `https://twitter.com/intent/tweet?text=${t}&url=${u}`, icon: <BrandIcon d={shareIcons.x} /> },
+    { key: "x", label: "X", href: `https://twitter.com/intent/tweet?text=${t}`, icon: <BrandIcon d={shareIcons.x} /> },
     { key: "facebook", label: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${u}`, icon: <BrandIcon d={shareIcons.facebook} /> },
     { key: "linkedin", label: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`, icon: <BrandIcon d={shareIcons.linkedin} /> },
-    { key: "email", label: "E-posta", href: `mailto:?subject=${encodeURIComponent("U+ Studio")}&body=${t}%0A${u}`, icon: icons.email },
+    { key: "email", label: "E-posta", href: mailPlatform() === "desktop" ? `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent("U+ Studio")}&body=${t}` : `mailto:?subject=${encodeURIComponent("U+ Studio")}&body=${t}`, icon: icons.email },
   ];
 }
 
@@ -188,6 +190,17 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
     } finally {
       setBusy(null);
     }
+  };
+
+  const shareTo = async (href: string) => {
+    let copied = false;
+    try {
+      await navigator.clipboard.write([new ClipboardItem({ "image/png": cardImage() })]);
+      copied = true;
+    } catch {}
+    if (href.startsWith("mailto:")) globalThis.location.href = href;
+    else if (!globalThis.open(href, "_blank", "noopener,noreferrer")) globalThis.location.href = href;
+    if (copied) flash(c.pasteCard);
   };
 
   const handleCopyImage = async () => {
@@ -315,15 +328,10 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
                       </li>
                       {targets.map((tg) => (
                         <li key={tg.key} className="h-full">
-                          <a
-                            href={tg.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={tileClass}
-                          >
+                          <button type="button" onClick={() => shareTo(tg.href)} className={tileClass}>
                             {tg.icon}
                             {tg.label}
-                          </a>
+                          </button>
                         </li>
                       ))}
                       <li className="h-full">

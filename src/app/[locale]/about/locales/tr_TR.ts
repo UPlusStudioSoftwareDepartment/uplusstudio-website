@@ -6,8 +6,8 @@ export const about_tr = {
     "vision": "Bugün geleceğin mimarisini tasarlayarak insan odaklı ve doğaya saygı duyan yaşam alanları yaratmak.",
     "header": {
         "label": "Stüdyo",
-        "line1": "Mimarlık ve",
-        "accent": "mühendislik,",
+        "line1": "Mimarlık, iç mimarlık",
+        "accent": "ve mühendislik,",
         "line2": "tek masada.",
         "imageAlt": "Yüksek Mimar Hacer Uyar, U+ Studio ofisinde"
     },

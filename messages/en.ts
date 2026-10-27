@@ -197,9 +197,8 @@ const app_en={
     "subtitle": "Choose from our professional architectural packages tailored to your project's size and needs",
     "popular": "Most Popular",
     "project": "Project",
-    "purchase": "Purchase",
-    "processing": "Processing...",
-    "purchaseAlert": "Purchasing package: ",
+    "purchase": "Request a quote",
+    "requestMessage": "I'd like a quote and an initial meeting for the {name} package ({price} + VAT). My project's location and approximate size: ",
     "customPackage": {
       "title": "Request Custom Package",
       "description": "Let us prepare a custom package for your project's specific needs",
@@ -520,7 +519,8 @@ const app_en={
     "sending": "Sending...",
     "success": "Your message has been sent successfully!",
     "error": "An error occurred while sending the message. Please try again.",
-    "errorNotConfigured": "Email service is not configured. Please try again later or contact us via the contact page."
+    "errorNotConfigured": "Email service is not configured. Please try again later or contact us via the contact page.",
+    "mailReady": "Your message is ready as an email — just press Send."
   },
   "faq": faq_en,
   "glossary": glossary_en,

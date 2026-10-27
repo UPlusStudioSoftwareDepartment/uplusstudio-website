@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { useState, useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from '@/components/studio/Reveal';
 import { useAppointment } from '@/contexts/AppointmentContext';
@@ -34,15 +34,6 @@ const SECTOR_TIERS: PackageTier[] = ['cafe', 'gym'];
 
 const CONTAINER = 'mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12';
 
-function Spinner() {
-  return (
-    <svg className="h-4 w-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden>
-      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-    </svg>
-  );
-}
-
 const PACKAGE_IMAGES: Record<string, { src: string; alt: { tr: string; en: string } }> = {
   basic: { src: "/media/projects/konut-ic-mekan/living-1.jpg", alt: { tr: "Konut iç mekânı — oturma alanı", en: "Residential interior — living area" } },
   starter: { src: "/media/projects/konut-ic-mekan/bedroom-1.jpg", alt: { tr: "Konut iç mekânı — yatak odası", en: "Residential interior — bedroom" } },
@@ -56,8 +47,7 @@ export default function ServicePackages() {
   const t = useTranslations('packages');
   const locale = useLocale();
   const page = useServicesCopy().page;
-  const { openAppointment } = useAppointment();
-  const [isNavigating, setIsNavigating] = useState<PackageTier | null>(null);
+  const { openAppointment, openAppointmentWith } = useAppointment();
 
   const packages = useMemo<Package[]>(() => [
     {
@@ -181,54 +171,30 @@ export default function ServicePackages() {
     },
   ], [t]);
 
-  const handlePurchase = useCallback(async (pkgId: PackageTier) => {
-    try {
-      setIsNavigating(pkgId);
-      const currentPath = globalThis.location.pathname;
-      const locale = currentPath.split('/')[1] || 'tr';
-
-      globalThis.location.href = `/${locale}/payment?package=${pkgId}`;
-    } catch {
-      setIsNavigating(null);
-    }
-  }, []);
-
   const numberLocale = locale === 'en' ? 'en-US' : 'tr-TR';
   const formatPrice = (price: number) => `₺${price.toLocaleString(numberLocale)}`;
 
-  if (!packages.length) {
-    return (
-      <div className="py-24 text-center">
-        <p className="eyebrow text-mute">Loading packages...</p>
-      </div>
-    );
-  }
+  const requestPackage = (pkg: Package) =>
+    openAppointmentWith({
+      service: SECTOR_TIERS.includes(pkg.id) ? 'commercial' : undefined,
+      message: t('requestMessage', { name: pkg.name, price: formatPrice(pkg.price) }),
+    });
 
   const designPackages = packages.filter((p) => !SECTOR_TIERS.includes(p.id));
   const sectorPackages = packages.filter((p) => SECTOR_TIERS.includes(p.id));
 
   const renderButton = (pkg: Package, inverted: boolean) => {
-    const busy = isNavigating === pkg.id;
     const tone = inverted
       ? 'border-clay/70 text-bone hover:border-bone hover:bg-night hover:text-bone'
       : 'border-ink/50 text-ink hover:border-bone hover:bg-night hover:text-bone';
     return (
       <button
         type="button"
-        onClick={() => handlePurchase(pkg.id)}
-        disabled={busy}
-        aria-busy={busy}
+        onClick={() => requestPackage(pkg)}
         aria-label={`${t('purchase')} — ${pkg.name}`}
-        className={`group/btn inline-flex w-full items-center justify-between gap-4 rounded-[3px] border bg-transparent px-5 py-4 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${tone}`}
+        className={`group/btn inline-flex w-full items-center justify-between gap-4 rounded-[3px] border bg-transparent px-5 py-4 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors duration-300 ${tone}`}
       >
-        {busy ? (
-          <span className="inline-flex items-center gap-3">
-            <Spinner />
-            {t('processing')}
-          </span>
-        ) : (
-          t('purchase')
-        )}
+        {t('purchase')}
         <span aria-hidden className="transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
       </button>
     );

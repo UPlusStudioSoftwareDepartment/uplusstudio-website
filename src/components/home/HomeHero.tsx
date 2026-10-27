@@ -90,6 +90,10 @@ export default function HomeHero() {
       <div className="relative z-10 mx-auto flex h-full max-w-[2560px] flex-col justify-end px-4 pb-6 sm:px-8 sm:pb-10 lg:px-12">
         <motion.p className="eyebrow mb-5 text-bone/75 sm:mb-8" {...fadeIn(0.2)}>
           {t("hero.eyebrow")}
+          <span className="mt-1.5 block text-bone sm:ml-3 sm:mt-0 sm:inline">
+            <span className="mr-3 hidden text-bone/40 sm:inline" aria-hidden>·</span>
+            {t("hero.place")}
+          </span>
         </motion.p>
 
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">

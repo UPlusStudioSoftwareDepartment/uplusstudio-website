@@ -1,5 +1,6 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { sharedMessages } from "@/lib/clientMessages";
 import { notFound } from "next/navigation";
 import { isLocaleSupported } from "@/lib/i18n-config";
 import SetDocumentLocale from "@/components/SetDocumentLocale";
@@ -27,7 +28,7 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages} timeZone="Europe/Istanbul">
+    <NextIntlClientProvider locale={locale} messages={sharedMessages(messages)} timeZone="Europe/Istanbul">
       <ToastProvider>
         <AppointmentProvider>
           <SetDocumentLocale />

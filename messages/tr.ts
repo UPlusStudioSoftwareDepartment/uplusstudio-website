@@ -197,9 +197,8 @@ const app_tr = {
     "subtitle": "Projenizin büyüklüğüne ve ihtiyaçlarınıza uygun profesyonel mimari paketlerimizden seçim yapın",
     "popular": "En Popüler",
     "project": "Proje",
-    "purchase": "Satın Al",
-    "processing": "İşleniyor...",
-    "purchaseAlert": "Paket satın alınıyor: ",
+    "purchase": "Teklif iste",
+    "requestMessage": "{name} paketi ({price} + KDV) için teklif ve ön görüşme talep ediyorum. Projemin konumu ve yaklaşık metrekaresi: ",
     "customPackage": {
       "title": "Özel Paket İsteyin",
       "description": "Projenizin spesifik ihtiyaçları için size özel bir paket hazırlayalım",

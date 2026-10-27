@@ -31,6 +31,7 @@ export function gmailComposeUrl(to: string, subject: string, body?: string) {
 export type MailPlatform = "ios" | "android" | "desktop";
 
 export function mailPlatform(): MailPlatform {
+  if (typeof navigator === "undefined") return "desktop";
   const ua = navigator.userAgent;
   if (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) return "ios";
   if (/Android/i.test(ua)) return "android";

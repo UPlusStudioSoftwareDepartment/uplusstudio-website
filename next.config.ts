@@ -54,6 +54,13 @@ const nextConfig: NextConfig = {
   },
 
   productionBrowserSourceMaps: false,
+
+  async redirects() {
+    return [
+      { source: "/:locale(tr|en)/:path(payment|purchase)/:rest*", destination: "/:locale/services", permanent: true },
+      { source: "/purchase", destination: "/tr/services", permanent: true },
+    ];
+  },
   
   webpack: (config, { dev, isServer, webpack }) => {
     if (!dev && !isServer) {

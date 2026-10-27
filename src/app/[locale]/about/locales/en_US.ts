@@ -6,8 +6,8 @@ export const about_en = {
     "vision": "To create human-centric and nature-respecting living spaces by designing the architecture of the future today.",
     "header": {
         "label": "Studio",
-        "line1": "Architecture and",
-        "accent": "engineering,",
+        "line1": "Architecture, interiors",
+        "accent": "and engineering,",
         "line2": "at one table.",
         "imageAlt": "Master Architect Hacer Uyar in the U+ Studio office"
     },

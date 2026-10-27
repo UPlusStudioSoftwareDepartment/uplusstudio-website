@@ -212,7 +212,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     ctx.stroke();
     ctx.fillStyle = 'rgba(237,233,225,0.6)';
     ctx.font = 'bold 10px sans-serif';
-    ctx.fillText('ACCESS PRIVILEGE PASS', width / 2, 215);
+    ctx.fillText(locale === 'tr' ? 'RANDEVU KARTI' : 'APPOINTMENT CARD', width / 2, 215);
   };
 
   const drawMessageBlock = (
@@ -262,9 +262,9 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     ctx.textAlign = 'right';
     ctx.fillStyle = 'rgba(255,255,255,0.6)';
     ctx.font = 'bold 10px monospace';
-    ctx.fillText('UP-' + Math.random().toString(36).slice(2, 11).toUpperCase(), width - 60, luxuryBarcodeY + 25);
+    ctx.fillText('U+ STUDIO', width - 60, luxuryBarcodeY + 25);
     ctx.font = 'bold 8px sans-serif';
-    ctx.fillText('VERIFIED AUTHENTIC', width - 60, luxuryBarcodeY + 40);
+    ctx.fillText('İNCEK · GÖLBAŞI / ANKARA', width - 60, luxuryBarcodeY + 40);
   };
 
   function drawPassToCanvas(

@@ -272,12 +272,6 @@ export function siteGraph(locale: Locale): JsonLdNode {
             itemOffered: { "@type": "Service", name, areaServed: "Ankara" },
           })),
         },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: studioInfo.googleRating,
-          reviewCount: studioInfo.googleReviewCount,
-          bestRating: "5",
-        },
         sameAs: [
           studioInfo.instagramUrl,
           GOOGLE_MAPS_CID_URL,

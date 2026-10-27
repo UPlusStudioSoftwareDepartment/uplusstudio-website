@@ -5,7 +5,9 @@ import type { Locale } from "@/lib/i18n-config";
 import { Suspense } from "react";
 import GlossaryContent from "@/components/GlossaryContent";
 import { PageLoaderFull } from "@/components/ui/PageLoader";
-import { getTranslations } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { withNamespaces } from "@/lib/clientMessages";
 
 type Term = { key: string; term: string; definition: string };
 
@@ -41,9 +43,11 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <JsonLd data={[webPageLd(locale, "glossary", "WebPage"), breadcrumbLd(locale, [[SEO_COPY[locale].glossary.crumb, "/glossary"]]), await glossaryLd(locale)]} />
-      <Suspense fallback={<PageLoaderFull />}>
-        <GlossaryContent />
-      </Suspense>
+      <NextIntlClientProvider locale={locale} messages={withNamespaces(await getMessages({ locale }), ["glossary"])} timeZone="Europe/Istanbul">
+        <Suspense fallback={<PageLoaderFull />}>
+          <GlossaryContent />
+        </Suspense>
+      </NextIntlClientProvider>
     </>
   );
 }

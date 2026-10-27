@@ -57,5 +57,6 @@ export const contact_en = {
     "sending": "Sending...",
     "success": "Your message has been sent successfully!",
     "error": "An error occurred while sending the message. Please try again.",
-    "errorNotConfigured": "Email service is not configured. Please try again later or email us directly."
+    "errorNotConfigured": "Email service is not configured. Please try again later or email us directly.",
+    "mailReady": "Your message is ready as an email — just press Send."
 }

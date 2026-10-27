@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbLd, pageMetadata, resolveLocale, SEO_COPY, webPageLd } from "@/lib/seo";
-import AboutWrapper from "@/components/AboutWrapper";
+import AboutContent from "@/components/AboutContent";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -14,7 +14,7 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <JsonLd data={[webPageLd(locale, "about", "AboutPage"), breadcrumbLd(locale, [[SEO_COPY[locale].about.crumb, "/about"]])]} />
-      <AboutWrapper />
+      <AboutContent />
     </>
   );
 }

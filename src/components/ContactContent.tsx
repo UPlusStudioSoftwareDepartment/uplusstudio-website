@@ -17,6 +17,7 @@ import { useToast } from "@/contexts/ToastContext";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { useSearchParams } from "next/navigation";
 import { studioInfo } from "@/lib/studio-info";
+import { gmailComposeUrl, mailPlatform, mailtoUrl, openUrl } from "@/lib/gmailCompose";
 
 const CONTAINER = "mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12";
 const INPUT =
@@ -114,11 +115,14 @@ export default function ContactContent() {
             });
             const json = await res.json().catch(() => ({}));
             if (!res.ok) {
-                const apiError = (json?.error as string) || "Gönderilemedi";
-                const message = apiError === "Email service not configured"
-                    ? t("errorNotConfigured")
-                    : t("error");
-                toast.error(message);
+                if (json?.error === "Email service not configured") {
+                    const body = `${data.message}\n\n— ${data.name} · ${data.email}`;
+                    if (mailPlatform() === "desktop") openUrl(gmailComposeUrl(studioInfo.email, data.subject, body));
+                    else globalThis.location.href = mailtoUrl(studioInfo.email, data.subject, body);
+                    toast.success(t("mailReady"));
+                    return;
+                }
+                toast.error(t("error"));
                 return;
             }
             reset();

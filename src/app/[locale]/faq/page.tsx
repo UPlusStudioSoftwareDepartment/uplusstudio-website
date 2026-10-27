@@ -3,7 +3,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbLd, pageMetadata, resolveLocale, SEO_COPY, webPageLd } from "@/lib/seo";
 import type { Locale } from "@/lib/i18n-config";
 import FAQContent from "@/components/FAQContent";
-import { getTranslations } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { withNamespaces } from "@/lib/clientMessages";
 
 type QA = { q: string; a: string };
 
@@ -29,7 +31,9 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <JsonLd data={[breadcrumbLd(locale, [[SEO_COPY[locale].faq.crumb, "/faq"]]), await faqLd(locale)]} />
-      <FAQContent />
+      <NextIntlClientProvider locale={locale} messages={withNamespaces(await getMessages({ locale }), ["faq", "faq_en"])} timeZone="Europe/Istanbul">
+        <FAQContent />
+      </NextIntlClientProvider>
     </>
   );
 }

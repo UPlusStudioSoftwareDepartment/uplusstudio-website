@@ -57,5 +57,6 @@ export const contact_tr = {
     "sending": "Gönderiliyor...",
     "success": "Mesajınız başarıyla gönderildi!",
     "error": "Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.",
-    "errorNotConfigured": "E-posta servisi şu an yapılandırılmadı. Lütfen daha sonra tekrar deneyin veya doğrudan e-posta ile yazın."
+    "errorNotConfigured": "E-posta servisi şu an yapılandırılmadı. Lütfen daha sonra tekrar deneyin veya doğrudan e-posta ile yazın.",
+    "mailReady": "Mesajınız e-posta olarak hazırlandı — Gönder'e basmanız yeterli."
 }
