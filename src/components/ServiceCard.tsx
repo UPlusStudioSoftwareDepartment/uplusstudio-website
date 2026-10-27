@@ -86,16 +86,21 @@ function QR({
   );
 }
 
+const external = (href: string) => (href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {});
+
 function Row({
   icon,
+  href,
   children,
-}: Readonly<{ icon: ReactNode; children: ReactNode }>) {
+}: Readonly<{ icon: ReactNode; href: string; children: ReactNode }>) {
   return (
-    <li className="flex items-center gap-2.5">
-      <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center text-bone/55 [&_img]:h-3.5 [&_img]:w-3.5 [&_svg]:h-3.5 [&_svg]:w-3.5">
-        {icon}
-      </span>
-      <span className="min-w-0 truncate">{children}</span>
+    <li>
+      <a href={href} {...external(href)} className="flex items-center gap-2.5 transition-colors hover:text-clay">
+        <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center text-bone/55 [&_img]:h-3.5 [&_img]:w-3.5 [&_svg]:h-3.5 [&_svg]:w-3.5">
+          {icon}
+        </span>
+        <span className="min-w-0 truncate">{children}</span>
+      </a>
     </li>
   );
 }
@@ -198,11 +203,12 @@ export default function ServiceCard({
           <div>
             <p className={`${LABEL} mb-3`}>{c.contact}</p>
             <ul className="space-y-2.5 text-[14px] @md:space-y-2 @md:text-[12.5px]">
-              <Row icon={icons.phone}>{studioInfo.phoneDisplay}</Row>
-              <Row icon={icons.whatsapp}>{studioInfo.phoneDisplay}</Row>
-              <Row icon={icons.email}>{studioInfo.email}</Row>
-              <Row icon={icons.instagram}>{studioInfo.instagramHandle}</Row>
+              <Row icon={icons.phone} href={studioInfo.phoneHref}>{studioInfo.phoneDisplay}</Row>
+              <Row icon={icons.whatsapp} href={studioInfo.whatsappUrl}>{studioInfo.phoneDisplay}</Row>
+              <Row icon={icons.email} href={`mailto:${studioInfo.email}`}>{studioInfo.email}</Row>
+              <Row icon={icons.instagram} href={studioInfo.instagramUrl}>{studioInfo.instagramHandle}</Row>
               <Row
+                href={`https://www.${SITE}/${locale}`}
                 icon={
                   <svg
                     fill="none"
@@ -221,7 +227,7 @@ export default function ServiceCard({
           </div>
           <div>
             <p className={`${LABEL} mb-3`}>{c.studio}</p>
-            <div className="flex gap-2.5 text-[14px] leading-relaxed @md:text-[12.5px]">
+            <a href={studioInfo.mapsUrl} {...external(studioInfo.mapsUrl)} className="flex gap-2.5 text-[14px] leading-relaxed transition-colors hover:text-clay @md:text-[12.5px]">
               <span className="mt-[3px] flex h-3.5 w-3.5 shrink-0 items-center justify-center text-bone/55 [&_svg]:h-3.5 [&_svg]:w-3.5">
                 {icons.google}
               </span>
@@ -237,18 +243,18 @@ export default function ServiceCard({
                   </span>
                 ))}
               </p>
-            </div>
+            </a>
           </div>
           <div>
             <p className={`${LABEL} mb-3`}>{c.findUs}</p>
             <ul className="space-y-2.5 text-[14px] @md:space-y-2 @md:text-[12.5px]">
               {[
-                icons.google,
-                icons.yandex,
-                icons.armut,
-                icons.peyzajRehber,
-              ].map((icon, i) => (
-                <Row key={c.platforms[i]} icon={icon}>
+                { icon: icons.google, href: studioInfo.mapsUrl },
+                { icon: icons.yandex, href: studioInfo.yandexMapsUrl },
+                { icon: icons.armut, href: studioInfo.armutUrl },
+                { icon: icons.peyzajRehber, href: studioInfo.peyzajRehberUrl },
+              ].map(({ icon, href }, i) => (
+                <Row key={c.platforms[i]} icon={icon} href={href}>
                   {c.platforms[i]}{" "}
                   <span className="text-bone/45">· U+ Studio</span>
                 </Row>
@@ -289,8 +295,8 @@ export default function ServiceCard({
             className="-mb-1 -mr-1 flex shrink-0 items-end -space-x-3"
             aria-hidden
           >
-            <Hayzer pose="wave" className="h-14 w-14" />
-            <Rayzer className="h-14 w-14" />
+            <Hayzer pose="wave" className="h-11 w-11 sm:h-14 sm:w-14" />
+            <Rayzer className="h-11 w-11 sm:h-14 sm:w-14" />
           </div>
         </div>
 
