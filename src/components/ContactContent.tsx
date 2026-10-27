@@ -69,7 +69,7 @@ function DetailRow({ label, href, external, children }: Readonly<DetailRowProps>
                 <a
                     href={href}
                     {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="group inline-flex items-start gap-4 break-words text-[clamp(1.375rem,2.4vw,2.25rem)] font-light leading-[1.15] tracking-[-0.02em] text-ink transition-colors duration-300 hover:text-clay"
+                    className="group inline-flex items-start gap-4 break-words text-[clamp(1.125rem,1.6vw,1.5rem)] font-light leading-[1.15] tracking-[-0.02em] text-ink transition-colors duration-300 hover:text-clay"
                 >
                     <span className="min-w-0">{children}</span>
                     <span
