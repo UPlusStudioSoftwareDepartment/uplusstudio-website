@@ -176,10 +176,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
     }
     setBusy("share");
     try {
-      const file = await cardImage();
-      if (typeof navigator.canShare === "function" && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: "U+ Studio", text: c.discipline });
-      } else if (typeof navigator.share === "function" && mailPlatform() !== "desktop") {
+      if (typeof navigator.share === "function") {
         await navigator.share({ title: "U+ Studio", text: c.message, url: shareUrl });
       } else {
         setPanelOpen(true);

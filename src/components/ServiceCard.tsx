@@ -106,12 +106,14 @@ export default function ServiceCard({
   className = "",
   children,
   footer,
+  topAction,
 }: Readonly<{
   ref?: Ref<HTMLDivElement>;
   locale?: "tr" | "en";
   className?: string;
   children?: ReactNode;
   footer?: ReactNode;
+  topAction?: ReactNode;
 }>) {
   const c = COPY[locale];
   return (
@@ -140,6 +142,7 @@ export default function ServiceCard({
             className="h-auto w-[132px] mix-blend-screen @md:w-[150px]"
           />
           <div className="flex shrink-0 flex-col items-end gap-1 pt-1 text-right">
+            {topAction}
             <span className="flex items-center gap-1.5 font-mono text-[12px] tracking-[0.08em]">
               <svg
                 className="h-3 w-3 text-[#f4b400]"
