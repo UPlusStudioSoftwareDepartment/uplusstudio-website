@@ -101,6 +101,15 @@ test("language switch keeps the visitor on the same page", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("lang", /^en/);
 });
 
+test("project pages link to the service landing that lists them", async ({ page }) => {
+  const landing = SERVICE_LANDINGS.find((s) => s.projects.includes("modern-villa"))!;
+  await page.goto("/tr/projects/modern-villa");
+  const link = page.getByRole("link", { name: landing.copy.tr.title });
+  await expect(link).toHaveAttribute("href", `/tr/services/${landing.slug}`);
+  await link.click();
+  await expect(page).toHaveURL(new RegExp(`/tr/services/${landing.slug}$`));
+});
+
 test("page header intro shows before the app hydrates", async ({ page }) => {
   await page.route(/\/_next\/static\/chunks\/.+\.js$/, (route) => route.abort());
   await page.goto("/tr/about");

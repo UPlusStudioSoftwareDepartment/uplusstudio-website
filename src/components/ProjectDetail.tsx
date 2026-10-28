@@ -12,6 +12,7 @@ import Fullscreenable from "@/components/studio/Fullscreenable";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { getAdjacentProject, getProject, projectNumber, type ProjectImage } from "@/lib/projects";
+import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
 import type { Locale } from "@/lib/i18n-config";
 
 const isPortrait = (img: { width: number; height: number }) => img.height > img.width;
@@ -25,6 +26,7 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
 
   const portraitCover = isPortrait(project.cover);
   const category = t(`work.categories.${project.category}`);
+  const landings = SERVICE_LANDINGS.filter((s) => s.projects.includes(slug));
 
   return (
     <article className="text-ink">
@@ -72,6 +74,22 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
                 <dd className="mt-2 whitespace-pre-line text-[15px] leading-relaxed text-ink">{row.value}</dd>
               </div>
             ))}
+            {landings.length > 0 && (
+              <div className="border-t border-line py-5">
+                <dt className="eyebrow text-mute">{t("nav.services")}</dt>
+                <dd className="mt-2 text-[15px] leading-relaxed text-ink">
+                  {landings.map((s) => (
+                    <Link
+                      key={s.slug}
+                      href={`/${locale}/services/${s.slug}`}
+                      className="block w-fit underline decoration-ink/30 underline-offset-4 transition-colors not-first:mt-2 hover:text-clay hover:decoration-clay"
+                    >
+                      {s.copy[locale].title} →
+                    </Link>
+                  ))}
+                </dd>
+              </div>
+            )}
           </dl>
           <FadeUp className="lg:col-span-7 lg:col-start-6">
             <p className="text-[clamp(1.4rem,2.4vw,2.25rem)] font-light leading-[1.3] tracking-[-0.015em] text-ink">
