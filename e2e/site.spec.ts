@@ -184,6 +184,17 @@ test("footer and business card small print meet AA contrast", async ({ page }) =
   expect(await lowContrastText(page.getByRole("main"))).toEqual([]);
 });
 
+test("business card logo loads eagerly only on the card page", async ({ page }) => {
+  const preload = page.locator('link[rel="preload"][as="image"][imagesrcset*="general_black_cuted"]');
+  await page.goto("/tr/about");
+  await page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first().click();
+  await expect(page.getByRole("dialog", { name: "Dijital kartvizit" }).getByRole("img", { name: "U+ Studio" })).toHaveAttribute("loading", "lazy");
+  await expect(preload).toHaveCount(0);
+  await page.goto("/tr/kartvizit");
+  await expect(page.getByRole("main").getByRole("img", { name: "U+ Studio" })).not.toHaveAttribute("loading", "lazy");
+  await expect(preload).toHaveCount(1);
+});
+
 test.describe("phones", () => {
   test.skip(({ isMobile }) => !isMobile, "phone-only behaviour");
 

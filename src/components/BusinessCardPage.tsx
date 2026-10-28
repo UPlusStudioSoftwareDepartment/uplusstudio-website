@@ -22,6 +22,7 @@ export default function BusinessCardPage({ locale }: Readonly<{ locale: "tr" | "
       <h1 className="sr-only">{c.title}</h1>
       <ServiceCard
         locale={locale}
+        priority
         topAction={
           <Link
             href={`/${locale}`}

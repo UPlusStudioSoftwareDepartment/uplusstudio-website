@@ -112,6 +112,7 @@ export default function ServiceCard({
   children,
   footer,
   topAction,
+  priority = false,
 }: Readonly<{
   ref?: Ref<HTMLDivElement>;
   locale?: "tr" | "en";
@@ -119,6 +120,7 @@ export default function ServiceCard({
   children?: ReactNode;
   footer?: ReactNode;
   topAction?: ReactNode;
+  priority?: boolean;
 }>) {
   const c = COPY[locale];
   return (
@@ -144,6 +146,7 @@ export default function ServiceCard({
             width={300}
             height={120}
             alt="U+ Studio"
+            priority={priority}
             className="h-auto w-[132px] mix-blend-screen @md:w-[150px]"
           />
           <div className="flex shrink-0 flex-col items-end gap-1 pt-1 text-right">
