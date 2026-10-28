@@ -224,12 +224,12 @@ export default function HomeHero() {
         </div>
 
         <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start xl:grid-cols-[auto_minmax(auto,calc(33.333%_-_16px))_auto_auto_auto] xl:items-stretch xl:justify-between xl:gap-x-10 [@media(max-height:560px)]:hidden">
-          <p className="eyebrow flex flex-col gap-1 md:col-span-12 lg:col-span-3 xl:col-span-1 xl:gap-2">
+          <p className="eyebrow flex flex-col gap-1 md:col-span-5 xl:col-span-1 xl:gap-2">
             <Link href={`/${locale}/services/incek-golbasi-mimarlik-ofisi`} className="w-fit text-bone transition-colors hover:text-bone/70 xl:flex xl:h-6 xl:items-center">{t("hero.place")}</Link>
             <span className="text-bone/60 xl:flex xl:h-6 xl:items-center">{t("hero.country")}</span>
           </p>
 
-          <div className="md:col-span-6 lg:col-span-4 xl:col-span-1">
+          <div className="md:col-span-7 xl:col-span-1">
             <span className="flex items-center gap-2.5 xl:h-6">
               <button
                 type="button"
@@ -266,18 +266,20 @@ export default function HomeHero() {
             </span>
           </div>
 
-          {listed.map((column) => (
-            <ul key={column[0].slug} className="hidden translate-y-2 flex-col justify-end gap-2 xl:flex">
-              {column.map((p) => (
-                <li key={p.slug} className="flex h-6 items-center">
-                  <Link href={`/${locale}/projects/${p.slug}`} className="group flex items-baseline gap-3 whitespace-nowrap text-[14px] text-bone/70 hover:text-bone">
-                    <span className="font-mono text-[11px] text-bone/60">{projectNumber(p.slug)}</span>
-                    <span className="border-b border-transparent group-hover:border-bone/60">{p.title[locale]}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ))}
+          <div className="hidden md:col-span-12 md:flex md:justify-between md:gap-x-6 xl:contents">
+            {listed.map((column) => (
+              <ul key={column[0].slug} className="flex flex-col justify-end gap-2 xl:translate-y-2">
+                {column.map((p) => (
+                  <li key={p.slug} className="flex h-6 items-center">
+                    <Link href={`/${locale}/projects/${p.slug}`} className="group flex items-baseline gap-3 whitespace-nowrap text-[14px] text-bone/70 hover:text-bone">
+                      <span className="font-mono text-[11px] text-bone/60">{projectNumber(p.slug)}</span>
+                      <span className="border-b border-transparent group-hover:border-bone/60">{p.title[locale]}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
         </div>
       </div>
     </section>

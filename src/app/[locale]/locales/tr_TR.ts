@@ -126,7 +126,7 @@ export const studio_tr = {
     "social": "Sosyal",
     "address": studioInfo.address.join("\n"),
     "rights": "Tüm hakları saklıdır.",
-    "tagline": "Mimarlık, önce düşünmekle başlar.",
+    "tagline": "Mimarlık, önce<br></br>düşünmekle başlar.",
     "backToTop": "Başa dön",
     "privacy": "KVKK Aydınlatma Metni"
   },

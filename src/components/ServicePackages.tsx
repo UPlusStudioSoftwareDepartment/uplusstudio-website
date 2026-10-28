@@ -220,15 +220,15 @@ export default function ServicePackages() {
           <div className="lg:col-span-4">
             <Eyebrow>{page.packagesEyebrow}</Eyebrow>
           </div>
-          <div className="lg:col-span-8">
+          <div className="text-center lg:col-span-12">
             <h2
               id="packages-title"
-              className="display text-[clamp(2.5rem,6vw,5.5rem)] text-ink"
+              className="display text-[clamp(2.5rem,6vw,5.5rem)] text-ink [&>span>span]:ml-0"
             >
               <LineReveal lines={[t('title')]} />
             </h2>
             <FadeUp>
-              <p className="mt-8 max-w-xl text-[17px] leading-relaxed text-mute">{t('subtitle')}</p>
+              <p className="mx-auto mt-8 max-w-xl text-[17px] leading-relaxed text-mute">{t('subtitle')}</p>
             </FadeUp>
           </div>
         </div>

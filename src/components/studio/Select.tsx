@@ -48,7 +48,12 @@ export default function Select({ id, value, options, placeholder, invalid, descr
   });
 
   useEffect(() => {
-    if (open) listRef.current?.querySelector<HTMLElement>(`[data-index="${active}"]`)?.scrollIntoView({ block: "nearest" });
+    const list = listRef.current;
+    const option = list?.querySelector<HTMLElement>(`[data-index="${active}"]`);
+    if (!open || !list || !option) return;
+    const bottom = option.offsetTop + option.offsetHeight;
+    if (option.offsetTop < list.scrollTop) list.scrollTop = option.offsetTop;
+    else if (bottom > list.scrollTop + list.clientHeight) list.scrollTop = bottom - list.clientHeight;
   }, [open, active]);
 
   const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {

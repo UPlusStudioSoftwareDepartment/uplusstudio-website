@@ -17,7 +17,7 @@ export const about_en = {
         "practiceLabel": "Practice",
         "practice": "Architecture & Interior Architecture & Engineering",
         "foundersLabel": "Founders",
-        "founders": "Hacer Uyar and Rıdvan Uyar",
+        "founders": "<name>Hacer Uyar</name> and <name>Rıdvan Uyar</name>",
         "contactLabel": "Contact"
     },
     "labels": {

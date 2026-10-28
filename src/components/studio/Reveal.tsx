@@ -14,23 +14,20 @@ interface MaskRevealProps {
 }
 
 export function MaskReveal({ children, className = "", delay = 0, from = "bottom" }: Readonly<MaskRevealProps>) {
-  const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.15 });
   const hidden = from === "bottom" ? "inset(100% 0% 0% 0%)" : "inset(0% 100% 0% 0%)";
 
-  if (reduce) return <div className={`overflow-hidden ${className}`}>{children}</div>;
-
   return (
     <div ref={ref} className={className}>
       <m.div
-        className="relative h-full w-full overflow-hidden"
+        className="relative h-full w-full overflow-hidden motion-reduce:![clip-path:none]"
         initial={{ clipPath: hidden }}
         animate={inView ? { clipPath: "inset(0% 0% 0% 0%)" } : undefined}
         transition={{ duration: 1.2, ease: EASE_STUDIO, delay }}
       >
         <m.div
-          className="relative h-full w-full"
+          className="relative h-full w-full motion-reduce:![transform:none]"
           initial={{ scale: 1.12 }}
           animate={inView ? { scale: 1 } : undefined}
           transition={{ duration: 1.6, ease: EASE_OUT, delay }}

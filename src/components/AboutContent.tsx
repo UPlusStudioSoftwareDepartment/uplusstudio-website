@@ -126,7 +126,7 @@ function FounderProfile({
           rel="noopener noreferrer"
           onClick={openInLinkedInApp}
           aria-label={`${person.name} — LinkedIn`}
-          className="absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 border-black text-black drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)] transition-colors hover:bg-black/10 sm:right-3 sm:top-3 [&_svg]:h-5 [&_svg]:w-5"
+          className="absolute right-2 top-2 z-10 flex h-[22px] w-[22px] items-center justify-center rounded-full border border-black text-black transition-colors after:absolute after:-inset-3 after:content-[''] hover:bg-black/10 sm:right-3 sm:top-3 [&_svg]:h-2.5 [&_svg]:w-2.5"
         >
           {icons.linkedin}
         </a>
@@ -245,7 +245,12 @@ export default function AboutContent() {
             ),
           },
           { label: t("meta.practiceLabel"), value: t("meta.practice") },
-          { label: t("meta.foundersLabel"), value: t("meta.founders") },
+          { label: t("meta.foundersLabel"), value: (
+              <span className="text-[13px] sm:text-[15px]">
+                {t.rich("meta.founders", { name: (chunks) => <span className="whitespace-nowrap">{chunks}</span> })}
+              </span>
+            ),
+          },
           {
             label: t("meta.contactLabel"),
             value: (
@@ -532,8 +537,8 @@ export default function AboutContent() {
 
       <section className={`${CONTAINER} py-32 sm:py-48`} aria-labelledby="about-cta">
         <Eyebrow>{t("cta.label")}</Eyebrow>
-        <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-end lg:gap-8">
-          <h2 id="about-cta" className={`display text-[clamp(2.75rem,8.5vw,8.5rem)] text-ink lg:col-span-8 ${EM}`}>
+        <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
+          <h2 id="about-cta" className={`display text-[clamp(2.75rem,8.5vw,8.5rem)] text-ink ${EM}`}>
             <LineReveal
               lines={[
                 t("cta.line1"),
@@ -543,8 +548,10 @@ export default function AboutContent() {
               ]}
             />
           </h2>
-          <FadeUp className="lg:col-span-4 lg:pb-4" delay={0.2}>
-            <MascotDuo pose="wave" size="sm" message={tm("about")} className="mb-8" />
+          <FadeUp delay={0.2}>
+            <div className="mb-8 flex justify-center">
+              <MascotDuo pose="wave" size="sm" message={tm("about")} />
+            </div>
             <p className="max-w-sm text-[17px] leading-relaxed text-mute">{t("cta.note")}</p>
             <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-10">
               <Link

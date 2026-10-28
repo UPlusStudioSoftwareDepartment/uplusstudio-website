@@ -52,6 +52,7 @@ const DISCIPLINE_IMAGE_SIZES: Partial<Record<DisciplineKey, string>> = {
 
 const CONTAINER = "mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12";
 const HEADING = "display text-ink [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal";
+const CENTERED = "text-center lg:col-span-12 [&>span>span]:ml-0";
 
 function DisciplineBlock({
   index,
@@ -225,7 +226,7 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
           <div className="lg:col-span-4">
             <Eyebrow>{page.disciplinesEyebrow}</Eyebrow>
           </div>
-          <h2 id="disciplines-title" className={`text-[clamp(2.5rem,6vw,5.5rem)] lg:col-span-8 ${HEADING}`}>
+          <h2 id="disciplines-title" className={`text-[clamp(2.5rem,6vw,5.5rem)] ${CENTERED} ${HEADING}`}>
             <LineReveal lines={page.disciplinesTitle.map((l) => withEm(l))} />
           </h2>
         </div>
@@ -280,8 +281,8 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
             <Eyebrow>{page.allEyebrow}</Eyebrow>
             <p className="mt-6 max-w-sm text-[16px] leading-relaxed text-mute">{page.allIntro}</p>
           </div>
-          <h2 id="all-services-title" className={`text-[clamp(2.25rem,5vw,4.5rem)] lg:col-span-8 ${HEADING}`}>
-            <LineReveal lines={page.allTitle.map((l) => withEm(l))} />
+          <h2 id="all-services-title" className={`text-[clamp(2.25rem,5vw,4.5rem)] ${CENTERED} ${HEADING}`}>
+            <LineReveal lines={[withEm(page.allTitle.join(" "))]} />
           </h2>
         </div>
         <ol className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:mt-16 xl:grid-cols-5">
@@ -350,11 +351,11 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
           <div className="lg:col-span-4">
             <Eyebrow>{page.processEyebrow}</Eyebrow>
           </div>
-          <div className="lg:col-span-8">
-            <h2 id="process-title" className={`text-[clamp(2.5rem,6vw,5.5rem)] ${HEADING}`}>
+          <div className="lg:col-span-12">
+            <h2 id="process-title" className={`text-[clamp(2.5rem,6vw,5.5rem)] ${CENTERED} ${HEADING}`}>
               <LineReveal lines={[copy.process.title]} />
             </h2>
-            <p className="mt-6 font-serif text-xl italic text-mute">{copy.process.subtitle}</p>
+            <p className="mt-6 text-center font-serif text-xl italic text-mute">{copy.process.subtitle}</p>
           </div>
         </div>
         <ProcessTimeline steps={copy.process.steps} />
@@ -365,12 +366,12 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
       <section aria-labelledby="services-cta-title" className="relative isolate mt-28 overflow-hidden text-bone sm:mt-40">
         <FramedImage src="/media/projects/pastane/interior.jpg" alt="" sizes="100vw" className="-z-10 opacity-60" />
         <div className="absolute inset-0 -z-10 bg-linear-to-r from-night via-night/80 to-night/30" aria-hidden />
-        <div className={`${CONTAINER} grid grid-cols-1 gap-12 py-28 sm:py-40 lg:grid-cols-12`}>
-          <div className="lg:col-span-3">
+        <div className={`${CONTAINER} grid grid-cols-1 gap-12 py-28 sm:py-40 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-16`}>
+          <div>
             <Eyebrow tone="light">{page.ctaEyebrow}</Eyebrow>
             <MascotDuo pose="think" size="md" message={tm("services")} className="mt-10 text-bone" />
           </div>
-          <div className="lg:col-span-8">
+          <div>
             <h2 id="services-cta-title" className="display text-[clamp(2.5rem,6.5vw,6rem)] text-bone">
               <LineReveal lines={[copy.cta.title]} />
             </h2>

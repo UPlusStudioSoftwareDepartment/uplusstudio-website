@@ -126,7 +126,7 @@ export const studio_en = {
     "social": "Social",
     "address": studioInfo.address.join("\n"),
     "rights": "All rights reserved.",
-    "tagline": "Architecture begins with thinking.",
+    "tagline": "Architecture begins<br></br>with thinking.",
     "backToTop": "Back to top",
     "privacy": "Privacy notice"
   },

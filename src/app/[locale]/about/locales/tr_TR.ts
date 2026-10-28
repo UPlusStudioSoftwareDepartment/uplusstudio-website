@@ -17,7 +17,7 @@ export const about_tr = {
         "practiceLabel": "Pratik",
         "practice": "Mimarlık & İç Mimarlık & Mühendislik",
         "foundersLabel": "Kurucular",
-        "founders": "Hacer Uyar ve Rıdvan Uyar",
+        "founders": "<name>Hacer Uyar</name> ve <name>Rıdvan Uyar</name>",
         "contactLabel": "İletişim"
     },
     "labels": {
