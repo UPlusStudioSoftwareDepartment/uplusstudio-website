@@ -124,7 +124,7 @@ function FounderProfile({
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`${person.name} — LinkedIn`}
-          className="absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center text-[#0A66C2] drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition-opacity hover:opacity-80 sm:right-3 sm:top-3 [&_svg]:h-6 [&_svg]:w-6"
+          className="absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 border-black text-black drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)] transition-colors hover:bg-black/10 sm:right-3 sm:top-3 [&_svg]:h-5 [&_svg]:w-5"
         >
           {icons.linkedin}
         </a>

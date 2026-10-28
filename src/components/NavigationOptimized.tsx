@@ -128,7 +128,7 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className={`flex items-center gap-4 xl:gap-6 ${textTone}`}>
+          <div className={`flex items-center gap-4 max-[359px]:gap-1.5 xl:gap-6 ${textTone}`}>
             <div className="hidden lg:block">
               <LanguageSelector isDarkText={!overDark} />
             </div>
@@ -140,6 +140,7 @@ export default function Navigation() {
             <div className="lg:hidden">
               <LanguageSelector isDarkText={!overDark} />
             </div>
+            <SocialLinks only={["google", "whatsapp", "instagram"]} className="-mx-2 lg:hidden [&_svg]:h-3 [&_svg]:w-3" />
 
             <button
               type="button"

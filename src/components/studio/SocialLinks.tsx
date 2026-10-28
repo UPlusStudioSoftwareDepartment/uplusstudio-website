@@ -208,11 +208,14 @@ const ITEMS: Item[] = [
 export default function SocialLinks({
   className = "",
   tooltip = "below",
-}: Readonly<{ className?: string; tooltip?: "below" | "above" }>) {
+  only,
+}: Readonly<{ className?: string; tooltip?: "below" | "above"; only?: string[] }>) {
   const locale = useLocale();
   const [isPhone, setIsPhone] = useState(false);
   const [cardOpen, setCardOpen] = useState(false);
-  const visibleItems = ITEMS.filter((item) => !item.phoneOnly || isPhone);
+  const visibleItems = only
+    ? only.flatMap((key) => ITEMS.filter((item) => item.key === key))
+    : ITEMS.filter((item) => !item.phoneOnly || isPhone);
   const below = tooltip === "below";
 
   useEffect(() => {
