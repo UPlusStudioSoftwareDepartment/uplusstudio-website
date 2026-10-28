@@ -34,13 +34,13 @@ npm run test:e2e
 
 - `npm run test`: Vitest birim testleri (`src/lib/**/*.test.ts`).
 - `npm run test:e2e`: Playwright ile masaüstü ve telefon (Pixel 7) tarayıcı testleri. Çalışan bir sunucu yoksa `npm run start` ile kendi sunucusunu açar; önce `npm run build` gerekir. Başka bir adresi test etmek için `BASE_URL=https://... npm run test:e2e`.
-- Randevu testleri e-posta göndermez: Gmail penceresi ve pano tarayıcı içinde yakalanır.
+- Randevu testleri e-posta göndermez: Gmail penceresi ve pano tarayıcı içinde yakalanır. `BASE_URL` canlı siteyi gösterdiğinde e-posta gönderen iki API de test içinde yanıtlanır; testler stüdyoya posta atamaz.
 
 ## Yayına alma
 
 - `main` dalına yapılan her push, Vercel'de otomatik olarak canlıya çıkar. Push'tan önce yukarıdaki dört komutun yerelde geçtiğinden emin olun.
 - GitHub Actions (`.github/workflows/ci.yml`) her push ve pull request'te lint, birim testleri, build ve tarayıcı testlerini çalıştırır.
-- Canlı yayın tamamlandığında `.github/workflows/smoke.yml` canlı sitedeki sayfaları ve iç bağlantıları salt okunur olarak kontrol eder.
+- `.github/workflows/smoke.yml` canlı sitedeki sayfaları, iç bağlantıları ve 404 yanıtını salt okunur olarak kontrol eder: Vercel bir GitHub deployment olayı gönderdiğinde, her gün 08:00'de (TSİ) ve Actions sekmesinden elle.
 
 ## Geri alma
 
