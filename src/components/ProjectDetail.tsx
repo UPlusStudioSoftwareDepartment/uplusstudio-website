@@ -31,11 +31,11 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
       <header className="relative min-h-[100svh] overflow-hidden bg-night text-bone">
         {portraitCover ? (
           <div className="absolute inset-y-0 right-0 w-full md:w-[46%]">
-            <Image src={project.cover.src} alt={project.cover.alt[locale]} fill priority sizes="(min-width:768px) 46vw, 100vw" className="object-cover opacity-70 md:opacity-100" />
+            <Image src={project.cover.src} alt={project.cover.alt[locale]} fill priority fetchPriority="high" sizes="(min-width:768px) 46vw, 100vw" className="object-cover opacity-70 md:opacity-100" />
           </div>
         ) : (
           <div className="absolute inset-0 animate-[settle_2.2s_var(--ease-out-studio)_backwards] [--settle:1.08] motion-reduce:animate-none">
-            <Image src={project.cover.src} alt={project.cover.alt[locale]} fill priority sizes="100vw" className="object-cover" />
+            <Image src={project.cover.src} alt={project.cover.alt[locale]} fill priority fetchPriority="high" sizes="100vw" className="object-cover" />
           </div>
         )}
         <div

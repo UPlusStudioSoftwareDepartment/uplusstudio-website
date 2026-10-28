@@ -30,7 +30,7 @@ export default function PageHeader({ index, label, titleLines, intro, image, met
   return (
     <header className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-night text-bone">
       <div className="absolute inset-0 -z-10 animate-[settle_2.4s_var(--ease-out-studio)_backwards] [--settle:1.12] motion-reduce:animate-none">
-        <Image src={src} alt={image?.alt ?? ""} fill priority sizes="100vw" className="object-cover" />
+        <Image src={src} alt={image?.alt ?? ""} fill priority fetchPriority="high" sizes="100vw" className="object-cover" />
       </div>
       <div className="absolute inset-0 -z-10 bg-linear-to-t from-paper via-night/50 to-night/35" aria-hidden />
       <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-linear-to-b from-night/70 to-transparent" aria-hidden />

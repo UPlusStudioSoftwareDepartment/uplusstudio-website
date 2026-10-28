@@ -46,6 +46,10 @@ const DISCIPLINE_IMAGES: Record<DisciplineKey, string> = {
   project: "/media/projects/ofis-yenileme/site-banner.jpg",
 };
 
+const DISCIPLINE_IMAGE_SIZES: Partial<Record<DisciplineKey, string>> = {
+  project: "(min-width: 1024px) 25vw, 56vw",
+};
+
 const CONTAINER = "mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12";
 const HEADING = "display text-ink [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal";
 
@@ -54,6 +58,7 @@ function DisciplineBlock({
   service,
   image,
   imageAlt,
+  imageSizes = "(min-width: 1024px) 45vw, 100vw",
   scopeLabel,
   ctaLabel,
   exampleLabel,
@@ -63,6 +68,7 @@ function DisciplineBlock({
   service: ServicesCopy["services"][DisciplineKey];
   image: string;
   imageAlt: string;
+  imageSizes?: string;
   scopeLabel: string;
   ctaLabel: string;
   exampleLabel: string;
@@ -79,13 +85,13 @@ function DisciplineBlock({
       >
         {onExample ? (
           <button type="button" onClick={onExample} aria-label={`${service.title} — ${exampleLabel}`} className="group/img absolute inset-0 block">
-            <FramedImage src={image} alt={imageAlt} sizes="(min-width: 1024px) 50vw, 100vw" />
+            <FramedImage src={image} alt={imageAlt} sizes={imageSizes} />
             <span className="absolute bottom-4 right-4 rounded-[3px] bg-night/75 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-bone backdrop-blur-sm transition-colors group-hover/img:bg-night">
               {exampleLabel} →
             </span>
           </button>
         ) : (
-          <FramedImage src={image} alt={imageAlt} sizes="(min-width: 1024px) 50vw, 100vw" />
+          <FramedImage src={image} alt={imageAlt} sizes={imageSizes} />
         )}
       </MaskReveal>
 
@@ -232,6 +238,7 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
               service={copy.services[key]}
               image={DISCIPLINE_IMAGES[key]}
               imageAlt={page.disciplineImages[key]}
+              imageSizes={DISCIPLINE_IMAGE_SIZES[key]}
               scopeLabel={page.scope}
               ctaLabel={page.ctaButton}
               exampleLabel={ts("showcase.cta")}

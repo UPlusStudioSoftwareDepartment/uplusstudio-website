@@ -8,10 +8,10 @@ import Fullscreenable from "@/components/studio/Fullscreenable";
 import { Eyebrow, LineReveal } from "@/components/studio/Reveal";
 
 const REELS = [
-  { key: "residence", slug: "konut-uygulama", src: "/media/video/residence-walkthrough.mp4", poster: "/media/video/residence-walkthrough.jpg", aspect: "aspect-[9/16]" },
-  { key: "living", slug: "konut-ic-mekan", src: "/media/video/living-room.mp4", poster: "/media/video/living-room.jpg", aspect: "aspect-[3/2]" },
-  { key: "office", slug: "ofis-yenileme", src: "/media/video/office-before-after.mp4", poster: "/media/video/office-before-after.jpg", aspect: "aspect-[9/16]" },
-  { key: "bedroom", slug: "konut-ic-mekan", src: "/media/video/bedroom.mp4", poster: "/media/video/bedroom.jpg", aspect: "aspect-[4/3]" },
+  { key: "residence", slug: "konut-uygulama", src: "/media/video/residence-walkthrough.mp4", poster: "/media/video/residence-walkthrough.webp", aspect: "aspect-[9/16]" },
+  { key: "living", slug: "konut-ic-mekan", src: "/media/video/living-room.mp4", poster: "/media/video/living-room.webp", aspect: "aspect-[3/2]" },
+  { key: "office", slug: "ofis-yenileme", src: "/media/video/office-before-after.mp4", poster: "/media/video/office-before-after.webp", aspect: "aspect-[9/16]" },
+  { key: "bedroom", slug: "konut-ic-mekan", src: "/media/video/bedroom.mp4", poster: "/media/video/bedroom.webp", aspect: "aspect-[4/3]" },
 ] as const;
 
 export default function MotionReel() {
