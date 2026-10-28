@@ -1,56 +1,49 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { m, useReducedMotion } from "framer-motion";
 import PageHeader from "@/components/studio/PageHeader";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { EASE_OUT } from "@/components/studio/Reveal";
-import { pad } from "@/lib/glossary";
+import GlossaryList from "@/components/GlossaryList";
+import { pad, type Term } from "@/lib/glossary";
 
 type GlossaryContentProps = {
     total: number;
+    sections: { letter: string; items: Term[] }[];
     counts: Record<string, number>;
     alphabet: string[];
-    children: ReactNode;
 };
 
-export default function GlossaryContent({ total, counts, alphabet, children }: Readonly<GlossaryContentProps>) {
+export default function GlossaryContent({ total, sections, counts, alphabet }: Readonly<GlossaryContentProps>) {
     const t = useTranslations("glossary");
     const tm = useTranslations("studio.mascots");
     const locale = useLocale();
     const reduce = useReducedMotion();
     const uid = useId();
     const listTopRef = useRef<HTMLDivElement>(null);
-    const listRef = useRef<HTMLDivElement>(null);
 
     const [searchQuery, setSearchQuery] = useState("");
     const [debouncedSearch, setDebouncedSearch] = useState("");
     const [activeLetter, setActiveLetter] = useState<string | null>(null);
-    const [visible, setVisible] = useState(total);
 
     useEffect(() => {
         const timer = setTimeout(() => setDebouncedSearch(searchQuery), 300);
         return () => clearTimeout(timer);
     }, [searchQuery]);
 
-    useEffect(() => {
-        const list = listRef.current;
-        if (!list) return;
+    const filtered = useMemo(() => {
         const query = searchQuery.trim() ? debouncedSearch.trim().toLocaleLowerCase(locale) : "";
-        let shown = 0;
-        for (const section of list.querySelectorAll<HTMLElement>("[data-letter-section]")) {
-            let sectionShown = 0;
-            for (const item of section.querySelectorAll<HTMLElement>("[data-term]")) {
-                const match = (!activeLetter || item.dataset.term === activeLetter) && (!query || (item.textContent ?? "").toLocaleLowerCase(locale).includes(query));
-                item.hidden = !match;
-                if (match) sectionShown++;
-            }
-            section.hidden = sectionShown === 0;
-            shown += sectionShown;
-        }
-        setVisible(shown);
-    }, [searchQuery, debouncedSearch, activeLetter, locale]);
+        const matches = (term: Term) =>
+            [term.term, term.simple_definition, term.definition].some((text) => text.toLocaleLowerCase(locale).includes(query));
+        return sections
+            .filter((section) => !activeLetter || section.letter === activeLetter)
+            .map((section) => ({ letter: section.letter, items: query ? section.items.filter(matches) : section.items }))
+            .filter((section) => section.items.length > 0);
+    }, [sections, searchQuery, debouncedSearch, activeLetter, locale]);
+
+    const visible = filtered.reduce((sum, section) => sum + section.items.length, 0);
 
     const selectLetter = (letter: string | null) => {
         setActiveLetter((prev) => (prev === letter ? null : letter));
@@ -151,11 +144,9 @@ export default function GlossaryContent({ total, counts, alphabet, children }: R
                     </ul>
                 </nav>
 
-                <div ref={listRef} hidden={visible === 0}>
-                    {children}
-                </div>
-
-                {visible === 0 && (
+                {visible > 0 ? (
+                    <GlossaryList sections={filtered} counts={counts} />
+                ) : (
                     <m.div
                         initial={reduce ? false : { opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}

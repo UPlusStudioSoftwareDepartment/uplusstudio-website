@@ -3,7 +3,6 @@ export type Term = {
   term: string;
   definition: string;
   simple_definition: string;
-  image_id: string;
   category: string;
 };
 
@@ -17,7 +16,9 @@ export const pad = (n: number, width = 2) => n.toString().padStart(width, "0");
 export const initialOf = (term: string, locale: string) => term.trim().charAt(0).toLocaleUpperCase(locale);
 
 export function glossaryIndex(raw: Term[], locale: string) {
-  const terms = [...raw].sort((a, b) => a.term.localeCompare(b.term, locale, { sensitivity: "base" }));
+  const terms = raw
+    .map(({ key, term, definition, simple_definition, category }) => ({ key, term, definition, simple_definition, category }))
+    .sort((a, b) => a.term.localeCompare(b.term, locale, { sensitivity: "base" }));
   const sections: { letter: string; items: Term[] }[] = [];
   for (const term of terms) {
     const letter = initialOf(term.term, locale);
