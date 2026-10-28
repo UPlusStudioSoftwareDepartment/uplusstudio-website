@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   title: {
     default: SEO_COPY.tr.home.title,
-    template: `${SITE_NAME} | %s`,
+    template: `%s | ${SITE_NAME}`,
   },
   description: SEO_COPY.tr.home.description,
   category: "architecture",
-  referrer: "origin-when-cross-origin",
+  referrer: "strict-origin-when-cross-origin",
 
   icons: {
     icon: [

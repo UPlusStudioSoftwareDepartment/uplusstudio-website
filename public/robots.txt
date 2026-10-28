@@ -1,10 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /tr/payment
-Disallow: /en/payment
-Disallow: /tr/randevu-yanit
-Disallow: /en/randevu-yanit
 
 User-agent: GPTBot
 Disallow: /
@@ -32,9 +28,5 @@ User-agent: Claude-SearchBot
 User-agent: Claude-User
 Allow: /
 Disallow: /api/
-Disallow: /tr/payment
-Disallow: /en/payment
-Disallow: /tr/randevu-yanit
-Disallow: /en/randevu-yanit
 
 Sitemap: https://www.uplusstudio.com.tr/sitemap.xml

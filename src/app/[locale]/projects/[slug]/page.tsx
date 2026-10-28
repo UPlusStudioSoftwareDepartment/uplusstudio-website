@@ -6,6 +6,7 @@ import { getProject, projects, type ProjectCategory } from "@/lib/projects";
 import { locales, type Locale } from "@/lib/i18n-config";
 import { breadcrumbLd, buildMetadata, resolveLocale, SEO_COPY } from "@/lib/seo";
 import { projectLd } from "@/lib/seo-projects";
+import { setRequestLocale } from "next-intl/server";
 
 interface Params {
   params: Promise<{ locale: string; slug: string }>;
@@ -48,6 +49,7 @@ export default async function ProjectPage({ params }: Params) {
   const project = getProject(slug);
   if (!project) notFound();
   const l = resolveLocale(locale);
+  setRequestLocale(l);
   return (
     <>
       <JsonLd

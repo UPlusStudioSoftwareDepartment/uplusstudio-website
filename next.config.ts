@@ -28,8 +28,29 @@ const nextConfig: NextConfig = {
 
   productionBrowserSourceMaps: false,
 
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
+          { key: "Content-Security-Policy", value: "frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests" },
+        ],
+      },
+      {
+        source: "/:locale(tr|en)/:page(randevu-kart|randevu-yanit)/:rest*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ];
+  },
+
   async redirects() {
     return [
+      { source: "/", destination: "/tr", permanent: true },
       { source: "/:locale(tr|en)/:path(payment|purchase)/:rest*", destination: "/:locale/services", permanent: true },
       { source: "/purchase", destination: "/tr/services", permanent: true },
       { source: "/:locale(tr|en)/faq", destination: "/:locale/contact", permanent: false },

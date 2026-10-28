@@ -3,7 +3,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { breadcrumbLd, pageMetadata, resolveLocale, SEO_COPY, webPageLd } from "@/lib/seo";
 import type { Locale } from "@/lib/i18n-config";
 import FAQContent from "@/components/FAQContent";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { withNamespaces } from "@/lib/clientMessages";
 
@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const locale = resolveLocale((await params).locale);
+  setRequestLocale(locale);
   return (
     <>
       <JsonLd data={[breadcrumbLd(locale, [[SEO_COPY[locale].faq.crumb, "/faq"]]), await faqLd(locale)]} />

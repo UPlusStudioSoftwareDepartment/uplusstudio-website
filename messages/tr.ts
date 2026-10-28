@@ -183,7 +183,6 @@ const app_tr = {
     }
   },
   "common": {
-    "loading": "Yükleniyor...",
     "errorTitle": "Bir hata oluştu",
     "errorDescription": "Sayfa yüklenirken bir sorun oluştu. Lütfen tekrar deneyin.",
     "retry": "Tekrar dene",

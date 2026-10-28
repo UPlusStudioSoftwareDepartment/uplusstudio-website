@@ -43,19 +43,19 @@ export const PAGE_PATH: Record<PageKey, string> = {
 export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; description: string; crumb: string }>> = {
   tr: {
     home: {
-      title: "U+ Studio | Mimarlık & İç Mimarlık & Mühendislik · İncek, Gölbaşı / Ankara",
+      title: "U+ Studio | Mimarlık, İç Mimarlık, Mühendislik · Ankara",
       description:
         "İncek, Gölbaşı / Ankara'da mimarlık & iç mimarlık & mühendislik ofisi. Villa, konut, ofis ve kafe projeleri, tadilat, 3D görselleştirme, anahtar teslim.",
       crumb: "Ana Sayfa",
     },
     about: {
-      title: "Hakkımızda: Hacer Uyar ve Rıdvan Uyar · İncek, Ankara",
+      title: "Hakkımızda: Hacer Uyar ve Rıdvan Uyar",
       description:
         "U+ Studio; Yüksek Mimar Hacer Uyar ve İnşaat Mühendisi Rıdvan Uyar'ın İncek, Gölbaşı / Ankara'daki mimarlık & iç mimarlık & mühendislik ofisi.",
       crumb: "Hakkımızda",
     },
     services: {
-      title: "Mimarlık & İç Mimarlık & Mühendislik Hizmetleri, Ankara",
+      title: "Mimarlık, İç Mimarlık ve Mühendislik Hizmetleri",
       description:
         "Ankara Gölbaşı İncek'te mimarlık & iç mimarlık & mühendislik: mimari proje, tadilat ve dönüşüm, 3D görselleştirme, proje yönetimi, anahtar teslim uygulama.",
       crumb: "Hizmetler",
@@ -79,7 +79,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
       crumb: "S.S.S.",
     },
     glossary: {
-      title: "Mimarlık & İç Mimarlık & Mühendislik Sözlüğü: 500+ Terim",
+      title: "Mimarlık Sözlüğü: 500+ Terim ve Anlamı",
       description:
         "Mimarlık & iç mimarlık & mühendislik terimlerinin herkesin anlayacağı açıklamaları: A'dan Z'ye 500'den fazla terim. U+ Studio, İncek · Gölbaşı / Ankara.",
       crumb: "Sözlük",
@@ -92,19 +92,19 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
   },
   en: {
     home: {
-      title: "U+ Studio | Architecture & Interior Architecture & Engineering · Ankara",
+      title: "U+ Studio | Architecture, Interiors & Engineering, Ankara",
       description:
         "Architecture & interior architecture & engineering studio in İncek, Gölbaşı / Ankara. Villas, homes, offices, cafés — renovation, 3D and turnkey delivery.",
       crumb: "Home",
     },
     about: {
-      title: "About: Hacer Uyar and Rıdvan Uyar · İncek, Ankara",
+      title: "About: Hacer Uyar and Rıdvan Uyar",
       description:
         "U+ Studio is the architecture & interior architecture & engineering practice of architect Hacer Uyar and civil engineer Rıdvan Uyar in İncek, Gölbaşı / Ankara.",
       crumb: "About",
     },
     services: {
-      title: "Architecture & Interior Architecture & Engineering Services",
+      title: "Architecture, Interiors & Engineering Services",
       description:
         "Architecture & interior architecture & engineering from İncek, Gölbaşı / Ankara: design, renovation, 3D visualisation, project management, turnkey delivery.",
       crumb: "Services",
@@ -128,7 +128,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
       crumb: "FAQ",
     },
     glossary: {
-      title: "Architecture & Interior Architecture & Engineering Glossary",
+      title: "Architecture Glossary: 500+ Terms Explained",
       description:
         "Plain-language explanations of 500+ architecture & interior architecture & engineering terms, A to Z. By U+ Studio in İncek, Gölbaşı / Ankara.",
       crumb: "Glossary",
@@ -170,7 +170,7 @@ export function buildMetadata({
 }: BuildMetadataInput): Metadata {
   const url = localePath(locale, path);
   const img = image ?? OG_IMAGE[locale];
-  const ogTitle = absoluteTitle ? title : `${SITE_NAME} | ${title}`;
+  const ogTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
@@ -234,7 +234,7 @@ export function siteGraph(locale: Locale): JsonLdNode {
         "@type": ["ProfessionalService", "Organization"],
         "@id": ORG_ID,
         name: SITE_NAME,
-        alternateName: ["U+ Studio Mimarlık & İç Mimarlık & Mühendislik", "Uplus Studio", "U Plus Studio"],
+        alternateName: ["U+ Studio Mimarlık & İç Mimarlık & Mühendislik", "U+ Studio Mimarlık & Mühendislik", "Uplus Studio", "U Plus Studio"],
         description: ORG_DESCRIPTION[locale],
         url: SITE_URL,
         logo: { "@type": "ImageObject", url: absoluteUrl("/logo/uplusstudioblacklogo.png") },
@@ -255,8 +255,8 @@ export function siteGraph(locale: Locale): JsonLdNode {
         hasMap: GOOGLE_MAPS_CID_URL,
         areaServed: [
           { "@type": "Place", name: "İncek, Gölbaşı, Ankara" },
-          { "@type": "City", name: "Gölbaşı" },
-          { "@type": "City", name: "Çankaya" },
+          { "@type": "AdministrativeArea", name: "Gölbaşı" },
+          { "@type": "AdministrativeArea", name: "Çankaya" },
           { "@type": "City", name: "Ankara" },
           { "@type": "Country", name: "Türkiye" },
         ],
@@ -286,6 +286,7 @@ export function siteGraph(locale: Locale): JsonLdNode {
         "@id": WEBSITE_ID,
         url: SITE_URL,
         name: SITE_NAME,
+        alternateName: ["U Plus Studio", "Uplus Studio", "uplusstudio.com.tr"],
         inLanguage: ["tr-TR", "en-US"],
         publisher: { "@id": ORG_ID },
       },
@@ -338,7 +339,7 @@ export function servicesLd(locale: Locale): JsonLdNode {
         provider: { "@id": ORG_ID },
         areaServed: [
           { "@type": "City", name: "Ankara" },
-          { "@type": "Place", name: "Gölbaşı" },
+          { "@type": "AdministrativeArea", name: "Gölbaşı" },
           { "@type": "Place", name: "İncek" },
         ],
       },

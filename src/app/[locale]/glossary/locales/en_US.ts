@@ -34,6 +34,5 @@ export const glossary_en = {
     "lettersLabel": "Filter by letter",
     "allLetters": "All",
     "showLetter": "Terms starting with {letter}",
-    "loadingMore": "Loading more terms",
     terms,
 };

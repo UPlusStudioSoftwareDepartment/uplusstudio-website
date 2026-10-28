@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { resolveLocale } from "@/lib/seo";
 import BusinessCardPage from "@/components/BusinessCardPage";
+import { setRequestLocale } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -22,5 +23,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const locale = resolveLocale((await params).locale);
+  setRequestLocale(locale);
   return <BusinessCardPage locale={locale} />;
 }

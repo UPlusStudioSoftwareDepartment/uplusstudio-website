@@ -6,7 +6,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import PageHeader from "@/components/studio/PageHeader";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { EASE_OUT } from "@/components/studio/Reveal";
-import { LoadingLine } from "@/components/ui/PageLoader";
 
 type Term = {
     key: string;
@@ -22,9 +21,6 @@ const ALPHABETS: Record<string, string[]> = {
     en: "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" "),
 };
 
-const PAGE_SIZE = 24;
-const PAGE_STEP = 24;
-
 const pad = (n: number, width = 2) => n.toString().padStart(width, "0");
 
 const initialOf = (term: string, locale: string) => term.trim().charAt(0).toLocaleUpperCase(locale);
@@ -36,7 +32,6 @@ export default function GlossaryContent() {
     const reduce = useReducedMotion();
     const uid = useId();
     const listTopRef = useRef<HTMLDivElement>(null);
-    const sentinelRef = useRef<HTMLDivElement>(null);
 
     const [searchQuery, setSearchQuery] = useState("");
     const [activeLetter, setActiveLetter] = useState<string | null>(null);
@@ -83,40 +78,16 @@ export default function GlossaryContent() {
         );
     }, [searchQuery, debouncedSearch, allTerms, activeLetter, locale]);
 
-    const filterKey = `${activeLetter ?? ""}|${debouncedSearch}`;
-    const [limitState, setLimitState] = useState({ key: filterKey, limit: PAGE_SIZE });
-    const displayLimit = limitState.key === filterKey ? limitState.limit : PAGE_SIZE;
-
-    const displayedTerms = useMemo(() => filteredTerms.slice(0, displayLimit), [filteredTerms, displayLimit]);
-
-    useEffect(() => {
-        const sentinel = sentinelRef.current;
-        if (!sentinel) return;
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting) {
-                    setLimitState((prev) => ({
-                        key: filterKey,
-                        limit: Math.min((prev.key === filterKey ? prev.limit : PAGE_SIZE) + PAGE_STEP, filteredTerms.length),
-                    }));
-                }
-            },
-            { rootMargin: "0px 0px 600px 0px" }
-        );
-        observer.observe(sentinel);
-        return () => observer.disconnect();
-    }, [displayLimit, filteredTerms.length, filterKey]);
-
     const sections = useMemo(() => {
         const groups: { letter: string; items: Term[] }[] = [];
-        for (const term of displayedTerms) {
+        for (const term of filteredTerms) {
             const l = initialOf(term.term, locale);
             const last = groups[groups.length - 1];
             if (last && last.letter === l) last.items.push(term);
             else groups.push({ letter: l, items: [term] });
         }
         return groups;
-    }, [displayedTerms, locale]);
+    }, [filteredTerms, locale]);
 
     const selectLetter = (letter: string | null) => {
         setActiveLetter((prev) => (prev === letter ? null : letter));
@@ -248,13 +219,10 @@ export default function GlossaryContent() {
                                 </div>
                                 <ul>
                                     {section.items.map((item, i) => (
-                                            <motion.li
+                                            <li
                                                 key={item.key}
-                                                initial={reduce ? false : { opacity: 0, y: 12 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                viewport={{ once: true, amount: 0.2 }}
-                                                transition={{ duration: 0.6, ease: EASE_OUT }}
-                                                className="group grid grid-cols-1 gap-x-8 gap-y-3 border-b border-line py-7 sm:py-9 lg:grid-cols-12"
+                                                id={item.key}
+                                                className="group grid scroll-mt-28 grid-cols-1 gap-x-8 gap-y-3 border-b border-line py-7 [contain-intrinsic-size:auto_220px] [content-visibility:auto] sm:py-9 lg:grid-cols-12"
                                             >
                                                 <h3 className="min-w-0 lg:col-span-4">
                                                     <span className="block break-words font-sans text-[clamp(1.5rem,2.6vw,2.25rem)] font-light leading-[1.1] tracking-[-0.025em] text-ink transition-colors group-hover:text-clay">
@@ -269,7 +237,7 @@ export default function GlossaryContent() {
                                                 <p className="order-first font-mono text-[12px] uppercase tracking-[0.14em] text-mute lg:order-none lg:col-span-2 lg:pt-2 lg:text-right">
                                                     {item.category || `${section.letter}.${pad(i + 1)}`}
                                                 </p>
-                                            </motion.li>
+                                            </li>
                                     ))}
                                 </ul>
                             </section>
@@ -303,13 +271,6 @@ export default function GlossaryContent() {
                             </div>
                         </div>
                     </motion.div>
-                )}
-
-                {displayLimit < filteredTerms.length && (
-                    <div ref={sentinelRef} className="mt-12 flex h-16 items-center justify-center" role="status">
-                        <span className="sr-only">{t("loadingMore")}</span>
-                        <LoadingLine className="w-24" />
-                    </div>
                 )}
             </section>
         </div>

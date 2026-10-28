@@ -182,7 +182,6 @@ const app_en={
     }
   },
   "common": {
-    "loading": "Loading...",
     "errorTitle": "Something went wrong",
     "errorDescription": "A problem occurred while loading the page. Please try again.",
     "retry": "Try again",

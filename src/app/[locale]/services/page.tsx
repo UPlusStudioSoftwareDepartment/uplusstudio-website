@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import ServicesClient from "@/components/ServicesClient";
 import JsonLd from "@/components/seo/JsonLd";
+import { setRequestLocale } from "next-intl/server";
 import {
   breadcrumbLd,
   pageMetadata,
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ServicesPage({ params }: Props) {
   const locale = resolveLocale((await params).locale);
+  setRequestLocale(locale);
   return (
     <>
       <JsonLd

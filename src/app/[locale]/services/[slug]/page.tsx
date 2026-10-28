@@ -5,6 +5,7 @@ import ServiceLandingContent from "@/components/ServiceLandingContent";
 import { locales } from "@/lib/i18n-config";
 import { ADDRESS, ORG_ID, SEO_COPY, absoluteUrl, breadcrumbLd, buildMetadata, localePath, resolveLocale } from "@/lib/seo";
 import { SERVICE_LANDINGS, getServiceLanding } from "@/lib/serviceLandings";
+import { setRequestLocale } from "next-intl/server";
 
 type Params = { params: Promise<{ locale: string; slug: string }> };
 
@@ -17,6 +18,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale: raw, slug } = await params;
   const locale = resolveLocale(raw);
+  setRequestLocale(locale);
   const landing = getServiceLanding(slug);
   if (!landing) return {};
   const c = landing.copy[locale];
@@ -26,6 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function Page({ params }: Params) {
   const { locale: raw, slug } = await params;
   const locale = resolveLocale(raw);
+  setRequestLocale(locale);
   const landing = getServiceLanding(slug);
   if (!landing) notFound();
   const c = landing.copy[locale];
@@ -58,7 +61,6 @@ export default async function Page({ params }: Params) {
         },
       },
     },
-    inLanguage: locale === "en" ? "en-US" : "tr-TR",
   };
   return (
     <>

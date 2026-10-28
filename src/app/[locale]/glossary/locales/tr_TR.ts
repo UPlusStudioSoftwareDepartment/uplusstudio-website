@@ -34,6 +34,5 @@ export const glossary_tr = {
     "lettersLabel": "Harfe göre filtrele",
     "allLetters": "Tümü",
     "showLetter": "{letter} harfiyle başlayan terimler",
-    "loadingMore": "Daha fazla terim yükleniyor",
     terms,
 };
