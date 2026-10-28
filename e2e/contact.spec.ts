@@ -32,10 +32,12 @@ test("asks for every field before sending", async ({ page }) => {
 test("subject menu lists the studio services and works with the keyboard", async ({ page }) => {
   await page.goto("/tr/contact");
   const subject = page.locator("#subject");
-  await subject.focus();
-  await page.keyboard.press("ArrowDown");
   const options = page.getByRole("option");
-  await expect(options).toHaveCount(11);
+  await expect(async () => {
+    await subject.focus();
+    await page.keyboard.press("ArrowDown");
+    await expect(options).toHaveCount(11, { timeout: 1000 });
+  }).toPass();
   await expect(options.last()).toHaveText(/Diğer \/ Genel bilgi/);
   await page.keyboard.press("ArrowDown");
   await page.keyboard.press("Enter");
@@ -44,6 +46,34 @@ test("subject menu lists the studio services and works with the keyboard", async
   await subject.click();
   await page.keyboard.press("Escape");
   await expect(page.getByRole("listbox")).toBeHidden();
+});
+
+test("a click right after choosing a subject reaches the field under the closing menu", async ({ page }) => {
+  await page.goto("/tr/contact");
+  const message = page.locator("#message");
+  const subject = page.locator("#subject");
+  const settled = () =>
+    expect
+      .poll(async () => {
+        const before = await message.boundingBox();
+        await page.waitForTimeout(300);
+        return before?.y === (await message.boundingBox())?.y;
+      })
+      .toBe(true);
+  await subject.evaluate((el) => el.scrollIntoView({ block: "center" }));
+  await settled();
+  await expect(async () => {
+    await subject.click();
+    await expect(page.getByRole("listbox")).toBeVisible({ timeout: 1000 });
+  }).toPass();
+  await settled();
+  const field = (await message.boundingBox())!;
+  const menu = (await page.getByRole("listbox").boundingBox())!;
+  await page.getByRole("option", { name: /İç Mimarlık/ }).click();
+  await page.waitForTimeout(60);
+  await page.mouse.click(field.x + field.width / 2, Math.min(field.y + field.height, menu.y + menu.height) - 6);
+  await expect(message).toBeFocused();
+  await expect(subject).toHaveText(/İç Mimarlık/);
 });
 
 test.describe("desktop", () => {

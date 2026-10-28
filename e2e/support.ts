@@ -1,4 +1,7 @@
 import { expect, type Locator, type Page } from "@playwright/test";
+import { buildContactEmail } from "../src/lib/contactEmail";
+
+const LIVE_SITE = !/^https?:\/\/(localhost|127\.0\.0\.1)[:/]/.test(process.env.BASE_URL ?? "http://localhost:3000");
 
 type Outgoing = Window & { __opened: { url: string }[]; __clipboard: Record<string, string>[] };
 
@@ -6,6 +9,10 @@ export const testClientIp = () => `10.${[0, 0, 0].map(() => Math.floor(Math.rand
 
 export async function captureOutgoing(page: Page) {
   await page.setExtraHTTPHeaders({ "x-forwarded-for": testClientIp() });
+  if (LIVE_SITE) {
+    await page.route("**/api/appointment-email", (route) => route.fulfill({ json: { sent: false } }));
+    await page.route("**/api/contact", (route) => route.fulfill({ json: { sent: false, ...buildContactEmail(route.request().postDataJSON()) } }));
+  }
   await page.addInitScript(() => {
     const w = window as unknown as Outgoing;
     w.__opened = [];
