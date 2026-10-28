@@ -5,8 +5,3 @@ const PAGE_ONLY = new Set(["glossary"]);
 export function sharedMessages(messages: AbstractIntlMessages): AbstractIntlMessages {
   return Object.fromEntries(Object.entries(messages).filter(([key]) => !PAGE_ONLY.has(key)));
 }
-
-export function withNamespaces(messages: AbstractIntlMessages, namespaces: string[]): AbstractIntlMessages {
-  const extra = Object.fromEntries(namespaces.filter((n) => n in messages).map((n) => [n, messages[n]]));
-  return { ...sharedMessages(messages), ...extra };
-}

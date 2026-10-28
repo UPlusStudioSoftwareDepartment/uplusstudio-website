@@ -3,15 +3,13 @@ import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl, breadcrumbLd, localePath, pageMetadata, resolveLocale, SEO_COPY, webPageLd } from "@/lib/seo";
 import type { Locale } from "@/lib/i18n-config";
 import GlossaryContent from "@/components/GlossaryContent";
-import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import GlossaryList from "@/components/GlossaryList";
+import { glossaryIndex, type Term } from "@/lib/glossary";
+import { sharedMessages } from "@/lib/clientMessages";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-import { withNamespaces } from "@/lib/clientMessages";
 
-type Term = { key: string; term: string; definition: string };
-
-async function glossaryLd(locale: Locale) {
-  const t = await getTranslations({ locale, namespace: "glossary" });
-  const terms = t.raw("terms") as Term[];
+function glossaryLd(locale: Locale, terms: Term[]) {
   const url = absoluteUrl(localePath(locale, "/glossary"));
   return {
     "@context": "https://schema.org",
@@ -33,11 +31,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const locale = resolveLocale((await params).locale);
   setRequestLocale(locale);
+  const messages = await getMessages({ locale });
+  const { terms, ...glossaryUi } = messages.glossary as Record<string, unknown> & { terms: Term[] };
+  const { total, sections, counts, alphabet } = glossaryIndex(terms, locale);
   return (
     <>
-      <JsonLd data={[webPageLd(locale, "glossary", "WebPage"), breadcrumbLd(locale, [[SEO_COPY[locale].glossary.crumb, "/glossary"]]), await glossaryLd(locale)]} />
-      <NextIntlClientProvider locale={locale} messages={withNamespaces(await getMessages({ locale }), ["glossary"])} timeZone="Europe/Istanbul">
-        <GlossaryContent />
+      <JsonLd data={[webPageLd(locale, "glossary", "WebPage"), breadcrumbLd(locale, [[SEO_COPY[locale].glossary.crumb, "/glossary"]]), glossaryLd(locale, terms)]} />
+      <NextIntlClientProvider locale={locale} messages={{ ...sharedMessages(messages), glossary: glossaryUi }} timeZone="Europe/Istanbul">
+        <GlossaryContent total={total} counts={counts} alphabet={alphabet}>
+          <GlossaryList sections={sections} counts={counts} />
+        </GlossaryContent>
       </NextIntlClientProvider>
     </>
   );

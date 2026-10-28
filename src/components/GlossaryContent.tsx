@@ -1,93 +1,56 @@
 "use client";
 
-import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { m, useReducedMotion } from "framer-motion";
 import PageHeader from "@/components/studio/PageHeader";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { EASE_OUT } from "@/components/studio/Reveal";
+import { pad } from "@/lib/glossary";
 
-type Term = {
-    key: string;
-    term: string;
-    definition: string;
-    simple_definition: string;
-    image_id: string;
-    category: string;
+type GlossaryContentProps = {
+    total: number;
+    counts: Record<string, number>;
+    alphabet: string[];
+    children: ReactNode;
 };
 
-const ALPHABETS: Record<string, string[]> = {
-    tr: "A B C Ç D E F G H I İ J K L M N O Ö P R S Ş T U Ü V Y Z".split(" "),
-    en: "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" "),
-};
-
-const pad = (n: number, width = 2) => n.toString().padStart(width, "0");
-
-const initialOf = (term: string, locale: string) => term.trim().charAt(0).toLocaleUpperCase(locale);
-
-export default function GlossaryContent() {
+export default function GlossaryContent({ total, counts, alphabet, children }: Readonly<GlossaryContentProps>) {
     const t = useTranslations("glossary");
     const tm = useTranslations("studio.mascots");
     const locale = useLocale();
     const reduce = useReducedMotion();
     const uid = useId();
     const listTopRef = useRef<HTMLDivElement>(null);
+    const listRef = useRef<HTMLDivElement>(null);
 
     const [searchQuery, setSearchQuery] = useState("");
-    const [activeLetter, setActiveLetter] = useState<string | null>(null);
-
     const [debouncedSearch, setDebouncedSearch] = useState("");
+    const [activeLetter, setActiveLetter] = useState<string | null>(null);
+    const [visible, setVisible] = useState(total);
+
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setDebouncedSearch(searchQuery);
-        }, 300);
+        const timer = setTimeout(() => setDebouncedSearch(searchQuery), 300);
         return () => clearTimeout(timer);
     }, [searchQuery]);
 
-
-    const allTerms = useMemo(() => {
-        const raw = (t.raw("terms") as unknown as Term[]) || [];
-        return [...raw].sort((a, b) => a.term.localeCompare(b.term, locale, { sensitivity: "base" }));
-    }, [t, locale]);
-
-    const letterCounts = useMemo(() => {
-        const counts: Record<string, number> = {};
-        for (const term of allTerms) {
-            const l = initialOf(term.term, locale);
-            counts[l] = (counts[l] || 0) + 1;
+    useEffect(() => {
+        const list = listRef.current;
+        if (!list) return;
+        const query = searchQuery.trim() ? debouncedSearch.trim().toLocaleLowerCase(locale) : "";
+        let shown = 0;
+        for (const section of list.querySelectorAll<HTMLElement>("[data-letter-section]")) {
+            let sectionShown = 0;
+            for (const item of section.querySelectorAll<HTMLElement>("[data-term]")) {
+                const match = (!activeLetter || item.dataset.term === activeLetter) && (!query || (item.textContent ?? "").toLocaleLowerCase(locale).includes(query));
+                item.hidden = !match;
+                if (match) sectionShown++;
+            }
+            section.hidden = sectionShown === 0;
+            shown += sectionShown;
         }
-        return counts;
-    }, [allTerms, locale]);
-
-    const alphabet = useMemo(() => {
-        const base = ALPHABETS[locale] ?? ALPHABETS.en;
-        const extra = Object.keys(letterCounts).filter((l) => !base.includes(l)).sort((a, b) => a.localeCompare(b, locale));
-        return [...base, ...extra];
-    }, [letterCounts, locale]);
-
-    const filteredTerms = useMemo(() => {
-        const byLetter = activeLetter ? allTerms.filter((term) => initialOf(term.term, locale) === activeLetter) : allTerms;
-        if (!searchQuery.trim()) return byLetter; 
-        if (!debouncedSearch.trim()) return byLetter; 
-        const query = debouncedSearch.toLocaleLowerCase(locale);
-        return byLetter.filter(
-            (term) =>
-                term.term.toLocaleLowerCase(locale).includes(query) ||
-                term.simple_definition.toLocaleLowerCase(locale).includes(query) ||
-                term.definition.toLocaleLowerCase(locale).includes(query)
-        );
-    }, [searchQuery, debouncedSearch, allTerms, activeLetter, locale]);
-
-    const sections = useMemo(() => {
-        const groups: { letter: string; items: Term[] }[] = [];
-        for (const term of filteredTerms) {
-            const l = initialOf(term.term, locale);
-            const last = groups[groups.length - 1];
-            if (last && last.letter === l) last.items.push(term);
-            else groups.push({ letter: l, items: [term] });
-        }
-        return groups;
-    }, [filteredTerms, locale]);
+        setVisible(shown);
+    }, [searchQuery, debouncedSearch, activeLetter, locale]);
 
     const selectLetter = (letter: string | null) => {
         setActiveLetter((prev) => (prev === letter ? null : letter));
@@ -102,8 +65,6 @@ export default function GlossaryContent() {
         setActiveLetter(null);
     };
 
-    const usedLetters = Object.keys(letterCounts).length;
-
     return (
         <div className="relative text-ink">
             <PageHeader
@@ -112,8 +73,8 @@ export default function GlossaryContent() {
                 titleLines={[t("titleLine1"), <em key="accent">{t("titleLine2")}</em>]}
                 intro={t("subtitle")}
                 meta={[
-                    { label: t("metaTerms"), value: <span className="font-mono tabular-nums">{allTerms.length}</span> },
-                    { label: t("metaLetters"), value: <span className="font-mono tabular-nums">{pad(usedLetters)}</span> },
+                    { label: t("metaTerms"), value: <span className="font-mono tabular-nums">{total}</span> },
+                    { label: t("metaLetters"), value: <span className="font-mono tabular-nums">{pad(Object.keys(counts).length)}</span> },
                     { label: t("metaLanguage"), value: t("metaLanguageValue") },
                 ]}
             />
@@ -124,11 +85,7 @@ export default function GlossaryContent() {
                         <label htmlFor={`${uid}-search`} className="eyebrow text-mute lg:pt-5">
                             {t("searchLabel")}
                         </label>
-                        <MascotDuo
-                            pose={filteredTerms.length === 0 ? "think" : "wave"}
-                            size="sm"
-                            message={filteredTerms.length === 0 ? tm("glossaryEmpty") : tm("glossary")}
-                        />
+                        <MascotDuo pose={visible === 0 ? "think" : "wave"} size="sm" message={visible === 0 ? tm("glossaryEmpty") : tm("glossary")} />
                     </div>
                     <div role="search" className="min-w-0 lg:col-span-9">
                         <div className="flex items-center border-b border-line focus-within:border-ink">
@@ -153,16 +110,13 @@ export default function GlossaryContent() {
                             )}
                         </div>
                         <p className="mt-3 font-mono text-[12px] uppercase tracking-[0.14em] text-mute" aria-live="polite">
-                            {t("foundCount", { count: filteredTerms.length })}
+                            {t("foundCount", { count: visible })}
                         </p>
                     </div>
                 </div>
 
                 <div ref={listTopRef} className="scroll-mt-20" />
-                <nav
-                    aria-label={t("lettersLabel")}
-                    className="sticky top-0 z-20 -mx-4 mt-12 border-y border-line bg-paper/90 backdrop-blur-md sm:-mx-8 lg:mx-0"
-                >
+                <nav aria-label={t("lettersLabel")} className="sticky top-0 z-20 -mx-4 mt-12 border-y border-line bg-paper/90 backdrop-blur-md sm:-mx-8 lg:mx-0">
                     <ul className="flex items-stretch overflow-x-auto px-2 [scrollbar-width:none] sm:px-4 lg:overflow-visible lg:px-3 [&::-webkit-scrollbar]:hidden">
                         <li className="mr-1 shrink-0 border-r border-line pr-1">
                             <button
@@ -176,7 +130,7 @@ export default function GlossaryContent() {
                             </button>
                         </li>
                         {alphabet.map((letter) => {
-                            const count = letterCounts[letter] || 0;
+                            const count = counts[letter] ?? 0;
                             const active = activeLetter === letter;
                             return (
                                 <li key={letter} className="shrink-0 lg:min-w-0 lg:flex-1 lg:shrink">
@@ -186,12 +140,7 @@ export default function GlossaryContent() {
                                         disabled={count === 0}
                                         aria-pressed={active}
                                         aria-label={`${t("showLetter", { letter })} (${count})`}
-                                        className={`relative h-12 w-10 font-mono text-[13px] transition-colors lg:w-full ${active
-                                            ? "text-ink"
-                                            : count === 0
-                                                ? "cursor-default text-line"
-                                                : "text-mute hover:text-clay"
-                                            }`}
+                                        className={`relative h-12 w-10 font-mono text-[13px] transition-colors lg:w-full ${active ? "text-ink" : count === 0 ? "cursor-default text-line" : "text-mute hover:text-clay"}`}
                                     >
                                         {letter}
                                         {active && <span className="absolute inset-x-2 bottom-0 h-px bg-clay" aria-hidden />}
@@ -202,48 +151,11 @@ export default function GlossaryContent() {
                     </ul>
                 </nav>
 
-                {filteredTerms.length > 0 ? (
-                    <div className="mt-4">
-                        {sections.map((section) => (
-                            <section key={section.letter} aria-labelledby={`${uid}-letter-${section.letter}`} className="pt-16 sm:pt-24">
-                                <div className="grid grid-cols-1 items-end gap-x-8 border-b border-ink pb-4 lg:grid-cols-12">
-                                    <h2
-                                        id={`${uid}-letter-${section.letter}`}
-                                        className="font-serif text-[clamp(5rem,12vw,10rem)] font-normal leading-[0.8] tracking-normal text-ink lg:col-span-3"
-                                    >
-                                        {section.letter}
-                                    </h2>
-                                    <p className="mt-4 font-mono text-[12px] uppercase tracking-[0.14em] tabular-nums text-mute lg:col-span-9 lg:mt-0 lg:text-right">
-                                        {pad(letterCounts[section.letter] || 0, 3)}
-                                    </p>
-                                </div>
-                                <ul>
-                                    {section.items.map((item, i) => (
-                                            <li
-                                                key={item.key}
-                                                id={item.key}
-                                                className="group grid scroll-mt-28 grid-cols-1 gap-x-8 gap-y-3 border-b border-line py-7 [contain-intrinsic-size:auto_220px] [content-visibility:auto] sm:py-9 lg:grid-cols-12"
-                                            >
-                                                <h3 className="min-w-0 lg:col-span-4">
-                                                    <span className="block break-words font-sans text-[clamp(1.5rem,2.6vw,2.25rem)] font-light leading-[1.1] tracking-[-0.025em] text-ink transition-colors group-hover:text-clay">
-                                                        <span className="mr-[0.04em] font-serif font-normal italic tracking-normal">{item.term.charAt(0)}</span>
-                                                        {item.term.slice(1)}
-                                                    </span>
-                                                </h3>
-                                                <div className="min-w-0 lg:col-span-6">
-                                                    <p className="text-[17px] leading-relaxed text-ink">{item.simple_definition}</p>
-                                                    <p className="mt-3 max-w-prose text-[15px] leading-relaxed text-mute">{item.definition}</p>
-                                                </div>
-                                                <p className="order-first font-mono text-[12px] uppercase tracking-[0.14em] text-mute lg:order-none lg:col-span-2 lg:pt-2 lg:text-right">
-                                                    {item.category || `${section.letter}.${pad(i + 1)}`}
-                                                </p>
-                                            </li>
-                                    ))}
-                                </ul>
-                            </section>
-                        ))}
-                    </div>
-                ) : (
+                <div ref={listRef} hidden={visible === 0}>
+                    {children}
+                </div>
+
+                {visible === 0 && (
                     <m.div
                         initial={reduce ? false : { opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -251,7 +163,7 @@ export default function GlossaryContent() {
                         className="grid grid-cols-1 gap-x-8 gap-y-8 border-b border-line py-20 sm:py-28 lg:grid-cols-12"
                     >
                         <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-mute lg:col-span-3">
-                            {pad(0, 3)} / {allTerms.length}
+                            {pad(0, 3)} / {total}
                         </p>
                         <div className="lg:col-span-7">
                             <h2 className="display text-[clamp(2.5rem,6vw,5.5rem)] text-ink">{t("noResultsTitle")}</h2>
@@ -266,7 +178,7 @@ export default function GlossaryContent() {
                                     <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>→</span>
                                 </button>
                                 <span className="font-mono text-[12px] uppercase tracking-[0.14em] text-mute">
-                                    {t("totalTerms")} · <span className="tabular-nums text-ink">{allTerms.length}</span>
+                                    {t("totalTerms")} · <span className="tabular-nums text-ink">{total}</span>
                                 </span>
                             </div>
                         </div>
