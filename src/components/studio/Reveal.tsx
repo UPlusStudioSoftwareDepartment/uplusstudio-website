@@ -58,7 +58,7 @@ export function LineReveal({ lines, className = "", lineClassName = "", delay = 
   return (
     <span ref={ref} className={`block ${className}`}>
       {lines.map((line, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
+        <span key={i} className="-mb-[0.08em] -ml-[0.075em] block overflow-hidden pb-[0.08em]">
           {immediate ? (
             <span
               className={`block animate-[line-up_1s_var(--ease-studio)_backwards] motion-reduce:animate-none ${lineClassName}`}

@@ -30,7 +30,7 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
 
         <section className="border-t border-line py-20 sm:py-28">
           <Eyebrow>{t("nav.services")}</Eyebrow>
-          <h2 className="display mt-5 text-[clamp(2.5rem,9vw,5.5rem)]">{t("disciplines.title")}</h2>
+          <h2 className="display -ml-[0.075em] mt-5 text-[clamp(2.5rem,9vw,5.5rem)]">{t("disciplines.title")}</h2>
           <ul className="mt-10 border-t border-line">
             {SERVICE_LANDINGS.map((service, i) => (
               <li key={service.slug} className="border-b border-line">
@@ -51,7 +51,7 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
 
         <section className="border-t border-line py-20 sm:py-28">
           <Eyebrow>{t("work.label")}</Eyebrow>
-          <h2 className="display mt-5 text-[clamp(2.5rem,9vw,5.5rem)]">{t("work.title")}</h2>
+          <h2 className="display -ml-[0.075em] mt-5 text-[clamp(2.5rem,9vw,5.5rem)]">{t("work.title")}</h2>
           <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-mute">{t("work.intro")}</p>
           <ul className="mt-12 grid grid-cols-1 gap-x-6 gap-y-14 md:grid-cols-2">
             {featured.map((project) => (

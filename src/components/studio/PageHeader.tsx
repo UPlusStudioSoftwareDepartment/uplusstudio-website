@@ -11,6 +11,7 @@ interface PageHeaderProps {
   intro?: ReactNode;
   image?: { src: string; alt: string };
   meta?: { label: string; value: ReactNode }[];
+  titleClassName?: string;
   children?: ReactNode;
 }
 
@@ -24,7 +25,7 @@ const DEFAULT_IMAGES: Record<string, string> = {
 };
 const FALLBACK_IMAGE = "/media/projects/modern-villa/exterior-dusk.jpg";
 
-export default function PageHeader({ index, label, titleLines, intro, image, meta, children }: Readonly<PageHeaderProps>) {
+export default function PageHeader({ index, label, titleLines, intro, image, meta, titleClassName = "", children }: Readonly<PageHeaderProps>) {
   const src = image?.src ?? DEFAULT_IMAGES[index] ?? FALLBACK_IMAGE;
 
   return (
@@ -46,7 +47,7 @@ export default function PageHeader({ index, label, titleLines, intro, image, met
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
-          <h1 className="display text-[clamp(3rem,9.5vw,9.5rem)] lg:col-span-8 [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal">
+          <h1 className={`display text-[clamp(3rem,9.5vw,9.5rem)] lg:col-span-8 [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal ${titleClassName}`}>
             <LineReveal lines={titleLines} immediate delay={0.25} />
           </h1>
           {intro && (

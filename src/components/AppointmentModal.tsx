@@ -492,7 +492,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                   type="button"
                   onClick={handleClose}
                   className="group flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.12em] text-ink"
-                  aria-label={t("cancel")}
+                  aria-label={ts("nav.close")}
                 >
                   <span className="hidden sm:inline">{ts("nav.close")}</span>
                   <span className="flex h-10 w-10 items-center justify-center rounded-full border border-line transition-colors sm:h-11 sm:w-11 group-hover:border-ink group-hover:bg-night hover:text-bone group-hover:text-bone">
