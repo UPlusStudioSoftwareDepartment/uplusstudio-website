@@ -43,6 +43,10 @@ npm run test:e2e
 - `.github/workflows/smoke.yml` canlı sitedeki sayfaları, iç bağlantıları, sitemap'in yalnızca dizine eklenebilir ve canonical adresler içerdiğini, video sayfalarını ve 404 yanıtını salt okunur olarak kontrol eder. `main`'e her push'ta, sitenin `X-Release` başlığı o commit'i gösterene kadar (en çok 20 dakika) bekleyip çalışır; ayrıca her gün 08:00'de (TSİ) ve Actions sekmesinden elle çalıştırılabilir.
 - Önemli içerik değişikliklerinden sonra `npm run indexnow` canlı sitemap'teki tüm adresleri IndexNow ile Bing ve Yandex'e bildirir (anahtar dosyası `public/` altında).
 
+## Medya lisansları
+
+- Ana sayfa filminin müziği (`public/media/audio/villa-transformation.aac`): "Inspiring Piano", leberch — [Pixabay](https://pixabay.com/music/modern-classical-inspiring-piano-254764/), Pixabay Content License (ticari kullanım serbest, atıf gerekmez). Parça YouTube Content ID'ye kayıtlı; filmi YouTube'a bu müzikle yüklerseniz gelen talebe Pixabay lisansıyla itiraz edilebilir. Film süresine (9,9 sn) kesildi, başına kısa giriş, sonuna 1,8 sn sönme eklendi.
+
 ## Geri alma
 
 1. Vercel → Project → Deployments sayfasında son sağlıklı yayını bulun ve **Instant Rollback** (ya da "Promote to Production") seçin. Alan adı birkaç saniye içinde o sürüme döner.

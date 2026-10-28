@@ -290,8 +290,11 @@ test("the home film plays once with a stop icon, and the play icon plays it agai
   await stop.click();
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
   await play.click();
-  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => !v.paused && !v.muted)).toBe(true);
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => !v.paused)).toBe(true);
+  await expect.poll(() => page.locator("#home audio").evaluate((a: HTMLAudioElement) => !a.paused && a.currentTime > 0)).toBe(true);
   await expect(stop).toBeVisible();
+  await stop.click();
+  await expect.poll(() => page.locator("#home audio").evaluate((a: HTMLAudioElement) => a.paused)).toBe(true);
 });
 
 test("founders, the villa story and the service area are on the page", async ({ page }) => {

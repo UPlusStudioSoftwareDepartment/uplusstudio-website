@@ -24,9 +24,18 @@ const VIDEO = {
   large: "/media/video/villa-transformation.mp4",
   small: "/media/video/villa-transformation-sm.mp4",
   poster: "/media/video/villa-transformation.webp",
+  music: "/media/audio/villa-transformation.aac",
 };
+const MUSIC_DRIFT_S = 0.25;
 
 const videoSource = () => (globalThis.innerWidth < 768 ? VIDEO.small : VIDEO.large);
+
+function followFilm(video: HTMLVideoElement | null, music: HTMLAudioElement | null) {
+  if (!video || !music || video.paused) return;
+  if (!music.src) music.src = VIDEO.music;
+  if (Math.abs(music.currentTime - video.currentTime) > MUSIC_DRIFT_S) music.currentTime = video.currentTime;
+  music.play().catch(() => {});
+}
 
 export default function HomeHero() {
   const t = useTranslations("studio");
@@ -43,25 +52,25 @@ export default function HomeHero() {
     setTimeout(() => setCelebrating(false), CELEBRATION_S * 1000);
   };
   const videoRef = useRef<HTMLVideoElement>(null);
+  const musicRef = useRef<HTMLAudioElement>(null);
   const filmButtonRef = useRef<HTMLButtonElement>(null);
   const progressRef = useRef<HTMLSpanElement>(null);
   const featured = projects.filter((p) => p.featured);
 
   preload(VIDEO.poster, { as: "image", fetchPriority: "high" });
 
+  const playMusic = () => followFilm(videoRef.current, musicRef.current);
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video || reduce) return;
     const start = () => {
+      if (musicRef.current) musicRef.current.src = VIDEO.music;
       video.src = videoSource();
-      video.muted = false;
-      video.play().catch(() => {
-        video.muted = true;
-        video.play().catch(() => {});
-      });
+      video.play().catch(() => {});
     };
     const unmute = (e: Event) => {
-      if (!video.paused && video.muted && !filmButtonRef.current?.contains(e.target as Node)) video.muted = false;
+      if (musicRef.current?.paused && !filmButtonRef.current?.contains(e.target as Node)) followFilm(video, musicRef.current);
     };
     if (document.readyState === "complete") start();
     else globalThis.addEventListener("load", start, { once: true });
@@ -96,8 +105,8 @@ export default function HomeHero() {
     }
     if (!video.src) video.src = videoSource();
     if (video.ended) video.currentTime = 0;
-    video.muted = false;
     video.play().catch(() => {});
+    playMusic();
   };
 
   return (
@@ -113,8 +122,14 @@ export default function HomeHero() {
           aria-label={t("motion.items.villa")}
           disableRemotePlayback
           onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
+          onPlaying={playMusic}
+          onWaiting={() => musicRef.current?.pause()}
+          onPause={() => {
+            setPlaying(false);
+            musicRef.current?.pause();
+          }}
         />
+        <audio ref={musicRef} preload="auto" />
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-night/60 to-transparent" aria-hidden />
