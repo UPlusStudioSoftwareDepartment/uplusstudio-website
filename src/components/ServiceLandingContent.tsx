@@ -17,8 +17,8 @@ const CONTAINER = "mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12";
 const HEADING = "display text-ink [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal";
 
 const LABELS = {
-  tr: { area: "Hizmet bölgesi", areaText: "İncek'teki ofisimizden başta Ankara (İncek, Gölbaşı, Çankaya) olmak üzere Türkiye genelindeki projelere hizmet veriyoruz.", projects: "İlgili projeler", process: "Nasıl çalışıyoruz", allServices: "Tüm hizmetler", cta: "Projenizi konuşalım", ctaText: "İlk görüşmede ihtiyacınızı dinler, kapsamı ve sonraki adımları birlikte belirleriz." },
-  en: { area: "Service area", areaText: "From our office in İncek we work on projects across Türkiye, first of all in Ankara (İncek, Gölbaşı, Çankaya).", projects: "Related projects", process: "How we work", allServices: "All services", cta: "Let's talk about your project", ctaText: "At the first meeting we listen to your brief and agree the scope and next steps together." },
+  tr: { area: "Hizmet bölgesi", areaText: "İncek'teki ofisimizden başta Ankara (İncek, Gölbaşı, Çankaya) olmak üzere Türkiye genelindeki projelere hizmet veriyoruz.", projects: "İlgili projeler", process: "Nasıl çalışıyoruz", faq: "Sık sorulanlar", allServices: "Tüm hizmetler", cta: "Projenizi konuşalım", ctaText: "İlk görüşmede ihtiyacınızı dinler, kapsamı ve sonraki adımları birlikte belirleriz." },
+  en: { area: "Service area", areaText: "From our office in İncek we work on projects across Türkiye, first of all in Ankara (İncek, Gölbaşı, Çankaya).", projects: "Related projects", process: "How we work", faq: "Common questions", allServices: "All services", cta: "Let's talk about your project", ctaText: "At the first meeting we listen to your brief and agree the scope and next steps together." },
 };
 
 export default function ServiceLandingContent({ slug, locale }: Readonly<{ slug: string; locale: Locale }>) {
@@ -125,6 +125,22 @@ export default function ServiceLandingContent({ slug, locale }: Readonly<{ slug:
           ))}
         </ol>
       </section>
+
+      {c.faq && (
+        <section aria-labelledby="landing-faq" className={`${CONTAINER} pt-20 sm:pt-28`}>
+          <h2 id="landing-faq" className={`text-[clamp(2rem,5vw,4rem)] ${HEADING}`}>
+            <LineReveal lines={[l.faq]} />
+          </h2>
+          <dl className="mt-10 border-t border-line">
+            {c.faq.map(([question, answer]) => (
+              <div key={question} className="grid grid-cols-1 gap-3 border-b border-line py-6 lg:grid-cols-12 lg:gap-10">
+                <dt className="text-[19px] leading-snug text-ink lg:col-span-5">{question}</dt>
+                <dd className="text-[17px] leading-relaxed text-mute lg:col-span-7">{answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
 
       <section className={`${CONTAINER} pb-28 pt-20 sm:pb-40 sm:pt-28`}>
         <div className="flex flex-col gap-6 border-t border-line pt-10 sm:flex-row sm:items-end sm:justify-between">

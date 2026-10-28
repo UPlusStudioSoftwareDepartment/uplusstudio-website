@@ -182,6 +182,36 @@ test("every project video has its own watch page, linked from the project and li
   }
 });
 
+test("internal links fade into the page curtain with a view transition, unless motion is reduced", async ({ page, isMobile }) => {
+  test.skip(isMobile, "the desktop nav carries the links");
+  const countTransitions = () =>
+    page.evaluate(() => {
+      const w = window as Window & { transitions?: number };
+      w.transitions = 0;
+      const start = document.startViewTransition.bind(document);
+      document.startViewTransition = ((update) => {
+        w.transitions = (w.transitions ?? 0) + 1;
+        return start(update);
+      }) as typeof document.startViewTransition;
+    });
+  const curtainGone = () => expect(page.locator(".page-curtain")).toHaveCount(0, { timeout: 8000 });
+
+  await page.goto("/tr/about");
+  await curtainGone();
+  await countTransitions();
+  await page.locator("nav").first().getByRole("link", { name: "Projeler", exact: true }).click();
+  await expect(page).toHaveURL(/\/tr\/projects$/);
+  await curtainGone();
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  expect(await page.evaluate(() => (window as Window & { transitions?: number }).transitions)).toBe(1);
+
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await countTransitions();
+  await page.locator("nav").first().getByRole("link", { name: "İletişim", exact: true }).click();
+  await expect(page).toHaveURL(/\/tr\/contact$/);
+  expect(await page.evaluate(() => (window as Window & { transitions?: number }).transitions)).toBe(0);
+});
+
 test("unknown pages answer 404 with a way home", async ({ page }) => {
   const res = await page.goto("/tr/bu-sayfa-yok");
   expect(res?.status()).toBe(404);

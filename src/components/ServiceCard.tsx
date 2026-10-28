@@ -147,6 +147,7 @@ export default function ServiceCard({
             height={120}
             alt="U+ Studio"
             priority={priority}
+            fetchPriority={priority ? "high" : "auto"}
             className="h-auto w-[132px] mix-blend-screen @md:w-[150px]"
           />
           <div className="flex shrink-0 flex-col items-end gap-1 pt-1 text-right">

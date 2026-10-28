@@ -39,6 +39,7 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
           { key: "Content-Security-Policy", value: "frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests" },
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin-allow-popups" },
           { key: "X-Release", value: process.env.VERCEL_GIT_COMMIT_SHA ?? "local" },
         ],
       },

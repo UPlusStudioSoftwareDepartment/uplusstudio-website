@@ -233,7 +233,14 @@ export default function AboutContent() {
         titleLines={[t("header.line1"), <em key="accent">{t("header.accent")}</em>, t("header.line2")]}
         intro={<p>{t("intro.quote")}</p>}
         meta={[
-          { label: t("meta.locationLabel"), value: t("meta.location") },
+          {
+            label: t("meta.locationLabel"),
+            value: (
+              <Link href={`/${locale}/services/incek-golbasi-mimarlik-ofisi`} className="transition-colors hover:text-clay">
+                {t("meta.location")}
+              </Link>
+            ),
+          },
           { label: t("meta.practiceLabel"), value: t("meta.practice") },
           { label: t("meta.foundersLabel"), value: t("meta.founders") },
           {

@@ -13,6 +13,7 @@ export const contact_tr = {
     "instagram": "Instagram",
     "formLabel": "Mesaj gönderin",
     "directions": "Yol Tarifi",
+    "office": "İncek ofisimiz",
     "openInMaps": "Haritada aç",
     "appointment": {
         "prompt": "Yüz yüze görüşmeyi mi tercih edersiniz?",

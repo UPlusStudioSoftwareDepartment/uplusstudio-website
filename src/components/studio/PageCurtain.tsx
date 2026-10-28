@@ -1,16 +1,45 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 const LETTERS = "STUDIO".split("");
 const FIRST_VISIT_MIN_MS = 900;
 const FIRST_VISIT_MAX_MS = 2600;
-const ROUTE_MS = 500;
+const ROUTE_MS = 750;
 const LEAVE_MS = 1500;
+const SWAP_TIMEOUT_MS = 2500;
 
 let booted = false;
+let swapped: (() => void) | null = null;
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, Math.max(0, ms)));
+const stillMotion = () => globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+export function navigateSmoothly(go: () => void) {
+  if (!document.startViewTransition || stillMotion()) {
+    go();
+    return;
+  }
+  document.startViewTransition(
+    () =>
+      new Promise<void>((resolve) => {
+        swapped = resolve;
+        setTimeout(resolve, SWAP_TIMEOUT_MS);
+        go();
+      })
+  );
+}
+
+function pageLink(event: MouseEvent) {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return null;
+  const link = (event.target as Element | null)?.closest?.("a[href]");
+  if (!(link instanceof HTMLAnchorElement) || (link.target && link.target !== "_self") || link.hasAttribute("download")) return null;
+  const url = new URL(link.href, location.href);
+  if (url.origin !== location.origin || url.pathname === location.pathname) return null;
+  if (url.pathname.startsWith("/api/") || /\.[a-z0-9]+$/i.test(url.pathname)) return null;
+  return url;
+}
 
 function pageReady() {
   const loaded =
@@ -22,11 +51,33 @@ function pageReady() {
 }
 
 export default function PageCurtain() {
+  return <Curtain key={usePathname()} />;
+}
+
+function Curtain() {
   const [phase, setPhase] = useState<"cover" | "leave" | "done">("cover");
+  const router = useRouter();
+
+  useLayoutEffect(() => {
+    swapped?.();
+    swapped = null;
+  }, []);
+
+  useEffect(() => {
+    if (!document.startViewTransition) return;
+    const onClick = (event: MouseEvent) => {
+      const url = pageLink(event);
+      if (!url || stillMotion()) return;
+      event.preventDefault();
+      navigateSmoothly(() => router.push(url.pathname + url.search + url.hash));
+    };
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
+  }, [router]);
 
   useEffect(() => {
     const root = document.documentElement;
-    const still = globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const still = stillMotion();
     if (!still) root.dataset.curtain = "";
     let alive = true;
     (still ? Promise.resolve() : booted ? wait(ROUTE_MS) : pageReady()).then(() => {

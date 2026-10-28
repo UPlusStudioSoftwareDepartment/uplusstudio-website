@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import CompanyLocation from "@/components/CompanyLocation";
 import StudioClock from "@/components/studio/StudioClock";
 import GoogleRating from "@/components/studio/GoogleRating";
@@ -386,6 +387,10 @@ export default function ContactContent() {
                             Yandex Maps
                             <span aria-hidden className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
                         </a>
+                        <Link href={`/${locale}/services/incek-golbasi-mimarlik-ofisi`} className="group inline-flex items-center gap-3 border-b border-ink/40 pb-1 text-[15px] transition-colors hover:border-clay hover:text-clay">
+                            {copy.office}
+                            <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                        </Link>
                     </div>
                 </div>
                 <FadeUp className="mt-10">

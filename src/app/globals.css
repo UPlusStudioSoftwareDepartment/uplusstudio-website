@@ -391,6 +391,34 @@ select:focus-visible {
   transform: translateY(-2rem);
 }
 
+::view-transition-old(root) {
+  animation: 0.5s var(--ease-out-studio) both page-recede;
+}
+
+::view-transition-new(root) {
+  animation: 0.5s var(--ease-out-studio) both curtain-fade-in;
+}
+
+@keyframes page-recede {
+  to {
+    opacity: 0.4;
+    transform: scale(0.985);
+  }
+}
+
+@keyframes curtain-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
 html[data-curtain] #main-content > :not(.page-curtain),
 html[data-curtain] #main-content > :not(.page-curtain) * {
   animation-play-state: paused;

@@ -401,3 +401,7 @@ export function getAdjacentProject(slug: string): Project {
 export function projectNumber(slug: string): string {
   return String(projects.findIndex((p) => p.slug === slug) + 1).padStart(2, "0");
 }
+
+export function screenPoster(video: ProjectVideo): string {
+  return video.poster.replace(/\.jpg$/, ".webp");
+}

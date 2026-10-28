@@ -16,7 +16,16 @@ export default function InViewVideo({ src, poster, className = "", eager = false
   useEffect(() => {
     const video = ref.current;
     if (!video) return;
-    if (globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    const near = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        video.poster = poster;
+        near.disconnect();
+      },
+      { rootMargin: "600px 0px" }
+    );
+    near.observe(video);
+    if (globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return () => near.disconnect();
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -30,14 +39,17 @@ export default function InViewVideo({ src, poster, className = "", eager = false
       { rootMargin: "200px 0px", threshold: 0.15 }
     );
     observer.observe(video);
-    return () => observer.disconnect();
-  }, [src]);
+    return () => {
+      near.disconnect();
+      observer.disconnect();
+    };
+  }, [src, poster]);
 
   return (
     <video
       ref={ref}
       className={className}
-      poster={poster}
+      poster={eager ? poster : undefined}
       src={eager ? src : undefined}
       muted
       loop

@@ -16,6 +16,7 @@ type Copy = {
   why: string;
   pricing?: string;
   imageAlt?: string;
+  faq?: [string, string][];
 };
 
 export type ServiceLanding = {
@@ -24,6 +25,11 @@ export type ServiceLanding = {
   image: string;
   projects: string[];
   copy: Record<Locale, Copy>;
+};
+
+const PERMIT: Record<Locale, [string, string]> = {
+  tr: ["Yapı ruhsatı için hangi belgeler gerekir?", "Genellikle tapu, belediyeden alınan imar durumu belgesi, aplikasyon krokisi, zemin etüdü raporu ile mimari, statik, elektrik ve mekanik projeler istenir; yapı denetim sözleşmesi de sürecin parçasıdır. Belgeler belediyeye ve parselin durumuna göre değişebilir; izin ve onay sürecinde destek oluruz."],
+  en: ["Which documents does a building permit need?", "Usually the title deed, the zoning status certificate from the municipality, a site plan, a soil survey and the architectural, structural, electrical and mechanical designs; a building inspection contract is also part of the process. Requirements can vary by municipality and plot, and we support you through permits and approvals."],
 };
 
 export const SERVICE_LANDINGS: ServiceLanding[] = [
@@ -47,6 +53,12 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         whyTitle: "Ofisimiz",
         why: "Adresimiz İncek Mah. Reyhan Cd. No:3, Merkez İncek Plaza Kat:1 D:2, 06830 Gölbaşı / Ankara. Telefon ve WhatsApp: +90 545 320 40 07. Ofisimiz İncek'te olduğu için Gölbaşı ve çevresindeki arsa ve şantiyelere yakınız.",
         imageAlt: "U+ Studio'nun İncek'teki mimarlık ofisi; Yüksek Mimar Hacer Uyar çalışma masasında",
+        faq: [
+          ["İlk görüşmede neler konuşuyoruz?", "Arsanızı ya da mekânınızı, ihtiyaçlarınızı, bütçe aralığınızı ve takviminizi konuşuruz. Tapu, imar durumu, varsa mevcut çizimler ve fotoğraflar değerlendirmeyi hızlandırır. Görüşmenin sonunda kapsamı ve sonraki adımları birlikte belirleriz."],
+          ["Sadece İncek ve Gölbaşı'nda mı çalışıyorsunuz?", "Hayır. Ofisimiz İncek'te; başta İncek, Gölbaşı ve Çankaya olmak üzere Ankara'da ve Türkiye genelinde projeler yürütüyoruz."],
+          ["Mimari proje ile uygulamayı aynı ekip mi yapıyor?", "Evet. Yüksek Mimar ve İnşaat Mühendisi aynı ekipte olduğu için tasarım, taşıyıcı sistem ve uygulama kararları baştan birlikte alınır. İsterseniz şantiye takibini ve anahtar teslim uygulamayı da üstleniriz."],
+          PERMIT.tr,
+        ],
       },
       en: {
         title: "Architecture Office in İncek, Gölbaşı, Ankara",
@@ -62,6 +74,12 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         whyTitle: "The office",
         why: "You will find us at İncek Mah. Reyhan Cd. No:3, Merkez İncek Plaza, Floor 1, Unit 2, 06830 Gölbaşı / Ankara. Phone and WhatsApp: +90 545 320 40 07. Being based in İncek keeps us close to plots and sites in Gölbaşı and nearby.",
         imageAlt: "U+ Studio's architecture office in İncek, with master architect Hacer Uyar at her desk",
+        faq: [
+          ["What do we talk about at the first meeting?", "Your plot or space, your needs, budget range and timeline. Title deed, zoning status and any existing drawings or photos speed up the assessment. We finish by agreeing the scope and next steps together."],
+          ["Do you only work in İncek and Gölbaşı?", "No. Our office is in İncek, and we run projects across Ankara, first of all in İncek, Gölbaşı and Çankaya, and elsewhere in Türkiye."],
+          ["Does the same team handle design and construction?", "Yes. With a master architect and a civil engineer on one team, design, structure and construction decisions are made together from the start. If you wish, we also take on site supervision and turnkey delivery."],
+          PERMIT.en,
+        ],
       },
     },
   },
@@ -84,6 +102,12 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         scope: ["Konsept tasarım ve geliştirme", "3D modelleme ve görselleştirme", "Teknik çizimler ve dokümantasyon", "İzin ve onay süreçlerinde destek", "Şantiye takibi"],
         whyTitle: "Neden U+ Studio",
         why: "Kurucularımız Yüksek Mimar Hacer Uyar ve İnşaat Mühendisi Rıdvan Uyar. İncek'teki ofisimiz, Gölbaşı ve çevresindeki projelere yakın; ilk görüşmede arsanızı ve ihtiyacınızı birlikte değerlendiririz.",
+        faq: [
+          ["Villa projesine nereden başlanır?", "Önce arsanın imar durumu ve yapılaşma koşulları (emsal, çekme mesafeleri, yükseklik) incelenir. İhtiyaç programınızla birlikte konsept tasarıma geçilir; konsept netleşince avan, ruhsat ve uygulama projeleri hazırlanır."],
+          ["Evi yapılmadan önce görebilir miyim?", "Evet. Kütle, cephe ve iç mekânları 3D modelde görürsünüz; malzeme ve renk kararlarını uygulamadan önce görselleştirmelerle netleştiririz."],
+          ["Mevcut evimi büyütebilir miyim?", "İmar koşulları ve mevcut yapının taşıyıcı sistemi izin veriyorsa ek hacim ya da kat mümkün olabilir. Bunu yerinde inceleme ve statik değerlendirmeyle belirler, gerekiyorsa tadilat ruhsatı sürecini planlarız."],
+          PERMIT.tr,
+        ],
       },
       en: {
         title: "Villa & House Architecture in Ankara",
@@ -98,6 +122,12 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         scope: ["Concept design and development", "3D modelling and visualisation", "Technical drawings and documentation", "Permit and approval support", "Site follow-up"],
         whyTitle: "Why U+ Studio",
         why: "The studio is led by master architect Hacer Uyar and civil engineer Rıdvan Uyar. Our İncek office is close to Gölbaşı projects; at the first meeting we review your plot and brief together.",
+        faq: [
+          ["Where does a villa project start?", "With the plot's zoning status and building conditions (floor area ratio, setbacks, height). Together with your brief we move into concept design; once the concept is settled, schematic, permit and construction drawings follow."],
+          ["Can I see the house before it is built?", "Yes. You see the massing, façades and interiors in a 3D model, and we settle materials and colours with visualisations before anything is built."],
+          ["Can I extend my existing house?", "If zoning and the existing structure allow, an extension or an extra floor may be possible. We confirm it with a site visit and a structural assessment, and plan the alteration permit if one is needed."],
+          PERMIT.en,
+        ],
       },
     },
   },
@@ -121,6 +151,11 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         whyTitle: "Neden U+ Studio",
         why: "İç mimari kararlar, mimar ve mühendisin aynı masada olduğu bir ekipte tesisat ve taşıyıcı sistemle birlikte düşünülür; böylece uygulamada sürpriz azalır.",
         pricing: "Tasarım paketleri {price} + KDV'den başlar; kapsamı görüşmede birlikte netleştiririz.",
+        faq: [
+          ["İç mimarlık süreci nasıl ilerler?", "Ölçüm ve ihtiyaç analiziyle başlar. Yerleşim, malzeme ve aydınlatma kararları 3D görsellerle netleşir; ardından uygulama çizimleri ve mekâna özel mobilya detayları hazırlanır."],
+          ["Yalnızca tasarım hizmeti alabilir miyim?", "Evet. Tasarım ve uygulama çizimlerini teslim edip uygulamayı kendi ekibinize bırakabilir ya da uygulamayı ve şantiye takibini bize bırakabilirsiniz."],
+          ["Ev yaşanırken iç mekân yenilenebilir mi?", "Çoğu zaman evet; işleri odalara bölerek planlarız. Mutfak ve banyo gibi tesisatlı alanlar için süreyi ve kullanım dışı kalacak bölümleri baştan konuşuruz."],
+        ],
       },
       en: {
         title: "Interior Architecture in Ankara",
@@ -136,6 +171,11 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         whyTitle: "Why U+ Studio",
         why: "Interior decisions are made alongside services and structure, because the architect and the engineer sit at the same table. That means fewer surprises on site.",
         pricing: "Design packages start at {price} + VAT; we agree the exact scope at the first meeting.",
+        faq: [
+          ["How does the interior design process work?", "It starts with a survey and your brief. Layout, materials and lighting are settled with 3D visuals, then construction drawings and bespoke furniture details are prepared."],
+          ["Can I hire you for design only?", "Yes. We can hand over the design and construction drawings for your own team, or take on construction and site supervision as well."],
+          ["Can the interior be renewed while we live there?", "Often, yes; we phase the work room by room. For kitchens and bathrooms we agree the timing and which areas will be out of use from the start."],
+        ],
       },
     },
   },
@@ -158,6 +198,11 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         scope: ["Mevcut durumun yerinde incelenmesi", "Dönüşüm konsepti ve 3D görselleştirme", "Uygulama projeleri", "Cephe ve iç mekân yenileme", "Şantiye ve bütçe takibi"],
         whyTitle: "Gerçek önce / sonra",
         why: "İncek'teki villadan ofise dönüşüm ve villa dönüşümü projelerimizin önce ve sonra hallerini proje sayfalarında görebilirsiniz.",
+        faq: [
+          ["Tadilat için ruhsat gerekir mi?", "Taşıyıcı sisteme, cepheye ya da yapının kullanımına dokunan değişiklikler genellikle belediyeden izin veya tadilat ruhsatı gerektirir; taşıyıcı olmayan iç mekân yenilemelerinde çoğu zaman gerekmez. Kapsamı inceleyip hangi iznin gerektiğini baştan belirleriz."],
+          ["Duvar kaldırılabilir mi?", "Önce duvarın taşıyıcı olup olmadığını inşaat mühendisi olarak yerinde inceleriz. Taşıyıcı duvar ve kolonlara statik proje ve izin olmadan dokunulmaz."],
+          ["Cephe yenilemede nelere dikkat edilir?", "Yalıtım, doğrama ve dış cephe malzemesi birlikte düşünülür. Apartmanlarda kat maliklerinin kararı, müstakil yapılarda belediye onayı gerekebilir."],
+        ],
       },
       en: {
         title: "Renovation & Conversion in Ankara",
@@ -172,6 +217,11 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         scope: ["On-site review of the existing building", "Conversion concept and 3D visualisation", "Construction drawings", "Façade and interior renewal", "Site and budget follow-up"],
         whyTitle: "Real before / after",
         why: "See the before and after of our villa-to-office conversion in İncek and our villa transformation on their project pages.",
+        faq: [
+          ["Does a renovation need a permit?", "Changes to the structure, the façade or the building's use usually need a municipal permit or an alteration licence; non-structural interior renovations often do not. We check the scope and confirm which permit applies before work starts."],
+          ["Can a wall be removed?", "First we check on site, as civil engineers, whether the wall is load-bearing. Load-bearing walls and columns are never touched without a structural design and a permit."],
+          ["What matters in a façade renovation?", "Insulation, windows and cladding are considered together. Apartment buildings may need the owners' decision, detached houses a municipal approval."],
+        ],
       },
     },
   },
@@ -195,6 +245,10 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         whyTitle: "Sektör paketleri",
         why: "Kedili butik kafe, Evox Gym Center ve pastane gibi ticari projelerimizi portföyde inceleyebilirsiniz.",
         pricing: "Kafe paketi {cafe}, spor salonu paketi {gym} + KDV; işletmenize özel kapsamı görüşmede netleştiririz.",
+        faq: [
+          ["Kafe veya mağaza projesi nasıl ilerler?", "Markanın kimliği, müşteri akışı, servis ve depo ihtiyaçlarıyla başlarız. Yerleşim, mobilya ve aydınlatma 3D'de netleşir; uygulama çizimleri ustaların aynı detayı uygulamasını sağlar."],
+          ["İşyeri ruhsatı için tasarımda neye dikkat edilir?", "Belediyeler işyeri açma ve çalışma ruhsatında çoğu zaman kullanım amacına uygun çizimler ve yangın güvenliği gibi koşullar ister. Gerekenler işletmenin türüne ve belediyeye göre değişir; tasarımı bu koşulları baştan gözeterek hazırlarız."],
+        ],
       },
       en: {
         title: "Café, Office & Retail Design in Ankara",
@@ -210,6 +264,10 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         whyTitle: "Sector packages",
         why: "See commercial projects such as the cat café, Evox Gym Center and the bakery in our portfolio.",
         pricing: "Café package {cafe}, gym package {gym} + VAT; we tailor the scope to your business at the first meeting.",
+        faq: [
+          ["How does a café or shop project work?", "We start with the brand, customer flow, service and storage needs. Layout, furniture and lighting are settled in 3D, and construction drawings make sure every trade builds the same detail."],
+          ["What does the design need for a business licence?", "Municipalities usually ask for drawings that fit the intended use and for conditions such as fire safety before issuing a business licence. Requirements depend on the type of business and the municipality, so we design with them in mind from the start."],
+        ],
       },
     },
   },

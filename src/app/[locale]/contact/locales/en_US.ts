@@ -13,6 +13,7 @@ export const contact_en = {
     "instagram": "Instagram",
     "formLabel": "Send a message",
     "directions": "Directions",
+    "office": "Our İncek office",
     "openInMaps": "Open in Maps",
     "appointment": {
         "prompt": "Prefer to meet in person?",

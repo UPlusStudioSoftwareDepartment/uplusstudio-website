@@ -11,7 +11,7 @@ import InViewVideo from "@/components/studio/InViewVideo";
 import Fullscreenable from "@/components/studio/Fullscreenable";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
 import { useAppointment } from "@/contexts/AppointmentContext";
-import { getAdjacentProject, getProject, projectNumber, type ProjectImage } from "@/lib/projects";
+import { getAdjacentProject, getProject, projectNumber, screenPoster, type ProjectImage } from "@/lib/projects";
 import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
 import { icons } from "@/components/studio/SocialLinks";
 import type { Locale } from "@/lib/i18n-config";
@@ -129,7 +129,7 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
                 style={isPortrait(project.video) ? undefined : { aspectRatio: `${project.video.width} / ${project.video.height}` }}
               >
                 <Fullscreenable className="absolute inset-0">
-                  <InViewVideo src={project.video.src} poster={project.video.poster} className="h-full w-full object-contain" label={project.title[locale]} />
+                  <InViewVideo src={project.video.src} poster={screenPoster(project.video)} className="h-full w-full object-contain" label={project.title[locale]} />
                 </Fullscreenable>
               </div>
             </FadeUp>

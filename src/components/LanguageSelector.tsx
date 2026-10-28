@@ -2,6 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
+import { navigateSmoothly } from '@/components/studio/PageCurtain';
 
 interface LanguageSelectorProps {
   isDarkText?: boolean;
@@ -14,7 +15,7 @@ export default function LanguageSelector({ isDarkText = true }: Readonly<Languag
 
   const toggleLanguage = (lang: string) => {
     const pathWithoutLocale = pathname.replace(/^\/(tr|en)/, '');
-    router.push(`/${lang}${pathWithoutLocale}`);
+    navigateSmoothly(() => router.push(`/${lang}${pathWithoutLocale}`));
   };
 
   const getButtonClass = (isActive: boolean) => {
