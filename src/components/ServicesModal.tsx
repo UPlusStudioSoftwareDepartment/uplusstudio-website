@@ -1,7 +1,7 @@
 
 
-import { AnimatePresence, m } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { AnimatePresence, m } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 const EASE_STUDIO = [0.76, 0, 0.24, 1] as const;
 

@@ -1,10 +1,11 @@
+import { studioInfo } from "@/lib/studio-info";
+
 export const studio_tr = {
   "nav": {
     "work": "Projeler",
     "studio": "Hakkımızda",
     "services": "Hizmetler",
     "contact": "İletişim",
-    "faq": "S.S.S.",
     "glossaryShort": "Sözlük",
     "glossary": "Mimarlık Sözlüğü",
     "home": "Ana Sayfa",
@@ -27,6 +28,7 @@ export const studio_tr = {
     "featuredProject": "Villa Dönüşümü — önce / sonra",
     "playFilm": "Filmi sesli oynat",
     "stopFilm": "Filmi durdur",
+    "unmuteFilm": "Filmin müziğini aç",
     "scroll": "Kaydır",
     "prev": "Önceki film",
     "next": "Sonraki film",
@@ -122,10 +124,11 @@ export const studio_tr = {
     "contact": "İletişim",
     "pages": "Sayfalar",
     "social": "Sosyal",
-    "address": "Merkez İncek Plaza, Reyhan Cd. No:3 Kat:1 D:2\n06830 İncek, Gölbaşı / Ankara",
+    "address": studioInfo.address.join("\n"),
     "rights": "Tüm hakları saklıdır.",
     "tagline": "Mimarlık, önce düşünmekle başlar.",
-    "backToTop": "Başa dön"
+    "backToTop": "Başa dön",
+    "privacy": "KVKK Aydınlatma Metni"
   },
   "project": {
     "back": "Tüm projeler",
@@ -148,13 +151,10 @@ export const studio_tr = {
     "projects": "Sıradaki proje sizinki olabilir.",
     "glossaryEmpty": "Bu terimi bulamadık… Bize sorun, anlatalım!",
     "glossary": "Merak ettiğiniz terimi yazın, birlikte bakalım.",
-    "purchase": "Paketinizi seçin, gerisini birlikte planlayalım!",
     "menu": "Nereye gidelim?",
-    "payment": "Siparişiniz alındı, çalışmaya başlıyoruz!",
     "projectsCta": "Projenizi konuşalım",
     "hello": "Merhaba! Projenizi dinlemeye hazırız.",
     "hero": "Bir kahve içip projenizi konuşalım mı?",
-    "faq": "Aradığınızı bulamadıysanız bize sorun, hemen yanıtlayalım!",
     "notFound": "Hmm… Bu sayfayı biz de bulamadık. Ana sayfaya dönelim mi?",
     "success": "Harika! Talebiniz bize ulaştı, en kısa sürede dönüyoruz."
   }

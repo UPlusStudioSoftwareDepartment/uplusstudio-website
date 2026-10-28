@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { m, useReducedMotion } from 'framer-motion';
-import Image from 'next/image';
-import { EASE_OUT } from '@/components/studio/Reveal';
+import { m, useReducedMotion } from "framer-motion";
+import Image from "next/image";
+import { EASE_OUT } from "@/components/studio/Reveal";
 
 export interface Founder {
   name: string;

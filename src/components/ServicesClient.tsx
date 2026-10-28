@@ -180,7 +180,7 @@ function ProcessTimeline({ steps }: Readonly<{ steps: ServicesCopy["process"]["s
             <span className="h-2 w-2 rounded-full bg-clay" />
           </span>
           <FadeUp delay={i * 0.08}>
-            <span className="font-serif text-6xl italic leading-none text-ink/25 sm:text-7xl">{step.step}</span>
+            <span className="font-serif text-6xl italic leading-none text-ink/40 sm:text-7xl" aria-hidden>{step.step}</span>
             <h3 className="display mt-4 text-3xl text-ink">{step.title}</h3>
             <p className="mt-3 max-w-xs text-[16px] leading-relaxed text-mute">{step.description}</p>
           </FadeUp>

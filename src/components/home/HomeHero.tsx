@@ -27,6 +27,7 @@ const VIDEO = {
   music: "/media/audio/villa-transformation.aac",
 };
 const MUSIC_DRIFT_S = 0.25;
+const FILM_LABEL = { stopped: "playFilm", silent: "unmuteFilm", audible: "stopFilm" } as const;
 
 const videoSource = () => (globalThis.innerWidth < 768 ? VIDEO.small : VIDEO.large);
 
@@ -45,6 +46,8 @@ export default function HomeHero() {
   const [celebrating, setCelebrating] = useState(false);
   const [mascotsHovered, setMascotsHovered] = useState(false);
   const [playing, setPlaying] = useState(false);
+  const [musicOn, setMusicOn] = useState(false);
+  const film = !playing ? "stopped" : musicOn ? "audible" : "silent";
 
   const celebrate = () => {
     if (reduce || celebrating) return;
@@ -99,8 +102,12 @@ export default function HomeHero() {
   const toggleFilm = () => {
     const video = videoRef.current;
     if (!video) return;
-    if (playing) {
+    if (film === "audible") {
       video.pause();
+      return;
+    }
+    if (film === "silent") {
+      playMusic();
       return;
     }
     if (!video.src) video.src = videoSource();
@@ -129,7 +136,7 @@ export default function HomeHero() {
             musicRef.current?.pause();
           }}
         />
-        <audio ref={musicRef} preload="auto" />
+        <audio ref={musicRef} preload="auto" onPlay={() => setMusicOn(true)} onPause={() => setMusicOn(false)} />
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-night/60 to-transparent" aria-hidden />
@@ -137,9 +144,9 @@ export default function HomeHero() {
 
       <div className="relative z-10 mx-auto flex h-full max-w-[2560px] flex-col px-4 pb-6 pt-[8.75rem] [justify-content:safe_flex-end] sm:px-8 sm:pb-10 sm:pt-32 lg:px-12 [@media(max-height:560px)]:pb-3 [@media(max-height:560px)]:pt-28">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:items-end [@media(max-height:560px)]:justify-between [@media(max-height:560px)]:gap-4">
-          <h1 className="display min-w-0 text-[clamp(1.9rem,min(8vw,10dvh),9rem)]">
+          <h1 className="display min-w-0 text-[clamp(1.9rem,min(8vw,10dvh),9rem)] max-sm:flex max-sm:flex-col">
             <span className="sr-only">U+ Studio — </span>
-            <span className="eyebrow mb-5 block animate-[rise_0.9s_var(--ease-out-studio)_backwards] font-normal leading-normal text-bone/75 [--rise:12px] motion-reduce:animate-none sm:mb-8 [@media(max-height:560px)]:mb-2">
+            <span className="eyebrow mb-5 block animate-[rise_0.9s_var(--ease-out-studio)_backwards] font-normal leading-normal text-bone/75 [--rise:12px] motion-reduce:animate-none max-sm:order-last max-sm:mb-0 max-sm:mt-4 max-sm:[animation-delay:0.9s] sm:mb-8 [@media(max-height:560px)]:mb-2">
               {t("hero.eyebrow")}
             </span>
             <LineReveal
@@ -212,12 +219,19 @@ export default function HomeHero() {
                 ref={filmButtonRef}
                 type="button"
                 onClick={toggleFilm}
-                aria-label={playing ? t("hero.stopFilm") : t("hero.playFilm")}
+                aria-label={t(`hero.${FILM_LABEL[film]}`)}
                 className="relative -my-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-bone/45 text-bone transition-colors after:absolute after:-inset-2.5 after:content-[''] hover:border-bone hover:bg-night"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={`h-2.5 w-2.5 ${playing ? "" : "translate-x-px"}`}>
-                  <path d={playing ? "M5 5h14v14H5z" : "M6 3.5v17L20.5 12z"} />
-                </svg>
+                {film === "silent" ? (
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-3.5 w-3.5">
+                    <path d="M3 9v6h4l5 4V5L7 9H3z" />
+                    <path d="m16 9.5 5 5m0-5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={`h-2.5 w-2.5 ${film === "stopped" ? "translate-x-px" : ""}`}>
+                    <path d={film === "stopped" ? "M6 3.5v17L20.5 12z" : "M5 5h14v14H5z"} />
+                  </svg>
+                )}
               </button>
               <span className="eyebrow block text-bone/55">{t("hero.featured")}</span>
             </span>

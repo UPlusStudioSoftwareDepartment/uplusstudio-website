@@ -14,6 +14,7 @@ const PATHS = [
   ...projects.filter((p) => p.video).map((p) => `/projects/${p.slug}/video`),
   PAGE_PATH.contact,
   PAGE_PATH.glossary,
+  PAGE_PATH.privacy,
 ];
 
 const IMAGES: Record<string, string[]> = Object.fromEntries([
@@ -28,7 +29,7 @@ const VIDEOS: Record<string, Project> = Object.fromEntries([
   ...(homeVideo ? [[PAGE_PATH.home, homeVideo]] : []),
 ]);
 
-const PRIORITY: Record<string, string> = { "": "1.0", "/services": "0.9", "/projects": "0.9", "/contact": "0.9", "/about": "0.8" };
+const PRIORITY: Record<string, string> = { "": "1.0", "/services": "0.9", "/projects": "0.9", "/contact": "0.9", "/about": "0.8", "/kvkk": "0.3" };
 
 const xmlEscape = (s: string) => s.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 

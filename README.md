@@ -22,6 +22,9 @@ Gizli değerler yalnızca `.env.local` dosyasında (git'e girmez) ve Vercel → 
 | `APPOINTMENT_TO` | İsteğe bağlı | Randevu ve iletişim e-postalarının gideceği adres (varsayılan `mimarhaceruyar@gmail.com`, `src/lib/studio-info.ts` → `formInbox`). |
 | `NEXT_PUBLIC_SITE_URL` | İsteğe bağlı | Kanonik adres (varsayılan `https://www.uplusstudio.com.tr`). |
 | `NEXT_PUBLIC_IS_IN_MAINTENANCE` | İsteğe bağlı | `true` olduğunda tüm site bakım sayfasını gösterir. |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` | İsteğe bağlı | Cloudflare Turnstile (ücretsiz) anahtarları. İkisi de tanımlıysa iletişim ve randevu formları görünmez bir insan doğrulamasından geçer. Tanımlı değilse yalnızca gizli tuzak alanı (honeypot) ve istek sınırı çalışır. Site anahtarı derleme anında okunur; ekledikten sonra yeniden yayınlayın. |
+| `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` | İsteğe bağlı | Upstash Redis (ücretsiz katman yeterli). Tanımlıysa form ve API istek sınırı (dakikada 10) tüm sunucularda ortak tutulur; tanımlı değilse her sunucu kendi belleğinde sayar. Upstash'e ulaşılamazsa bellek sınırına döner. |
+| `NEXT_PUBLIC_VERCEL_ANALYTICS` | İsteğe bağlı | `1` olduğunda Vercel Web Analytics ve Speed Insights yüklenir (çerezsiz). Önce Vercel → Project → Analytics ve Speed Insights sekmelerinden açın, sonra bu değişkeni ekleyip yeniden yayınlayın; KVKK metni bunu kendiliğinden anlatır. |
 
 ## Testler
 
@@ -33,8 +36,16 @@ npm run test:e2e
 ```
 
 - `npm run test`: Vitest birim testleri (`src/lib/**/*.test.ts`).
-- `npm run test:e2e`: Playwright ile masaüstü ve telefon (Pixel 7) tarayıcı testleri. Çalışan bir sunucu yoksa `npm run start` ile kendi sunucusunu açar; önce `npm run build` gerekir. Başka bir adresi test etmek için `BASE_URL=https://... npm run test:e2e`.
+- `npm run test:e2e`: Playwright ile masaüstü Chrome, Android (Pixel 7), iPhone (WebKit) ve masaüstü Firefox tarayıcı testleri; `e2e/a11y.spec.ts` her sayfayı axe ile WCAG 2.2 AA kurallarına göre tarar. Çalışan bir sunucu yoksa `npm run start` ile kendi sunucusunu açar; önce `npm run build` gerekir. Başka bir adresi test etmek için `BASE_URL=https://... npm run test:e2e`.
 - Randevu testleri e-posta göndermez: Gmail penceresi ve pano tarayıcı içinde yakalanır. `BASE_URL` canlı siteyi gösterdiğinde e-posta gönderen iki API de test içinde yanıtlanır; testler stüdyoya posta atamaz.
+
+## İzleme ve güvenlik
+
+- Tarayıcıda yakalanmayan hatalar ve hata sayfaları `/api/client-error` adresine kısa bir rapor gönderir; raporlar Vercel → Project → Logs altında `[client-error]` ile aranabilir. Sayfa başına en çok beş rapor gider, kişisel bilgi içermez.
+- `/tr/kvkk` ve `/en/kvkk` aydınlatma metni `src/lib/privacy.ts` içindedir; bir hukukçuya okutulması önerilir. Formların altında ve sayfa altında bu sayfaya bağlantı vardır.
+- `public/.well-known/security.txt` güvenlik bildirimleri için iletişim adresini verir; `Expires` tarihi dolmadan yenileyin.
+- `.github/dependabot.yml` npm paketleri için haftalık, GitHub Actions için aylık güncelleme önerileri açar.
+- Site çerez kullanmaz; dil adres yolunda (`/tr`, `/en`) tutulur.
 
 ## Yayına alma
 

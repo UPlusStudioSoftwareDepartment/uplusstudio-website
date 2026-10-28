@@ -37,6 +37,7 @@ test.describe("appointment form validation", () => {
   });
 
   test("closes with Escape and keeps the page where it was", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("/tr/contact");
     const trigger = page.getByRole("main").getByRole("button", { name: "Randevu Al" }).last();
     await trigger.evaluate((el) => window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 300, behavior: "instant" }));

@@ -34,8 +34,8 @@ jobs:
           GMAIL_PASS: ""
           CONTACT_EMAIL: ""
 
-      - name: Install browser
-        run: npx playwright install --with-deps chromium
+      - name: Install browsers
+        run: npx playwright install --with-deps chromium webkit firefox
 
       - name: End-to-end tests
         run: npm run test:e2e

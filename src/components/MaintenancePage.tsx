@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { m } from 'framer-motion';
-import Image from 'next/image';
-import JumpingGame from '@/components/JumpingGame';
-import ProfessionalCard from './ProfessionalCard';
-import CompanyLocation from './CompanyLocation';
-import ServicesModal from './ServicesModal';
-import FounderModal from './FounderModal';
-import FounderCard, { type Founder } from './FounderCard';
-import { useState, useEffect } from 'react';
+import { m } from "framer-motion";
+import Image from "next/image";
+import JumpingGame from "@/components/JumpingGame";
+import ProfessionalCard from "./ProfessionalCard";
+import CompanyLocation from "./CompanyLocation";
+import ServicesModal from "./ServicesModal";
+import FounderModal from "./FounderModal";
+import FounderCard, { type Founder } from "./FounderCard";
+import { useState, useEffect } from "react";
 
 export default function MaintenancePage() {
   const [showServices, setShowServices] = useState(false);

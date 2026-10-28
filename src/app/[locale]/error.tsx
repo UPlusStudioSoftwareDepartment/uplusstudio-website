@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
+import { reportError } from "@/lib/errorReport";
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -14,9 +15,8 @@ export default function LocaleError({ error, reset }: Readonly<ErrorProps>) {
   const locale = useLocale();
 
   useEffect(() => {
-    if (process.env.NODE_ENV === "development") {
-      console.error("Route error:", error);
-    }
+    if (process.env.NODE_ENV === "development") console.error("Route error:", error);
+    else reportError(error, { digest: error.digest });
   }, [error]);
 
   return (

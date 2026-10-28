@@ -2,19 +2,8 @@ import { expect, test, type Locator, type Page } from "@playwright/test";
 import { SERVICE_LANDINGS } from "../src/lib/serviceLandings";
 import { projects } from "../src/lib/projects";
 import { studioInfo } from "../src/lib/studio-info";
+import { LOCALES, PATHS } from "./pages";
 
-const PATHS = [
-  "",
-  "/about",
-  "/services",
-  ...SERVICE_LANDINGS.map((s) => `/services/${s.slug}`),
-  "/projects",
-  `/projects/${projects[0].slug}`,
-  "/glossary",
-  "/contact",
-  "/kartvizit",
-];
-const LOCALES = ["tr", "en"] as const;
 
 function watchErrors(page: Page) {
   const errors: string[] = [];
@@ -420,7 +409,7 @@ test.describe("phones", () => {
     const cardButton = menu.getByRole("button", { name: "Kartviziti paylaş" });
     await cardButton.click();
     const card = page.getByRole("dialog", { name: "Dijital kartvizit" });
-    await expect(card).toBeVisible();
+    await expect(card.locator(":focus")).toHaveAccessibleName("Kapat");
     await page.keyboard.press("Escape");
     await expect(card).toBeHidden();
     await expect(menu).toBeVisible();

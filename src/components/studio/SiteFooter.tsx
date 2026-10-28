@@ -112,6 +112,7 @@ export default function SiteFooter() {
 
         <div className="relative flex flex-col gap-4 border-t border-bone/10 py-6 font-mono text-[12px] uppercase tracking-[0.12em] text-bone/55 sm:flex-row sm:items-center sm:justify-between">
           <span>© {year} U+ Studio — {t("footer.rights")}</span>
+          <Link href={`${prefix}/kvkk`} className="hover:text-bone">{t("footer.privacy")}</Link>
           <button
             type="button"
             onClick={() => globalThis.scrollTo({ top: 0, behavior: "smooth" })}

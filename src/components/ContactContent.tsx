@@ -9,6 +9,8 @@ import PageHeader from "@/components/studio/PageHeader";
 import { Eyebrow, FadeUp } from "@/components/studio/Reveal";
 import { icons } from "@/components/studio/SocialLinks";
 import Select from "@/components/studio/Select";
+import PrivacyNote from "@/components/studio/PrivacyNote";
+import { useBotGuard } from "@/components/studio/BotGuard";
 import { useLocale, useTranslations } from "next-intl";
 import { contact_en } from "@/app/[locale]/contact/locales/en_US";
 import { contact_tr } from "@/app/[locale]/contact/locales/tr_TR";
@@ -110,6 +112,7 @@ export default function ContactContent() {
     const copy = locale === "en" ? contact_en : contact_tr;
     const toast = useToast();
     const { openAppointment } = useAppointment();
+    const botGuard = useBotGuard();
     const [sent, setSent] = useState<Sent | null>(null);
     const [typed] = useState(typedBeforeHydration);
     const subjects = useMemo(() => [...APPOINTMENT_SERVICES.map((key) => ta(`services.${key}`)), t("subjectOther")], [ta, t]);
@@ -131,7 +134,7 @@ export default function ContactContent() {
         const res = await fetch("/api/contact", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ ...data, locale }),
+            body: JSON.stringify({ ...data, locale, ...botGuard.values() }),
         });
         if (!res.ok) throw new Error(`contact ${res.status}`);
         return (await res.json()) as ContactReply;
@@ -236,7 +239,8 @@ export default function ContactContent() {
                                 </div>
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit(onSubmit)} className="mt-10 space-y-10" noValidate>
+                            <form onSubmit={handleSubmit(onSubmit)} className="relative mt-10 space-y-10" noValidate>
+                                {botGuard.fields}
                                 <Field id="name" index="01" label={t("name")} error={errors.name?.message}>
                                     <input
                                         {...register("name")}
@@ -333,6 +337,7 @@ export default function ContactContent() {
                                         WhatsApp
                                     </button>
                                 </div>
+                                <PrivacyNote />
                             </form>
                         )}
                     </FadeUp>

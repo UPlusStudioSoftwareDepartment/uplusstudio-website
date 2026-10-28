@@ -21,7 +21,7 @@ const EASE = [0.76, 0, 0.24, 1] as const;
 function startsOverDark(pathname: string, prefix: string): boolean {
   if (pathname === "/" || pathname === prefix) return true;
   return new RegExp(
-    `^${prefix}/(projects(/[^/]+)?|about|services|contact|faq|glossary|purchase|payment(/success)?)/?$`
+    `^${prefix}/(projects(/[^/]+)?|about|services|contact|glossary|kvkk)/?$`
   ).test(pathname);
 }
 

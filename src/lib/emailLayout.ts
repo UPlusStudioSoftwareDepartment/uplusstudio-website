@@ -1,16 +1,17 @@
 import { escapeHtml } from "./sanitize";
 import { STUDIO_ADDRESS } from "./appointmentLinks";
+import { studioInfo } from "./studio-info";
 
 export type Locale = "tr" | "en";
 
 export const STUDIO = {
   disciplines: { tr: "Mimarlık & İç Mimarlık & Mühendislik", en: "Architecture & Interior Architecture & Engineering" },
   address: STUDIO_ADDRESS,
-  phone: "+90 545 320 40 07",
-  phoneHref: "tel:+905453204007",
-  whatsapp: "https://wa.me/905453204007",
-  email: "info@uplusstudio.com.tr",
-  directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("İncek Mahallesi Reyhan Caddesi No:3, 06830 Gölbaşı/Ankara")}`,
+  phone: studioInfo.phoneDisplay,
+  phoneHref: studioInfo.phoneHref,
+  whatsapp: studioInfo.whatsappUrl,
+  email: studioInfo.email,
+  directions: studioInfo.directionsUrl,
 };
 
 const C = {

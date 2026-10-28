@@ -1,10 +1,11 @@
+import { studioInfo } from "@/lib/studio-info";
+
 export const studio_en = {
   "nav": {
     "work": "Work",
     "studio": "About",
     "services": "Services",
     "contact": "Contact",
-    "faq": "FAQ",
     "glossaryShort": "Glossary",
     "glossary": "Architecture Glossary",
     "home": "Home",
@@ -27,6 +28,7 @@ export const studio_en = {
     "featuredProject": "Villa Transformation — before / after",
     "playFilm": "Play the film with sound",
     "stopFilm": "Stop the film",
+    "unmuteFilm": "Turn on the film music",
     "scroll": "Scroll",
     "prev": "Previous film",
     "next": "Next film",
@@ -122,10 +124,11 @@ export const studio_en = {
     "contact": "Contact",
     "pages": "Pages",
     "social": "Social",
-    "address": "Merkez İncek Plaza, Reyhan Cd. No:3 Kat:1 D:2\n06830 İncek, Gölbaşı / Ankara",
+    "address": studioInfo.address.join("\n"),
     "rights": "All rights reserved.",
     "tagline": "Architecture begins with thinking.",
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "privacy": "Privacy notice"
   },
   "project": {
     "back": "All projects",
@@ -148,13 +151,10 @@ export const studio_en = {
     "projects": "The next project could be yours.",
     "glossaryEmpty": "We couldn't find that term… Ask us and we'll explain!",
     "glossary": "Type the term you're curious about — let's look it up together.",
-    "purchase": "Pick your package — we'll plan the rest together!",
     "menu": "Where shall we go?",
-    "payment": "Order received — we're getting started!",
     "projectsCta": "Let's talk about your project",
     "hello": "Hi! We'd love to hear about your project.",
     "hero": "Shall we talk about your project over a coffee?",
-    "faq": "Can't find your answer? Ask us — we'll reply right away!",
     "notFound": "Hmm… we couldn't find this page either. Shall we head home?",
     "success": "Great! Your request reached us — we'll be in touch soon."
   }

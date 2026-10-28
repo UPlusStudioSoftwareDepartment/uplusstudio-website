@@ -27,7 +27,7 @@ export const ADDRESS = {
 
 export const GOOGLE_MAPS_CID_URL = "https://www.google.com/maps?cid=2009045103581452115";
 
-export type PageKey = "home" | "about" | "services" | "projects" | "contact" | "faq" | "glossary" | "purchase";
+export type PageKey = "home" | "about" | "services" | "projects" | "contact" | "glossary" | "privacy";
 
 export const PAGE_PATH: Record<PageKey, string> = {
   home: "",
@@ -35,9 +35,8 @@ export const PAGE_PATH: Record<PageKey, string> = {
   services: "/services",
   projects: "/projects",
   contact: "/contact",
-  faq: "/faq",
   glossary: "/glossary",
-  purchase: "/purchase",
+  privacy: "/kvkk",
 };
 
 export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; description: string; crumb: string }>> = {
@@ -72,22 +71,16 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
         "U+ Studio'ya ulaşın: Merkez İncek Plaza, Reyhan Cd. No:3, İncek · Gölbaşı / Ankara. Telefon ve WhatsApp +90 545 320 40 07, info@uplusstudio.com.tr.",
       crumb: "İletişim",
     },
-    faq: {
-      title: "Sıkça Sorulan Sorular: Mimari Proje & Tadilat",
-      description:
-        "Mimari proje, ruhsat, tadilat, anahtar teslim uygulama, süreler ve ödemeler hakkında sık sorulan sorular. U+ Studio — Mimarlık & İç Mimarlık & Mühendislik, Ankara.",
-      crumb: "S.S.S.",
-    },
     glossary: {
       title: "Mimarlık Sözlüğü: 500+ Terim ve Anlamı",
       description:
         "Mimarlık & iç mimarlık & mühendislik terimlerinin herkesin anlayacağı açıklamaları: A'dan Z'ye 500'den fazla terim. U+ Studio, İncek · Gölbaşı / Ankara.",
       crumb: "Sözlük",
     },
-    purchase: {
-      title: "Paket Satın Al",
-      description: "U+ Studio mimarlık & iç mimarlık & mühendislik hizmet paketleri için satın alma formu.",
-      crumb: "Satın Al",
+    privacy: {
+      title: "KVKK Aydınlatma Metni",
+      description: "U+ Studio iletişim ve randevu formlarıyla ilettiğiniz kişisel verileri nasıl işler: amaçlar, hukuki sebepler, aktarım, saklama süresi ve KVKK kapsamındaki haklarınız.",
+      crumb: "KVKK",
     },
   },
   en: {
@@ -121,22 +114,16 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
         "Visit U+ Studio at Merkez İncek Plaza, Reyhan Cd. No:3, İncek · Gölbaşı / Ankara. Phone & WhatsApp +90 545 320 40 07, info@uplusstudio.com.tr. Book a meeting.",
       crumb: "Contact",
     },
-    faq: {
-      title: "FAQ: Architectural Projects & Renovation",
-      description:
-        "Answers on architectural projects, permits, renovation, turnkey construction, timelines and payments. U+ Studio — Architecture & Interior Architecture & Engineering, Ankara.",
-      crumb: "FAQ",
-    },
     glossary: {
       title: "Architecture Glossary: 500+ Terms Explained",
       description:
         "Plain-language explanations of 500+ architecture & interior architecture & engineering terms, A to Z. By U+ Studio in İncek, Gölbaşı / Ankara.",
       crumb: "Glossary",
     },
-    purchase: {
-      title: "Purchase a Package",
-      description: "Purchase form for U+ Studio architecture & interior architecture & engineering service packages.",
-      crumb: "Purchase",
+    privacy: {
+      title: "Privacy Notice (KVKK)",
+      description: "How U+ Studio processes the personal data you send through its contact and appointment forms: purposes, legal basis, transfers, retention and your rights under KVKK.",
+      crumb: "Privacy",
     },
   },
 };
@@ -231,7 +218,6 @@ export function pageMetadata(locale: Locale, page: PageKey): Metadata {
     title: copy.title,
     description: copy.description,
     absoluteTitle: page === "home",
-    noindex: page === "purchase",
     image: image && { ...image, alt: image.alt[locale] },
   });
 }

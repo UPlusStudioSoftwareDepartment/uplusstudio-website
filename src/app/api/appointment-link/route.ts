@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { appointmentSchema } from "@/lib/validations";
-import { checkRateLimit } from "@/lib/rateLimit";
+import { limitRequest } from "@/lib/rateLimit";
+import { filledHoneypot, passesTurnstile } from "@/lib/botGuard";
 import { createAppointmentToken } from "@/lib/appointmentToken";
 
 export async function POST(req: Request) {
-  const limit = checkRateLimit(req);
+  const limit = await limitRequest(req);
   if (!limit.ok) return NextResponse.json({ error: "Too many requests" }, { status: 429 });
 
   let raw: unknown;
@@ -13,6 +14,8 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
+  if (filledHoneypot(raw)) return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+  if (!(await passesTurnstile(raw, req))) return NextResponse.json({ error: "Verification failed" }, { status: 403 });
   const locale = (raw as { locale?: string })?.locale === "en" ? "en" : "tr";
   const parsed = appointmentSchema.safeParse(raw);
   if (!parsed.success) {

@@ -361,9 +361,11 @@ export default function AboutContent() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     className="object-cover transition-transform duration-[1200ms] ease-out-studio group-hover:scale-[1.04]"
                   />
-                  <span className="absolute left-4 top-4 bg-night/70 px-2.5 py-1 font-mono text-[11px] tracking-[0.14em] text-bone backdrop-blur-sm">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                  <span
+                    className="absolute left-4 top-4 bg-night/70 px-2.5 py-1 font-mono text-[11px] tracking-[0.14em] text-bone backdrop-blur-sm before:content-[attr(data-index)]"
+                    data-index={String(i + 1).padStart(2, "0")}
+                    aria-hidden
+                  />
                   {EXAMPLE_FOR[item.key] && (
                     <span className="absolute bottom-4 right-4 rounded-[3px] bg-night/70 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-bone opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                       {offer.exampleCta}

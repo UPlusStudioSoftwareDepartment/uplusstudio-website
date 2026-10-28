@@ -13,6 +13,8 @@ import { useScrollLock } from "@/hooks/useScrollLock";
 import { studioInfo } from "@/lib/studio-info";
 import { type ComposedMail, followLink, gmailAppUrl, mailPlatform, mailtoUrl, openGmail } from "@/lib/gmailCompose";
 import { icons } from "@/components/studio/SocialLinks";
+import PrivacyNote from "@/components/studio/PrivacyNote";
+import { useBotGuard } from "@/components/studio/BotGuard";
 import type { AppointmentPrefill } from "@/contexts/AppointmentContext";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { TIME_SLOTS, localDate } from "@/lib/appointmentDate";
@@ -50,6 +52,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
   const ts = useTranslations("studio");
   const locale = useLocale();
   const toast = useToast();
+  const botGuard = useBotGuard();
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
   const [submitErrorMessage, setSubmitErrorMessage] = useState<string | null>(null);
   const [sentValues, setSentValues] = useState<AppointmentFormValues | null>(null);
@@ -294,7 +297,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
       const res = await fetch("/api/appointment-link", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...v, service: t(`services.${v.service}`), locale, via }),
+        body: JSON.stringify({ ...v, service: t(`services.${v.service}`), locale, via, ...botGuard.values() }),
       });
       if (res.ok) {
         const json = await res.json();
@@ -502,9 +505,10 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                 id="appointment-form"
                 ref={formRef}
                 onSubmit={(event) => handleSubmit(onSubmit)(event)}
-                className="custom-scrollbar flex-1 min-h-0 overflow-y-auto px-6 py-10 sm:px-12"
+                className="custom-scrollbar relative flex-1 min-h-0 overflow-y-auto px-6 py-10 sm:px-12"
                 noValidate
               >
+                {botGuard.fields}
                 <AnimatePresence>
                   {submitStatus === 'success' && (
                     <m.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mb-10 flex flex-col items-center gap-5 rounded-[6px] border border-line bg-paper-2 px-6 py-8 text-center text-ink">
@@ -680,7 +684,8 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                   </div>
                 </section>
 
-                <p className="mt-10 text-sm text-mute lg:hidden">
+                <PrivacyNote className="mt-8" />
+                <p className="mt-6 text-sm text-mute lg:hidden">
                   {studioInfo.phoneDisplay} · {studioInfo.email}
                 </p>
               </form>

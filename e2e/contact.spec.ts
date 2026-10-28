@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { captureOutgoing, hrefParam, openedUrls } from "./support";
+import { captureOutgoing, hrefParam, openedUrls, testClientIp } from "./support";
 
 const IOS_UA =
   "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1";
@@ -27,6 +27,15 @@ test("asks for every field before sending", async ({ page }) => {
     await expect(page.getByText(message)).toBeVisible();
   }
   expect(await openedUrls(page)).toEqual([]);
+});
+
+test("bots that fill the hidden field get nowhere", async ({ request }) => {
+  const headers = { "x-forwarded-for": testClientIp() };
+  const person = { name: "Ayşe Yılmaz", email: "ayse@example.com", phone: "0532 123 45 67", message: "Arsamız için ön görüşme istiyoruz.", locale: "tr", u_hp: "https://spam.example" };
+  const contact = await request.post("/api/contact", { headers, data: { ...person, subject: "Villa & Müstakil Ev" } });
+  expect(await contact.json()).toEqual({ sent: true });
+  const appointment = await request.post("/api/appointment-link", { headers, data: { ...person, service: "İç Mimarlık", date: "2026-11-04", time: "14:00" } });
+  expect(appointment.status()).toBe(400);
 });
 
 test("text typed before the page finishes loading stays in the form", async ({ page }) => {
@@ -86,7 +95,7 @@ test("a click right after choosing a subject reaches the field under the closing
   const field = (await message.boundingBox())!;
   const menu = (await page.getByRole("listbox").boundingBox())!;
   await page.getByRole("option", { name: /İç Mimarlık/ }).click();
-  await page.waitForTimeout(60);
+  await expect(subject).toHaveAttribute("aria-expanded", "false");
   await page.mouse.click(field.x + field.width / 2, Math.min(field.y + field.height, menu.y + menu.height) - 6);
   await expect(message).toBeFocused();
   await expect(subject).toHaveText(/İç Mimarlık/);

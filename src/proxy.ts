@@ -7,6 +7,7 @@ const intl = createMiddleware({
   locales,
   defaultLocale,
   localeDetection: false,
+  localeCookie: false,
   alternateLinks: false,
 });
 

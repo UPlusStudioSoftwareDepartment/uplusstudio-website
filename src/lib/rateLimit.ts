@@ -14,7 +14,29 @@ function dropExpired(now: number) {
   for (const [id, entry] of store) if (now > entry.resetAt) store.delete(id);
 }
 
-export function checkRateLimit(req: Request): { ok: boolean; retryAfter?: number } {
+type Limit = { ok: boolean; retryAfter?: number };
+
+export async function limitRequest(req: Request): Promise<Limit> {
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return checkRateLimit(req);
+  const key = `rate:${getClientId(req)}`;
+  try {
+    const res = await fetch(`${url.replace(/\/$/, "")}/pipeline`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify([["INCR", key], ["PEXPIRE", key, windowMs, "NX"], ["PTTL", key]]),
+      cache: "no-store",
+    });
+    if (!res.ok) return checkRateLimit(req);
+    const [count, , ttl] = (await res.json()) as { result: number }[];
+    return count.result > maxRequests ? { ok: false, retryAfter: Math.max(1, Math.ceil(ttl.result / 1000)) } : { ok: true };
+  } catch {
+    return checkRateLimit(req);
+  }
+}
+
+export function checkRateLimit(req: Request): Limit {
   const id = getClientId(req);
   const now = Date.now();
   const entry = store.get(id);

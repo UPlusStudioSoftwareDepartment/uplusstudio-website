@@ -3,7 +3,7 @@ import { useEffect, type RefObject } from "react";
 const FOCUSABLE = "a[href], button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]";
 
 const traps: RefObject<HTMLElement | null>[] = [];
-const RECENT_CLICK_MS = 1000;
+const RECENT_CLICK_MS = 5000;
 let lastClick: { el: HTMLElement | null; at: number } = { el: null, at: 0 };
 
 if (typeof document !== "undefined") {

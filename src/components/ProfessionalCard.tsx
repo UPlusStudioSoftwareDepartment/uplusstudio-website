@@ -1,12 +1,13 @@
-'use client';
+"use client";
 
-import { m } from 'framer-motion';
-import { useState, useRef, useSyncExternalStore } from 'react';
-import { toPng } from 'html-to-image';
-import ServicesModal from './ServicesModal';
-import ServiceCard from './ServiceCard';
-import { useScrollLock } from '@/hooks/useScrollLock';
-import { cardCaptureOptions, dataUrlToBlob } from '@/lib/cardCapture';
+import { m } from "framer-motion";
+import { useState, useRef, useSyncExternalStore } from "react";
+import { toPng } from "html-to-image";
+import ServicesModal from "./ServicesModal";
+import ServiceCard from "./ServiceCard";
+import { useScrollLock } from "@/hooks/useScrollLock";
+import { cardCaptureOptions, dataUrlToBlob } from "@/lib/cardCapture";
+import { studioInfo } from "@/lib/studio-info";
 
 const noSubscription = () => () => {};
 
@@ -98,16 +99,13 @@ export default function ProfessionalCard() {
   const handleEmail = () => {
     const isWindows = /Win/i.test(navigator.userAgent);
     const url = isWindows
-      ? 'https://mail.google.com/mail/?view=cm&fs=1&to=info@uplusstudio.com.tr'
-      : 'mailto:info@uplusstudio.com.tr';
+      ? `https://mail.google.com/mail/?view=cm&fs=1&to=${studioInfo.email}`
+      : `mailto:${studioInfo.email}`;
     globalThis.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const handleLocation = () => {
-    const address = 'İncek, Reyhan Cd. No:3, 06830 Gölbaşı/Ankara';
-    const encodedAddress = encodeURIComponent(address);
-    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`;
-    globalThis.open(googleMapsUrl, '_blank', 'noopener,noreferrer');
+    globalThis.open(studioInfo.directionsUrl, '_blank', 'noopener,noreferrer');
   };
 
   const performDownload = async () => {

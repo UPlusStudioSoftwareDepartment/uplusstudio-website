@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { m } from 'framer-motion';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { m } from "framer-motion";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const JUMP_DURATION_MS = 600;
 const ROAD_LINE_COUNT = 4;

@@ -8,7 +8,7 @@ import { siteGraph } from "@/lib/seo";
 import { fontVariables } from "@/app/fonts";
 import JsonLd from "@/components/seo/JsonLd";
 import MotionProvider from "@/components/MotionProvider";
-import SetPageScrollBackground from "@/components/SetPageScrollBackground";
+import Telemetry from "@/components/Telemetry";
 import Navigation from "@/components/NavigationOptimized";
 import { SkipToContent } from "@/components/SkipToContent";
 import { ToastProvider } from "@/contexts/ToastContext";
@@ -54,7 +54,6 @@ export default async function LocaleLayout({
                   children
                 ) : (
                   <>
-                    <SetPageScrollBackground />
                     <SkipToContent />
                     <ArchitecturalBackdrop />
                     <Navigation />
@@ -66,6 +65,7 @@ export default async function LocaleLayout({
             </ToastProvider>
           </NextIntlClientProvider>
         </MotionProvider>
+        <Telemetry />
       </body>
     </html>
   );

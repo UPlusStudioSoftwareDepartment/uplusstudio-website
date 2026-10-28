@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import { useMemo } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
-import { Eyebrow, FadeUp, LineReveal, MaskReveal } from '@/components/studio/Reveal';
-import { useAppointment } from '@/contexts/AppointmentContext';
-import { useServicesCopy } from '@/components/ServicesClient';
-import FramedImage from '@/components/studio/FramedImage';
+import { useMemo } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
+import { useAppointment } from "@/contexts/AppointmentContext";
+import { useServicesCopy } from "@/components/ServicesClient";
+import FramedImage from "@/components/studio/FramedImage";
 
-import { packagePrices, type PackageTier } from '@/lib/pricing';
+import { packagePrices, type PackageTier } from "@/lib/pricing";
 
 interface PackageFeature {
   id: string;

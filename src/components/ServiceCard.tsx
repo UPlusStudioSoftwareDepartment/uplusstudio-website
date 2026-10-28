@@ -95,7 +95,7 @@ function Row({
 }: Readonly<{ icon: ReactNode; href: string; children: ReactNode }>) {
   return (
     <li>
-      <a href={href} {...external(href)} className="flex items-center gap-2.5 transition-colors hover:text-clay">
+      <a href={href} {...external(href)} className="-my-1 flex items-center gap-2.5 py-1 transition-colors hover:text-clay">
         <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center text-bone/55 [&_img]:h-3.5 [&_img]:w-3.5 [&_svg]:h-3.5 [&_svg]:w-3.5">
           {icon}
         </span>

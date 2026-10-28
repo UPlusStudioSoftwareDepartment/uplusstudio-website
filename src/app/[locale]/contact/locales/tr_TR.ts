@@ -1,10 +1,12 @@
+import { studioInfo } from "@/lib/studio-info";
+
 export const contact_tr = {
     "title": "İletişim",
     "subtitle": "Bizimle iletişime geçin",
     "heading": "İletişime Geçin",
     "getInTouch": "Bize Ulaşın",
     "address": "Adres",
-    "addressText": "Reyhan Cd. Merkez İncek Plaza No:3 Kat:1 D:2, 06830 İncek, Gölbaşı/Ankara",
+    "addressText": studioInfo.address.join(", "),
     "header": {
         "line1": "Bir projeyi",
         "accent": "konuşalım.",

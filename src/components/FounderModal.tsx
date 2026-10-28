@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
-import Image from 'next/image';
-import { useEffect, useRef } from 'react';
-import { EASE_OUT, EASE_STUDIO } from '@/components/studio/Reveal';
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { EASE_OUT, EASE_STUDIO } from "@/components/studio/Reveal";
 
 interface Founder {
   name: string;

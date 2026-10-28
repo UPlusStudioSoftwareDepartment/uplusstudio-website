@@ -1,7 +1,6 @@
 import { studio_en } from "@/app/[locale]/locales/en_US";
 import { glossary_en } from "@/app/[locale]/glossary/locales/en_US";
 import { about_en } from "@/app/[locale]/about/locales/en_US";
-import { faq_en } from "@/app/[locale]/faq/locales/en_US";
 
 const app_en={
   "packages": {
@@ -245,11 +244,9 @@ const app_en={
     "openMailApp": "Open in Mail",
     "newMessage": "Write a new message",
   },
-  "faq": faq_en,
   "glossary": glossary_en,
   "studio": studio_en,
   "about": about_en,
-  "faq_en": faq_en,
 };
 
 export default app_en;

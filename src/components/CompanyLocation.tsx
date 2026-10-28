@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
+import { studioInfo } from "@/lib/studio-info";
 
 interface CompanyLocationProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
@@ -20,10 +21,9 @@ export default function CompanyLocation({
   directionsLabel = 'Yol Tarifi',
   title = 'U+ Studio Konum Haritası',
 }: Readonly<CompanyLocationProps>) {
-  const companyAddress = "İncek Mahallesi Reyhan Caddesi No:3, 06830 Gölbaşı/Ankara";
-  const encodedAddress = encodeURIComponent(companyAddress);
+  const encodedAddress = encodeURIComponent(studioInfo.routeAddress);
   const publicMapUrl = `https://maps.google.com/maps?q=${encodedAddress}&t=m&z=16&ie=UTF8&iwloc=&output=embed`;
-  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`;
+  const directionsUrl = studioInfo.directionsUrl;
 
   const config = SIZE_CONFIG[size];
   const boxRef = useRef<HTMLDivElement>(null);

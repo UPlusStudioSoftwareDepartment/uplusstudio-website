@@ -1,8 +1,8 @@
 "use client";
 
-import { useLocale } from 'next-intl';
-import { useRouter, usePathname } from 'next/navigation';
-import { navigateSmoothly } from '@/components/studio/PageCurtain';
+import { useLocale } from "next-intl";
+import { useRouter, usePathname } from "next/navigation";
+import { navigateSmoothly } from "@/components/studio/PageCurtain";
 
 interface LanguageSelectorProps {
   isDarkText?: boolean;

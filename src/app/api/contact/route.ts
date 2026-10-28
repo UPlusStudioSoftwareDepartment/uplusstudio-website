@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
-import { checkRateLimit } from "@/lib/rateLimit";
+import { limitRequest } from "@/lib/rateLimit";
+import { filledHoneypot, passesTurnstile } from "@/lib/botGuard";
 import { contactSchema } from "@/lib/validations";
 import { buildContactEmail, buildContactHtml } from "@/lib/contactEmail";
 import { canSendMail, sendMail, studioInbox } from "@/lib/mailer";
 
 export async function POST(req: Request) {
-  const { ok, retryAfter } = checkRateLimit(req);
+  const { ok, retryAfter } = await limitRequest(req);
   if (!ok) {
     return NextResponse.json(
       { error: "Too many requests" },
@@ -19,6 +20,8 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
   }
+  if (filledHoneypot(raw)) return NextResponse.json({ sent: true });
+  if (!(await passesTurnstile(raw, req))) return NextResponse.json({ error: "Verification failed" }, { status: 403 });
   const parsed = contactSchema.safeParse(raw);
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.issues.map((i) => i.message).join(", ") }, { status: 400 });

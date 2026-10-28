@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { checkRateLimit } from "@/lib/rateLimit";
+import { limitRequest } from "@/lib/rateLimit";
 import { buildClientEmail } from "@/lib/appointmentEmail";
 import { appointmentReference, isStudioSignature, readAppointmentToken } from "@/lib/appointmentToken";
 import { TIME_SLOTS, istanbulToday } from "@/lib/appointmentDate";
@@ -21,7 +21,7 @@ const bodySchema = z
   });
 
 export async function POST(req: Request) {
-  const limit = checkRateLimit(req);
+  const limit = await limitRequest(req);
   if (!limit.ok) return NextResponse.json({ error: "Too many requests" }, { status: 429 });
 
   let raw: unknown;

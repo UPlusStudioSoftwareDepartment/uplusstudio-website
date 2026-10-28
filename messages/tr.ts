@@ -2,7 +2,6 @@ import { studio_tr } from "@/app/[locale]/locales/tr_TR";
 import { glossary_tr } from "@/app/[locale]/glossary/locales/tr_TR";
 import { about_tr } from "@/app/[locale]/about/locales/tr_TR";
 import { contact_tr } from "@/app/[locale]/contact/locales/tr_TR";
-import { faq_tr } from "@/app/[locale]/faq/locales/tr_TR";
 
 const app_tr = {
   "packages": {
@@ -192,7 +191,6 @@ const app_tr = {
   },
   "about": about_tr,
   "contact": contact_tr,
-  "faq": faq_tr,
   "glossary": glossary_tr,
   "studio": studio_tr
 }
