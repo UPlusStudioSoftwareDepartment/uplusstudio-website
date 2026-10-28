@@ -50,6 +50,12 @@ async function audit(page: Page) {
   });
 }
 
+async function businessCardButton(page: Page) {
+  const visible = page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true });
+  if ((await visible.count()) === 0) await page.getByRole("button", { name: "Menü" }).click();
+  return visible.first();
+}
+
 async function expectFocusTrapped(page: Page, dialog: Locator) {
   for (const key of ["Tab", "Shift+Tab"]) {
     for (let i = 1; i <= 30; i++) {
@@ -151,9 +157,22 @@ test("language switch keeps the visitor on the same page", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("lang", /^en/);
 });
 
+test("studio icons sit in the top bar only on screens without the menu", async ({ page, isMobile }) => {
+  test.skip(isMobile, "phones are covered by the menu test");
+  const whatsapp = page.getByRole("link", { name: "WhatsApp" }).filter({ visible: true });
+  const menu = page.getByRole("button", { name: "Menü" });
+  await page.setViewportSize({ width: 1000, height: 800 });
+  await page.goto("/tr/about");
+  await expect(menu).toBeVisible();
+  await expect(whatsapp).toHaveCount(0);
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await expect(menu).toBeHidden();
+  await expect(whatsapp).toHaveCount(1);
+});
+
 test("business card opens as a dialog and closes", async ({ page }) => {
   await page.goto("/tr/about");
-  await page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first().click();
+  await (await businessCardButton(page)).click();
   const card = page.getByRole("dialog", { name: "Dijital kartvizit" });
   await expect(card).toBeVisible();
   await page.keyboard.press("Escape");
@@ -162,7 +181,7 @@ test("business card opens as a dialog and closes", async ({ page }) => {
 
 test("business card dialog holds keyboard focus and returns it to its button", async ({ page }) => {
   await page.goto("/tr/contact");
-  const trigger = page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first();
+  const trigger = await businessCardButton(page);
   const card = page.getByRole("dialog", { name: "Dijital kartvizit" });
   await trigger.click();
   await expect(card.locator(":focus")).toHaveAccessibleName("Kapat");
@@ -187,7 +206,7 @@ test("footer and business card small print meet AA contrast", async ({ page }) =
 test("business card logo loads eagerly only on the card page", async ({ page }) => {
   const preload = page.locator('link[rel="preload"][as="image"][imagesrcset*="general_black_cuted"]');
   await page.goto("/tr/about");
-  await page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first().click();
+  await (await businessCardButton(page)).click();
   await expect(page.getByRole("dialog", { name: "Dijital kartvizit" }).getByRole("img", { name: "U+ Studio" })).toHaveAttribute("loading", "lazy");
   await expect(preload).toHaveCount(0);
   await page.goto("/tr/kartvizit");
@@ -241,10 +260,39 @@ test.describe("phones", () => {
     await expect(menu.getByRole("link", { name: /Şimdi Ara/ })).toBeInViewport({ ratio: 1 });
   });
 
+  test("the menu carries the studio links instead of a second icon row", async ({ page }) => {
+    await page.goto("/tr/about");
+    await expect(page.getByRole("link", { name: "WhatsApp" }).filter({ visible: true })).toHaveCount(0);
+    await page.getByRole("button", { name: "Menü" }).click();
+    const menu = page.getByRole("dialog", { name: "Menü" });
+    const links: [string, string][] = [
+      ["Yol tarifi", studioInfo.directionsUrl],
+      ["Ara", studioInfo.phoneHref],
+      ["WhatsApp", studioInfo.whatsappUrl],
+      ["E-posta", `mailto:${studioInfo.email}`],
+      ["Google Maps", studioInfo.mapsUrl],
+      ["Instagram", studioInfo.instagramUrl],
+      ["Yandex Maps", studioInfo.yandexMapsUrl],
+      ["Armut", studioInfo.armutUrl],
+      ["Peyzaj Rehber", studioInfo.peyzajRehberUrl],
+    ];
+    for (const [name, href] of links) {
+      await expect(menu.getByRole("link", { name, exact: true })).toHaveAttribute("href", href);
+    }
+    const cardButton = menu.getByRole("button", { name: "Kartviziti paylaş" });
+    await cardButton.click();
+    const card = page.getByRole("dialog", { name: "Dijital kartvizit" });
+    await expect(card).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(card).toBeHidden();
+    await expect(menu).toBeVisible();
+    await expect(cardButton).toBeFocused();
+  });
+
   test("business card share options scroll into view above the action bar", async ({ page }) => {
     await page.addInitScript(() => Object.defineProperty(Navigator.prototype, "share", { value: undefined }));
     await page.goto("/tr/about");
-    await page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first().click();
+    await (await businessCardButton(page)).click();
     const card = page.getByRole("dialog", { name: "Dijital kartvizit" });
     const share = card.getByRole("button", { name: "Paylaş", exact: true });
     await expect(share).toBeVisible();

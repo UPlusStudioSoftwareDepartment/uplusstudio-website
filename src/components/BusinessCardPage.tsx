@@ -18,7 +18,7 @@ export default function BusinessCardPage({ locale }: Readonly<{ locale: "tr" | "
   const c = COPY[locale];
   const { openAppointment } = useAppointment();
   return (
-    <section className="mx-auto w-full max-w-[560px] px-3 pb-16 pt-[8.375rem] sm:pt-36">
+    <section className="mx-auto w-full max-w-[560px] px-3 pb-16 pt-[6.25rem] sm:pt-36">
       <h1 className="sr-only">{c.title}</h1>
       <ServiceCard
         locale={locale}

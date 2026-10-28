@@ -132,8 +132,8 @@ export default function Navigation() {
             <div className="hidden lg:block">
               <LanguageSelector isDarkText={!overDark} />
             </div>
-            <div className="hidden items-center gap-4 sm:flex">
-              <span className="hidden h-5 w-px bg-current opacity-25 lg:block" aria-hidden />
+            <div className="hidden items-center gap-4 lg:flex">
+              <span className="h-5 w-px bg-current opacity-25" aria-hidden />
               <SocialLinks className="-mx-2" />
             </div>
 
@@ -154,11 +154,6 @@ export default function Navigation() {
                 <span className="h-px w-2/3 self-end bg-current" />
               </span>
             </button>
-          </div>
-        </div>
-        <div className={`mx-auto mt-2 max-w-[2560px] px-2 sm:hidden ${textTone}`}>
-          <div className="border-t border-current/15 pt-1">
-            <SocialLinks className="w-full justify-between" />
           </div>
         </div>
       </motion.nav>
