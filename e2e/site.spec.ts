@@ -280,6 +280,20 @@ test("home continues past the film with the studio, every service, featured work
   await expect(page.getByRole("contentinfo")).toBeInViewport();
 });
 
+test("the home film plays once with a stop icon, and the play icon plays it again with sound", async ({ page }) => {
+  await page.goto("/tr");
+  const video = page.locator("#home video");
+  const play = page.getByRole("button", { name: "Filmi sesli oynat" });
+  const stop = page.getByRole("button", { name: "Filmi durdur" });
+  expect(await video.evaluate((v: HTMLVideoElement) => v.loop)).toBe(false);
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.currentTime > 0)).toBe(true);
+  await stop.click();
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+  await play.click();
+  await expect.poll(() => video.evaluate((v: HTMLVideoElement) => !v.paused && !v.muted)).toBe(true);
+  await expect(stop).toBeVisible();
+});
+
 test("founders, the villa story and the service area are on the page", async ({ page }) => {
   await page.goto("/tr");
   await expect(page.getByText("Türkiye", { exact: true })).toBeVisible();

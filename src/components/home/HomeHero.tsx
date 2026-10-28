@@ -26,6 +26,8 @@ const VIDEO = {
   poster: "/media/video/villa-transformation.webp",
 };
 
+const videoSource = () => (globalThis.innerWidth < 768 ? VIDEO.small : VIDEO.large);
+
 export default function HomeHero() {
   const t = useTranslations("studio");
   const locale = useLocale() as Locale;
@@ -33,6 +35,7 @@ export default function HomeHero() {
   const { openAppointment } = useAppointment();
   const [celebrating, setCelebrating] = useState(false);
   const [mascotsHovered, setMascotsHovered] = useState(false);
+  const [playing, setPlaying] = useState(false);
 
   const celebrate = () => {
     if (reduce || celebrating) return;
@@ -40,6 +43,7 @@ export default function HomeHero() {
     setTimeout(() => setCelebrating(false), CELEBRATION_S * 1000);
   };
   const videoRef = useRef<HTMLVideoElement>(null);
+  const filmButtonRef = useRef<HTMLButtonElement>(null);
   const progressRef = useRef<HTMLSpanElement>(null);
   const featured = projects.filter((p) => p.featured);
 
@@ -49,12 +53,25 @@ export default function HomeHero() {
     const video = videoRef.current;
     if (!video || reduce) return;
     const start = () => {
-      video.src = globalThis.innerWidth < 768 ? VIDEO.small : VIDEO.large;
-      video.play().catch(() => {});
+      video.src = videoSource();
+      video.muted = false;
+      video.play().catch(() => {
+        video.muted = true;
+        video.play().catch(() => {});
+      });
+    };
+    const unmute = (e: Event) => {
+      if (!video.paused && video.muted && !filmButtonRef.current?.contains(e.target as Node)) video.muted = false;
     };
     if (document.readyState === "complete") start();
     else globalThis.addEventListener("load", start, { once: true });
-    return () => globalThis.removeEventListener("load", start);
+    document.addEventListener("pointerup", unmute);
+    document.addEventListener("keydown", unmute);
+    return () => {
+      globalThis.removeEventListener("load", start);
+      document.removeEventListener("pointerup", unmute);
+      document.removeEventListener("keydown", unmute);
+    };
   }, [reduce]);
 
   useEffect(() => {
@@ -70,6 +87,19 @@ export default function HomeHero() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  const toggleFilm = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (playing) {
+      video.pause();
+      return;
+    }
+    if (!video.src) video.src = videoSource();
+    if (video.ended) video.currentTime = 0;
+    video.muted = false;
+    video.play().catch(() => {});
+  };
+
   return (
     <section id="home" className="relative h-[100svh] min-h-[540px] overflow-hidden bg-night text-bone">
       <div className="absolute inset-0 animate-[settle_2s_var(--ease-out-studio)_backwards] [--settle:1.06] motion-reduce:animate-none">
@@ -78,11 +108,12 @@ export default function HomeHero() {
           className="h-full w-full object-cover object-[50%_55%]"
           poster={VIDEO.poster}
           muted
-          loop
           playsInline
           preload="none"
           aria-label={t("motion.items.villa")}
           disableRemotePlayback
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
         />
       </div>
 
@@ -161,7 +192,20 @@ export default function HomeHero() {
           </p>
 
           <div className="md:col-span-6 lg:col-span-4">
-            <span className="eyebrow block text-bone/55">{t("hero.featured")}</span>
+            <span className="flex items-center gap-2.5">
+              <button
+                ref={filmButtonRef}
+                type="button"
+                onClick={toggleFilm}
+                aria-label={playing ? t("hero.stopFilm") : t("hero.playFilm")}
+                className="relative -my-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-bone/45 text-bone transition-colors after:absolute after:-inset-2.5 after:content-[''] hover:border-bone hover:bg-night"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={`h-2.5 w-2.5 ${playing ? "" : "translate-x-px"}`}>
+                  <path d={playing ? "M5 5h14v14H5z" : "M6 3.5v17L20.5 12z"} />
+                </svg>
+              </button>
+              <span className="eyebrow block text-bone/55">{t("hero.featured")}</span>
+            </span>
             <div className="mt-2 flex items-center justify-between gap-2">
               <Link href={`/${locale}/projects/villa-donusumu`} className="group whitespace-nowrap text-[15px] max-[359px]:text-[13px]">
                 {t("hero.featuredProject")}

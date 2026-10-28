@@ -41,7 +41,13 @@ test.describe("appointment form validation", () => {
     const trigger = page.getByRole("main").getByRole("button", { name: "Randevu Al" }).last();
     await trigger.evaluate((el) => window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 300, behavior: "instant" }));
     await page.waitForLoadState("networkidle");
-    await page.waitForTimeout(1000);
+    await expect
+      .poll(async () => {
+        const before = (await trigger.boundingBox())?.y;
+        await page.waitForTimeout(300);
+        return before === (await trigger.boundingBox())?.y;
+      })
+      .toBe(true);
     expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
     const box = await trigger.boundingBox();
     await page.mouse.click(box!.x + box!.width / 2, box!.y + box!.height / 2);
@@ -186,6 +192,7 @@ test.describe("studio reply page", () => {
 
 test.describe("phone email flow", () => {
   test.skip(({ isMobile }) => !isMobile, "mailto is the phone path");
+  test.skip(({ browserName }) => browserName === "webkit", "WebKit off Apple devices has no mail app, so mailto loads as a page");
 
   test("offers the mail app with the request written in it on Android", async ({ page }) => {
     const dialog = await openAppointment(page);

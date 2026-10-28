@@ -3,6 +3,8 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
+const csp = ["frame-ancestors 'self'", "base-uri 'self'", "form-action 'self'", "object-src 'none'", ...(process.env.VERCEL ? ["upgrade-insecure-requests"] : [])].join("; ");
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
@@ -38,7 +40,7 @@ const nextConfig: NextConfig = {
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
-          { key: "Content-Security-Policy", value: "frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests" },
+          { key: "Content-Security-Policy", value: csp },
           { key: "Cross-Origin-Opener-Policy", value: "same-origin-allow-popups" },
           { key: "X-Release", value: process.env.VERCEL_GIT_COMMIT_SHA ?? "local" },
         ],

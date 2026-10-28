@@ -14,6 +14,7 @@ export async function captureOutgoing(page: Page) {
     await page.route("**/api/contact", (route) => route.fulfill({ json: { sent: false, ...buildContactEmail(route.request().postDataJSON()) } }));
   }
   await page.addInitScript(() => {
+    sessionStorage.setItem("u-curtain", "1");
     const w = window as unknown as Outgoing;
     w.__opened = [];
     w.__clipboard = [];

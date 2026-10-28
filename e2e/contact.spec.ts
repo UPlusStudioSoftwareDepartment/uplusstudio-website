@@ -29,6 +29,22 @@ test("asks for every field before sending", async ({ page }) => {
   expect(await openedUrls(page)).toEqual([]);
 });
 
+test("text typed before the page finishes loading stays in the form", async ({ page }) => {
+  await page.route(/\/_next\/static\/chunks\/.+\.js$/, async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await route.continue();
+  });
+  await page.goto("/tr/contact", { waitUntil: "domcontentloaded" });
+  await page.locator("#name").fill("Ayşe Yılmaz");
+  await page.locator("#message").fill("Arsamız için ön görüşme istiyoruz.");
+  await expect(async () => {
+    await page.locator("#subject").click();
+    await expect(page.getByRole("listbox")).toBeVisible({ timeout: 1000 });
+  }).toPass();
+  await expect(page.locator("#name")).toHaveValue("Ayşe Yılmaz");
+  await expect(page.locator("#message")).toHaveValue("Arsamız için ön görüşme istiyoruz.");
+});
+
 test("subject menu lists the studio services and works with the keyboard", async ({ page }) => {
   await page.goto("/tr/contact");
   const subject = page.locator("#subject");
@@ -115,7 +131,8 @@ test.describe("phones", () => {
     expect(form.y).toBeLessThan(details.y);
   });
 
-  test("offers the Gmail and Mail apps with the message written", async ({ page }) => {
+  test("offers the Gmail and Mail apps with the message written", async ({ page, browserName }) => {
+    test.skip(browserName === "webkit", "WebKit off Apple devices has no mail app, so mailto loads as a page");
     await fillContact(page);
     await form(page).locator('button[type="submit"]').click();
     const gmail = page.getByRole("link", { name: "Gmail'de aç" });

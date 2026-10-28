@@ -25,6 +25,8 @@ export const studio_tr = {
     "country": "Türkiye",
     "featured": "Öne çıkan",
     "featuredProject": "Villa Dönüşümü — önce / sonra",
+    "playFilm": "Filmi sesli oynat",
+    "stopFilm": "Filmi durdur",
     "scroll": "Kaydır",
     "prev": "Önceki film",
     "next": "Sonraki film",

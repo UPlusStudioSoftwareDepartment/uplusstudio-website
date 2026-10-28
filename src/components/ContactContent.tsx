@@ -94,6 +94,13 @@ interface Sent {
 type ContactReply = { sent: true } | ({ sent: false } & Omit<ComposedMail, "to">);
 
 const DELIVERED: Sent = { mail: null, mailLinks: [], opened: true };
+const EMPTY: ContactFormValues = { name: "", email: "", phone: "", subject: "", message: "" };
+
+function typedBeforeHydration(): ContactFormValues {
+    if (typeof document === "undefined") return EMPTY;
+    const typed = (id: string) => document.querySelector<HTMLInputElement | HTMLTextAreaElement>(`#${id}`)?.value ?? "";
+    return { ...EMPTY, name: typed("name"), email: typed("email"), phone: typed("phone"), message: typed("message") };
+}
 
 export default function ContactContent() {
     const t = useTranslations("contact");
@@ -104,6 +111,7 @@ export default function ContactContent() {
     const toast = useToast();
     const { openAppointment } = useAppointment();
     const [sent, setSent] = useState<Sent | null>(null);
+    const [typed] = useState(typedBeforeHydration);
     const subjects = useMemo(() => [...APPOINTMENT_SERVICES.map((key) => ta(`services.${key}`)), t("subjectOther")], [ta, t]);
 
     const {
@@ -116,7 +124,7 @@ export default function ContactContent() {
         formState: { errors, isSubmitting },
     } = useForm<ContactFormValues>({
         resolver: zodResolver(getContactSchema(t)),
-        defaultValues: { name: "", email: "", phone: "", subject: "", message: "" },
+        defaultValues: typed,
     });
 
     const requestMail = async (data: ContactFormValues) => {
@@ -170,7 +178,7 @@ export default function ContactContent() {
     };
 
     const startOver = () => {
-        reset();
+        reset(EMPTY);
         setSent(null);
     };
 

@@ -25,6 +25,8 @@ export const studio_en = {
     "country": "Türkiye",
     "featured": "Featured",
     "featuredProject": "Villa Transformation — before / after",
+    "playFilm": "Play the film with sound",
+    "stopFilm": "Stop the film",
     "scroll": "Scroll",
     "prev": "Previous film",
     "next": "Next film",

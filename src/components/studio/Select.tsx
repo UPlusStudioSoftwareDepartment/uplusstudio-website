@@ -90,7 +90,11 @@ export default function Select({ id, value, options, placeholder, invalid, descr
         aria-activedescendant={open && active >= 0 ? `${listId}-${active}` : undefined}
         aria-invalid={invalid ? "true" : "false"}
         aria-describedby={describedBy}
-        onClick={() => (open ? close() : show())}
+        onClick={(e) => {
+          e.currentTarget.focus();
+          if (open) close();
+          else show();
+        }}
         onKeyDown={onKeyDown}
         className={`${className} flex items-center justify-between gap-4 text-left`}
       >
