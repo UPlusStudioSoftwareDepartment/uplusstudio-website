@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 import { SERVICE_LANDINGS } from "../src/lib/serviceLandings";
 import { projects } from "../src/lib/projects";
 
@@ -47,6 +47,15 @@ async function audit(page: Page) {
         .filter((id) => id && !document.getElementById(id)),
     };
   });
+}
+
+async function expectFocusTrapped(page: Page, dialog: Locator) {
+  for (const key of ["Tab", "Shift+Tab"]) {
+    for (let i = 1; i <= 30; i++) {
+      await page.keyboard.press(key);
+      expect(await dialog.evaluate((el) => el.contains(document.activeElement)), `${key} ×${i}`).toBe(true);
+    }
+  }
 }
 
 for (const locale of LOCALES) {
@@ -110,6 +119,23 @@ test("business card opens as a dialog and closes", async ({ page }) => {
   await expect(card).toBeHidden();
 });
 
+test("business card dialog holds keyboard focus and returns it to its button", async ({ page }) => {
+  await page.goto("/tr/contact");
+  const trigger = page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first();
+  const card = page.getByRole("dialog", { name: "Dijital kartvizit" });
+  await trigger.click();
+  await expect(card.locator(":focus")).toHaveAccessibleName("Kapat");
+  await page.keyboard.press("Enter");
+  await expect(card).toBeHidden();
+  await expect(trigger).toBeFocused();
+  await trigger.click();
+  await expect(card.locator(":focus")).toHaveAccessibleName("Kapat");
+  await expectFocusTrapped(page, card);
+  await page.keyboard.press("Escape");
+  await expect(card).toBeHidden();
+  await expect(trigger).toBeFocused();
+});
+
 test.describe("phones", () => {
   test.skip(({ isMobile }) => !isMobile, "phone-only behaviour");
 
@@ -125,6 +151,24 @@ test.describe("phones", () => {
     await menu.getByRole("link", { name: /Hakkımızda/ }).click();
     await expect(page).toHaveURL(/\/tr\/about$/);
     await expect(menu).toBeHidden();
+  });
+
+  test("menu holds keyboard focus and returns it to the toggle", async ({ page }) => {
+    await page.goto("/tr");
+    const toggle = page.getByRole("button", { name: "Menü" });
+    const menu = page.getByRole("dialog", { name: "Menü" });
+    const close = menu.getByRole("button", { name: /Kapat/ });
+    await toggle.click();
+    await expect(close).toBeFocused();
+    await expectFocusTrapped(page, menu);
+    await close.click();
+    await expect(menu).toBeHidden();
+    await expect(toggle).toBeFocused();
+    await toggle.click();
+    await expect(close).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(menu).toBeHidden();
+    await expect(toggle).toBeFocused();
   });
 
   test("business card share options scroll into view above the action bar", async ({ page }) => {

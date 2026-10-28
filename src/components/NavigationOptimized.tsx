@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import BookingCta from "@/components/studio/BookingCta";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
@@ -11,6 +11,7 @@ import LanguageSelector from "./LanguageSelector";
 import SocialLinks from "./studio/SocialLinks";
 import { Hayzer, Rayzer } from "@/components/mascots/Mascots";
 import { useScrollLock } from "@/hooks/useScrollLock";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
 
@@ -32,6 +33,8 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   const prefix = `/${locale}`;
   const overDark = startsOverDark(pathname, prefix) && !isScrolled;
@@ -49,6 +52,7 @@ export default function Navigation() {
   ];
 
   useScrollLock(isMenuOpen);
+  useFocusTrap(isMenuOpen, menuRef, closeRef);
 
   useEffect(() => {
     let lastY = globalThis.scrollY;
@@ -163,6 +167,7 @@ export default function Navigation() {
         {isMenuOpen && (
           <motion.div
             key="menu"
+            ref={menuRef}
             className="fixed inset-0 z-[60] h-[100dvh] overflow-hidden bg-night text-bone lg:hidden"
             initial={{ clipPath: "circle(0% at calc(100% - 44px) 40px)" }}
             animate={{ clipPath: "circle(150% at calc(100% - 44px) 40px)" }}
@@ -194,6 +199,7 @@ export default function Navigation() {
                   <Rayzer className="-ml-2 h-11 w-11 sm:h-12 sm:w-12" />
                 </div>
                 <button
+                  ref={closeRef}
                   type="button"
                   onClick={() => setIsMenuOpen(false)}
                   className="group -mr-1 flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.12em]"
