@@ -3,7 +3,7 @@
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,7 +11,7 @@ import AdvancedCalendar from "./AdvancedCalendar";
 import { useToast } from "@/contexts/ToastContext";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { studioInfo } from "@/lib/studio-info";
-import { type ComposedMail, gmailAppUrl, mailPlatform, mailtoUrl, openGmail } from "@/lib/gmailCompose";
+import { type ComposedMail, followLink, gmailAppUrl, mailPlatform, mailtoUrl, openGmail } from "@/lib/gmailCompose";
 import { icons } from "@/components/studio/SocialLinks";
 import type { AppointmentPrefill } from "@/contexts/AppointmentContext";
 import { MascotDuo } from "@/components/mascots/Mascots";
@@ -99,7 +99,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     register,
     handleSubmit,
     setValue,
-    watch,
+    control,
     getValues,
     reset,
     trigger,
@@ -135,7 +135,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     messageValueRef.current = prefill.message ?? "";
   }, [isOpen, prefill, reset, t]);
 
-  const values = watch();
+  const values = useWatch({ control });
   const messageRegister = register("message");
 
   useEffect(() => {
@@ -358,7 +358,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
       }
     }
     if (popup) popup.location.href = url;
-    else globalThis.location.href = url;
+    else followLink(url);
   };
 
   const handleDownload = async () => {
@@ -376,7 +376,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     }`;
   const labelClass = "block font-mono text-[12px] uppercase tracking-[0.12em] text-mute";
 
-  const formattedDate = localDate(values.date)?.toLocaleDateString(dateLocale, { day: "numeric", month: "long", weekday: "long" }) ?? null;
+  const formattedDate = localDate(values.date ?? "")?.toLocaleDateString(dateLocale, { day: "numeric", month: "long", weekday: "long" }) ?? null;
   const completed = [values.name, values.email, values.phone, values.service, values.date, values.time, values.message].filter(Boolean).length;
 
   const passRows: { label: string; value: string | null }[] = [
@@ -501,7 +501,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
               <form
                 id="appointment-form"
                 ref={formRef}
-                onSubmit={handleSubmit(onSubmit)}
+                onSubmit={(event) => handleSubmit(onSubmit)(event)}
                 className="custom-scrollbar flex-1 min-h-0 overflow-y-auto px-6 py-10 sm:px-12"
                 noValidate
               >
@@ -620,7 +620,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                   <div className="grid grid-cols-1 gap-10 xl:grid-cols-[1.3fr_1fr]">
                     <div>
                       <AdvancedCalendar
-                        selectedDate={values.date}
+                        selectedDate={values.date ?? ""}
                         onDateSelect={(date) => setValue('date', date, { shouldValidate: true })}
                         selectedTime={values.time}
                         onTimeSelect={(time) => setValue('time', time, { shouldValidate: true })}

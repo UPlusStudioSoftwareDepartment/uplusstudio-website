@@ -30,4 +30,11 @@ export function openUrl(url: string) {
   return Boolean(globalThis.open(url, "_blank"));
 }
 
+export function followLink(href: string) {
+  const link = Object.assign(document.createElement("a"), { href });
+  document.body.append(link);
+  link.click();
+  link.remove();
+}
+
 export const openGmail = (mail: ComposedMail) => openUrl(gmailComposeUrl(mail));

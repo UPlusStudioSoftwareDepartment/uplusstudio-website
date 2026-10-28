@@ -20,7 +20,7 @@ import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
 import { APPOINTMENT_SERVICES } from "@/lib/services";
 import { buildContactEmail } from "@/lib/contactEmail";
-import { type ComposedMail, gmailAppUrl, mailPlatform, mailtoUrl, openGmail, openUrl } from "@/lib/gmailCompose";
+import { type ComposedMail, followLink, gmailAppUrl, mailPlatform, mailtoUrl, openGmail, openUrl } from "@/lib/gmailCompose";
 
 const CONTAINER = "mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12";
 const INPUT =
@@ -165,7 +165,7 @@ export default function ContactContent() {
         const { text } = buildContactEmail({ ...getValues(), locale: locale === "en" ? "en" : "tr" }, { markup: true });
         const url = `${studioInfo.whatsappUrl}?text=${encodeURIComponent(text)}`;
         if (mailPlatform() === "desktop") openUrl(url);
-        else globalThis.location.assign(url);
+        else followLink(url);
     };
 
     const startOver = () => {

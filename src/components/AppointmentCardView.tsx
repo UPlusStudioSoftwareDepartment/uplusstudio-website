@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Pass } from "@/components/AppointmentPass";
 import { calendarUrl, whatsappNumber } from "@/lib/appointmentLinks";
 import { CARD_FILE, canShareFiles, imageAsJpeg } from "@/lib/cardImage";
+import { followLink } from "@/lib/gmailCompose";
 
 interface Appointment {
   name: string;
@@ -43,7 +44,7 @@ export default function AppointmentCardView({
   const image = `/api/appointment-card?t=${encodeURIComponent(token)}`;
 
   const shareCard = async () => {
-    const download = () => globalThis.location.assign(`${image}&download=1`);
+    const download = () => followLink(`${image}&download=1`);
     if (!canShareFiles()) {
       download();
       return;

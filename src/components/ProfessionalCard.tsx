@@ -1,40 +1,24 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useSyncExternalStore } from 'react';
 import { toPng } from 'html-to-image';
 import ServicesModal from './ServicesModal';
 import ServiceCard from './ServiceCard';
 import { useScrollLock } from '@/hooks/useScrollLock';
 import { cardCaptureOptions, dataUrlToBlob } from '@/lib/cardCapture';
 
+const noSubscription = () => () => {};
+
 export default function ProfessionalCard() {
   const [isSharing, setIsSharing] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const [showCard, setShowCard] = useState(false);
-  const [canShare, setCanShare] = useState(false);
-  const [canCall, setCanCall] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const [showServices, setShowServices] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
-
-     useEffect(() => {
-    setIsMounted(true);
-    
-    if (globalThis.window === undefined) return;
-
-    const ua = navigator.userAgent;
-
-    const isMobilePhone = /Android|iPhone|iPod/i.test(ua);
-    setCanCall(isMobilePhone);
-
-    
-    const hasNativeShare =
-      typeof navigator.share === 'function' &&
-      typeof navigator.canShare === 'function';
-
-    setCanShare(hasNativeShare);
-  }, []);
+  const isMounted = useSyncExternalStore(noSubscription, () => true, () => false);
+  const canCall = isMounted && /Android|iPhone|iPod/i.test(navigator.userAgent);
+  const canShare = isMounted && typeof navigator.share === 'function' && typeof navigator.canShare === 'function';
 
   useScrollLock(showCard);
 

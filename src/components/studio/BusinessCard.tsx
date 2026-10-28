@@ -195,8 +195,8 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   };
 
   const shareTo = (href: string) => {
-    if (href.startsWith("mailto:")) globalThis.location.href = href;
-    else if (!globalThis.open(href, "_blank", "noopener,noreferrer")) globalThis.location.href = href;
+    if (href.startsWith("mailto:")) globalThis.location.assign(href);
+    else if (!globalThis.open(href, "_blank", "noopener,noreferrer")) globalThis.location.assign(href);
   };
 
   const handleCopyImage = async () => {

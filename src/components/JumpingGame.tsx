@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 const JUMP_DURATION_MS = 600;
 const ROAD_LINE_COUNT = 4;
@@ -127,12 +127,12 @@ export default function JumpingGame() {
   
   const [currentObstacle, setCurrentObstacle] = useState(generateRandomObstacle);
 
-  const handleJump = () => {
+  const handleJump = useCallback(() => {
     if (!isJumping && gameStarted && !gameOver) {
       setIsJumping(true);
       setTimeout(() => setIsJumping(false), JUMP_DURATION_MS);
     }
-  };
+  }, [isJumping, gameStarted, gameOver]);
 
 
 
@@ -268,7 +268,7 @@ export default function JumpingGame() {
     return () => {
       globalThis.removeEventListener('keydown', handleKeyPress);
     };
-  }, [gameStarted, gameOver, isJumping]);
+  }, [gameStarted, gameOver, handleJump]);
 
   return (
     <div className="bg-transparent rounded-lg p-4 max-w-sm mx-auto" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif' }}>
