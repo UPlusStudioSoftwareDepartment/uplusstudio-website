@@ -386,10 +386,10 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={1.5} strokeLinecap="round" d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14" /></svg>
                 {busy === "download" ? "…" : c.download}
               </button>
-              <button type="button" onClick={() => (globalThis.location.href = "/api/vcard")} className={actionClass}>
+              <a href="/api/vcard" download className={actionClass}>
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={1.5} strokeLinecap="round" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm10-3v6m3-3h-6" /></svg>
                 {c.save}
-              </button>
+              </a>
               </div>
             </div>
           </motion.div>

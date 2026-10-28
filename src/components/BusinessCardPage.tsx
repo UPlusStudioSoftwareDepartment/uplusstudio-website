@@ -48,10 +48,10 @@ export default function BusinessCardPage({ locale }: Readonly<{ locale: "tr" | "
           {icons.directions}
           {c.directions}
         </a>
-        <button type="button" onClick={() => (globalThis.location.href = "/api/vcard")} className={action}>
+        <a href="/api/vcard" download className={action}>
           {icons.card}
           {c.save}
-        </button>
+        </a>
       </div>
       <button
         type="button"
