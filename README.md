@@ -40,7 +40,7 @@ npm run test:e2e
 
 - `main` dalına yapılan her push, Vercel'de otomatik olarak canlıya çıkar. Push'tan önce yukarıdaki dört komutun yerelde geçtiğinden emin olun.
 - GitHub Actions (`.github/workflows/ci.yml`) her push ve pull request'te lint, birim testleri, build ve tarayıcı testlerini çalıştırır.
-- `.github/workflows/smoke.yml` canlı sitedeki sayfaları, iç bağlantıları ve 404 yanıtını salt okunur olarak kontrol eder: Vercel bir GitHub deployment olayı gönderdiğinde, her gün 08:00'de (TSİ) ve Actions sekmesinden elle.
+- `.github/workflows/smoke.yml` canlı sitedeki sayfaları, iç bağlantıları, sitemap'in yalnızca dizine eklenebilir ve canonical adresler içerdiğini, video sayfalarını ve 404 yanıtını salt okunur olarak kontrol eder. `main`'e her push'ta, sitenin `X-Release` başlığı o commit'i gösterene kadar (en çok 20 dakika) bekleyip çalışır; ayrıca her gün 08:00'de (TSİ) ve Actions sekmesinden elle çalıştırılabilir.
 - Önemli içerik değişikliklerinden sonra `npm run indexnow` canlı sitemap'teki tüm adresleri IndexNow ile Bing ve Yandex'e bildirir (anahtar dosyası `public/` altında).
 
 ## Geri alma
