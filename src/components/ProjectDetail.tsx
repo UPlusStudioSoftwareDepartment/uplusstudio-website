@@ -50,7 +50,7 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
           <p className="eyebrow mt-16 animate-[rise_0.9s_var(--ease-out-studio)_0.2s_backwards] text-bone/70 [--rise:10px] motion-reduce:animate-none">
             {projectNumber(slug)} — {category}
           </p>
-          <h1 className={`display mt-6 text-[clamp(3rem,9vw,9rem)] ${portraitCover ? "md:max-w-[55%]" : "max-w-[14ch]"}`}>
+          <h1 className={`display mt-6 text-[clamp(min(3rem,14vw),9vw,9rem)] ${portraitCover ? "md:max-w-[55%]" : "max-w-[14ch]"}`}>
             <LineReveal lines={[project.title[locale]]} immediate delay={0.3} />
           </h1>
           <p className={`mt-8 animate-[rise_1s_var(--ease-out-studio)_backwards] font-serif text-2xl italic leading-snug text-bone/85 [--rise:16px] motion-reduce:animate-none sm:text-3xl ${portraitCover ? "md:max-w-[45%]" : "max-w-2xl"}`}>
