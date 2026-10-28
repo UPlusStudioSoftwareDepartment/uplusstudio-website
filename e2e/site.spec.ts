@@ -59,6 +59,46 @@ async function expectFocusTrapped(page: Page, dialog: Locator) {
   }
 }
 
+async function lowContrastText(root: Locator) {
+  return root.evaluate((rootEl) => {
+    const canvas = document.createElement("canvas");
+    canvas.width = canvas.height = 1;
+    const ctx = canvas.getContext("2d", { willReadFrequently: true })!;
+    const paint = (colors: string[]) => {
+      ctx.clearRect(0, 0, 1, 1);
+      for (const color of colors) {
+        ctx.fillStyle = color;
+        ctx.fillRect(0, 0, 1, 1);
+      }
+      return [...ctx.getImageData(0, 0, 1, 1).data.slice(0, 3)];
+    };
+    const luminance = (rgb: number[]) =>
+      rgb
+        .map((v) => v / 255)
+        .map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4))
+        .reduce((sum, v, i) => sum + v * [0.2126, 0.7152, 0.0722][i], 0);
+    const failures: string[] = [];
+    for (const el of [rootEl, ...rootEl.querySelectorAll("*")]) {
+      const text = [...el.childNodes]
+        .filter((n) => n.nodeType === Node.TEXT_NODE)
+        .map((n) => n.textContent?.trim())
+        .join(" ")
+        .trim();
+      const style = getComputedStyle(el);
+      const box = el.getBoundingClientRect();
+      if (!text || box.width <= 1 || box.height <= 1 || style.visibility === "hidden") continue;
+      const backgrounds = ["#fff"];
+      for (let node: Element | null = el; node; node = node.parentElement) backgrounds.splice(1, 0, getComputedStyle(node).backgroundColor);
+      const [a, b] = [luminance(paint([...backgrounds, style.color])), luminance(paint(backgrounds))];
+      const ratio = (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+      const size = parseFloat(style.fontSize);
+      const large = size >= 24 || (size >= 18.66 && Number(style.fontWeight) >= 700);
+      if (ratio < (large ? 3 : 4.5)) failures.push(`${text} — ${ratio.toFixed(2)}:1 at ${style.fontSize}`);
+    }
+    return failures;
+  });
+}
+
 for (const locale of LOCALES) {
   for (const path of PATHS) {
     test(`/${locale}${path} renders cleanly`, async ({ page }) => {
@@ -135,6 +175,13 @@ test("business card dialog holds keyboard focus and returns it to its button", a
   await page.keyboard.press("Escape");
   await expect(card).toBeHidden();
   await expect(trigger).toBeFocused();
+});
+
+test("footer and business card small print meet AA contrast", async ({ page }) => {
+  await page.goto("/tr/about");
+  expect(await lowContrastText(page.getByRole("contentinfo"))).toEqual([]);
+  await page.goto("/tr/kartvizit");
+  expect(await lowContrastText(page.getByRole("main"))).toEqual([]);
 });
 
 test.describe("phones", () => {
