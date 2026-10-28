@@ -16,6 +16,8 @@ import { AppointmentProvider } from "@/contexts/AppointmentContext";
 import ArchitecturalBackdrop from "@/components/studio/ArchitecturalBackdrop";
 import SiteFooter from "@/components/studio/SiteFooter";
 
+const CURTAIN_BOOT = `if(!matchMedia("(prefers-reduced-motion: reduce)").matches){var r=document.documentElement;r.dataset.curtain="";setTimeout(function(){delete r.dataset.curtain},4000)}`;
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -40,6 +42,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={fontVariables} suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <meta name="theme-color" content="#121110" />
+        <script dangerouslySetInnerHTML={{ __html: CURTAIN_BOOT }} />
         <JsonLd data={siteGraph(locale)} />
       </head>
       <body className="font-sans antialiased bg-paper text-ink">

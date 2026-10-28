@@ -53,7 +53,7 @@ const nextConfig: NextConfig = {
       { source: "/", destination: "/tr", permanent: true },
       { source: "/:locale(tr|en)/:path(payment|purchase)/:rest*", destination: "/:locale/services", permanent: true },
       { source: "/purchase", destination: "/tr/services", permanent: true },
-      { source: "/:locale(tr|en)/faq", destination: "/:locale/contact", permanent: false },
+      { source: "/:locale(tr|en)/faq", destination: "/:locale/contact", permanent: true },
     ];
   },
 };

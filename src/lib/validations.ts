@@ -12,22 +12,23 @@ export function isPhoneNumber(value: string) {
   return /^(?:90)?0?[2-58]\d{9}$/.test(digits);
 }
 
-export const getContactSchema = (t?: (key: string) => string) =>
-  z.object({
-    name: z
-      .string()
-      .trim()
-      .min(3, t?.("nameError") || "Adınızı ve soyadınızı yazın")
-      .refine(isPersonName, t?.("nameError") || "Adınızı ve soyadınızı yazın"),
+export const getContactSchema = (t?: (key: string) => string) => {
+  const nameError = t?.("nameError") || "Adınızı ve soyadınızı yazın";
+  const phoneError = t?.("phoneError") || "Geçerli bir telefon numarası girin";
+  const subjectError = t?.("subjectError") || "Konu seçin";
+  const messageError = t?.("messageError") || "Mesajınız en az 10 karakter olmalıdır";
+  return z.object({
+    name: z.string({ error: nameError }).trim().min(3, nameError).refine(isPersonName, nameError),
     email: z.email({ error: t?.("emailError") || "Geçersiz e-posta adresi" }),
-    phone: z.string().refine(isPhoneNumber, t?.("phoneError") || "Geçerli bir telefon numarası girin"),
-    subject: z.string().trim().min(1, t?.("subjectError") || "Konu seçin"),
+    phone: z.string({ error: phoneError }).refine(isPhoneNumber, phoneError),
+    subject: z.string({ error: subjectError }).trim().min(1, subjectError),
     message: z
-      .string()
+      .string({ error: messageError })
       .trim()
-      .min(10, t?.("messageError") || "Mesajınız en az 10 karakter olmalıdır")
+      .min(10, messageError)
       .max(2000, t?.("messageMax") || "Mesajınız en fazla 2000 karakter olabilir"),
   });
+};
 
 export const contactSchema = getContactSchema().extend({ locale: z.enum(["tr", "en"]).default("tr") });
 

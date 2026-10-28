@@ -360,6 +360,89 @@ select:focus-visible {
   }
 }
 
+.page-curtain {
+  --curtain-ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --curtain-fade: 45vh;
+  position: fixed;
+  inset: 0 0 calc(var(--curtain-fade) * -1);
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding-bottom: var(--curtain-fade);
+  background: var(--color-night);
+  color: var(--color-bone);
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, #000 calc(100% - var(--curtain-fade)), transparent);
+  will-change: transform;
+  transition: transform 1.3s var(--curtain-ease) 0.1s;
+  animation: curtain-out 1.3s var(--curtain-ease) 4s forwards;
+}
+
+.page-curtain.is-leaving {
+  transform: translateY(-100%);
+}
+
+.page-curtain .curtain-mark {
+  transition: opacity 0.45s ease, transform 1.3s var(--curtain-ease) 0.1s;
+}
+
+.page-curtain.is-leaving .curtain-mark {
+  opacity: 0;
+  transform: translateY(-2rem);
+}
+
+html[data-curtain] #main-content > :not(.page-curtain),
+html[data-curtain] #main-content > :not(.page-curtain) * {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-curtain {
+    display: none;
+  }
+}
+
+@keyframes curtain-draw {
+  from {
+    stroke-dashoffset: 0.55;
+  }
+}
+
+@keyframes curtain-grow-x {
+  from {
+    transform: scaleX(0.4);
+  }
+}
+
+@keyframes curtain-grow-y {
+  from {
+    transform: scaleY(0.4);
+  }
+}
+
+@keyframes curtain-sweep {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(400%);
+  }
+}
+
+@keyframes curtain-letter {
+  from {
+    opacity: 0.35;
+    transform: translateY(55%);
+  }
+}
+
+@keyframes curtain-out {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+
 button[class~="border"]:not([class*="rounded-full"]),
 a[class~="border"]:not([class*="rounded-full"]),
 button[class*="bg-bone"]:not([class*="rounded-full"]),

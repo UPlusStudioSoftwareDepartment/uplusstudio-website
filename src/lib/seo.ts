@@ -43,7 +43,7 @@ export const PAGE_PATH: Record<PageKey, string> = {
 export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; description: string; crumb: string }>> = {
   tr: {
     home: {
-      title: "U+ Studio | Mimarlık & Mühendislik · İncek, Gölbaşı, Ankara",
+      title: "U+ Studio | Mimarlık, Tasarım ve Mühendislik · İncek, Gölbaşı, Ankara",
       description:
         "İncek, Gölbaşı / Ankara'da mimarlık & iç mimarlık & mühendislik ofisi; Türkiye geneline hizmet. Villa, konut, ofis, kafe, tadilat, 3D ve anahtar teslim.",
       crumb: "Ana Sayfa",
@@ -92,7 +92,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
   },
   en: {
     home: {
-      title: "U+ Studio | Architecture & Engineering · İncek, Ankara",
+      title: "U+ Studio | Architecture, Design & Engineering · İncek, Ankara",
       description:
         "Architecture & interior architecture & engineering studio in İncek, Ankara, working across Türkiye: villas, homes, offices, cafés, renovation, 3D, turnkey.",
       crumb: "Home",

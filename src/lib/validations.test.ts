@@ -71,6 +71,18 @@ describe("contactSchema", () => {
     }
   });
 
+  it("explains missing fields in Turkish instead of type errors", () => {
+    const result = contactSchema.safeParse({});
+    expect(result.success).toBe(false);
+    expect(result.error?.issues.map((i) => i.message)).toEqual([
+      "Adınızı ve soyadınızı yazın",
+      "Geçersiz e-posta adresi",
+      "Geçerli bir telefon numarası girin",
+      "Konu seçin",
+      "Mesajınız en az 10 karakter olmalıdır",
+    ]);
+  });
+
   it("rejects an invalid phone or name", () => {
     expect(contactSchema.safeParse({ ...contact, phone: "123" }).success).toBe(false);
     expect(contactSchema.safeParse({ ...contact, name: "John 2" }).success).toBe(false);

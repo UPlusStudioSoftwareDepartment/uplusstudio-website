@@ -18,8 +18,9 @@ export default function LanguageSelector({ isDarkText = true }: Readonly<Languag
   };
 
   const getButtonClass = (isActive: boolean) => {
-    if (isActive) return isDarkText ? 'text-ink' : 'text-bone';
-    return isDarkText ? 'text-mute hover:text-ink' : 'text-bone/45 hover:text-bone';
+    const tap = "relative after:absolute after:-inset-x-1.5 after:-inset-y-3 after:content-['']";
+    if (isActive) return `${tap} ${isDarkText ? 'text-ink' : 'text-bone'}`;
+    return `${tap} ${isDarkText ? 'text-mute hover:text-ink' : 'text-bone/45 hover:text-bone'}`;
   };
 
   return (

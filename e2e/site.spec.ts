@@ -144,6 +144,27 @@ test("every internal link resolves", async ({ request, isMobile }) => {
   expect(broken).toEqual([]);
 });
 
+test("the sitemap lists only indexable canonical pages and leaves the FAQ out", async ({ request, isMobile }) => {
+  test.skip(isMobile, "the sitemap is the same on every screen");
+  test.setTimeout(120_000);
+  const xml = await (await request.get("/sitemap.xml")).text();
+  const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, loc]) => loc);
+  expect(locs.length).toBeGreaterThan(40);
+  for (const loc of locs) {
+    const res = await request.get(new URL(loc).pathname, { maxRedirects: 0 });
+    expect(res.status(), loc).toBe(200);
+    const html = await res.text();
+    expect(html, loc).toContain(`<link rel="canonical" href="${loc}"/>`);
+    expect(html, loc).not.toMatch(/<meta name="robots" content="[^"]*noindex/);
+  }
+  for (const locale of ["tr", "en"]) {
+    expect(locs.some((loc) => loc.endsWith(`/${locale}/faq`))).toBe(false);
+    const res = await request.get(`/${locale}/faq`, { maxRedirects: 0 });
+    expect(res.status()).toBe(308);
+    expect(res.headers().location).toBe(`/${locale}/contact`);
+  }
+});
+
 test("unknown pages answer 404 with a way home", async ({ page }) => {
   const res = await page.goto("/tr/bu-sayfa-yok");
   expect(res?.status()).toBe(404);
@@ -325,7 +346,17 @@ test.describe("phones", () => {
     await expect(cardButton).toBeFocused();
   });
 
-  test("home page puts directions, WhatsApp and Instagram at the right end of the location line", async ({ page }) => {
+  test("language buttons answer taps around their small letters", async ({ page }) => {
+    await page.goto("/tr/about");
+    const en = page.locator("nav").first().getByRole("button", { name: "EN", exact: true }).filter({ visible: true });
+    const box = await en.boundingBox();
+    await expect(async () => {
+      await page.mouse.click((box?.x ?? 0) + (box?.width ?? 0) / 2, (box?.y ?? 0) - 9);
+      await expect(page).toHaveURL(/\/en\/about$/, { timeout: 1000 });
+    }).toPass();
+  });
+
+  test("home page ends the bottom featured project row with directions, WhatsApp and Instagram", async ({ page }) => {
     await page.goto("/tr");
     const hero = page.locator("#home");
     const row: [string, string][] = [
@@ -335,7 +366,7 @@ test.describe("phones", () => {
     ];
     const icons = row.map(([name]) => hero.getByRole("link", { name, exact: true }));
     for (const [i, [, href]] of row.entries()) await expect(icons[i]).toHaveAttribute("href", href);
-    const boxes = await Promise.all([hero.locator("p").filter({ hasText: "Türkiye" }).locator("span").first(), ...icons].map((link) => link.boundingBox()));
+    const boxes = await Promise.all([hero.getByRole("link", { name: /önce \/ sonra/ }), ...icons].map((link) => link.boundingBox()));
     expect(boxes.every((b, i) => b && (i === 0 || b.x >= (boxes[i - 1]?.x ?? 0) + (boxes[i - 1]?.width ?? 0) - 1))).toBe(true);
     const middle = (i: number) => (boxes[i]?.y ?? 0) + (boxes[i]?.height ?? 0) / 2;
     expect([1, 2, 3].every((i) => Math.abs(middle(i) - middle(0)) <= 2)).toBe(true);
