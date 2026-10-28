@@ -103,7 +103,7 @@ export default function GlossaryContent({ total, sections, counts, alphabet }: R
                             )}
                         </div>
                         <p className="mt-3 font-mono text-[12px] uppercase tracking-[0.14em] text-mute" aria-live="polite">
-                            {t("foundCount", { count: visible })}
+                            {searchQuery.trim() || activeLetter ? t("foundCount", { count: visible }) : t("totalCount", { count: visible })}
                         </p>
                     </div>
                 </div>

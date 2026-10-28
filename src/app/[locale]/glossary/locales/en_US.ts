@@ -19,6 +19,7 @@ export const glossary_en = {
     "subtitle": "Explaining architectural terms in a language everyone can understand.",
     "searchPlaceholder": "Search terms...",
     "foundCount": "Found {count} terms",
+    "totalCount": "{count} terms",
     "noResultsTitle": "Nothing Found",
     "noResultsMessage": "The term you're looking for doesn't exist in our architectural dictionary.",
     "clearSearch": "Clear Search",

@@ -74,7 +74,7 @@ export function DesignerMascot({ pose = "idle", joy = false, className = "", off
   const cheerJump = pose === "cheer" && !reduce ? { animate: { y: [0, -8, 0] }, transition: loop(0.9, offset) } : {};
 
   return (
-    <svg viewBox="0 0 140 150" className={className} aria-hidden>
+    <svg viewBox="0 0 140 150" overflow="visible" className={className} aria-hidden>
       <ellipse cx="70" cy="142" rx="34" ry="5" fill="#000" opacity="0.18" />
       <m.g {...cheerJump}>
         <m.g style={{ transformBox: "view-box", originX: "100px", originY: "120px" }} {...moves.sway(offset, 9)}>
@@ -152,7 +152,7 @@ export function DesignerMascot({ pose = "idle", joy = false, className = "", off
           </g>
         </m.g>
       </m.g>
-      {pose === "think" && <ThinkBubble x={112} y={16} offset={offset} reduce={reduce} />}
+      {pose === "think" && <ThinkMark y={8} offset={offset} reduce={reduce} />}
     </svg>
   );
 }
@@ -165,7 +165,7 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
   const cheerJump = pose === "cheer" && !reduce ? { animate: { y: [0, -8, 0] }, transition: loop(0.9, offset) } : {};
 
   return (
-    <svg viewBox="0 0 140 150" className={className} aria-hidden>
+    <svg viewBox="0 0 140 150" overflow="visible" className={className} aria-hidden>
       <ellipse cx="70" cy="142" rx="34" ry="5" fill="#000" opacity="0.18" />
       <m.g {...cheerJump}>
         <m.g style={{ transformBox: "view-box", originX: "40px", originY: "122px" }} {...moves.sway(offset, 6)}>
@@ -236,21 +236,17 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
           </g>
         </m.g>
       </m.g>
-      {pose === "think" && <ThinkBubble x={18} y={16} offset={offset} reduce={reduce} />}
+      {pose === "think" && <ThinkMark y={9} offset={offset} reduce={reduce} />}
     </svg>
   );
 }
 
-function ThinkBubble({ x, y, offset, reduce }: Readonly<{ x: number; y: number; offset: number; reduce: boolean | null }>) {
+function ThinkMark({ y, offset, reduce }: Readonly<{ y: number; offset: number; reduce: boolean | null }>) {
   return (
-    <m.g
-      {...(reduce ? {} : { animate: { y: [0, -3, 0], opacity: [0.85, 1, 0.85] }, transition: loop(2, offset) })}
-    >
-      <circle cx={x} cy={y} r="11" fill="#ede9e1" />
-      <text x={x} y={y + 5} textAnchor="middle" fontSize="15" fontWeight="700" fill="#1a1917" fontFamily="sans-serif">
+    <m.g {...(reduce ? {} : { animate: { y: [0, -3, 0], opacity: [0.85, 1, 0.85] }, transition: loop(2, offset) })}>
+      <text x={70} y={y} textAnchor="middle" fontSize="16" fontWeight="700" fill="#fff" fontFamily="sans-serif">
         ?
       </text>
-      <circle cx={x + (x > 70 ? -9 : 9)} cy={y + 16} r="3" fill="#ede9e1" />
     </m.g>
   );
 }

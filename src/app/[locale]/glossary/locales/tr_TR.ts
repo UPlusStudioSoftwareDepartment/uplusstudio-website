@@ -19,6 +19,7 @@ export const glossary_tr = {
     "subtitle": "Mimari terimleri herkesin anlayacağı dilde açıklıyoruz.",
     "searchPlaceholder": "Terim ara...",
     "foundCount": "{count} terim bulundu",
+    "totalCount": "{count} terim var",
     "noResultsTitle": "Sonuç Bulunamadı",
     "noResultsMessage": "Aradığınız terim mimarlık sözlüğümüzde yer almıyor.",
     "clearSearch": "Aramayı Temizle",
