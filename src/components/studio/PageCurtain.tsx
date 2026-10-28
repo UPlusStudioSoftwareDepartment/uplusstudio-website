@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 const LETTERS = "STUDIO".split("");
-const FIRST_VISIT_MIN_MS = 1100;
+const FIRST_VISIT_MIN_MS = 900;
 const FIRST_VISIT_MAX_MS = 2600;
 const ROUTE_MS = 500;
 const LEAVE_MS = 1500;

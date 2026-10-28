@@ -27,6 +27,42 @@ export type ServiceLanding = {
 
 export const SERVICE_LANDINGS: ServiceLanding[] = [
   {
+    slug: "incek-golbasi-mimarlik-ofisi",
+    booking: "architectural",
+    image: "/images/persons/founders/hacer_uyar/hacer-uyar-u-plus-studio-ofis.jpg",
+    projects: ["villa-donusumu", "modern-villa", "butik-kafe", "evox-gym-center"],
+    copy: {
+      tr: {
+        title: "İncek Mimarlık Ofisi · Gölbaşı, Ankara",
+        description: "U+ Studio, İncek'te Merkez İncek Plaza'daki mimarlık ofisi: villa, konut, iç mimarlık, tadilat ve ticari mekân projeleri; Gölbaşı, Ankara ve Türkiye geneli.",
+        crumb: "İncek mimarlık ofisi",
+        label: "Mimarlık Ofisi",
+        heading: ["İncek, Gölbaşı'nda", "*mimarlık ofisi.*"],
+        intro: "U+ Studio, Ankara'nın İncek semtinde, Merkez İncek Plaza'da bulunan bir mimarlık, iç mimarlık ve mühendislik ofisidir. Yüksek Mimar Hacer Uyar ve İnşaat Mühendisi Rıdvan Uyar'ın kurduğu stüdyoda villa, konut, iç mekân, tadilat ve ticari mekân projelerini tasarımdan uygulamaya tek ekip yürütür.",
+        forWhoTitle: "Kimler için",
+        forWho: ["İncek, Gölbaşı ve çevresinde ev, villa ya da işyeri projesi olanlar", "Arsasına proje çizdirmek ya da mevcut yapısını yenilemek isteyenler", "Mimarlık, iç mimarlık ve mühendisliği tek ofiste toplamak isteyenler"],
+        scopeTitle: "Ofisimizde neler yapıyoruz",
+        scope: ["Mimari tasarım: konsept, avan ve uygulama projeleri", "Konut ve villa projeleri", "İç mimarlık ve mekâna özel mobilya", "Yenileme, tadilat ve dönüşüm", "Ticari mekânlar: kafe, ofis, spor salonu ve mağaza", "3D görselleştirme", "Mühendislik danışmanlığı, izin ve onay desteği", "Uygulama ve proje yönetimi, anahtar teslim"],
+        whyTitle: "Ofisimiz",
+        why: "Adresimiz İncek Mah. Reyhan Cd. No:3, Merkez İncek Plaza Kat:1 D:2, 06830 Gölbaşı / Ankara. Telefon ve WhatsApp: +90 545 320 40 07. Ofisimiz İncek'te olduğu için Gölbaşı ve çevresindeki arsa ve şantiyelere yakınız.",
+      },
+      en: {
+        title: "Architecture Office in İncek, Gölbaşı, Ankara",
+        description: "U+ Studio's architecture office at Merkez İncek Plaza in İncek: villas, homes, interiors, renovation and commercial spaces in Gölbaşı, Ankara and Türkiye.",
+        crumb: "İncek architecture office",
+        label: "Architecture Office",
+        heading: ["An architecture office", "*in İncek, Gölbaşı.*"],
+        intro: "U+ Studio is an architecture, interior architecture and engineering office at Merkez İncek Plaza in İncek, Ankara. Founded by master architect Hacer Uyar and civil engineer Rıdvan Uyar, the studio takes villas, homes, interiors, renovations and commercial spaces from design to delivery as one team.",
+        forWhoTitle: "Who it is for",
+        forWho: ["Anyone with a home, villa or workplace project in İncek, Gölbaşı and nearby", "Owners who want drawings for their plot or to renew an existing building", "Clients who want architecture, interiors and engineering under one roof"],
+        scopeTitle: "What we do from the office",
+        scope: ["Architectural design: concept, schematic and construction drawings", "Homes and villas", "Interior architecture and bespoke furniture", "Renovation and conversion", "Commercial spaces: cafés, offices, gyms and retail", "3D visualisation", "Engineering consultancy, permits and approvals", "Construction and project management, turnkey"],
+        whyTitle: "The office",
+        why: "You will find us at İncek Mah. Reyhan Cd. No:3, Merkez İncek Plaza, Floor 1, Unit 2, 06830 Gölbaşı / Ankara. Phone and WhatsApp: +90 545 320 40 07. Being based in İncek keeps us close to plots and sites in Gölbaşı and nearby.",
+      },
+    },
+  },
+  {
     slug: "villa-mimari-proje-ankara",
     booking: "villa",
     image: "/media/projects/modern-villa/exterior-dusk.jpg",

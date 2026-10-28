@@ -162,7 +162,7 @@ export default function ServiceCard({
               </svg>
               {studioInfo.googleRating}
             </span>
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-bone/60 @md:text-[9.5px]">
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-bone/60 @md:text-[10px]">
               {studioInfo.googleReviewCount} {c.reviews}
             </span>
           </div>
@@ -289,7 +289,7 @@ export default function ServiceCard({
               <span className="font-mono text-[12.5px] tracking-[0.06em] @md:text-[11px]">
                 {SITE}
               </span>
-              <span className="max-w-[160px] font-mono text-[10px] uppercase leading-snug tracking-[0.12em] text-bone/60 @md:text-[9px]">
+              <span className="max-w-[160px] font-mono text-[10px] uppercase leading-snug tracking-[0.12em] text-bone/60">
                 {c.scan}
               </span>
             </div>
