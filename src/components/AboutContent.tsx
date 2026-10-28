@@ -351,7 +351,7 @@ export default function AboutContent() {
                 </CardMedia>
                 <div className="flex flex-1 flex-col p-6 sm:p-8">
                   <h3 className="font-sans text-[clamp(1.5rem,2.2vw,2rem)] font-light leading-[1.1] tracking-[-0.02em] text-ink">{item.title}</h3>
-                  <p className="mt-3 font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-clay">
+                  <p className="mt-3 font-mono text-[12px] uppercase leading-relaxed tracking-[0.12em] text-clay sm:text-[13px]">
                     {offer.forLabel}: {item.for}
                   </p>
                   <p className="mt-5 text-[16px] leading-relaxed text-ink/80">{item.pitch}</p>

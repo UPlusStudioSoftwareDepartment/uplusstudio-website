@@ -6,6 +6,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocale } from "next-intl";
 import { useScrollLock } from "@/hooks/useScrollLock";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { mailPlatform } from "@/lib/gmailCompose";
 import ServiceCard from "@/components/ServiceCard";
 import { icons } from "./SocialLinks";
@@ -104,6 +105,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   const headerRef = useRef<HTMLDivElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
   const [fit, setFit] = useState({ scale: 1, h: 0, w: DESIGN_W });
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -135,6 +137,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   }, [open, mounted]);
 
   useScrollLock(open);
+  useFocusTrap(open && fit.h > 0, overlayRef, closeRef);
 
   useEffect(() => {
     const overlay = overlayRef.current;
@@ -266,7 +269,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
           aria-modal="true"
           aria-label={c.title}
         >
-          <button type="button" aria-label={c.close} className="fixed inset-0 cursor-default bg-night/80 backdrop-blur-md" onClick={onClose} />
+          <button type="button" tabIndex={-1} aria-label={c.close} className="fixed inset-0 cursor-default bg-night/80 backdrop-blur-md" onClick={onClose} />
 
           <motion.div
             className="relative z-10 flex flex-col"
@@ -279,6 +282,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
             <div ref={headerRef} className="mb-2 flex items-center justify-between text-bone sm:mb-3">
               <span className="eyebrow text-bone/60">{c.title}</span>
               <button
+                ref={closeRef}
                 type="button"
                 onClick={onClose}
                 className="flex h-8 w-8 items-center justify-center rounded-full border border-bone/30 transition-colors hover:bg-night sm:h-10 sm:w-10"

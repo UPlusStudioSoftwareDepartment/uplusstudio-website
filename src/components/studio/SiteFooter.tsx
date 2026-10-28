@@ -5,12 +5,13 @@ import BookingCta from "@/components/studio/BookingCta";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { studioInfo } from "@/lib/studio-info";
+import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import GoogleRating from "./GoogleRating";
 
 export default function SiteFooter() {
   const t = useTranslations("studio");
-  const locale = useLocale();
+  const locale = useLocale() === "en" ? "en" : "tr";
   const { openAppointment } = useAppointment();
   const pathname = usePathname();
   const prefix = `/${locale}`;
@@ -67,6 +68,17 @@ export default function SiteFooter() {
           </div>
 
           <div className="md:col-span-2">
+            <p className="eyebrow text-bone/60">{t("nav.services")}</p>
+            <ul className="mt-6 space-y-2 text-[15px]">
+              {SERVICE_LANDINGS.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`${prefix}/services/${s.slug}`} className="text-bone/80 hover:text-bone">{s.copy[locale].crumb}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
             <p className="eyebrow text-bone/60">{t("footer.social")}</p>
             <ul className="mt-6 space-y-2 text-[15px]">
               <li>
@@ -99,10 +111,10 @@ export default function SiteFooter() {
         </div>
 
         <div className="pointer-events-none select-none pt-10" aria-hidden>
-          <p aria-hidden className="display whitespace-nowrap text-[24vw] leading-[0.78] text-bone/[0.06] -mb-[3vw]">U+ Studio</p>
+          <p aria-hidden className="display whitespace-nowrap text-[24vw] leading-[0.78] text-bone/[0.06] -mb-[3vw] before:content-['U+_Studio']" />
         </div>
 
-        <div className="relative flex flex-col gap-4 border-t border-bone/10 py-6 font-mono text-[12px] uppercase tracking-[0.12em] text-bone/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative flex flex-col gap-4 border-t border-bone/10 py-6 font-mono text-[12px] uppercase tracking-[0.12em] text-bone/55 sm:flex-row sm:items-center sm:justify-between">
           <span>© {year} U+ Studio — {t("footer.rights")}</span>
           <button
             type="button"

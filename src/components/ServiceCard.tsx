@@ -112,6 +112,7 @@ export default function ServiceCard({
   children,
   footer,
   topAction,
+  priority = false,
 }: Readonly<{
   ref?: Ref<HTMLDivElement>;
   locale?: "tr" | "en";
@@ -119,6 +120,7 @@ export default function ServiceCard({
   children?: ReactNode;
   footer?: ReactNode;
   topAction?: ReactNode;
+  priority?: boolean;
 }>) {
   const c = COPY[locale];
   return (
@@ -144,6 +146,7 @@ export default function ServiceCard({
             width={300}
             height={120}
             alt="U+ Studio"
+            priority={priority}
             className="h-auto w-[132px] mix-blend-screen @md:w-[150px]"
           />
           <div className="flex shrink-0 flex-col items-end gap-1 pt-1 text-right">
@@ -174,7 +177,7 @@ export default function ServiceCard({
 
         <div className="mt-6 flex items-baseline justify-between border-b border-bone/15 pb-3">
           <p className={LABEL}>{c.services}</p>
-          <span className="font-mono text-[10px] tracking-[0.14em] text-bone/40">
+          <span className="font-mono text-[10px] tracking-[0.14em] text-bone/50">
             {String(STUDIO_SERVICES[locale].length).padStart(2, "0")}
           </span>
         </div>
@@ -256,7 +259,7 @@ export default function ServiceCard({
               ].map(({ icon, href }, i) => (
                 <Row key={c.platforms[i]} icon={icon} href={href}>
                   {c.platforms[i]}{" "}
-                  <span className="text-bone/45">· U+ Studio</span>
+                  <span className="text-bone/50">· U+ Studio</span>
                 </Row>
               ))}
             </ul>

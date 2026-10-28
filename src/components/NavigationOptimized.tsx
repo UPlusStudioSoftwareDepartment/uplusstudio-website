@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import BookingCta from "@/components/studio/BookingCta";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
@@ -11,6 +11,7 @@ import LanguageSelector from "./LanguageSelector";
 import SocialLinks from "./studio/SocialLinks";
 import { DesignerMascot, BuilderMascot } from "@/components/mascots/Mascots";
 import { useScrollLock } from "@/hooks/useScrollLock";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
 
@@ -32,6 +33,8 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
 
   const prefix = `/${locale}`;
   const overDark = startsOverDark(pathname, prefix) && !isScrolled;
@@ -49,6 +52,7 @@ export default function Navigation() {
   ];
 
   useScrollLock(isMenuOpen);
+  useFocusTrap(isMenuOpen, menuRef, closeRef);
 
   useEffect(() => {
     let lastY = globalThis.scrollY;
@@ -163,6 +167,7 @@ export default function Navigation() {
         {isMenuOpen && (
           <motion.div
             key="menu"
+            ref={menuRef}
             className="fixed inset-0 z-[60] h-[100dvh] overflow-hidden bg-night text-bone lg:hidden"
             initial={{ clipPath: "circle(0% at calc(100% - 44px) 40px)" }}
             animate={{ clipPath: "circle(150% at calc(100% - 44px) 40px)" }}
@@ -194,6 +199,7 @@ export default function Navigation() {
                   <BuilderMascot className="-ml-2 h-11 w-11 sm:h-12 sm:w-12" />
                 </div>
                 <button
+                  ref={closeRef}
                   type="button"
                   onClick={() => setIsMenuOpen(false)}
                   className="group -mr-1 flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.12em]"
@@ -251,9 +257,9 @@ export default function Navigation() {
                 transition={{ duration: 0.7, ease: EASE, delay: 0.7 }}
               >
                 <div className="flex items-start justify-between gap-6 text-[13px] text-bone/70 [@media(max-height:520px)]:justify-end">
-                  <div className="space-y-1 [@media(max-height:520px)]:hidden">
-                    <a href={`mailto:${studioInfo.email}`} className="block active:text-bone">{studioInfo.email}</a>
-                    <a href={studioInfo.phoneHref} className="block active:text-bone">{studioInfo.phoneDisplay}</a>
+                  <div className="-my-1 [@media(max-height:520px)]:hidden">
+                    <a href={`mailto:${studioInfo.email}`} className="flex min-h-7 items-center active:text-bone">{studioInfo.email}</a>
+                    <a href={studioInfo.phoneHref} className="flex min-h-7 items-center active:text-bone">{studioInfo.phoneDisplay}</a>
                   </div>
                   <LanguageSelector isDarkText={false} />
                 </div>

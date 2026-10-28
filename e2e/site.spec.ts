@@ -1,6 +1,7 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 import { SERVICE_LANDINGS } from "../src/lib/serviceLandings";
 import { projects } from "../src/lib/projects";
+import { studioInfo } from "../src/lib/studio-info";
 
 const PATHS = [
   "",
@@ -46,6 +47,55 @@ async function audit(page: Page) {
         .map((a) => a.getAttribute("href")!.slice(1))
         .filter((id) => id && !document.getElementById(id)),
     };
+  });
+}
+
+async function expectFocusTrapped(page: Page, dialog: Locator) {
+  for (const key of ["Tab", "Shift+Tab"]) {
+    for (let i = 1; i <= 30; i++) {
+      await page.keyboard.press(key);
+      expect(await dialog.evaluate((el) => el.contains(document.activeElement)), `${key} ×${i}`).toBe(true);
+    }
+  }
+}
+
+async function lowContrastText(root: Locator) {
+  return root.evaluate((rootEl) => {
+    const canvas = document.createElement("canvas");
+    canvas.width = canvas.height = 1;
+    const ctx = canvas.getContext("2d", { willReadFrequently: true })!;
+    const paint = (colors: string[]) => {
+      ctx.clearRect(0, 0, 1, 1);
+      for (const color of colors) {
+        ctx.fillStyle = color;
+        ctx.fillRect(0, 0, 1, 1);
+      }
+      return [...ctx.getImageData(0, 0, 1, 1).data.slice(0, 3)];
+    };
+    const luminance = (rgb: number[]) =>
+      rgb
+        .map((v) => v / 255)
+        .map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4))
+        .reduce((sum, v, i) => sum + v * [0.2126, 0.7152, 0.0722][i], 0);
+    const failures: string[] = [];
+    for (const el of [rootEl, ...rootEl.querySelectorAll("*")]) {
+      const text = [...el.childNodes]
+        .filter((n) => n.nodeType === Node.TEXT_NODE)
+        .map((n) => n.textContent?.trim())
+        .join(" ")
+        .trim();
+      const style = getComputedStyle(el);
+      const box = el.getBoundingClientRect();
+      if (!text || box.width <= 1 || box.height <= 1 || style.visibility === "hidden") continue;
+      const backgrounds = ["#fff"];
+      for (let node: Element | null = el; node; node = node.parentElement) backgrounds.splice(1, 0, getComputedStyle(node).backgroundColor);
+      const [a, b] = [luminance(paint([...backgrounds, style.color])), luminance(paint(backgrounds))];
+      const ratio = (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+      const size = parseFloat(style.fontSize);
+      const large = size >= 24 || (size >= 18.66 && Number(style.fontWeight) >= 700);
+      if (ratio < (large ? 3 : 4.5)) failures.push(`${text} — ${ratio.toFixed(2)}:1 at ${style.fontSize}`);
+    }
+    return failures;
   });
 }
 
@@ -110,6 +160,41 @@ test("business card opens as a dialog and closes", async ({ page }) => {
   await expect(card).toBeHidden();
 });
 
+test("business card dialog holds keyboard focus and returns it to its button", async ({ page }) => {
+  await page.goto("/tr/contact");
+  const trigger = page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first();
+  const card = page.getByRole("dialog", { name: "Dijital kartvizit" });
+  await trigger.click();
+  await expect(card.locator(":focus")).toHaveAccessibleName("Kapat");
+  await page.keyboard.press("Enter");
+  await expect(card).toBeHidden();
+  await expect(trigger).toBeFocused();
+  await trigger.click();
+  await expect(card.locator(":focus")).toHaveAccessibleName("Kapat");
+  await expectFocusTrapped(page, card);
+  await page.keyboard.press("Escape");
+  await expect(card).toBeHidden();
+  await expect(trigger).toBeFocused();
+});
+
+test("footer and business card small print meet AA contrast", async ({ page }) => {
+  await page.goto("/tr/about");
+  expect(await lowContrastText(page.getByRole("contentinfo"))).toEqual([]);
+  await page.goto("/tr/kartvizit");
+  expect(await lowContrastText(page.getByRole("main"))).toEqual([]);
+});
+
+test("business card logo loads eagerly only on the card page", async ({ page }) => {
+  const preload = page.locator('link[rel="preload"][as="image"][imagesrcset*="general_black_cuted"]');
+  await page.goto("/tr/about");
+  await page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first().click();
+  await expect(page.getByRole("dialog", { name: "Dijital kartvizit" }).getByRole("img", { name: "U+ Studio" })).toHaveAttribute("loading", "lazy");
+  await expect(preload).toHaveCount(0);
+  await page.goto("/tr/kartvizit");
+  await expect(page.getByRole("main").getByRole("img", { name: "U+ Studio" })).not.toHaveAttribute("loading", "lazy");
+  await expect(preload).toHaveCount(1);
+});
+
 test.describe("phones", () => {
   test.skip(({ isMobile }) => !isMobile, "phone-only behaviour");
 
@@ -125,6 +210,35 @@ test.describe("phones", () => {
     await menu.getByRole("link", { name: /Hakkımızda/ }).click();
     await expect(page).toHaveURL(/\/tr\/about$/);
     await expect(menu).toBeHidden();
+  });
+
+  test("menu holds keyboard focus and returns it to the toggle", async ({ page }) => {
+    await page.goto("/tr");
+    const toggle = page.getByRole("button", { name: "Menü" });
+    const menu = page.getByRole("dialog", { name: "Menü" });
+    const close = menu.getByRole("button", { name: /Kapat/ });
+    await toggle.click();
+    await expect(close).toBeFocused();
+    await expectFocusTrapped(page, menu);
+    await close.click();
+    await expect(menu).toBeHidden();
+    await expect(toggle).toBeFocused();
+    await toggle.click();
+    await expect(close).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(menu).toBeHidden();
+    await expect(toggle).toBeFocused();
+  });
+
+  test("menu contact links are comfortable tap targets on small phones", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.goto("/tr");
+    await page.getByRole("button", { name: "Menü" }).click();
+    const menu = page.getByRole("dialog", { name: "Menü" });
+    for (const name of [studioInfo.email, studioInfo.phoneDisplay]) {
+      expect((await menu.getByRole("link", { name }).boundingBox())?.height ?? 0, name).toBeGreaterThanOrEqual(24);
+    }
+    await expect(menu.getByRole("link", { name: /Şimdi Ara/ })).toBeInViewport({ ratio: 1 });
   });
 
   test("business card share options scroll into view above the action bar", async ({ page }) => {
@@ -159,5 +273,17 @@ test.describe("desktop", () => {
     await page.goto("/tr");
     await page.getByRole("button", { name: /Randevu Al/ }).filter({ visible: true }).first().click();
     await expect(page.getByRole("dialog", { name: "Randevu Al" })).toBeVisible();
+  });
+
+  test("footer links to every service page", async ({ page, request }) => {
+    for (const locale of LOCALES) {
+      await page.goto(`/${locale}/about`);
+      const footer = page.getByRole("contentinfo");
+      for (const { slug, copy } of SERVICE_LANDINGS) {
+        const href = `/${locale}/services/${slug}`;
+        await expect(footer.getByRole("link", { name: copy[locale].crumb, exact: true })).toHaveAttribute("href", href);
+        expect((await request.get(href)).status(), href).toBe(200);
+      }
+    }
   });
 });
