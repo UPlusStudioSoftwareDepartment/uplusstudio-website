@@ -341,6 +341,25 @@ select:focus-visible {
   }
 }
 
+@keyframes rise {
+  from {
+    opacity: 0.01;
+    transform: translateY(var(--rise, 0));
+  }
+}
+
+@keyframes line-up {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes settle {
+  from {
+    transform: scale(var(--settle));
+  }
+}
+
 button[class~="border"]:not([class*="rounded-full"]),
 a[class~="border"]:not([class*="rounded-full"]),
 button[class*="bg-bone"]:not([class*="rounded-full"]),

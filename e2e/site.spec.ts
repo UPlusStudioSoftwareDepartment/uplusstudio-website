@@ -101,6 +101,22 @@ test("language switch keeps the visitor on the same page", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("lang", /^en/);
 });
 
+test("page header intro shows before the app hydrates", async ({ page }) => {
+  await page.route(/\/_next\/static\/chunks\/.+\.js$/, (route) => route.abort());
+  await page.goto("/tr/about");
+  const intro = page.locator("header:has(h1)").getByText("Her proje benzersiz bir hikaye anlatır");
+  await expect(intro).toBeVisible();
+  await expect
+    .poll(() =>
+      intro.evaluate((el) => {
+        let opacity = 1;
+        for (let node: Element | null = el; node; node = node.parentElement) opacity *= Number(getComputedStyle(node).opacity);
+        return opacity;
+      })
+    )
+    .toBe(1);
+});
+
 test("business card opens as a dialog and closes", async ({ page }) => {
   await page.goto("/tr/about");
   await page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first().click();

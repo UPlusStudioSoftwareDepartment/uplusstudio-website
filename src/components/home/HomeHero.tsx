@@ -6,7 +6,7 @@ import BookingCta from "@/components/studio/BookingCta";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
-import { LineReveal, EASE_OUT } from "@/components/studio/Reveal";
+import { LineReveal } from "@/components/studio/Reveal";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { Hayzer, Rayzer, HIGH_FIVE } from "@/components/mascots/Mascots";
 import { projects, projectNumber } from "@/lib/projects";
@@ -69,17 +69,9 @@ export default function HomeHero() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
-  const fadeIn = (delay: number) =>
-    reduce ? {} : { initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.9, ease: EASE_OUT, delay } };
-
   return (
     <section id="home" className="relative h-[100svh] min-h-[540px] overflow-hidden bg-night text-bone">
-      <motion.div
-        className="absolute inset-0"
-        initial={reduce ? false : { scale: 1.06 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 2, ease: EASE_OUT }}
-      >
+      <div className="absolute inset-0 animate-[settle_2s_var(--ease-out-studio)_backwards] [--settle:1.06] motion-reduce:animate-none">
         <video
           ref={videoRef}
           className="h-full w-full object-cover object-[50%_55%]"
@@ -91,19 +83,19 @@ export default function HomeHero() {
           aria-label={t("motion.items.villa")}
           disableRemotePlayback
         />
-      </motion.div>
+      </div>
 
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-night/60 to-transparent" aria-hidden />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-linear-to-t from-night/90 via-night/45 to-transparent" aria-hidden />
 
       <div className="relative z-10 mx-auto flex h-full max-w-[2560px] flex-col px-4 pb-6 pt-[8.75rem] [justify-content:safe_flex-end] sm:px-8 sm:pb-10 sm:pt-32 lg:px-12 [@media(max-height:560px)]:pb-3 [@media(max-height:560px)]:pt-28">
-        <motion.p className="eyebrow mb-5 text-bone/75 sm:mb-8 [@media(max-height:560px)]:mb-2" {...fadeIn(0.2)}>
+        <p className="eyebrow mb-5 animate-[rise_0.9s_var(--ease-out-studio)_backwards] text-bone/75 [--rise:12px] motion-reduce:animate-none sm:mb-8 [@media(max-height:560px)]:mb-2">
           {t("hero.eyebrow")}
           <span className="mt-1.5 block text-bone sm:ml-3 sm:mt-0 sm:inline">
             <span className="mr-3 hidden text-bone/40 sm:inline" aria-hidden>·</span>
             {t("hero.place")}
           </span>
-        </motion.p>
+        </p>
 
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:items-end [@media(max-height:560px)]:justify-between [@media(max-height:560px)]:gap-4">
           <h1 className="display min-w-0 text-[clamp(1.9rem,min(8vw,10dvh),9rem)]">
@@ -115,15 +107,15 @@ export default function HomeHero() {
             />
           </h1>
 
-          <motion.div className="inline-flex w-fit shrink-0 flex-col items-stretch self-start lg:mb-5 lg:self-end" {...fadeIn(1)}>
+          <div className="inline-flex w-fit shrink-0 flex-col items-stretch self-start lg:mb-5 lg:self-end">
             <motion.p
-              className="w-0 min-w-full text-center font-serif text-[15px] italic leading-snug text-bone/90 [@media(max-height:560px)]:hidden"
+              className="w-0 min-w-full animate-[rise_0.9s_var(--ease-out-studio)_backwards] text-center font-serif text-[15px] italic leading-snug text-bone/90 [--rise:12px] motion-reduce:animate-none [@media(max-height:560px)]:hidden"
               animate={celebrating ? { y: JUMP.y } : { y: 0 }}
               transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
             >
               {t("mascots.hero")}
             </motion.p>
-            <div className="relative z-10 -mb-[3px] mt-1 flex w-[4.75rem] justify-between self-center sm:mx-auto sm:w-28" aria-hidden onMouseEnter={() => setMascotsHovered(true)} onMouseLeave={() => setMascotsHovered(false)}>
+            <div className="relative z-10 -mb-[3px] mt-1 flex w-[4.75rem] animate-[rise_0.9s_var(--ease-out-studio)_1s_backwards] justify-between self-center [--rise:12px] motion-reduce:animate-none sm:mx-auto sm:w-28" aria-hidden onMouseEnter={() => setMascotsHovered(true)} onMouseLeave={() => setMascotsHovered(false)}>
               <motion.div
                 style={{ originY: 1 }}
                 animate={celebrating ? { ...JUMP, x: [0, 0, 0, 0, 0, 0, 0, 0, 0], rotate: [0, -3, 17, 19, 19, 17, 0, 0, 0] } : { y: 0, x: 0, scaleX: 1, scaleY: 1, rotate: 0 }}
@@ -161,17 +153,12 @@ export default function HomeHero() {
               onBook={openAppointment}
               onMouseEnter={celebrate}
               label={t("nav.appointment")}
-              className="inline-flex min-h-11 items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:border-bone hover:bg-night"
+              className="inline-flex min-h-11 animate-[rise_0.9s_var(--ease-out-studio)_1s_backwards] items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors [--rise:12px] motion-reduce:animate-none hover:border-bone hover:bg-night"
             />
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          className="mt-8 grid grid-cols-1 gap-6 border-t border-bone/25 pt-5 sm:mt-12 md:grid-cols-12 md:items-start [@media(max-height:560px)]:hidden"
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-        >
+        <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-6 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:items-start [@media(max-height:560px)]:hidden">
           <p className="eyebrow hidden text-bone/60 md:col-span-2 md:block">{t("hero.location")}</p>
 
           <Link href={`/${locale}/projects/villa-donusumu`} className="group md:col-span-4">
@@ -195,7 +182,7 @@ export default function HomeHero() {
               </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

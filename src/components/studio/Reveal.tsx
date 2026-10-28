@@ -54,20 +54,28 @@ export function LineReveal({ lines, className = "", lineClassName = "", delay = 
   const reduce = useReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
-  const show = immediate || inView;
 
   return (
     <span ref={ref} className={`block ${className}`}>
       {lines.map((line, i) => (
         <span key={i} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
-          <motion.span
-            className={`block ${lineClassName}`}
-            initial={reduce ? false : { y: "105%" }}
-            animate={show ? { y: "0%" } : undefined}
-            transition={{ duration: 1, ease: EASE_STUDIO, delay: delay + i * 0.09 }}
-          >
-            {line}
-          </motion.span>
+          {immediate ? (
+            <span
+              className={`block animate-[line-up_1s_var(--ease-studio)_backwards] motion-reduce:animate-none ${lineClassName}`}
+              style={{ animationDelay: `${delay + i * 0.09}s` }}
+            >
+              {line}
+            </span>
+          ) : (
+            <motion.span
+              className={`block ${lineClassName}`}
+              initial={reduce ? false : { y: "105%" }}
+              animate={inView ? { y: "0%" } : undefined}
+              transition={{ duration: 1, ease: EASE_STUDIO, delay: delay + i * 0.09 }}
+            >
+              {line}
+            </motion.span>
+          )}
         </span>
       ))}
     </span>

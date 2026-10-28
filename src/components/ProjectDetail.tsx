@@ -4,13 +4,12 @@ import Image from "next/image";
 import BookingCta from "@/components/studio/BookingCta";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { motion, useReducedMotion } from "framer-motion";
 import BeforeAfter from "@/components/studio/BeforeAfter";
 import FramedImage from "@/components/studio/FramedImage";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import InViewVideo from "@/components/studio/InViewVideo";
 import Fullscreenable from "@/components/studio/Fullscreenable";
-import { Eyebrow, FadeUp, LineReveal, MaskReveal, EASE_OUT } from "@/components/studio/Reveal";
+import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { getAdjacentProject, getProject, projectNumber, type ProjectImage } from "@/lib/projects";
 import type { Locale } from "@/lib/i18n-config";
@@ -22,7 +21,6 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
   const nextProject = getAdjacentProject(slug);
   const locale = useLocale() as Locale;
   const t = useTranslations("studio");
-  const reduce = useReducedMotion();
   const { openAppointment } = useAppointment();
 
   const portraitCover = isPortrait(project.cover);
@@ -36,14 +34,9 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
             <Image src={project.cover.src} alt={project.cover.alt[locale]} fill priority sizes="(min-width:768px) 46vw, 100vw" className="object-cover opacity-70 md:opacity-100" />
           </div>
         ) : (
-          <motion.div
-            className="absolute inset-0"
-            initial={reduce ? false : { scale: 1.08 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 2.2, ease: EASE_OUT }}
-          >
+          <div className="absolute inset-0 animate-[settle_2.2s_var(--ease-out-studio)_backwards] [--settle:1.08] motion-reduce:animate-none">
             <Image src={project.cover.src} alt={project.cover.alt[locale]} fill priority sizes="100vw" className="object-cover" />
-          </motion.div>
+          </div>
         )}
         <div
           className={`absolute inset-0 ${portraitCover ? "bg-linear-to-t from-paper via-night/60 to-night/30 md:bg-linear-to-r md:from-paper md:via-night/80 md:to-transparent" : "bg-linear-to-t from-paper via-night/25 to-night/50"}`}
@@ -54,25 +47,15 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
           <Link href={`/${locale}/projects`} className="eyebrow mb-auto inline-flex w-fit items-center gap-2 text-bone/70 hover:text-bone">
             ← {t("project.back")}
           </Link>
-          <motion.p
-            className="eyebrow mt-16 text-bone/70"
-            initial={reduce ? false : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: EASE_OUT }}
-          >
+          <p className="eyebrow mt-16 animate-[rise_0.9s_var(--ease-out-studio)_0.2s_backwards] text-bone/70 [--rise:10px] motion-reduce:animate-none">
             {projectNumber(slug)} — {category}
-          </motion.p>
+          </p>
           <h1 className={`display mt-6 text-[clamp(3rem,9vw,9rem)] ${portraitCover ? "md:max-w-[55%]" : "max-w-[14ch]"}`}>
             <LineReveal lines={[project.title[locale]]} immediate delay={0.3} />
           </h1>
-          <motion.p
-            className={`mt-8 font-serif text-2xl italic leading-snug text-bone/85 sm:text-3xl ${portraitCover ? "md:max-w-[45%]" : "max-w-2xl"}`}
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7, ease: EASE_OUT }}
-          >
+          <p className={`mt-8 animate-[rise_1s_var(--ease-out-studio)_backwards] font-serif text-2xl italic leading-snug text-bone/85 [--rise:16px] motion-reduce:animate-none sm:text-3xl ${portraitCover ? "md:max-w-[45%]" : "max-w-2xl"}`}>
             {project.tagline[locale]}
-          </motion.p>
+          </p>
         </div>
       </header>
 
