@@ -8,7 +8,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
 import { LineReveal, EASE_OUT } from "@/components/studio/Reveal";
 import { useAppointment } from "@/contexts/AppointmentContext";
-import { Hayzer, Rayzer, HIGH_FIVE } from "@/components/mascots/Mascots";
+import { DesignerMascot, BuilderMascot, HIGH_FIVE } from "@/components/mascots/Mascots";
 import { projects, projectNumber } from "@/lib/projects";
 import type { Locale } from "@/lib/i18n-config";
 
@@ -129,14 +129,14 @@ export default function HomeHero() {
                 animate={celebrating ? { ...JUMP, x: [0, 0, 0, 0, 0, 0, 0, 0, 0], rotate: [0, -3, 17, 19, 19, 17, 0, 0, 0] } : { y: 0, x: 0, scaleX: 1, scaleY: 1, rotate: 0 }}
                 transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
               >
-                <Hayzer pose={celebrating ? "highfive" : "wave"} joy={mascotsHovered} className="-mr-1.5 h-11 w-11 sm:-mr-2 sm:h-16 sm:w-16" />
+                <DesignerMascot pose={celebrating ? "highfive" : "wave"} joy={mascotsHovered} className="-mr-1.5 h-11 w-11 sm:-mr-2 sm:h-16 sm:w-16" />
               </motion.div>
               <motion.div
                 style={{ originY: 1 }}
                 animate={celebrating ? { ...JUMP, x: [0, 0, 0, 0, 0, 0, 0, 0, 0], rotate: [0, 3, -17, -19, -19, -17, 0, 0, 0] } : { y: 0, x: 0, scaleX: 1, scaleY: 1, rotate: 0 }}
                 transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
               >
-                <Rayzer pose={celebrating ? "highfive" : "idle"} joy={mascotsHovered} className="-ml-1.5 h-11 w-11 sm:-ml-2 sm:h-16 sm:w-16" />
+                <BuilderMascot pose={celebrating ? "highfive" : "idle"} joy={mascotsHovered} className="-ml-1.5 h-11 w-11 sm:-ml-2 sm:h-16 sm:w-16" />
               </motion.div>
               <motion.svg
                 viewBox="-20 -20 40 40"

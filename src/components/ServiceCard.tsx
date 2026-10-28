@@ -6,7 +6,7 @@ import QRCode from "qrcode";
 import { studioInfo } from "@/lib/studio-info";
 import { STUDIO_SERVICES } from "@/lib/services";
 import { icons } from "@/components/studio/SocialLinks";
-import { Hayzer, Rayzer } from "@/components/mascots/Mascots";
+import { DesignerMascot, BuilderMascot } from "@/components/mascots/Mascots";
 
 const SITE = "uplusstudio.com.tr";
 const LABEL = "font-mono text-[11px] uppercase tracking-[0.18em] text-clay @md:text-[10px]";
@@ -295,8 +295,8 @@ export default function ServiceCard({
             className="-mb-1 -mr-1 flex shrink-0 items-end -space-x-3"
             aria-hidden
           >
-            <Hayzer pose="wave" className="h-11 w-11 sm:h-14 sm:w-14" />
-            <Rayzer className="h-11 w-11 sm:h-14 sm:w-14" />
+            <DesignerMascot pose="wave" className="h-11 w-11 sm:h-14 sm:w-14" />
+            <BuilderMascot className="h-11 w-11 sm:h-14 sm:w-14" />
           </div>
         </div>
 

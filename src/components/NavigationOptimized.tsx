@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import LanguageSelector from "./LanguageSelector";
 import SocialLinks from "./studio/SocialLinks";
-import { Hayzer, Rayzer } from "@/components/mascots/Mascots";
+import { DesignerMascot, BuilderMascot } from "@/components/mascots/Mascots";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
@@ -190,8 +190,8 @@ export default function Navigation() {
                   <span className="text-[17px] font-medium tracking-tight">Studio</span>
                 </Link>
                 <div className="flex min-w-0 items-end" aria-hidden>
-                  <Hayzer pose="wave" className="h-11 w-11 sm:h-12 sm:w-12" />
-                  <Rayzer className="-ml-2 h-11 w-11 sm:h-12 sm:w-12" />
+                  <DesignerMascot pose="wave" className="h-11 w-11 sm:h-12 sm:w-12" />
+                  <BuilderMascot className="-ml-2 h-11 w-11 sm:h-12 sm:w-12" />
                 </div>
                 <button
                   type="button"

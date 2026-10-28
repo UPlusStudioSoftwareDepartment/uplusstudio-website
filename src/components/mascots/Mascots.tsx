@@ -17,7 +17,6 @@ interface MascotProps {
   joy?: boolean;
   className?: string;
   offset?: number;
-  title?: string;
 }
 
 const loop = (duration: number, delay = 0, extra: Partial<Transition> = {}): Transition => ({
@@ -68,14 +67,14 @@ function hammerTap(reduce: boolean | null, offset: number) {
 }
 
 
-export function Hayzer({ pose = "idle", joy = false, className = "", offset = 0, title = "Hayzer" }: Readonly<MascotProps>) {
+export function DesignerMascot({ pose = "idle", joy = false, className = "", offset = 0 }: Readonly<MascotProps>) {
   const reduce = useReducedMotion();
   const m = useMotionProps(reduce);
   const joyful = joy || pose === "highfive";
   const cheerJump = pose === "cheer" && !reduce ? { animate: { y: [0, -8, 0] }, transition: loop(0.9, offset) } : {};
 
   return (
-    <svg viewBox="0 0 140 150" className={className} role="img" aria-label={title}>
+    <svg viewBox="0 0 140 150" className={className} aria-hidden>
       <ellipse cx="70" cy="142" rx="34" ry="5" fill="#000" opacity="0.18" />
       <motion.g {...cheerJump}>
         <motion.g style={{ transformBox: "view-box", originX: "100px", originY: "120px" }} {...m.sway(offset, 9)}>
@@ -159,14 +158,14 @@ export function Hayzer({ pose = "idle", joy = false, className = "", offset = 0,
 }
 
 
-export function Rayzer({ pose = "idle", joy = false, className = "", offset = 0.4, title = "Rayzer" }: Readonly<MascotProps>) {
+export function BuilderMascot({ pose = "idle", joy = false, className = "", offset = 0.4 }: Readonly<MascotProps>) {
   const reduce = useReducedMotion();
   const m = useMotionProps(reduce);
   const joyful = joy || pose === "highfive";
   const cheerJump = pose === "cheer" && !reduce ? { animate: { y: [0, -8, 0] }, transition: loop(0.9, offset) } : {};
 
   return (
-    <svg viewBox="0 0 140 150" className={className} role="img" aria-label={title}>
+    <svg viewBox="0 0 140 150" className={className} aria-hidden>
       <ellipse cx="70" cy="142" rx="34" ry="5" fill="#000" opacity="0.18" />
       <motion.g {...cheerJump}>
         <motion.g style={{ transformBox: "view-box", originX: "40px", originY: "122px" }} {...m.sway(offset, 6)}>
@@ -282,8 +281,8 @@ export function MascotDuo({ pose = "idle", message, className = "", size = "md" 
         </motion.p>
       )}
       <div className="flex items-end -space-x-3 sm:-space-x-5" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-        <Hayzer pose={pose} joy={hovered} className={SIZES[size]} offset={0} />
-        <Rayzer pose={pose === "wave" ? "idle" : pose} joy={hovered} className={SIZES[size]} offset={0.45} />
+        <DesignerMascot pose={pose} joy={hovered} className={SIZES[size]} offset={0} />
+        <BuilderMascot pose={pose === "wave" ? "idle" : pose} joy={hovered} className={SIZES[size]} offset={0.45} />
       </div>
     </div>
   );

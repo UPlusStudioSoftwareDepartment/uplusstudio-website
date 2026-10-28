@@ -136,22 +136,20 @@ export const studio_en = {
     "contact": "Get in touch"
   },
   "mascots": {
-    "about": "We're the youngest on the team. Hayzer draws, Rayzer builds!",
+    "about": "We're the youngest on the team. One draws, the other builds!",
     "services": "Not sure which package fits? Let's look together.",
     "project": "Dreaming of something like this? Let's talk!",
     "projects": "The next project could be yours.",
     "glossaryEmpty": "We couldn't find that term… Ask us and we'll explain!",
     "glossary": "Type the term you're curious about — let's look it up together.",
     "purchase": "Pick your package — we'll plan the rest together!",
-    "loading": "Getting ready…",
     "menu": "Where shall we go?",
     "payment": "Order received — we're getting started!",
     "projectsCta": "Let's talk about your project",
-    "hello": "Hi! I'm Hayzer and this is Rayzer. We'd love to hear about your project.",
+    "hello": "Hi! We'd love to hear about your project.",
     "hero": "Shall we talk about your project over a coffee?",
     "faq": "Can't find your answer? Ask us — we'll reply right away!",
     "notFound": "Hmm… we couldn't find this page either. Shall we head home?",
-    "success": "Great! Your request reached us — we'll be in touch soon.",
-    "footer": "Hayzer & Rayzer — the smallest members of the U+ Studio team."
+    "success": "Great! Your request reached us — we'll be in touch soon."
   }
 }

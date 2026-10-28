@@ -136,22 +136,20 @@ export const studio_tr = {
     "contact": "İletişime geçin"
   },
   "mascots": {
-    "about": "Biz de ekibin en küçükleriyiz. Hayzer çizer, Rayzer kurar!",
+    "about": "Biz de ekibin en küçükleriyiz. Biri çizer, öbürü kurar!",
     "services": "Hangi paketin size uygun olduğundan emin değil misiniz? Birlikte bakalım.",
     "project": "Bunun gibi bir şey mi hayal ediyorsunuz? Hemen konuşalım!",
     "projects": "Sıradaki proje sizinki olabilir.",
     "glossaryEmpty": "Bu terimi bulamadık… Bize sorun, anlatalım!",
     "glossary": "Merak ettiğiniz terimi yazın, birlikte bakalım.",
     "purchase": "Paketinizi seçin, gerisini birlikte planlayalım!",
-    "loading": "Hazırlanıyor…",
     "menu": "Nereye gidelim?",
     "payment": "Siparişiniz alındı, çalışmaya başlıyoruz!",
     "projectsCta": "Projenizi konuşalım",
-    "hello": "Merhaba! Ben Hayzer, bu da Rayzer. Projenizi dinlemeye hazırız.",
+    "hello": "Merhaba! Projenizi dinlemeye hazırız.",
     "hero": "Bir kahve içip projenizi konuşalım mı?",
     "faq": "Aradığınızı bulamadıysanız bize sorun, hemen yanıtlayalım!",
     "notFound": "Hmm… Bu sayfayı biz de bulamadık. Ana sayfaya dönelim mi?",
-    "success": "Harika! Talebiniz bize ulaştı, en kısa sürede dönüyoruz.",
-    "footer": "Hayzer & Rayzer — U+ Studio ekibinin en küçükleri."
+    "success": "Harika! Talebiniz bize ulaştı, en kısa sürede dönüyoruz."
   }
 }
