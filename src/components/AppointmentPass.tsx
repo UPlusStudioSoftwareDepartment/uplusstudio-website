@@ -30,35 +30,35 @@ export function Pass({ appointment, reference, status }: Readonly<{ appointment:
         <p className="font-serif text-[64px] font-bold leading-none">U+</p>
         <p className="mt-3 text-[11px] font-bold tracking-[0.55em] text-bone/70">STUDIO</p>
         <div className="mt-6 h-px bg-bone/25" />
-        <p className="mt-5 text-[10px] font-bold tracking-[0.3em] text-bone/60">RANDEVU KARTI</p>
-        <span className="mt-3 inline-block rounded-full border border-clay px-3 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-clay">{status}</span>
+        <p className="mt-5 text-[11px] font-bold tracking-[0.3em] text-bone/60">RANDEVU KARTI</p>
+        <span className="mt-3 inline-block rounded-full border border-clay px-3 py-1 font-mono text-[11px] uppercase tracking-[0.16em] text-clay">{status}</span>
       </div>
       <dl className="space-y-6 px-9 pt-8">
         <div>
-          <dt className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-bone/50">Misafir</dt>
+          <dt className="text-[11px] font-bold uppercase tracking-[0.16em] text-bone/50">Misafir</dt>
           <dd className="mt-2 font-serif text-[28px] font-bold leading-tight">{appointment.name}</dd>
         </div>
         <div>
-          <dt className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-bone/50">Hizmet</dt>
+          <dt className="text-[11px] font-bold uppercase tracking-[0.16em] text-bone/50">Hizmet</dt>
           <dd className="mt-2 font-serif text-[20px] font-bold text-clay">{appointment.service}</dd>
         </div>
         <div className={`grid gap-3 ${appointment.time ? "grid-cols-[1.4fr_1fr]" : "grid-cols-1"}`}>
           <div className="overflow-hidden rounded-[10px] border border-bone/15 bg-paper-2">
             <div className="h-1 bg-clay" />
             <div className="p-4">
-              <dt className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-bone/50">Tarih</dt>
+              <dt className="text-[11px] font-bold uppercase tracking-[0.16em] text-bone/50">Tarih</dt>
               {parts ? (
                 <dd className="mt-2 flex items-center gap-3">
                   <span className="font-serif text-[44px] font-bold leading-[0.9]">{parts.day}</span>
                   <span className="border-l border-bone/15 pl-3">
                     <span className="block font-serif text-[16px] italic leading-tight">{parts.monthYear}</span>
-                    <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.14em] text-clay">{parts.weekday}</span>
+                    <span className="mt-1 block font-mono text-[11px] uppercase tracking-[0.14em] text-clay">{parts.weekday}</span>
                   </span>
                 </dd>
               ) : (
                 <dd className="mt-2">
                   <span className="block font-serif text-[36px] italic leading-none">{FLEXIBLE_DATE.tr}</span>
-                  <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.14em] text-clay">{NO_DATE_HINT}</span>
+                  <span className="mt-2 block font-mono text-[11px] uppercase tracking-[0.14em] text-clay">{NO_DATE_HINT}</span>
                 </dd>
               )}
             </div>
@@ -67,9 +67,9 @@ export function Pass({ appointment, reference, status }: Readonly<{ appointment:
             <div className="overflow-hidden rounded-[10px] border border-bone/15 bg-paper-2">
               <div className="h-1 bg-bone/35" />
               <div className="p-4">
-                <dt className="text-[10.5px] font-bold uppercase tracking-[0.16em] text-bone/50">Saat</dt>
+                <dt className="text-[11px] font-bold uppercase tracking-[0.16em] text-bone/50">Saat</dt>
                 <dd className="mt-2 font-serif text-[34px] font-bold leading-none">{appointment.time}</dd>
-                <dd className="mt-2 font-mono text-[9.5px] uppercase tracking-[0.12em] text-mute">1 saat · İncek</dd>
+                <dd className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-mute">1 saat · İncek</dd>
               </div>
             </div>
           )}

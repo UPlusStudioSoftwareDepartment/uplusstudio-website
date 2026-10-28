@@ -9,7 +9,7 @@ import { icons } from "@/components/studio/SocialLinks";
 import { DesignerMascot, BuilderMascot } from "@/components/mascots/Mascots";
 
 const SITE = "uplusstudio.com.tr";
-const LABEL = "font-mono text-[11px] uppercase tracking-[0.18em] text-clay @md:text-[10px]";
+const LABEL = "font-mono text-[11px] uppercase tracking-[0.18em] text-clay";
 
 const COPY = {
   tr: {
@@ -163,7 +163,7 @@ export default function ServiceCard({
               </svg>
               {studioInfo.googleRating}
             </span>
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-bone/60 @md:text-[10px]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-bone/60">
               {studioInfo.googleReviewCount} {c.reviews}
             </span>
           </div>
@@ -178,7 +178,7 @@ export default function ServiceCard({
 
         <div className="mt-6 flex items-baseline justify-between border-b border-bone/15 pb-3">
           <p className={LABEL}>{c.services}</p>
-          <span className="font-mono text-[10px] tracking-[0.14em] text-bone/50">
+          <span className="font-mono text-[11px] tracking-[0.14em] text-bone/50">
             {String(STUDIO_SERVICES[locale].length).padStart(2, "0")}
           </span>
         </div>
@@ -188,7 +188,7 @@ export default function ServiceCard({
               key={title}
               className="grid grid-cols-[1.75rem_1fr] items-baseline border-b border-bone/10 py-2"
             >
-              <span className="font-mono text-[11px] tracking-[0.1em] text-clay @md:text-[10px]">
+              <span className="font-mono text-[11px] tracking-[0.1em] text-clay">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span className="flex flex-col gap-0.5 @md:flex-row @md:items-baseline @md:justify-between @md:gap-4">
@@ -290,7 +290,7 @@ export default function ServiceCard({
               <span className="font-mono text-[12.5px] tracking-[0.06em] @md:text-[11px]">
                 {SITE}
               </span>
-              <span className="max-w-[160px] font-mono text-[10px] uppercase leading-snug tracking-[0.12em] text-bone/60">
+              <span className="max-w-[160px] font-mono text-[11px] uppercase leading-snug tracking-[0.12em] text-bone/60">
                 {c.scan}
               </span>
             </div>

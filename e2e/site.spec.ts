@@ -183,7 +183,7 @@ test("every project video has its own watch page, linked from the project and li
   }
 });
 
-test("internal links fade into the page curtain with a view transition, unless motion is reduced", async ({ page, isMobile }) => {
+test("the curtain plays once per visit, and internal links fade with a view transition unless motion is reduced", async ({ page, isMobile }) => {
   test.skip(isMobile, "the desktop nav carries the links");
   const countTransitions = () =>
     page.evaluate(() => {
@@ -198,11 +198,14 @@ test("internal links fade into the page curtain with a view transition, unless m
   const curtainGone = () => expect(page.locator(".page-curtain")).toHaveCount(0, { timeout: 8000 });
 
   await page.goto("/tr/about");
+  await expect(page.locator(".page-curtain")).toBeVisible();
   await curtainGone();
+  await page.reload();
+  await expect(page.locator(".page-curtain")).toBeHidden();
   await countTransitions();
   await page.locator("nav").first().getByRole("link", { name: "Projeler", exact: true }).click();
   await expect(page).toHaveURL(/\/tr\/projects$/);
-  await curtainGone();
+  await expect(page.locator(".page-curtain")).toHaveCount(0);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   expect(await page.evaluate(() => (window as Window & { transitions?: number }).transitions)).toBe(1);
 
@@ -262,6 +265,19 @@ test("page header intro shows before the app hydrates", async ({ page }) => {
       })
     )
     .toBe(1);
+});
+
+test("home continues past the film with the studio, every service, featured work and the footer", async ({ page }) => {
+  await page.goto("/tr");
+  const studio = page.locator("main > div").last();
+  for (const service of SERVICE_LANDINGS) {
+    await expect(studio.getByRole("link", { name: new RegExp(`^\\d{2} ${service.copy.tr.crumb}$`) })).toHaveAttribute("href", `/tr/services/${service.slug}`);
+  }
+  for (const project of projects.filter((p) => p.featured)) {
+    await expect(studio.getByRole("link", { name: new RegExp(`\\d{2} ${project.title.tr} `) })).toHaveAttribute("href", `/tr/projects/${project.slug}`);
+  }
+  await page.getByRole("contentinfo").scrollIntoViewIfNeeded();
+  await expect(page.getByRole("contentinfo")).toBeInViewport();
 });
 
 test("founders, the villa story and the service area are on the page", async ({ page }) => {

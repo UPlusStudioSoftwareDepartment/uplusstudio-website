@@ -253,10 +253,10 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   if (!mounted) return null;
 
   const actionClass =
-    "inline-flex min-h-10 min-w-0 flex-auto items-center justify-center gap-1.5 whitespace-nowrap rounded-[3px] border border-bone/30 px-1.5 py-2 font-mono text-[10px] uppercase tracking-[0.08em] text-bone transition-colors hover:border-bone hover:bg-night disabled:opacity-50 @min-[26rem]:text-[10.5px] @min-[26rem]:tracking-[0.1em] @max-[19rem]:px-1 @max-[19rem]:text-[9.5px] @max-[19rem]:tracking-normal [&>svg]:h-3 [&>svg]:w-3 [&>svg]:shrink-0 @min-[26rem]:[&>svg]:h-3.5 @min-[26rem]:[&>svg]:w-3.5 @max-[17rem]:[&>svg]:hidden";
+    "inline-flex min-h-10 min-w-0 flex-auto items-center justify-center gap-1.5 whitespace-nowrap rounded-[3px] border border-bone/30 px-1.5 py-2 font-mono text-[11px] uppercase tracking-[0.08em] text-bone transition-colors hover:border-bone hover:bg-night disabled:opacity-50 @min-[26rem]:text-[11px] @min-[26rem]:tracking-[0.1em] @max-[19rem]:px-1 @max-[19rem]:text-[11px] @max-[19rem]:tracking-normal [&>svg]:h-3 [&>svg]:w-3 [&>svg]:shrink-0 @min-[26rem]:[&>svg]:h-3.5 @min-[26rem]:[&>svg]:w-3.5 @max-[17rem]:[&>svg]:hidden";
 
   const tileClass =
-    "flex h-full min-h-16 w-full flex-col items-center justify-center gap-1.5 rounded-[3px] border border-bone/15 bg-transparent px-1 py-2 text-center text-[10px] leading-tight text-bone transition-colors hover:border-bone hover:bg-night sm:text-[12px] [&>svg]:shrink-0";
+    "flex h-full min-h-16 w-full flex-col items-center justify-center gap-1.5 rounded-[3px] border border-bone/15 bg-transparent px-1 py-2 text-center text-[11px] leading-tight text-bone transition-colors hover:border-bone hover:bg-night sm:text-[12px] [&>svg]:shrink-0";
 
   return createPortal(
     <AnimatePresence>

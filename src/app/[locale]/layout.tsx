@@ -16,7 +16,7 @@ import { AppointmentProvider } from "@/contexts/AppointmentContext";
 import ArchitecturalBackdrop from "@/components/studio/ArchitecturalBackdrop";
 import SiteFooter from "@/components/studio/SiteFooter";
 
-const CURTAIN_BOOT = `if(!matchMedia("(prefers-reduced-motion: reduce)").matches){var r=document.documentElement;r.dataset.curtain="";setTimeout(function(){delete r.dataset.curtain},4000)}`;
+const CURTAIN_BOOT = `try{var r=document.documentElement;if(sessionStorage.getItem("u-curtain")==="1"){r.dataset.curtainSeen=""}else if(!matchMedia("(prefers-reduced-motion: reduce)").matches){r.dataset.curtain="";setTimeout(function(){delete r.dataset.curtain},4000)}}catch(e){}`;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

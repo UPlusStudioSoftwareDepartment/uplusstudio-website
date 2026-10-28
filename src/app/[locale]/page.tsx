@@ -3,7 +3,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { pageMetadata, resolveLocale, webPageLd } from "@/lib/seo";
 import { projectVideoLd } from "@/lib/seo-projects";
 import { getProject } from "@/lib/projects";
-import HomePageClient from "./HomePageClient";
+import HomeHero from "@/components/home/HomeHero";
+import HomeStudio from "@/components/home/HomeStudio";
 import { setRequestLocale } from "next-intl/server";
 
 export const revalidate = 3600;
@@ -22,7 +23,8 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <JsonLd data={[webPageLd(locale, "home"), ...video]} />
-      <HomePageClient />
+      <HomeHero />
+      <HomeStudio locale={locale} />
     </>
   );
 }

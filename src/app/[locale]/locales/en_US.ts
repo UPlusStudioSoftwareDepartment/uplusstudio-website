@@ -37,7 +37,8 @@ export const studio_en = {
     "statementItalic": "a space that lives",
     "statementB": "and grows with its people.",
     "quote": "A space is completed by being used.",
-    "more": "Meet the studio"
+    "more": "Meet the studio",
+    "place": "Our office is in İncek, Gölbaşı / Ankara. We work on projects across Ankara and throughout Türkiye."
   },
   "work": {
     "label": "Selected Work",

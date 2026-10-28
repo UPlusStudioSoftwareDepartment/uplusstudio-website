@@ -37,7 +37,8 @@ export const studio_tr = {
     "statementItalic": "yaşayan bir mekâna",
     "statementB": "dönüştürüyoruz.",
     "quote": "Mekân, kullanıldıkça tamamlanır.",
-    "more": "Stüdyoyu tanıyın"
+    "more": "Stüdyoyu tanıyın",
+    "place": "Ofisimiz İncek, Gölbaşı / Ankara'da. Ankara'nın her yerinde ve Türkiye genelinde projeler yürütüyoruz."
   },
   "work": {
     "label": "Seçili İşler",

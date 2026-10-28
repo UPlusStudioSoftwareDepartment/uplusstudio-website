@@ -268,7 +268,7 @@ export default function ServicePackages() {
                     P—{String(i + 1).padStart(2, '0')}
                   </span>
                   {featured && (
-                    <span className="absolute right-4 top-4 rounded-full bg-clay px-3 py-1 font-mono text-[10.5px] uppercase tracking-[0.14em] text-night">
+                    <span className="absolute right-4 top-4 rounded-full bg-clay px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-night">
                       {t('popular')}
                     </span>
                   )}

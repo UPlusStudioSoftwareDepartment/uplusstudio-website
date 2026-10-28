@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import BookingCta from "@/components/studio/BookingCta";
-import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { studioInfo } from "@/lib/studio-info";
 import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
@@ -13,11 +12,8 @@ export default function SiteFooter() {
   const t = useTranslations("studio");
   const locale = useLocale() === "en" ? "en" : "tr";
   const { openAppointment } = useAppointment();
-  const pathname = usePathname();
   const prefix = `/${locale}`;
   const year = new Date().getFullYear();
-
-  if (pathname === "/" || pathname === prefix) return null;
 
   const pages = [
     { href: `${prefix}/projects`, label: t("nav.work") },

@@ -402,6 +402,11 @@ export function projectNumber(slug: string): string {
   return String(projects.findIndex((p) => p.slug === slug) + 1).padStart(2, "0");
 }
 
+export function coverSizes({ width, height }: ProjectImage): string {
+  const fit = Math.min(1, width / height / (3 / 2));
+  return `(min-width: 768px) ${Math.round(45 * fit)}vw, ${Math.round(100 * fit)}vw`;
+}
+
 export function screenPoster(video: ProjectVideo): string {
   return video.poster.replace(/\.jpg$/, ".webp");
 }

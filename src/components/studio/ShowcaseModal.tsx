@@ -80,7 +80,7 @@ export default function ShowcaseModal({ item, onClose, labels, onCta }: Readonly
             <div className="flex min-h-0 flex-col overflow-hidden border-t border-bone/10 p-5 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
               <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-clay">{item.index}</span>
               <h2 className="mt-2 font-sans text-[clamp(1.5rem,3.2vw,2.75rem)] font-light leading-[1.02] tracking-[-0.03em] lg:mt-4">{item.title}</h2>
-              {item.audience && <p className="mt-2 font-mono text-[10.5px] uppercase leading-relaxed tracking-[0.12em] text-bone/55 lg:mt-4">{item.audience}</p>}
+              {item.audience && <p className="mt-2 font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-bone/55 lg:mt-4">{item.audience}</p>}
               <p className="mt-3 line-clamp-3 text-[14px] leading-relaxed text-bone/80 sm:text-[16px] lg:mt-6 lg:line-clamp-none">{item.body}</p>
 
               {item.includes && (

@@ -424,6 +424,10 @@ html[data-curtain] #main-content > :not(.page-curtain) * {
   animation-play-state: paused;
 }
 
+html[data-curtain-seen] .page-curtain {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .page-curtain {
     display: none;

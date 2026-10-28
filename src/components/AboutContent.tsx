@@ -365,7 +365,7 @@ export default function AboutContent() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {EXAMPLE_FOR[item.key] && (
-                    <span className="absolute bottom-4 right-4 rounded-[3px] bg-night/70 px-2.5 py-1 font-mono text-[10.5px] uppercase tracking-[0.12em] text-bone opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+                    <span className="absolute bottom-4 right-4 rounded-[3px] bg-night/70 px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-bone opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                       {offer.exampleCta}
                     </span>
                   )}

@@ -11,16 +11,11 @@ import MotionReel from "@/components/studio/MotionReel";
 import FramedImage from "@/components/studio/FramedImage";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { useAppointment } from "@/contexts/AppointmentContext";
-import { projects, projectCategories, projectNumber, type Project, type ProjectCategory, type ProjectImage } from "@/lib/projects";
+import { projects, projectCategories, projectNumber, coverSizes, type Project, type ProjectCategory } from "@/lib/projects";
 import type { Locale } from "@/lib/i18n-config";
 
 type Filter = "all" | ProjectCategory;
 type View = "grid" | "list";
-
-function coverSizes({ width, height }: ProjectImage) {
-  const fit = Math.min(1, width / height / (3 / 2));
-  return `(min-width: 768px) ${Math.round(45 * fit)}vw, ${Math.round(100 * fit)}vw`;
-}
 
 function GridCard({ project }: Readonly<{ project: Project }>) {
   const locale = useLocale() as Locale;

@@ -6,15 +6,29 @@ import { usePathname, useRouter } from "next/navigation";
 const LETTERS = "STUDIO".split("");
 const FIRST_VISIT_MIN_MS = 900;
 const FIRST_VISIT_MAX_MS = 2600;
-const ROUTE_MS = 750;
 const LEAVE_MS = 1500;
 const SWAP_TIMEOUT_MS = 2500;
+const SEEN_KEY = "u-curtain";
 
 let booted = false;
 let swapped: (() => void) | null = null;
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, Math.max(0, ms)));
 const stillMotion = () => globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function seenThisSession() {
+  try {
+    return sessionStorage.getItem(SEEN_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function markSeen() {
+  try {
+    sessionStorage.setItem(SEEN_KEY, "1");
+  } catch {}
+}
 
 export function navigateSmoothly(go: () => void) {
   if (!document.startViewTransition || stillMotion()) {
@@ -55,7 +69,7 @@ export default function PageCurtain() {
 }
 
 function Curtain() {
-  const [phase, setPhase] = useState<"cover" | "leave" | "done">("cover");
+  const [phase, setPhase] = useState<"cover" | "leave" | "done">(() => (booted ? "done" : "cover"));
   const router = useRouter();
 
   useLayoutEffect(() => {
@@ -76,14 +90,16 @@ function Curtain() {
   }, [router]);
 
   useEffect(() => {
+    if (booted) return;
     const root = document.documentElement;
-    const still = stillMotion();
-    if (!still) root.dataset.curtain = "";
+    const skip = stillMotion() || seenThisSession();
+    if (!skip) root.dataset.curtain = "";
     let alive = true;
-    (still ? Promise.resolve() : booted ? wait(ROUTE_MS) : pageReady()).then(() => {
+    (skip ? Promise.resolve() : pageReady()).then(() => {
       booted = true;
       delete root.dataset.curtain;
-      if (alive) setPhase(still ? "done" : "leave");
+      if (!skip) markSeen();
+      if (alive) setPhase(skip ? "done" : "leave");
     });
     return () => {
       alive = false;
