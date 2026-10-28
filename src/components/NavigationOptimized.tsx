@@ -257,9 +257,9 @@ export default function Navigation() {
                 transition={{ duration: 0.7, ease: EASE, delay: 0.7 }}
               >
                 <div className="flex items-start justify-between gap-6 text-[13px] text-bone/70 [@media(max-height:520px)]:justify-end">
-                  <div className="space-y-1 [@media(max-height:520px)]:hidden">
-                    <a href={`mailto:${studioInfo.email}`} className="block active:text-bone">{studioInfo.email}</a>
-                    <a href={studioInfo.phoneHref} className="block active:text-bone">{studioInfo.phoneDisplay}</a>
+                  <div className="-my-1 [@media(max-height:520px)]:hidden">
+                    <a href={`mailto:${studioInfo.email}`} className="flex min-h-7 items-center active:text-bone">{studioInfo.email}</a>
+                    <a href={studioInfo.phoneHref} className="flex min-h-7 items-center active:text-bone">{studioInfo.phoneDisplay}</a>
                   </div>
                   <LanguageSelector isDarkText={false} />
                 </div>

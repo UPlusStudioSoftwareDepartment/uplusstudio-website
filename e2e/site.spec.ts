@@ -1,6 +1,7 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
 import { SERVICE_LANDINGS } from "../src/lib/serviceLandings";
 import { projects } from "../src/lib/projects";
+import { studioInfo } from "../src/lib/studio-info";
 
 const PATHS = [
   "",
@@ -169,6 +170,17 @@ test.describe("phones", () => {
     await page.keyboard.press("Escape");
     await expect(menu).toBeHidden();
     await expect(toggle).toBeFocused();
+  });
+
+  test("menu contact links are comfortable tap targets on small phones", async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.goto("/tr");
+    await page.getByRole("button", { name: "Menü" }).click();
+    const menu = page.getByRole("dialog", { name: "Menü" });
+    for (const name of [studioInfo.email, studioInfo.phoneDisplay]) {
+      expect((await menu.getByRole("link", { name }).boundingBox())?.height ?? 0, name).toBeGreaterThanOrEqual(24);
+    }
+    await expect(menu.getByRole("link", { name: /Şimdi Ara/ })).toBeInViewport({ ratio: 1 });
   });
 
   test("business card share options scroll into view above the action bar", async ({ page }) => {
