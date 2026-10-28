@@ -43,7 +43,7 @@ export const PAGE_PATH: Record<PageKey, string> = {
 export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; description: string; crumb: string }>> = {
   tr: {
     home: {
-      title: "U+ Studio | Mimarlık, İç Mimarlık, Mühendislik · Ankara",
+      title: "U+ Studio | Mimarlık & Mühendislik · İncek, Gölbaşı, Ankara",
       description:
         "İncek, Gölbaşı / Ankara'da mimarlık & iç mimarlık & mühendislik ofisi; Türkiye geneline hizmet. Villa, konut, ofis, kafe, tadilat, 3D ve anahtar teslim.",
       crumb: "Ana Sayfa",
@@ -92,7 +92,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
   },
   en: {
     home: {
-      title: "U+ Studio | Architecture, Interiors & Engineering, Ankara",
+      title: "U+ Studio | Architecture & Engineering · İncek, Ankara",
       description:
         "Architecture & interior architecture & engineering studio in İncek, Ankara, working across Türkiye: villas, homes, offices, cafés, renovation, 3D, turnkey.",
       crumb: "Home",
@@ -234,7 +234,7 @@ export function siteGraph(locale: Locale): JsonLdNode {
         "@type": ["ProfessionalService", "Organization"],
         "@id": ORG_ID,
         name: SITE_NAME,
-        alternateName: ["U+ Studio Mimarlık & İç Mimarlık & Mühendislik", "U+ Studio Mimarlık & Mühendislik", "Uplus Studio", "U Plus Studio"],
+        alternateName: ["U+ Studio Mimarlık & İç Mimarlık & Mühendislik", "U+ Studio Mimarlık & Tasarım & Mühendislik", "U+ Studio Mimarlık & Mühendislik", "U+Studio", "Uplus Studio", "UplusStudio", "U Plus Studio"],
         description: ORG_DESCRIPTION[locale],
         url: SITE_URL,
         logo: { "@type": "ImageObject", url: absoluteUrl("/logo/uplusstudioblacklogo.png") },
@@ -300,7 +300,7 @@ export function siteGraph(locale: Locale): JsonLdNode {
         "@id": WEBSITE_ID,
         url: SITE_URL,
         name: SITE_NAME,
-        alternateName: ["U Plus Studio", "Uplus Studio", "uplusstudio.com.tr"],
+        alternateName: ["U+Studio", "U Plus Studio", "Uplus Studio", "uplusstudio", "uplusstudio.com.tr"],
         inLanguage: ["tr-TR", "en-US"],
         publisher: { "@id": ORG_ID },
       },

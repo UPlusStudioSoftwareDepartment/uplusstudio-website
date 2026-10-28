@@ -16,6 +16,7 @@ export interface ProjectVideo {
   poster: string;
   width: number;
   height: number;
+  uploadDate: string;
 }
 
 export interface Project {
@@ -72,6 +73,7 @@ export const projects: Project[] = [
       poster: "/media/video/villa-transformation.jpg",
       width: 1280,
       height: 716,
+      uploadDate: "2026-10-27T22:07:11+03:00",
     },
     beforeAfter: {
       before: img(`${P}/villa-donusumu/before.jpg`, 1280, 716, "Villanın önceki hali", "The villa before"),
@@ -200,6 +202,7 @@ export const projects: Project[] = [
       poster: "/media/video/office-before-after.jpg",
       width: 540,
       height: 960,
+      uploadDate: "2026-10-27T22:07:11+03:00",
     },
     beforeAfter: {
       before: img(`${P}/ofis-yenileme/before.jpg`, 720, 1280, "Ofisin önceki hali", "The office before"),
@@ -236,6 +239,7 @@ export const projects: Project[] = [
       poster: "/media/video/residence-walkthrough.jpg",
       width: 540,
       height: 960,
+      uploadDate: "2026-10-27T22:07:11+03:00",
     },
   },
   {
@@ -268,6 +272,7 @@ export const projects: Project[] = [
       poster: "/media/video/living-room.jpg",
       width: 720,
       height: 480,
+      uploadDate: "2026-10-27T22:07:11+03:00",
     },
   },
 

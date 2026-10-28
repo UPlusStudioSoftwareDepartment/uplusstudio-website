@@ -115,10 +115,19 @@ function FounderProfile({
   const work = person.work.map((slug) => getProject(slug)).filter((p): p is NonNullable<typeof p> => Boolean(p));
   return (
     <article className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
-      <figure className={`lg:col-span-5 ${flip ? "lg:order-2 lg:col-start-8" : ""}`}>
+      <figure className={`relative lg:col-span-5 ${flip ? "lg:order-2 lg:col-start-8" : ""}`}>
         <MaskReveal className="relative aspect-[4/5] w-full overflow-hidden bg-paper-2" from={flip ? "bottom" : "left"}>
           <Image src={image} alt={person.imageAlt} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover object-top" />
         </MaskReveal>
+        <a
+          href={linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${person.name} — LinkedIn`}
+          className="absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center text-[#0A66C2] drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition-opacity hover:opacity-80 sm:right-3 sm:top-3 [&_svg]:h-6 [&_svg]:w-6"
+        >
+          {icons.linkedin}
+        </a>
         <Caption fig={index}>{person.name}</Caption>
       </figure>
 
@@ -131,15 +140,6 @@ function FounderProfile({
         </h3>
         <FadeUp delay={0.1}>
           <p className="mt-8 max-w-xl text-[18px] leading-relaxed text-ink/85">{person.bio}</p>
-          <a
-            href={linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${person.name} — LinkedIn`}
-            className="mt-6 inline-flex h-11 w-11 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-clay hover:text-clay"
-          >
-            {icons.linkedin}
-          </a>
         </FadeUp>
         <FadeUp delay={0.15}>
           <blockquote className="mt-10 border-l border-clay pl-6">

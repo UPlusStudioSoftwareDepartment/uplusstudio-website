@@ -1,5 +1,5 @@
 import type { Locale } from "@/lib/i18n-config";
-import { projects, type Project } from "@/lib/projects";
+import { projects, type Project, type ProjectVideo } from "@/lib/projects";
 import { absoluteUrl, localePath, ORG_ID, SEO_COPY, WEBSITE_ID } from "@/lib/seo";
 
 const projectUrl = (locale: Locale, slug: string) => absoluteUrl(localePath(locale, `/projects/${slug}`));
@@ -16,6 +16,20 @@ export function projectsListLd(locale: Locale) {
       url: projectUrl(locale, p.slug),
       name: p.title[locale],
     })),
+  };
+}
+
+export function projectVideoLd(locale: Locale, project: Project, video: ProjectVideo) {
+  return {
+    "@type": "VideoObject",
+    name: project.title[locale],
+    description: project.description[locale],
+    thumbnailUrl: absoluteUrl(video.poster),
+    contentUrl: absoluteUrl(video.src),
+    uploadDate: video.uploadDate,
+    width: video.width,
+    height: video.height,
+    inLanguage: locale === "en" ? "en-US" : "tr-TR",
   };
 }
 
@@ -38,6 +52,7 @@ export function projectLd(locale: Locale, project: Project) {
     creator: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
     isPartOf: { "@id": WEBSITE_ID },
+    ...(project.video ? { video: projectVideoLd(locale, project, project.video) } : {}),
     image: images.map((img) => ({
       "@type": "ImageObject",
       contentUrl: absoluteUrl(img.src),
