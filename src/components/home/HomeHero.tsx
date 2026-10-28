@@ -91,10 +91,6 @@ export default function HomeHero() {
       <div className="relative z-10 mx-auto flex h-full max-w-[2560px] flex-col px-4 pb-6 pt-[8.75rem] [justify-content:safe_flex-end] sm:px-8 sm:pb-10 sm:pt-32 lg:px-12 [@media(max-height:560px)]:pb-3 [@media(max-height:560px)]:pt-28">
         <p className="eyebrow mb-5 animate-[rise_0.9s_var(--ease-out-studio)_backwards] text-bone/75 [--rise:12px] motion-reduce:animate-none sm:mb-8 [@media(max-height:560px)]:mb-2">
           {t("hero.eyebrow")}
-          <span className="mt-1.5 block text-bone sm:ml-3 sm:mt-0 sm:inline">
-            <span className="mr-3 hidden text-bone/40 sm:inline" aria-hidden>·</span>
-            {t("hero.place")}
-          </span>
         </p>
 
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:items-end [@media(max-height:560px)]:justify-between [@media(max-height:560px)]:gap-4">
@@ -109,7 +105,7 @@ export default function HomeHero() {
 
           <div className="inline-flex w-fit shrink-0 flex-col items-stretch self-start lg:mb-5 lg:self-end">
             <motion.p
-              className="w-0 min-w-full animate-[rise_0.9s_var(--ease-out-studio)_backwards] text-center font-serif text-[15px] italic leading-snug text-bone/90 [--rise:12px] motion-reduce:animate-none [@media(max-height:560px)]:hidden"
+              className="w-0 min-w-full animate-[rise_0.9s_var(--ease-out-studio)_backwards] text-center font-serif text-[15px] italic leading-snug text-bone/90 [--rise:12px] motion-reduce:animate-none [@media(max-height:600px)]:hidden"
               animate={celebrating ? { y: JUMP.y } : { y: 0 }}
               transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
             >
@@ -158,10 +154,13 @@ export default function HomeHero() {
           </div>
         </div>
 
-        <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-6 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:items-start [@media(max-height:560px)]:hidden">
-          <p className="eyebrow hidden text-bone/60 md:col-span-2 md:block">{t("hero.location")}</p>
+        <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start [@media(max-height:560px)]:hidden">
+          <p className="eyebrow flex flex-wrap gap-x-4 gap-y-1 text-bone/60 md:col-span-12 lg:col-span-3 lg:flex-col">
+            <span className="text-bone">{t("hero.place")}</span>
+            <span>{t("hero.location")}</span>
+          </p>
 
-          <Link href={`/${locale}/projects/villa-donusumu`} className="group md:col-span-4">
+          <Link href={`/${locale}/projects/villa-donusumu`} className="group md:col-span-6 lg:col-span-4">
             <span className="eyebrow block text-bone/55">{t("hero.featured")}</span>
             <span className="mt-2 flex items-center gap-3 text-[15px]">
               {t("hero.featuredProject")}
@@ -172,7 +171,7 @@ export default function HomeHero() {
             </span>
           </Link>
 
-          <ul className="hidden md:col-span-5 md:col-start-8 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-2">
+          <ul className="hidden md:col-span-6 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-2 lg:col-span-5">
             {featured.map((p) => (
               <li key={p.slug}>
                 <Link href={`/${locale}/projects/${p.slug}`} className="group flex items-baseline gap-3 text-[14px] text-bone/70 hover:text-bone">
