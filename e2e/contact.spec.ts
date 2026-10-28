@@ -108,6 +108,13 @@ test.describe("phones", () => {
   test.skip(({ isMobile }) => !isMobile, "mailto is the phone path");
   test.use({ userAgent: IOS_UA });
 
+  test("the form comes right after the banner, before the contact details", async ({ page }) => {
+    await page.goto("/tr/contact");
+    const form = (await page.locator("#name").boundingBox())!;
+    const details = (await page.locator("main dl").boundingBox())!;
+    expect(form.y).toBeLessThan(details.y);
+  });
+
   test("offers the Gmail and Mail apps with the message written", async ({ page }) => {
     await fillContact(page);
     await form(page).locator('button[type="submit"]').click();

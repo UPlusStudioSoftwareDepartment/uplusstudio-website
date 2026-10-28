@@ -194,46 +194,7 @@ export default function ContactContent() {
 
             <section className={`${CONTAINER} pb-28 pt-20 sm:pb-40 sm:pt-28`} aria-label={t("heading")}>
                 <div className="grid grid-cols-1 gap-20 border-t border-line pt-14 lg:grid-cols-12 lg:gap-8">
-                    <FadeUp className="lg:col-span-5">
-                        <div className="flex flex-wrap items-center justify-between gap-4">
-                            <Eyebrow>{t("getInTouch")}</Eyebrow>
-                            <StudioClock className="text-mute" />
-                        </div>
-                        <dl className="mt-8 border-t border-line">
-                            <DetailRow label={t("email")} href={`mailto:${studioInfo.email}`}>
-                                {studioInfo.email}
-                            </DetailRow>
-                            <DetailRow label={t("phone")} href={studioInfo.phoneHref}>
-                                {studioInfo.phoneDisplay}
-                            </DetailRow>
-                            <DetailRow label={t("address")} href={studioInfo.mapsUrl} external>
-                                {t("addressText")}
-                            </DetailRow>
-                            <DetailRow label={copy.instagram} href={studioInfo.instagramUrl} external>
-                                {studioInfo.instagramHandle}
-                            </DetailRow>
-                        </dl>
-
-                        <GoogleRating className="mt-8 text-ink" />
-
-                        <div className="mt-10 flex flex-col items-center gap-6 rounded-[3px] border border-line bg-paper-2/40 p-6 text-center sm:flex-row sm:items-center sm:gap-8 sm:p-8 sm:text-left">
-                            <MascotDuo pose="wave" size="sm" className="shrink-0" />
-                            <div className="min-w-0 flex-1">
-                                <p className="font-serif text-[clamp(1.2rem,1.6vw,1.45rem)] italic leading-snug text-ink">{tm("hello")}</p>
-                                <p className="mt-2 text-[15px] leading-relaxed text-mute">{copy.appointment.prompt}</p>
-                                <button
-                                    type="button"
-                                    onClick={openAppointment}
-                                    className="group mt-6 inline-flex min-h-12 w-full items-center justify-between gap-6 rounded-[3px] border border-ink/50 bg-transparent px-6 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone sm:w-auto"
-                                >
-                                    {copy.appointment.button}
-                                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                                </button>
-                            </div>
-                        </div>
-                    </FadeUp>
-
-                    <FadeUp className="lg:col-span-6 lg:col-start-7" delay={0.15}>
+                    <FadeUp className="lg:col-span-6 lg:col-start-7 lg:row-start-1" delay={0.15}>
                         <Eyebrow>{copy.formLabel}</Eyebrow>
                         {sent ? (
                             <div className="mt-10 flex flex-col items-start gap-6 rounded-[3px] border border-line bg-paper-2/40 p-6 sm:p-8" role="status">
@@ -365,6 +326,45 @@ export default function ContactContent() {
                                 </div>
                             </form>
                         )}
+                    </FadeUp>
+
+                    <FadeUp className="lg:col-span-5 lg:col-start-1 lg:row-start-1">
+                        <div className="flex flex-wrap items-center justify-between gap-4">
+                            <Eyebrow>{t("getInTouch")}</Eyebrow>
+                            <StudioClock className="text-mute" />
+                        </div>
+                        <dl className="mt-8 border-t border-line">
+                            <DetailRow label={t("email")} href={`mailto:${studioInfo.email}`}>
+                                {studioInfo.email}
+                            </DetailRow>
+                            <DetailRow label={t("phone")} href={studioInfo.phoneHref}>
+                                {studioInfo.phoneDisplay}
+                            </DetailRow>
+                            <DetailRow label={t("address")} href={studioInfo.mapsUrl} external>
+                                {t("addressText")}
+                            </DetailRow>
+                            <DetailRow label={copy.instagram} href={studioInfo.instagramUrl} external>
+                                {studioInfo.instagramHandle}
+                            </DetailRow>
+                        </dl>
+
+                        <GoogleRating className="mt-8 text-ink" />
+
+                        <div className="mt-10 flex flex-col items-center gap-6 rounded-[3px] border border-line bg-paper-2/40 p-6 text-center sm:flex-row sm:items-center sm:gap-8 sm:p-8 sm:text-left">
+                            <MascotDuo pose="wave" size="sm" className="shrink-0" />
+                            <div className="min-w-0 flex-1">
+                                <p className="font-serif text-[clamp(1.2rem,1.6vw,1.45rem)] italic leading-snug text-ink">{tm("hello")}</p>
+                                <p className="mt-2 text-[15px] leading-relaxed text-mute">{copy.appointment.prompt}</p>
+                                <button
+                                    type="button"
+                                    onClick={openAppointment}
+                                    className="group mt-6 inline-flex min-h-12 w-full items-center justify-between gap-6 rounded-[3px] border border-ink/50 bg-transparent px-6 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone sm:w-auto"
+                                >
+                                    {copy.appointment.button}
+                                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                                </button>
+                            </div>
+                        </div>
                     </FadeUp>
                 </div>
             </section>
