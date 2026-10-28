@@ -30,7 +30,7 @@ export const glossary_en = {
     "metaTerms": "Terms",
     "metaLetters": "Letters",
     "metaLanguage": "Language",
-    "metaLanguageValue": "English / Türkçe",
+    "metaLanguageValue": "EN / TR",
     "searchLabel": "Search the glossary",
     "lettersLabel": "Filter by letter",
     "allLetters": "All",

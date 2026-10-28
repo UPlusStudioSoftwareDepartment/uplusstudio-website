@@ -13,6 +13,7 @@ import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Rev
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
 import { icons } from "@/components/studio/SocialLinks";
+import { openInLinkedInApp } from "@/lib/appLinks";
 import ShowcaseModal, { type Showcase } from "@/components/studio/ShowcaseModal";
 import { getProject } from "@/lib/projects";
 import { examplePair, type ExamplePair } from "@/lib/showcase";
@@ -123,6 +124,7 @@ function FounderProfile({
           href={linkedin}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={openInLinkedInApp}
           aria-label={`${person.name} — LinkedIn`}
           className="absolute right-2 top-2 z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 border-black text-black drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)] transition-colors hover:bg-black/10 sm:right-3 sm:top-3 [&_svg]:h-5 [&_svg]:w-5"
         >

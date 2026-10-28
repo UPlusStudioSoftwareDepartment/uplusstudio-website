@@ -45,7 +45,7 @@ export default function PageHeader({ index, label, titleLines, intro, image, met
           </span>
         </div>
 
-        <div className="mt-8 flex flex-col gap-8">
+        <div className="mt-4 flex flex-col gap-4 sm:mt-8 sm:gap-8">
           <h1 className={`display text-[clamp(3rem,9.5vw,9.5rem)] [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal ${titleClassName}`}>
             <LineReveal lines={titleLines} immediate delay={0.25} />
           </h1>
@@ -56,7 +56,7 @@ export default function PageHeader({ index, label, titleLines, intro, image, met
         </div>
 
         {meta && meta.length > 0 && (
-          <dl className="mt-6 grid animate-[rise_1s_ease_0.8s_backwards] grid-cols-2 gap-x-6 border-t border-bone/20 motion-reduce:animate-none sm:mt-12 md:grid-cols-4">
+          <dl className={`mt-6 animate-[rise_1s_ease_0.8s_backwards] ${meta.length === 3 ? "flex justify-between md:grid" : "grid grid-cols-2"} gap-x-6 border-t border-bone/20 motion-reduce:animate-none sm:mt-12 md:grid-cols-4`}>
             {meta.map((m) => (
               <div key={m.label} className="min-w-0 pt-5">
                 <dt className="font-mono text-[12px] uppercase tracking-[0.12em] text-bone/60">{m.label}</dt>

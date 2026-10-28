@@ -14,6 +14,7 @@ import { useAppointment } from "@/contexts/AppointmentContext";
 import { getAdjacentProject, getProject, projectNumber, screenPoster, type ProjectImage } from "@/lib/projects";
 import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
 import { icons } from "@/components/studio/SocialLinks";
+import { openInLinkedInApp } from "@/lib/appLinks";
 import type { Locale } from "@/lib/i18n-config";
 
 const isPortrait = (img: { width: number; height: number }) => img.height > img.width;
@@ -109,6 +110,7 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
                 href={project.post}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={openInLinkedInApp}
                 className="mt-8 inline-flex items-center gap-3 underline decoration-ink/30 underline-offset-4 transition-colors hover:text-clay hover:decoration-clay"
               >
                 {icons.linkedin}

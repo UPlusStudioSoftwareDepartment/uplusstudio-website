@@ -30,7 +30,7 @@ export const glossary_tr = {
     "metaTerms": "Terim",
     "metaLetters": "Harf",
     "metaLanguage": "Dil",
-    "metaLanguageValue": "Türkçe / English",
+    "metaLanguageValue": "TR / EN",
     "searchLabel": "Sözlükte ara",
     "lettersLabel": "Harfe göre filtrele",
     "allLetters": "Tümü",
