@@ -170,6 +170,31 @@ test("studio icons sit in the top bar only on screens without the menu", async (
   await expect(whatsapp).toHaveCount(1);
 });
 
+test("project pages link to the service landing that lists them", async ({ page }) => {
+  const landing = SERVICE_LANDINGS.find((s) => s.projects.includes("modern-villa"))!;
+  await page.goto("/tr/projects/modern-villa");
+  const link = page.getByRole("link", { name: landing.copy.tr.title });
+  await expect(link).toHaveAttribute("href", `/tr/services/${landing.slug}`);
+  await link.click();
+  await expect(page).toHaveURL(new RegExp(`/tr/services/${landing.slug}$`));
+});
+
+test("page header intro shows before the app hydrates", async ({ page }) => {
+  await page.route(/\/_next\/static\/chunks\/.+\.js$/, (route) => route.abort());
+  await page.goto("/tr/about");
+  const intro = page.locator("header:has(h1)").getByText("Her proje benzersiz bir hikaye anlatır");
+  await expect(intro).toBeVisible();
+  await expect
+    .poll(() =>
+      intro.evaluate((el) => {
+        let opacity = 1;
+        for (let node: Element | null = el; node; node = node.parentElement) opacity *= Number(getComputedStyle(node).opacity);
+        return opacity;
+      })
+    )
+    .toBe(1);
+});
+
 test("business card opens as a dialog and closes", async ({ page }) => {
   await page.goto("/tr/about");
   await (await businessCardButton(page)).click();

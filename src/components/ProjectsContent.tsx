@@ -11,11 +11,16 @@ import MotionReel from "@/components/studio/MotionReel";
 import FramedImage from "@/components/studio/FramedImage";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { useAppointment } from "@/contexts/AppointmentContext";
-import { projects, projectCategories, projectNumber, type Project, type ProjectCategory } from "@/lib/projects";
+import { projects, projectCategories, projectNumber, type Project, type ProjectCategory, type ProjectImage } from "@/lib/projects";
 import type { Locale } from "@/lib/i18n-config";
 
 type Filter = "all" | ProjectCategory;
 type View = "grid" | "list";
+
+function coverSizes({ width, height }: ProjectImage) {
+  const fit = Math.min(1, width / height / (3 / 2));
+  return `(min-width: 768px) ${Math.round(45 * fit)}vw, ${Math.round(100 * fit)}vw`;
+}
 
 function GridCard({ project }: Readonly<{ project: Project }>) {
   const locale = useLocale() as Locale;
@@ -32,7 +37,7 @@ function GridCard({ project }: Readonly<{ project: Project }>) {
       <Link href={`/${locale}/projects/${project.slug}`} className="group block">
         <MaskReveal className="relative aspect-[3/2] bg-paper-2">
           <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]">
-            <FramedImage src={project.cover.src} alt={project.cover.alt[locale]} sizes="(min-width: 768px) 50vw, 100vw" />
+            <FramedImage src={project.cover.src} alt={project.cover.alt[locale]} sizes={coverSizes(project.cover)} />
           </div>
           {project.video && (
             <span className="eyebrow absolute left-4 top-4 bg-night/55 px-2.5 py-1 text-bone backdrop-blur-sm">▶ Film</span>
