@@ -23,6 +23,7 @@ export default function Select({ id, value, options, placeholder, invalid, descr
   const [active, setActive] = useState(-1);
 
   const close = () => {
+    if (listRef.current) listRef.current.style.pointerEvents = "none";
     setOpen(false);
     onBlur?.();
   };
@@ -117,8 +118,9 @@ export default function Select({ id, value, options, placeholder, invalid, descr
             id={listId}
             role="listbox"
             aria-labelledby={id}
+            onMouseDown={(e) => e.preventDefault()}
             initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0, pointerEvents: "auto" }}
             exit={{ opacity: 0, y: -6, pointerEvents: "none" }}
             transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
             className="custom-scrollbar absolute inset-x-0 top-full z-40 mt-2 max-h-[min(22rem,60vh)] overflow-y-auto rounded-[3px] border border-line bg-paper-2 py-1.5 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.75)]"
