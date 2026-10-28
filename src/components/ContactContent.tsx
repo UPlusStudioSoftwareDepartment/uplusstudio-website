@@ -17,7 +17,7 @@ import { contact_tr } from "@/app/[locale]/contact/locales/tr_TR";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getContactSchema, type ContactFormValues } from "@/lib/validations";
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useToast } from "@/contexts/ToastContext";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
@@ -98,9 +98,27 @@ type ContactReply = { sent: true } | ({ sent: false } & Omit<ComposedMail, "to">
 const DELIVERED: Sent = { mail: null, mailLinks: [], opened: true };
 const EMPTY: ContactFormValues = { name: "", email: "", phone: "", subject: "", message: "" };
 
+const DRAFT_KEY = "u-contact-draft";
+
+function savedDraft(): Partial<ContactFormValues> {
+    try {
+        return JSON.parse(sessionStorage.getItem(DRAFT_KEY) ?? "{}") as Partial<ContactFormValues>;
+    } catch {
+        return {};
+    }
+}
+
+function forgetDraft() {
+    try {
+        sessionStorage.removeItem(DRAFT_KEY);
+    } catch {}
+}
+
 function typedBeforeHydration(): ContactFormValues {
     if (typeof document === "undefined") return EMPTY;
-    const typed = (id: string) => document.querySelector<HTMLInputElement | HTMLTextAreaElement>(`#${id}`)?.value ?? "";
+    const draft = savedDraft();
+    const typed = (id: "name" | "email" | "phone" | "message") =>
+        document.querySelector<HTMLInputElement | HTMLTextAreaElement>(`#${id}`)?.value || draft[id] || "";
     return { ...EMPTY, name: typed("name"), email: typed("email"), phone: typed("phone"), message: typed("message") };
 }
 
@@ -124,11 +142,21 @@ export default function ContactContent() {
         trigger,
         getValues,
         reset,
+        watch,
         formState: { errors, isSubmitting },
     } = useForm<ContactFormValues>({
         resolver: zodResolver(getContactSchema(t)),
         defaultValues: typed,
     });
+
+    useEffect(() => {
+        const subscription = watch(({ name, email, phone, message }) => {
+            try {
+                sessionStorage.setItem(DRAFT_KEY, JSON.stringify({ name, email, phone, message }));
+            } catch {}
+        });
+        return () => subscription.unsubscribe();
+    }, [watch]);
 
     const requestMail = async (data: ContactFormValues) => {
         const res = await fetch("/api/contact", {
@@ -145,6 +173,7 @@ export default function ContactContent() {
         try {
             const reply = await requestMail(data);
             if (reply.sent) {
+                forgetDraft();
                 setSent(DELIVERED);
                 return;
             }
@@ -181,6 +210,7 @@ export default function ContactContent() {
     };
 
     const startOver = () => {
+        forgetDraft();
         reset(EMPTY);
         setSent(null);
     };

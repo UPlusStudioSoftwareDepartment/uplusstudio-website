@@ -8,7 +8,9 @@ export default function NotFound() {
         <main className="relative min-h-[100svh] bg-paper text-ink">
           <div className="mx-auto flex min-h-[100svh] max-w-[2560px] flex-col justify-center px-4 py-20 sm:px-8 lg:px-12">
             <p className="eyebrow flex flex-wrap items-center gap-x-4 gap-y-2 text-mute">
-              <span className="whitespace-nowrap text-ink">U+ Studio</span>
+              <span className="whitespace-nowrap font-sans text-[15px] normal-case tracking-tight text-ink">
+                <span className="font-semibold">U+</span> <span className="font-medium">Studio</span>
+              </span>
               <span className="h-px w-10 bg-ink/40" aria-hidden />
               <span>Sayfa bulunamadı · Page not found</span>
             </p>
@@ -16,6 +18,9 @@ export default function NotFound() {
             <h1 className="display mt-8 text-[clamp(8rem,32vw,30rem)] leading-[0.82] text-ink">
               4<em className="font-serif font-normal italic tracking-normal">0</em>4
             </h1>
+            <p className="mt-8 max-w-2xl font-serif text-[clamp(1.375rem,2.6vw,2rem)] leading-snug text-ink/85">
+              Aradığınız sayfa taşınmış ya da kaldırılmış olabilir. <span lang="en">The page may have moved or no longer exists.</span>
+            </p>
 
             <div className="mt-10 flex flex-col gap-6 border-t border-line pt-6 sm:flex-row sm:items-baseline sm:justify-between">
               <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-mute">Ankara · TR</p>

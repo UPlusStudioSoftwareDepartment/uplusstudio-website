@@ -73,16 +73,16 @@ export default function GlossaryContent({ total, sections, counts, alphabet }: R
             />
 
             <section className="mx-auto mt-20 max-w-[2560px] px-4 pb-28 sm:px-8 lg:mt-28 lg:px-12 lg:pb-40">
-                <div className="grid grid-cols-1 gap-x-8 gap-y-6 border-t border-line pt-10 lg:grid-cols-12">
-                    <div className="flex items-end justify-between gap-6 lg:col-span-3 lg:flex-col lg:items-start lg:justify-start">
-                        <label htmlFor={`${uid}-search`} className="eyebrow text-mute lg:pt-5">
+                <div className="border-t border-line pt-10">
+                    <div className="flex flex-col-reverse items-center gap-3 text-center">
+                        <label htmlFor={`${uid}-search`} className="font-sans text-[20px] font-light leading-6 text-mute">
                             {t("searchLabel")}
                         </label>
                         <MascotDuo pose={visible === 0 ? "think" : "wave"} size="sm" message={visible === 0 ? tm("glossaryEmpty") : tm("glossary")} />
                     </div>
-                    <div role="search" className="min-w-0 lg:col-span-9">
-                        <div className="flex items-center border-b border-line focus-within:border-ink">
-                            <svg className="h-5 w-5 shrink-0 text-mute" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1} aria-hidden>
+                    <div role="search" className="mt-6 min-w-0">
+                        <div className="group flex items-center border-b border-line">
+                            <svg className="h-6 w-6 shrink-0 text-mute transition-colors group-focus-within:text-ink" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1} aria-hidden>
                                 <circle cx="7" cy="7" r="5" />
                                 <path d="M10.5 10.5 15 15" />
                             </svg>
@@ -94,24 +94,24 @@ export default function GlossaryContent({ total, sections, counts, alphabet }: R
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 autoComplete="off"
                                 style={{ outline: "none" }}
-                                className="w-full min-w-0 bg-transparent py-4 pl-4 pr-2 font-sans text-[clamp(1.25rem,2.4vw,2rem)] font-light tracking-[-0.02em] text-ink placeholder:text-mute/60 focus:outline-none focus-visible:outline-none [&::-webkit-search-cancel-button]:hidden"
+                                className="min-w-0 bg-transparent py-4 pl-3 pr-3 font-sans text-[20px] leading-6 font-light tracking-[-0.01em] text-ink w-full flex-1 placeholder:text-mute/60 focus:outline-none focus-visible:outline-none [&::-webkit-search-cancel-button]:hidden"
                             />
-                            {(searchQuery.trim() || activeLetter) && (
-                                <button type="button" onClick={clearAll} className="eyebrow shrink-0 py-2 text-mute hover:text-clay">
-                                    {t("clearSearch")}
-                                </button>
-                            )}
+                            <button type="button" onClick={clearAll} aria-label={t("clearSearch")} title={t("clearSearch")} className="group/x -m-2.5 shrink-0 p-2.5">
+                                <span className="flex h-6 w-6 items-center justify-center rounded-full border border-bone/30 bg-night text-bone transition-colors group-hover/x:border-bone group-active/x:border-bone">
+                                    <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden><path strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" /></svg>
+                                </span>
+                            </button>
                         </div>
-                        <p className="mt-3 font-mono text-[12px] uppercase tracking-[0.14em] text-mute" aria-live="polite">
+                        <p className="mt-3 font-sans text-[18px] font-light leading-6 text-mute max-lg:text-center" aria-live="polite">
                             {searchQuery.trim() || activeLetter ? t("foundCount", { count: visible }) : t("totalCount", { count: visible })}
                         </p>
                     </div>
                 </div>
 
                 <div ref={listTopRef} className="scroll-mt-20" />
-                <nav aria-label={t("lettersLabel")} className="sticky top-0 z-20 -mx-4 mt-12 border-y border-line bg-paper/90 backdrop-blur-md sm:-mx-8 lg:mx-0">
-                    <ul className="flex items-stretch overflow-x-auto px-2 [scrollbar-width:none] sm:px-4 lg:overflow-visible lg:px-3 [&::-webkit-scrollbar]:hidden">
-                        <li className="mr-1 shrink-0 border-r border-line pr-1">
+                <nav aria-label={t("lettersLabel")} className="z-20 mt-12 border-y border-line bg-paper/90 lg:sticky lg:top-0 lg:backdrop-blur-md">
+                    <ul className="flex flex-wrap items-stretch justify-center px-1 pb-1 lg:flex-nowrap lg:justify-start lg:px-3 lg:pb-0">
+                        <li className="flex w-full shrink-0 justify-center border-b border-line lg:mr-1 lg:w-auto lg:border-b-0 lg:border-r lg:pr-1">
                             <button
                                 type="button"
                                 onClick={() => selectLetter(null)}
@@ -133,7 +133,7 @@ export default function GlossaryContent({ total, sections, counts, alphabet }: R
                                         disabled={count === 0}
                                         aria-pressed={active}
                                         aria-label={`${t("showLetter", { letter })} (${count})`}
-                                        className={`relative h-12 w-10 font-mono text-[13px] transition-colors lg:w-full ${active ? "text-ink" : count === 0 ? "cursor-default text-line" : "text-mute hover:text-clay"}`}
+                                        className={`relative h-10 w-8 font-mono text-[13px] transition-colors lg:h-12 lg:w-full ${active ? "text-ink" : count === 0 ? "cursor-default text-line" : "text-mute hover:text-clay"}`}
                                     >
                                         {letter}
                                         {active && <span className="absolute inset-x-2 bottom-0 h-px bg-clay" aria-hidden />}

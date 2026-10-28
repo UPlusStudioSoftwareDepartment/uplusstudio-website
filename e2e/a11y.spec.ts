@@ -12,7 +12,7 @@ const opaque = (locator: Locator) =>
   expect
     .poll(() =>
       locator.evaluate((el) => {
-        let opacity = 1;
+        let opacity = getComputedStyle(el).visibility === "visible" ? 1 : 0;
         for (let node: Element | null = el; node; node = node.parentElement) opacity *= Number(getComputedStyle(node).opacity);
         return opacity;
       })

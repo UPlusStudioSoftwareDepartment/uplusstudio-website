@@ -107,6 +107,14 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   const closeRef = useRef<HTMLButtonElement>(null);
   const [fit, setFit] = useState({ scale: 1, h: 0, w: DESIGN_W });
   const [preview, setPreview] = useState<string | null>(null);
+  const [shownOpen, setShownOpen] = useState(open);
+  if (shownOpen !== open) {
+    setShownOpen(open);
+    if (!open) {
+      setPanelOpen(false);
+      setPreview(null);
+    }
+  }
 
   useEffect(() => {
     if (!open || !mounted) return;

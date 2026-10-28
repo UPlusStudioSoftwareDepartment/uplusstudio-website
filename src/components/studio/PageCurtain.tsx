@@ -7,7 +7,7 @@ const LETTERS = "STUDIO".split("");
 const FIRST_VISIT_MIN_MS = 900;
 const FIRST_VISIT_MAX_MS = 2600;
 const LEAVE_MS = 1500;
-const SWAP_TIMEOUT_MS = 2500;
+const SWAP_TIMEOUT_MS = 1200;
 const SEEN_KEY = "u-curtain";
 
 let booted = false;
@@ -49,6 +49,8 @@ function pageLink(event: MouseEvent) {
   if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return null;
   const link = (event.target as Element | null)?.closest?.("a[href]");
   if (!(link instanceof HTMLAnchorElement) || (link.target && link.target !== "_self") || link.hasAttribute("download")) return null;
+  const button = (event.target as Element).closest("button");
+  if (button && link.contains(button)) return null;
   const url = new URL(link.href, location.href);
   if (url.origin !== location.origin || url.pathname === location.pathname) return null;
   if (url.pathname.startsWith("/api/") || /\.[a-z0-9]+$/i.test(url.pathname)) return null;

@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from "react";
 import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
 
 const AppointmentModal = dynamic(() => import("@/components/AppointmentModal"), { ssr: false });
 
@@ -27,6 +28,12 @@ export function AppointmentProvider({ children }: Readonly<{ children: ReactNode
   const [isOpen, setIsOpen] = useState(false);
   const [hasOpened, setHasOpened] = useState(false);
   const [prefill, setPrefill] = useState<AppointmentPrefill | null>(null);
+  const pathname = usePathname();
+  const [openedOn, setOpenedOn] = useState(pathname);
+  if (openedOn !== pathname) {
+    setOpenedOn(pathname);
+    setIsOpen(false);
+  }
 
   const openAppointment = useCallback(() => {
     setPrefill(null);

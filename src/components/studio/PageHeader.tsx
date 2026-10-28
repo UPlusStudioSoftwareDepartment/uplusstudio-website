@@ -56,7 +56,7 @@ export default function PageHeader({ index, label, titleLines, intro, image, met
         </div>
 
         {meta && meta.length > 0 && (
-          <dl className={`mt-6 animate-[rise_1s_ease_0.8s_backwards] ${meta.length === 3 ? "flex justify-between md:grid" : "grid grid-cols-2"} gap-x-6 border-t border-bone/20 motion-reduce:animate-none sm:mt-12 md:grid-cols-4`}>
+          <dl className={`mt-6 animate-[rise_1s_ease_0.8s_backwards] ${meta.length > 3 ? "grid grid-cols-2 md:flex" : "flex"} justify-between gap-x-6 border-t border-bone/20 motion-reduce:animate-none sm:mt-12`}>
             {meta.map((m) => (
               <div key={m.label} className="min-w-0 pt-5">
                 <dt className="font-mono text-[12px] uppercase tracking-[0.12em] text-bone/60">{m.label}</dt>

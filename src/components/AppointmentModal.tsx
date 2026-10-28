@@ -10,6 +10,7 @@ import { m, AnimatePresence } from "framer-motion";
 import AdvancedCalendar from "./AdvancedCalendar";
 import { useToast } from "@/contexts/ToastContext";
 import { useScrollLock } from "@/hooks/useScrollLock";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { studioInfo } from "@/lib/studio-info";
 import { type ComposedMail, followLink, gmailAppUrl, mailPlatform, mailtoUrl, openGmail } from "@/lib/gmailCompose";
 import { icons } from "@/components/studio/SocialLinks";
@@ -58,6 +59,9 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
   const [sentValues, setSentValues] = useState<AppointmentFormValues | null>(null);
   const messageValueRef = useRef<string>("");
   const formRef = useRef<HTMLFormElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const sharingRef = useRef(false);
   const [preparedMail, setPreparedMail] = useState<ComposedMail | null>(null);
   const [gmailOpened, setGmailOpened] = useState(true);
   const [delivered, setDelivered] = useState(false);
@@ -65,6 +69,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
   const [mailLinks, setMailLinks] = useState<{ label: string; href: string }[]>([]);
 
   useScrollLock(isOpen);
+  useFocusTrap(isOpen, dialogRef, closeRef);
 
   const appointmentSchema = useMemo(() => z.object({
     name: z.string()
@@ -338,6 +343,16 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
   };
 
   const sendViaWhatsApp = async () => {
+    if (sharingRef.current) return;
+    sharingRef.current = true;
+    try {
+      await shareOnWhatsApp();
+    } finally {
+      sharingRef.current = false;
+    }
+  };
+
+  const shareOnWhatsApp = async () => {
     const isValid = await trigger();
     if (!isValid) {
       toast.error(t("fillRequired"));
@@ -407,6 +422,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
           />
 
           <m.div
+            ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="appointment-modal-title"
@@ -489,6 +505,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                   </h2>
                 </div>
                 <button
+                  ref={closeRef}
                   type="button"
                   onClick={handleClose}
                   className="group flex items-center gap-3 font-mono text-[12px] uppercase tracking-[0.12em] text-ink"
@@ -708,7 +725,8 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                   <button
                     type="button"
                     onClick={sendViaWhatsApp}
-                    className="order-3 inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[3px] border border-line px-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night sm:order-2 sm:px-5"
+                    disabled={submitStatus === "success"}
+                    className="order-3 inline-flex disabled:opacity-50 min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[3px] border border-line px-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night sm:order-2 sm:px-5"
                   >
                     {icons.whatsapp}
                     WhatsApp
@@ -716,7 +734,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                   <button
                     type="submit"
                     form="appointment-form"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || submitStatus === "success"}
                     className="group order-1 col-span-2 inline-flex min-h-12 items-center justify-center gap-4 whitespace-nowrap rounded-[3px] border border-ink bg-transparent px-6 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone disabled:opacity-50 sm:order-3 sm:px-8"
                   >
                     {isSubmitting ? t("sending") : t("book")}

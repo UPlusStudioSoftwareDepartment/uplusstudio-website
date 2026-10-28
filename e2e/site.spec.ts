@@ -269,13 +269,20 @@ test("home continues past the film with the studio, every service, featured work
   await expect(page.getByRole("contentinfo")).toBeInViewport();
 });
 
-test("the home film plays once with a stop icon, and the play icon plays it again with sound", async ({ page }) => {
+test("the home film plays silently until the visitor turns the music on, and only the film icon controls it", async ({ page }) => {
   await page.goto("/tr");
   const video = page.locator("#home video");
+  const music = page.locator("#home audio");
+  const unmute = page.getByRole("button", { name: "Filmin müziğini aç" });
   const play = page.getByRole("button", { name: "Filmi sesli oynat" });
   const stop = page.getByRole("button", { name: "Filmi durdur" });
   expect(await video.evaluate((v: HTMLVideoElement) => v.loop)).toBe(false);
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.currentTime > 0)).toBe(true);
+  await expect(unmute).toBeVisible();
+  await page.locator("h1").click();
+  expect(await music.evaluate((a: HTMLAudioElement) => a.paused)).toBe(true);
+  await unmute.click();
+  await expect.poll(() => music.evaluate((a: HTMLAudioElement) => !a.paused)).toBe(true);
   await stop.click();
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
   await play.click();

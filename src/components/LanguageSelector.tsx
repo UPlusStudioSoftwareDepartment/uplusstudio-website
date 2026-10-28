@@ -14,6 +14,7 @@ export default function LanguageSelector({ isDarkText = true }: Readonly<Languag
   const pathname = usePathname();
 
   const toggleLanguage = (lang: string) => {
+    if (lang === locale) return;
     const pathWithoutLocale = pathname.replace(/^\/(tr|en)/, '');
     navigateSmoothly(() => router.push(`/${lang}${pathWithoutLocale}`));
   };

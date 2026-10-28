@@ -91,6 +91,16 @@ html::-webkit-scrollbar-thumb:hover {
   button {
     transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
   }
+
+  button:not(:disabled),
+  [role="button"],
+  [role="option"],
+  [role="tab"],
+  select,
+  summary,
+  input:is([type="checkbox"], [type="radio"], [type="file"], [type="range"], [type="submit"], [type="button"], [type="reset"]) {
+    cursor: pointer;
+  }
 }
 
 :focus-visible {
@@ -98,8 +108,8 @@ html::-webkit-scrollbar-thumb:hover {
   outline-offset: 3px;
 }
 
-input:focus,
-input:focus-visible,
+input:not([type="search"]):focus,
+input:not([type="search"]):focus-visible,
 textarea:focus,
 textarea:focus-visible,
 select:focus,
@@ -360,7 +370,6 @@ select:focus-visible {
   padding-bottom: var(--curtain-fade);
   background: var(--color-night);
   color: var(--color-bone);
-  pointer-events: none;
   mask-image: linear-gradient(to bottom, #000 calc(100% - var(--curtain-fade)), transparent);
   will-change: transform;
   transition: transform 1.3s var(--curtain-ease) 0.1s;
@@ -369,6 +378,7 @@ select:focus-visible {
 
 .page-curtain.is-leaving {
   transform: translateY(-100%);
+  pointer-events: none;
 }
 
 .page-curtain .curtain-mark {

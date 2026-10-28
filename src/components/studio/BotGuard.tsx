@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import { useLocale } from "next-intl";
 import { HONEYPOT_FIELD, TURNSTILE_FIELD } from "@/lib/botGuard";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
-type TurnstileApi = { render: (el: HTMLElement, options: Record<string, unknown>) => string; remove: (id: string) => void };
+type TurnstileApi = { render: (el: HTMLElement, options: Record<string, unknown>) => string; remove: (id: string) => void; reset: (id: string) => void };
 
 let loading: Promise<TurnstileApi> | null = null;
 
@@ -22,7 +22,7 @@ function loadTurnstile() {
   return loading;
 }
 
-function Turnstile({ onToken }: Readonly<{ onToken: (token: string) => void }>) {
+function Turnstile({ onToken, resetRef }: Readonly<{ onToken: (token: string) => void; resetRef: RefObject<(() => void) | null> }>) {
   const boxRef = useRef<HTMLDivElement>(null);
   const locale = useLocale();
 
@@ -42,13 +42,18 @@ function Turnstile({ onToken }: Readonly<{ onToken: (token: string) => void }>) 
           "expired-callback": () => onToken(""),
           "error-callback": () => onToken(""),
         });
+        resetRef.current = () => {
+          onToken("");
+          if (id) api.reset(id);
+        };
       })
       .catch(() => {});
     return () => {
       alive = false;
+      resetRef.current = null;
       if (id) loadTurnstile().then((api) => api.remove(id!));
     };
-  }, [locale, onToken]);
+  }, [locale, onToken, resetRef]);
 
   return SITE_KEY ? <div ref={boxRef} /> : null;
 }
@@ -56,6 +61,7 @@ function Turnstile({ onToken }: Readonly<{ onToken: (token: string) => void }>) 
 export function useBotGuard() {
   const trapRef = useRef<HTMLInputElement>(null);
   const [token, setToken] = useState("");
+  const resetRef = useRef<(() => void) | null>(null);
 
   const fields = (
     <>
@@ -68,11 +74,15 @@ export function useBotGuard() {
         aria-hidden
         className="pointer-events-none absolute -left-[9999px] h-px w-px opacity-0"
       />
-      <Turnstile onToken={setToken} />
+      <Turnstile onToken={setToken} resetRef={resetRef} />
     </>
   );
 
-  const values = () => ({ [HONEYPOT_FIELD]: trapRef.current?.value ?? "", [TURNSTILE_FIELD]: token });
+  const values = () => {
+    const sent = { [HONEYPOT_FIELD]: trapRef.current?.value ?? "", [TURNSTILE_FIELD]: token };
+    resetRef.current?.();
+    return sent;
+  };
 
   return { fields, values };
 }

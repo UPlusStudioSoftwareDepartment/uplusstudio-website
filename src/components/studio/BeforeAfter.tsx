@@ -3,6 +3,8 @@
 import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 
+const TOUCH_SLOP_PX = 8;
+
 interface BeforeAfterProps {
   before: { src: string; alt: string };
   after: { src: string; alt: string };
@@ -25,6 +27,7 @@ export default function BeforeAfter({
   const [position, setPosition] = useState(50);
   const frameRef = useRef<HTMLDivElement>(null);
   const draggingRef = useRef(false);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
   const updateFromClientX = useCallback((clientX: number) => {
     const rect = frameRef.current?.getBoundingClientRect();
@@ -32,16 +35,28 @@ export default function BeforeAfter({
     setPosition(Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100)));
   }, []);
 
-  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+  const startDrag = (e: React.PointerEvent<HTMLDivElement>) => {
     draggingRef.current = true;
     e.currentTarget.setPointerCapture(e.pointerId);
     updateFromClientX(e.clientX);
   };
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType === "mouse") startDrag(e);
+    else touchStartRef.current = { x: e.clientX, y: e.clientY };
+  };
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (draggingRef.current) updateFromClientX(e.clientX);
+    if (draggingRef.current) {
+      updateFromClientX(e.clientX);
+      return;
+    }
+    const start = touchStartRef.current;
+    if (!start) return;
+    const dx = Math.abs(e.clientX - start.x);
+    if (dx > TOUCH_SLOP_PX && dx > Math.abs(e.clientY - start.y)) startDrag(e);
   };
   const onPointerUp = () => {
     draggingRef.current = false;
+    touchStartRef.current = null;
   };
 
   const onKeyDown = (e: React.KeyboardEvent) => {

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { AnimatePresence, m } from "framer-motion";
 import BeforeAfter from "@/components/studio/BeforeAfter";
 import { useScrollLock } from "@/hooks/useScrollLock";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 const EASE = [0.76, 0, 0.24, 1] as const;
 
@@ -30,11 +31,12 @@ interface ShowcaseModalProps {
 export default function ShowcaseModal({ item, onClose, labels, onCta }: Readonly<ShowcaseModalProps>) {
   const open = item !== null;
   const closeRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   useScrollLock(open);
+  useFocusTrap(open, dialogRef, closeRef);
 
   useEffect(() => {
     if (!open) return;
-    closeRef.current?.focus();
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     globalThis.addEventListener("keydown", onKey);
     return () => globalThis.removeEventListener("keydown", onKey);
@@ -46,6 +48,7 @@ export default function ShowcaseModal({ item, onClose, labels, onCta }: Readonly
     <AnimatePresence>
       {item && (
         <m.div
+          ref={dialogRef}
           key="showcase"
           className="fixed inset-0 z-[90] flex items-center justify-center p-3 sm:p-6"
           initial={{ opacity: 0 }}

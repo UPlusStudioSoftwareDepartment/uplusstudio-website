@@ -28,8 +28,24 @@ const VIDEO = {
 };
 const MUSIC_DRIFT_S = 0.25;
 const FILM_LABEL = { stopped: "playFilm", silent: "unmuteFilm", audible: "stopFilm" } as const;
+const PROJECT_COLUMNS = [["villa-donusumu", "evox-gym-center"], ["butik-kafe", "modern-villa"], ["konut-uygulama", "pastane"]];
 
 const videoSource = () => (globalThis.innerWidth < 768 ? VIDEO.small : VIDEO.large);
+const MUSIC_KEY = "u-film-music";
+
+function musicWanted() {
+  try {
+    return sessionStorage.getItem(MUSIC_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function rememberMusic(on: boolean) {
+  try {
+    sessionStorage.setItem(MUSIC_KEY, on ? "1" : "0");
+  } catch {}
+}
 
 function followFilm(video: HTMLVideoElement | null, music: HTMLAudioElement | null) {
   if (!video || !music || video.paused) return;
@@ -56,9 +72,8 @@ export default function HomeHero() {
   };
   const videoRef = useRef<HTMLVideoElement>(null);
   const musicRef = useRef<HTMLAudioElement>(null);
-  const filmButtonRef = useRef<HTMLButtonElement>(null);
   const progressRef = useRef<HTMLSpanElement>(null);
-  const featured = projects.filter((p) => p.featured);
+  const listed = PROJECT_COLUMNS.map((column) => projects.filter((p) => column.includes(p.slug)));
 
   preload(VIDEO.poster, { as: "image", fetchPriority: "high" });
 
@@ -71,18 +86,9 @@ export default function HomeHero() {
       video.src = videoSource();
       video.play().catch(() => {});
     };
-    const unmute = (e: Event) => {
-      if (musicRef.current?.paused && !filmButtonRef.current?.contains(e.target as Node)) followFilm(video, musicRef.current);
-    };
     if (document.readyState === "complete") start();
     else globalThis.addEventListener("load", start, { once: true });
-    document.addEventListener("pointerup", unmute);
-    document.addEventListener("keydown", unmute);
-    return () => {
-      globalThis.removeEventListener("load", start);
-      document.removeEventListener("pointerup", unmute);
-      document.removeEventListener("keydown", unmute);
-    };
+    return () => globalThis.removeEventListener("load", start);
   }, [reduce]);
 
   useEffect(() => {
@@ -102,9 +108,11 @@ export default function HomeHero() {
     const video = videoRef.current;
     if (!video) return;
     if (film === "audible") {
+      rememberMusic(false);
       video.pause();
       return;
     }
+    rememberMusic(true);
     if (film === "silent") {
       playMusic();
       return;
@@ -128,7 +136,7 @@ export default function HomeHero() {
           aria-label={t("motion.items.villa")}
           disableRemotePlayback
           onPlay={() => setPlaying(true)}
-          onPlaying={playMusic}
+          onPlaying={() => musicWanted() && playMusic()}
           onWaiting={() => musicRef.current?.pause()}
           onPause={() => {
             setPlaying(false);
@@ -215,16 +223,15 @@ export default function HomeHero() {
           </div>
         </div>
 
-        <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start [@media(max-height:560px)]:hidden">
-          <p className="eyebrow flex flex-col gap-1 md:col-span-12 lg:col-span-3">
-            <Link href={`/${locale}/services/incek-golbasi-mimarlik-ofisi`} className="w-fit text-bone transition-colors hover:text-bone/70">{t("hero.place")}</Link>
-            <span className="text-bone/60">{t("hero.country")}</span>
+        <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start xl:grid-cols-[auto_minmax(auto,calc(33.333%_-_16px))_auto_auto_auto] xl:items-stretch xl:justify-between xl:gap-x-10 [@media(max-height:560px)]:hidden">
+          <p className="eyebrow flex flex-col gap-1 md:col-span-12 lg:col-span-3 xl:col-span-1 xl:gap-2">
+            <Link href={`/${locale}/services/incek-golbasi-mimarlik-ofisi`} className="w-fit text-bone transition-colors hover:text-bone/70 xl:flex xl:h-6 xl:items-center">{t("hero.place")}</Link>
+            <span className="text-bone/60 xl:flex xl:h-6 xl:items-center">{t("hero.country")}</span>
           </p>
 
-          <div className="md:col-span-6 lg:col-span-4">
-            <span className="flex items-center gap-2.5">
+          <div className="md:col-span-6 lg:col-span-4 xl:col-span-1">
+            <span className="flex items-center gap-2.5 xl:h-6">
               <button
-                ref={filmButtonRef}
                 type="button"
                 onClick={toggleFilm}
                 aria-label={t(`hero.${FILM_LABEL[film]}`)}
@@ -243,7 +250,7 @@ export default function HomeHero() {
               </button>
               <span className="eyebrow block text-bone/55">{t("hero.featured")}</span>
             </span>
-            <div className="mt-2 flex items-center justify-between gap-2">
+            <div className="mt-2 flex items-center justify-between gap-2 xl:h-6">
               <Link href={`/${locale}/projects/villa-donusumu`} className="group whitespace-nowrap text-[15px] max-[359px]:text-[13px]">
                 {t("hero.featuredProject")}
                 <span className="ml-2 inline-block transition-transform duration-500 group-hover:translate-x-1" aria-hidden>→</span>
@@ -259,16 +266,18 @@ export default function HomeHero() {
             </span>
           </div>
 
-          <ul className="hidden md:col-span-6 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-2 lg:col-span-5">
-            {featured.map((p) => (
-              <li key={p.slug}>
-                <Link href={`/${locale}/projects/${p.slug}`} className="group flex items-baseline gap-3 text-[14px] text-bone/70 hover:text-bone">
-                  <span className="font-mono text-[11px] text-bone/60">{projectNumber(p.slug)}</span>
-                  <span className="border-b border-transparent group-hover:border-bone/60">{p.title[locale]}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {listed.map((column) => (
+            <ul key={column[0].slug} className="hidden translate-y-2 flex-col justify-end gap-2 xl:flex">
+              {column.map((p) => (
+                <li key={p.slug} className="flex h-6 items-center">
+                  <Link href={`/${locale}/projects/${p.slug}`} className="group flex items-baseline gap-3 whitespace-nowrap text-[14px] text-bone/70 hover:text-bone">
+                    <span className="font-mono text-[11px] text-bone/60">{projectNumber(p.slug)}</span>
+                    <span className="border-b border-transparent group-hover:border-bone/60">{p.title[locale]}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ))}
         </div>
       </div>
     </section>

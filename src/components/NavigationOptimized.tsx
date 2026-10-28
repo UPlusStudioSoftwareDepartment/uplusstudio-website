@@ -60,6 +60,7 @@ export default function Navigation() {
     const onScroll = () => {
       cancelAnimationFrame(rafId);
       rafId = requestAnimationFrame(() => {
+        if (document.body.style.position === "fixed") return;
         const y = globalThis.scrollY;
         setIsScrolled(y > SCROLL_THRESHOLD);
         setIsHidden(y > 400 && y > lastY);
