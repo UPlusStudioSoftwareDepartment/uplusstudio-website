@@ -13,6 +13,7 @@ import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Rev
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { getAdjacentProject, getProject, projectNumber, type ProjectImage } from "@/lib/projects";
 import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
+import { icons } from "@/components/studio/SocialLinks";
 import type { Locale } from "@/lib/i18n-config";
 
 const isPortrait = (img: { width: number; height: number }) => img.height > img.width;
@@ -68,6 +69,7 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
               { label: t("project.category"), value: category },
               { label: t("project.studio"), value: "U+ Studio" },
               { label: t("project.scope"), value: project.scope.map((s) => s[locale]).join("\n") },
+              ...(project.status ? [{ label: t("project.status"), value: project.status[locale] }] : []),
             ].map((row) => (
               <div key={row.label} className="border-t border-line py-5">
                 <dt className="eyebrow text-mute">{row.label}</dt>
@@ -95,6 +97,24 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
             <p className="text-[clamp(1.4rem,2.4vw,2.25rem)] font-light leading-[1.3] tracking-[-0.015em] text-ink">
               {project.description[locale]}
             </p>
+            {project.story && (
+              <div className="mt-8 max-w-2xl space-y-5 text-[17px] leading-relaxed text-ink/85">
+                {project.story.map((paragraph) => (
+                  <p key={paragraph.en}>{paragraph[locale]}</p>
+                ))}
+              </div>
+            )}
+            {project.post && (
+              <a
+                href={project.post}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-3 underline decoration-ink/30 underline-offset-4 transition-colors hover:text-clay hover:decoration-clay"
+              >
+                {icons.linkedin}
+                {t("project.post")}
+              </a>
+            )}
           </FadeUp>
         </div>
       </section>

@@ -30,6 +30,9 @@ export interface Project {
   gallery: ProjectImage[];
   video?: ProjectVideo;
   beforeAfter?: { before: ProjectImage; after: ProjectImage };
+  status?: Localized;
+  story?: Localized[];
+  post?: string;
 }
 
 const img = (src: string, width: number, height: number, tr: string, en: string): ProjectImage => ({
@@ -74,6 +77,21 @@ export const projects: Project[] = [
       before: img(`${P}/villa-donusumu/before.jpg`, 1280, 716, "Villanın önceki hali", "The villa before"),
       after: img(`${P}/villa-donusumu/after.jpg`, 1280, 716, "Villanın yeni hali", "The villa after"),
     },
+    status: {
+      tr: "Uygulama büyük ölçüde tamamlandı, peyzaj sürüyor",
+      en: "Work nearly complete, landscaping under way",
+    },
+    story: [
+      {
+        tr: "Eski bir yapıyı yıkmak kolay; doğru şekilde dönüştürmek ise ayrı bir iş. Yıllar içinde yıpranmış bu villada yıkıp yeniden yapmak yerine mevcut yapıyı koruduk ve onu modern, işlevsel bir eve dönüştürdük.",
+        en: "Demolishing an old building is easy; transforming it well is another matter. Instead of tearing down this villa, worn over the years, we kept its existing structure and turned it into a modern, functional home.",
+      },
+      {
+        tr: "Orta ölçekli bir bütçeyle başlayan iş, ilerledikçe kapsamlı bir yenilemeye dönüştü. Süreci üç karar belirledi: neyin korunacağı, neyin değişeceği ve bütçenin en çok fark yaratacağı yer.",
+        en: "What began on a medium budget grew into a full renovation. Three decisions shaped it: what to keep, what to replace, and where the budget would make the biggest difference.",
+      },
+    ],
+    post: "https://www.linkedin.com/feed/update/urn:li:activity:7510727589314015232/",
   },
   {
     slug: "evox-gym-center",

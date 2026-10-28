@@ -22,6 +22,7 @@ export const studio_en = {
     "line2": "begins with",
     "line3": "thinking.",
     "place": "İncek · Gölbaşı / Ankara",
+    "country": "Türkiye",
     "featured": "Featured",
     "featuredProject": "Villa Transformation — before / after",
     "scroll": "Scroll",
@@ -126,6 +127,8 @@ export const studio_en = {
   "project": {
     "back": "All projects",
     "category": "Type",
+    "status": "Status",
+    "post": "Follow the process on LinkedIn",
     "scope": "Scope",
     "studio": "Design",
     "film": "Film",

@@ -12,6 +12,7 @@ import { MascotDuo } from "@/components/mascots/Mascots";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
+import { icons } from "@/components/studio/SocialLinks";
 import ShowcaseModal, { type Showcase } from "@/components/studio/ShowcaseModal";
 import { getProject } from "@/lib/projects";
 import { examplePair, type ExamplePair } from "@/lib/showcase";
@@ -101,8 +102,10 @@ function FounderProfile({
   labels,
   flip = false,
   locale,
+  linkedin,
 }: Readonly<{
   person: Person;
+  linkedin: string;
   image: string;
   index: string;
   labels: { experience: string; focus: string; work: string };
@@ -128,6 +131,15 @@ function FounderProfile({
         </h3>
         <FadeUp delay={0.1}>
           <p className="mt-8 max-w-xl text-[18px] leading-relaxed text-ink/85">{person.bio}</p>
+          <a
+            href={linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${person.name} — LinkedIn`}
+            className="mt-6 inline-flex h-11 w-11 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-clay hover:text-clay"
+          >
+            {icons.linkedin}
+          </a>
         </FadeUp>
         <FadeUp delay={0.15}>
           <blockquote className="mt-10 border-l border-clay pl-6">
@@ -259,6 +271,7 @@ export default function AboutContent() {
         <div className="mt-20 space-y-28 sm:mt-28 sm:space-y-40">
           <FounderProfile
             person={people.hacer}
+            linkedin={studioInfo.founderLinkedIn.hacer}
             locale={lang}
             image="/images/persons/founders/hacer_uyar/hacer-uyar-portre.jpg"
             index="01"
@@ -266,6 +279,7 @@ export default function AboutContent() {
           />
           <FounderProfile
             person={people.ridvan}
+            linkedin={studioInfo.founderLinkedIn.ridvan}
             locale={lang}
             image="/images/persons/founders/ridvan_uyar/ridvanuyar_face.jpeg"
             index="02"

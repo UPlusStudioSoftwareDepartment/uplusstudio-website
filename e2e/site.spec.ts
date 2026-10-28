@@ -195,6 +195,17 @@ test("page header intro shows before the app hydrates", async ({ page }) => {
     .toBe(1);
 });
 
+test("founders, the villa story and the service area are on the page", async ({ page }) => {
+  await page.goto("/tr");
+  await expect(page.getByText("Türkiye", { exact: true })).toBeVisible();
+  await page.goto("/tr/about");
+  await expect(page.getByRole("link", { name: "Hacer Uyar — LinkedIn" })).toHaveAttribute("href", studioInfo.founderLinkedIn.hacer);
+  await expect(page.getByRole("link", { name: "Rıdvan Uyar — LinkedIn" })).toHaveAttribute("href", studioInfo.founderLinkedIn.ridvan);
+  await page.goto("/tr/projects/villa-donusumu");
+  await expect(page.getByText("Uygulama büyük ölçüde tamamlandı, peyzaj sürüyor")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Süreci LinkedIn'de izleyin/ })).toHaveAttribute("href", /activity:7510727589314015232/);
+});
+
 test("business card opens as a dialog and closes", async ({ page }) => {
   await page.goto("/tr/about");
   await (await businessCardButton(page)).click();

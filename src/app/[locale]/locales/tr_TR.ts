@@ -22,6 +22,7 @@ export const studio_tr = {
     "line2": "önce düşünmekle",
     "line3": "başlar.",
     "place": "İncek · Gölbaşı / Ankara",
+    "country": "Türkiye",
     "featured": "Öne çıkan",
     "featuredProject": "Villa Dönüşümü — önce / sonra",
     "scroll": "Kaydır",
@@ -126,6 +127,8 @@ export const studio_tr = {
   "project": {
     "back": "Tüm projeler",
     "category": "Tür",
+    "status": "Durum",
+    "post": "Süreci LinkedIn'de izleyin",
     "scope": "Kapsam",
     "studio": "Tasarım",
     "film": "Film",

@@ -261,8 +261,22 @@ export function siteGraph(locale: Locale): JsonLdNode {
           { "@type": "Country", name: "Türkiye" },
         ],
         founder: [
-          { "@type": "Person", name: "Hacer Uyar", jobTitle: locale === "en" ? "Master Architect" : "Yüksek Mimar" },
-          { "@type": "Person", name: "Rıdvan Uyar", jobTitle: locale === "en" ? "Civil Engineer" : "İnşaat Mühendisi" },
+          {
+            "@type": "Person",
+            "@id": `${SITE_URL}/#hacer-uyar`,
+            name: "Hacer Uyar",
+            jobTitle: locale === "en" ? "Master Architect" : "Yüksek Mimar",
+            url: absoluteUrl(localePath(locale, PAGE_PATH.about)),
+            sameAs: [studioInfo.founderLinkedIn.hacer],
+          },
+          {
+            "@type": "Person",
+            "@id": `${SITE_URL}/#ridvan-uyar`,
+            name: "Rıdvan Uyar",
+            jobTitle: locale === "en" ? "Civil Engineer" : "İnşaat Mühendisi",
+            url: absoluteUrl(localePath(locale, PAGE_PATH.about)),
+            sameAs: [studioInfo.founderLinkedIn.ridvan],
+          },
         ],
         knowsAbout: SERVICES[locale],
         hasOfferCatalog: {

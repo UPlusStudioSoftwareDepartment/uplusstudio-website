@@ -11,6 +11,10 @@ export const studioInfo = {
   yandexMapsUrl: "https://yandex.com.tr/maps/org/u_studio_mimarlik_muhendislik/39813977608/",
   armutUrl: "https://armut.com/hizmetveren/uplus-studio-ankara-golbasi-dis-klinigi-tasarimi_81440764",
   peyzajRehberUrl: "https://peyzajrehber.com.tr/firma/u-studio-mimarlik-tasarim-muhendislik-6578",
+  founderLinkedIn: {
+    hacer: "https://www.linkedin.com/in/hacer-uyar-architect/",
+    ridvan: "https://www.linkedin.com/in/r%C4%B1dvan-uyar-269abb149/",
+  },
   googleRating: "5.0",
   googleReviewCount: 11,
 } as const;
