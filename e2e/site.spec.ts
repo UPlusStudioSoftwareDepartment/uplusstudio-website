@@ -157,20 +157,17 @@ test("language switch keeps the visitor on the same page", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("lang", /^en/);
 });
 
-test("the top bar shows location, WhatsApp and Instagram with the menu, every studio icon without it", async ({ page, isMobile }) => {
+test("studio icons sit in the top bar only on screens without the menu", async ({ page, isMobile }) => {
   test.skip(isMobile, "phones are covered by the menu test");
   const whatsapp = page.getByRole("link", { name: "WhatsApp" }).filter({ visible: true });
   const menu = page.getByRole("button", { name: "Menü" });
-  const email = page.getByRole("link", { name: "E-posta", exact: true }).filter({ visible: true });
   await page.setViewportSize({ width: 1000, height: 800 });
   await page.goto("/tr/about");
   await expect(menu).toBeVisible();
-  await expect(whatsapp).toHaveCount(1);
-  await expect(email).toHaveCount(0);
+  await expect(whatsapp).toHaveCount(0);
   await page.setViewportSize({ width: 1280, height: 800 });
   await expect(menu).toBeHidden();
   await expect(whatsapp).toHaveCount(1);
-  await expect(email).toHaveCount(1);
 });
 
 test("project pages link to the service landing that lists them", async ({ page }) => {
@@ -301,21 +298,7 @@ test.describe("phones", () => {
 
   test("the menu carries the studio links instead of a second icon row", async ({ page }) => {
     await page.goto("/tr/about");
-    const bar = page.locator("nav").first();
-    const top = [
-      bar.getByRole("button", { name: "EN", exact: true }).filter({ visible: true }),
-      bar.getByRole("link", { name: "Google Maps" }).filter({ visible: true }),
-      bar.getByRole("link", { name: "WhatsApp" }).filter({ visible: true }),
-      bar.getByRole("link", { name: "Instagram" }).filter({ visible: true }),
-    ];
-    const xs = await Promise.all(top.map(async (link) => (await link.boundingBox())?.x ?? -1));
-    expect(xs.every((x, i) => x >= 0 && (i === 0 || x > xs[i - 1]))).toBe(true);
-    await expect(top[1]).toHaveAttribute("href", studioInfo.mapsUrl);
-    await expect(top[2]).toHaveAttribute("href", studioInfo.whatsappUrl);
-    await expect(top[3]).toHaveAttribute("href", studioInfo.instagramUrl);
-    for (const name of ["E-posta", "Ara", "Yandex Maps", "Armut"]) {
-      await expect(bar.getByRole("link", { name, exact: true }).filter({ visible: true })).toHaveCount(0);
-    }
+    await expect(page.getByRole("link", { name: "WhatsApp" }).filter({ visible: true })).toHaveCount(0);
     await page.getByRole("button", { name: "Menü" }).click();
     const menu = page.getByRole("dialog", { name: "Menü" });
     const links: [string, string][] = [
@@ -340,6 +323,22 @@ test.describe("phones", () => {
     await expect(card).toBeHidden();
     await expect(menu).toBeVisible();
     await expect(cardButton).toBeFocused();
+  });
+
+  test("home page ends the featured project row with directions, WhatsApp and Instagram", async ({ page }) => {
+    await page.goto("/tr");
+    const hero = page.locator("#home");
+    const row: [string, string][] = [
+      ["Yol tarifi", studioInfo.directionsUrl],
+      ["WhatsApp", studioInfo.whatsappUrl],
+      ["Instagram", studioInfo.instagramUrl],
+    ];
+    const icons = row.map(([name]) => hero.getByRole("link", { name, exact: true }));
+    for (const [i, [, href]] of row.entries()) await expect(icons[i]).toHaveAttribute("href", href);
+    const boxes = await Promise.all([hero.getByRole("link", { name: /önce \/ sonra/ }), ...icons].map((link) => link.boundingBox()));
+    expect(boxes.every((b, i) => b && (i === 0 || b.x >= (boxes[i - 1]?.x ?? 0) + (boxes[i - 1]?.width ?? 0) - 1))).toBe(true);
+    const middle = (i: number) => (boxes[i]?.y ?? 0) + (boxes[i]?.height ?? 0) / 2;
+    expect([1, 2, 3].every((i) => Math.abs(middle(i) - middle(0)) <= 2)).toBe(true);
   });
 
   test("business card share options scroll into view above the action bar", async ({ page }) => {

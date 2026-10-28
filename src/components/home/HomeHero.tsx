@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { preload } from "react-dom";
 import BookingCta from "@/components/studio/BookingCta";
+import SocialLinks from "@/components/studio/SocialLinks";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
@@ -159,16 +160,23 @@ export default function HomeHero() {
             <span className="text-bone/60">{t("hero.country")}</span>
           </p>
 
-          <Link href={`/${locale}/projects/villa-donusumu`} className="group md:col-span-6 lg:col-span-4">
+          <div className="md:col-span-6 lg:col-span-4">
             <span className="eyebrow block text-bone/55">{t("hero.featured")}</span>
-            <span className="mt-2 flex items-center gap-3 text-[15px]">
-              {t("hero.featuredProject")}
-              <span className="transition-transform duration-500 group-hover:translate-x-1" aria-hidden>→</span>
-            </span>
+            <div className="mt-2 flex items-center justify-between gap-2">
+              <Link href={`/${locale}/projects/villa-donusumu`} className="group whitespace-nowrap text-[15px] max-[359px]:text-[13px]">
+                {t("hero.featuredProject")}
+                <span className="ml-2 inline-block transition-transform duration-500 group-hover:translate-x-1" aria-hidden>→</span>
+              </Link>
+              <SocialLinks
+                only={["directions", "whatsapp", "instagram"]}
+                tooltip="above"
+                className="-my-1 -mr-1.5 lg:hidden [&_a]:h-7 [&_a]:w-7 [&_svg]:h-4 [&_svg]:w-4 max-[359px]:-mr-1 max-[359px]:[&_a]:h-6 max-[359px]:[&_a]:w-6 max-[359px]:[&_svg]:h-3.5 max-[359px]:[&_svg]:w-3.5"
+              />
+            </div>
             <span className="mt-3 block h-px w-full bg-bone/20">
               <span ref={progressRef} className="block h-full origin-left bg-bone" style={{ transform: "scaleX(0)" }} />
             </span>
-          </Link>
+          </div>
 
           <ul className="hidden md:col-span-6 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-2 lg:col-span-5">
             {featured.map((p) => (
