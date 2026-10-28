@@ -46,12 +46,12 @@ export default function PageHeader({ index, label, titleLines, intro, image, met
           <span className="hidden sm:inline">U+ Studio — Ankara</span>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
-          <h1 className={`display text-[clamp(3rem,9.5vw,9.5rem)] lg:col-span-8 [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal ${titleClassName}`}>
+        <div className="mt-8 flex flex-col gap-8">
+          <h1 className={`display text-[clamp(3rem,9.5vw,9.5rem)] [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal ${titleClassName}`}>
             <LineReveal lines={titleLines} immediate delay={0.25} />
           </h1>
           {intro && (
-            <div className="max-w-md animate-[rise_1s_var(--ease-out-studio)_backwards] text-[17px] leading-relaxed text-bone/75 [--rise:20px] motion-reduce:animate-none lg:col-span-4 lg:pb-3">
+            <div className="max-w-md animate-[rise_1s_var(--ease-out-studio)_backwards] text-[17px] leading-relaxed text-bone/75 [--rise:20px] motion-reduce:animate-none lg:max-w-xl">
               {intro}
             </div>
           )}
