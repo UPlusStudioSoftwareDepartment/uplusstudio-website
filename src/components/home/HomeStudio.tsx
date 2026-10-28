@@ -49,7 +49,7 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
           </Link>
         </section>
 
-        <section className="border-t border-line py-20 sm:py-28">
+        <section className="border-t border-line py-20 [contain-intrinsic-size:auto_2400px] [content-visibility:auto] sm:py-28">
           <Eyebrow>{t("work.label")}</Eyebrow>
           <h2 className="display -ml-[0.075em] mt-5 text-[clamp(2.5rem,9vw,5.5rem)]">{t("work.title")}</h2>
           <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-mute">{t("work.intro")}</p>

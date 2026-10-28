@@ -68,7 +68,6 @@ export default function HomeHero() {
     const video = videoRef.current;
     if (!video || reduce) return;
     const start = () => {
-      if (musicRef.current) musicRef.current.src = VIDEO.music;
       video.src = videoSource();
       video.play().catch(() => {});
     };
@@ -90,9 +89,11 @@ export default function HomeHero() {
     let raf = 0;
     const tick = () => {
       const video = videoRef.current;
+      const music = musicRef.current;
       if (video?.duration && progressRef.current) {
         progressRef.current.style.transform = `scaleX(${video.currentTime / video.duration})`;
       }
+      if (video && music && !music.paused && Math.abs(music.currentTime - video.currentTime) > MUSIC_DRIFT_S) music.currentTime = video.currentTime;
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -136,7 +137,7 @@ export default function HomeHero() {
             musicRef.current?.pause();
           }}
         />
-        <audio ref={musicRef} preload="auto" onPlay={() => setMusicOn(true)} onPause={() => setMusicOn(false)} />
+        <audio ref={musicRef} preload="none" onPlay={() => setMusicOn(true)} onPause={() => setMusicOn(false)} />
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-linear-to-b from-night/60 to-transparent" aria-hidden />
