@@ -245,7 +245,7 @@ export default function AboutContent() {
             ),
           },
         ]}
-        image={{ src: "/images/persons/founders/hacer_uyar/hacer-uyar-ofis.jpg", alt: t("header.imageAlt") }}
+        image={{ src: "/images/persons/founders/hacer_uyar/hacer-uyar-u-plus-studio-ofis.jpg", alt: t("header.imageAlt") }}
       />
 
       <section className={`${CONTAINER} py-28 sm:py-40`} aria-labelledby="about-people">
