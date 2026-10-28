@@ -5,12 +5,13 @@ import BookingCta from "@/components/studio/BookingCta";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { studioInfo } from "@/lib/studio-info";
+import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import GoogleRating from "./GoogleRating";
 
 export default function SiteFooter() {
   const t = useTranslations("studio");
-  const locale = useLocale();
+  const locale = useLocale() === "en" ? "en" : "tr";
   const { openAppointment } = useAppointment();
   const pathname = usePathname();
   const prefix = `/${locale}`;
@@ -61,6 +62,17 @@ export default function SiteFooter() {
               {pages.map((p) => (
                 <li key={p.href}>
                   <Link href={p.href} className="text-bone/80 hover:text-bone">{p.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="eyebrow text-bone/60">{t("nav.services")}</p>
+            <ul className="mt-6 space-y-2 text-[15px]">
+              {SERVICE_LANDINGS.map((s) => (
+                <li key={s.slug}>
+                  <Link href={`${prefix}/services/${s.slug}`} className="text-bone/80 hover:text-bone">{s.copy[locale].crumb}</Link>
                 </li>
               ))}
             </ul>

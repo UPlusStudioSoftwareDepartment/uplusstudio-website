@@ -274,4 +274,16 @@ test.describe("desktop", () => {
     await page.getByRole("button", { name: /Randevu Al/ }).filter({ visible: true }).first().click();
     await expect(page.getByRole("dialog", { name: "Randevu Al" })).toBeVisible();
   });
+
+  test("footer links to every service page", async ({ page, request }) => {
+    for (const locale of LOCALES) {
+      await page.goto(`/${locale}/about`);
+      const footer = page.getByRole("contentinfo");
+      for (const { slug, copy } of SERVICE_LANDINGS) {
+        const href = `/${locale}/services/${slug}`;
+        await expect(footer.getByRole("link", { name: copy[locale].crumb, exact: true })).toHaveAttribute("href", href);
+        expect((await request.get(href)).status(), href).toBe(200);
+      }
+    }
+  });
 });
