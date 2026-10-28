@@ -155,28 +155,24 @@ export default function HomeHero() {
         </div>
 
         <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start [@media(max-height:560px)]:hidden">
-          <p className="eyebrow flex flex-col gap-1 md:col-span-12 lg:col-span-3">
-            <span className="text-bone">{t("hero.place")}</span>
-            <span className="text-bone/60">{t("hero.country")}</span>
-          </p>
+          <div className="flex items-start justify-between gap-4 md:col-span-12 lg:col-span-3">
+            <p className="eyebrow flex flex-col gap-1">
+              <span className="text-bone">{t("hero.place")}</span>
+              <span className="text-bone/60">{t("hero.country")}</span>
+            </p>
+            <SocialLinks only={["directions", "whatsapp", "instagram"]} tooltip="above" className="-mr-1.5 -mt-[5px] lg:hidden [&_a]:h-7 [&_a]:w-7 [&_svg]:h-4 [&_svg]:w-4" />
+          </div>
 
-          <div className="md:col-span-6 lg:col-span-4">
+          <Link href={`/${locale}/projects/villa-donusumu`} className="group md:col-span-6 lg:col-span-4">
             <span className="eyebrow block text-bone/55">{t("hero.featured")}</span>
-            <div className="mt-2 flex items-center justify-between gap-2">
-              <Link href={`/${locale}/projects/villa-donusumu`} className="group whitespace-nowrap text-[15px] max-[359px]:text-[13px]">
-                {t("hero.featuredProject")}
-                <span className="ml-2 inline-block transition-transform duration-500 group-hover:translate-x-1" aria-hidden>→</span>
-              </Link>
-              <SocialLinks
-                only={["directions", "whatsapp", "instagram"]}
-                tooltip="above"
-                className="-my-1 -mr-1.5 lg:hidden [&_a]:h-7 [&_a]:w-7 [&_svg]:h-4 [&_svg]:w-4 max-[359px]:-mr-1 max-[359px]:[&_a]:h-6 max-[359px]:[&_a]:w-6 max-[359px]:[&_svg]:h-3.5 max-[359px]:[&_svg]:w-3.5"
-              />
-            </div>
+            <span className="mt-2 flex items-center gap-3 text-[15px]">
+              {t("hero.featuredProject")}
+              <span className="transition-transform duration-500 group-hover:translate-x-1" aria-hidden>→</span>
+            </span>
             <span className="mt-3 block h-px w-full bg-bone/20">
               <span ref={progressRef} className="block h-full origin-left bg-bone" style={{ transform: "scaleX(0)" }} />
             </span>
-          </div>
+          </Link>
 
           <ul className="hidden md:col-span-6 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-2 lg:col-span-5">
             {featured.map((p) => (

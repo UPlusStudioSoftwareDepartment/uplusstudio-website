@@ -325,7 +325,7 @@ test.describe("phones", () => {
     await expect(cardButton).toBeFocused();
   });
 
-  test("home page ends the featured project row with directions, WhatsApp and Instagram", async ({ page }) => {
+  test("home page puts directions, WhatsApp and Instagram at the right end of the location line", async ({ page }) => {
     await page.goto("/tr");
     const hero = page.locator("#home");
     const row: [string, string][] = [
@@ -335,7 +335,7 @@ test.describe("phones", () => {
     ];
     const icons = row.map(([name]) => hero.getByRole("link", { name, exact: true }));
     for (const [i, [, href]] of row.entries()) await expect(icons[i]).toHaveAttribute("href", href);
-    const boxes = await Promise.all([hero.getByRole("link", { name: /önce \/ sonra/ }), ...icons].map((link) => link.boundingBox()));
+    const boxes = await Promise.all([hero.locator("p").filter({ hasText: "Türkiye" }).locator("span").first(), ...icons].map((link) => link.boundingBox()));
     expect(boxes.every((b, i) => b && (i === 0 || b.x >= (boxes[i - 1]?.x ?? 0) + (boxes[i - 1]?.width ?? 0) - 1))).toBe(true);
     const middle = (i: number) => (boxes[i]?.y ?? 0) + (boxes[i]?.height ?? 0) / 2;
     expect([1, 2, 3].every((i) => Math.abs(middle(i) - middle(0)) <= 2)).toBe(true);
