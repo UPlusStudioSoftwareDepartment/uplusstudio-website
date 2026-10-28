@@ -21,7 +21,6 @@ export const studio_tr = {
     "line1": "Mimarlık,",
     "line2": "önce düşünmekle",
     "line3": "başlar.",
-    "location": "Ankara, Türkiye",
     "place": "İncek · Gölbaşı / Ankara",
     "featured": "Öne çıkan",
     "featuredProject": "Villa Dönüşümü — önce / sonra",

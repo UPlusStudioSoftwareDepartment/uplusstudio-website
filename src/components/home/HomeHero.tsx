@@ -155,10 +155,7 @@ export default function HomeHero() {
         </div>
 
         <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start [@media(max-height:560px)]:hidden">
-          <p className="eyebrow flex flex-wrap gap-x-4 gap-y-1 text-bone/60 md:col-span-12 lg:col-span-3 lg:flex-col">
-            <span className="text-bone">{t("hero.place")}</span>
-            <span>{t("hero.location")}</span>
-          </p>
+          <p className="eyebrow text-bone md:col-span-12 lg:col-span-3">{t("hero.place")}</p>
 
           <Link href={`/${locale}/projects/villa-donusumu`} className="group md:col-span-6 lg:col-span-4">
             <span className="eyebrow block text-bone/55">{t("hero.featured")}</span>

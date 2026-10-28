@@ -21,7 +21,6 @@ export const studio_en = {
     "line1": "Architecture",
     "line2": "begins with",
     "line3": "thinking.",
-    "location": "Ankara, Türkiye",
     "place": "İncek · Gölbaşı / Ankara",
     "featured": "Featured",
     "featuredProject": "Villa Transformation — before / after",
