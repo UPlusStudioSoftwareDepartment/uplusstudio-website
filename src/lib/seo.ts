@@ -45,7 +45,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
     home: {
       title: "U+ Studio | Mimarlık, İç Mimarlık, Mühendislik · Ankara",
       description:
-        "İncek, Gölbaşı / Ankara'da mimarlık & iç mimarlık & mühendislik ofisi. Villa, konut, ofis ve kafe projeleri, tadilat, 3D görselleştirme, anahtar teslim.",
+        "İncek, Gölbaşı / Ankara'da mimarlık & iç mimarlık & mühendislik ofisi; Türkiye geneline hizmet. Villa, konut, ofis, kafe, tadilat, 3D ve anahtar teslim.",
       crumb: "Ana Sayfa",
     },
     about: {
@@ -57,7 +57,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
     services: {
       title: "Mimarlık, İç Mimarlık ve Mühendislik Hizmetleri",
       description:
-        "Ankara Gölbaşı İncek'te mimarlık & iç mimarlık & mühendislik: mimari proje, tadilat ve dönüşüm, 3D görselleştirme, proje yönetimi, anahtar teslim uygulama.",
+        "Ankara İncek merkezli, Türkiye geneline mimarlık & iç mimarlık & mühendislik: mimari proje, tadilat ve dönüşüm, 3D, proje yönetimi, anahtar teslim uygulama.",
       crumb: "Hizmetler",
     },
     projects: {
@@ -94,7 +94,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
     home: {
       title: "U+ Studio | Architecture, Interiors & Engineering, Ankara",
       description:
-        "Architecture & interior architecture & engineering studio in İncek, Gölbaşı / Ankara. Villas, homes, offices, cafés — renovation, 3D and turnkey delivery.",
+        "Architecture & interior architecture & engineering studio in İncek, Ankara, working across Türkiye: villas, homes, offices, cafés, renovation, 3D, turnkey.",
       crumb: "Home",
     },
     about: {
@@ -106,7 +106,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
     services: {
       title: "Architecture, Interiors & Engineering Services",
       description:
-        "Architecture & interior architecture & engineering from İncek, Gölbaşı / Ankara: design, renovation, 3D visualisation, project management, turnkey delivery.",
+        "Architecture & interior architecture & engineering from İncek, Ankara, across Türkiye: design, renovation, 3D visualisation, project management, turnkey.",
       crumb: "Services",
     },
     projects: {
@@ -270,7 +270,7 @@ export function siteGraph(locale: Locale): JsonLdNode {
           name: locale === "en" ? "Services" : "Hizmetler",
           itemListElement: SERVICES[locale].map((name) => ({
             "@type": "Offer",
-            itemOffered: { "@type": "Service", name, areaServed: "Ankara" },
+            itemOffered: { "@type": "Service", name, areaServed: ["Ankara", "Türkiye"] },
           })),
         },
         sameAs: [
@@ -341,6 +341,7 @@ export function servicesLd(locale: Locale): JsonLdNode {
           { "@type": "City", name: "Ankara" },
           { "@type": "AdministrativeArea", name: "Gölbaşı" },
           { "@type": "Place", name: "İncek" },
+          { "@type": "Country", name: "Türkiye" },
         ],
       },
     })),

@@ -89,13 +89,12 @@ export default function HomeHero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-linear-to-t from-night/90 via-night/45 to-transparent" aria-hidden />
 
       <div className="relative z-10 mx-auto flex h-full max-w-[2560px] flex-col px-4 pb-6 pt-[8.75rem] [justify-content:safe_flex-end] sm:px-8 sm:pb-10 sm:pt-32 lg:px-12 [@media(max-height:560px)]:pb-3 [@media(max-height:560px)]:pt-28">
-        <p className="eyebrow mb-5 animate-[rise_0.9s_var(--ease-out-studio)_backwards] text-bone/75 [--rise:12px] motion-reduce:animate-none sm:mb-8 [@media(max-height:560px)]:mb-2">
-          {t("hero.eyebrow")}
-        </p>
-
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:items-end [@media(max-height:560px)]:justify-between [@media(max-height:560px)]:gap-4">
           <h1 className="display min-w-0 text-[clamp(1.9rem,min(8vw,10dvh),9rem)]">
             <span className="sr-only">U+ Studio — </span>
+            <span className="eyebrow mb-5 block animate-[rise_0.9s_var(--ease-out-studio)_backwards] font-normal leading-normal text-bone/75 [--rise:12px] motion-reduce:animate-none sm:mb-8 [@media(max-height:560px)]:mb-2">
+              {t("hero.eyebrow")}
+            </span>
             <LineReveal
               immediate
               delay={0.35}

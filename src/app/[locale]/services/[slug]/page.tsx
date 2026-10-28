@@ -46,6 +46,7 @@ export default async function Page({ params }: Params) {
       { "@type": "City", name: "Ankara" },
       { "@type": "AdministrativeArea", name: "Gölbaşı" },
       { "@type": "Place", name: "İncek" },
+      { "@type": "Country", name: "Türkiye" },
     ],
     availableChannel: {
       "@type": "ServiceChannel",

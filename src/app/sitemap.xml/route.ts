@@ -15,6 +15,11 @@ const PATHS = [
   PAGE_PATH.glossary,
 ];
 
+const IMAGES: Record<string, string[]> = Object.fromEntries([
+  ...projects.map((p) => [`/projects/${p.slug}`, [...new Set([p.cover.src, ...p.gallery.map((g) => g.src)])]]),
+  ...SERVICE_LANDINGS.map((s) => [`/services/${s.slug}`, [s.image]]),
+]);
+
 const PRIORITY: Record<string, string> = { "": "1.0", "/services": "0.9", "/projects": "0.9", "/contact": "0.9", "/about": "0.8" };
 
 const xmlEscape = (s: string) => s.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
@@ -22,20 +27,20 @@ const xmlEscape = (s: string) => s.replaceAll("&", "&amp;").replaceAll("<", "&lt
 export async function GET() {
   const urls = PATHS.flatMap((path) =>
     locales.map((locale) => {
-      const alternates = [
+      return [
+        "  <url>",
+        `    <loc>${xmlEscape(SITE_URL + localePath(locale, path))}</loc>`,
         ...locales.map((l) => `    <xhtml:link rel="alternate" hreflang="${l}" href="${xmlEscape(SITE_URL + localePath(l, path))}"/>`),
         `    <xhtml:link rel="alternate" hreflang="x-default" href="${xmlEscape(SITE_URL + localePath("tr", path))}"/>`,
+        ...(IMAGES[path] ?? []).map((src) => `    <image:image><image:loc>${xmlEscape(SITE_URL + src)}</image:loc></image:image>`),
+        `    <priority>${PRIORITY[path] ?? (path.startsWith("/projects/") ? "0.7" : "0.6")}</priority>`,
+        "  </url>",
       ].join("\n");
-      return `  <url>
-    <loc>${xmlEscape(SITE_URL + localePath(locale, path))}</loc>
-${alternates}
-    <priority>${PRIORITY[path] ?? (path.startsWith("/projects/") ? "0.7" : "0.6")}</priority>
-  </url>`;
     })
   );
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls.join("\n")}
 </urlset>`;
 

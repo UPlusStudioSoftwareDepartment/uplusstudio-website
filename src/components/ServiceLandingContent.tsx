@@ -17,8 +17,8 @@ const CONTAINER = "mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12";
 const HEADING = "display text-ink [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal";
 
 const LABELS = {
-  tr: { projects: "İlgili projeler", process: "Nasıl çalışıyoruz", allServices: "Tüm hizmetler", cta: "Projenizi konuşalım", ctaText: "İlk görüşmede ihtiyacınızı dinler, kapsamı ve sonraki adımları birlikte belirleriz." },
-  en: { projects: "Related projects", process: "How we work", allServices: "All services", cta: "Let's talk about your project", ctaText: "At the first meeting we listen to your brief and agree the scope and next steps together." },
+  tr: { area: "Hizmet bölgesi", areaText: "İncek'teki ofisimizden başta Ankara (İncek, Gölbaşı, Çankaya) olmak üzere Türkiye genelindeki projelere hizmet veriyoruz.", projects: "İlgili projeler", process: "Nasıl çalışıyoruz", allServices: "Tüm hizmetler", cta: "Projenizi konuşalım", ctaText: "İlk görüşmede ihtiyacınızı dinler, kapsamı ve sonraki adımları birlikte belirleriz." },
+  en: { area: "Service area", areaText: "From our office in İncek we work on projects across Türkiye, first of all in Ankara (İncek, Gölbaşı, Çankaya).", projects: "Related projects", process: "How we work", allServices: "All services", cta: "Let's talk about your project", ctaText: "At the first meeting we listen to your brief and agree the scope and next steps together." },
 };
 
 export default function ServiceLandingContent({ slug, locale }: Readonly<{ slug: string; locale: Locale }>) {
@@ -75,6 +75,12 @@ export default function ServiceLandingContent({ slug, locale }: Readonly<{ slug:
             <Eyebrow>{c.whyTitle}</Eyebrow>
           </div>
           <p className="max-w-3xl text-[clamp(1.25rem,2.4vw,1.75rem)] leading-snug text-ink lg:col-span-8">{c.why}</p>
+        </div>
+        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Eyebrow>{l.area}</Eyebrow>
+          </div>
+          <p className="max-w-3xl text-[17px] leading-relaxed text-ink lg:col-span-8">{l.areaText}</p>
         </div>
       </section>
 
