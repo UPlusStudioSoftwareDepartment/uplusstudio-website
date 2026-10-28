@@ -133,6 +133,12 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
                 </Fullscreenable>
               </div>
             </FadeUp>
+            <Link
+              href={`/${locale}/projects/${slug}/video`}
+              className="mx-auto mt-8 flex w-fit items-center gap-3 font-mono text-[12px] uppercase tracking-[0.12em] text-bone/75 underline decoration-bone/30 underline-offset-4 transition-colors hover:text-bone"
+            >
+              {t("project.watch")} <span aria-hidden>→</span>
+            </Link>
           </div>
         </section>
       )}

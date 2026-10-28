@@ -5,7 +5,7 @@ export const services_tr = {
         "label": "Hizmetler",
         "title": ["Tasarımdan", "*uygulamaya*,", "tek elden."],
         "intro": "Mimari tasarım, iç mimarlık, danışmanlık ve proje yönetimi — Ankara’daki stüdyomuzdan, ilk eskizden anahtar teslime kadar tek bir ekip.",
-        "imageAlt": "Modern villa projesinin alacakaranlıkta dış cephesi",
+        "imageAlt": "Villa iç mekân projesinden adalı açık mutfak",
         "meta": {
             "disciplines": "Disiplin",
             "packages": "Paket",

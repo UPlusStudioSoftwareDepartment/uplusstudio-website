@@ -132,6 +132,7 @@ export const studio_en = {
     "scope": "Scope",
     "studio": "Design",
     "film": "Film",
+    "watch": "Watch the video on its own page",
     "gallery": "Gallery",
     "next": "Next project",
     "similar": "Planning a similar project?",

@@ -132,6 +132,7 @@ export const studio_tr = {
     "scope": "Kapsam",
     "studio": "Tasarım",
     "film": "Film",
+    "watch": "Videoyu ayrı sayfada izle",
     "gallery": "Galeri",
     "next": "Sonraki proje",
     "similar": "Benzer bir proje mi planlıyorsunuz?",

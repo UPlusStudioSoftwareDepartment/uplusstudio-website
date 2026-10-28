@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const landing = getServiceLanding(slug);
   if (!landing) return {};
   const c = landing.copy[locale];
-  return buildMetadata({ locale, path: `/services/${slug}`, title: c.title, description: c.description });
+  return buildMetadata({ locale, path: `/services/${slug}`, title: c.title, description: c.description, image: { url: landing.image, alt: c.imageAlt ?? c.title } });
 }
 
 export default async function Page({ params }: Params) {
@@ -40,6 +40,7 @@ export default async function Page({ params }: Params) {
     name: c.title,
     description: c.description,
     url,
+    image: absoluteUrl(landing.image),
     serviceType: c.label,
     provider: { "@id": ORG_ID },
     areaServed: [

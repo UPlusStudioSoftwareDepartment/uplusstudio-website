@@ -165,6 +165,23 @@ test("the sitemap lists only indexable canonical pages and leaves the FAQ out", 
   }
 });
 
+test("every project video has its own watch page, linked from the project and listed in the sitemap", async ({ page, request }) => {
+  const withVideo = projects.filter((p) => p.video);
+  expect(withVideo.length).toBeGreaterThan(0);
+  const xml = await (await request.get("/sitemap.xml")).text();
+  for (const project of withVideo) {
+    const watch = `/tr/projects/${project.slug}/video`;
+    await page.goto(`/tr/projects/${project.slug}`);
+    await expect(page.getByRole("link", { name: /Videoyu ayrı sayfada izle/ })).toHaveAttribute("href", watch);
+    await page.goto(watch);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(project.title.tr);
+    await expect(page.locator("video")).toHaveAttribute("src", project.video?.src ?? "");
+    await expect(page.locator("video")).toHaveAttribute("controls", "");
+    expect((await page.locator('script[type="application/ld+json"]').allTextContents()).some((ld) => ld.includes('"VideoObject"'))).toBe(true);
+    expect(xml).toContain(`${watch}</loc>`);
+  }
+});
+
 test("unknown pages answer 404 with a way home", async ({ page }) => {
   const res = await page.goto("/tr/bu-sayfa-yok");
   expect(res?.status()).toBe(404);

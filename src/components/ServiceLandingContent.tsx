@@ -43,7 +43,7 @@ export default function ServiceLandingContent({ slug, locale }: Readonly<{ slug:
         label={c.label}
         titleLines={c.heading.map((line) => withEm(line))}
         intro={<p>{c.intro}</p>}
-        image={{ src: landing.image, alt: c.title }}
+        image={{ src: landing.image, alt: c.imageAlt ?? c.title }}
       />
 
       <section className={`${CONTAINER} grid grid-cols-1 gap-12 pt-20 sm:pt-28 lg:grid-cols-12 lg:gap-10`}>

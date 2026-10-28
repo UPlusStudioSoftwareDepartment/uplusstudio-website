@@ -11,6 +11,7 @@ const PATHS = [
   ...SERVICE_LANDINGS.map((s) => `/services/${s.slug}`),
   PAGE_PATH.projects,
   ...projects.map((p) => `/projects/${p.slug}`),
+  ...projects.filter((p) => p.video).map((p) => `/projects/${p.slug}/video`),
   PAGE_PATH.contact,
   PAGE_PATH.glossary,
 ];
@@ -23,7 +24,7 @@ const IMAGES: Record<string, string[]> = Object.fromEntries([
 const homeVideo = getProject("villa-donusumu");
 
 const VIDEOS: Record<string, Project> = Object.fromEntries([
-  ...projects.filter((p) => p.video).map((p) => [`/projects/${p.slug}`, p]),
+  ...projects.filter((p) => p.video).flatMap((p) => [[`/projects/${p.slug}`, p], [`/projects/${p.slug}/video`, p]]),
   ...(homeVideo ? [[PAGE_PATH.home, homeVideo]] : []),
 ]);
 

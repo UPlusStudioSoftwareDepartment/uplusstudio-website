@@ -5,7 +5,7 @@ export const services_en = {
         "label": "Services",
         "title": ["From design", "to *build*,", "in one hand."],
         "intro": "Architecture, interior architecture, consulting and project management — one team in our Ankara studio, from the first sketch to turnkey delivery.",
-        "imageAlt": "Exterior of the modern villa project at dusk",
+        "imageAlt": "Open kitchen with island from the villa interior project",
         "meta": {
             "disciplines": "Disciplines",
             "packages": "Packages",

@@ -43,7 +43,7 @@ export const PAGE_PATH: Record<PageKey, string> = {
 export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; description: string; crumb: string }>> = {
   tr: {
     home: {
-      title: "U+ Studio | Mimarlık, Tasarım ve Mühendislik · İncek, Gölbaşı, Ankara",
+      title: "U+ Studio | Ankara Mimarlık, Tasarım ve Mühendislik · İncek, Gölbaşı",
       description:
         "İncek, Gölbaşı / Ankara'da mimarlık & iç mimarlık & mühendislik ofisi; Türkiye geneline hizmet. Villa, konut, ofis, kafe, tadilat, 3D ve anahtar teslim.",
       crumb: "Ana Sayfa",
@@ -92,7 +92,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
   },
   en: {
     home: {
-      title: "U+ Studio | Architecture, Design & Engineering · İncek, Ankara",
+      title: "U+ Studio | Ankara Architecture, Design & Engineering · İncek",
       description:
         "Architecture & interior architecture & engineering studio in İncek, Ankara, working across Türkiye: villas, homes, offices, cafés, renovation, 3D, turnkey.",
       crumb: "Home",
@@ -201,8 +201,30 @@ export function buildMetadata({
   };
 }
 
+const PAGE_IMAGE: Partial<Record<PageKey, { url: string; width: number; height: number; alt: Record<Locale, string> }>> = {
+  about: {
+    url: "/images/persons/founders/hacer_uyar/hacer-uyar-u-plus-studio-ofis.jpg",
+    width: 1264,
+    height: 842,
+    alt: { tr: "Yüksek Mimar Hacer Uyar, U+ Studio ofisinde", en: "Master Architect Hacer Uyar in the U+ Studio office" },
+  },
+  services: {
+    url: "/media/projects/villa-ic-mekan/kitchen-island.jpg",
+    width: 1536,
+    height: 1024,
+    alt: { tr: "Villa iç mekân projesinden adalı açık mutfak", en: "Open kitchen with island from the villa interior project" },
+  },
+  projects: {
+    url: "/media/projects/villa-donusumu/after.jpg",
+    width: 1280,
+    height: 716,
+    alt: { tr: "Villa dönüşümü projesinde yenilenmiş cephe", en: "Renovated façade of the villa transformation project" },
+  },
+};
+
 export function pageMetadata(locale: Locale, page: PageKey): Metadata {
   const copy = SEO_COPY[locale][page];
+  const image = PAGE_IMAGE[page];
   return buildMetadata({
     locale,
     path: PAGE_PATH[page],
@@ -210,6 +232,7 @@ export function pageMetadata(locale: Locale, page: PageKey): Metadata {
     description: copy.description,
     absoluteTitle: page === "home",
     noindex: page === "purchase",
+    image: image && { ...image, alt: image.alt[locale] },
   });
 }
 
