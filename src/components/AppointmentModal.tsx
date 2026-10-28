@@ -6,7 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import AdvancedCalendar from "./AdvancedCalendar";
 import { useToast } from "@/contexts/ToastContext";
 import { useScrollLock } from "@/hooks/useScrollLock";
@@ -389,7 +389,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
+        <m.div
           key="appointment-overlay"
           className="fixed inset-0 z-[70] flex justify-end"
           initial={{ opacity: 0 }}
@@ -403,7 +403,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
             onClick={handleClose}
           />
 
-          <motion.div
+          <m.div
             role="dialog"
             aria-modal="true"
             aria-labelledby="appointment-modal-title"
@@ -430,18 +430,18 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
               </div>
 
               <div className="relative">
-                <motion.p
+                <m.p
                   className="font-serif text-5xl xl:text-6xl leading-[0.95] max-w-md"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: EASE, delay: 0.45 }}
                 >
                   {ts("cta.title")}
-                </motion.p>
+                </m.p>
                 <p className="mt-6 max-w-sm text-sm leading-relaxed text-bone/70">{t("subtitle")}</p>
               </div>
 
-              <motion.div
+              <m.div
                 className="relative border border-bone/20 bg-night/50 backdrop-blur-md"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -474,7 +474,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                     {locale === "tr" ? "Kartı indir" : "Download pass"}
                   </button>
                 </div>
-              </motion.div>
+              </m.div>
             </aside>
 
             <div className="flex min-w-0 flex-1 flex-col">
@@ -507,7 +507,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
               >
                 <AnimatePresence>
                   {submitStatus === 'success' && (
-                    <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mb-10 flex flex-col items-center gap-5 rounded-[6px] border border-line bg-paper-2 px-6 py-8 text-center text-ink">
+                    <m.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mb-10 flex flex-col items-center gap-5 rounded-[6px] border border-line bg-paper-2 px-6 py-8 text-center text-ink">
                       <MascotDuo pose="cheer" size="sm" />
                       <p className="max-w-md text-[16px] leading-relaxed text-ink/90">
                         {delivered ? t("successSent") : mailLinks.length ? t("successMobile") : !gmailOpened ? t("successRetry") : t("success")}
@@ -560,12 +560,12 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                           </button>
                         </div>
                       )}
-                    </motion.div>
+                    </m.div>
                   )}
                   {submitStatus === 'error' && submitErrorMessage && (
-                    <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mb-10 border border-clay px-6 py-5 text-clay">
+                    <m.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="mb-10 border border-clay px-6 py-5 text-clay">
                       {submitErrorMessage}
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
@@ -688,7 +688,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
               <footer className="flex shrink-0 flex-col-reverse gap-3 border-t border-line px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-12">
                 <div className="hidden sm:flex items-center gap-4">
                   <div className="h-px w-32 bg-line overflow-hidden">
-                    <motion.div className="h-full bg-ink" animate={{ width: `${(completed / 7) * 100}%` }} transition={{ duration: 0.5, ease: EASE }} />
+                    <m.div className="h-full bg-ink" animate={{ width: `${(completed / 7) * 100}%` }} transition={{ duration: 0.5, ease: EASE }} />
                   </div>
                   <span className="font-mono text-[12px] text-mute">{String(completed).padStart(2, "0")} / 07</span>
                 </div>
@@ -720,8 +720,8 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
                 </div>
               </footer>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

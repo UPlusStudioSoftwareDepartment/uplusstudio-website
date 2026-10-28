@@ -6,7 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import LanguageSelector from "./LanguageSelector";
 import SocialLinks from "./studio/SocialLinks";
 import { DesignerMascot, BuilderMascot } from "@/components/mascots/Mascots";
@@ -98,7 +98,7 @@ export default function Navigation() {
 
   return (
     <>
-      <motion.nav
+      <m.nav
         className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,padding] duration-500 ${
           isScrolled ? "bg-paper/85 backdrop-blur-md border-b border-line py-3" : "bg-transparent border-b border-transparent py-5 sm:py-6"
         }`}
@@ -156,11 +156,11 @@ export default function Navigation() {
             </button>
           </div>
         </div>
-      </motion.nav>
+      </m.nav>
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
+          <m.div
             key="menu"
             ref={menuRef}
             className="fixed inset-0 z-[60] h-[100dvh] overflow-hidden bg-night text-bone lg:hidden"
@@ -172,7 +172,7 @@ export default function Navigation() {
             aria-modal="true"
             aria-label={t("menu")}
           >
-            <motion.div
+            <m.div
               className="absolute inset-0"
               initial={{ scale: 1.15 }}
               animate={{ scale: 1 }}
@@ -180,7 +180,7 @@ export default function Navigation() {
               aria-hidden
             >
               <Image src="/media/projects/villa-donusumu/after.jpg" alt="" fill sizes="100vw" className="object-cover opacity-25" />
-            </motion.div>
+            </m.div>
             <div className="absolute inset-0 bg-linear-to-b from-night via-night/85 to-night" aria-hidden />
 
             <div className="relative flex h-full flex-col px-4 sm:px-8">
@@ -212,7 +212,7 @@ export default function Navigation() {
                     const active = isActive(item.href);
                     return (
                       <li key={item.href} className="overflow-hidden border-b border-bone/10 first:border-t [@media(max-height:520px)]:[&:nth-child(2)]:border-t">
-                        <motion.div
+                        <m.div
                           initial={{ y: "110%" }}
                           animate={{ y: "0%" }}
                           exit={{ y: "110%", transition: { duration: 0.3 } }}
@@ -238,14 +238,14 @@ export default function Navigation() {
                               {active ? "●" : "→"}
                             </span>
                           </Link>
-                        </motion.div>
+                        </m.div>
                       </li>
                     );
                   })}
                 </ul>
               </nav>
 
-              <motion.div
+              <m.div
                 className="border-t border-bone/10 pb-[max(clamp(0.5rem,2dvh,1.25rem),env(safe-area-inset-bottom))] pt-[clamp(0.5rem,2dvh,1.25rem)]"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -268,9 +268,9 @@ export default function Navigation() {
                   arrow={<span aria-hidden>→</span>}
                   className="mt-[clamp(0.5rem,2dvh,1.25rem)] flex min-h-[clamp(2.75rem,7dvh,3.5rem)] w-full items-center justify-between border border-bone bg-transparent px-5 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:bg-night hover:text-bone active:bg-night active:text-bone"
                 />
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

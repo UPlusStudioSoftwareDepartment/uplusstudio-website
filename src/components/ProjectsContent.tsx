@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
+import { AnimatePresence, m, useMotionValue, useSpring } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import PageHeader from "@/components/studio/PageHeader";
 import { MaskReveal, EASE_STUDIO, EASE_OUT } from "@/components/studio/Reveal";
@@ -27,7 +27,7 @@ function GridCard({ project }: Readonly<{ project: Project }>) {
   const t = useTranslations("studio.work");
 
   return (
-    <motion.li
+    <m.li
       layout
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ function GridCard({ project }: Readonly<{ project: Project }>) {
           <span className="eyebrow hidden shrink-0 text-mute sm:block">{t(`categories.${project.category}`)}</span>
         </div>
       </Link>
-    </motion.li>
+    </m.li>
   );
 }
 
@@ -84,7 +84,7 @@ function ListView({ items }: Readonly<{ items: Project[] }>) {
       <ul>
         <AnimatePresence mode="popLayout">
           {items.map((project) => (
-            <motion.li
+            <m.li
               key={project.slug}
               layout
               initial={{ opacity: 0 }}
@@ -110,19 +110,19 @@ function ListView({ items }: Readonly<{ items: Project[] }>) {
                   {project.scope.map((s) => s[locale]).join(" · ")}
                 </span>
               </Link>
-            </motion.li>
+            </m.li>
           ))}
         </AnimatePresence>
       </ul>
 
-      <motion.div
+      <m.div
         className="pointer-events-none fixed left-0 top-0 z-40 hidden [@media(hover:hover)]:block"
         style={{ x: springX, y: springY }}
         aria-hidden
       >
         <AnimatePresence>
           {hovered && (
-            <motion.div
+            <m.div
               key="preview"
               className="relative h-[260px] w-[360px] -translate-y-1/2 translate-x-8 overflow-hidden"
               initial={{ clipPath: "inset(50% 50% 50% 50%)" }}
@@ -140,10 +140,10 @@ function ListView({ items }: Readonly<{ items: Project[] }>) {
                   className={`object-cover transition-opacity duration-500 ${hovered === p.slug ? "opacity-100" : "opacity-0"}`}
                 />
               ))}
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
-      </motion.div>
+      </m.div>
     </div>
   );
 }
@@ -188,7 +188,7 @@ export default function ProjectsContent() {
                   {f === "all" ? t("all") : t(`categories.${f}`)}
                   <sup className="ml-1 font-mono text-[11px]">{countFor(f)}</sup>
                   {active && (
-                    <motion.span layoutId="filter-underline" className="absolute inset-x-3 bottom-0 h-px bg-ink sm:inset-x-4" transition={{ duration: 0.5, ease: EASE_STUDIO }} />
+                    <m.span layoutId="filter-underline" className="absolute inset-x-3 bottom-0 h-px bg-ink sm:inset-x-4" transition={{ duration: 0.5, ease: EASE_STUDIO }} />
                   )}
                 </button>
               );

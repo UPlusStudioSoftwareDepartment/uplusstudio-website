@@ -6,7 +6,7 @@ import BookingCta from "@/components/studio/BookingCta";
 import SocialLinks from "@/components/studio/SocialLinks";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { LineReveal } from "@/components/studio/Reveal";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { DesignerMascot, BuilderMascot, HIGH_FIVE } from "@/components/mascots/Mascots";
@@ -104,29 +104,29 @@ export default function HomeHero() {
           </h1>
 
           <div className="inline-flex w-fit shrink-0 flex-col items-stretch self-start lg:mb-5 lg:self-end">
-            <motion.p
+            <m.p
               className="w-0 min-w-full animate-[rise_0.9s_var(--ease-out-studio)_backwards] text-center font-serif text-[15px] italic leading-snug text-bone/90 [--rise:12px] motion-reduce:animate-none [@media(max-height:600px)]:hidden"
               animate={celebrating ? { y: JUMP.y } : { y: 0 }}
               transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
             >
               {t("mascots.hero")}
-            </motion.p>
+            </m.p>
             <div className="relative z-10 -mb-[3px] mt-1 flex w-[4.75rem] animate-[rise_0.9s_var(--ease-out-studio)_1s_backwards] justify-between self-center [--rise:12px] motion-reduce:animate-none sm:mx-auto sm:w-28" aria-hidden onMouseEnter={() => setMascotsHovered(true)} onMouseLeave={() => setMascotsHovered(false)}>
-              <motion.div
+              <m.div
                 style={{ originY: 1 }}
                 animate={celebrating ? { ...JUMP, x: [0, 0, 0, 0, 0, 0, 0, 0, 0], rotate: [0, -3, 17, 19, 19, 17, 0, 0, 0] } : { y: 0, x: 0, scaleX: 1, scaleY: 1, rotate: 0 }}
                 transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
               >
                 <DesignerMascot pose={celebrating ? "highfive" : "wave"} joy={mascotsHovered} className="-mr-1.5 h-11 w-11 sm:-mr-2 sm:h-16 sm:w-16" />
-              </motion.div>
-              <motion.div
+              </m.div>
+              <m.div
                 style={{ originY: 1 }}
                 animate={celebrating ? { ...JUMP, x: [0, 0, 0, 0, 0, 0, 0, 0, 0], rotate: [0, 3, -17, -19, -19, -17, 0, 0, 0] } : { y: 0, x: 0, scaleX: 1, scaleY: 1, rotate: 0 }}
                 transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
               >
                 <BuilderMascot pose={celebrating ? "highfive" : "idle"} joy={mascotsHovered} className="-ml-1.5 h-11 w-11 sm:-ml-2 sm:h-16 sm:w-16" />
-              </motion.div>
-              <motion.svg
+              </m.div>
+              <m.svg
                 viewBox="-20 -20 40 40"
                 className="pointer-events-none absolute left-1/2 top-0 h-8 w-8 -translate-x-1/2 overflow-visible sm:h-12 sm:w-12"
                 initial={{ opacity: 0, scale: 0.2, y: -8 }}
@@ -143,7 +143,7 @@ export default function HomeHero() {
                 ))}
                 <circle r="6" fill="none" stroke="#ede9e1" strokeWidth="1.5" />
                 <path d="M0 -4 L1.2 -1.2 L4 0 L1.2 1.2 L0 4 L-1.2 1.2 L-4 0 L-1.2 -1.2 Z" fill="#fff6d6" />
-              </motion.svg>
+              </m.svg>
             </div>
             <BookingCta
               onBook={openAppointment}

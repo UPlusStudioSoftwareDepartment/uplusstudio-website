@@ -4,7 +4,7 @@ import { useId, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import PageHeader from "@/components/studio/PageHeader";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal, EASE_STUDIO } from "@/components/studio/Reveal";
 import { useAppointment } from "@/contexts/AppointmentContext";
@@ -111,7 +111,7 @@ function QuestionList({ rows, openKey, setOpenKey, uid, showCategory = false, ge
                         </h3>
                         <AnimatePresence initial={false}>
                             {open && (
-                                <motion.div
+                                <m.div
                                     id={panelId}
                                     role="region"
                                     aria-labelledby={buttonId}
@@ -124,7 +124,7 @@ function QuestionList({ rows, openKey, setOpenKey, uid, showCategory = false, ge
                                     <p className="max-w-[65ch] pb-6 pl-[calc(2rem+0.75rem)] text-[16px] leading-relaxed text-mute sm:pl-[calc(3rem+0.75rem)] sm:text-[17px]">
                                         {item.a}
                                     </p>
-                                </motion.div>
+                                </m.div>
                             )}
                         </AnimatePresence>
                     </li>
@@ -300,7 +300,7 @@ export default function FAQContent() {
                                     </h2>
                                     <AnimatePresence initial={false}>
                                         {open && (
-                                            <motion.div
+                                            <m.div
                                                 id={panelId}
                                                 role="region"
                                                 aria-labelledby={buttonId}
@@ -313,7 +313,7 @@ export default function FAQContent() {
                                                 <div className="mb-8 border border-line bg-paper-2/60 px-4 sm:ml-14 sm:px-8">
                                                     <QuestionList rows={items} openKey={openKey} setOpenKey={setOpenKey} uid={uid} getLabel={getLabel} />
                                                 </div>
-                                            </motion.div>
+                                            </m.div>
                                         )}
                                     </AnimatePresence>
                                 </li>

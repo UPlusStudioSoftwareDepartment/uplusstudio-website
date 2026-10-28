@@ -8,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { m, AnimatePresence, useReducedMotion } from "framer-motion";
 
 export type ToastType = "success" | "error" | "info";
 
@@ -143,7 +143,7 @@ function ToastItem({
   const reduce = useReducedMotion();
   const lang = typeof document !== "undefined" && document.documentElement.lang.startsWith("en") ? "en" : "tr";
   return (
-    <motion.div
+    <m.div
       layout={!reduce}
       role={item.type === "error" ? "alert" : "status"}
       initial={reduce ? { opacity: 0 } : { opacity: 0, y: 16 }}
@@ -168,6 +168,6 @@ function ToastItem({
         <span className="absolute left-1/2 top-1/2 h-px w-3.5 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-current" aria-hidden />
         <span className="absolute left-1/2 top-1/2 h-px w-3.5 -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-current" aria-hidden />
       </button>
-    </motion.div>
+    </m.div>
   );
 }

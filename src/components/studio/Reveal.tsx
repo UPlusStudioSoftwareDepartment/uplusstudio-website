@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { m, useInView, useReducedMotion } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 
 export const EASE_STUDIO = [0.76, 0, 0.24, 1] as const;
@@ -23,21 +23,21 @@ export function MaskReveal({ children, className = "", delay = 0, from = "bottom
 
   return (
     <div ref={ref} className={className}>
-      <motion.div
+      <m.div
         className="relative h-full w-full overflow-hidden"
         initial={{ clipPath: hidden }}
         animate={inView ? { clipPath: "inset(0% 0% 0% 0%)" } : undefined}
         transition={{ duration: 1.2, ease: EASE_STUDIO, delay }}
       >
-        <motion.div
+        <m.div
           className="relative h-full w-full"
           initial={{ scale: 1.12 }}
           animate={inView ? { scale: 1 } : undefined}
           transition={{ duration: 1.6, ease: EASE_OUT, delay }}
         >
           {children}
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </div>
   );
 }
@@ -67,14 +67,14 @@ export function LineReveal({ lines, className = "", lineClassName = "", delay = 
               {line}
             </span>
           ) : (
-            <motion.span
+            <m.span
               className={`block ${lineClassName}`}
               initial={reduce ? false : { y: "105%" }}
               animate={inView ? { y: "0%" } : undefined}
               transition={{ duration: 1, ease: EASE_STUDIO, delay: delay + i * 0.09 }}
             >
               {line}
-            </motion.span>
+            </m.span>
           )}
         </span>
       ))}
@@ -91,7 +91,7 @@ interface FadeUpProps {
 export function FadeUp({ children, className = "", delay = 0 }: Readonly<FadeUpProps>) {
   const reduce = useReducedMotion();
   return (
-    <motion.div
+    <m.div
       className={className}
       initial={reduce ? false : { opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +99,7 @@ export function FadeUp({ children, className = "", delay = 0 }: Readonly<FadeUpP
       transition={{ duration: 0.9, ease: EASE_OUT, delay }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Pass } from "@/components/AppointmentPass";
 import { calendarUrl, whatsappNumber } from "@/lib/appointmentLinks";
 import { CARD_FILE, canShareFiles, imageAsJpeg } from "@/lib/cardImage";
@@ -76,7 +76,7 @@ export default function AppointmentCardView({
 
   return (
     <section className="mx-auto grid max-w-[1100px] grid-cols-1 items-center gap-14 px-4 pb-28 pt-32 text-ink sm:px-8 sm:pt-40 lg:grid-cols-12 lg:gap-10">
-      <motion.div className="min-w-0 lg:col-span-6" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
+      <m.div className="min-w-0 lg:col-span-6" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE }}>
         <p className="eyebrow text-clay">Yeni randevu talebi · UP-{reference}</p>
         <h1 className="mt-6 font-sans text-[clamp(2.25rem,5vw,3.75rem)] font-light leading-[1.05] tracking-[-0.03em]">
           {appointment.name} <span className="font-serif italic text-mute">yüz yüze görüşmek istiyor.</span>
@@ -110,8 +110,8 @@ export default function AppointmentCardView({
             </a>
           ))}
         </div>
-      </motion.div>
-      <motion.div className="min-w-0 lg:col-span-5 lg:col-start-8" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}>
+      </m.div>
+      <m.div className="min-w-0 lg:col-span-5 lg:col-start-8" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}>
         <Pass appointment={appointment} reference={reference} status={via === "mail" ? "E-postayla geldi" : "WhatsApp'tan geldi"} />
         <div className="mx-auto mt-4 grid w-full max-w-[440px] grid-cols-2 gap-2">
           <a href={`${image}&download=1`} download className={CARD_BUTTON}>
@@ -123,7 +123,7 @@ export default function AppointmentCardView({
             Kartı paylaş
           </button>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

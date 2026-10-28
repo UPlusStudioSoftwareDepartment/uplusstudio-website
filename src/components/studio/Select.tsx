@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 interface SelectProps {
   id: string;
@@ -108,7 +108,7 @@ export default function Select({ id, value, options, placeholder, invalid, descr
       </button>
       <AnimatePresence>
         {open && (
-          <motion.ul
+          <m.ul
             ref={listRef}
             id={listId}
             role="listbox"
@@ -146,7 +146,7 @@ export default function Select({ id, value, options, placeholder, invalid, descr
                 </li>
               );
             })}
-          </motion.ul>
+          </m.ul>
         )}
       </AnimatePresence>
     </div>

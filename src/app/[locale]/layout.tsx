@@ -7,7 +7,7 @@ import { isInMaintenance } from "@/lib/app-config";
 import { siteGraph } from "@/lib/seo";
 import { fontVariables } from "@/app/fonts";
 import JsonLd from "@/components/seo/JsonLd";
-import MaintenancePage from "@/components/MaintenancePage";
+import MotionProvider from "@/components/MotionProvider";
 import SetPageScrollBackground from "@/components/SetPageScrollBackground";
 import Navigation from "@/components/NavigationOptimized";
 import { SkipToContent } from "@/components/SkipToContent";
@@ -46,22 +46,26 @@ export default async function LocaleLayout({
         <JsonLd data={siteGraph(locale)} />
       </head>
       <body className="font-sans antialiased bg-paper text-ink">
-        {isInMaintenance ? (
-          <MaintenancePage />
-        ) : (
+        <MotionProvider>
           <NextIntlClientProvider locale={locale} messages={sharedMessages(messages)} timeZone="Europe/Istanbul">
             <ToastProvider>
               <AppointmentProvider>
-                <SetPageScrollBackground />
-                <SkipToContent />
-                <ArchitecturalBackdrop />
-                <Navigation />
-                <main id="main-content" tabIndex={-1} className="relative outline-none">{children}</main>
-                <SiteFooter />
+                {isInMaintenance ? (
+                  children
+                ) : (
+                  <>
+                    <SetPageScrollBackground />
+                    <SkipToContent />
+                    <ArchitecturalBackdrop />
+                    <Navigation />
+                    <main id="main-content" tabIndex={-1} className="relative outline-none">{children}</main>
+                    <SiteFooter />
+                  </>
+                )}
               </AppointmentProvider>
             </ToastProvider>
           </NextIntlClientProvider>
-        )}
+        </MotionProvider>
       </body>
     </html>
   );

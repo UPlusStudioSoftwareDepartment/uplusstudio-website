@@ -1,6 +1,6 @@
 
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 const EASE_STUDIO = [0.76, 0, 0.24, 1] as const;
@@ -129,7 +129,7 @@ export default function ServicesModal({ isOpen, onClose }: Readonly<ServicesModa
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
+        <m.div
           key="services-sheet"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -138,7 +138,7 @@ export default function ServicesModal({ isOpen, onClose }: Readonly<ServicesModa
           className="fixed inset-0 z-50 flex justify-end bg-night/60"
           onClick={onClose}
         >
-          <motion.div
+          <m.div
             role="dialog"
             aria-modal="true"
             aria-labelledby="services-sheet-title"
@@ -175,7 +175,7 @@ export default function ServicesModal({ isOpen, onClose }: Readonly<ServicesModa
 
               <ol className="mt-10 border-t border-line">
                 {SERVICES.map((service, i) => (
-                  <motion.li
+                  <m.li
                     key={service.title}
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -191,7 +191,7 @@ export default function ServicesModal({ isOpen, onClose }: Readonly<ServicesModa
                       </h3>
                       <p className="mt-1.5 text-[14px] leading-relaxed text-mute">{service.desc}</p>
                     </div>
-                  </motion.li>
+                  </m.li>
                 ))}
               </ol>
             </div>
@@ -200,8 +200,8 @@ export default function ServicesModal({ isOpen, onClose }: Readonly<ServicesModa
               <p className="font-serif text-xl italic text-ink">“Her detay bilinçli. Her mekân güçlü.”</p>
               <p className="mt-2 text-[13px] text-mute">İhtiyaçlarınıza özel çözümler için bizimle iletişime geçin.</p>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

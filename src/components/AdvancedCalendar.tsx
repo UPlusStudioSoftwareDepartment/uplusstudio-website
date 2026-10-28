@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocale } from "next-intl";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 interface AdvancedCalendarProps {
   selectedDate: string;
@@ -101,7 +101,7 @@ export default function AdvancedCalendar({ selectedDate, onDateSelect }: Readonl
               } ${selected ? "text-paper" : ""}`}
             >
               {selected && (
-                <motion.span layoutId="calendar-selected" className="absolute inset-0 bg-ink" transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }} />
+                <m.span layoutId="calendar-selected" className="absolute inset-0 bg-ink" transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }} />
               )}
               <span className="relative z-10 font-mono text-[13px]">{day}</span>
             </button>

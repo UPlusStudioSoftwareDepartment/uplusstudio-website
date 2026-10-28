@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, useReducedMotion, type Transition } from "framer-motion";
+import { m, useReducedMotion, type Transition } from "framer-motion";
 
 
 export const HIGH_FIVE = {
@@ -69,20 +69,20 @@ function hammerTap(reduce: boolean | null, offset: number) {
 
 export function DesignerMascot({ pose = "idle", joy = false, className = "", offset = 0 }: Readonly<MascotProps>) {
   const reduce = useReducedMotion();
-  const m = useMotionProps(reduce);
+  const moves = useMotionProps(reduce);
   const joyful = joy || pose === "highfive";
   const cheerJump = pose === "cheer" && !reduce ? { animate: { y: [0, -8, 0] }, transition: loop(0.9, offset) } : {};
 
   return (
     <svg viewBox="0 0 140 150" className={className} aria-hidden>
       <ellipse cx="70" cy="142" rx="34" ry="5" fill="#000" opacity="0.18" />
-      <motion.g {...cheerJump}>
-        <motion.g style={{ transformBox: "view-box", originX: "100px", originY: "120px" }} {...m.sway(offset, 9)}>
+      <m.g {...cheerJump}>
+        <m.g style={{ transformBox: "view-box", originX: "100px", originY: "120px" }} {...moves.sway(offset, 9)}>
           <path d="M98 122 C 126 120, 132 96, 120 84 C 114 78, 108 84, 112 90" stroke="#f3dfc1" strokeWidth="10" strokeLinecap="round" fill="none" />
           <path d="M113 89 C 110 86, 112 82, 116 82" stroke="#e7a978" strokeWidth="10" strokeLinecap="round" fill="none" />
-        </motion.g>
+        </m.g>
 
-        <motion.g style={{ transformBox: "view-box", originX: "70px", originY: "140px" }} {...m.breathe(offset)}>
+        <m.g style={{ transformBox: "view-box", originX: "70px", originY: "140px" }} {...moves.breathe(offset)}>
           <ellipse cx="70" cy="113" rx="39" ry="30" fill="#f3dfc1" />
           <ellipse cx="70" cy="119" rx="25" ry="18" fill="#fbefdc" />
           <g>
@@ -102,10 +102,10 @@ export function DesignerMascot({ pose = "idle", joy = false, className = "", off
           </g>
           <ellipse cx="44" cy="112" rx="8" ry="7" fill="#f3dfc1" />
 
-          <motion.g style={{ transformBox: "view-box", originX: "96px", originY: "106px" }} {...armMotion(pose, reduce, offset)}>
+          <m.g style={{ transformBox: "view-box", originX: "96px", originY: "106px" }} {...armMotion(pose, reduce, offset)}>
             <ellipse cx="103" cy="112" rx="8" ry="10" fill="#f3dfc1" />
             <ellipse cx="104" cy="118" rx="4" ry="2.5" fill="#f4b6b8" opacity="0.7" />
-          </motion.g>
+          </m.g>
 
 
           <g>
@@ -124,22 +124,22 @@ export function DesignerMascot({ pose = "idle", joy = false, className = "", off
             </g>
             <path d="M44 44 Q 50 32 62 33 Q 57 41 58 49 Q 50 47 44 44 Z" fill="#e7a978" opacity="0.85" />
             <ellipse cx="70" cy="76" rx="12" ry="8.5" fill="#fbefdc" />
-            <motion.g {...(joyful ? { animate: { opacity: 0 }, transition: { duration: 0.12 } } : m.smileOpen(offset + 0.3))}>
+            <m.g {...(joyful ? { animate: { opacity: 0 }, transition: { duration: 0.12 } } : moves.smileOpen(offset + 0.3))}>
               <ellipse cx="54" cy="62" rx="5.6" ry="6.6" fill="#3a2a22" />
               <circle cx="52.2" cy="59.5" r="2" fill="#fff" />
               <circle cx="55.2" cy="64" r="0.9" fill="#fff" opacity="0.8" />
               <ellipse cx="86" cy="62" rx="5.6" ry="6.6" fill="#3a2a22" />
               <circle cx="84.2" cy="59.5" r="2" fill="#fff" />
               <circle cx="87.2" cy="64" r="0.9" fill="#fff" opacity="0.8" />
-            </motion.g>
-            <motion.g {...(joyful ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.12 } } : m.smileHappy(offset + 0.3))}>
+            </m.g>
+            <m.g {...(joyful ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.12 } } : moves.smileHappy(offset + 0.3))}>
               <path d="M49 64 Q 54 57 59 64" stroke="#3a2a22" strokeWidth="2.6" fill="none" strokeLinecap="round" />
               <path d="M81 64 Q 86 57 91 64" stroke="#3a2a22" strokeWidth="2.6" fill="none" strokeLinecap="round" />
-            </motion.g>
-            <motion.g {...(joyful ? { animate: { opacity: 1 }, transition: { duration: 0.2 } } : m.blush(offset + 0.3))} opacity={0.7}>
+            </m.g>
+            <m.g {...(joyful ? { animate: { opacity: 1 }, transition: { duration: 0.2 } } : moves.blush(offset + 0.3))} opacity={0.7}>
               <ellipse cx="44" cy="73" rx="8.5" ry="5.5" fill="#f4a9ae" />
               <ellipse cx="96" cy="73" rx="8.5" ry="5.5" fill="#f4a9ae" />
-            </motion.g>
+            </m.g>
             <path d="M67.5 71 h5 l-2.5 2.8 Z" fill="#e58f9b" />
             <path d="M64.5 75.5 q2.75 3 5.5 0 q2.75 3 5.5 0" stroke="#5a3f33" strokeWidth="1.6" fill="none" strokeLinecap="round" />
             <path d="M28 70 l12 1.5 M29 77 l11 -1 M112 70 l-12 1.5 M111 77 l-11 -1" stroke="#d9c4a6" strokeWidth="1.3" strokeLinecap="round" />
@@ -150,8 +150,8 @@ export function DesignerMascot({ pose = "idle", joy = false, className = "", off
               </g>
             )}
           </g>
-        </motion.g>
-      </motion.g>
+        </m.g>
+      </m.g>
       {pose === "think" && <ThinkBubble x={112} y={16} offset={offset} reduce={reduce} />}
     </svg>
   );
@@ -160,19 +160,19 @@ export function DesignerMascot({ pose = "idle", joy = false, className = "", off
 
 export function BuilderMascot({ pose = "idle", joy = false, className = "", offset = 0.4 }: Readonly<MascotProps>) {
   const reduce = useReducedMotion();
-  const m = useMotionProps(reduce);
+  const moves = useMotionProps(reduce);
   const joyful = joy || pose === "highfive";
   const cheerJump = pose === "cheer" && !reduce ? { animate: { y: [0, -8, 0] }, transition: loop(0.9, offset) } : {};
 
   return (
     <svg viewBox="0 0 140 150" className={className} aria-hidden>
       <ellipse cx="70" cy="142" rx="34" ry="5" fill="#000" opacity="0.18" />
-      <motion.g {...cheerJump}>
-        <motion.g style={{ transformBox: "view-box", originX: "40px", originY: "122px" }} {...m.sway(offset, 6)}>
+      <m.g {...cheerJump}>
+        <m.g style={{ transformBox: "view-box", originX: "40px", originY: "122px" }} {...moves.sway(offset, 6)}>
           <circle cx="38" cy="124" r="8" fill="#9c5a33" />
-        </motion.g>
+        </m.g>
 
-        <motion.g style={{ transformBox: "view-box", originX: "70px", originY: "140px" }} {...m.breathe(offset)}>
+        <m.g style={{ transformBox: "view-box", originX: "70px", originY: "140px" }} {...moves.breathe(offset)}>
           <ellipse cx="70" cy="112" rx="47" ry="33" fill="#b46a3e" />
           <ellipse cx="70" cy="117" rx="32" ry="23" fill="#f1d8bc" />
           <ellipse cx="62" cy="110" rx="12" ry="6" fill="#fbecd9" opacity="0.7" />
@@ -180,7 +180,7 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
           <ellipse cx="48" cy="140" rx="12" ry="6.5" fill="#7a4527" />
           <ellipse cx="92" cy="140" rx="12" ry="6.5" fill="#7a4527" />
 
-          <motion.g style={{ transformBox: "view-box", originX: "98px", originY: "114px" }} {...hammerTap(reduce, offset)}>
+          <m.g style={{ transformBox: "view-box", originX: "98px", originY: "114px" }} {...hammerTap(reduce, offset)}>
             <g transform="rotate(58 98 114)">
             <rect x="95.5" y="84" width="5" height="34" rx="2.2" fill="#c98b4f" />
             <path d="M96.5 90 v24" stroke="#a96f3b" strokeWidth="1" />
@@ -188,13 +188,13 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
             <rect x="86" y="78" width="6" height="10" rx="2" fill="#6f7983" />
             <rect x="106" y="79.5" width="5" height="7" rx="1.5" fill="#b5bec6" />
             </g>
-          </motion.g>
+          </m.g>
           <ellipse cx="97" cy="112" rx="8" ry="7" fill="#7a4527" />
 
-          <motion.g style={{ transformBox: "view-box", originX: "44px", originY: "106px" }} {...armMotion(pose, reduce, offset, -1)}>
+          <m.g style={{ transformBox: "view-box", originX: "44px", originY: "106px" }} {...armMotion(pose, reduce, offset, -1)}>
             <ellipse cx="37" cy="112" rx="8" ry="10" fill="#7a4527" transform="scale(-1 1) translate(-74 0)" />
             <ellipse cx="36" cy="118" rx="4" ry="2.5" fill="#c98b6a" opacity="0.8" />
-          </motion.g>
+          </m.g>
 
 
           <g>
@@ -209,22 +209,22 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
               <rect x="33" y="38" width="74" height="7" rx="3.5" fill="#e5b232" />
               <rect x="66" y="13" width="8" height="26" rx="3" fill="#ffd968" />
             </g>
-            <motion.g {...(joyful ? { animate: { opacity: 0 }, transition: { duration: 0.12 } } : m.smileOpen(offset + 0.9))}>
+            <m.g {...(joyful ? { animate: { opacity: 0 }, transition: { duration: 0.12 } } : moves.smileOpen(offset + 0.9))}>
               <ellipse cx="56" cy="62" rx="5.6" ry="6.6" fill="#2e211a" />
               <circle cx="54.2" cy="59.5" r="2" fill="#fff" />
               <circle cx="57.2" cy="64" r="0.9" fill="#fff" opacity="0.8" />
               <ellipse cx="84" cy="62" rx="5.6" ry="6.6" fill="#2e211a" />
               <circle cx="82.2" cy="59.5" r="2" fill="#fff" />
               <circle cx="85.2" cy="64" r="0.9" fill="#fff" opacity="0.8" />
-            </motion.g>
-            <motion.g {...(joyful ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.12 } } : m.smileHappy(offset + 0.9))}>
+            </m.g>
+            <m.g {...(joyful ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.12 } } : moves.smileHappy(offset + 0.9))}>
               <path d="M51 64 Q 56 57 61 64" stroke="#2e211a" strokeWidth="2.6" fill="none" strokeLinecap="round" />
               <path d="M79 64 Q 84 57 89 64" stroke="#2e211a" strokeWidth="2.6" fill="none" strokeLinecap="round" />
-            </motion.g>
-            <motion.g {...(joyful ? { animate: { opacity: 1 }, transition: { duration: 0.2 } } : m.blush(offset + 0.9))} opacity={0.6}>
+            </m.g>
+            <m.g {...(joyful ? { animate: { opacity: 1 }, transition: { duration: 0.2 } } : moves.blush(offset + 0.9))} opacity={0.6}>
               <ellipse cx="45" cy="74" rx="8.5" ry="5.5" fill="#f39a8a" />
               <ellipse cx="95" cy="74" rx="8.5" ry="5.5" fill="#f39a8a" />
-            </motion.g>
+            </m.g>
             <ellipse cx="70" cy="72" rx="4" ry="3" fill="#2e211a" />
             <path d="M65 77 q2.5 3 5 0 q2.5 3 5 0" stroke="#2e211a" strokeWidth="1.6" fill="none" strokeLinecap="round" />
             {joyful && (
@@ -234,8 +234,8 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
               </g>
             )}
           </g>
-        </motion.g>
-      </motion.g>
+        </m.g>
+      </m.g>
       {pose === "think" && <ThinkBubble x={18} y={16} offset={offset} reduce={reduce} />}
     </svg>
   );
@@ -243,7 +243,7 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
 
 function ThinkBubble({ x, y, offset, reduce }: Readonly<{ x: number; y: number; offset: number; reduce: boolean | null }>) {
   return (
-    <motion.g
+    <m.g
       {...(reduce ? {} : { animate: { y: [0, -3, 0], opacity: [0.85, 1, 0.85] }, transition: loop(2, offset) })}
     >
       <circle cx={x} cy={y} r="11" fill="#ede9e1" />
@@ -251,7 +251,7 @@ function ThinkBubble({ x, y, offset, reduce }: Readonly<{ x: number; y: number; 
         ?
       </text>
       <circle cx={x + (x > 70 ? -9 : 9)} cy={y + 16} r="3" fill="#ede9e1" />
-    </motion.g>
+    </m.g>
   );
 }
 
@@ -271,14 +271,14 @@ export function MascotDuo({ pose = "idle", message, className = "", size = "md" 
   return (
     <div className={`relative inline-flex flex-col items-center ${className}`}>
       {message && (
-        <motion.p
+        <m.p
           className="mb-3 max-w-[18rem] text-center font-serif text-[15px] italic leading-snug text-current opacity-90 sm:text-[17px]"
           initial={reduce ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 0.9, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
         >
           {message}
-        </motion.p>
+        </m.p>
       )}
       <div className="flex items-end -space-x-3 sm:-space-x-5" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
         <DesignerMascot pose={pose} joy={hovered} className={SIZES[size]} offset={0} />

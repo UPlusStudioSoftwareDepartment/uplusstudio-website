@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 import JumpingGame from '@/components/JumpingGame';
 import ProfessionalCard from './ProfessionalCard';
@@ -79,7 +79,7 @@ export default function MaintenancePage() {
     <div className="h-screen bg-black text-white overflow-y-auto overflow-x-hidden services-modal-scroll">
       <div className="min-h-full flex items-center justify-center p-4">
         <div className="w-full mx-auto text-center mt-8 md:mt-12 max-w-6xl">
-        <motion.div
+        <m.div
           initial={{ y: -20 }}
           animate={{
             y: [0, -30, 0], 
@@ -106,9 +106,9 @@ export default function MaintenancePage() {
           <div className="mt-3">
             <p className="text-gray-400 italic text-sm md:text-base font-light">Mimarlık & İç Mimarlık & Mühendislik</p>
           </div>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -116,26 +116,26 @@ export default function MaintenancePage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
             <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">YAKINDA</span>
           </h1>
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.8 }}
             className="flex justify-center mb-4"
           >
-          </motion.div>
+          </m.div>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-6 md:mb-8 leading-relaxed px-4">
             Sitemiz şu anda yenileniyor.
             <br className="hidden sm:block" />
             En kısa sürede daha iyi hizmetle yanınızda olacağız.
           </p>
-          <motion.button
+          <m.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowServices(true)}
             className="flex items-center gap-1 sm:gap-1.5 bg-white hover:bg-black hover:text-white text-black border border-black hover:border-gray-800 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md text-xs sm:text-sm mx-auto relative group"
             aria-label="Hizmetlerimizi görüntüle"
           >
-            <motion.svg 
+            <m.svg 
               className="w-4 h-4" 
               fill="none" 
               stroke="currentColor" 
@@ -152,10 +152,10 @@ export default function MaintenancePage() {
               }}
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-            </motion.svg>
+            </m.svg>
             <span className="text-xs sm:text-sm font-bold">
               {"Hizmetlerimiz".split("").map((char, idx) => (
-                <motion.span
+                <m.span
                   key={`hizmet-${idx}-${char}`}
                   className="inline-block"
                   initial={{ opacity: 0 }}
@@ -168,22 +168,22 @@ export default function MaintenancePage() {
                   }}
                 >
                   {char}
-                </motion.span>
+                </m.span>
               ))}
             </span>
-          </motion.button>
-        </motion.div>
+          </m.button>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.8 }}
           className="mb-2"
         >
           <JumpingGame />
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
@@ -209,16 +209,16 @@ export default function MaintenancePage() {
               </a>
             </div>
           </div>
-        </motion.div>
-        <motion.div
+        </m.div>
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
           className="mt-8"
         >
           <ProfessionalCard />
-        </motion.div>
-        <motion.div
+        </m.div>
+        <m.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ 
             opacity: 1, 
@@ -232,7 +232,7 @@ export default function MaintenancePage() {
           viewport={{ once: true }}
           className="pt-4 md:pt-8 mb-8 md:mb-12"
         >
-          <motion.h2 
+          <m.h2 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ 
               opacity: 1, 
@@ -248,7 +248,7 @@ export default function MaintenancePage() {
             className="text-xl md:text-2xl font-bold mb-8 text-center bg-linear-to-r from-white via-gray-200 to-white bg-clip-text text-transparent"
           >
             Kurucularımız
-          </motion.h2>
+          </m.h2>
           
           <div className="flex justify-center gap-6 md:gap-12 flex-wrap">
             <FounderCard
@@ -268,16 +268,16 @@ export default function MaintenancePage() {
               }}
             />
           </div>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
           className="mb-8 md:mb-12"
         >
           <CompanyLocation />
-        </motion.div>
+        </m.div>
       
         <ServicesModal isOpen={showServices} onClose={() => setShowServices(false)} />
 
@@ -287,7 +287,7 @@ export default function MaintenancePage() {
           founder={selectedFounder}
         />
 
-        <motion.footer
+        <m.footer
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 0.8 }}
@@ -301,7 +301,7 @@ export default function MaintenancePage() {
               Mimarlık & İç Mimarlık & Mühendislik Hizmetleri
             </p>
           </div>
-        </motion.footer>
+        </m.footer>
         </div>
       </div>
     </div>

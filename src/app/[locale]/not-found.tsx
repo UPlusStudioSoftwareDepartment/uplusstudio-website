@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import { EASE_OUT, EASE_STUDIO } from "@/components/studio/Reveal";
 import { MascotDuo } from "@/components/mascots/Mascots";
 
@@ -14,7 +14,7 @@ export default function LocaleNotFound() {
 
   return (
     <section className="relative mx-auto flex min-h-[100svh] max-w-[2560px] flex-col justify-center px-4 pb-20 pt-32 sm:px-8 lg:px-12">
-      <motion.p
+      <m.p
         className="eyebrow flex flex-wrap items-center gap-x-4 gap-y-2 text-mute"
         initial={reduce ? false : { opacity: 0, x: -12 }}
         animate={{ opacity: 1, x: 0 }}
@@ -23,21 +23,21 @@ export default function LocaleNotFound() {
         <span className="text-ink">Err</span>
         <span className="h-px w-10 bg-ink/40" aria-hidden />
         <span>{t("notFound")}</span>
-      </motion.p>
+      </m.p>
 
       <h1 className="display mt-8 overflow-hidden pb-[0.06em] text-[clamp(8rem,32vw,30rem)] leading-[0.82] text-ink">
-        <motion.span
+        <m.span
           className="block"
           initial={reduce ? false : { y: "105%" }}
           animate={{ y: "0%" }}
           transition={{ duration: 1.1, ease: EASE_STUDIO, delay: 0.1 }}
         >
           4<em className="font-serif font-normal italic tracking-normal">0</em>4
-        </motion.span>
+        </m.span>
         <span className="sr-only"> — {t("notFound")}</span>
       </h1>
 
-      <motion.div
+      <m.div
         className="mt-10 flex flex-col gap-6 border-t border-line pt-6 sm:flex-row sm:items-baseline sm:justify-between"
         initial={reduce ? false : { opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export default function LocaleNotFound() {
           <span className="transition-transform duration-300 group-hover:-translate-x-1" aria-hidden>←</span>
           {t("backHome")}
         </Link>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

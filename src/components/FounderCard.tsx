@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { EASE_OUT } from '@/components/studio/Reveal';
 
@@ -38,7 +38,7 @@ export default function FounderCard({
   const rule = isLight ? 'border-bone/15' : 'border-line';
 
   return (
-    <motion.div
+    <m.div
       className={className}
       initial={reduce ? false : { opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -82,6 +82,6 @@ export default function FounderCard({
           {founder.role ? <> &nbsp;/&nbsp; {founder.role}</> : null}
         </span>
       </button>
-    </motion.div>
+    </m.div>
   );
 }

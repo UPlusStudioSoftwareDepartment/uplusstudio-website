@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 const JUMP_DURATION_MS = 600;
@@ -324,7 +324,7 @@ export default function JumpingGame() {
               />
             ))}
             
-            <motion.div
+            <m.div
               className="absolute bottom-1 w-6 h-6 bg-white rounded-full"
               style={{ left: `${PLAYER_X_PERCENT}%` }}
               animate={{

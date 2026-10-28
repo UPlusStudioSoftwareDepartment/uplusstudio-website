@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Fragment, useRef, useState, type ReactNode } from "react";
-import { LazyMotion, domAnimation, motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import PageHeader from "@/components/studio/PageHeader";
 import FramedImage from "@/components/studio/FramedImage";
@@ -164,12 +164,12 @@ function ProcessTimeline({ steps }: Readonly<{ steps: ServicesCopy["process"]["s
   return (
     <ol ref={ref} className="relative mt-16 grid grid-cols-1 gap-y-12 sm:mt-24 lg:grid-cols-4 lg:gap-x-8">
       <span className="absolute left-[11px] top-3 bottom-3 w-px bg-line lg:inset-x-0 lg:top-[11px] lg:bottom-auto lg:h-px lg:w-auto" aria-hidden />
-      <motion.span
+      <m.span
         className="absolute left-[11px] top-3 bottom-3 w-px origin-top bg-clay lg:hidden"
         style={{ scaleY: fill }}
         aria-hidden
       />
-      <motion.span
+      <m.span
         className="absolute inset-x-0 top-[11px] hidden h-px origin-left bg-clay lg:block"
         style={{ scaleX: fill }}
         aria-hidden
@@ -205,7 +205,7 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
   const [showcase, setShowcase] = useState<Showcase | null>(null);
 
   return (
-    <LazyMotion features={domAnimation}>
+    <>
       <PageHeader
         index="03"
         label={page.label}
@@ -395,6 +395,6 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
           </div>
         </div>
       </section>
-    </LazyMotion>
+    </>
   );
 }

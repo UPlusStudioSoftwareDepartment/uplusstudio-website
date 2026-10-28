@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { type ComposedMail, mailPlatform, mailtoUrl, openGmail } from "@/lib/gmailCompose";
 import { FLEXIBLE_DATE, NO_DATE_HINT, TIME_SLOTS, TR_DAYS, TR_MONTHS, istanbulToday, parseAppointmentDate } from "@/lib/appointmentDate";
@@ -132,7 +132,7 @@ export default function AppointmentResponse({
 
       <AnimatePresence mode="wait">
         {state === "done" ? (
-          <motion.div
+          <m.div
             key="done"
             className="flex flex-col items-center py-24 text-center"
             initial={{ opacity: 0, y: 16 }}
@@ -156,9 +156,9 @@ export default function AppointmentResponse({
                 <span aria-hidden>→</span>
               </button>
             )}
-          </motion.div>
+          </m.div>
         ) : (
-          <motion.div
+          <m.div
             key="form"
             className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10"
             initial={{ opacity: 0, y: 16 }}
@@ -314,7 +314,7 @@ export default function AppointmentResponse({
                 {state === "error" && <p className="mt-4 text-[14px] text-clay" role="alert">{error}</p>}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </section>

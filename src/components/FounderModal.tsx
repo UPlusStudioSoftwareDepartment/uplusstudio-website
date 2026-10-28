@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { EASE_OUT, EASE_STUDIO } from '@/components/studio/Reveal';
@@ -59,7 +59,7 @@ export default function FounderModal({ founder, isOpen, onClose, closeLabel = 'K
   return (
     <AnimatePresence>
       {open && founder && (
-        <motion.div
+        <m.div
           key="founder-modal"
           className="fixed inset-0 z-[100] flex items-stretch justify-center bg-night/80 sm:items-center sm:p-6"
           initial={{ opacity: 0 }}
@@ -70,7 +70,7 @@ export default function FounderModal({ founder, isOpen, onClose, closeLabel = 'K
             if (e.target === e.currentTarget) onClose();
           }}
         >
-          <motion.div
+          <m.div
             role="dialog"
             aria-modal="true"
             aria-labelledby="founder-modal-name"
@@ -118,18 +118,18 @@ export default function FounderModal({ founder, isOpen, onClose, closeLabel = 'K
               </div>
 
               {founder.description && (
-                <motion.p
+                <m.p
                   className="max-w-prose border-t border-line pt-8 text-[17px] leading-relaxed text-ink/80"
                   initial={reduce ? false : { opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, ease: EASE_OUT, delay: 0.35 }}
                 >
                   {founder.description}
-                </motion.p>
+                </m.p>
               )}
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

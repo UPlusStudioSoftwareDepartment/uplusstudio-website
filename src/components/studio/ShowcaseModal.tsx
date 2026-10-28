@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import BeforeAfter from "@/components/studio/BeforeAfter";
 import { useScrollLock } from "@/hooks/useScrollLock";
 
@@ -45,7 +45,7 @@ export default function ShowcaseModal({ item, onClose, labels, onCta }: Readonly
   return createPortal(
     <AnimatePresence>
       {item && (
-        <motion.div
+        <m.div
           key="showcase"
           className="fixed inset-0 z-[90] flex items-center justify-center p-3 sm:p-6"
           initial={{ opacity: 0 }}
@@ -58,7 +58,7 @@ export default function ShowcaseModal({ item, onClose, labels, onCta }: Readonly
         >
           <button type="button" aria-label={labels.close} className="absolute inset-0 cursor-default bg-night/85 backdrop-blur-md" onClick={onClose} />
 
-          <motion.div
+          <m.div
             className="relative z-10 grid h-[min(92dvh,820px)] w-[min(96vw,1240px)] grid-rows-[minmax(0,1fr)_auto] overflow-hidden rounded-[6px] border border-bone/15 bg-[#0d0c0b] text-bone shadow-[0_40px_120px_rgba(0,0,0,0.7)] lg:grid-cols-[1.35fr_1fr] lg:grid-rows-1"
             initial={{ y: 40, opacity: 0, scale: 0.98 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
@@ -136,8 +136,8 @@ export default function ShowcaseModal({ item, onClose, labels, onCta }: Readonly
                 <path strokeWidth={1.25} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>,
     document.body

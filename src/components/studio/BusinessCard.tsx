@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { useLocale } from "next-intl";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
@@ -261,7 +261,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
   return createPortal(
     <AnimatePresence>
       {open && (
-        <motion.div
+        <m.div
           key="card"
           ref={overlayRef}
           className="fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto overscroll-contain px-3 pt-3 sm:items-center sm:overflow-hidden sm:p-6"
@@ -274,7 +274,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
         >
           <button type="button" tabIndex={-1} aria-label={c.close} className="fixed inset-0 cursor-default bg-night/80 backdrop-blur-md" onClick={onClose} />
 
-          <motion.div
+          <m.div
             className="relative z-10 flex flex-col"
             style={{ width: fit.w * fit.scale, visibility: fit.h ? "visible" : "hidden" }}
             initial={{ y: 30, opacity: 0, rotateX: 12 }}
@@ -302,7 +302,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
 
             <AnimatePresence initial={false}>
               {panelOpen && (
-                <motion.div
+                <m.div
                   key="share-panel"
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
@@ -344,12 +344,12 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
                       </li>
                     </ul>
                   </div>
-                </motion.div>
+                </m.div>
               )}
             </AnimatePresence>
             <AnimatePresence>
               {preview && (
-                <motion.div
+                <m.div
                   key="preview"
                   className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-3 bg-night/95 p-3"
                   initial={{ opacity: 0 }}
@@ -361,12 +361,12 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
                   <button type="button" onClick={closePreview} className="min-h-10 rounded-[3px] border border-bone/40 px-4 font-mono text-[11px] uppercase tracking-[0.12em] text-bone">
                     {c.close}
                   </button>
-                </motion.div>
+                </m.div>
               )}
             </AnimatePresence>
             <AnimatePresence>
               {note && (
-                <motion.p
+                <m.p
                   className="absolute inset-x-0 top-3 z-20 mx-auto w-fit max-w-[90%] rounded-[3px] border border-bone/25 bg-night px-3 py-2 text-center font-mono text-[11px] uppercase tracking-[0.12em] text-bone"
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -374,7 +374,7 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
                   role="status"
                 >
                   {note}
-                </motion.p>
+                </m.p>
               )}
             </AnimatePresence>
             </div>
@@ -395,8 +395,8 @@ export default function BusinessCard({ open, onClose }: Readonly<{ open: boolean
               </a>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>,
     document.body

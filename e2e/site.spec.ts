@@ -158,6 +158,7 @@ test("the sitemap lists only indexable canonical pages and leaves the FAQ out", 
     expect(html, loc).not.toMatch(/<meta name="robots" content="[^"]*noindex/);
   }
   for (const locale of ["tr", "en"]) {
+    expect((await request.get(`/${locale}/maintenance`, { maxRedirects: 0 })).status()).toBe(404);
     expect(locs.some((loc) => loc.endsWith(`/${locale}/faq`))).toBe(false);
     const res = await request.get(`/${locale}/faq`, { maxRedirects: 0 });
     expect(res.status()).toBe(308);

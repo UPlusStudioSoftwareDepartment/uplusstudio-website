@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import BusinessCard from "./BusinessCard";
+import dynamic from "next/dynamic";
 import { studioInfo } from "@/lib/studio-info";
 import { gmailComposeUrl } from "@/lib/gmailCompose";
+
+const BusinessCard = dynamic(() => import("./BusinessCard"));
 
 const ICON = "h-[18px] w-[18px]";
 
@@ -213,6 +215,7 @@ export default function SocialLinks({
   const locale = useLocale();
   const [isPhone, setIsPhone] = useState(false);
   const [cardOpen, setCardOpen] = useState(false);
+  const [cardLoaded, setCardLoaded] = useState(false);
   const visibleItems = only
     ? only.flatMap((key) => ITEMS.filter((item) => item.key === key))
     : ITEMS.filter((item) => !item.phoneOnly || isPhone);
@@ -255,7 +258,10 @@ export default function SocialLinks({
               {item.action === "card" ? (
                 <button
                   type="button"
-                  onClick={() => setCardOpen(true)}
+                  onClick={() => {
+                    setCardLoaded(true);
+                    setCardOpen(true);
+                  }}
                   aria-label={label}
                   className={buttonClass}
                 >
@@ -289,7 +295,7 @@ export default function SocialLinks({
           );
         })}
       </ul>
-      <BusinessCard open={cardOpen} onClose={() => setCardOpen(false)} />
+      {cardLoaded && <BusinessCard open={cardOpen} onClose={() => setCardOpen(false)} />}
     </>
   );
 }

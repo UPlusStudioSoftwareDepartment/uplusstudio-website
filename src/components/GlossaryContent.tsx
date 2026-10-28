@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { motion, useReducedMotion } from "framer-motion";
+import { m, useReducedMotion } from "framer-motion";
 import PageHeader from "@/components/studio/PageHeader";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { EASE_OUT } from "@/components/studio/Reveal";
@@ -244,7 +244,7 @@ export default function GlossaryContent() {
                         ))}
                     </div>
                 ) : (
-                    <motion.div
+                    <m.div
                         initial={reduce ? false : { opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: EASE_OUT }}
@@ -270,7 +270,7 @@ export default function GlossaryContent() {
                                 </span>
                             </div>
                         </div>
-                    </motion.div>
+                    </m.div>
                 )}
             </section>
         </div>

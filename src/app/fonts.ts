@@ -18,7 +18,7 @@ const serif = Instrument_Serif({
 const mono = IBM_Plex_Mono({
   subsets: ["latin", "latin-ext"],
   variable: "--font-mono-family",
-  weight: ["400", "500"],
+  weight: ["400"],
   display: "swap",
 });
 

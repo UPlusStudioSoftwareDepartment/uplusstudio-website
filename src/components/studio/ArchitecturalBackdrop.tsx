@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useLocale } from "next-intl";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { m, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
 export default function ArchitecturalBackdrop() {
   const pathname = usePathname();
@@ -17,11 +17,11 @@ export default function ArchitecturalBackdrop() {
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-paper" aria-hidden>
-      <motion.div
+      <m.div
         className="absolute -left-[20%] top-[-10%] h-[80vh] w-[80vw] rounded-full bg-[radial-gradient(closest-side,rgba(196,130,92,0.16),transparent)] blur-3xl"
         style={reduce ? undefined : { y: glowA }}
       />
-      <motion.div
+      <m.div
         className="absolute -right-[25%] bottom-[-20%] h-[90vh] w-[85vw] rounded-full bg-[radial-gradient(closest-side,rgba(237,233,225,0.07),transparent)] blur-3xl"
         style={reduce ? undefined : { y: glowB }}
       />

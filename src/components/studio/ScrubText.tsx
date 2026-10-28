@@ -1,14 +1,14 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { m, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
 
 function Word({ word, progress, range }: Readonly<{ word: string; progress: MotionValue<number>; range: [number, number] }>) {
   const opacity = useTransform(progress, range, [0.5, 1]);
   return (
-    <motion.span style={{ opacity }} className="inline-block whitespace-pre">
+    <m.span style={{ opacity }} className="inline-block whitespace-pre">
       {word}{" "}
-    </motion.span>
+    </m.span>
   );
 }
 

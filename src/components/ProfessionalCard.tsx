@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useState, useRef, useSyncExternalStore } from 'react';
 import { toPng } from 'html-to-image';
 import ServicesModal from './ServicesModal';
@@ -157,7 +157,7 @@ export default function ProfessionalCard() {
 
   return (
     <>
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -198,7 +198,7 @@ export default function ProfessionalCard() {
         )}
 
 
-        <motion.button
+        <m.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={handleLocation}
@@ -208,7 +208,7 @@ export default function ProfessionalCard() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
           </svg>
-        </motion.button>
+        </m.button>
    <button
           onClick={() => {
             globalThis.open("https://www.google.com/search?q=U%2B+Studio&sca_esv=c04783e6906b025b&hl=en&authuser=0&sxsrf=ANbL-n5yR-sCljnYlmBhn2-hGqhLC4JNmA%3A1770075633390&ei=8TWBaezFF_XwwPAPzMy5uAg&biw=2048&bih=1054&aic=0&ved=0ahUKEwisgurK_buSAxV1OBAIHUxmDocQ4dUDCBA&uact=5&oq=U%2B+Studio&gs_lp=Egxnd3Mtd2l6LXNlcnAiCVUrIFN0dWRpbzIEECMYJzIEECMYJzIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeSO8HUJAGWJAGcAF4AJABAJgBtAGgAbQBqgEDMC4xuAEDyAEA-AEBmAICoAK_AcICCBAAGLADGO8FwgILEAAYgAQYsAMYogSYAwCIBgGQBgWSBwMxLjGgB6wLsgcDMC4xuAe7AcIHAzItMsgHCIAIAA&sclient=gws-wiz-serp", '_blank', 'noopener,noreferrer');
@@ -223,7 +223,7 @@ export default function ProfessionalCard() {
           </svg>
         </button>
         {canShare && (
-          <motion.button
+          <m.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setShowCard(true)}
@@ -232,10 +232,10 @@ export default function ProfessionalCard() {
             <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
             </svg>
-          </motion.button>
+          </m.button>
         )}
 
-        <motion.button
+        <m.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={handleEmail}
@@ -244,10 +244,10 @@ export default function ProfessionalCard() {
           <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
-        </motion.button>
+        </m.button>
 
         {canCall && (
-          <motion.button
+          <m.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={handlePhoneCall}
@@ -256,19 +256,19 @@ export default function ProfessionalCard() {
             <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
             </svg>
-          </motion.button>
+          </m.button>
         )}
-      </motion.div>
+      </m.div>
 
       {showCard && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 bg-black  flex items-center justify-center p-4 z-50"
           onClick={() => setShowCard(false)}
         >
-          <motion.div
+          <m.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -281,7 +281,7 @@ export default function ProfessionalCard() {
               className="pt-14 sm:pt-14"
               footer={
                 <>
-                  <motion.button
+                  <m.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleDownload}
@@ -299,7 +299,7 @@ export default function ProfessionalCard() {
                         <span className="text-xs">İndir</span>
                       </>
                     )}
-                  </motion.button>
+                  </m.button>
                 </>
               }
             >
@@ -315,7 +315,7 @@ export default function ProfessionalCard() {
             </button>
 
             {canShare && (
-              <motion.button
+              <m.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={handleShare}
@@ -331,12 +331,12 @@ export default function ProfessionalCard() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
                   </svg>
                 )}
-              </motion.button>
+              </m.button>
             )}
 
             </ServiceCard>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
 
       <ServicesModal isOpen={showServices} onClose={() => setShowServices(false)} />
