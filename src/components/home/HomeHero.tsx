@@ -259,21 +259,21 @@ export default function HomeHero() {
           </p>
 
           <div className="md:col-span-7 xl:col-span-1">
-            <span className="flex min-h-8 items-center gap-2.5 xl:h-8">
+            <span className="flex items-center gap-2.5 xl:h-6">
               <button
                 type="button"
                 onClick={toggleFilm}
                 aria-label={t(`hero.${FILM_LABEL[film]}`)}
-                className="relative -my-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-bone/75 bg-night/45 text-bone transition-colors after:absolute after:-inset-1.5 after:content-[''] hover:border-bone hover:bg-night focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bone"
+                className="relative -my-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-bone/45 text-bone transition-colors after:absolute after:-inset-2.5 after:content-[''] hover:border-bone hover:bg-night"
               >
                 {film === "silent" ? (
-                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden className="h-5 w-5 [shape-rendering:geometricPrecision]">
-                    <path d="M3 7v6h3l5 4V3L6 7H3z" />
-                    <path d="m14 7 4 6m0-6-4 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-3.5 w-3.5">
+                    <path d="M3 9v6h4l5 4V5L7 9H3z" />
+                    <path d="m16 9.5 5 5m0-5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                   </svg>
                 ) : (
-                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden className="h-5 w-5 [shape-rendering:geometricPrecision]">
-                    <path d={film === "stopped" ? "M6 4v12l10-6z" : "M5 5h10v10H5z"} />
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={`h-2.5 w-2.5 ${film === "stopped" ? "translate-x-px" : ""}`}>
+                    <path d={film === "stopped" ? "M6 3.5v17L20.5 12z" : "M5 5h14v14H5z"} />
                   </svg>
                 )}
               </button>
