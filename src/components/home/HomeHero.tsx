@@ -111,6 +111,7 @@ export default function HomeHero() {
     if (film === "audible") {
       rememberMusic(false);
       video.pause();
+      musicRef.current?.pause();
       return;
     }
     rememberMusic(true);

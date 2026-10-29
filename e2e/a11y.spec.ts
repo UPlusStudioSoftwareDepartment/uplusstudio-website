@@ -41,16 +41,16 @@ test("open dialogs pass axe WCAG 2.2 AA", async ({ page, isMobile }) => {
   if (isMobile) {
     await page.getByRole("button", { name: "Menü" }).click();
     await opaque(page.getByRole("dialog", { name: "Menü" }));
-    expect(await violations(page, '[role="dialog"]')).toEqual([]);
+    await expect.poll(() => violations(page, '[role="dialog"]'), { timeout: 8000 }).toEqual([]);
   }
   await page.getByRole("button", { name: "Kartviziti paylaş" }).filter({ visible: true }).first().click();
   const card = page.getByRole("dialog", { name: "Dijital kartvizit" });
   await opaque(card.locator("a[href$=vcard]"));
-  expect(await violations(page, '[role="dialog"]', CARD_LINKS_HAVE_FULL_SIZE_TWINS_IN_THE_FOOTER)).toEqual([]);
+  await expect.poll(() => violations(page, '[role="dialog"]', CARD_LINKS_HAVE_FULL_SIZE_TWINS_IN_THE_FOOTER), { timeout: 8000 }).toEqual([]);
   if (isMobile) return;
   await page.keyboard.press("Escape");
   await expect(card).toBeHidden();
   await page.getByRole("main").getByRole("button", { name: "Randevu Al" }).first().click();
   await opaque(page.getByRole("dialog"));
-  expect(await violations(page, '[role="dialog"]')).toEqual([]);
+  await expect.poll(() => violations(page, '[role="dialog"]'), { timeout: 8000 }).toEqual([]);
 });

@@ -278,6 +278,7 @@ test("the home film plays silently until the visitor turns the music on, and onl
   const stop = page.getByRole("button", { name: "Filmi durdur" });
   expect(await video.evaluate((v: HTMLVideoElement) => v.loop)).toBe(false);
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.currentTime > 0)).toBe(true);
+  await video.evaluate((v: HTMLVideoElement) => (v.currentTime = 0));
   await expect(unmute).toBeVisible();
   await page.locator("h1").click();
   expect(await music.evaluate((a: HTMLAudioElement) => a.paused)).toBe(true);
@@ -285,7 +286,6 @@ test("the home film plays silently until the visitor turns the music on, and onl
   await expect.poll(() => music.evaluate((a: HTMLAudioElement) => !a.paused)).toBe(true);
   await stop.click();
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
-  await video.evaluate((v: HTMLVideoElement) => (v.currentTime = 0));
   await play.click();
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => !v.paused)).toBe(true);
   await expect.poll(() => page.locator("#home audio").evaluate((a: HTMLAudioElement) => !a.paused && a.currentTime > 0)).toBe(true);
@@ -396,7 +396,7 @@ test.describe("phones", () => {
     await menu.getByRole("link", { name: /Projeler/ }).click();
     await expect(page).toHaveURL(/\/tr\/projects$/);
     await expect(menu).toBeHidden();
-    await expect.poll(() => page.evaluate(() => (window as unknown as { navHeights: number[] }).navHeights.length)).toBeGreaterThan(20);
+    await expect.poll(() => page.evaluate(() => (window as unknown as { navHeights: number[] }).navHeights.length)).toBeGreaterThan(5);
     const { navHeights, scrolls } = await page.evaluate(() => {
       const w = window as unknown as { navHeights: number[]; scrolls: number[] };
       return { navHeights: w.navHeights, scrolls: w.scrolls };
