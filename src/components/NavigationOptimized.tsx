@@ -33,6 +33,8 @@ export default function Navigation() {
   const pathname = usePathname();
   const { openAppointment } = useAppointment();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // True from open until the close animation ends; the header then stays in the page's view-transition layer instead of being drawn over the menu.
+  const [menuMounted, setMenuMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [menuReach, setMenuReach] = useState(0);
@@ -113,6 +115,7 @@ export default function Navigation() {
   const isActive = (href: string) => (href === prefix ? pathname === prefix : pathname.startsWith(href));
   const openMenu = () => {
     setMenuReach(screenReach());
+    setMenuMounted(true);
     setIsMenuOpen(true);
   };
   const closeIfHere = (href: string) => href === pathname && setIsMenuOpen(false);
@@ -121,7 +124,7 @@ export default function Navigation() {
   return (
     <>
       <m.nav
-        className={`fixed inset-x-0 top-0 z-50 [view-transition-name:site-nav] ${settling ? "" : "transition-[background-color,border-color,padding] duration-500"} ${
+        className={`fixed inset-x-0 top-0 z-50 ${menuMounted ? "" : "[view-transition-name:site-nav]"} ${settling ? "" : "transition-[background-color,border-color,padding] duration-500"} ${
           isScrolled ? "bg-paper/85 backdrop-blur-md border-b border-line py-3" : "bg-transparent border-b border-transparent py-5 sm:py-6"
         }`}
         animate={{ y: isHidden && !isMenuOpen ? "-100%" : "0%" }}
@@ -179,7 +182,7 @@ export default function Navigation() {
         </div>
       </m.nav>
 
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={() => setMenuMounted(false)}>
         {isMenuOpen && (
           <m.div
             key="menu"
