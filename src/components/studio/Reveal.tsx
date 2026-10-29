@@ -1,6 +1,6 @@
 "use client";
 
-import { m, useInView, useReducedMotion } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 
 export const EASE_STUDIO = [0.76, 0, 0.24, 1] as const;
@@ -48,7 +48,6 @@ interface LineRevealProps {
 }
 
 export function LineReveal({ lines, className = "", lineClassName = "", delay = 0, immediate = false }: Readonly<LineRevealProps>) {
-  const reduce = useReducedMotion();
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
 
@@ -65,8 +64,8 @@ export function LineReveal({ lines, className = "", lineClassName = "", delay = 
             </span>
           ) : (
             <m.span
-              className={`block ${lineClassName}`}
-              initial={reduce ? false : { y: "105%" }}
+              className={`block motion-reduce:![transform:none] ${lineClassName}`}
+              initial={{ y: "105%" }}
               animate={inView ? { y: "0%" } : undefined}
               transition={{ duration: 1, ease: EASE_STUDIO, delay: delay + i * 0.09 }}
             >
@@ -86,11 +85,10 @@ interface FadeUpProps {
 }
 
 export function FadeUp({ children, className = "", delay = 0 }: Readonly<FadeUpProps>) {
-  const reduce = useReducedMotion();
   return (
     <m.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y: 24 }}
+      className={`motion-reduce:!opacity-100 motion-reduce:![transform:none] ${className}`}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.9, ease: EASE_OUT, delay }}

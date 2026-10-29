@@ -1,6 +1,6 @@
 "use client";
 
-import { m, useReducedMotion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
 import { EASE_OUT } from "@/components/studio/Reveal";
 
@@ -31,7 +31,6 @@ export default function FounderCard({
   viewLabel = 'Profili gör',
   className = 'w-[260px] sm:w-[300px]',
 }: Readonly<FounderCardProps>) {
-  const reduce = useReducedMotion();
   const isLight = tone === 'light';
   const text = isLight ? 'text-bone' : 'text-ink';
   const muted = isLight ? 'text-bone/60' : 'text-mute';
@@ -39,8 +38,8 @@ export default function FounderCard({
 
   return (
     <m.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y: 40 }}
+      className={`motion-reduce:!opacity-100 motion-reduce:![transform:none] ${className}`}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 1, ease: EASE_OUT, delay: variant === 'right' ? 0.12 : 0 }}

@@ -71,6 +71,7 @@ export default function HomeHero() {
     setTimeout(() => setCelebrating(false), CELEBRATION_S * 1000);
   };
   const videoRef = useRef<HTMLVideoElement>(null);
+  const stalledRef = useRef(false);
   const musicRef = useRef<HTMLAudioElement>(null);
   const progressRef = useRef<HTMLSpanElement>(null);
   const listed = PROJECT_COLUMNS.map((column) => projects.filter((p) => column.includes(p.slug)));
@@ -136,10 +137,18 @@ export default function HomeHero() {
           aria-label={t("motion.items.villa")}
           disableRemotePlayback
           onPlay={() => setPlaying(true)}
-          onPlaying={() => musicWanted() && playMusic()}
-          onWaiting={() => musicRef.current?.pause()}
+          onPlaying={() => {
+            stalledRef.current = false;
+            if (musicWanted()) playMusic();
+          }}
+          onWaiting={() => {
+            stalledRef.current = true;
+            musicRef.current?.pause();
+          }}
           onPause={() => {
+            stalledRef.current = false;
             setPlaying(false);
+            setMusicOn(false);
             musicRef.current?.pause();
           }}
         />
@@ -151,7 +160,7 @@ export default function HomeHero() {
             const video = videoRef.current;
             if (video && Math.abs(e.currentTarget.currentTime - video.currentTime) > MUSIC_DRIFT_S) e.currentTarget.currentTime = video.currentTime;
           }}
-          onPause={() => setMusicOn(false)}
+          onPause={() => stalledRef.current || setMusicOn(false)}
         />
       </div>
 
@@ -223,7 +232,7 @@ export default function HomeHero() {
           </div>
         </div>
 
-        <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start xl:grid-cols-[auto_minmax(auto,calc(33.333%_-_16px))_auto_auto_auto] xl:items-stretch xl:justify-between xl:gap-x-10 [@media(max-height:560px)]:hidden">
+        <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start xl:grid-cols-[auto_minmax(auto,calc(33.333%_-_16px))_auto_auto_auto] xl:items-stretch xl:justify-between xl:gap-x-10 [@media(max-height:560px)]:mt-4 [@media(max-height:560px)]:pt-3">
           <p className="eyebrow flex flex-col gap-1 md:col-span-5 xl:col-span-1 xl:gap-2">
             <Link href={`/${locale}/services/incek-golbasi-mimarlik-ofisi`} className="w-fit text-bone transition-colors hover:text-bone/70 xl:flex xl:h-6 xl:items-center">{t("hero.place")}</Link>
             <span className="text-bone/60 xl:flex xl:h-6 xl:items-center">{t("hero.country")}</span>
@@ -266,7 +275,7 @@ export default function HomeHero() {
             </span>
           </div>
 
-          <div className="hidden md:col-span-12 md:flex md:justify-between md:gap-x-6 xl:contents">
+          <div className="hidden md:col-span-12 md:flex md:justify-between md:gap-x-6 xl:contents [@media(max-height:560px)]:!hidden">
             {listed.map((column) => (
               <ul key={column[0].slug} className="flex flex-col justify-end gap-2 xl:translate-y-2">
                 {column.map((p) => (

@@ -285,6 +285,7 @@ test("the home film plays silently until the visitor turns the music on, and onl
   await expect.poll(() => music.evaluate((a: HTMLAudioElement) => !a.paused)).toBe(true);
   await stop.click();
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => v.paused)).toBe(true);
+  await video.evaluate((v: HTMLVideoElement) => (v.currentTime = 0));
   await play.click();
   await expect.poll(() => video.evaluate((v: HTMLVideoElement) => !v.paused)).toBe(true);
   await expect.poll(() => page.locator("#home audio").evaluate((a: HTMLAudioElement) => !a.paused && a.currentTime > 0)).toBe(true);
@@ -365,6 +366,45 @@ test.describe("phones", () => {
     await expect(menu).toBeHidden();
   });
 
+  test("leaving a scrolled page through the menu opens the next page at the top with a steady top bar", async ({ page }) => {
+    await page.goto("/tr/about");
+    const toggle = page.getByRole("button", { name: "Menü" });
+    await page.evaluate(() => scrollTo(0, 1200));
+    await expect(async () => {
+      await page.evaluate(() => scrollBy(0, 150));
+      await expect(toggle).not.toBeInViewport({ timeout: 1000 });
+    }).toPass();
+    await page.evaluate(() => scrollBy(0, -200));
+    await expect(toggle).toBeInViewport();
+    const menu = page.getByRole("dialog", { name: "Menü" });
+    await toggle.click();
+    await expect(menu).toBeVisible();
+    await page.evaluate(() => {
+      const nav = document.querySelector("nav")!;
+      const w = window as unknown as { navHeights: number[]; scrolls: number[] };
+      w.navHeights = [];
+      w.scrolls = [];
+      let arrived = 0;
+      const sampler = setInterval(() => {
+        w.scrolls.push(scrollY);
+        if (!location.pathname.endsWith("/projects")) return;
+        arrived ||= performance.now();
+        w.navHeights.push(Math.round(nav.getBoundingClientRect().height));
+        if (performance.now() - arrived > 800) clearInterval(sampler);
+      }, 16);
+    });
+    await menu.getByRole("link", { name: /Projeler/ }).click();
+    await expect(page).toHaveURL(/\/tr\/projects$/);
+    await expect(menu).toBeHidden();
+    await expect.poll(() => page.evaluate(() => (window as unknown as { navHeights: number[] }).navHeights.length)).toBeGreaterThan(20);
+    const { navHeights, scrolls } = await page.evaluate(() => {
+      const w = window as unknown as { navHeights: number[]; scrolls: number[] };
+      return { navHeights: w.navHeights, scrolls: w.scrolls };
+    });
+    expect(Math.max(...scrolls)).toBe(0);
+    expect(new Set(navHeights).size).toBe(1);
+  });
+
   test("menu holds keyboard focus and returns it to the toggle", async ({ page }) => {
     await page.goto("/tr");
     const toggle = page.getByRole("button", { name: "Menü" });
@@ -394,7 +434,8 @@ test.describe("phones", () => {
     await expect(menu.getByRole("link", { name: /Şimdi Ara/ })).toBeInViewport({ ratio: 1 });
   });
 
-  test("the menu carries the studio links instead of a second icon row", async ({ page }) => {
+  test("the menu carries the studio links instead of a second icon row", async ({ page, viewport }) => {
+    test.skip((viewport?.width ?? 0) >= 640, "tablets and phones held sideways have no call link");
     await page.goto("/tr/about");
     await expect(page.getByRole("link", { name: "WhatsApp" }).filter({ visible: true })).toHaveCount(0);
     await page.getByRole("button", { name: "Menü" }).click();
@@ -465,7 +506,8 @@ test.describe("phones", () => {
       .toBe(true);
   });
 
-  test("booking buttons call the studio, except on the contact page", async ({ page }) => {
+  test("booking buttons call the studio, except on the contact page", async ({ page, viewport }) => {
+    test.skip((viewport?.width ?? 0) >= 640, "tablets and phones held sideways book instead of calling");
     await page.goto("/tr");
     await expect(page.getByRole("link", { name: /Şimdi Ara/ }).first()).toHaveAttribute("href", "tel:+905453204007");
     await expect(page.getByRole("button", { name: /Randevu Al/ }).filter({ visible: true })).toHaveCount(0);

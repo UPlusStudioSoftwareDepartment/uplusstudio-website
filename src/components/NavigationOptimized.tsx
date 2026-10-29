@@ -17,6 +17,9 @@ import { studioInfo } from "@/lib/studio-info";
 
 const SCROLL_THRESHOLD = 40;
 const EASE = [0.76, 0, 0.24, 1] as const;
+const MENU_EASE = [0.65, 0, 0.35, 1] as const;
+const menuClip = (radius: number) => `circle(${radius}px at calc(100% - 44px) 40px)`;
+const screenReach = () => Math.ceil(Math.hypot(globalThis.innerWidth, globalThis.innerHeight));
 
 function startsOverDark(pathname: string, prefix: string): boolean {
   if (pathname === "/" || pathname === prefix) return true;
@@ -33,6 +36,8 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const [menuReach, setMenuReach] = useState(0);
+  const [settling, setSettling] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -79,32 +84,49 @@ export default function Navigation() {
   if (menuPath !== pathname) {
     setMenuPath(pathname);
     setIsMenuOpen(false);
+    setIsScrolled(false);
+    setIsHidden(false);
+    setSettling(true);
   }
+
+  useEffect(() => {
+    if (!settling) return;
+    const id = requestAnimationFrame(() => setSettling(false));
+    return () => cancelAnimationFrame(id);
+  }, [settling]);
 
   useEffect(() => {
     if (!isMenuOpen) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setIsMenuOpen(false);
     const desktop = globalThis.matchMedia("(min-width: 1024px)");
-    const onResize = () => desktop.matches && setIsMenuOpen(false);
+    const onDesktop = () => desktop.matches && setIsMenuOpen(false);
+    const onResize = () => setMenuReach(screenReach());
     globalThis.addEventListener("keydown", onKey);
-    desktop.addEventListener("change", onResize);
+    globalThis.addEventListener("resize", onResize);
+    desktop.addEventListener("change", onDesktop);
     return () => {
       globalThis.removeEventListener("keydown", onKey);
-      desktop.removeEventListener("change", onResize);
+      globalThis.removeEventListener("resize", onResize);
+      desktop.removeEventListener("change", onDesktop);
     };
   }, [isMenuOpen]);
 
   const isActive = (href: string) => (href === prefix ? pathname === prefix : pathname.startsWith(href));
+  const openMenu = () => {
+    setMenuReach(screenReach());
+    setIsMenuOpen(true);
+  };
+  const closeIfHere = (href: string) => href === pathname && setIsMenuOpen(false);
   const textTone = overDark ? "text-bone" : "text-ink";
 
   return (
     <>
       <m.nav
-        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,padding] duration-500 ${
+        className={`fixed inset-x-0 top-0 z-50 ${settling ? "" : "transition-[background-color,border-color,padding] duration-500"} ${
           isScrolled ? "bg-paper/85 backdrop-blur-md border-b border-line py-3" : "bg-transparent border-b border-transparent py-5 sm:py-6"
         }`}
         animate={{ y: isHidden && !isMenuOpen ? "-100%" : "0%" }}
-        transition={{ duration: 0.5, ease: EASE }}
+        transition={{ duration: settling ? 0 : 0.5, ease: EASE }}
       >
         <div className="mx-auto flex max-w-[2560px] items-center justify-between px-4 sm:px-8 lg:px-12">
           <Link href={prefix} className={`group flex items-center gap-3 ${textTone}`} aria-label="U+ Studio">
@@ -144,12 +166,11 @@ export default function Navigation() {
 
             <button
               type="button"
-              onClick={() => setIsMenuOpen(true)}
-              className="group -mr-2 ml-1 flex h-11 items-center gap-3 px-2 font-mono text-[12px] uppercase tracking-[0.12em] lg:hidden"
+              onClick={openMenu}
+              className="group -mr-2 ml-1 flex h-11 items-center px-2 lg:hidden"
               aria-label={t("menu")}
               aria-expanded={isMenuOpen}
             >
-              <span className="hidden sm:inline">{t("menu")}</span>
               <span className="flex w-7 flex-col gap-[6px]">
                 <span className="h-px w-full bg-current" />
                 <span className="h-px w-2/3 self-end bg-current" />
@@ -165,10 +186,11 @@ export default function Navigation() {
             key="menu"
             ref={menuRef}
             className="fixed inset-0 z-[60] h-[100dvh] overflow-hidden bg-night text-bone lg:hidden"
-            initial={{ clipPath: "circle(0% at calc(100% - 44px) 40px)" }}
-            animate={{ clipPath: "circle(150% at calc(100% - 44px) 40px)" }}
-            exit={{ clipPath: "circle(0% at calc(100% - 44px) 40px)" }}
-            transition={{ duration: 0.85, ease: EASE }}
+            style={{ willChange: "clip-path" }}
+            initial={{ clipPath: menuClip(0) }}
+            animate={{ clipPath: menuClip(menuReach) }}
+            exit={{ clipPath: menuClip(0), transition: { duration: 0.6, ease: MENU_EASE } }}
+            transition={{ duration: 0.8, ease: MENU_EASE }}
             role="dialog"
             aria-modal="true"
             aria-label={t("menu")}
@@ -186,7 +208,7 @@ export default function Navigation() {
 
             <div className="relative flex h-full flex-col px-4 sm:px-8">
               <div className="flex items-center justify-between gap-3 py-[clamp(0.5rem,2.2dvh,1.5rem)]">
-                <Link href={prefix} className="group flex shrink-0 items-center gap-3" onClick={() => setIsMenuOpen(false)}>
+                <Link href={prefix} className="group flex shrink-0 items-center gap-3" onClick={() => closeIfHere(prefix)}>
                   <span className="flex h-9 w-9 items-center justify-center border border-bone/60 text-[15px] font-medium transition-colors group-hover:bg-night">U+</span>
                   <span className="text-[17px] font-medium tracking-tight">Studio</span>
                 </Link>
@@ -216,12 +238,12 @@ export default function Navigation() {
                         <m.div
                           initial={{ y: "110%" }}
                           animate={{ y: "0%" }}
-                          exit={{ y: "110%", transition: { duration: 0.3 } }}
+                          exit={{ y: "110%", transition: { duration: 0.35, ease: MENU_EASE } }}
                           transition={{ duration: 0.8, ease: EASE, delay: 0.3 + i * 0.05 }}
                         >
                           <Link
                             href={item.href}
-                            onClick={() => setIsMenuOpen(false)}
+                            onClick={() => closeIfHere(item.href)}
                             className="group flex items-baseline gap-4 py-[clamp(0.25rem,1.1dvh,1rem)] active:text-clay"
                           >
                             <span className="w-7 font-mono text-[12px] text-bone/60">{String(i + 1).padStart(2, "0")}</span>

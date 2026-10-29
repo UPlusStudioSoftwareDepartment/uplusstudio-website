@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { LineReveal } from "./Reveal";
 
 interface PageHeaderProps {
@@ -36,23 +36,26 @@ export default function PageHeader({ index, label, titleLines, intro, image, met
       <div className="absolute inset-0 -z-10 bg-linear-to-t from-paper via-night/50 to-night/35" aria-hidden />
       <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-linear-to-b from-night/70 to-transparent" aria-hidden />
 
-      <div className="mx-auto w-full max-w-[2560px] px-4 pb-10 pt-36 sm:px-8 sm:pb-14 lg:px-12">
-        <div className="flex animate-[rise_0.8s_var(--ease-out-studio)_0.15s_backwards] items-center gap-4 font-mono text-[12px] uppercase tracking-[0.14em] text-bone/70 [--rise:10px] motion-reduce:animate-none">
-          <span className="flex items-center gap-4">
-            <span className="text-bone">{index}</span>
-            <span className="h-px w-10 bg-bone/50" aria-hidden />
-            <span>{label}</span>
-          </span>
-        </div>
-
-        <div className="mt-4 flex flex-col gap-4 sm:mt-8 sm:gap-8">
-          <h1 className={`display text-[clamp(3rem,9.5vw,9.5rem)] [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal ${titleClassName}`}>
+      <div
+        style={{ "--title-lines": titleLines.length } as CSSProperties}
+        className="mx-auto grid min-h-[calc(50svh+var(--label-space)+9rem)] w-full max-w-[2560px] grid-rows-[minmax(calc(var(--label-space)+1.5rem*var(--title-lines)*0.96),1fr)] px-4 pb-10 pt-36 [--label-space:2.125rem] sm:px-8 sm:pb-14 sm:[--label-space:3.125rem] lg:px-12"
+      >
+        <div className="flex flex-col justify-end [container-type:size]">
+          <div className="flex animate-[rise_0.8s_var(--ease-out-studio)_0.15s_backwards] items-center gap-4 font-mono text-[12px] uppercase tracking-[0.14em] text-bone/70 [--rise:10px] motion-reduce:animate-none">
+            <span className="flex items-center gap-4">
+              <span className="text-bone">{index}</span>
+              <span className="h-px w-10 bg-bone/50" aria-hidden />
+              <span>{label}</span>
+            </span>
+          </div>
+          <h1
+            className={`display mt-4 [--title-size:clamp(3rem,9.5vw,9.5rem)] text-[length:max(1.5rem,min(var(--title-size),calc((100cqh-var(--label-space))/(var(--title-lines)*0.96))))] sm:mt-8 [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal ${titleClassName}`}>
             <LineReveal lines={titleLines} immediate delay={0.25} />
           </h1>
-          <div className="flex animate-[rise_1s_var(--ease-out-studio)_backwards] flex-wrap items-end justify-between gap-x-10 gap-y-4 [--rise:20px] motion-reduce:animate-none">
-            {intro && <div className="max-w-md text-[17px] leading-relaxed text-bone/75 lg:max-w-xl">{intro}</div>}
-            <span className="ml-auto pb-1 font-mono text-[12px] uppercase tracking-[0.14em] text-bone/70 max-sm:hidden">U+ Studio — Ankara</span>
-          </div>
+        </div>
+        <div className="mt-4 flex animate-[rise_1s_var(--ease-out-studio)_backwards] flex-wrap items-end justify-between gap-x-10 gap-y-4 [--rise:20px] motion-reduce:animate-none sm:mt-8">
+          {intro && <div className="max-w-md text-[17px] leading-relaxed text-bone/75 lg:max-w-xl">{intro}</div>}
+          <span className="ml-auto pb-1 font-mono text-[12px] uppercase tracking-[0.14em] text-bone/70 max-sm:hidden">U+ Studio — Ankara</span>
         </div>
 
         {meta && meta.length > 0 && (

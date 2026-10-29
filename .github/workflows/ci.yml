@@ -38,7 +38,7 @@ jobs:
         run: npx playwright install --with-deps chromium webkit firefox
 
       - name: End-to-end tests
-        run: npm run test:e2e
+        run: npm run test:e2e -- --project=desktop --project=firefox --project=safari --project=phone --project=iphone --project=ipad --project=android-tablet --project=phone-landscape
         env:
           APPOINTMENT_SECRET: e2e-only-signing-key
           GMAIL_USER: ""
@@ -49,6 +49,57 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: playwright-traces
+          path: test-results/
+          retention-days: 7
+          if-no-files-found: ignore
+
+  other-systems:
+    name: e2e on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-2025
+            browsers: firefox
+            projects: --project=chrome --project=edge --project=firefox
+          - os: macos-15
+            browsers: webkit
+            projects: --project=safari --project=iphone --project=ipad
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          GMAIL_USER: ""
+          GMAIL_PASS: ""
+          CONTACT_EMAIL: ""
+
+      - name: Install browsers
+        run: npx playwright install ${{ matrix.browsers }}
+
+      - name: End-to-end tests
+        run: npx playwright test ${{ matrix.projects }}
+        env:
+          APPOINTMENT_SECRET: e2e-only-signing-key
+          GMAIL_USER: ""
+          GMAIL_PASS: ""
+
+      - name: Keep test traces
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-traces-${{ matrix.os }}
           path: test-results/
           retention-days: 7
           if-no-files-found: ignore

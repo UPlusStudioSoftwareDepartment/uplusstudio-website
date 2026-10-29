@@ -43,7 +43,7 @@ function Field({ id, index, label, error, children }: Readonly<FieldProps>) {
     return (
         <div className="grid gap-2">
             <label htmlFor={id} className="flex items-baseline gap-3 font-mono text-[12px] uppercase tracking-[0.14em] text-mute">
-                <span className="tabular-nums text-ink/40">{index}</span>
+                <span className="tabular-nums text-ink/60">{index}</span>
                 {label}
                 <span aria-hidden className="text-clay">*</span>
             </label>

@@ -358,7 +358,7 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
       toast.error(t("fillRequired"));
       return;
     }
-    const shareFiles = canShareFiles();
+    const shareFiles = mailPlatform() !== "desktop" && canShareFiles();
     const popup = shareFiles ? null : globalThis.open("about:blank", "_blank");
     const v = getValues();
     const { url: cardUrl, image: imageUrl } = await appointmentLink(v, "whatsapp");

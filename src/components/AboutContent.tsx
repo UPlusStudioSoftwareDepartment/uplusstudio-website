@@ -233,7 +233,7 @@ export default function AboutContent() {
         index="02"
         label={t("header.label")}
         titleLines={[t("header.line1"), <em key="accent">{t("header.accent")}</em>, t("header.line2")]}
-        titleClassName="max-sm:text-[clamp(2rem,6.333vw,6.333rem)]"
+        titleClassName="max-sm:[--title-size:clamp(2rem,6.333vw,6.333rem)]"
         intro={<p>{t("intro.quote")}</p>}
         meta={[
           {

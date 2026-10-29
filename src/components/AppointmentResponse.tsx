@@ -26,6 +26,11 @@ function formatDate(date: string) {
   return { line: `${p.day} ${TR_MONTHS[p.month - 1]} ${p.year}`, day: TR_DAYS[p.weekday] };
 }
 
+function typedNote() {
+  if (typeof document === "undefined") return "";
+  return document.querySelector<HTMLTextAreaElement>("#response-note")?.value ?? "";
+}
+
 export default function AppointmentResponse({
   token,
   signature,
@@ -34,7 +39,7 @@ export default function AppointmentResponse({
   appointment,
 }: Readonly<{ token: string; signature: string; initialAction: "approve" | "decline"; reference: string; appointment: Appointment | null }>) {
   const [action, setAction] = useState<"approve" | "decline">(initialAction);
-  const [note, setNote] = useState("");
+  const [note, setNote] = useState(typedNote);
   const [pickedDate, setPickedDate] = useState("");
   const [pickedTime, setPickedTime] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");

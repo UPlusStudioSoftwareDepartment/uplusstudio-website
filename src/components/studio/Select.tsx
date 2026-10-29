@@ -29,6 +29,7 @@ export default function Select({ id, value, options, placeholder, invalid, descr
   };
 
   const show = (index = Math.max(0, options.indexOf(value))) => {
+    if (listRef.current) listRef.current.style.pointerEvents = "";
     setActive(index);
     setOpen(true);
   };
@@ -104,7 +105,7 @@ export default function Select({ id, value, options, placeholder, invalid, descr
         onKeyDown={onKeyDown}
         className={`${className} flex items-center justify-between gap-4 text-left`}
       >
-        <span className={value ? "text-ink" : "text-mute/60"}>{value || placeholder}</span>
+        <span className={value ? "text-ink" : "text-mute/80"}>{value || placeholder}</span>
         <svg
           aria-hidden
           viewBox="0 0 16 16"
@@ -125,8 +126,8 @@ export default function Select({ id, value, options, placeholder, invalid, descr
             aria-labelledby={id}
             onMouseDown={(e) => e.preventDefault()}
             initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0, pointerEvents: "auto" }}
-            exit={{ opacity: 0, y: -6, pointerEvents: "none" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
             className="custom-scrollbar absolute inset-x-0 top-full z-40 mt-2 max-h-[min(22rem,60vh)] overflow-y-auto rounded-[3px] border border-line bg-paper-2 py-1.5 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.75)]"
           >

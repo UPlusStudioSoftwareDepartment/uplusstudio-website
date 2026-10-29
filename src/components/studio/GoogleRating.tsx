@@ -13,7 +13,7 @@ export default function GoogleRating({ className = "" }: Readonly<{ className?: 
       href={studioInfo.mapsUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group inline-flex items-center gap-3 text-[14px] ${className}`}
+      className={`group inline-flex flex-wrap items-center gap-x-3 gap-y-1 text-[14px] ${className}`}
     >
       <span className="flex gap-0.5 text-clay" aria-hidden>
         {"★★★★★"}

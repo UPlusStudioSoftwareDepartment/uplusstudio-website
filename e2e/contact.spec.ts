@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Locator, type Page } from "@playwright/test";
 import { captureOutgoing, hrefParam, openedUrls, testClientIp } from "./support";
 
 const IOS_UA =
@@ -85,16 +85,20 @@ test("a click right after choosing a subject reaches the field under the closing
         return before?.y === (await message.boundingBox())?.y;
       })
       .toBe(true);
-  await subject.evaluate((el) => el.scrollIntoView({ block: "center" }));
+  await subject.evaluate((el) => scrollTo(0, el.getBoundingClientRect().top + scrollY - Math.min(120, innerHeight / 5)));
   await settled();
+  const tap = async (target: Locator) => {
+    const box = (await target.boundingBox())!;
+    await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+  };
   await expect(async () => {
-    await subject.click();
+    await tap(subject);
     await expect(page.getByRole("listbox")).toBeVisible({ timeout: 1000 });
   }).toPass();
   await settled();
   const field = (await message.boundingBox())!;
   const menu = (await page.getByRole("listbox").boundingBox())!;
-  await page.getByRole("option", { name: /İç Mimarlık/ }).click();
+  await tap(page.getByRole("option", { name: /İç Mimarlık/ }));
   await expect(subject).toHaveAttribute("aria-expanded", "false");
   await page.mouse.click(field.x + field.width / 2, Math.min(field.y + field.height, menu.y + menu.height) - 6);
   await expect(message).toBeFocused();
