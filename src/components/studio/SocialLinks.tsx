@@ -241,7 +241,7 @@ export default function SocialLinks({
   };
 
   const buttonClass =
-    "peer relative flex h-8 w-8 items-center justify-center rounded-full after:absolute after:-inset-1.5 after:content-[''] max-[359px]:h-7 max-[359px]:w-7 opacity-80 transition-[opacity,background-color] hover:bg-night hover:opacity-100 focus-visible:opacity-100 2xl:h-9 2xl:w-9";
+    "peer relative flex h-8 w-8 items-center justify-center rounded-full after:absolute after:-inset-1.5 after:content-[''] max-[359px]:h-7 max-[359px]:w-7 opacity-90 transition-[opacity,background-color] hover:bg-night hover:opacity-100 focus-visible:opacity-100 2xl:h-9 2xl:w-9";
 
   return (
     <>
