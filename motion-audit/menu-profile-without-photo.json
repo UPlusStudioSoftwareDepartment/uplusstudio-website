@@ -1,0 +1,115 @@
+{
+  "label": "menu-profile-without-photo",
+  "base": "http://localhost:3311",
+  "at": "2026-10-29T16:19:10.702Z",
+  "scroll": [],
+  "idle": [],
+  "load": [],
+  "nav": [],
+  "slow": [],
+  "phone": [],
+  "profile": [
+    {
+      "frames": {
+        "n": 99,
+        "avg": 19.4,
+        "p95": 33.4,
+        "max": 116.6,
+        "over25": 8,
+        "over50": 1
+      },
+      "metrics": {
+        "TaskDuration": 2.152269,
+        "ScriptDuration": 0.22134,
+        "LayoutDuration": 0.041876,
+        "RecalcStyleDuration": 0.222286,
+        "LayoutCount": 22,
+        "RecalcStyleCount": 110
+      },
+      "hottest": [
+        {
+          "fn": "(program) :0",
+          "ms": 1676.7
+        },
+        {
+          "fn": "(idle) :0",
+          "ms": 462.9
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/19ywp341e_ya_.js:9",
+          "ms": 38.6
+        },
+        {
+          "fn": "iI http://localhost:3311/_next/static/chunks/2_fsuj0w7pu_8.js:1",
+          "ms": 18
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/1m_zznhsyv7s1.js:1",
+          "ms": 17.9
+        },
+        {
+          "fn": "setItem :0",
+          "ms": 13.8
+        },
+        {
+          "fn": "query :5510",
+          "ms": 11.2
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/285-fqpr4y_h2.js:1",
+          "ms": 10.9
+        },
+        {
+          "fn": "fetch :0",
+          "ms": 10.1
+        },
+        {
+          "fn": "step :21",
+          "ms": 9.7
+        },
+        {
+          "fn": "(anonymous) :1",
+          "ms": 7.6
+        },
+        {
+          "fn": "decode :0",
+          "ms": 7
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/3laf0p3zs8nt2.js:31",
+          "ms": 6.6
+        },
+        {
+          "fn": "appendChild :0",
+          "ms": 6.5
+        },
+        {
+          "fn": "t http://localhost:3311/_next/static/chunks/0v2azvilwavbo.js:2",
+          "ms": 6.4
+        },
+        {
+          "fn": "requestAnimationFrame :0",
+          "ms": 5.7
+        },
+        {
+          "fn": "computeAccessibleNameComposite :3705",
+          "ms": 5.4
+        },
+        {
+          "fn": "o http://localhost:3311/_next/static/chunks/1m_zznhsyv7s1.js:1",
+          "ms": 5.2
+        },
+        {
+          "fn": "cp http://localhost:3311/_next/static/chunks/3laf0p3zs8nt2.js:31",
+          "ms": 5
+        },
+        {
+          "fn": "e http://localhost:3311/_next/static/chunks/0v2azvilwavbo.js:2",
+          "ms": 4.8
+        }
+      ]
+    }
+  ],
+  "flows": [],
+  "errors": []
+}

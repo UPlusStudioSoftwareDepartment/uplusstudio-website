@@ -1,5 +1,7 @@
 # Motion, loading & page transitions — audit and changes (29 Oct 2026)
 
+Follow-up: [COMPLETION-REPORT.md](COMPLETION-REPORT.md) covers the final mobile curtain, static page/global 404 fix, representative phone tests, and measured limitations. The sections below retain the earlier baseline and findings.
+
 One report instead of six: audit, motion system, transition matrix, before/after, browser results and changelog. The code inventory is in [INVENTORY.md](INVENTORY.md); raw numbers are in `before.json`, `before-slow.json`, `after.json`, `after-flows.json` (the baseline navigation/flow run stopped on a script bug before writing JSON; its numbers come from that run's log).
 
 **How it was measured:** `node scripts/motion-audit.mjs --label <name>` against a local production build (`npm run build && npm run start -- -p 3100`). Headless Chromium (software raster, CPU throttling via CDP) and Playwright WebKit on Windows. Read every number as *old vs new on the same machine*, never as a real phone's frame rate. No physical phone was tested.

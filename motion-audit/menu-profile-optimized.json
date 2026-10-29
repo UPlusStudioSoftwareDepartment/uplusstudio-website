@@ -1,0 +1,115 @@
+{
+  "label": "menu-profile-optimized",
+  "base": "http://localhost:3311",
+  "at": "2026-10-29T16:17:29.019Z",
+  "scroll": [],
+  "idle": [],
+  "load": [],
+  "nav": [],
+  "slow": [],
+  "phone": [],
+  "profile": [
+    {
+      "frames": {
+        "n": 82,
+        "avg": 26.4,
+        "p95": 66.7,
+        "max": 266.6,
+        "over25": 15,
+        "over50": 7
+      },
+      "metrics": {
+        "TaskDuration": 2.6199630000000003,
+        "ScriptDuration": 0.319773,
+        "LayoutDuration": 0.070975,
+        "RecalcStyleDuration": 0.271142,
+        "LayoutCount": 15,
+        "RecalcStyleCount": 91
+      },
+      "hottest": [
+        {
+          "fn": "(program) :0",
+          "ms": 1931.6
+        },
+        {
+          "fn": "(idle) :0",
+          "ms": 229.4
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/19ywp341e_ya_.js:9",
+          "ms": 66.8
+        },
+        {
+          "fn": "setItem :0",
+          "ms": 23.9
+        },
+        {
+          "fn": "fetch :0",
+          "ms": 18
+        },
+        {
+          "fn": "requestAnimationFrame :0",
+          "ms": 16.7
+        },
+        {
+          "fn": "decode :0",
+          "ms": 16.2
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/1m_zznhsyv7s1.js:1",
+          "ms": 11.5
+        },
+        {
+          "fn": "query :5510",
+          "ms": 11.3
+        },
+        {
+          "fn": "appendChild :0",
+          "ms": 11.1
+        },
+        {
+          "fn": "e http://localhost:3311/_next/static/chunks/0v2azvilwavbo.js:2",
+          "ms": 11
+        },
+        {
+          "fn": "step :21",
+          "ms": 9.5
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/2uy1uhrxj3bdu.js:1",
+          "ms": 9.3
+        },
+        {
+          "fn": "InjectedScript :6969",
+          "ms": 9
+        },
+        {
+          "fn": "iI http://localhost:3311/_next/static/chunks/2_fsuj0w7pu_8.js:1",
+          "ms": 8.8
+        },
+        {
+          "fn": "(anonymous) :1",
+          "ms": 8.7
+        },
+        {
+          "fn": "ep http://localhost:3311/_next/static/chunks/0v2azvilwavbo.js:2",
+          "ms": 8.5
+        },
+        {
+          "fn": "focus :0",
+          "ms": 7.8
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/2_fsuj0w7pu_8.js:1",
+          "ms": 7.8
+        },
+        {
+          "fn": "o http://localhost:3311/_next/static/chunks/1m_zznhsyv7s1.js:1",
+          "ms": 7.4
+        }
+      ]
+    }
+  ],
+  "flows": [],
+  "errors": []
+}

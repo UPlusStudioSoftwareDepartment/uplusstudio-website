@@ -1,0 +1,115 @@
+{
+  "label": "menu-profile-without-mascots",
+  "base": "http://localhost:3311",
+  "at": "2026-10-29T16:14:21.565Z",
+  "scroll": [],
+  "idle": [],
+  "load": [],
+  "nav": [],
+  "slow": [],
+  "phone": [],
+  "profile": [
+    {
+      "frames": {
+        "n": 96,
+        "avg": 19.8,
+        "p95": 33.4,
+        "max": 150.1,
+        "over25": 11,
+        "over50": 1
+      },
+      "metrics": {
+        "TaskDuration": 2.056065,
+        "ScriptDuration": 0.235774,
+        "LayoutDuration": 0.05214,
+        "RecalcStyleDuration": 0.266514,
+        "LayoutCount": 20,
+        "RecalcStyleCount": 107
+      },
+      "hottest": [
+        {
+          "fn": "(program) :0",
+          "ms": 1596.7
+        },
+        {
+          "fn": "(idle) :0",
+          "ms": 435.7
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/13sc4190_mhqv.js:11",
+          "ms": 42.1
+        },
+        {
+          "fn": "setItem :0",
+          "ms": 20.6
+        },
+        {
+          "fn": "requestAnimationFrame :0",
+          "ms": 15.3
+        },
+        {
+          "fn": "appendChild :0",
+          "ms": 8.8
+        },
+        {
+          "fn": "iI http://localhost:3311/_next/static/chunks/2_fsuj0w7pu_8.js:1",
+          "ms": 8.6
+        },
+        {
+          "fn": "fetch :0",
+          "ms": 8.6
+        },
+        {
+          "fn": "focus :0",
+          "ms": 8.1
+        },
+        {
+          "fn": "setAttribute :0",
+          "ms": 8
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/1m_zznhsyv7s1.js:1",
+          "ms": 7.7
+        },
+        {
+          "fn": "query :5510",
+          "ms": 7.7
+        },
+        {
+          "fn": "ep http://localhost:3311/_next/static/chunks/0v2azvilwavbo.js:2",
+          "ms": 7.7
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/285-fqpr4y_h2.js:1",
+          "ms": 7.7
+        },
+        {
+          "fn": "o http://localhost:3311/_next/static/chunks/1m_zznhsyv7s1.js:1",
+          "ms": 7.5
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/3laf0p3zs8nt2.js:31",
+          "ms": 6.7
+        },
+        {
+          "fn": "getTextAlternativeInternal :3829",
+          "ms": 6.2
+        },
+        {
+          "fn": "decode :0",
+          "ms": 6.1
+        },
+        {
+          "fn": "step :21",
+          "ms": 5.7
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/2_fsuj0w7pu_8.js:1",
+          "ms": 4.8
+        }
+      ]
+    }
+  ],
+  "flows": [],
+  "errors": []
+}

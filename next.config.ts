@@ -7,6 +7,9 @@ const csp = ["frame-ancestors 'self'", "base-uri 'self'", "form-action 'self'", 
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  experimental: {
+    globalNotFound: true,
+  },
 
   turbopack: {
     root: __dirname,

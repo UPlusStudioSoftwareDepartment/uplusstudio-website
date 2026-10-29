@@ -1,5 +1,5 @@
 // Motion & loading measurements against a running build (default http://localhost:3100, start it with `npm run start -- -p 3100`).
-// Usage: node scripts/motion-audit.mjs [--label before] [--only scroll,idle,load,nav,slow,flows] [--browsers chromium,webkit,firefox]
+// Usage: node scripts/motion-audit.mjs [--label before] [--only scroll,idle,load,nav,slow,phone,flows] [--browsers chromium,webkit,firefox]
 // Writes motion-audit/<label>.json and prints a summary. Chromium numbers come from headless, software-rastered Chromium
 // with CDP CPU throttling: compare runs with each other, never read them as real-device frame rates.
 import { mkdir, writeFile } from "node:fs/promises";
@@ -26,7 +26,7 @@ const DEVICES = { "phone-390": PHONE, "phone-320": SMALL_PHONE, "tablet-820": TA
 const SCROLL_PAGES = ["/tr", "/tr/projects", "/tr/projects/villa-donusumu", "/tr/about", "/tr/services", "/tr/contact"];
 const IDLE_PAGES = ["/tr", "/tr/projects", "/tr/about"];
 
-const results = { label: LABEL, base: BASE, at: new Date().toISOString(), scroll: [], idle: [], load: [], nav: [], slow: [], flows: [], errors: [] };
+const results = { label: LABEL, base: BASE, at: new Date().toISOString(), scroll: [], idle: [], load: [], nav: [], slow: [], phone: [], profile: [], flows: [], errors: [] };
 
 const pct = (values, p) => {
   if (!values.length) return 0;
@@ -53,6 +53,31 @@ async function context(engine, device, { curtain = false, reduce = false } = {})
     watch("largest-contentful-paint", (e) => (globalThis.__lcp = e.startTime));
     watch("long-animation-frame", (e) => globalThis.__loaf.push({ d: e.duration, block: e.blockingDuration, at: e.startTime }));
     watch("event", (e) => e.interactionId && globalThis.__events.push({ name: e.name, d: e.duration }), { durationThreshold: 16 });
+    // Keep one recording across document navigation and back/forward cache restoration.
+    // Frame timestamps use the absolute time origin, so a document change cannot reset the counter.
+    globalThis.__startFrameRecording = () => {
+      cancelAnimationFrame(globalThis.__frameId);
+      globalThis.__frames = [];
+      const step = (t) => {
+        if (sessionStorage.getItem("motion-audit-recording") !== "1") return;
+        const now = performance.timeOrigin + t;
+        const previous = Number(sessionStorage.getItem("motion-audit-last-frame")) || now;
+        globalThis.__frames.push(now - previous);
+        sessionStorage.setItem("motion-audit-last-frame", String(now));
+        globalThis.__frameId = requestAnimationFrame(step);
+      };
+      globalThis.__frameId = requestAnimationFrame(step);
+    };
+    addEventListener("pagehide", () => {
+      cancelAnimationFrame(globalThis.__frameId);
+      if (sessionStorage.getItem("motion-audit-recording") !== "1") return;
+      const previous = JSON.parse(sessionStorage.getItem("motion-audit-frames") || "[]");
+      sessionStorage.setItem("motion-audit-frames", JSON.stringify([...previous, ...globalThis.__frames]));
+      globalThis.__frames = [];
+    });
+    addEventListener("pageshow", () => {
+      if (sessionStorage.getItem("motion-audit-recording") === "1") globalThis.__startFrameRecording();
+    });
   });
   const page = await ctx.newPage();
   page.on("pageerror", (err) => results.errors.push({ engine, url: page.url(), error: String(err) }));
@@ -298,6 +323,161 @@ async function runSlow() {
   await browser.close();
 }
 
+// Phones: frame times while a finger swipes (compositor-driven gesture), the menu opens/closes, a page changes,
+// the before/after slider is dragged and the project filter changes, at several phone sizes and CPU slowdowns.
+const PHONES = {
+  "phone-320": SMALL_PHONE,
+  "phone-360": { viewport: { width: 360, height: 780 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+  "phone-390": PHONE,
+  "phone-430": { viewport: { width: 430, height: 932 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+  "landscape-844": { viewport: { width: 844, height: 390 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+};
+
+async function framesDuring(page, action, tailMs = 600) {
+  await page.evaluate(() => {
+    sessionStorage.setItem("motion-audit-recording", "1");
+    sessionStorage.setItem("motion-audit-frames", "[]");
+    sessionStorage.setItem("motion-audit-last-frame", String(performance.timeOrigin + performance.now()));
+    globalThis.__startFrameRecording();
+  });
+  await action();
+  await page.waitForTimeout(tailMs);
+  const frames = await page.evaluate(() => {
+    cancelAnimationFrame(globalThis.__frameId);
+    const previous = JSON.parse(sessionStorage.getItem("motion-audit-frames") || "[]");
+    const frames = [...previous, ...globalThis.__frames].slice(1);
+    for (const key of ["motion-audit-recording", "motion-audit-frames", "motion-audit-last-frame"]) sessionStorage.removeItem(key);
+    return frames;
+  });
+  return frameStats(frames);
+}
+
+async function runPhone() {
+  const phones = new Set(arg("phones", Object.keys(PHONES).join(",")).split(","));
+  const cpus = arg("cpus", "4,6").split(",").map(Number);
+  for (const [device, opts] of Object.entries(PHONES).filter(([name]) => phones.has(name))) {
+    for (const cpu of cpus) {
+      const { browser, page, cdp } = await context("chromium", opts);
+      const w = opts.viewport.width, h = opts.viewport.height;
+      const row = (what, stats) => {
+        results.phone.push({ device, cpu, what, ...stats });
+        console.log(`phone ${device} cpu${cpu}x ${what}: avg ${stats.avg}ms p95 ${stats.p95}ms max ${stats.max}ms >25ms ${stats.over25}/${stats.n}`);
+      };
+      const swipe = (distance) => cdp.send("Input.synthesizeScrollGesture", { x: Math.round(w / 2), y: Math.round(h * 0.75), yDistance: distance, speed: 1800, gestureSourceType: "touch" });
+
+      for (const path of ["/tr", "/tr/projects", "/tr/about", "/tr/projects/villa-donusumu", "/tr/services"]) {
+        await page.goto(BASE + path);
+        await settle(page);
+        await throttle(cdp, cpu);
+        row(`swipe ${path}`, await framesDuring(page, async () => {
+          await swipe(-Math.round(h * 3));
+          await swipe(-Math.round(h * 3));
+          await swipe(Math.round(h * 2));
+        }));
+        await throttle(cdp, 1);
+      }
+
+      if (w < 1024) {
+        await page.goto(BASE + "/tr/about");
+        await settle(page);
+        await throttle(cdp, cpu);
+        const toggle = page.getByRole("button", { name: /menü/i }).first();
+        row("menu open", await framesDuring(page, () => toggle.tap(), 900));
+        row("menu close", await framesDuring(page, () => page.getByRole("dialog").getByRole("button", { name: /kapat/i }).tap(), 700));
+        row("menu → page", await framesDuring(page, async () => {
+          await toggle.tap();
+          await page.waitForTimeout(700);
+          await page.getByRole("dialog").locator("a[href='/tr/services']").tap();
+          await page.waitForURL(/\/tr\/services$/);
+        }, 800));
+        await throttle(cdp, 1);
+      }
+
+      await page.goto(BASE + "/tr/projects");
+      await settle(page);
+      await throttle(cdp, cpu);
+      row("filter change", await framesDuring(page, () => page.locator("button[aria-pressed]").nth(1).tap(), 900));
+      const card = page.locator("main a[href^='/tr/projects/']:not([href$='/video'])").filter({ visible: true }).first();
+      await card.scrollIntoViewIfNeeded();
+      row("page change (tap card)", await framesDuring(page, async () => {
+        await card.tap();
+        await page.waitForURL(/\/tr\/projects\/[^/]+$/);
+      }, 800));
+      row("back", await framesDuring(page, async () => {
+        await page.goBack();
+        await page.waitForURL(/\/tr\/projects$/);
+      }, 600));
+      await throttle(cdp, 1);
+
+      await page.goto(BASE + "/tr/projects/villa-donusumu");
+      await settle(page);
+      const slider = page.getByRole("slider").first();
+      await slider.scrollIntoViewIfNeeded();
+      const box = await slider.evaluate((el) => {
+        const r = el.parentElement.getBoundingClientRect();
+        return { x: r.left, y: r.top, w: r.width, h: r.height };
+      });
+      await throttle(cdp, cpu);
+      const y = Math.round(box.y + box.h / 2);
+      row("before/after drag", await framesDuring(page, async () => {
+        await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x: Math.round(box.x + box.w / 2), y }] });
+        for (let i = 0; i <= 30; i++) {
+          const x = Math.round(box.x + box.w * (0.5 + 0.4 * Math.sin((i / 30) * Math.PI / 2)));
+          await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x, y }] });
+          await page.waitForTimeout(16);
+        }
+        await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+      }, 300));
+      const moved = await page.getByRole("slider").first().getAttribute("aria-valuenow");
+      results.phone.push({ device, cpu, what: "slider moved", value: moved });
+      if (Number(moved) < 80) results.errors.push({ device, cpu, error: "Touch drag did not move the slider to the right" });
+      await throttle(cdp, 1);
+      await browser.close();
+    }
+  }
+}
+
+async function runProfile() {
+  const { browser, page, cdp } = await context("chromium", PHONE);
+  await page.goto(BASE + "/tr/about");
+  await settle(page);
+  if (process.argv.includes("--without-mascots")) {
+    await page.addStyleTag({ content: '[role="dialog"] svg[viewBox="0 0 140 150"] { display: none !important; }' });
+  }
+  if (process.argv.includes("--without-photo")) {
+    await page.addStyleTag({ content: '[role="dialog"] img[src*="after.jpg"] { visibility: hidden !important; }' });
+  }
+  await throttle(cdp, 4);
+  await cdp.send("Performance.enable");
+  await cdp.send("Profiler.enable");
+  const before = await cdp.send("Performance.getMetrics");
+  const prefetchRequests = [];
+  page.on("request", (request) => {
+    if (request.headers()["next-router-prefetch"]) prefetchRequests.push(new URL(request.url()).pathname);
+  });
+  await cdp.send("Profiler.start");
+  const frames = await framesDuring(page, () => page.getByRole("button", { name: "Menü", exact: true }).tap(), 1500);
+  const { profile } = await cdp.send("Profiler.stop");
+  const after = await cdp.send("Performance.getMetrics");
+  const metrics = Object.fromEntries(after.metrics.map((m) => [m.name, m.value - (before.metrics.find((p) => p.name === m.name)?.value ?? 0)]));
+  const nodes = new Map(profile.nodes.map((node) => [node.id, node]));
+  const costs = new Map();
+  for (const [i, sample] of profile.samples.entries()) {
+    const frame = nodes.get(sample).callFrame;
+    const key = `${frame.functionName || "(anonymous)"} ${frame.url}:${frame.lineNumber + 1}`;
+    costs.set(key, (costs.get(key) ?? 0) + profile.timeDeltas[i]);
+  }
+  const summary = {
+    frames,
+    prefetchRequests,
+    metrics: Object.fromEntries(["TaskDuration", "ScriptDuration", "LayoutDuration", "RecalcStyleDuration", "LayoutCount", "RecalcStyleCount"].map((key) => [key, metrics[key]])),
+    hottest: [...costs.entries()].sort((a, b) => b[1] - a[1]).slice(0, 20).map(([fn, us]) => ({ fn, ms: round(us / 1000) })),
+  };
+  results.profile.push(summary);
+  console.log(JSON.stringify(summary, null, 2));
+  await browser.close();
+}
+
 // Back/forward scroll restore, rapid double navigation, menu → page on phones, reduced-motion navigation.
 async function runFlows() {
   for (const engine of BROWSERS) {
@@ -391,6 +571,8 @@ if (ONLY.has("idle")) await runIdle();
 if (ONLY.has("load")) await runLoad();
 if (ONLY.has("nav")) await runNav();
 if (ONLY.has("slow")) await runSlow();
+if (ONLY.has("phone")) await runPhone();
+if (ONLY.has("profile")) await runProfile();
 if (ONLY.has("flows")) await runFlows();
 
 await mkdir("motion-audit", { recursive: true });

@@ -1,0 +1,115 @@
+{
+  "label": "menu-profile",
+  "base": "http://localhost:3311",
+  "at": "2026-10-29T16:13:47.330Z",
+  "scroll": [],
+  "idle": [],
+  "load": [],
+  "nav": [],
+  "slow": [],
+  "phone": [],
+  "profile": [
+    {
+      "frames": {
+        "n": 90,
+        "avg": 22.2,
+        "p95": 50.1,
+        "max": 150,
+        "over25": 13,
+        "over50": 5
+      },
+      "metrics": {
+        "TaskDuration": 2.54697,
+        "ScriptDuration": 0.362232,
+        "LayoutDuration": 0.112828,
+        "RecalcStyleDuration": 0.265373,
+        "LayoutCount": 85,
+        "RecalcStyleCount": 102
+      },
+      "hottest": [
+        {
+          "fn": "(program) :0",
+          "ms": 1888.5
+        },
+        {
+          "fn": "(idle) :0",
+          "ms": 249.9
+        },
+        {
+          "fn": "iI http://localhost:3311/_next/static/chunks/2_fsuj0w7pu_8.js:1",
+          "ms": 44.2
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/13sc4190_mhqv.js:11",
+          "ms": 41.5
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/1m_zznhsyv7s1.js:1",
+          "ms": 30.4
+        },
+        {
+          "fn": "tick http://localhost:3311/_next/static/chunks/285-fqpr4y_h2.js:1",
+          "ms": 17.5
+        },
+        {
+          "fn": "o http://localhost:3311/_next/static/chunks/1m_zznhsyv7s1.js:1",
+          "ms": 16.7
+        },
+        {
+          "fn": "setItem :0",
+          "ms": 15.7
+        },
+        {
+          "fn": "fetch :0",
+          "ms": 14.3
+        },
+        {
+          "fn": "requestAnimationFrame :0",
+          "ms": 12.1
+        },
+        {
+          "fn": "query :5510",
+          "ms": 9.6
+        },
+        {
+          "fn": "(anonymous) http://localhost:3311/_next/static/chunks/3laf0p3zs8nt2.js:31",
+          "ms": 9
+        },
+        {
+          "fn": "appendChild :0",
+          "ms": 8.9
+        },
+        {
+          "fn": "queueMicrotask :0",
+          "ms": 8.5
+        },
+        {
+          "fn": "step :21",
+          "ms": 8.1
+        },
+        {
+          "fn": "read :0",
+          "ms": 7.8
+        },
+        {
+          "fn": "isElementHiddenForAria :3568",
+          "ms": 7.7
+        },
+        {
+          "fn": "aE http://localhost:3311/_next/static/chunks/3laf0p3zs8nt2.js:31",
+          "ms": 7.7
+        },
+        {
+          "fn": "InjectedScript :6969",
+          "ms": 7.3
+        },
+        {
+          "fn": "evaluate :364",
+          "ms": 7.2
+        }
+      ]
+    }
+  ],
+  "flows": [],
+  "errors": []
+}

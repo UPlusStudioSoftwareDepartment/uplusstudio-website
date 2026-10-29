@@ -28,8 +28,7 @@ test("a page at rest does no animation work while the mascots are off screen", a
   expect(await styleWrites(page, 1500)).toBeLessThan(20);
 
   await page.locator("svg[viewBox='0 0 140 150']").last().scrollIntoViewIfNeeded();
-  await page.waitForTimeout(500);
-  expect(await styleWrites(page, 1500)).toBeGreaterThan(0);
+  await expect.poll(() => styleWrites(page, 1500), { timeout: 8000 }).toBeGreaterThan(0);
 });
 
 test("Back lands on the list position at once instead of sliding from the top", async ({ page }) => {
