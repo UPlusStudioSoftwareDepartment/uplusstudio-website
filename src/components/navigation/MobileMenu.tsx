@@ -6,12 +6,11 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import BookingCta from "@/components/studio/BookingCta";
+import CallCta from "@/components/studio/CallCta";
 import LanguageSelector from "@/components/LanguageSelector";
 import SocialLinks from "@/components/studio/SocialLinks";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { useScrollLock } from "@/hooks/useScrollLock";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
 import { getMobileMenuMotion } from "./mobileMenuMotion";
 import MenuIcon from "./MenuIcon";
@@ -31,7 +30,7 @@ export default function MobileMenu({ links, onClose }: MobileMenuProps) {
   const t = useTranslations("studio.nav");
   const prefix = "/" + useLocale();
   const pathname = usePathname();
-  const { openAppointment } = useAppointment();
+
   const menuRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const present = useIsPresent();
@@ -200,12 +199,8 @@ export default function MobileMenu({ links, onClose }: MobileMenuProps) {
               className="mt-3 w-full justify-between"
               tooltip="above"
             />
-            <BookingCta
-              onBook={() => {
-                onClose();
-                openAppointment();
-              }}
-              label={t("appointment")}
+            <CallCta
+              onClick={onClose}
               arrow={<span aria-hidden>→</span>}
               className="mt-[clamp(0.5rem,2dvh,1.25rem)] flex min-h-[clamp(2.75rem,7dvh,3.5rem)] w-full items-center justify-between border border-bone bg-transparent px-5 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:bg-night hover:text-bone active:bg-night active:text-bone"
             />

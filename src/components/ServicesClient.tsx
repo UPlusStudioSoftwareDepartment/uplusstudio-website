@@ -1,5 +1,7 @@
 "use client";
 
+import { studioInfo } from "@/lib/studio-info";
+
 import Link from "next/link";
 import { Fragment, useRef, useState, type ReactNode } from "react";
 import { m, useScroll, useTransform } from "framer-motion";
@@ -10,7 +12,6 @@ import BeforeAfter from "@/components/studio/BeforeAfter";
 import GoogleRating from "@/components/studio/GoogleRating";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import ShowcaseModal, { type Showcase } from "@/components/studio/ShowcaseModal";
 import { examplePair, type ExamplePair } from "@/lib/showcase";
 import { priceRange } from "@/lib/pricing";
@@ -61,7 +62,7 @@ function DisciplineBlock({
   imageAlt,
   imageSizes = "(min-width: 1024px) 45vw, 100vw",
   scopeLabel,
-  ctaLabel,
+  callLabel,
   exampleLabel,
   onExample,
 }: Readonly<{
@@ -71,11 +72,11 @@ function DisciplineBlock({
   imageAlt: string;
   imageSizes?: string;
   scopeLabel: string;
-  ctaLabel: string;
+  callLabel: string;
   exampleLabel: string;
   onExample?: () => void;
 }>) {
-  const { openAppointment } = useAppointment();
+
   const flipped = index % 2 === 1;
 
   return (
@@ -113,14 +114,13 @@ function DisciplineBlock({
         </ul>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <button
-            type="button"
-            onClick={openAppointment}
+          <a
+            href={studioInfo.phoneHref}
             className="group inline-flex min-h-12 items-center justify-between gap-6 border border-ink bg-transparent px-6 py-3.5 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone"
           >
-            {ctaLabel}
+            {callLabel}
             <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-          </button>
+          </a>
           {onExample && (
             <button
               type="button"
@@ -199,7 +199,7 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
   const copy = useServicesCopy();
   const page = copy.page;
   const locale = useLocale();
-  const { openAppointment, openAppointmentWith } = useAppointment();
+
   const tm = useTranslations("studio.mascots");
   const ts = useTranslations("studio");
   const lang = locale === "en" ? "en" : "tr";
@@ -241,7 +241,7 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
               imageAlt={page.disciplineImages[key]}
               imageSizes={DISCIPLINE_IMAGE_SIZES[key]}
               scopeLabel={page.scope}
-              ctaLabel={page.ctaButton}
+              callLabel={ts("nav.callNow")}
               exampleLabel={ts("showcase.cta")}
               onExample={DISCIPLINE_EXAMPLE[key] && (() => {
                 const pair = DISCIPLINE_EXAMPLE[key];
@@ -263,7 +263,6 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
         <ShowcaseModal
           item={showcase}
           onClose={() => setShowcase(null)}
-          onCta={openAppointment}
           labels={{
             includes: page.scope,
             before: ts("transform.before"),
@@ -291,14 +290,13 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
               <span className="font-mono text-[12px] tracking-[0.14em] text-clay">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-4 text-[19px] font-medium leading-snug text-ink">{service.title}</h3>
               <p className="mt-2 flex-1 text-[15px] leading-relaxed text-mute">{service.desc}</p>
-              <button
-                type="button"
-                onClick={() => openAppointmentWith({ service: service.booking, message: page.allMessage.replace("{service}", service.title) })}
+              <a
+                href={studioInfo.phoneHref}
                 className="group mt-6 inline-flex min-h-11 items-center justify-between gap-3 border-t border-line pt-4 text-left font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:text-clay"
               >
-                {page.allCta}
+                {ts("nav.callNow")}
                 <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </button>
+              </a>
               {LANDING_BY_BOOKING[service.booking] && (
                 <Link
                   href={`/${lang}/services/${LANDING_BY_BOOKING[service.booking]}`}
@@ -377,14 +375,13 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
             </h2>
             <p className="mt-8 max-w-xl text-[17px] leading-relaxed text-bone/75">{copy.cta.subtitle}</p>
             <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
-              <button
-                type="button"
-                onClick={openAppointment}
+              <a
+                href={studioInfo.phoneHref}
                 className="group inline-flex min-h-12 items-center justify-between gap-6 border border-bone bg-transparent px-6 py-4 text-[15px] text-bone transition-colors hover:bg-night hover:text-bone sm:justify-start"
               >
-                {page.ctaButton}
+                {ts("nav.callNow")}
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-              </button>
+              </a>
               <Link
                 href={`/${locale}/contact`}
                 className="group inline-flex items-center gap-3 self-start border-b border-bone/40 pb-1 text-[15px] text-bone/85 hover:border-bone hover:text-bone sm:self-auto"

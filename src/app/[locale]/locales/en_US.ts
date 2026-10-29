@@ -7,6 +7,7 @@ export const studio_en = {
     "services": "Services",
     "contact": "Contact",
     "glossaryShort": "Glossary",
+    "guides": "Project guides",
     "glossary": "Architecture Glossary",
     "home": "Home",
     "call": "Call",
@@ -37,12 +38,12 @@ export const studio_en = {
   },
   "intro": {
     "label": "Studio",
-    "statementA": "U+ Studio brings architectural design, interior architecture and implementation under one roof. In every project we turn context, material and light into",
-    "statementItalic": "a space that lives",
-    "statementB": "and grows with its people.",
+    "statementA": "Changing a space begins with",
+    "statementItalic": "how you want to live",
+    "statementB": "within it.",
     "quote": "A space is completed by being used.",
     "more": "Meet the studio",
-    "place": "Our office is in İncek, Gölbaşı / Ankara. We work on projects across Ankara and throughout Türkiye."
+    "place": "A new home for your plot, interiors that suit your life or a fresh start for your business. At U+ Studio, we bring architecture, interiors and construction services together around your needs. From our İncek, Gölbaşı / Ankara office, we work on projects across Ankara and Türkiye."
   },
   "work": {
     "label": "Selected Work",

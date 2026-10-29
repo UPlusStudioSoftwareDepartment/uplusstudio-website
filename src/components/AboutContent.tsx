@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import BookingCta from "@/components/studio/BookingCta";
+import CallCta from "@/components/studio/CallCta";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useState, type ReactNode } from "react";
@@ -10,7 +10,6 @@ import ScrubText from "@/components/studio/ScrubText";
 import BeforeAfter from "@/components/studio/BeforeAfter";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
 import ShowcaseModal, { type Showcase } from "@/components/studio/ShowcaseModal";
 import { getProject } from "@/lib/projects";
@@ -192,7 +191,7 @@ export default function AboutContent() {
   const ts = useTranslations("studio");
   const tm = useTranslations("studio.mascots");
   const locale = useLocale();
-  const { openAppointment } = useAppointment();
+
   const people = t.raw("people") as People;
   const offer = t.raw("offer") as Offer;
   const why = t.raw("why") as { label: string; items: { title: string; desc: string }[] };
@@ -382,14 +381,20 @@ export default function AboutContent() {
                       </li>
                     ))}
                   </ul>
-                  <button
-                    type="button"
-                    onClick={EXAMPLE_FOR[item.key] ? () => openExample(item, i) : openAppointment}
-                    className="mt-auto inline-flex items-center justify-between gap-4 border-t border-line pt-5 text-left text-[15px] text-ink transition-colors hover:text-clay [margin-top:max(2rem,auto)]"
-                  >
-                    {EXAMPLE_FOR[item.key] ? offer.exampleCta : offer.cta}
-                    <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                  </button>
+                  {EXAMPLE_FOR[item.key] ? (
+                    <button
+                      type="button"
+                      onClick={() => openExample(item, i)}
+                      className="mt-auto inline-flex items-center justify-between gap-4 border-t border-line pt-5 text-left text-[15px] text-ink transition-colors hover:text-clay [margin-top:max(2rem,auto)]"
+                    >
+                      {offer.exampleCta}
+                      <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </button>
+                  ) : (
+                    <a href={studioInfo.phoneHref} className="mt-auto inline-flex min-h-11 items-center justify-between gap-4 border-t border-line pt-5 text-[15px] text-ink hover:text-clay">
+                      {ts("nav.callNow")} <span aria-hidden>→</span>
+                    </a>
+                  )}
                 </div>
               </FadeUp>
             </li>
@@ -421,7 +426,6 @@ export default function AboutContent() {
       <ShowcaseModal
         item={showcase}
         onClose={() => setShowcase(null)}
-        onCta={openAppointment}
         labels={{
           includes: offer.includesLabel,
           before: ts("transform.before"),
@@ -546,9 +550,7 @@ export default function AboutContent() {
                 {t("cta.button")}
                 <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </Link>
-              <BookingCta
-                onBook={openAppointment}
-                label={t("cta.appointment")}
+              <CallCta
                 arrow={<span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>}
                 className="group inline-flex min-h-11 items-center gap-3 self-start whitespace-nowrap border-b border-ink/40 pb-1 text-[15px] transition-colors hover:border-clay hover:text-clay sm:self-auto"
               />

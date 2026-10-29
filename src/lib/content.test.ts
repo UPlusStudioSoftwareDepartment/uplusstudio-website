@@ -4,6 +4,8 @@ import { STUDIO_SERVICES } from "./services";
 import { SERVICE_LANDINGS, LANDING_BY_BOOKING } from "./serviceLandings";
 import { getProject } from "./projects";
 import { appointmentSchema } from "./validations";
+import { guides } from "./guides";
+import { homeMarketing, serviceDecisions } from "./marketingContent";
 
 describe("mail links", () => {
   it("encodes Turkish text and line breaks in mailto links", () => {
@@ -41,6 +43,25 @@ describe("service architecture", () => {
 
   it("maps each landing page to a bookable service", () => {
     for (const landing of SERVICE_LANDINGS) expect(LANDING_BY_BOOKING[landing.booking]).toBe(landing.slug);
+  });
+});
+
+describe("marketing content links", () => {
+  it("connects every customer path and guide to published services and real projects", () => {
+    const serviceSlugs = new Set(SERVICE_LANDINGS.map(({ slug }) => slug));
+    expect(Object.keys(serviceDecisions).sort()).toEqual([...serviceSlugs].sort());
+    expect(new Set(guides.map(({ slug }) => slug)).size).toBe(guides.length);
+    for (const locale of ["tr", "en"] as const) {
+      for (const path of homeMarketing[locale].paths) {
+        expect(serviceSlugs.has(path.service)).toBe(true);
+        expect(getProject(path.project)).toBeDefined();
+      }
+      for (const guide of guides) {
+        expect(serviceSlugs.has(guide.service)).toBe(true);
+        expect(getProject(guide.project)).toBeDefined();
+        expect(guide.copy[locale].description.length).toBeLessThanOrEqual(160);
+      }
+    }
   });
 });
 

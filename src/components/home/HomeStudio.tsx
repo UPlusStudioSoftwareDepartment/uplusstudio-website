@@ -3,8 +3,11 @@ import { getTranslations } from "next-intl/server";
 import FramedImage from "@/components/studio/FramedImage";
 import { Eyebrow } from "@/components/studio/Reveal";
 import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
-import { projects, projectNumber, coverSizes } from "@/lib/projects";
+import { projects, coverSizes } from "@/lib/projects";
 import type { Locale } from "@/lib/i18n-config";
+import HomeDecisionSupport from "./HomeDecisionSupport";
+import HomeProjectPaths from "./HomeProjectPaths";
+import GuideLinks from "@/components/GuideLinks";
 
 const MORE_LINK = "group inline-flex min-h-11 items-center gap-3 border-b border-ink/40 pb-1 text-[15px] transition-colors hover:border-clay hover:text-clay";
 const ARROW = <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>;
@@ -28,6 +31,7 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
           </Link>
         </section>
 
+        <HomeProjectPaths locale={locale} />
         <section className="border-t border-line py-20 sm:py-28">
           <Eyebrow>{t("nav.services")}</Eyebrow>
           <h2 className="display -ml-[0.075em] mt-5 text-[clamp(2.5rem,9vw,5.5rem)]">{t("disciplines.title")}</h2>
@@ -49,12 +53,12 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
           </Link>
         </section>
 
-        <section className="border-t border-line py-20 [contain-intrinsic-size:auto_2400px] [content-visibility:auto] sm:py-28">
+        <section aria-labelledby="home-featured-projects" className="border-t border-line py-20 [contain-intrinsic-size:auto_2400px] [content-visibility:auto] sm:py-28">
           <Eyebrow>{t("work.label")}</Eyebrow>
-          <h2 className="display -ml-[0.075em] mt-5 text-[clamp(2.5rem,9vw,5.5rem)]">{t("work.title")}</h2>
+          <h2 id="home-featured-projects" className="display -ml-[0.075em] mt-5 text-[clamp(2.5rem,9vw,5.5rem)]">{t("work.title")}</h2>
           <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-mute">{t("work.intro")}</p>
           <ul className="mt-12 grid grid-cols-1 gap-x-6 gap-y-14 md:grid-cols-2">
-            {featured.map((project) => (
+            {featured.map((project, index) => (
               <li key={project.slug}>
                 <Link href={`${prefix}/projects/${project.slug}`} className="group block">
                   <div className="relative aspect-[3/2] overflow-hidden bg-paper-2">
@@ -63,7 +67,7 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
                     </div>
                   </div>
                   <div className="mt-5 flex items-baseline gap-4 border-t border-line pt-4">
-                    <span className="font-mono text-[12px] text-mute">{projectNumber(project.slug)}</span>
+                    <span data-home-project-number className="font-mono text-[12px] text-mute">{String(index + 1).padStart(2, "0")}</span>
                     <div className="min-w-0 flex-1">
                       <h3 className="text-2xl font-light tracking-[-0.02em] transition-colors group-hover:text-clay sm:text-3xl">{project.title[locale]}</h3>
                       <p className="mt-2 max-w-md text-[15px] leading-relaxed text-mute">{project.tagline[locale]}</p>
@@ -78,6 +82,8 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
             {t("work.viewAll")} {ARROW}
           </Link>
         </section>
+        <HomeDecisionSupport locale={locale} />
+        <GuideLinks locale={locale} />
       </div>
     </div>
   );

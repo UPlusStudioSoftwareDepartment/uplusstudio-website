@@ -17,9 +17,8 @@ export const contact_en = {
     "directions": "Directions",
     "office": "Our İncek office",
     "openInMaps": "Open in Maps",
-    "appointment": {
-        "prompt": "Prefer to meet in person?",
-        "button": "Book a meeting"
+    "call": {
+        "prompt": "Call us to discuss your project location, needs and intended timeline."
     },
     "findUs": "Find Us",
     "phone": "Phone",

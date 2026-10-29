@@ -1,4 +1,4 @@
-import { expect, type Locator, type Page } from "@playwright/test";
+import { type Page } from "@playwright/test";
 import { buildContactEmail } from "../src/lib/contactEmail";
 
 type Outgoing = Window & { __opened: { url: string }[]; __clipboard: Record<string, string>[] };
@@ -48,32 +48,6 @@ export const copiedHtml = (page: Page) =>
     return items.at(-1)?.["text/html"] ?? "";
   });
 
-export async function openAppointment(page: Page, path = "/tr/contact", button = "Randevu Al") {
-  await page.goto(path);
-  await page.getByRole("main").getByRole("button", { name: button }).first().click();
-  const dialog = page.getByRole("dialog");
-  await expect(dialog).toBeVisible();
-  return dialog;
-}
-
-export async function fillAppointment(
-  dialog: Locator,
-  values: { name?: string; email?: string; phone?: string; message?: string; service?: number; time?: string } = {}
-) {
-  await dialog.locator("#appointment-name").fill(values.name ?? "Ayşe Yılmaz");
-  await dialog.locator("#appointment-email").fill(values.email ?? "ayse@example.com");
-  await dialog.locator("#appointment-phone").fill(values.phone ?? "0532 123 45 67");
-  await dialog.locator("fieldset button").nth(values.service ?? 1).click();
-  await dialog.getByRole("button", { name: /Sonraki ay|Next month/ }).click();
-  const day = dialog.locator("button[aria-label][aria-pressed]:not([disabled])").first();
-  const dayLabel = (await day.getAttribute("aria-label")) ?? "";
-  await day.click();
-  await dialog.getByRole("button", { name: values.time ?? "14:00", exact: true }).click();
-  await dialog.locator("#appointment-message").fill(values.message ?? "Salon ve mutfak için keşif görüşmesi istiyoruz.");
-  return dayLabel;
-}
-
-export const submitButton = (dialog: Locator) => dialog.locator('button[type="submit"]');
 
 export function hrefParam(url: string, name: string) {
   return new URL(url).searchParams.get(name) ?? "";

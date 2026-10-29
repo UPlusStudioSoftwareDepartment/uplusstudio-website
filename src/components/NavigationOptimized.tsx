@@ -16,7 +16,7 @@ const SCROLL_THRESHOLD = 40;
 function startsOverDark(pathname: string, prefix: string): boolean {
   if (pathname === "/" || pathname === prefix) return true;
   return new RegExp(
-    `^${prefix}/(projects(/[^/]+)?|about|services|contact|glossary|kvkk)/?$`,
+    `^${prefix}/(projects(/[^/]+)?|guides(/[^/]+)?|about|services|contact|glossary|kvkk)/?$`,
   ).test(pathname);
 }
 

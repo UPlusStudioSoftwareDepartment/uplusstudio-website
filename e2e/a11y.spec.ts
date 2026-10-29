@@ -50,7 +50,5 @@ test("open dialogs pass axe WCAG 2.2 AA", async ({ page, isMobile }) => {
   if (isMobile) return;
   await page.keyboard.press("Escape");
   await expect(card).toBeHidden();
-  await page.getByRole("main").getByRole("button", { name: "Randevu Al" }).first().click();
-  await opaque(page.getByRole("dialog"));
-  await expect.poll(() => violations(page, '[role="dialog"]'), { timeout: 8000 }).toEqual([]);
+
 });

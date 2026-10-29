@@ -1,11 +1,12 @@
 "use client";
 
+import { studioInfo } from "@/lib/studio-info";
+
 import Image from "next/image";
 
 import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import { useServicesCopy } from "@/components/ServicesClient";
 import FramedImage from "@/components/studio/FramedImage";
 
@@ -46,8 +47,8 @@ const PACKAGE_IMAGES: Record<string, { src: string; alt: { tr: string; en: strin
 export default function ServicePackages() {
   const t = useTranslations('packages');
   const locale = useLocale();
+  const callLabel = locale === "en" ? "Call now" : "Şimdi Ara";
   const page = useServicesCopy().page;
-  const { openAppointment, openAppointmentWith } = useAppointment();
 
   const packages = useMemo<Package[]>(() => [
     {
@@ -174,12 +175,6 @@ export default function ServicePackages() {
   const numberLocale = locale === 'en' ? 'en-US' : 'tr-TR';
   const formatPrice = (price: number) => `₺${price.toLocaleString(numberLocale)}`;
 
-  const requestPackage = (pkg: Package) =>
-    openAppointmentWith({
-      service: SECTOR_TIERS.includes(pkg.id) ? 'commercial' : undefined,
-      message: t('requestMessage', { name: pkg.name, price: formatPrice(pkg.price) }),
-    });
-
   const designPackages = packages.filter((p) => !SECTOR_TIERS.includes(p.id));
   const sectorPackages = packages.filter((p) => SECTOR_TIERS.includes(p.id));
 
@@ -188,15 +183,14 @@ export default function ServicePackages() {
       ? 'border-clay/70 text-bone hover:border-bone hover:bg-night hover:text-bone'
       : 'border-ink/50 text-ink hover:border-bone hover:bg-night hover:text-bone';
     return (
-      <button
-        type="button"
-        onClick={() => requestPackage(pkg)}
-        aria-label={`${t('purchase')} — ${pkg.name}`}
+      <a
+        href={studioInfo.phoneHref}
+        aria-label={`${callLabel} — ${pkg.name}`}
         className={`group/btn inline-flex w-full items-center justify-between gap-4 rounded-[3px] border bg-transparent px-5 py-4 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors duration-300 ${tone}`}
       >
-        {t('purchase')}
+        {callLabel}
         <span aria-hidden className="transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
-      </button>
+      </a>
     );
   };
 
@@ -367,14 +361,13 @@ export default function ServicePackages() {
           </h3>
           <p className="max-w-lg text-[15px] leading-relaxed text-mute lg:col-span-5">{t('customPackage.description')}</p>
           <div className="lg:col-span-3 lg:text-right">
-            <button
-              type="button"
-              onClick={openAppointment}
+            <a
+              href={studioInfo.phoneHref}
               className="group inline-flex items-center gap-3 border-b border-ink pb-1 text-[15px] text-ink hover:border-clay hover:text-clay"
             >
-              {t('customPackage.contact')}
+              {callLabel}
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

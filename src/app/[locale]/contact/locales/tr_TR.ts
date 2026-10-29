@@ -17,9 +17,8 @@ export const contact_tr = {
     "directions": "Yol Tarifi",
     "office": "İncek ofisimiz",
     "openInMaps": "Haritada aç",
-    "appointment": {
-        "prompt": "Yüz yüze görüşmeyi mi tercih edersiniz?",
-        "button": "Randevu Al"
+    "call": {
+        "prompt": "Projenizin konumunu, ihtiyacınızı ve düşündüğünüz takvimi telefonda konuşalım."
     },
     "findUs": "Bizi Bulun",
     "phone": "Telefon",

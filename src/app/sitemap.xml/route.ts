@@ -3,6 +3,7 @@ import { locales, type Locale } from "@/lib/i18n-config";
 import { getProject, projects, screenPoster, type Project } from "@/lib/projects";
 import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
 import { localePath, PAGE_PATH, SITE_URL } from "@/lib/seo";
+import { guides } from "@/lib/guides";
 
 const PATHS = [
   PAGE_PATH.home,
@@ -15,6 +16,8 @@ const PATHS = [
   PAGE_PATH.contact,
   PAGE_PATH.glossary,
   PAGE_PATH.privacy,
+  "/guides",
+  ...guides.map(({ slug }) => `/guides/${slug}`),
 ];
 
 const IMAGES: Record<string, string[]> = Object.fromEntries([

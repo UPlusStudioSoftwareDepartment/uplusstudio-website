@@ -7,6 +7,7 @@ export const studio_tr = {
     "services": "Hizmetler",
     "contact": "İletişim",
     "glossaryShort": "Sözlük",
+    "guides": "Proje rehberleri",
     "glossary": "Mimarlık Sözlüğü",
     "home": "Ana Sayfa",
     "call": "Ara",
@@ -37,12 +38,12 @@ export const studio_tr = {
   },
   "intro": {
     "label": "Stüdyo",
-    "statementA": "U+ Studio; mimari tasarım, iç mimarlık ve uygulamayı tek çatı altında buluşturan bir tasarım ofisidir. Her projede bağlamı, malzemeyi ve ışığı",
-    "statementItalic": "yaşayan bir mekâna",
-    "statementB": "dönüştürüyoruz.",
+    "statementA": "Bir mekânı değiştirmek,",
+    "statementItalic": "nasıl yaşamak istediğinizi",
+    "statementB": "konuşmakla başlar.",
     "quote": "Mekân, kullanıldıkça tamamlanır.",
     "more": "Stüdyoyu tanıyın",
-    "place": "Ofisimiz İncek, Gölbaşı / Ankara'da. Ankara'nın her yerinde ve Türkiye genelinde projeler yürütüyoruz."
+    "place": "Arsanız için yeni bir ev, yaşamınıza uyum sağlayan bir iç mekân veya işletmeniz için yeni bir başlangıç. U+ Studio'da mimari tasarım, iç mimarlık ve uygulamayı ihtiyaçlarınız etrafında bir araya getiriyoruz. İncek, Gölbaşı / Ankara'daki ofisimizden Ankara ve Türkiye genelindeki projelere hizmet veriyoruz."
   },
   "work": {
     "label": "Seçili İşler",

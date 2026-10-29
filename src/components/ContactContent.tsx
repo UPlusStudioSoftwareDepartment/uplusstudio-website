@@ -19,7 +19,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { getContactSchema, type ContactFormValues } from "@/lib/validations";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { useToast } from "@/contexts/ToastContext";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
 import { APPOINTMENT_SERVICES } from "@/lib/services";
 import { buildContactEmail } from "@/lib/contactEmail";
@@ -129,7 +128,7 @@ export default function ContactContent() {
     const locale = useLocale();
     const copy = locale === "en" ? contact_en : contact_tr;
     const toast = useToast();
-    const { openAppointment } = useAppointment();
+
     const botGuard = useBotGuard();
     const [sent, setSent] = useState<Sent | null>(null);
     const [typed] = useState(typedBeforeHydration);
@@ -400,15 +399,14 @@ export default function ContactContent() {
                             <MascotDuo pose="wave" size="sm" className="shrink-0" />
                             <div className="min-w-0 flex-1">
                                 <p className="font-serif text-[clamp(1.2rem,1.6vw,1.45rem)] italic leading-snug text-ink">{tm("hello")}</p>
-                                <p className="mt-2 text-[15px] leading-relaxed text-mute">{copy.appointment.prompt}</p>
-                                <button
-                                    type="button"
-                                    onClick={openAppointment}
+                                <p className="mt-2 text-[15px] leading-relaxed text-mute">{copy.call.prompt}</p>
+                                <a
+                                    href={studioInfo.phoneHref}
                                     className="group mt-6 inline-flex min-h-12 w-full items-center justify-between gap-6 rounded-[3px] border border-ink/50 bg-transparent px-6 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone sm:w-auto"
                                 >
-                                    {copy.appointment.button}
+                                    {locale === "en" ? "Call now" : "Şimdi Ara"}
                                     <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </FadeUp>

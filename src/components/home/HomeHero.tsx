@@ -2,15 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { preload } from "react-dom";
-import BookingCta from "@/components/studio/BookingCta";
+import CallCta from "@/components/studio/CallCta";
 import SocialLinks from "@/components/studio/SocialLinks";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { m, useReducedMotion } from "framer-motion";
 import { LineReveal } from "@/components/studio/Reveal";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import { DesignerMascot, BuilderMascot, HIGH_FIVE } from "@/components/mascots/Mascots";
-import { projects, projectNumber } from "@/lib/projects";
+import { projects } from "@/lib/projects";
 import type { Locale } from "@/lib/i18n-config";
 
 const CELEBRATION_S = HIGH_FIVE.duration;
@@ -29,6 +28,7 @@ const VIDEO = {
 const MUSIC_DRIFT_S = 0.25;
 const FILM_LABEL = { stopped: "playFilm", silent: "unmuteFilm", audible: "stopFilm" } as const;
 const PROJECT_COLUMNS = [["villa-donusumu", "evox-gym-center"], ["butik-kafe", "modern-villa"], ["konut-uygulama", "pastane"]];
+const heroProjectNumber = (slug: string) => String(PROJECT_COLUMNS.flat().indexOf(slug) + 1).padStart(2, "0");
 
 const videoSource = () => (globalThis.innerWidth < 768 ? VIDEO.small : VIDEO.large);
 const MUSIC_KEY = "u-film-music";
@@ -58,7 +58,7 @@ export default function HomeHero() {
   const t = useTranslations("studio");
   const locale = useLocale() as Locale;
   const reduce = useReducedMotion();
-  const { openAppointment } = useAppointment();
+
   const [celebrating, setCelebrating] = useState(false);
   const [mascotsHovered, setMascotsHovered] = useState(false);
   const [playing, setPlaying] = useState(false);
@@ -245,10 +245,8 @@ export default function HomeHero() {
                 <path d="M0 -4 L1.2 -1.2 L4 0 L1.2 1.2 L0 4 L-1.2 1.2 L-4 0 L-1.2 -1.2 Z" fill="#fff6d6" />
               </m.svg>
             </div>
-            <BookingCta
-              onBook={openAppointment}
+            <CallCta
               onMouseEnter={celebrate}
-              label={t("nav.appointment")}
               className="inline-flex min-h-11 animate-[rise_0.9s_var(--ease-out-studio)_1s_backwards] items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors [--rise:12px] motion-reduce:animate-none hover:border-bone hover:bg-night"
             />
           </div>
@@ -261,21 +259,21 @@ export default function HomeHero() {
           </p>
 
           <div className="md:col-span-7 xl:col-span-1">
-            <span className="flex items-center gap-2.5 xl:h-6">
+            <span className="flex min-h-8 items-center gap-2.5 xl:h-8">
               <button
                 type="button"
                 onClick={toggleFilm}
                 aria-label={t(`hero.${FILM_LABEL[film]}`)}
-                className="relative -my-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-bone/45 text-bone transition-colors after:absolute after:-inset-2.5 after:content-[''] hover:border-bone hover:bg-night"
+                className="relative -my-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-bone/75 bg-night/45 text-bone transition-colors after:absolute after:-inset-1.5 after:content-[''] hover:border-bone hover:bg-night focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bone"
               >
                 {film === "silent" ? (
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="h-3.5 w-3.5">
-                    <path d="M3 9v6h4l5 4V5L7 9H3z" />
-                    <path d="m16 9.5 5 5m0-5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden className="h-5 w-5 [shape-rendering:geometricPrecision]">
+                    <path d="M3 7v6h3l5 4V3L6 7H3z" />
+                    <path d="m14 7 4 6m0-6-4 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
                   </svg>
                 ) : (
-                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={`h-2.5 w-2.5 ${film === "stopped" ? "translate-x-px" : ""}`}>
-                    <path d={film === "stopped" ? "M6 3.5v17L20.5 12z" : "M5 5h14v14H5z"} />
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden className="h-5 w-5 [shape-rendering:geometricPrecision]">
+                    <path d={film === "stopped" ? "M6 4v12l10-6z" : "M5 5h10v10H5z"} />
                   </svg>
                 )}
               </button>
@@ -303,7 +301,7 @@ export default function HomeHero() {
                 {column.map((p) => (
                   <li key={p.slug} className="flex h-6 items-center">
                     <Link href={`/${locale}/projects/${p.slug}`} className="group flex items-baseline gap-3 whitespace-nowrap text-[14px] text-bone/70 hover:text-bone">
-                      <span className="font-mono text-[11px] text-bone/60">{projectNumber(p.slug)}</span>
+                      <span data-home-project-number className="font-mono text-[11px] text-bone/60">{heroProjectNumber(p.slug)}</span>
                       <span className="border-b border-transparent group-hover:border-bone/60">{p.title[locale]}</span>
                     </Link>
                   </li>

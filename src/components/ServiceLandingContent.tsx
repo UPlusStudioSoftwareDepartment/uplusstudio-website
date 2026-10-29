@@ -2,16 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 import PageHeader from "@/components/studio/PageHeader";
-import BookingCta from "@/components/studio/BookingCta";
+import CallCta from "@/components/studio/CallCta";
 import { Eyebrow, FadeUp, LineReveal } from "@/components/studio/Reveal";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import { useServicesCopy, withEm } from "@/components/ServicesClient";
 import { getProject } from "@/lib/projects";
 import { formatTry, packagePrices } from "@/lib/pricing";
 import { getServiceLanding } from "@/lib/serviceLandings";
 import type { Locale } from "@/lib/i18n-config";
+import ProjectPreparation from "./ProjectPreparation";
+import type { ReactNode } from "react";
 
 const CONTAINER = "mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12";
 const HEADING = "display text-ink [&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal";
@@ -21,11 +21,10 @@ const LABELS = {
   en: { area: "Service area", areaText: "From our office in İncek we work on projects across Türkiye, first of all in Ankara (İncek, Gölbaşı, Çankaya).", projects: "Related projects", process: "How we work", faq: "Common questions", allServices: "All services", cta: "Let's talk about your project", ctaText: "At the first meeting we listen to your brief and agree the scope and next steps together." },
 };
 
-export default function ServiceLandingContent({ slug, locale }: Readonly<{ slug: string; locale: Locale }>) {
+export default function ServiceLandingContent({ slug, locale, children }: Readonly<{ slug: string; locale: Locale; children: ReactNode }>) {
   const landing = getServiceLanding(slug);
   const services = useServicesCopy();
-  const t = useTranslations("studio");
-  const { openAppointmentWith } = useAppointment();
+
   if (!landing) return null;
   const c = landing.copy[locale];
   const l = LABELS[locale];
@@ -34,7 +33,6 @@ export default function ServiceLandingContent({ slug, locale }: Readonly<{ slug:
     .replace("{cafe}", formatTry(packagePrices.cafe, locale))
     .replace("{gym}", formatTry(packagePrices.gym, locale));
   const related = landing.projects.map(getProject).filter((p): p is NonNullable<typeof p> => Boolean(p));
-  const book = () => openAppointmentWith({ service: landing.booking });
 
   return (
     <>
@@ -69,6 +67,7 @@ export default function ServiceLandingContent({ slug, locale }: Readonly<{ slug:
         </FadeUp>
       </section>
 
+      {children}
       <section className={`${CONTAINER} pt-20 sm:pt-28`}>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -142,6 +141,7 @@ export default function ServiceLandingContent({ slug, locale }: Readonly<{ slug:
         </section>
       )}
 
+      <div className={`${CONTAINER} pt-20 sm:pt-28`}><ProjectPreparation locale={locale} /></div>
       <section className={`${CONTAINER} pb-28 pt-20 sm:pb-40 sm:pt-28`}>
         <div className="flex flex-col gap-6 border-t border-line pt-10 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
@@ -149,9 +149,7 @@ export default function ServiceLandingContent({ slug, locale }: Readonly<{ slug:
             <p className="mt-4 text-[16px] leading-relaxed text-mute">{l.ctaText}</p>
           </div>
           <div className="flex flex-col gap-3 sm:items-end">
-            <BookingCta
-              onBook={book}
-              label={t("nav.appointment")}
+            <CallCta
               arrow={<span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>}
               className="group inline-flex min-h-12 items-center justify-between gap-4 border border-ink bg-transparent px-7 py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone"
             />

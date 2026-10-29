@@ -5,6 +5,7 @@ import { GET } from "@/app/sitemap.xml/route";
 import { projects, screenPoster } from "./projects";
 import { SITE_URL } from "./seo";
 import { projectLd, projectVideoLd } from "./seo-projects";
+import { guides } from "./guides";
 
 const publicFile = (url: string) => join(process.cwd(), "public", new URL(url, SITE_URL).pathname);
 
@@ -35,6 +36,14 @@ describe("sitemap", async () => {
 
   it("only points at image files that exist", () => {
     for (const src of entries.flatMap((e) => e.images)) expect(existsSync(publicFile(src)), src).toBe(true);
+  });
+
+  it("includes the guide library and every guide in both languages", () => {
+    for (const locale of ["tr", "en"]) {
+      for (const path of ["/guides", ...guides.map(({ slug }) => `/guides/${slug}`)]) {
+        expect(entries.some(({ loc }) => loc === `${SITE_URL}/${locale}${path}`)).toBe(true);
+      }
+    }
   });
 
   it("lists every project photo on its project page", () => {

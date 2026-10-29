@@ -107,22 +107,22 @@ export const services_tr = {
             {
                 "step": "01",
                 "title": "Keşif",
-                "description": "Vizyonunuzu ve gereksinimlerinizi anlama"
+                "description": "Mekânı, kullanım ihtiyaçlarını, öncelikleri ve mevcut bilgileri birlikte değerlendirme"
             },
             {
                 "step": "02",
                 "title": "Tasarım",
-                "description": "Yenilikçi ve işlevsel tasarımlar yaratma"
+                "description": "Yerleşim, malzeme ve ışık kararlarını tasarım seçenekleriyle geliştirme"
             },
             {
                 "step": "03",
                 "title": "Geliştirme",
-                "description": "Tasarımları iyileştirme ve teknik dokümantasyon hazırlama"
+                "description": "Seçilen tasarımı, kararlaştırılan kapsamda teknik çizim ve detaylara dönüştürme"
             },
             {
                 "step": "04",
                 "title": "Uygulama",
-                "description": "İnşaatı denetleme ve kaliteli teslimat sağlama"
+                "description": "Kapsama dahilse uygulama kararlarını ve saha koordinasyonunu takip etme"
             }
         ]
     },

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import BookingCta from "@/components/studio/BookingCta";
+import CallCta from "@/components/studio/CallCta";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import BeforeAfter from "@/components/studio/BeforeAfter";
@@ -10,7 +10,6 @@ import { MascotDuo } from "@/components/mascots/Mascots";
 import InViewVideo from "@/components/studio/InViewVideo";
 import Fullscreenable from "@/components/studio/Fullscreenable";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import { getAdjacentProject, getProject, projectNumber, screenPoster, type ProjectImage } from "@/lib/projects";
 import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
 import type { Locale } from "@/lib/i18n-config";
@@ -22,7 +21,7 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
   const nextProject = getAdjacentProject(slug);
   const locale = useLocale() as Locale;
   const t = useTranslations("studio");
-  const { openAppointment } = useAppointment();
+
 
   const portraitCover = isPortrait(project.cover);
   const category = t(`work.categories.${project.category}`);
@@ -169,9 +168,7 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
               <p className="mt-1 text-2xl font-light tracking-[-0.02em] sm:text-3xl">{t("project.similar")}</p>
             </div>
           </div>
-          <BookingCta
-            onBook={openAppointment}
-            label={t("nav.appointment")}
+          <CallCta
             arrow={<span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>}
             className="group inline-flex min-h-12 items-center justify-between gap-4 border border-ink bg-transparent px-7 py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone"
           />

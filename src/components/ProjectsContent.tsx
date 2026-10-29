@@ -1,5 +1,7 @@
 "use client";
 
+import { studioInfo } from "@/lib/studio-info";
+
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +12,6 @@ import { MaskReveal, EASE_STUDIO, EASE_OUT } from "@/components/studio/Reveal";
 import MotionReel from "@/components/studio/MotionReel";
 import FramedImage from "@/components/studio/FramedImage";
 import { MascotDuo } from "@/components/mascots/Mascots";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import { projects, projectCategories, projectNumber, coverSizes, type Project, type ProjectCategory } from "@/lib/projects";
 import type { Locale } from "@/lib/i18n-config";
 
@@ -144,9 +145,10 @@ function ListView({ items }: Readonly<{ items: Project[] }>) {
 }
 
 export default function ProjectsContent() {
+  const nav = useTranslations("studio.nav");
   const t = useTranslations("studio.work");
   const tm = useTranslations("studio.mascots");
-  const { openAppointment } = useAppointment();
+
   const [filter, setFilter] = useState<Filter>("all");
   const [view, setView] = useState<View>("grid");
 
@@ -223,14 +225,13 @@ export default function ProjectsContent() {
       <section className="mx-auto max-w-[2560px] px-4 pb-24 sm:px-8 lg:px-12">
         <div className="flex flex-col items-start gap-8 border-y border-line py-12 sm:flex-row sm:items-center sm:justify-between">
           <MascotDuo pose="cheer" size="md" message={tm("projects")} />
-          <button
-            type="button"
-            onClick={openAppointment}
+          <a
+            href={studioInfo.phoneHref}
             className="group inline-flex min-h-12 w-full items-center justify-between gap-4 border border-ink bg-transparent px-7 py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone sm:w-auto sm:justify-start"
           >
-            {tm("projectsCta")}
+            {nav("callNow")}
             <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
-          </button>
+          </a>
         </div>
       </section>
 

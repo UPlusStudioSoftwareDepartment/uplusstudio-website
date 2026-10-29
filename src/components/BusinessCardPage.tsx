@@ -3,12 +3,11 @@
 import Link from "next/link";
 import ServiceCard from "@/components/ServiceCard";
 import { icons } from "@/components/studio/SocialLinks";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
 
 const COPY = {
-  tr: { title: "U+ Studio dijital kartviziti", call: "Ara", whatsapp: "WhatsApp", directions: "Yol tarifi", save: "Rehbere ekle", book: "Randevu al", close: "Kapat ve ana sayfaya dön" },
-  en: { title: "U+ Studio digital business card", call: "Call", whatsapp: "WhatsApp", directions: "Directions", save: "Save contact", book: "Book a meeting", close: "Close and go to the home page" },
+  tr: { title: "U+ Studio dijital kartviziti", call: "Şimdi Ara", whatsapp: "WhatsApp", directions: "Yol tarifi", save: "Rehbere ekle", close: "Kapat ve ana sayfaya dön" },
+  en: { title: "U+ Studio digital business card", call: "Call now", whatsapp: "WhatsApp", directions: "Directions", save: "Save contact", close: "Close and go to the home page" },
 };
 
 const action =
@@ -16,7 +15,7 @@ const action =
 
 export default function BusinessCardPage({ locale }: Readonly<{ locale: "tr" | "en" }>) {
   const c = COPY[locale];
-  const { openAppointment } = useAppointment();
+
   return (
     <section className="mx-auto w-full max-w-[560px] px-3 pb-16 pt-[6.25rem] sm:pt-36">
       <h1 className="sr-only">{c.title}</h1>
@@ -53,13 +52,12 @@ export default function BusinessCardPage({ locale }: Readonly<{ locale: "tr" | "
           {c.save}
         </a>
       </div>
-      <button
-        type="button"
-        onClick={openAppointment}
+      <a
+        href={studioInfo.phoneHref}
         className="mt-2 inline-flex min-h-12 w-full items-center justify-center rounded-[3px] border border-bone bg-bone font-mono text-[12px] uppercase tracking-[0.12em] text-night transition-colors hover:bg-transparent hover:text-bone"
       >
-        {c.book} →
-      </button>
+        {c.call} →
+      </a>
     </section>
   );
 }

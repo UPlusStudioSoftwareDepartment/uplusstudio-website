@@ -107,22 +107,22 @@ export const services_en = {
             {
                 "step": "01",
                 "title": "Discovery",
-                "description": "Understanding your vision and requirements"
+                "description": "Review the space, user needs, priorities and available information together"
             },
             {
                 "step": "02",
                 "title": "Design",
-                "description": "Creating innovative and functional designs"
+                "description": "Develop layout, material and lighting decisions through design options"
             },
             {
                 "step": "03",
                 "title": "Development",
-                "description": "Refining designs and preparing technical documentation"
+                "description": "Translate the selected design into technical drawings and details within the agreed scope"
             },
             {
                 "step": "04",
                 "title": "Implementation",
-                "description": "Overseeing construction and ensuring quality delivery"
+                "description": "Follow construction decisions and site coordination where included in the scope"
             }
         ]
     },

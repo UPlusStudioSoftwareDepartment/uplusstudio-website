@@ -6,6 +6,7 @@ import { locales } from "@/lib/i18n-config";
 import { ADDRESS, ORG_ID, SEO_COPY, absoluteUrl, breadcrumbLd, buildMetadata, localePath, resolveLocale } from "@/lib/seo";
 import { SERVICE_LANDINGS, getServiceLanding } from "@/lib/serviceLandings";
 import { setRequestLocale } from "next-intl/server";
+import ServiceDecisionContent from "@/components/ServiceDecisionContent";
 
 type Params = { params: Promise<{ locale: string; slug: string }> };
 
@@ -75,7 +76,9 @@ export default async function Page({ params }: Params) {
           serviceLd,
         ]}
       />
-      <ServiceLandingContent slug={slug} locale={locale} />
+      <ServiceLandingContent slug={slug} locale={locale}>
+        <ServiceDecisionContent slug={slug} locale={locale} />
+      </ServiceLandingContent>
     </>
   );
 }

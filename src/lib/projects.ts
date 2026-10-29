@@ -109,6 +109,16 @@ export const projects: Project[] = [
       tr: "Antrenman salonu, boks alanı, pilates stüdyosu, soyunma odaları ve lounge'dan oluşan bir spor merkezi. Koyu yüzeyler, lineer LED aydınlatma ve sıcak ahşap dokular; yüksek enerjili ama rafine bir atmosfer oluşturuyor. Her alan kendi grafik diliyle markanın sesini taşıyor.",
       en: "A fitness centre comprising a training floor, boxing area, pilates studio, locker rooms and lounge. Dark surfaces, linear LED lighting and warm timber textures create a high-energy yet refined atmosphere, while each zone carries the brand's voice through its own graphic language.",
     },
+    story: [
+      {
+        "tr": "Antrenman, boks, pilates, soyunma ve dinlenme alanları aynı spor merkezi içinde farklı kullanım ihtiyaçları taşıyor. Projedeki koyu yüzeyler ve lineer ışık dili bu alanları ortak bir atmosferde buluştururken, ahşap dokular malzeme paletine sıcaklık katıyor.",
+        "en": "Training, boxing, pilates, changing and lounge areas bring different requirements into one fitness centre. Dark surfaces and linear lighting connect them through a shared atmosphere, while timber adds warmth to the material palette."
+      },
+      {
+        "tr": "Benzer bir işletme düşünüyorsanız, bu projeyi yalnızca renk ve malzeme için incelemeyin. Kendi ekipman listenizi, kullanıcı gruplarınızı ve yoğun saatlerdeki hareketi de tasarım görüşmesine taşıyın. Atmosfer ile işletme ihtiyaçlarını birlikte konuşmak, mekânı daha somut bir brief üzerinden değerlendirmeyi sağlar.",
+        "en": "If you are planning a similar business, look beyond the colours and finishes. Bring your equipment list, user groups and peak-time circulation needs into the design conversation. Discussing atmosphere alongside operations gives the project a more specific brief."
+      }
+    ],
     scope: [
       { tr: "İç Mimari Tasarım", en: "Interior Design" },
       { tr: "Aydınlatma Konsepti", en: "Lighting Concept" },
@@ -137,6 +147,16 @@ export const projects: Project[] = [
       tr: "Sıcak meşe, yumuşak bej, derin lacivert ve fırçalanmış pirinçten oluşan bir malzeme paleti üzerine kurulan butik kafe konsepti. Mekân tasarımıyla birlikte, Van kedisinin eşsiz bakışlarından ilham alan bir maskot ve ürün koleksiyonu da geliştirildi.",
       en: "A boutique café concept built on a palette of warm oak, soft beige, deep navy and brushed brass. Alongside the interior, a mascot inspired by the distinctive gaze of the Van cat and a merchandise collection were developed.",
     },
+    story: [
+      {
+        "tr": "Bu çalışmada kafe konsepti, iç mekân ile marka karakterini aynı anlatıda ele alıyor. Meşe, bej, lacivert ve pirinç paleti; Van kedisinden ilham alan maskot, eskizler ve ürün koleksiyonuyla birlikte okunuyor. Galerideki moodboard ve malzeme örnekleri, yalnızca son görseli değil tasarımın dilini de incelemenize imkân veriyor.",
+        "en": "This café concept brings the interior and brand character into one narrative. Oak, beige, navy and brass sit alongside the Van-cat-inspired mascot, sketches and merchandise collection. The moodboard and material studies in the gallery let you explore the design language as well as the final visuals."
+      },
+      {
+        "tr": "Kendi kafeniz için ilk sorunuz “hangi stile benzeyecek?” olabilir. Bu örnek ikinci bir soruyu da gündeme getiriyor: mekânınızın hangi özelliği müşterinin aklında kalacak? Marka karakterini konuşurken oturma, servis, ekipman ve depolama ihtiyaçlarınızı da ayrı bir listeyle değerlendirin.",
+        "en": "Your first question for a café may be what style it should have. This example invites another: what about the space should a customer remember? Discuss that character alongside a separate list of seating, service, equipment and storage needs."
+      }
+    ],
     scope: [
       { tr: "İç Mimari Tasarım", en: "Interior Design" },
       { tr: "Malzeme Seçimi", en: "Material Selection" },
@@ -187,6 +207,16 @@ export const projects: Project[] = [
       tr: "30 yıllık bir villanın modern bir ofise dönüştürülmesi. Karanlık ve dağınık odalar; açık gri zemin, entegre dolap sistemleri, siyah doğramalı cam bölmeler ve lineer aydınlatmayla ferah, sakin çalışma alanlarına dönüştürüldü. Balkona açılan yeni doğramalar gün ışığını mekânın merkezine taşıyor.",
       en: "A 30-year-old villa converted into a modern office. Dim, cluttered rooms became calm, airy workspaces with light grey flooring, integrated storage, black-framed glass partitions and linear lighting, while new balcony frames bring daylight to the centre of each room.",
     },
+    story: [
+      {
+        "tr": "Bu proje, mevcut bir villanın yeni bir kullanım için nasıl yeniden ele alınabileceğini gösteriyor. Konut kimliğinden çalışma mekânına geçişte açık gri zeminler, bütünleşik depolama, siyah çerçeveli cam bölmeler ve lineer aydınlatma aynı iç mekân dilini kuruyor. Öncesi/sonrası görüntüleri ile uygulama fotoğraflarını birlikte inceleyebilirsiniz.",
+        "en": "This project shows an existing villa reconsidered for a new use. Light grey floors, integrated storage, black-framed glass partitions and linear lighting establish a shared interior language as the building becomes a workplace. Explore the before-and-after material alongside the construction photographs."
+      },
+      {
+        "tr": "Benzer bir dönüşüm planlıyorsanız mevcut oda sayısından önce yeni kullanımın ihtiyaçlarını listeleyin: çalışma, görüşme, depolama ve karşılama alanlarından hangilerine ihtiyacınız var? Korunabilecek özelliklerle değiştirilmesi gereken alanları ayırmak, yenileme kapsamını tarif etmeye yardımcı olur.",
+        "en": "For a similar conversion, list the needs of the new use before relying on the existing room count: working, meeting, storage and reception areas. Separating features worth keeping from areas that need change helps describe the renovation scope."
+      }
+    ],
     scope: [
       { tr: "İç Mimari Tasarım", en: "Interior Design" },
       { tr: "Uygulama", en: "Implementation" },

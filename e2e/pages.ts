@@ -1,5 +1,6 @@
 import { SERVICE_LANDINGS } from "../src/lib/serviceLandings";
 import { projects } from "../src/lib/projects";
+import { guides } from "../src/lib/guides";
 
 export const PATHS = [
   "",
@@ -13,5 +14,7 @@ export const PATHS = [
   "/contact",
   "/kartvizit",
   "/kvkk",
+  "/guides",
+  ...guides.map(({ slug }) => `/guides/${slug}`),
 ];
 export const LOCALES = ["tr", "en"] as const;

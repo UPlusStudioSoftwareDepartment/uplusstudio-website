@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import BookingCta from "@/components/studio/BookingCta";
+import CallCta from "@/components/studio/CallCta";
 import { useLocale, useTranslations } from "next-intl";
 import { studioInfo } from "@/lib/studio-info";
-import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
-import { useAppointment } from "@/contexts/AppointmentContext";
 import GoogleRating from "./GoogleRating";
 
-export default function SiteFooter() {
+type FooterServiceLink = Readonly<{ slug: string; label: string }>;
+
+export default function SiteFooter({ services }: Readonly<{ services: readonly FooterServiceLink[] }>) {
   const t = useTranslations("studio");
   const locale = useLocale() === "en" ? "en" : "tr";
-  const { openAppointment } = useAppointment();
+
   const prefix = `/${locale}`;
   const year = new Date().getFullYear();
 
@@ -21,6 +21,7 @@ export default function SiteFooter() {
     { href: `${prefix}/services`, label: t("nav.services") },
     { href: `${prefix}/contact`, label: t("nav.contact") },
     { href: `${prefix}/glossary`, label: t("nav.glossary") },
+    { href: `${prefix}/guides`, label: t("nav.guides") },
   ];
 
   return (
@@ -32,9 +33,7 @@ export default function SiteFooter() {
             <p className="mt-6 max-w-md font-serif text-4xl leading-[1.05] sm:text-5xl">
               {t.rich("footer.tagline", { br: () => <br /> })}
             </p>
-            <BookingCta
-              onBook={openAppointment}
-              label={t("nav.appointment")}
+            <CallCta
               arrow={<span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>}
               className="group mt-10 inline-flex min-h-11 items-center gap-4 border-b border-bone/40 pb-2 text-lg hover:border-clay hover:text-clay"
             />
@@ -54,9 +53,9 @@ export default function SiteFooter() {
           <div className="md:col-span-2 xl:col-span-1">
             <p className="eyebrow text-bone/60">{t("nav.services")}</p>
             <ul className="mt-6 space-y-2 text-[15px]">
-              {SERVICE_LANDINGS.map((s) => (
+              {services.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`${prefix}/services/${s.slug}`} className="text-bone/80 hover:text-bone">{s.copy[locale].crumb}</Link>
+                  <Link href={`${prefix}/services/${s.slug}`} className="text-bone/80 hover:text-bone">{s.label}</Link>
                 </li>
               ))}
             </ul>

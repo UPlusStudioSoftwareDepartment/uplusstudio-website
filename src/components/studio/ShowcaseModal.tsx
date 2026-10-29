@@ -3,7 +3,8 @@
 import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { AnimatePresence, m } from "framer-motion";
+import CallCta from "./CallCta";
+import { AnimatePresence, m, useReducedMotion } from "framer-motion";
 import BeforeAfter from "@/components/studio/BeforeAfter";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
@@ -24,11 +25,11 @@ interface ShowcaseModalProps {
   item: Showcase | null;
   onClose: () => void;
   labels: { includes: string; before: string; after: string; drag: string; close: string; cta: string };
-  onCta: () => void;
 }
 
-export default function ShowcaseModal({ item, onClose, labels, onCta }: Readonly<ShowcaseModalProps>) {
+export default function ShowcaseModal({ item, onClose, labels }: Readonly<ShowcaseModalProps>) {
   const open = item !== null;
+  const reduce = useReducedMotion();
   const closeRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   useScrollLock(open);
@@ -50,10 +51,10 @@ export default function ShowcaseModal({ item, onClose, labels, onCta }: Readonly
           ref={dialogRef}
           key="showcase"
           className="fixed inset-0 z-[90] flex items-center justify-center p-3 sm:p-6"
-          initial={{ opacity: 0 }}
+          initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: reduce ? 0 : 0.3 }}
           role="dialog"
           aria-modal="true"
           aria-label={item.title}
@@ -62,10 +63,10 @@ export default function ShowcaseModal({ item, onClose, labels, onCta }: Readonly
 
           <m.div
             className="relative z-10 grid h-[min(92dvh,820px)] w-[min(96vw,1240px)] grid-rows-[minmax(0,1fr)_auto] overflow-hidden rounded-[6px] border border-bone/15 bg-[#0d0c0b] text-bone shadow-[0_40px_120px_rgba(0,0,0,0.7)] lg:grid-cols-[1.35fr_1fr] lg:grid-rows-1"
-            initial={{ y: 40, opacity: 0, scale: 0.98 }}
+            initial={reduce ? false : { y: 40, opacity: 0, scale: 0.98 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
-            exit={{ y: 24, opacity: 0 }}
-            transition={{ duration: 0.6, ease: EASE }}
+            exit={reduce ? { opacity: 0 } : { y: 24, opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.6, ease: EASE }}
           >
             <div className="relative min-h-0">
               <BeforeAfter
@@ -113,17 +114,11 @@ export default function ShowcaseModal({ item, onClose, labels, onCta }: Readonly
                   </span>
                   <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
                 </Link>
-                <button
-                  type="button"
-                  onClick={() => {
-                    onClose();
-                    onCta();
-                  }}
+                <CallCta
+                  onClick={onClose}
+                  arrow={<span aria-hidden>→</span>}
                   className="flex min-h-12 w-full items-center justify-between rounded-[3px] border border-bone/50 bg-transparent px-5 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:border-bone hover:bg-night"
-                >
-                  {labels.cta}
-                  <span aria-hidden>→</span>
-                </button>
+                />
               </div>
             </div>
 

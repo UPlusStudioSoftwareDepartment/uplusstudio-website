@@ -3,15 +3,20 @@ import { SERVICE_LANDINGS } from "../src/lib/serviceLandings";
 import { projects } from "../src/lib/projects";
 import { studioInfo } from "../src/lib/studio-info";
 import { LOCALES, PATHS } from "./pages";
+import { isNativeWebKitMediaIconError } from "./browserConsole";
 
 
-function watchErrors(page: Page) {
+function watchErrors(page: Page, browserName: string) {
   const errors: string[] = [];
+  const nativeMediaDiagnostics: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   page.on("console", (m) => {
-    if (m.type() === "error") errors.push(m.text());
+    if (m.type() !== "error") return;
+    const message = m.text();
+    if (isNativeWebKitMediaIconError({ browserName, message, pageUrl: page.url() })) nativeMediaDiagnostics.push(message);
+    else errors.push(message);
   });
-  return errors;
+  return { errors, nativeMediaDiagnostics };
 }
 
 async function audit(page: Page) {
@@ -29,6 +34,7 @@ async function audit(page: Page) {
       h1: document.querySelectorAll("h1").length,
       overflow: document.documentElement.scrollWidth - window.innerWidth,
       imagesWithoutAlt: [...document.querySelectorAll("img:not([alt])")].map((i) => (i as HTMLImageElement).src),
+      mediaErrors: [...document.querySelectorAll("video")].filter((video) => video.error).map((video) => ({ src: video.currentSrc || video.getAttribute("src"), code: video.error?.code })),
       unnamedButtons: [...document.querySelectorAll("button")].filter((b) => visible(b) && !nameOf(b)).map((b) => b.outerHTML.slice(0, 120)),
       unnamedLinks: [...document.querySelectorAll("a[href]")].filter((a) => visible(a) && !nameOf(a)).map((a) => a.outerHTML.slice(0, 120)),
       unsafeBlankLinks: [...document.querySelectorAll('a[target="_blank"]:not([rel~="noopener"])')].map((a) => a.getAttribute("href")),
@@ -96,8 +102,8 @@ async function lowContrastText(root: Locator) {
 
 for (const locale of LOCALES) {
   for (const path of PATHS) {
-    test(`/${locale}${path} renders cleanly`, async ({ page }) => {
-      const errors = watchErrors(page);
+    test(`/${locale}${path} renders cleanly`, async ({ page, browserName }, testInfo) => {
+      const { errors, nativeMediaDiagnostics } = watchErrors(page, browserName);
       const res = await page.goto(`/${locale}${path}`);
       expect(res?.status()).toBe(200);
       await page.waitForTimeout(800);
@@ -109,6 +115,8 @@ for (const locale of LOCALES) {
       expect(report.unnamedLinks).toEqual([]);
       expect(report.unsafeBlankLinks).toEqual([]);
       expect(report.brokenAnchors).toEqual([]);
+      expect(report.mediaErrors).toEqual([]);
+      if (nativeMediaDiagnostics.length) await testInfo.attach("webkit-native-media-icons", { body: Buffer.from(JSON.stringify(nativeMediaDiagnostics, null, 2)), contentType: "application/json" });
       expect(errors).toEqual([]);
     });
   }
@@ -499,23 +507,23 @@ test.describe("phones", () => {
       .toBe(true);
   });
 
-  test("booking buttons call the studio, except on the contact page", async ({ page, viewport }) => {
+  test("primary actions call the studio on home and contact", async ({ page, viewport }) => {
     test.skip((viewport?.width ?? 0) >= 640, "tablets and phones held sideways book instead of calling");
     await page.goto("/tr");
     await expect(page.getByRole("link", { name: /Şimdi Ara/ }).first()).toHaveAttribute("href", "tel:+905453204007");
     await expect(page.getByRole("button", { name: /Randevu Al/ }).filter({ visible: true })).toHaveCount(0);
     await page.goto("/tr/contact");
-    await expect(page.getByRole("main").getByRole("button", { name: /Randevu Al/ }).filter({ visible: true }).first()).toBeVisible();
+    await expect(page.getByRole("main").getByRole("link", { name: /Şimdi Ara/ }).first()).toHaveAttribute("href", "tel:+905453204007");
   });
 });
 
 test.describe("desktop", () => {
   test.skip(({ isMobile }) => isMobile, "desktop-only behaviour");
 
-  test("booking buttons open the appointment form", async ({ page }) => {
+  test("primary actions call the studio on desktop", async ({ page }) => {
     await page.goto("/tr");
-    await page.getByRole("button", { name: /Randevu Al/ }).filter({ visible: true }).first().click();
-    await expect(page.getByRole("dialog", { name: "Randevu Al" })).toBeVisible();
+    await expect(page.getByRole("main").getByRole("link", { name: /Şimdi Ara/ }).first()).toHaveAttribute("href", "tel:+905453204007");
+    await expect(page.getByRole("button", { name: /Randevu Al/ })).toHaveCount(0);
   });
 
   test("footer links to every service page", async ({ page, request }) => {
