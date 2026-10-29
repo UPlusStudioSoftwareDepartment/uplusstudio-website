@@ -1,6 +1,6 @@
 # Search Console taban çizgisi (T0)
 
-**Kaynak:** `sc-domain:uplusstudio.com.tr`, sahibin Chrome oturumunda salt okunur. Okuma: 29 Ekim 2026. Hiçbir ayar değiştirilmedi, dizine ekleme isteği gönderilmedi.
+**Kaynak:** `sc-domain:uplusstudio.com.tr`, sahibin Chrome oturumunda salt okunur. Okuma: 29 Ekim 2026. Hiçbir ayar değiştirilmedi. Dizine ekleme isteği yalnızca sahibin onayıyla gönderildi (aşağıda).
 
 ## Performans: son 3 ay (28 Tem – 27 Eki 2026, Web araması)
 
@@ -65,16 +65,19 @@ Gösterimlerin %95'i eski kök adreslerde (apex ve www/). Google trafiği yeni y
 - **Geliştirmeler:** Breadcrumbs 5 geçerli, Review snippets 5 geçerli (eski sürümden kalma olabilir; mevcut kodda Review/AggregateRating işaretlemesi yok), Videos 1 geçerli. HTTPS 8 sayfa.
 - **Core Web Vitals:** veri yok (Chrome trafiği yetersiz).
 
-## Sahibin yapacağı işlem: dizine ekleme isteği
+## Dizine ekleme isteği
 
-Bu oturumda **istek gönderilmedi**: hesabınızda sonuç doğuran bir işlem olduğu için onayınız gerekiyor. Kod değişikliği canlıya çıktıktan sonra her URL için: URL denetimi → **Canlı URL'yi test et** → sonuç "URL Google'da kullanılabilir" ise → **Dizine eklenmesini iste**. Sıra:
+**29 Ekim 2026, sahibin onayıyla (`fcdb80b` canlıyken):**
+- ✔ `/tr/services/incek-golbasi-mimarlik-ofisi`: "Indexing requested" (öncelikli tarama kuyruğuna alındı)
+- ✔ `/tr/services/ic-mimarlik-ankara`: "Indexing requested"
+- ✖ `/tr/services`: **"Quota Exceeded"**, günlük kota doldu (28 Eki'deki isteklerle birlikte). Ertesi gün 3. maddeden devam edilmeli.
 
-1. https://www.uplusstudio.com.tr/tr/services/incek-golbasi-mimarlik-ofisi
-2. https://www.uplusstudio.com.tr/tr/services/ic-mimarlik-ankara
+Kalan istekler (30 Ekim ve sonrası). Her URL için: URL denetimi → **Dizine eklenmesini iste**. 1 ve 2 tekrar istenmeyecek.
+
 3. https://www.uplusstudio.com.tr/tr/services
 4. https://www.uplusstudio.com.tr/tr/services/villa-mimari-proje-ankara
 5. https://www.uplusstudio.com.tr/tr/services/tadilat-donusum-ankara
 6. https://www.uplusstudio.com.tr/tr/services/ticari-mekan-tasarimi-ankara
-7. Ertesi gün: /tr/projects/* (11 proje) ve EN karşılıkları
+7. Sonraki günler: /tr/projects/* (12 proje) ve EN karşılıkları
 
 Aynı URL'yi tekrar tekrar istemeyin. İstek Google'ın taramasını hızlandırabilir, ama dizin veya sıra garantisi vermez.

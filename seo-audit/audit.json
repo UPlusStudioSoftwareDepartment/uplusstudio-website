@@ -1,6 +1,6 @@
 {
   "base": "https://www.uplusstudio.com.tr",
-  "crawledAt": "2026-10-29T11:22:56.244Z",
+  "crawledAt": "2026-10-29T11:52:36.306Z",
   "pages": {
     "crawled": 56,
     "indexableRequired": 56,
@@ -46,12 +46,12 @@
       "got": "308 → /tr/projects"
     },
     {
-      "url": "/tr/projects/bu-proje-yok-1793272951553",
+      "url": "/tr/projects/bu-proje-yok-1793274726565",
       "expected": "404",
       "got": "404"
     },
     {
-      "url": "/tr/bu-sayfa-yok-1793272951553",
+      "url": "/tr/bu-sayfa-yok-1793274726565",
       "expected": "404",
       "got": "404"
     },

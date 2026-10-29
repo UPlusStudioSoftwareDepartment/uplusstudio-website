@@ -44,7 +44,7 @@ Tam liste: `TARGET-KEYWORDS.csv`, `SERP-COMPETITOR-MATRIX.csv`, `KEYWORD-TO-PAGE
 
 Yeni sayfa açılmadı. İlçe adı değiştirilmiş kopya sayfa, anahtar kelime doldurma, sahte adres veya yorum eklenmedi.
 
-**Durum:** Yerelde test edildi (`READY_TO_DEPLOY`). Canlıya çıkması için push gerekli.
+**Durum:** `LIVE_VALIDATED`: `fcdb80b` canlıda, başlık canlıda doğrulandı, `npm run seo:audit` 0 FAIL. Dizine ekleme isteği: ofis ve iç mimarlık sayfaları gönderildi, kalan 4 sayfa günlük kota nedeniyle ertesi güne kaldı.
 
 ## 5. Sahibin yapması gerekenler (öncelik sırasıyla)
 
