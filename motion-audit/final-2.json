@@ -1,0 +1,2869 @@
+{
+  "label": "final-2",
+  "base": "http://localhost:3100",
+  "at": "2026-10-29T15:19:15.971Z",
+  "scroll": [],
+  "idle": [],
+  "load": [
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr",
+      "status": 200,
+      "ms": 1476,
+      "cls": 0,
+      "lcp": 224,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en",
+      "status": 200,
+      "ms": 1310,
+      "cls": 0,
+      "lcp": 124,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/about",
+      "status": 200,
+      "ms": 1412,
+      "cls": 0,
+      "lcp": 212,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/about",
+      "status": 200,
+      "ms": 1365,
+      "cls": 0,
+      "lcp": 172,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/services",
+      "status": 200,
+      "ms": 1514,
+      "cls": 0,
+      "lcp": 276,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/services",
+      "status": 200,
+      "ms": 1402,
+      "cls": 0,
+      "lcp": 204,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "ms": 1381,
+      "cls": 0,
+      "lcp": 168,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "ms": 1308,
+      "cls": 0,
+      "lcp": 120,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "ms": 1316,
+      "cls": 0,
+      "lcp": 132,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "ms": 1324,
+      "cls": 0,
+      "lcp": 108,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/services/ic-mimarlik-ankara",
+      "status": 200,
+      "ms": 1346,
+      "cls": 0,
+      "lcp": 152,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/services/ic-mimarlik-ankara",
+      "status": 200,
+      "ms": 1337,
+      "cls": 0,
+      "lcp": 144,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/services/tadilat-donusum-ankara",
+      "status": 200,
+      "ms": 1309,
+      "cls": 0,
+      "lcp": 124,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/services/tadilat-donusum-ankara",
+      "status": 200,
+      "ms": 1307,
+      "cls": 0,
+      "lcp": 100,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "ms": 1343,
+      "cls": 0,
+      "lcp": 160,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "ms": 1364,
+      "cls": 0,
+      "lcp": 144,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects",
+      "status": 200,
+      "ms": 1407,
+      "cls": 0,
+      "lcp": 180,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects",
+      "status": 200,
+      "ms": 1337,
+      "cls": 0,
+      "lcp": 144,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/villa-donusumu",
+      "status": 200,
+      "ms": 1350,
+      "cls": 0,
+      "lcp": 136,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/villa-donusumu",
+      "status": 200,
+      "ms": 1315,
+      "cls": 0,
+      "lcp": 124,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/evox-gym-center",
+      "status": 200,
+      "ms": 1332,
+      "cls": 0,
+      "lcp": 128,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/evox-gym-center",
+      "status": 200,
+      "ms": 1309,
+      "cls": 0,
+      "lcp": 124,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/butik-kafe",
+      "status": 200,
+      "ms": 1327,
+      "cls": 0,
+      "lcp": 132,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/butik-kafe",
+      "status": 200,
+      "ms": 1317,
+      "cls": 0,
+      "lcp": 120,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/modern-villa",
+      "status": 200,
+      "ms": 1347,
+      "cls": 0,
+      "lcp": 160,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/modern-villa",
+      "status": 200,
+      "ms": 1306,
+      "cls": 0,
+      "lcp": 104,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/ofis-yenileme",
+      "status": 200,
+      "ms": 1327,
+      "cls": 0,
+      "lcp": 124,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/ofis-yenileme",
+      "status": 200,
+      "ms": 1332,
+      "cls": 0,
+      "lcp": 116,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/konut-uygulama",
+      "status": 200,
+      "ms": 1337,
+      "cls": 0,
+      "lcp": 128,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/konut-uygulama",
+      "status": 200,
+      "ms": 1317,
+      "cls": 0,
+      "lcp": 120,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/konut-ic-mekan",
+      "status": 200,
+      "ms": 1310,
+      "cls": 0,
+      "lcp": 120,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/konut-ic-mekan",
+      "status": 200,
+      "ms": 1366,
+      "cls": 0,
+      "lcp": 152,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/tek-katli-ev",
+      "status": 200,
+      "ms": 1329,
+      "cls": 0,
+      "lcp": 116,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/tek-katli-ev",
+      "status": 200,
+      "ms": 1313,
+      "cls": 0,
+      "lcp": 108,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/konut-projeleri",
+      "status": 200,
+      "ms": 1316,
+      "cls": 0,
+      "lcp": 120,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/konut-projeleri",
+      "status": 200,
+      "ms": 1325,
+      "cls": 0,
+      "lcp": 132,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/villa-ic-mekan",
+      "status": 200,
+      "ms": 1321,
+      "cls": 0,
+      "lcp": 132,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/villa-ic-mekan",
+      "status": 200,
+      "ms": 1346,
+      "cls": 0,
+      "lcp": 136,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/pastane",
+      "status": 200,
+      "ms": 1332,
+      "cls": 0,
+      "lcp": 148,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/pastane",
+      "status": 200,
+      "ms": 1317,
+      "cls": 0,
+      "lcp": 128,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/yonetici-ofisi",
+      "status": 200,
+      "ms": 1318,
+      "cls": 0,
+      "lcp": 112,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/yonetici-ofisi",
+      "status": 200,
+      "ms": 1304,
+      "cls": 0,
+      "lcp": 96,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/villa-donusumu/video",
+      "status": 200,
+      "ms": 1386,
+      "cls": 0,
+      "lcp": 140,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/villa-donusumu/video",
+      "status": 200,
+      "ms": 1359,
+      "cls": 0,
+      "lcp": 108,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/ofis-yenileme/video",
+      "status": 200,
+      "ms": 1335,
+      "cls": 0,
+      "lcp": 124,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/ofis-yenileme/video",
+      "status": 200,
+      "ms": 1401,
+      "cls": 0,
+      "lcp": 156,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/konut-uygulama/video",
+      "status": 200,
+      "ms": 1357,
+      "cls": 0,
+      "lcp": 124,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/konut-uygulama/video",
+      "status": 200,
+      "ms": 1371,
+      "cls": 0,
+      "lcp": 144,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/projects/konut-ic-mekan/video",
+      "status": 200,
+      "ms": 1332,
+      "cls": 0,
+      "lcp": 100,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/projects/konut-ic-mekan/video",
+      "status": 200,
+      "ms": 1446,
+      "cls": 0,
+      "lcp": 168,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/contact",
+      "status": 200,
+      "ms": 1401,
+      "cls": 0,
+      "lcp": 168,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/contact",
+      "status": 200,
+      "ms": 1316,
+      "cls": 0,
+      "lcp": 132,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/glossary",
+      "status": 200,
+      "ms": 1505,
+      "cls": 0,
+      "lcp": 240,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/glossary",
+      "status": 200,
+      "ms": 1458,
+      "cls": 0,
+      "lcp": 196,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/kvkk",
+      "status": 200,
+      "ms": 1305,
+      "cls": 0,
+      "lcp": 96,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/kvkk",
+      "status": 200,
+      "ms": 1324,
+      "cls": 0,
+      "lcp": 124,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/kartvizit",
+      "status": 200,
+      "ms": 1335,
+      "cls": 0,
+      "lcp": 112,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/en/kartvizit",
+      "status": 200,
+      "ms": 1345,
+      "cls": 0,
+      "lcp": 136,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "path": "/tr/bu-sayfa-yok",
+      "status": 404,
+      "ms": 1320,
+      "cls": 0,
+      "lcp": 104,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr",
+      "status": 200,
+      "ms": 1567,
+      "cls": 0,
+      "lcp": 356,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en",
+      "status": 200,
+      "ms": 1361,
+      "cls": 0,
+      "lcp": 168,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/about",
+      "status": 200,
+      "ms": 1437,
+      "cls": 0,
+      "lcp": 252,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/about",
+      "status": 200,
+      "ms": 1368,
+      "cls": 0,
+      "lcp": 180,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/services",
+      "status": 200,
+      "ms": 1393,
+      "cls": 0,
+      "lcp": 228,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/services",
+      "status": 200,
+      "ms": 1401,
+      "cls": 0,
+      "lcp": 220,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "ms": 1363,
+      "cls": 0,
+      "lcp": 160,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "ms": 1519,
+      "cls": 0,
+      "lcp": 332,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "ms": 1356,
+      "cls": 0,
+      "lcp": 240,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "ms": 1354,
+      "cls": 0,
+      "lcp": 244,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/services/ic-mimarlik-ankara",
+      "status": 200,
+      "ms": 1372,
+      "cls": 0,
+      "lcp": 180,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/services/ic-mimarlik-ankara",
+      "status": 200,
+      "ms": 1286,
+      "cls": 0,
+      "lcp": 156,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/services/tadilat-donusum-ankara",
+      "status": 200,
+      "ms": 1348,
+      "cls": 0,
+      "lcp": 220,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/services/tadilat-donusum-ankara",
+      "status": 200,
+      "ms": 1333,
+      "cls": 0,
+      "lcp": 176,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "ms": 1486,
+      "cls": 0,
+      "lcp": 296,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "ms": 1502,
+      "cls": 0,
+      "lcp": 308,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects",
+      "status": 200,
+      "ms": 1689,
+      "cls": 0,
+      "lcp": 472,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects",
+      "status": 200,
+      "ms": 1454,
+      "cls": 0,
+      "lcp": 256,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/villa-donusumu",
+      "status": 200,
+      "ms": 1376,
+      "cls": 0,
+      "lcp": 236,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/villa-donusumu",
+      "status": 200,
+      "ms": 1465,
+      "cls": 0,
+      "lcp": 268,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/evox-gym-center",
+      "status": 200,
+      "ms": 1317,
+      "cls": 0,
+      "lcp": 192,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/evox-gym-center",
+      "status": 200,
+      "ms": 1289,
+      "cls": 0,
+      "lcp": 164,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/butik-kafe",
+      "status": 200,
+      "ms": 1331,
+      "cls": 0,
+      "lcp": 144,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/butik-kafe",
+      "status": 200,
+      "ms": 1318,
+      "cls": 0,
+      "lcp": 164,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/modern-villa",
+      "status": 200,
+      "ms": 1467,
+      "cls": 0,
+      "lcp": 276,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/modern-villa",
+      "status": 200,
+      "ms": 1287,
+      "cls": 0,
+      "lcp": 140,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/ofis-yenileme",
+      "status": 200,
+      "ms": 1351,
+      "cls": 0,
+      "lcp": 144,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/ofis-yenileme",
+      "status": 200,
+      "ms": 1402,
+      "cls": 0,
+      "lcp": 244,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/konut-uygulama",
+      "status": 200,
+      "ms": 1389,
+      "cls": 0,
+      "lcp": 184,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/konut-uygulama",
+      "status": 200,
+      "ms": 1304,
+      "cls": 0,
+      "lcp": 152,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/konut-ic-mekan",
+      "status": 200,
+      "ms": 1392,
+      "cls": 0,
+      "lcp": 192,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/konut-ic-mekan",
+      "status": 200,
+      "ms": 1300,
+      "cls": 0,
+      "lcp": 172,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/tek-katli-ev",
+      "status": 200,
+      "ms": 1359,
+      "cls": 0,
+      "lcp": 160,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/tek-katli-ev",
+      "status": 200,
+      "ms": 1299,
+      "cls": 0,
+      "lcp": 164,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/konut-projeleri",
+      "status": 200,
+      "ms": 1308,
+      "cls": 0,
+      "lcp": 156,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/konut-projeleri",
+      "status": 200,
+      "ms": 1293,
+      "cls": 0,
+      "lcp": 148,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/villa-ic-mekan",
+      "status": 200,
+      "ms": 1342,
+      "cls": 0,
+      "lcp": 156,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/villa-ic-mekan",
+      "status": 200,
+      "ms": 1360,
+      "cls": 0,
+      "lcp": 220,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/pastane",
+      "status": 200,
+      "ms": 1345,
+      "cls": 0,
+      "lcp": 172,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/pastane",
+      "status": 200,
+      "ms": 1378,
+      "cls": 0,
+      "lcp": 180,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/yonetici-ofisi",
+      "status": 200,
+      "ms": 1407,
+      "cls": 0,
+      "lcp": 212,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/yonetici-ofisi",
+      "status": 200,
+      "ms": 1431,
+      "cls": 0,
+      "lcp": 220,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/villa-donusumu/video",
+      "status": 200,
+      "ms": 1610,
+      "cls": 0,
+      "lcp": 332,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/villa-donusumu/video",
+      "status": 200,
+      "ms": 1426,
+      "cls": 0,
+      "lcp": 184,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/ofis-yenileme/video",
+      "status": 200,
+      "ms": 1386,
+      "cls": 0,
+      "lcp": 128,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/ofis-yenileme/video",
+      "status": 200,
+      "ms": 1429,
+      "cls": 0,
+      "lcp": 176,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/konut-uygulama/video",
+      "status": 200,
+      "ms": 1401,
+      "cls": 0,
+      "lcp": 180,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/konut-uygulama/video",
+      "status": 200,
+      "ms": 1535,
+      "cls": 0,
+      "lcp": 264,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/projects/konut-ic-mekan/video",
+      "status": 200,
+      "ms": 1582,
+      "cls": 0,
+      "lcp": 308,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/projects/konut-ic-mekan/video",
+      "status": 200,
+      "ms": 1442,
+      "cls": 0,
+      "lcp": 192,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/contact",
+      "status": 200,
+      "ms": 1503,
+      "cls": 0,
+      "lcp": 260,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/contact",
+      "status": 200,
+      "ms": 1360,
+      "cls": 0,
+      "lcp": 220,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/glossary",
+      "status": 200,
+      "ms": 1773,
+      "cls": 0,
+      "lcp": 544,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/glossary",
+      "status": 200,
+      "ms": 1484,
+      "cls": 0,
+      "lcp": 252,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/kvkk",
+      "status": 200,
+      "ms": 1356,
+      "cls": 0,
+      "lcp": 156,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/kvkk",
+      "status": 200,
+      "ms": 1284,
+      "cls": 0,
+      "lcp": 140,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/kartvizit",
+      "status": 200,
+      "ms": 1365,
+      "cls": 0,
+      "lcp": 168,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/en/kartvizit",
+      "status": 200,
+      "ms": 1348,
+      "cls": 0,
+      "lcp": 224,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "path": "/tr/bu-sayfa-yok",
+      "status": 404,
+      "ms": 1502,
+      "cls": 0,
+      "lcp": 288,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr",
+      "status": 200,
+      "ms": 1924,
+      "cls": 0,
+      "lcp": 806,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en",
+      "status": 200,
+      "ms": 1598,
+      "cls": 0,
+      "lcp": 562,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/about",
+      "status": 200,
+      "ms": 1739,
+      "cls": 0,
+      "lcp": 1222,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/about",
+      "status": 200,
+      "ms": 1425,
+      "cls": 0,
+      "lcp": 935,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/services",
+      "status": 200,
+      "ms": 1463,
+      "cls": 0,
+      "lcp": 1118,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/services",
+      "status": 200,
+      "ms": 1488,
+      "cls": 0,
+      "lcp": 1397,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "ms": 1402,
+      "cls": 0,
+      "lcp": 0,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "ms": 1356,
+      "cls": 0,
+      "lcp": 866,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "ms": 1378,
+      "cls": 0,
+      "lcp": 1025,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "ms": 1357,
+      "cls": 0,
+      "lcp": 1086,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/services/ic-mimarlik-ankara",
+      "status": 200,
+      "ms": 1365,
+      "cls": 0,
+      "lcp": 1143,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/services/ic-mimarlik-ankara",
+      "status": 200,
+      "ms": 1376,
+      "cls": 0,
+      "lcp": 1193,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/services/tadilat-donusum-ankara",
+      "status": 200,
+      "ms": 1353,
+      "cls": 0,
+      "lcp": 1317,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/services/tadilat-donusum-ankara",
+      "status": 200,
+      "ms": 1402,
+      "cls": 0,
+      "lcp": 0,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "ms": 1444,
+      "cls": 0,
+      "lcp": 956,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "ms": 1432,
+      "cls": 0,
+      "lcp": 936,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects",
+      "status": 200,
+      "ms": 1372,
+      "cls": 0,
+      "lcp": 886,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects",
+      "status": 200,
+      "ms": 1383,
+      "cls": 0,
+      "lcp": 940,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/villa-donusumu",
+      "status": 200,
+      "ms": 1388,
+      "cls": 0,
+      "lcp": 1030,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/villa-donusumu",
+      "status": 200,
+      "ms": 1384,
+      "cls": 0,
+      "lcp": 1012,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/evox-gym-center",
+      "status": 200,
+      "ms": 1385,
+      "cls": 0,
+      "lcp": 1128,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/evox-gym-center",
+      "status": 200,
+      "ms": 1356,
+      "cls": 0,
+      "lcp": 1093,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/butik-kafe",
+      "status": 200,
+      "ms": 1365,
+      "cls": 0,
+      "lcp": 1099,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/butik-kafe",
+      "status": 200,
+      "ms": 1339,
+      "cls": 0,
+      "lcp": 1049,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/modern-villa",
+      "status": 200,
+      "ms": 1355,
+      "cls": 0,
+      "lcp": 1044,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/modern-villa",
+      "status": 200,
+      "ms": 1366,
+      "cls": 0,
+      "lcp": 1030,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/ofis-yenileme",
+      "status": 200,
+      "ms": 1328,
+      "cls": 0,
+      "lcp": 989,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/ofis-yenileme",
+      "status": 200,
+      "ms": 1355,
+      "cls": 0,
+      "lcp": 964,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/konut-uygulama",
+      "status": 200,
+      "ms": 1450,
+      "cls": 0,
+      "lcp": 1201,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/konut-uygulama",
+      "status": 200,
+      "ms": 1389,
+      "cls": 0,
+      "lcp": 1205,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/konut-ic-mekan",
+      "status": 200,
+      "ms": 1367,
+      "cls": 0,
+      "lcp": 1206,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/konut-ic-mekan",
+      "status": 200,
+      "ms": 1357,
+      "cls": 0,
+      "lcp": 1288,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/tek-katli-ev",
+      "status": 200,
+      "ms": 1343,
+      "cls": 0,
+      "lcp": 0,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/tek-katli-ev",
+      "status": 200,
+      "ms": 1431,
+      "cls": 0,
+      "lcp": 1105,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/konut-projeleri",
+      "status": 200,
+      "ms": 1437,
+      "cls": 0,
+      "lcp": 1355,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/konut-projeleri",
+      "status": 200,
+      "ms": 1397,
+      "cls": 0,
+      "lcp": 0,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/villa-ic-mekan",
+      "status": 200,
+      "ms": 1390,
+      "cls": 0,
+      "lcp": 861,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/villa-ic-mekan",
+      "status": 200,
+      "ms": 1443,
+      "cls": 0,
+      "lcp": 966,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/pastane",
+      "status": 200,
+      "ms": 1341,
+      "cls": 0,
+      "lcp": 890,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/pastane",
+      "status": 200,
+      "ms": 1366,
+      "cls": 0,
+      "lcp": 913,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/yonetici-ofisi",
+      "status": 200,
+      "ms": 1357,
+      "cls": 0,
+      "lcp": 912,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/yonetici-ofisi",
+      "status": 200,
+      "ms": 1364,
+      "cls": 0,
+      "lcp": 1007,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/villa-donusumu/video",
+      "status": 200,
+      "ms": 1967,
+      "cls": 0,
+      "lcp": 1248,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/villa-donusumu/video",
+      "status": 200,
+      "ms": 1824,
+      "cls": 0,
+      "lcp": 1032,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/ofis-yenileme/video",
+      "status": 200,
+      "ms": 1868,
+      "cls": 0,
+      "lcp": 976,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/ofis-yenileme/video",
+      "status": 200,
+      "ms": 1730,
+      "cls": 0,
+      "lcp": 828,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/konut-uygulama/video",
+      "status": 200,
+      "ms": 1859,
+      "cls": 0,
+      "lcp": 928,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/konut-uygulama/video",
+      "status": 200,
+      "ms": 1882,
+      "cls": 0,
+      "lcp": 1008,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/projects/konut-ic-mekan/video",
+      "status": 200,
+      "ms": 1817,
+      "cls": 0,
+      "lcp": 888,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/projects/konut-ic-mekan/video",
+      "status": 200,
+      "ms": 1787,
+      "cls": 0,
+      "lcp": 860,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/contact",
+      "status": 200,
+      "ms": 1516,
+      "cls": 0,
+      "lcp": 1001,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/contact",
+      "status": 200,
+      "ms": 1374,
+      "cls": 0,
+      "lcp": 907,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/glossary",
+      "status": 200,
+      "ms": 1667,
+      "cls": 0,
+      "lcp": 1184,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/glossary",
+      "status": 200,
+      "ms": 1586,
+      "cls": 0,
+      "lcp": 1046,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/kvkk",
+      "status": 200,
+      "ms": 1377,
+      "cls": 0,
+      "lcp": 813,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/kvkk",
+      "status": 200,
+      "ms": 1317,
+      "cls": 0,
+      "lcp": 771,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/kartvizit",
+      "status": 200,
+      "ms": 1406,
+      "cls": 0,
+      "lcp": 792,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/en/kartvizit",
+      "status": 200,
+      "ms": 1365,
+      "cls": 0,
+      "lcp": 740,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "path": "/tr/bu-sayfa-yok",
+      "status": 404,
+      "ms": 1360,
+      "cls": 0,
+      "lcp": 843,
+      "h1": true,
+      "overlay": false,
+      "blockedBy": null
+    }
+  ],
+  "nav": [
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "cpu": 4,
+      "from": "/tr",
+      "target": "/tr/projects",
+      "usable": 1685,
+      "inp": 264,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "Projeler: Villa, Konut, Ofis & Kafe Tasarımı | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "cpu": 4,
+      "from": "/tr/projects",
+      "target": "/tr/projects/villa-donusumu",
+      "usable": 580,
+      "inp": 144,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "Villa Dönüşümü · Yenileme & Dönüşüm | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "cpu": 4,
+      "from": "/tr/projects/villa-donusumu",
+      "target": "/tr/projects/evox-gym-center",
+      "usable": 385,
+      "inp": 128,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "Evox Gym Center · İç Mimarlık | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "cpu": 4,
+      "from": "/tr/projects/villa-donusumu",
+      "target": "/tr/projects",
+      "usable": 451,
+      "inp": 152,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "Projeler: Villa, Konut, Ofis & Kafe Tasarımı | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "cpu": 4,
+      "from": "/tr/about",
+      "target": "/tr/services",
+      "usable": 1558,
+      "inp": 344,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "Mimarlık, İç Mimarlık ve Mühendislik Hizmetleri | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "cpu": 4,
+      "from": "/tr/services",
+      "target": "/tr/contact",
+      "usable": 1419,
+      "inp": 368,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "İletişim: İncek, Gölbaşı / Ankara | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "cpu": 4,
+      "from": "/tr/contact",
+      "target": "/tr/glossary",
+      "usable": 613,
+      "inp": 96,
+      "scrollY": 0,
+      "focus": "A",
+      "overlay": false,
+      "title": "Mimarlık Sözlüğü: 500+ Terim ve Anlamı | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "cpu": 4,
+      "from": "/tr",
+      "target": "/tr/services/ic-mimarlik-ankara",
+      "usable": 569,
+      "inp": 104,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "İç Mimarlık · İncek, Gölbaşı, Ankara | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "cpu": 1,
+      "from": "/tr",
+      "target": "/tr/projects",
+      "usable": 161,
+      "inp": 64,
+      "scrollY": 0,
+      "focus": "A",
+      "overlay": false,
+      "title": "Projeler: Villa, Konut, Ofis & Kafe Tasarımı | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "cpu": 1,
+      "from": "/tr/projects",
+      "target": "/tr/projects/villa-donusumu",
+      "usable": 184,
+      "inp": 136,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "Villa Dönüşümü · Yenileme & Dönüşüm | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "cpu": 1,
+      "from": "/tr/projects/villa-donusumu",
+      "target": "/tr/projects/evox-gym-center",
+      "usable": 190,
+      "inp": 96,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "Evox Gym Center · İç Mimarlık | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "cpu": 1,
+      "from": "/tr/projects/villa-donusumu",
+      "target": "/tr/projects",
+      "usable": 159,
+      "inp": 112,
+      "scrollY": 0,
+      "focus": "A",
+      "overlay": false,
+      "title": "Projeler: Villa, Konut, Ofis & Kafe Tasarımı | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "cpu": 1,
+      "from": "/tr/about",
+      "target": "/tr/services",
+      "usable": 383,
+      "inp": 216,
+      "scrollY": 0,
+      "focus": "A",
+      "overlay": false,
+      "title": "Mimarlık, İç Mimarlık ve Mühendislik Hizmetleri | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "cpu": 1,
+      "from": "/tr/services",
+      "target": "/tr/contact",
+      "usable": 239,
+      "inp": 192,
+      "scrollY": 0,
+      "focus": "A",
+      "overlay": false,
+      "title": "İletişim: İncek, Gölbaşı / Ankara | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "cpu": 1,
+      "from": "/tr/contact",
+      "target": "/tr/glossary",
+      "usable": 200,
+      "inp": 144,
+      "scrollY": 0,
+      "focus": "A",
+      "overlay": false,
+      "title": "Mimarlık Sözlüğü: 500+ Terim ve Anlamı | U+ Studio"
+    },
+    {
+      "engine": "chromium",
+      "device": "desktop-1440",
+      "cpu": 1,
+      "from": "/tr",
+      "target": "/tr/services/ic-mimarlik-ankara",
+      "usable": 193,
+      "inp": 104,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "İç Mimarlık · İncek, Gölbaşı, Ankara | U+ Studio"
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "cpu": 1,
+      "from": "/tr",
+      "selector": "a[href='/tr/projects']",
+      "fail": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a[href=\\'/tr/projects\\']').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"/tr/projects\" cla"
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "cpu": 1,
+      "from": "/tr/projects",
+      "target": "/tr/projects/villa-donusumu",
+      "usable": 1451,
+      "inp": 0,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": true,
+      "title": "Villa Dönüşümü · Yenileme & Dönüşüm | U+ Studio"
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "cpu": 1,
+      "from": "/tr/projects/villa-donusumu",
+      "target": "/tr/projects/evox-gym-center",
+      "usable": 2737,
+      "inp": 0,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": true,
+      "title": "Evox Gym Center · İç Mimarlık | U+ Studio"
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "cpu": 1,
+      "from": "/tr/projects/villa-donusumu",
+      "target": "/tr/projects",
+      "usable": 389,
+      "inp": 0,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": true,
+      "title": "Projeler: Villa, Konut, Ofis & Kafe Tasarımı | U+ Studio"
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "cpu": 1,
+      "from": "/tr/about",
+      "target": "/tr/services",
+      "usable": 3485,
+      "inp": 24,
+      "scrollY": 0,
+      "focus": "MAIN",
+      "overlay": false,
+      "title": "Mimarlık, İç Mimarlık ve Mühendislik Hizmetleri | U+ Studio"
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "cpu": 1,
+      "from": "/tr/services",
+      "target": "/tr/contact",
+      "usable": 8489,
+      "inp": 896,
+      "scrollY": 0,
+      "focus": "MAIN",
+      "overlay": false,
+      "title": "İletişim: İncek, Gölbaşı / Ankara | U+ Studio"
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "cpu": 1,
+      "from": "/tr/contact",
+      "target": "/tr/glossary",
+      "usable": 5733,
+      "inp": 24,
+      "scrollY": 0,
+      "focus": "BODY",
+      "overlay": false,
+      "title": "Mimarlık Sözlüğü: 500+ Terim ve Anlamı | U+ Studio"
+    },
+    {
+      "engine": "webkit",
+      "device": "phone-390",
+      "cpu": 1,
+      "from": "/tr",
+      "target": "/tr/services/ic-mimarlik-ankara",
+      "usable": 1098,
+      "inp": 40,
+      "scrollY": 0,
+      "focus": "MAIN",
+      "overlay": false,
+      "title": "İç Mimarlık · İncek, Gölbaşı, Ankara | U+ Studio"
+    }
+  ],
+  "slow": [],
+  "flows": [
+    {
+      "engine": "chromium",
+      "name": "detail opens at top",
+      "pass": true,
+      "detail": {
+        "topY": 0
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "back restores instantly (no smooth slide)",
+      "pass": true,
+      "detail": {
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "back restores list scroll",
+      "pass": true,
+      "detail": {
+        "savedY": 1600,
+        "backY": 1600
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "forward reaches detail",
+      "pass": true,
+      "detail": {
+        "y": 0
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "menu → page closes menu, unlocks scroll",
+      "pass": true,
+      "detail": {
+        "locked": true,
+        "open": false,
+        "unlocked": true,
+        "y": 0
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "rapid double navigation lands on last click",
+      "pass": true,
+      "detail": {
+        "path": "/tr/about",
+        "h1": "Mimarlık, iç mimarlıkve mühendislik,tek ",
+        "overlay": false
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "reduced motion: on-screen text visible without waiting",
+      "pass": true,
+      "detail": {
+        "hidden": 0
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "reduced motion: navigation works",
+      "pass": true,
+      "detail": {
+        "usable": 196
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "first-visit curtain lifts",
+      "pass": true,
+      "detail": {
+        "goneMs": 2427
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "curtain does not replay in the same session",
+      "pass": true,
+      "detail": {
+        "again": false
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "detail opens at top",
+      "pass": true,
+      "detail": {
+        "topY": 0
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "back restores instantly (no smooth slide)",
+      "pass": true,
+      "detail": {
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "back restores list scroll",
+      "pass": true,
+      "detail": {
+        "savedY": 1600,
+        "backY": 1600
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "forward reaches detail",
+      "pass": true,
+      "detail": {
+        "y": 0
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "menu → page closes menu, unlocks scroll",
+      "pass": true,
+      "detail": {
+        "locked": true,
+        "open": false,
+        "unlocked": true,
+        "y": 0
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "rapid double navigation lands on last click",
+      "pass": true,
+      "detail": {
+        "path": "/tr/about",
+        "h1": "Mimarlık, iç mimarlıkve mühendislik,tek ",
+        "overlay": false
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "reduced motion: on-screen text visible without waiting",
+      "pass": true,
+      "detail": {
+        "hidden": 0
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "reduced motion: navigation works",
+      "pass": true,
+      "detail": {
+        "usable": 599
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "first-visit curtain lifts",
+      "pass": true,
+      "detail": {
+        "goneMs": 3080
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "curtain does not replay in the same session",
+      "pass": true,
+      "detail": {
+        "again": false
+      }
+    }
+  ],
+  "errors": [
+    {
+      "engine": "chromium",
+      "url": "http://localhost:3100/tr/bu-sayfa-yok",
+      "console": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "engine": "chromium",
+      "url": "http://localhost:3100/tr/bu-sayfa-yok",
+      "console": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/en/kartvizit",
+      "console": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/1jb_fwgazaoni.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/0s2cptn1mmf6r.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/3laf0p3zs8nt2.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/0v2azvilwavbo.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/turbopack-2c3mg3r-05n1w.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/42onvq6nokjl2.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/1ytyayhbwmp1f.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/16o_hcaxmc6kq.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/0_3lwfc8gpwoc.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/221fi1nyj09_o.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/08x5ilk70pee5.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/1m_zznhsyv7s1.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/0er9dc_qscrpf.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/0zo1kza4qwln9.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/0t9-pyvavblqa.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/3ikrjz2vkb4pp.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr/projects",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/1jb_fwgazaoni.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr/projects/villa-donusumu",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/1jb_fwgazaoni.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr/projects/evox-gym-center",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/1jb_fwgazaoni.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr/projects/villa-donusumu",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/1jb_fwgazaoni.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    },
+    {
+      "engine": "webkit",
+      "url": "http://localhost:3100/tr/projects",
+      "console": "Refused to execute http://localhost:3100/_next/static/chunks/1jb_fwgazaoni.js as script because \"X-Content-Type-Options: nosniff\" was given and its Content-Type is not a script MIME type."
+    }
+  ]
+}

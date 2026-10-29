@@ -1,5 +1,5 @@
 // Motion & loading measurements against a running build (default http://localhost:3100, start it with `npm run start -- -p 3100`).
-// Usage: node scripts/motion-audit.mjs [--label before] [--only scroll,idle,load,nav,slow,flows] [--browsers chromium,webkit,firefox]
+// Usage: node scripts/motion-audit.mjs [--label before] [--only scroll,idle,load,nav,slow,phone,flows] [--browsers chromium,webkit,firefox]
 // Writes motion-audit/<label>.json and prints a summary. Chromium numbers come from headless, software-rastered Chromium
 // with CDP CPU throttling: compare runs with each other, never read them as real-device frame rates.
 import { mkdir, writeFile } from "node:fs/promises";
@@ -26,7 +26,7 @@ const DEVICES = { "phone-390": PHONE, "phone-320": SMALL_PHONE, "tablet-820": TA
 const SCROLL_PAGES = ["/tr", "/tr/projects", "/tr/projects/villa-donusumu", "/tr/about", "/tr/services", "/tr/contact"];
 const IDLE_PAGES = ["/tr", "/tr/projects", "/tr/about"];
 
-const results = { label: LABEL, base: BASE, at: new Date().toISOString(), scroll: [], idle: [], load: [], nav: [], slow: [], flows: [], errors: [] };
+const results = { label: LABEL, base: BASE, at: new Date().toISOString(), scroll: [], idle: [], load: [], nav: [], slow: [], phone: [], flows: [], errors: [] };
 
 const pct = (values, p) => {
   if (!values.length) return 0;
@@ -298,6 +298,119 @@ async function runSlow() {
   await browser.close();
 }
 
+// Phones: frame times while a finger swipes (compositor-driven gesture), the menu opens/closes, a page changes,
+// the before/after slider is dragged and the project filter changes, at several phone sizes and CPU slowdowns.
+const PHONES = {
+  "phone-320": SMALL_PHONE,
+  "phone-360": { viewport: { width: 360, height: 780 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+  "phone-390": PHONE,
+  "phone-430": { viewport: { width: 430, height: 932 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+  "landscape-844": { viewport: { width: 844, height: 390 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
+};
+
+async function framesDuring(page, action, tailMs = 600) {
+  await page.evaluate(() => {
+    globalThis.__frames = [];
+    globalThis.__recording = true;
+    let last = performance.now();
+    const step = (t) => {
+      globalThis.__frames.push(t - last);
+      last = t;
+      if (globalThis.__recording) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+  await action();
+  await page.waitForTimeout(tailMs);
+  const frames = await page.evaluate(() => {
+    globalThis.__recording = false;
+    return globalThis.__frames.slice(1);
+  });
+  return frameStats(frames);
+}
+
+async function runPhone() {
+  for (const [device, opts] of Object.entries(PHONES)) {
+    for (const cpu of [4, 6]) {
+      const { browser, page, cdp } = await context("chromium", opts);
+      const w = opts.viewport.width, h = opts.viewport.height;
+      const row = (what, stats) => {
+        results.phone.push({ device, cpu, what, ...stats });
+        console.log(`phone ${device} cpu${cpu}x ${what}: avg ${stats.avg}ms p95 ${stats.p95}ms max ${stats.max}ms >25ms ${stats.over25}/${stats.n}`);
+      };
+      const swipe = (distance) => cdp.send("Input.synthesizeScrollGesture", { x: Math.round(w / 2), y: Math.round(h * 0.75), yDistance: distance, speed: 1800, gestureSourceType: "touch" });
+
+      for (const path of ["/tr", "/tr/projects", "/tr/about", "/tr/projects/villa-donusumu", "/tr/services"]) {
+        await page.goto(BASE + path);
+        await settle(page);
+        await throttle(cdp, cpu);
+        row(`swipe ${path}`, await framesDuring(page, async () => {
+          await swipe(-Math.round(h * 3));
+          await swipe(-Math.round(h * 3));
+          await swipe(Math.round(h * 2));
+        }));
+        await throttle(cdp, 1);
+      }
+
+      if (w < 1024) {
+        await page.goto(BASE + "/tr/about");
+        await settle(page);
+        await throttle(cdp, cpu);
+        const toggle = page.getByRole("button", { name: /menü/i }).first();
+        row("menu open", await framesDuring(page, () => toggle.tap(), 900));
+        row("menu close", await framesDuring(page, () => page.getByRole("dialog").getByRole("button", { name: /kapat/i }).tap(), 700));
+        row("menu → page", await framesDuring(page, async () => {
+          await toggle.tap();
+          await page.waitForTimeout(700);
+          await page.getByRole("dialog").locator("a[href='/tr/services']").tap();
+          await page.waitForURL(/\/tr\/services$/);
+        }, 800));
+        await throttle(cdp, 1);
+      }
+
+      await page.goto(BASE + "/tr/projects");
+      await settle(page);
+      await throttle(cdp, cpu);
+      row("filter change", await framesDuring(page, () => page.locator("button[aria-pressed]").nth(1).tap(), 900));
+      const card = page.locator("main a[href^='/tr/projects/']:not([href$='/video'])").filter({ visible: true }).first();
+      await card.scrollIntoViewIfNeeded();
+      row("page change (tap card)", await framesDuring(page, async () => {
+        await card.tap();
+        await page.waitForURL(/\/tr\/projects\/[^/]+$/);
+      }, 800));
+      row("back", await framesDuring(page, async () => {
+        await page.goBack();
+        await page.waitForURL(/\/tr\/projects$/);
+      }, 600));
+      await throttle(cdp, 1);
+
+      await page.goto(BASE + "/tr/projects/villa-donusumu");
+      await settle(page);
+      const slider = page.getByRole("slider").first();
+      await slider.scrollIntoViewIfNeeded();
+      const box = await slider.evaluate((el) => {
+        const r = el.parentElement.getBoundingClientRect();
+        return { x: r.left, y: r.top, w: r.width, h: r.height };
+      });
+      await throttle(cdp, cpu);
+      const y = Math.round(box.y + box.h / 2);
+      row("before/after drag", await framesDuring(page, async () => {
+        await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x: Math.round(box.x + box.w / 2), y }] });
+        for (let i = 0; i <= 30; i++) {
+          const x = Math.round(box.x + box.w * (0.5 - 0.4 * Math.sin((i / 30) * Math.PI)));
+          await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x, y }] });
+          await page.waitForTimeout(16);
+        }
+        await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+      }, 300));
+      const moved = await page.getByRole("slider").first().getAttribute("aria-valuenow");
+      results.phone.push({ device, cpu, what: "slider moved", value: moved });
+      await throttle(cdp, 1);
+      await browser.close();
+    }
+  }
+}
+
 // Back/forward scroll restore, rapid double navigation, menu → page on phones, reduced-motion navigation.
 async function runFlows() {
   for (const engine of BROWSERS) {
@@ -391,6 +504,7 @@ if (ONLY.has("idle")) await runIdle();
 if (ONLY.has("load")) await runLoad();
 if (ONLY.has("nav")) await runNav();
 if (ONLY.has("slow")) await runSlow();
+if (ONLY.has("phone")) await runPhone();
 if (ONLY.has("flows")) await runFlows();
 
 await mkdir("motion-audit", { recursive: true });
