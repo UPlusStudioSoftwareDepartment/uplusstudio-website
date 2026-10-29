@@ -13,10 +13,15 @@ export default function LanguageSelector({ isDarkText = true }: Readonly<Languag
   const router = useRouter();
   const pathname = usePathname();
 
-  const toggleLanguage = (lang: string) => {
+  const pathWithoutLocale = pathname.replace(/^\/(tr|en)/, '');
+  const hrefFor = (lang: string) => `/${lang}${pathWithoutLocale}`;
+
+  // Real links so crawlers and new-tab clicks reach the same page in the other language.
+  const toggleLanguage = (event: React.MouseEvent<HTMLAnchorElement>, lang: string) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    event.preventDefault();
     if (lang === locale) return;
-    const pathWithoutLocale = pathname.replace(/^\/(tr|en)/, '');
-    navigateSmoothly(() => router.push(`/${lang}${pathWithoutLocale}`));
+    navigateSmoothly(() => router.push(hrefFor(lang)));
   };
 
   const getButtonClass = (isActive: boolean) => {
@@ -27,23 +32,25 @@ export default function LanguageSelector({ isDarkText = true }: Readonly<Languag
 
   return (
     <div className="flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em]">
-      <button
-        type="button"
-        onClick={() => toggleLanguage('tr')}
-        aria-current={locale === 'tr'}
+      <a
+        href={hrefFor('tr')}
+        hrefLang="tr"
+        onClick={(event) => toggleLanguage(event, 'tr')}
+        aria-current={locale === 'tr' ? 'true' : undefined}
         className={`transition-colors duration-300 ${getButtonClass(locale === 'tr')}`}
       >
         TR
-      </button>
+      </a>
       <span className={isDarkText ? 'text-line' : 'text-bone/25'}>/</span>
-      <button
-        type="button"
-        onClick={() => toggleLanguage('en')}
-        aria-current={locale === 'en'}
+      <a
+        href={hrefFor('en')}
+        hrefLang="en"
+        onClick={(event) => toggleLanguage(event, 'en')}
+        aria-current={locale === 'en' ? 'true' : undefined}
         className={`transition-colors duration-300 ${getButtonClass(locale === 'en')}`}
       >
         EN
-      </button>
+      </a>
     </div>
   );
 }

@@ -213,7 +213,7 @@ test("unknown pages answer 404 with a way home", async ({ page }) => {
 
 test("language switch keeps the visitor on the same page", async ({ page }) => {
   await page.goto("/tr/services");
-  await page.getByRole("button", { name: "EN", exact: true }).filter({ visible: true }).click();
+  await page.getByRole("link", { name: "EN", exact: true }).filter({ visible: true }).click();
   await expect(page).toHaveURL(/\/en\/services$/);
   await expect(page.locator("html")).toHaveAttribute("lang", /^en/);
 });
@@ -457,9 +457,9 @@ test.describe("phones", () => {
     await expect(cardButton).toBeFocused();
   });
 
-  test("language buttons answer taps around their small letters", async ({ page }) => {
+  test("language links answer taps around their small letters", async ({ page }) => {
     await page.goto("/tr/about");
-    const en = page.locator("nav").first().getByRole("button", { name: "EN", exact: true }).filter({ visible: true });
+    const en = page.locator("nav").first().getByRole("link", { name: "EN", exact: true }).filter({ visible: true });
     const box = await en.boundingBox();
     await expect(async () => {
       await page.mouse.click((box?.x ?? 0) + (box?.width ?? 0) / 2, (box?.y ?? 0) - 9);

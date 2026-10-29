@@ -53,6 +53,14 @@ Yeni sayfa açılmadı. İlçe adı değiştirilmiş kopya sayfa, anahtar kelime
 3. **Dizin kayıtları:** Armut kategorisini düzeltin. Bulurum ve Sahibinden (mimarlık-mühendislik hizmetleri, Gölbaşı) kaydı açın. HizmetX'teki yanlış 0850 telefonu ve "Polatlı" bilgisini düzeltin. İsim, adres ve telefon her yerde birebir aynı olsun.
 4. **İçerik onayı** (`CONTENT-GAPS-AND-APPROVALS.md`): hangi projeler İncek veya Gölbaşı'nda, hangi mühendislik hizmetleri (statik proje? şantiye şefliği?) gerçekten veriliyor. Bunlar doğrulanırsa proje ve hizmet sayfaları gerçek yerel kanıtla güçlenir.
 
-## 6. Dosyalar
+## 6. Yapay zekâ aramaları ve çok dillilik (29 Ekim, ikinci tur)
 
-`TARGET-KEYWORDS.csv` · `SERP-COMPETITOR-MATRIX.csv` · `KEYWORD-TO-PAGE-MAP.csv` · `SEARCH-CONSOLE-BASELINE.md` · `GOOGLE-BUSINESS-PROFILE-AUDIT.md` · `CONTENT-GAPS-AND-APPROVALS.md` · `ON-PAGE-SEO-AUDIT.md` · `SEO-CHANGELOG.md` · `90-DAY-TRACKING-PLAN.md` · `BROWSER-VERIFICATION-REPORT.md`
+- **Google AI Mode**, marka sorularında ve "İncek villa ofisleri" sorusunda U+ Studio'yu doğru anlatıyor ve listede ilk sırada gösteriyor. "Gölbaşı iç mimar" sorusunda yok.
+- **ChatGPT** markayı doğru anlatıyor, ama kaynak olarak siteyi değil Google işletme kaydını ve Armut'u gösteriyor. Neden: site **Bing organik sonuçlarında yok**. Bing Webmaster ve IndexNow sahibin hesabı veya onayıyla yapılacak.
+- **Perplexity ve Copilot:** giriş istedi, BLOCKED.
+- **Botlar:** arama botlarının hepsi izinli ve erişebiliyor. Eğitim botları sahibin tercihiyle kapalı.
+- **Çok dillilik:** 28/28 TR/EN sayfa çifti PASS. Düzeltilenler: dil seçici gerçek `<a href>` bağlantısı oldu; İngilizce iletişim metinleri tek kaynağa indi (11 anahtar eksikti, yeni testle yakalandı).
+
+## 7. Dosyalar
+
+`TARGET-KEYWORDS.csv` · `SERP-COMPETITOR-MATRIX.csv` · `KEYWORD-TO-PAGE-MAP.csv` · `SEARCH-CONSOLE-BASELINE.md` · `GOOGLE-BUSINESS-PROFILE-AUDIT.md` · `CONTENT-GAPS-AND-APPROVALS.md` · `ON-PAGE-SEO-AUDIT.md` · `SEO-CHANGELOG.md` · `90-DAY-TRACKING-PLAN.md` · `BROWSER-VERIFICATION-REPORT.md` · `AI-SEARCH-VISIBILITY-REPORT.md` · `AI-QUERIES-BY-LANGUAGE.csv` · `AI-CRAWLER-POLICY-MATRIX.csv` · `ENTITY-FACT-SHEET.md` · `MULTILINGUAL-SEO-MATRIX.csv` · `HREFLANG-CANONICAL-AUDIT.md` · `TRANSLATION-APPROVALS.md`

@@ -1,6 +1,7 @@
 import { studio_en } from "@/app/[locale]/locales/en_US";
 import { glossary_en } from "@/app/[locale]/glossary/locales/en_US";
 import { about_en } from "@/app/[locale]/about/locales/en_US";
+import { contact_en } from "@/app/[locale]/contact/locales/en_US";
 
 const app_en={
   "packages": {
@@ -188,62 +189,7 @@ const app_en={
     "backHome": "Back to home",
     "skipToContent": "Skip to content"
   },
-  "contact": {
-    "title": "Contact",
-    "heading": "Get in Touch",
-    "getInTouch": "Contact Us",
-    "address": "Address",
-    "addressText": "Reyhan Cd. Merkez İncek Plaza No:3 Kat:1 D:2, 06830 İncek, Gölbaşı/Ankara",
-    "findUs": "Find Us",
-    "phone": "Phone",
-    "email": "Email",
-    "name": "Your Name",
-    "subject": "Subject",
-    "selectSubject": "Select Subject",
-    "subjects": {
-      "general": "General Information",
-      "project": "Project Consultation",
-      "consultation": "Architectural Consultation",
-      "partnership": "Business Partnership"
-    },
-    "package": "Package Selection",
-    "selectPackage": "Select Package",
-    "packages": {
-      "basic": "Basic Package",
-      "premium": "Premium Package",
-      "enterprise": "Enterprise Package",
-      "custom": "Custom Project"
-    },
-    "message": "Your Message",
-    "send": "Send",
-    "validation": {
-      "nameRequired": "Your name is required.",
-      "nameMin": "Your name must be at least 2 characters.",
-      "emailRequired": "Email address is required.",
-      "emailInvalid": "Please enter a valid email address.",
-      "subjectRequired": "Subject is required.",
-      "subjectMin": "Subject must be at least 2 characters.",
-      "messageRequired": "Please write a message.",
-      "messageMin": "Your message must be at least 10 characters."
-    },
-    "nameError": "Please enter your full name (letters only).",
-    "emailError": "Please enter a valid email address.",
-    "phoneError": "Please enter a valid phone number (e.g. +90 532 123 45 67).",
-    "subjectError": "Please choose a subject.",
-    "subjectOther": "Other / General enquiry",
-    "messageError": "Your message must be at least 10 characters.",
-    "messageMax": "Your message can be at most 2000 characters.",
-    "preparing": "Preparing…",
-    "error": "We couldn't prepare your message. Please try again or write to info@uplusstudio.com.tr directly.",
-    "successSent": "Your message has reached our studio. We will get back to you within two working days.",
-    "successText": "Your message is ready in Gmail — just press Send.",
-    "successRetry": "Your message is ready. Press the button below to open Gmail; it is already written, just press Send.",
-    "successMobile": "Your message is ready as an email. If your mail app didn't open, tap the button below and press Send.",
-    "openGmail": "Open Gmail",
-    "openGmailApp": "Open in Gmail",
-    "openMailApp": "Open in Mail",
-    "newMessage": "Write a new message",
-  },
+  "contact": contact_en,
   "glossary": glossary_en,
   "studio": studio_en,
   "about": about_en,
