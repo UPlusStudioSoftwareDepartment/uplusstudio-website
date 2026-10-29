@@ -374,7 +374,8 @@ test.describe("phones", () => {
     await page.evaluate(() => scrollTo({ top: 1400, behavior: "instant" }));
     await expect(async () => {
       await page.evaluate(() => scrollBy({ top: -60, behavior: "instant" }));
-      await expect(toggle).toBeInViewport({ timeout: 1000 });
+      await page.waitForTimeout(700);
+      await expect(toggle).toBeInViewport({ ratio: 1, timeout: 500 });
     }).toPass();
     expect(await page.evaluate(() => scrollY)).toBeGreaterThan(400);
     const menu = page.getByRole("dialog", { name: "Menü" });
