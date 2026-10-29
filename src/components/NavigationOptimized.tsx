@@ -143,7 +143,7 @@ export default function Navigation() {
           <div className={`hidden items-center gap-5 lg:flex xl:gap-8 ${textTone}`}>
             {primary.map((item) => (
               <Link key={item.href} href={item.href} className="group relative py-1 text-[14px]">
-                <span className={isActive(item.href) ? "" : "opacity-75 transition-opacity group-hover:opacity-100"}>{item.label}</span>
+                <span className={isActive(item.href) ? "" : "opacity-90 transition-opacity group-hover:opacity-100"}>{item.label}</span>
                 <span
                   className={`absolute -bottom-0.5 left-0 h-px w-full origin-left bg-current transition-transform duration-500 ${
                     isActive(item.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
