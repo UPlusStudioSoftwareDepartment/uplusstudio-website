@@ -7,11 +7,14 @@ const LETTERS = "STUDIO".split("");
 const FIRST_VISIT_MIN_MS = 900;
 const FIRST_VISIT_MAX_MS = 2600;
 const LEAVE_MS = 1500;
-const SWAP_TIMEOUT_MS = 1200;
+// Longest the screen stays frozen waiting for the next route; slower routes finish without the fade, under the pending line.
+const SWAP_TIMEOUT_MS = 600;
+const PENDING_MAX_MS = 10000;
 const SEEN_KEY = "u-curtain";
 
 let booted = false;
 let swapped: (() => void) | null = null;
+let pendingTimer: ReturnType<typeof setTimeout> | undefined;
 
 const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, Math.max(0, ms)));
 const stillMotion = () => globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -30,12 +33,25 @@ function markSeen() {
   } catch {}
 }
 
+// html[data-navigating] draws the thin line at the top (globals.css) until the next route mounts.
+function markPending() {
+  document.documentElement.dataset.navigating = "";
+  clearTimeout(pendingTimer);
+  pendingTimer = setTimeout(clearPending, PENDING_MAX_MS);
+}
+
+function clearPending() {
+  clearTimeout(pendingTimer);
+  delete document.documentElement.dataset.navigating;
+}
+
 export function navigateSmoothly(go: () => void) {
+  markPending();
   if (!document.startViewTransition || stillMotion()) {
     go();
     return;
   }
-  document.startViewTransition(
+  const transition = document.startViewTransition(
     () =>
       new Promise<void>((resolve) => {
         swapped = resolve;
@@ -43,6 +59,9 @@ export function navigateSmoothly(go: () => void) {
         go();
       })
   );
+  // A second tap skips the running transition; its promises then reject with AbortError, which is expected.
+  transition.ready.catch(() => {});
+  transition.finished.catch(() => {});
 }
 
 function pageLink(event: MouseEvent) {
@@ -77,13 +96,17 @@ function Curtain() {
   useLayoutEffect(() => {
     swapped?.();
     swapped = null;
+    clearPending();
   }, []);
 
   useEffect(() => {
-    if (!document.startViewTransition) return;
     const onClick = (event: MouseEvent) => {
       const url = pageLink(event);
-      if (!url || stillMotion()) return;
+      if (!url) return;
+      if (!document.startViewTransition || stillMotion()) {
+        markPending();
+        return;
+      }
       event.preventDefault();
       navigateSmoothly(() => router.push(url.pathname + url.search + url.hash));
     };

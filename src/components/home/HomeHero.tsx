@@ -93,17 +93,24 @@ export default function HomeHero() {
   }, [reduce]);
 
   useEffect(() => {
+    if (!playing) return;
     let raf = 0;
-    const tick = () => {
+    const sync = () => {
       const video = videoRef.current;
       if (video?.duration && progressRef.current) {
         progressRef.current.style.transform = `scaleX(${video.currentTime / video.duration})`;
       }
+    };
+    const tick = () => {
+      sync();
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
+    return () => {
+      cancelAnimationFrame(raf);
+      sync();
+    };
+  }, [playing]);
 
   const toggleFilm = () => {
     const video = videoRef.current;

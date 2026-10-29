@@ -23,6 +23,7 @@ import { APPOINTMENT_SERVICES } from "@/lib/services";
 import { formatPhone } from "@/lib/appointmentLinks";
 import { CARD_FILE, canShareFiles, imageAsJpeg } from "@/lib/cardImage";
 import { isPersonName, isPhoneNumber } from "@/lib/validations";
+import { EASE_STUDIO as EASE } from "@/lib/motion";
 
 interface AppointmentModalProps {
   isOpen: boolean;
@@ -30,7 +31,6 @@ interface AppointmentModalProps {
   prefill?: AppointmentPrefill | null;
 }
 
-const EASE = [0.76, 0, 0.24, 1] as const;
 const SERVICES = APPOINTMENT_SERVICES;
 
 function FieldError({ message }: Readonly<{ message?: string }>) {
@@ -311,7 +311,6 @@ export default function AppointmentModal({ isOpen, onClose, prefill }: Readonly<
     } catch {}
     return { token: "", url: "", image: "" };
   };
-
 
   const appointmentText = (v: AppointmentFormValues, cardUrl: string, markup: boolean) => {
     const tr = locale === "tr";

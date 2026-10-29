@@ -7,8 +7,7 @@ import { AnimatePresence, m } from "framer-motion";
 import BeforeAfter from "@/components/studio/BeforeAfter";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
-
-const EASE = [0.76, 0, 0.24, 1] as const;
+import { EASE_STUDIO as EASE } from "@/lib/motion";
 
 type Shot = { src: string; alt: string };
 

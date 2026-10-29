@@ -247,7 +247,7 @@ export default function ServicePackages() {
             return (
               <li
                 key={pkg.id}
-                className={`group relative row-span-5 grid grid-rows-subgrid overflow-hidden rounded-[6px] border bg-paper-2/50 transition-[border-color,box-shadow,translate] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${
+                className={`group relative row-span-5 grid grid-rows-subgrid overflow-hidden rounded-[6px] border bg-paper-2/50 transition-[border-color,box-shadow,translate] duration-700 ease-out-studio hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${
                   featured
                     ? 'border-clay/60 shadow-[0_30px_90px_-40px_rgba(196,130,92,0.55)]'
                     : 'border-line hover:border-ink/30 hover:shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]'
@@ -260,7 +260,7 @@ export default function ServicePackages() {
                       alt={photo.alt[locale === 'en' ? 'en' : 'tr']}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      className="object-cover grayscale transition-[filter,transform,scale] duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform group-hover:scale-[1.06] group-hover:grayscale-0 motion-reduce:transition-none"
+                      className="object-cover grayscale transition-[filter,transform,scale] duration-[1400ms] ease-out-studio will-change-transform group-hover:scale-[1.06] group-hover:grayscale-0 motion-reduce:transition-none"
                     />
                   )}
                   <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-night/85 via-night/10 to-transparent" aria-hidden />

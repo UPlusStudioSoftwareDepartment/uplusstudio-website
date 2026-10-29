@@ -39,7 +39,7 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale} className={fontVariables} suppressHydrationWarning data-scroll-behavior="smooth">
+    <html lang={locale} className={fontVariables} suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#121110" />
         <script dangerouslySetInnerHTML={{ __html: CURTAIN_BOOT }} />

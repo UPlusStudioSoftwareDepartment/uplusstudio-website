@@ -115,7 +115,7 @@ export default function SiteFooter() {
           <Link href={`${prefix}/kvkk`} className="hover:text-bone">{t("footer.privacy")}</Link>
           <button
             type="button"
-            onClick={() => globalThis.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => globalThis.scrollTo({ top: 0, behavior: globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" })}
             className="text-left hover:text-bone"
           >
             {t("footer.backToTop")} ↑

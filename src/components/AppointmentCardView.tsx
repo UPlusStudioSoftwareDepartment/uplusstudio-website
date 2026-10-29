@@ -6,6 +6,7 @@ import { Pass } from "@/components/AppointmentPass";
 import { calendarUrl, whatsappNumber } from "@/lib/appointmentLinks";
 import { CARD_FILE, canShareFiles, imageAsJpeg } from "@/lib/cardImage";
 import { followLink } from "@/lib/gmailCompose";
+import { EASE_STUDIO as EASE } from "@/lib/motion";
 
 interface Appointment {
   name: string;
@@ -16,8 +17,6 @@ interface Appointment {
   time: string;
   message: string;
 }
-
-const EASE = [0.76, 0, 0.24, 1] as const;
 
 const CARD_BUTTON =
   "inline-flex min-h-12 w-full items-center justify-center gap-2.5 whitespace-nowrap rounded-[3px] border border-ink/30 px-4 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors hover:border-bone hover:bg-night disabled:opacity-50";

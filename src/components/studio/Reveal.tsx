@@ -2,9 +2,9 @@
 
 import { m, useInView } from "framer-motion";
 import { useRef, type ReactNode } from "react";
+import { DURATION, EASE_OUT, EASE_STUDIO } from "@/lib/motion";
 
-export const EASE_STUDIO = [0.76, 0, 0.24, 1] as const;
-export const EASE_OUT = [0.22, 1, 0.36, 1] as const;
+export { EASE_OUT, EASE_STUDIO };
 
 interface MaskRevealProps {
   children: ReactNode;
@@ -24,13 +24,13 @@ export function MaskReveal({ children, className = "", delay = 0, from = "bottom
         className="relative h-full w-full overflow-hidden motion-reduce:![clip-path:none]"
         initial={{ clipPath: hidden }}
         animate={inView ? { clipPath: "inset(0% 0% 0% 0%)" } : undefined}
-        transition={{ duration: 1.2, ease: EASE_STUDIO, delay }}
+        transition={{ duration: DURATION.mask, ease: EASE_STUDIO, delay }}
       >
         <m.div
           className="relative h-full w-full motion-reduce:![transform:none]"
           initial={{ scale: 1.12 }}
           animate={inView ? { scale: 1 } : undefined}
-          transition={{ duration: 1.6, ease: EASE_OUT, delay }}
+          transition={{ duration: DURATION.mask * 1.3, ease: EASE_OUT, delay }}
         >
           {children}
         </m.div>
@@ -57,8 +57,8 @@ export function LineReveal({ lines, className = "", lineClassName = "", delay = 
         <span key={i} className="-mb-[0.08em] -ml-[0.075em] block overflow-hidden pb-[0.08em]">
           {immediate ? (
             <span
-              className={`block animate-[line-up_1s_var(--ease-studio)_backwards] motion-reduce:animate-none ${lineClassName}`}
-              style={{ animationDelay: `${delay + i * 0.09}s` }}
+              className={`block animate-[line-up_var(--duration-line)_var(--ease-studio)_backwards] motion-reduce:animate-none ${lineClassName}`}
+              style={{ animationDelay: `${delay + i * 0.08}s` }}
             >
               {line}
             </span>
@@ -67,7 +67,7 @@ export function LineReveal({ lines, className = "", lineClassName = "", delay = 
               className={`block motion-reduce:![transform:none] ${lineClassName}`}
               initial={{ y: "105%" }}
               animate={inView ? { y: "0%" } : undefined}
-              transition={{ duration: 1, ease: EASE_STUDIO, delay: delay + i * 0.09 }}
+              transition={{ duration: DURATION.line, ease: EASE_STUDIO, delay: delay + i * 0.08 }}
             >
               {line}
             </m.span>
@@ -91,7 +91,7 @@ export function FadeUp({ children, className = "", delay = 0 }: Readonly<FadeUpP
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.9, ease: EASE_OUT, delay }}
+      transition={{ duration: DURATION.fade, ease: EASE_OUT, delay }}
     >
       {children}
     </m.div>

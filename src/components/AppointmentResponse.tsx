@@ -6,6 +6,7 @@ import { AnimatePresence, m } from "framer-motion";
 import { MascotDuo } from "@/components/mascots/Mascots";
 import { type ComposedMail, mailPlatform, mailtoUrl, openGmail } from "@/lib/gmailCompose";
 import { FLEXIBLE_DATE, NO_DATE_HINT, TIME_SLOTS, TR_DAYS, TR_MONTHS, istanbulToday, parseAppointmentDate } from "@/lib/appointmentDate";
+import { EASE_STUDIO as EASE } from "@/lib/motion";
 
 interface Appointment {
   name: string;
@@ -17,8 +18,6 @@ interface Appointment {
   message: string;
   locale?: "tr" | "en";
 }
-
-const EASE = [0.76, 0, 0.24, 1] as const;
 
 function formatDate(date: string) {
   const p = parseAppointmentDate(date);

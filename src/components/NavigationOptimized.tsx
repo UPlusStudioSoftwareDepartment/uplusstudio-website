@@ -14,10 +14,9 @@ import { useScrollLock } from "@/hooks/useScrollLock";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
+import { DURATION, EASE_MENU as MENU_EASE, EASE_STUDIO as EASE } from "@/lib/motion";
 
 const SCROLL_THRESHOLD = 40;
-const EASE = [0.76, 0, 0.24, 1] as const;
-const MENU_EASE = [0.65, 0, 0.35, 1] as const;
 const menuClip = (radius: number) => `circle(${radius}px at calc(100% - 44px) 40px)`;
 const screenReach = () => Math.ceil(Math.hypot(globalThis.innerWidth, globalThis.innerHeight));
 
@@ -122,7 +121,7 @@ export default function Navigation() {
   return (
     <>
       <m.nav
-        className={`fixed inset-x-0 top-0 z-50 ${settling ? "" : "transition-[background-color,border-color,padding] duration-500"} ${
+        className={`fixed inset-x-0 top-0 z-50 [view-transition-name:site-nav] ${settling ? "" : "transition-[background-color,border-color,padding] duration-500"} ${
           isScrolled ? "bg-paper/85 backdrop-blur-md border-b border-line py-3" : "bg-transparent border-b border-transparent py-5 sm:py-6"
         }`}
         animate={{ y: isHidden && !isMenuOpen ? "-100%" : "0%" }}
@@ -189,8 +188,8 @@ export default function Navigation() {
             style={{ willChange: "clip-path" }}
             initial={{ clipPath: menuClip(0) }}
             animate={{ clipPath: menuClip(menuReach) }}
-            exit={{ clipPath: menuClip(0), transition: { duration: 0.6, ease: MENU_EASE } }}
-            transition={{ duration: 0.8, ease: MENU_EASE }}
+            exit={{ clipPath: menuClip(0), transition: { duration: DURATION.menu * 0.75, ease: MENU_EASE } }}
+            transition={{ duration: DURATION.menu, ease: MENU_EASE }}
             role="dialog"
             aria-modal="true"
             aria-label={t("menu")}
@@ -239,7 +238,7 @@ export default function Navigation() {
                           initial={{ y: "110%" }}
                           animate={{ y: "0%" }}
                           exit={{ y: "110%", transition: { duration: 0.35, ease: MENU_EASE } }}
-                          transition={{ duration: 0.8, ease: EASE, delay: 0.3 + i * 0.05 }}
+                          transition={{ duration: DURATION.menu, ease: EASE, delay: 0.2 + i * 0.04 }}
                         >
                           <Link
                             href={item.href}
@@ -272,7 +271,7 @@ export default function Navigation() {
                 className="border-t border-bone/10 pb-[max(clamp(0.5rem,2dvh,1.25rem),env(safe-area-inset-bottom))] pt-[clamp(0.5rem,2dvh,1.25rem)]"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: EASE, delay: 0.7 }}
+                transition={{ duration: DURATION.fade, ease: EASE, delay: 0.45 }}
               >
                 <div className="flex items-start justify-between gap-6 text-[13px] text-bone/70 [@media(max-height:520px)]:justify-end">
                   <div className="-my-1 [@media(max-height:520px)]:hidden">

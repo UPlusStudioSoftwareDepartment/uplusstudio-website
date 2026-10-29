@@ -1,0 +1,83 @@
+{
+  "label": "before-slow",
+  "base": "http://localhost:3100",
+  "at": "2026-10-29T12:14:23.773Z",
+  "scroll": [],
+  "idle": [],
+  "load": [],
+  "nav": [],
+  "slow": [
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "network": "slow-4g",
+      "cpu": 4,
+      "from": "/tr",
+      "target": "/tr/projects",
+      "usable": 2578,
+      "longestFrameGap": 1317
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "network": "slow-4g",
+      "cpu": 4,
+      "from": "/tr/projects",
+      "target": "/tr/projects/villa-donusumu",
+      "usable": 450,
+      "longestFrameGap": 300
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "network": "slow-4g",
+      "cpu": 4,
+      "from": "/tr/projects/villa-donusumu",
+      "target": "/tr/projects",
+      "usable": 488,
+      "longestFrameGap": 400
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "network": "slow-4g",
+      "cpu": 4,
+      "from": "/tr/about",
+      "target": "/tr/services",
+      "usable": 969,
+      "longestFrameGap": 633
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "network": "slow-4g",
+      "cpu": 4,
+      "from": "/tr/services",
+      "target": "/tr/contact",
+      "usable": 1618,
+      "longestFrameGap": 1217
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "network": "slow-4g",
+      "cpu": 4,
+      "from": "/tr/contact",
+      "target": "/tr/glossary",
+      "usable": 1500,
+      "longestFrameGap": 1333
+    },
+    {
+      "engine": "chromium",
+      "device": "phone-390",
+      "network": "slow-4g",
+      "cpu": 4,
+      "from": "/tr",
+      "target": "/tr/services/ic-mimarlik-ankara",
+      "usable": 691,
+      "longestFrameGap": 467
+    }
+  ],
+  "flows": [],
+  "errors": []
+}

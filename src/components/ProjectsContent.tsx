@@ -31,7 +31,7 @@ function GridCard({ project }: Readonly<{ project: Project }>) {
     >
       <Link href={`/${locale}/projects/${project.slug}`} className="group block">
         <MaskReveal className="relative aspect-[3/2] bg-paper-2">
-          <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]">
+          <div className="absolute inset-0 transition-transform duration-[1.4s] ease-out-studio group-hover:scale-[1.03]">
             <FramedImage src={project.cover.src} alt={project.cover.alt[locale]} sizes={coverSizes(project.cover)} />
           </div>
           {project.video && (

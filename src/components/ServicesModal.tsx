@@ -2,8 +2,7 @@
 
 import { AnimatePresence, m } from "framer-motion";
 import { useEffect, useRef } from "react";
-
-const EASE_STUDIO = [0.76, 0, 0.24, 1] as const;
+import { EASE_OUT, EASE_STUDIO } from "@/lib/motion";
 
 const SERVICES = [
   { title: 'Mimari Tasarım', desc: 'Konut, ticari ve kamusal projeler için çağdaş çözümler.' },
@@ -179,7 +178,7 @@ export default function ServicesModal({ isOpen, onClose }: Readonly<ServicesModa
                     key={service.title}
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.25 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.6, delay: 0.25 + i * 0.05, ease: EASE_OUT }}
                     className="group grid grid-cols-[2.5rem_1fr] gap-x-4 border-b border-line py-5"
                   >
                     <span className="pt-1 font-mono text-[12px] tracking-[0.14em] text-mute">

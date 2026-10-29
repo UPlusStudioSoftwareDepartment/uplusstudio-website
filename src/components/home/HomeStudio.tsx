@@ -58,7 +58,7 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
               <li key={project.slug}>
                 <Link href={`${prefix}/projects/${project.slug}`} className="group block">
                   <div className="relative aspect-[3/2] overflow-hidden bg-paper-2">
-                    <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]">
+                    <div className="absolute inset-0 transition-transform duration-[1.4s] ease-out-studio group-hover:scale-[1.03]">
                       <FramedImage src={project.cover.src} alt={project.cover.alt[locale]} sizes={coverSizes(project.cover)} />
                     </div>
                   </div>

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { m, useReducedMotion, type Transition } from "framer-motion";
+import { useRef, useState } from "react";
+import { m, useInView, useReducedMotion, type Transition } from "framer-motion";
+import { EASE_OUT } from "@/lib/motion";
 
 
 export const HIGH_FIVE = {
@@ -27,24 +28,33 @@ const loop = (duration: number, delay = 0, extra: Partial<Transition> = {}): Tra
   ...extra,
 });
 
-function useMotionProps(reduce: boolean | null) {
+// Loops run only while the mascot is on screen; off screen it rests on its first keyframe so the main thread stays idle.
+const play = (live: boolean, keyframes: Record<string, number[]>, transition: Transition) =>
+  live ? { animate: keyframes, transition } : { animate: Object.fromEntries(Object.entries(keyframes).map(([key, frames]) => [key, frames[0]])), transition: { duration: 0 } };
+
+function useOnScreen() {
+  const ref = useRef<SVGSVGElement>(null);
+  return [ref, useInView(ref, { margin: "80px" })] as const;
+}
+
+function useMotionProps(reduce: boolean | null, live: boolean) {
   return {
     breathe: (offset: number) =>
-      reduce ? {} : { animate: { y: [0, -3, 0], scaleY: [1, 1.02, 1] }, transition: loop(2.6, offset) },
+      reduce ? {} : play(live, { y: [0, -3, 0], scaleY: [1, 1.02, 1] }, loop(2.6, offset)),
     smileOpen: (offset: number) =>
-      reduce ? {} : { animate: { opacity: [1, 1, 0, 0, 1] }, transition: loop(4.6, offset, { times: [0, 0.55, 0.6, 0.88, 0.93], ease: "linear" }) },
+      reduce ? {} : play(live, { opacity: [1, 1, 0, 0, 1] }, loop(4.6, offset, { times: [0, 0.55, 0.6, 0.88, 0.93], ease: "linear" })),
     smileHappy: (offset: number) =>
       reduce
         ? { initial: { opacity: 0 } }
-        : { initial: { opacity: 0 }, animate: { opacity: [0, 0, 1, 1, 0] }, transition: loop(4.6, offset, { times: [0, 0.55, 0.6, 0.88, 0.93], ease: "linear" }) },
+        : { initial: { opacity: 0 }, ...play(live, { opacity: [0, 0, 1, 1, 0] }, loop(4.6, offset, { times: [0, 0.55, 0.6, 0.88, 0.93], ease: "linear" })) },
     blush: (offset: number) =>
-      reduce ? {} : { animate: { opacity: [0.6, 0.6, 0.95, 0.95, 0.6] }, transition: loop(4.6, offset, { times: [0, 0.55, 0.6, 0.88, 0.93], ease: "linear" }) },
+      reduce ? {} : play(live, { opacity: [0.6, 0.6, 0.95, 0.95, 0.6] }, loop(4.6, offset, { times: [0, 0.55, 0.6, 0.88, 0.93], ease: "linear" })),
     sway: (offset: number, deg = 8) =>
-      reduce ? {} : { animate: { rotate: [-deg, deg, -deg] }, transition: loop(2.8, offset) },
+      reduce ? {} : play(live, { rotate: [-deg, deg, -deg] }, loop(2.8, offset)),
   };
 }
 
-function armMotion(pose: MascotPose, reduce: boolean | null, offset: number, side: 1 | -1 = 1) {
+function armMotion(pose: MascotPose, reduce: boolean | null, live: boolean, offset: number, side: 1 | -1 = 1) {
   if (pose === "highfive" && !reduce) {
     return {
       animate: { rotate: [0, 22, -112, -118, -112, -110, -40, 0, 0].map((d) => d * side) },
@@ -52,29 +62,27 @@ function armMotion(pose: MascotPose, reduce: boolean | null, offset: number, sid
     };
   }
   if (reduce) return {};
-  if (pose === "wave") return { animate: { rotate: [0, -38, -12, -38, 0] }, transition: loop(1.6, offset, { repeatDelay: 0.6 }) };
-  if (pose === "cheer") return { animate: { rotate: [-120, -150, -120] }, transition: loop(0.9, offset) };
-  if (pose === "think") return { animate: { rotate: [-70, -76, -70] }, transition: loop(2.4, offset) };
-  return { animate: { rotate: [0, -6, 0] }, transition: loop(2.6, offset) };
+  if (pose === "wave") return play(live, { rotate: [0, -38, -12, -38, 0] }, loop(1.6, offset, { repeatDelay: 0.6 }));
+  if (pose === "cheer") return play(live, { rotate: [-120, -150, -120] }, loop(0.9, offset));
+  if (pose === "think") return play(live, { rotate: [-70, -76, -70] }, loop(2.4, offset));
+  return play(live, { rotate: [0, -6, 0] }, loop(2.6, offset));
 }
 
-function hammerTap(reduce: boolean | null, offset: number) {
+function hammerTap(reduce: boolean | null, live: boolean, offset: number) {
   if (reduce) return {};
-  return {
-    animate: { rotate: [0, 0, -28, 6, 0] },
-    transition: loop(2.2, offset, { times: [0, 0.55, 0.72, 0.84, 1], repeatDelay: 0.8 }),
-  };
+  return play(live, { rotate: [0, 0, -28, 6, 0] }, loop(2.2, offset, { times: [0, 0.55, 0.72, 0.84, 1], repeatDelay: 0.8 }));
 }
 
 
 export function DesignerMascot({ pose = "idle", joy = false, className = "", offset = 0 }: Readonly<MascotProps>) {
   const reduce = useReducedMotion();
-  const moves = useMotionProps(reduce);
+  const [ref, live] = useOnScreen();
+  const moves = useMotionProps(reduce, live);
   const joyful = joy || pose === "highfive";
-  const cheerJump = pose === "cheer" && !reduce ? { animate: { y: [0, -8, 0] }, transition: loop(0.9, offset) } : {};
+  const cheerJump = pose === "cheer" && !reduce ? play(live, { y: [0, -8, 0] }, loop(0.9, offset)) : {};
 
   return (
-    <svg viewBox="0 0 140 150" overflow="visible" className={className} aria-hidden>
+    <svg ref={ref} viewBox="0 0 140 150" overflow="visible" className={className} aria-hidden>
       <ellipse cx="70" cy="142" rx="34" ry="5" fill="#000" opacity="0.18" />
       <m.g {...cheerJump}>
         <m.g style={{ transformBox: "view-box", originX: "100px", originY: "120px" }} {...moves.sway(offset, 9)}>
@@ -102,7 +110,7 @@ export function DesignerMascot({ pose = "idle", joy = false, className = "", off
           </g>
           <ellipse cx="44" cy="112" rx="8" ry="7" fill="#f3dfc1" />
 
-          <m.g style={{ transformBox: "view-box", originX: "96px", originY: "106px" }} {...armMotion(pose, reduce, offset)}>
+          <m.g style={{ transformBox: "view-box", originX: "96px", originY: "106px" }} {...armMotion(pose, reduce, live, offset)}>
             <ellipse cx="103" cy="112" rx="8" ry="10" fill="#f3dfc1" />
             <ellipse cx="104" cy="118" rx="4" ry="2.5" fill="#f4b6b8" opacity="0.7" />
           </m.g>
@@ -152,7 +160,7 @@ export function DesignerMascot({ pose = "idle", joy = false, className = "", off
           </g>
         </m.g>
       </m.g>
-      {pose === "think" && <ThinkMark y={8} offset={offset} reduce={reduce} />}
+      {pose === "think" && <ThinkMark y={8} offset={offset} reduce={reduce} live={live} />}
     </svg>
   );
 }
@@ -160,12 +168,13 @@ export function DesignerMascot({ pose = "idle", joy = false, className = "", off
 
 export function BuilderMascot({ pose = "idle", joy = false, className = "", offset = 0.4 }: Readonly<MascotProps>) {
   const reduce = useReducedMotion();
-  const moves = useMotionProps(reduce);
+  const [ref, live] = useOnScreen();
+  const moves = useMotionProps(reduce, live);
   const joyful = joy || pose === "highfive";
-  const cheerJump = pose === "cheer" && !reduce ? { animate: { y: [0, -8, 0] }, transition: loop(0.9, offset) } : {};
+  const cheerJump = pose === "cheer" && !reduce ? play(live, { y: [0, -8, 0] }, loop(0.9, offset)) : {};
 
   return (
-    <svg viewBox="0 0 140 150" overflow="visible" className={className} aria-hidden>
+    <svg ref={ref} viewBox="0 0 140 150" overflow="visible" className={className} aria-hidden>
       <ellipse cx="70" cy="142" rx="34" ry="5" fill="#000" opacity="0.18" />
       <m.g {...cheerJump}>
         <m.g style={{ transformBox: "view-box", originX: "40px", originY: "122px" }} {...moves.sway(offset, 6)}>
@@ -180,7 +189,7 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
           <ellipse cx="48" cy="140" rx="12" ry="6.5" fill="#7a4527" />
           <ellipse cx="92" cy="140" rx="12" ry="6.5" fill="#7a4527" />
 
-          <m.g style={{ transformBox: "view-box", originX: "98px", originY: "114px" }} {...hammerTap(reduce, offset)}>
+          <m.g style={{ transformBox: "view-box", originX: "98px", originY: "114px" }} {...hammerTap(reduce, live, offset)}>
             <g transform="rotate(58 98 114)">
             <rect x="95.5" y="84" width="5" height="34" rx="2.2" fill="#c98b4f" />
             <path d="M96.5 90 v24" stroke="#a96f3b" strokeWidth="1" />
@@ -191,7 +200,7 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
           </m.g>
           <ellipse cx="97" cy="112" rx="8" ry="7" fill="#7a4527" />
 
-          <m.g style={{ transformBox: "view-box", originX: "44px", originY: "106px" }} {...armMotion(pose, reduce, offset, -1)}>
+          <m.g style={{ transformBox: "view-box", originX: "44px", originY: "106px" }} {...armMotion(pose, reduce, live, offset, -1)}>
             <ellipse cx="37" cy="112" rx="8" ry="10" fill="#7a4527" transform="scale(-1 1) translate(-74 0)" />
             <ellipse cx="36" cy="118" rx="4" ry="2.5" fill="#c98b6a" opacity="0.8" />
           </m.g>
@@ -236,14 +245,14 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
           </g>
         </m.g>
       </m.g>
-      {pose === "think" && <ThinkMark y={9} offset={offset} reduce={reduce} />}
+      {pose === "think" && <ThinkMark y={9} offset={offset} reduce={reduce} live={live} />}
     </svg>
   );
 }
 
-function ThinkMark({ y, offset, reduce }: Readonly<{ y: number; offset: number; reduce: boolean | null }>) {
+function ThinkMark({ y, offset, reduce, live }: Readonly<{ y: number; offset: number; reduce: boolean | null; live: boolean }>) {
   return (
-    <m.g {...(reduce ? {} : { animate: { y: [0, -3, 0], opacity: [0.85, 1, 0.85] }, transition: loop(2, offset) })}>
+    <m.g {...(reduce ? {} : play(live, { y: [0, -3, 0], opacity: [0.85, 1, 0.85] }, loop(2, offset)))}>
       <text x={70} y={y} textAnchor="middle" fontSize="16" fontWeight="700" fill="#fff" fontFamily="sans-serif">
         ?
       </text>
@@ -271,7 +280,7 @@ export function MascotDuo({ pose = "idle", message, className = "", size = "md" 
           className="mb-3 max-w-[18rem] text-center font-serif text-[15px] italic leading-snug text-current opacity-90 sm:text-[17px]"
           initial={reduce ? false : { opacity: 0, y: 8 }}
           animate={{ opacity: 0.9, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, delay: 0.4, ease: EASE_OUT }}
         >
           {message}
         </m.p>

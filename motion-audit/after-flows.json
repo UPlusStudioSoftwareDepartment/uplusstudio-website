@@ -1,0 +1,185 @@
+{
+  "label": "after-flows",
+  "base": "http://localhost:3100",
+  "at": "2026-10-29T12:36:38.165Z",
+  "scroll": [],
+  "idle": [],
+  "load": [],
+  "nav": [],
+  "slow": [],
+  "flows": [
+    {
+      "engine": "chromium",
+      "name": "detail opens at top",
+      "pass": true,
+      "detail": {
+        "topY": 0
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "back restores instantly (no smooth slide)",
+      "pass": true,
+      "detail": {
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "back restores list scroll",
+      "pass": true,
+      "detail": {
+        "savedY": 1600,
+        "backY": 1600
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "forward reaches detail",
+      "pass": true,
+      "detail": {
+        "y": 0
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "menu → page closes menu, unlocks scroll",
+      "pass": true,
+      "detail": {
+        "locked": true,
+        "open": false,
+        "unlocked": true,
+        "y": 0
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "rapid double navigation lands on last click",
+      "pass": true,
+      "detail": {
+        "path": "/tr/about",
+        "h1": "Mimarlık, iç mimarlıkve mühendislik,tek ",
+        "overlay": false
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "reduced motion: on-screen text visible without waiting",
+      "pass": true,
+      "detail": {
+        "hidden": 0
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "reduced motion: navigation works",
+      "pass": true,
+      "detail": {
+        "usable": 118
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "first-visit curtain lifts",
+      "pass": true,
+      "detail": {
+        "goneMs": 2424
+      }
+    },
+    {
+      "engine": "chromium",
+      "name": "curtain does not replay in the same session",
+      "pass": true,
+      "detail": {
+        "again": false
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "detail opens at top",
+      "pass": true,
+      "detail": {
+        "topY": 0
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "back restores instantly (no smooth slide)",
+      "pass": true,
+      "detail": {
+        "scrollBehavior": "auto"
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "back restores list scroll",
+      "pass": true,
+      "detail": {
+        "savedY": 1600,
+        "backY": 1570
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "forward reaches detail",
+      "pass": true,
+      "detail": {
+        "y": 0
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "menu → page closes menu, unlocks scroll",
+      "pass": true,
+      "detail": {
+        "locked": true,
+        "open": false,
+        "unlocked": true,
+        "y": 0
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "rapid double navigation lands on last click",
+      "pass": true,
+      "detail": {
+        "path": "/tr/about",
+        "h1": "Mimarlık, iç mimarlıkve mühendislik,tek ",
+        "overlay": false
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "reduced motion: on-screen text visible without waiting",
+      "pass": true,
+      "detail": {
+        "hidden": 0
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "reduced motion: navigation works",
+      "pass": true,
+      "detail": {
+        "usable": 390
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "first-visit curtain lifts",
+      "pass": true,
+      "detail": {
+        "goneMs": 2711
+      }
+    },
+    {
+      "engine": "webkit",
+      "name": "curtain does not replay in the same session",
+      "pass": true,
+      "detail": {
+        "again": false
+      }
+    }
+  ],
+  "errors": []
+}

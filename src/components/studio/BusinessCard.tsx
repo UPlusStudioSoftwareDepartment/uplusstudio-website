@@ -10,11 +10,10 @@ import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { mailPlatform } from "@/lib/gmailCompose";
 import ServiceCard from "@/components/ServiceCard";
 import { icons } from "./SocialLinks";
+import { EASE_STUDIO as EASE } from "@/lib/motion";
 
-const EASE = [0.76, 0, 0.24, 1] as const;
 const DESIGN_W = 520;
 const GUTTER = 16;
-
 
 const COPY = {
   tr: {
