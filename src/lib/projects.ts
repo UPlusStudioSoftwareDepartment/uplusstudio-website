@@ -16,6 +16,8 @@ export interface ProjectVideo {
   poster: string;
   width: number;
   height: number;
+  /** Whole seconds, read from the file (mvhd box). */
+  duration: number;
   uploadDate: string;
 }
 
@@ -72,6 +74,7 @@ export const projects: Project[] = [
       poster: "/media/video/villa-transformation.jpg",
       width: 1280,
       height: 716,
+      duration: 10,
       uploadDate: "2026-10-27T22:07:11+03:00",
     },
     beforeAfter: {
@@ -200,6 +203,7 @@ export const projects: Project[] = [
       poster: "/media/video/office-before-after.jpg",
       width: 540,
       height: 960,
+      duration: 18,
       uploadDate: "2026-10-27T22:07:11+03:00",
     },
     beforeAfter: {
@@ -237,6 +241,7 @@ export const projects: Project[] = [
       poster: "/media/video/residence-walkthrough.jpg",
       width: 540,
       height: 960,
+      duration: 21,
       uploadDate: "2026-10-27T22:07:11+03:00",
     },
   },
@@ -270,6 +275,7 @@ export const projects: Project[] = [
       poster: "/media/video/living-room.jpg",
       width: 720,
       height: 480,
+      duration: 17,
       uploadDate: "2026-10-27T22:07:11+03:00",
     },
   },

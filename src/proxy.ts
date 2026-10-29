@@ -11,8 +11,15 @@ const intl = createMiddleware({
   alternateLinks: false,
 });
 
+// Locale detection is off, so next-intl's redirects (/projects → /tr/projects, /TR → /tr) never vary by visitor:
+// send them as permanent so search engines move signals to the prefixed URL.
+function permanent(response: NextResponse) {
+  const location = response.headers.get("location");
+  return response.status === 307 && location ? NextResponse.redirect(location, 308) : response;
+}
+
 export default function proxy(request: NextRequest) {
-  if (!isInMaintenance) return intl(request);
+  if (!isInMaintenance) return permanent(intl(request));
   const locale = request.nextUrl.pathname.split("/")[1];
   const target = `/${isLocaleSupported(locale) ? locale : defaultLocale}/maintenance`;
   if (request.nextUrl.pathname === target) return intl(request);

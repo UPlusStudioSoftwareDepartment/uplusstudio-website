@@ -185,7 +185,7 @@ export default function Navigation() {
           <m.div
             key="menu"
             ref={menuRef}
-            className="fixed inset-0 z-[60] h-[100dvh] overflow-hidden bg-night text-bone lg:hidden"
+            className="fixed inset-0 z-[60] h-[100dvh] overflow-hidden bg-night text-bone"
             style={{ willChange: "clip-path" }}
             initial={{ clipPath: menuClip(0) }}
             animate={{ clipPath: menuClip(menuReach) }}

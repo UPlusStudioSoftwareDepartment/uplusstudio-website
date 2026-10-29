@@ -269,7 +269,8 @@ test("home continues past the film with the studio, every service, featured work
   await expect(page.getByRole("contentinfo")).toBeInViewport();
 });
 
-test("the home film plays silently until the visitor turns the music on, and only the film icon controls it", async ({ page }) => {
+test("the home film plays silently until the visitor turns the music on, and only the film icon controls it", async ({ page, browserName }) => {
+  test.skip(browserName === "webkit" && process.platform !== "darwin", "Playwright WebKit outside macOS plays media unreliably; Safari, iPhone and iPad run this on the macOS job");
   await page.goto("/tr");
   const video = page.locator("#home video");
   const music = page.locator("#home audio");
