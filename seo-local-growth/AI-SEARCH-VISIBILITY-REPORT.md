@@ -29,6 +29,6 @@ Yapay zekâ yanıtları her oturumda, konumda ve dilde değişir. Bir kez görü
 
 1. **Bing Webmaster Tools:** bing.com/webmasters → Microsoft hesabıyla giriş → "Google Search Console'dan içe aktar" (site otomatik doğrulanır, site haritası gelir). Ardından **AI Performance** raporu Copilot ve Bing alıntılarını gösterir. Bing Places'ta işletmeyi sahiplenin.
 2. **Armut** kategorisini mimarlık/iç mimarlık olarak düzeltin. Açıklamayı sitedeki hizmetlerle aynı tutun. ChatGPT bu metni okuyor.
-3. **IndexNow:** Depoda hazır (`npm run indexnow`). Canlı site haritasındaki 56 adresi Bing ve Yandex'e bildirir. Onayınızla gönderilir.
+3. **IndexNow:** 29 Ekim 2026'da `d964de4` canlıyken, sahibin onayıyla gönderildi: `IndexNow: 200 OK for 56 URLs` (api.indexnow.org → Bing, Yandex). Bu yalnızca bir bildirimdir; dizine alınma garantisi değildir ve Google'a gitmez. Bing'deki durumu Bing Webmaster Tools açıldığında doğrulayın.
 4. **Mühendislik kapsamını** yazılı olarak verin. İki dilde hizmet sayfasına eklenir.
 5. Search Console'da "Get more details on your site's performance in generative AI features" bağlantısı var. Bu turda açılmadı; bir sonraki kontrolde (5 Kasım) okunacak.
