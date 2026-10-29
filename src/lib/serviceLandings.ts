@@ -138,7 +138,7 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
     projects: ["konut-ic-mekan", "villa-ic-mekan", "yonetici-ofisi", "butik-kafe"],
     copy: {
       tr: {
-        title: "İç Mimarlık, Ankara",
+        title: "İç Mimarlık · İncek, Gölbaşı, Ankara",
         description: "Ankara İncek ve Gölbaşı'nda daire, villa ve ofis iç mimarlığı: mekân kurgusu, malzeme, aydınlatma, mekâna özel mobilya ve 3D görselleştirme.",
         crumb: "İç mimarlık",
         label: "İç Mimarlık",
@@ -149,7 +149,7 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         scopeTitle: "Hizmet kapsamı",
         scope: ["Mekân kurgusu ve yerleşim planı", "Malzeme ve renk seçimi", "Aydınlatma tasarımı", "Mekâna özel mobilya ve detay çözümleri", "3D görselleştirme", "Uygulama projeleri ve şantiye takibi"],
         whyTitle: "Neden U+ Studio",
-        why: "İç mimari kararlar, mimar ve mühendisin aynı masada olduğu bir ekipte tesisat ve taşıyıcı sistemle birlikte düşünülür; böylece uygulamada sürpriz azalır.",
+        why: "İç mimari kararlar, mimar ve mühendisin aynı masada olduğu bir ekipte tesisat ve taşıyıcı sistemle birlikte düşünülür; böylece uygulamada sürpriz azalır. Ofisimiz İncek'te, Merkez İncek Plaza'da; İncek ve Gölbaşı'ndaki ev ve villalara yakınız, Ankara'nın diğer semtlerinde de çalışıyoruz.",
         pricing: "Tasarım paketleri {price} + KDV'den başlar; kapsamı görüşmede birlikte netleştiririz.",
         faq: [
           ["İç mimarlık süreci nasıl ilerler?", "Ölçüm ve ihtiyaç analiziyle başlar. Yerleşim, malzeme ve aydınlatma kararları 3D görsellerle netleşir; ardından uygulama çizimleri ve mekâna özel mobilya detayları hazırlanır."],
@@ -158,7 +158,7 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         ],
       },
       en: {
-        title: "Interior Architecture in Ankara",
+        title: "Interior Architecture in İncek, Gölbaşı & Ankara",
         description: "Interior architecture for apartments, villas and offices in İncek, Gölbaşı and Ankara: layout, materials, lighting, bespoke furniture and 3D.",
         crumb: "Interior architecture",
         label: "Interior Architecture",
@@ -169,7 +169,7 @@ export const SERVICE_LANDINGS: ServiceLanding[] = [
         scopeTitle: "Scope",
         scope: ["Space planning and layout", "Materials and colour", "Lighting design", "Bespoke furniture and detailing", "3D visualisation", "Construction drawings and site follow-up"],
         whyTitle: "Why U+ Studio",
-        why: "Interior decisions are made alongside services and structure, because the architect and the engineer sit at the same table. That means fewer surprises on site.",
+        why: "Interior decisions are made alongside services and structure, because the architect and the engineer sit at the same table. That means fewer surprises on site. Our office is at Merkez İncek Plaza in İncek, close to homes and villas in İncek and Gölbaşı, and we work across Ankara.",
         pricing: "Design packages start at {price} + VAT; we agree the exact scope at the first meeting.",
         faq: [
           ["How does the interior design process work?", "It starts with a survey and your brief. Layout, materials and lighting are settled with 3D visuals, then construction drawings and bespoke furniture details are prepared."],

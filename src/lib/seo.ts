@@ -298,7 +298,7 @@ export function siteGraph(locale: Locale): JsonLdNode {
           studioInfo.instagramUrl,
           GOOGLE_MAPS_CID_URL,
           studioInfo.yandexMapsUrl,
-          studioInfo.armutUrl,
+          // Armut lists the studio under "diş kliniği tasarımı"; left out until that listing's category is fixed.
           studioInfo.peyzajRehberUrl,
         ],
       },
