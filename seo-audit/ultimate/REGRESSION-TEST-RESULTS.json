@@ -1,0 +1,93 @@
+[
+  {
+    "scope": "primary",
+    "file": "e2e-production.json",
+    "stats": {
+      "startTime": "2026-10-29T18:07:53.132Z",
+      "duration": 487929.52999999997,
+      "expected": 401,
+      "skipped": 27,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "notes": "Complete desktop/phone suite passed; the later home motion-preference fix is verified by release-final targeted regressions."
+  },
+  {
+    "scope": "crossAttempt",
+    "file": "e2e-cross-browser.json",
+    "stats": {
+      "startTime": "2026-10-29T18:18:11.174Z",
+      "duration": 236985.94499999998,
+      "expected": 119,
+      "skipped": 0,
+      "unexpected": 21,
+      "flaky": 0
+    },
+    "notes": "Chrome, Edge, iPhone and request-only tests passed; Firefox browser cases blocked by missing executable."
+  },
+  {
+    "scope": "firefoxAttempt",
+    "file": "e2e-firefox-final.json",
+    "stats": {
+      "startTime": "2026-10-29T18:23:55.455Z",
+      "duration": 20522.245,
+      "expected": 14,
+      "skipped": 0,
+      "unexpected": 24,
+      "flaky": 0
+    },
+    "notes": "Official Firefox download installed; process launch returns spawn UNKNOWN. This is an environment block; browser coverage is not claimed."
+  },
+  {
+    "scope": "videoAttempt",
+    "file": "e2e-video-resilience.json",
+    "stats": {
+      "startTime": "2026-10-29T18:23:57.590Z",
+      "duration": 61264.341,
+      "expected": 11,
+      "skipped": 0,
+      "unexpected": 4,
+      "flaky": 0
+    },
+    "notes": "Negative tests exposed home preference-change issue; corrected before deployment. WebKit assertion adjusted to check rejected playback after a confirmed aborted request."
+  },
+  {
+    "scope": "releaseFinal",
+    "file": "e2e-release-final.json",
+    "stats": {
+      "startTime": "2026-10-29T18:28:46.681Z",
+      "duration": 124584.571,
+      "expected": 99,
+      "skipped": 0,
+      "unexpected": 1,
+      "flaky": 0
+    },
+    "notes": "99 passed; one iPhone negative-media test could not intercept native media. Replaced the network mock with a real 404; the corrected case passes in all five profiles. Home and supporting-video live preference changes pass."
+  },
+  {
+    "scope": "unavailableVideoFinal",
+    "file": "e2e-unavailable-video-final.json",
+    "stats": {
+      "startTime": "2026-10-29T18:32:37.232Z",
+      "duration": 17740.762,
+      "expected": 5,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "notes": "Real missing-media response is 404; rejected playback preserves poster and project navigation. Five profiles passed."
+  },
+  {
+    "scope": "isolatedFinalProduction",
+    "file": "e2e-production-isolated.json",
+    "stats": {
+      "startTime": "2026-10-29T18:47:22.642Z",
+      "duration": 650780.392,
+      "expected": 407,
+      "skipped": 27,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "notes": "Frozen release source, separate production build on port 3210. Full desktop/phone suite: 407 passed, 27 profile-inapplicable skips, zero unexpected and zero flaky. Concurrent call-CTA changes are excluded."
+  }
+]

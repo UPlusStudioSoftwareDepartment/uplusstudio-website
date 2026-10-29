@@ -21,7 +21,8 @@ export default function MotionReel() {
 
   const scrollBy = (dir: 1 | -1) => {
     const track = trackRef.current;
-    if (track) track.scrollBy({ left: dir * track.clientWidth * 0.6, behavior: "smooth" });
+    const reducedMotion = globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (track) track.scrollBy({ left: dir * track.clientWidth * 0.6, behavior: reducedMotion ? "instant" : "smooth" });
   };
 
   return (
@@ -39,7 +40,7 @@ export default function MotionReel() {
                 key={dir}
                 type="button"
                 onClick={() => scrollBy(dir)}
-                aria-label={dir === -1 ? "←" : "→"}
+                aria-label={locale === "en" ? (dir === -1 ? "Previous videos" : "Next videos") : (dir === -1 ? "Önceki videolar" : "Sonraki videolar")}
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-ink hover:bg-night hover:text-bone"
               >
                 {dir === -1 ? "←" : "→"}
@@ -54,19 +55,18 @@ export default function MotionReel() {
         className="no-scrollbar flex flex-col gap-12 px-4 sm:snap-x sm:snap-mandatory sm:flex-row sm:gap-6 sm:overflow-x-auto sm:scroll-px-8 sm:px-8 lg:scroll-px-12 lg:px-12"
       >
         {REELS.map((reel, i) => (
-          <Link
+          <article
             key={reel.key}
-            href={`/${locale}/projects/${reel.slug}`}
             className="group block sm:shrink-0 sm:snap-start"
           >
             <Fullscreenable className={`relative w-full overflow-hidden bg-paper-2 sm:h-[62vh] sm:max-h-[640px] sm:min-h-[380px] sm:w-auto ${reel.aspect}`}>
               <InViewVideo src={reel.src} poster={reel.poster} label={t(`items.${reel.key}`)} className="h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-[1.03]" />
             </Fullscreenable>
-            <div className="mt-4 flex items-baseline gap-4">
+            <Link href={`/${locale}/projects/${reel.slug}`} className="mt-4 flex min-h-11 items-baseline gap-4">
               <span className="font-mono text-[12px] text-mute">{String(i + 1).padStart(2, "0")}</span>
               <span className="text-[15px] text-ink transition-colors group-hover:text-clay">{t(`items.${reel.key}`)}</span>
-            </div>
-          </Link>
+            </Link>
+          </article>
         ))}
       </div>
     </section>

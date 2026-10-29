@@ -43,3 +43,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local QA logs and intermediate measurements; curated summaries remain tracked.
+/seo-audit/ultimate/e2e-*.json
+/seo-audit/ultimate/build-final.log
+/seo-audit/ultimate/pending-media-*.json
+/seo-audit/ultimate/image-dimensions.json
+/seo-audit/ultimate/lighthouse-before/
+/seo-audit/ultimate/lighthouse-before-desktop/
+/seo-audit/ultimate/lighthouse-after-interrupted/

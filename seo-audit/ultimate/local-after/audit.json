@@ -1,0 +1,83 @@
+{
+  "base": "http://localhost:3210",
+  "crawledAt": "2026-10-29T18:47:55.574Z",
+  "pages": {
+    "crawled": 56,
+    "indexableRequired": 56,
+    "indexableOptional": 0,
+    "noindex": 0,
+    "redirects": 0,
+    "gone": 0,
+    "other": 0
+  },
+  "sitemap": {
+    "urls": 56,
+    "images": 94,
+    "videos": 10
+  },
+  "images": {
+    "unique": 61,
+    "searchImages": 55,
+    "ok": 61
+  },
+  "videos": {
+    "unique": 5,
+    "ok": 5
+  },
+  "variants": [
+    {
+      "url": "/",
+      "expected": "redirect to /tr",
+      "got": "308 → /tr"
+    },
+    {
+      "url": "/tr/",
+      "expected": "redirect to /tr",
+      "got": "308 → /tr"
+    },
+    {
+      "url": "/tr/projects/",
+      "expected": "redirect to /tr/projects",
+      "got": "308 → /tr/projects"
+    },
+    {
+      "url": "/TR/projects",
+      "expected": "redirect or 404",
+      "got": "308 → /tr/projects"
+    },
+    {
+      "url": "/tr/projects/bu-proje-yok-1793299637658",
+      "expected": "404",
+      "got": "404"
+    },
+    {
+      "url": "/tr/bu-sayfa-yok-1793299637658",
+      "expected": "404",
+      "got": "404"
+    },
+    {
+      "url": "/de",
+      "expected": "404",
+      "got": "308 → /tr/de → final 404"
+    },
+    {
+      "url": "/tr/faq",
+      "expected": "redirect to /tr/contact",
+      "got": "308 → /tr/contact"
+    },
+    {
+      "url": "/tr/projects?utm_source=test",
+      "expected": "200 with canonical /tr/projects",
+      "got": "200 canonical https://www.uplusstudio.com.tr/tr/projects"
+    }
+  ],
+  "fail": 0,
+  "warn": 1,
+  "findings": [
+    {
+      "level": "WARN",
+      "where": "/de",
+      "message": "redirects (308) before answering 404"
+    }
+  ]
+}

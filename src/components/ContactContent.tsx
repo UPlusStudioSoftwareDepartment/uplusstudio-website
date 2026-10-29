@@ -142,7 +142,7 @@ export default function ContactContent() {
         trigger,
         getValues,
         reset,
-        watch,
+        subscribe,
         formState: { errors, isSubmitting },
     } = useForm<ContactFormValues>({
         resolver: zodResolver(getContactSchema(t)),
@@ -150,13 +150,15 @@ export default function ContactContent() {
     });
 
     useEffect(() => {
-        const subscription = watch(({ name, email, phone, message }) => {
-            try {
-                sessionStorage.setItem(DRAFT_KEY, JSON.stringify({ name, email, phone, message }));
-            } catch {}
+        return subscribe({
+            formState: { values: true },
+            callback: ({ values: { name, email, phone, message } }) => {
+                try {
+                    sessionStorage.setItem(DRAFT_KEY, JSON.stringify({ name, email, phone, message }));
+                } catch {}
+            },
         });
-        return () => subscription.unsubscribe();
-    }, [watch]);
+    }, [subscribe]);
 
     const requestMail = async (data: ContactFormValues) => {
         const res = await fetch("/api/contact", {

@@ -4,14 +4,18 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { useLocale } from "next-intl";
 import { useScrollLock } from "@/hooks/useScrollLock";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 export default function Fullscreenable({ children, className = "" }: Readonly<{ children: ReactNode; className?: string }>) {
   const ref = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
   const [native, setNative] = useState(false);
   const [fallback, setFallback] = useState(false);
   const en = useLocale() === "en";
   const full = native || fallback;
   useScrollLock(fallback);
+  useFocusTrap(fallback, dialogRef, closeRef);
 
   useEffect(() => {
     const onChange = () => setNative(document.fullscreenElement === ref.current);
@@ -21,6 +25,7 @@ export default function Fullscreenable({ children, className = "" }: Readonly<{ 
 
   useEffect(() => {
     if (!fallback) return;
+    ref.current?.querySelector("video")?.pause();
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setFallback(false);
     globalThis.addEventListener("keydown", onKey);
     return () => globalThis.removeEventListener("keydown", onKey);
@@ -79,6 +84,7 @@ export default function Fullscreenable({ children, className = "" }: Readonly<{ 
       {fallback &&
         createPortal(
           <div
+            ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-label={en ? "Full screen" : "Tam ekran"}
@@ -86,6 +92,7 @@ export default function Fullscreenable({ children, className = "" }: Readonly<{ 
           >
             <div>{children}</div>
             <button
+              ref={closeRef}
               type="button"
               onClick={() => setFallback(false)}
               aria-label={en ? "Exit full screen" : "Tam ekrandan çık"}

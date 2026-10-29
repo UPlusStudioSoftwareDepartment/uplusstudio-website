@@ -9,6 +9,10 @@ export const SITE_NAME = "U+ Studio";
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
+export function serializeJsonLd(data: Record<string, unknown> | Record<string, unknown>[]): string {
+  return JSON.stringify(data).replaceAll("<", "\\u003c");
+}
+
 export const OG_IMAGE: Record<Locale, { url: string; width: number; height: number; alt: string }> = {
   tr: { url: "/og/uplus-studio-tr.jpg", width: 1200, height: 630, alt: "U+ Studio — Mimarlık & İç Mimarlık & Mühendislik, İncek · Gölbaşı / Ankara" },
   en: { url: "/og/uplus-studio-en.jpg", width: 1200, height: 630, alt: "U+ Studio — Architecture, Interiors & Engineering, İncek · Gölbaşı / Ankara" },

@@ -82,15 +82,26 @@ export default function HomeHero() {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || reduce) return;
+    if (!video) return;
+    const motionPreference = globalThis.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncMotionPreference = () => {
+      if (!motionPreference.matches) return;
+      video.pause();
+      musicRef.current?.pause();
+    };
     const start = () => {
+      if (motionPreference.matches) return;
       video.src = videoSource();
       video.play().catch(() => {});
     };
+    motionPreference.addEventListener("change", syncMotionPreference);
     if (document.readyState === "complete") start();
     else globalThis.addEventListener("load", start, { once: true });
-    return () => globalThis.removeEventListener("load", start);
-  }, [reduce]);
+    return () => {
+      globalThis.removeEventListener("load", start);
+      motionPreference.removeEventListener("change", syncMotionPreference);
+    };
+  }, []);
 
   useEffect(() => {
     if (!playing) return;
@@ -159,7 +170,9 @@ export default function HomeHero() {
             setMusicOn(false);
             musicRef.current?.pause();
           }}
-        />
+        >
+          <source src={VIDEO.large} type="video/mp4" />
+        </video>
         <audio
           ref={musicRef}
           preload="none"
@@ -182,6 +195,7 @@ export default function HomeHero() {
             <span className="mb-5 block animate-[rise_0.9s_var(--ease-out-studio)_backwards] font-sans text-[clamp(0.875rem,1.3vw,1.125rem)] font-medium leading-relaxed tracking-[0.025em] text-bone [text-shadow:0_2px_12px_rgb(0_0_0/0.65)] [--rise:12px] motion-reduce:animate-none max-sm:order-last max-sm:mb-0 max-sm:mt-4 max-sm:[animation-delay:0.9s] sm:mb-8 [@media(max-height:560px)]:mb-2">
               {t("hero.eyebrow")}
             </span>
+            {" "}
             <LineReveal
               immediate
               delay={0.35}

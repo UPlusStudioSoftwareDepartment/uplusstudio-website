@@ -1,0 +1,82 @@
+[
+  {
+    "agent": "Googlebot",
+    "path": "/tr",
+    "http": 200,
+    "hasTitle": true,
+    "hasH1": true,
+    "xRobots": null,
+    "status": "HTTP_TESTED",
+    "note": "UA simulation only; not verified crawler IP or indexing evidence"
+  },
+  {
+    "agent": "Googlebot",
+    "path": "/en/services/incek-golbasi-mimarlik-ofisi",
+    "http": 200,
+    "hasTitle": true,
+    "hasH1": true,
+    "xRobots": null,
+    "status": "HTTP_TESTED",
+    "note": "UA simulation only; not verified crawler IP or indexing evidence"
+  },
+  {
+    "agent": "Googlebot-Image",
+    "path": "/tr",
+    "http": 200,
+    "hasTitle": true,
+    "hasH1": true,
+    "xRobots": null,
+    "status": "HTTP_TESTED",
+    "note": "UA simulation only; not verified crawler IP or indexing evidence"
+  },
+  {
+    "agent": "Googlebot-Image",
+    "path": "/en/services/incek-golbasi-mimarlik-ofisi",
+    "http": 200,
+    "hasTitle": true,
+    "hasH1": true,
+    "xRobots": null,
+    "status": "HTTP_TESTED",
+    "note": "UA simulation only; not verified crawler IP or indexing evidence"
+  },
+  {
+    "agent": "OAI-SearchBot",
+    "path": "/tr",
+    "http": 200,
+    "hasTitle": true,
+    "hasH1": true,
+    "xRobots": null,
+    "status": "HTTP_TESTED",
+    "note": "UA simulation only; not verified crawler IP or indexing evidence"
+  },
+  {
+    "agent": "OAI-SearchBot",
+    "path": "/en/services/incek-golbasi-mimarlik-ofisi",
+    "http": 200,
+    "hasTitle": true,
+    "hasH1": true,
+    "xRobots": null,
+    "status": "HTTP_TESTED",
+    "note": "UA simulation only; not verified crawler IP or indexing evidence"
+  },
+  {
+    "agent": "Bingbot",
+    "path": "/tr",
+    "http": 200,
+    "hasTitle": true,
+    "hasH1": true,
+    "xRobots": null,
+    "status": "HTTP_TESTED",
+    "note": "UA simulation only; not verified crawler IP or indexing evidence"
+  },
+  {
+    "agent": "Bingbot",
+    "path": "/en/services/incek-golbasi-mimarlik-ofisi",
+    "http": 200,
+    "hasTitle": true,
+    "hasH1": true,
+    "xRobots": null,
+    "status": "HTTP_TESTED",
+    "note": "UA simulation only; not verified crawler IP or indexing evidence"
+  }
+]

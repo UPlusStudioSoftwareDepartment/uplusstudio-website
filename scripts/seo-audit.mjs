@@ -377,7 +377,7 @@ const renderRows = [];
 if (process.argv.includes("--render")) {
   const { chromium } = await import("@playwright/test");
   const browser = await chromium.launch();
-  // Googlebot renders with a phone-width but very tall viewport, so lazy content near the top half loads without scrolling.
+  // A tall phone viewport exercises lazy content; this laboratory check is not Google's rendering service.
   const context = await browser.newContext({ viewport: { width: 412, height: 5000 }, userAgent: `${UA} Mobile`, serviceWorkers: "block" });
   await context.addInitScript(() => sessionStorage.setItem("u-curtain", "1"));
   await pool([...pages.values()].filter((p) => p.class === "INDEXABLE_REQUIRED"), 4, async (page) => {

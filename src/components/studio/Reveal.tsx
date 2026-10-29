@@ -72,6 +72,7 @@ export function LineReveal({ lines, className = "", lineClassName = "", delay = 
               {line}
             </m.span>
           )}
+          {i < lines.length - 1 ? " " : null}
         </span>
       ))}
     </span>

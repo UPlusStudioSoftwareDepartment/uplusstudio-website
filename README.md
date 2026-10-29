@@ -37,7 +37,7 @@ npm run test:e2e
 
 - `npm run test`: Vitest birim testleri (`src/lib/**/*.test.ts`).
 - `npm run test:e2e`: Playwright ile masaüstü Chrome, Android (Pixel 7), iPhone (WebKit) ve masaüstü Firefox tarayıcı testleri; `e2e/a11y.spec.ts` her sayfayı axe ile WCAG 2.2 AA kurallarına göre tarar. Çalışan bir sunucu yoksa `npm run start` ile kendi sunucusunu açar; önce `npm run build` gerekir. Başka bir adresi test etmek için `BASE_URL=https://... npm run test:e2e`.
-- Randevu testleri e-posta göndermez: Gmail penceresi ve pano tarayıcı içinde yakalanır. `BASE_URL` canlı siteyi gösterdiğinde e-posta gönderen iki API de test içinde yanıtlanır; testler stüdyoya posta atamaz.
+- Randevu testleri e-posta göndermez: Gmail penceresi ve pano tarayıcı içinde yakalanır. E-posta gönderen iki API hem yerel hem canlı testlerde test içinde yanıtlanır; yerel ortamda gerçek posta bilgileri tanımlı olsa da testler stüdyoya posta atamaz.
 
 ## İzleme ve güvenlik
 

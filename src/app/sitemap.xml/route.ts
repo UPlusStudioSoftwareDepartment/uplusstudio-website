@@ -22,8 +22,8 @@ const IMAGES: Record<string, string[]> = Object.fromEntries([
   ...SERVICE_LANDINGS.map((s) => [`/services/${s.slug}`, [s.image]]),
 ]);
 
-// A video is listed only where it is the main thing on the page and plays from the HTML: its watch page,
-// and the home film. Project pages show the same clip muted further down, loaded on scroll.
+// The home film fills the first screen; Google has indexed its English version as a video.
+// Other project previews remain supporting media, so only their dedicated watch pages are listed.
 const homeVideo = getProject("villa-donusumu");
 
 const VIDEOS: Record<string, Project> = Object.fromEntries([
