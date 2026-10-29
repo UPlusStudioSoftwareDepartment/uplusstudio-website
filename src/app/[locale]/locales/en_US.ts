@@ -134,7 +134,6 @@ export const studio_en = {
     "back": "All projects",
     "category": "Type",
     "status": "Status",
-    "post": "Follow the process on LinkedIn",
     "scope": "Scope",
     "studio": "Design",
     "film": "Film",

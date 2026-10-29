@@ -33,7 +33,6 @@ export interface Project {
   beforeAfter?: { before: ProjectImage; after: ProjectImage };
   status?: Localized;
   story?: Localized[];
-  post?: string;
 }
 
 const img = (src: string, width: number, height: number, tr: string, en: string): ProjectImage => ({
@@ -93,7 +92,6 @@ export const projects: Project[] = [
         en: "What began on a medium budget grew into a full renovation. Three decisions shaped it: what to keep, what to replace, and where the budget would make the biggest difference.",
       },
     ],
-    post: "https://www.linkedin.com/feed/update/urn:li:activity:7510727589314015232/",
   },
   {
     slug: "evox-gym-center",

@@ -3,22 +3,20 @@ import { studioInfo } from "@/lib/studio-info";
 
 type Section = { title: string; body: string[] };
 
-export const PRIVACY_UPDATED = "2026-10-28";
-
 const ANALYTICS = process.env.NEXT_PUBLIC_VERCEL_ANALYTICS === "1";
 
 const address = studioInfo.address.join(", ");
+const phone = studioInfo.phoneDisplay.replaceAll(" ", " ");
 
-export const PRIVACY: Record<Locale, { label: string; title: string[]; intro: string; updated: string; sections: Section[] }> = {
+export const PRIVACY: Record<Locale, { label: string; title: string[]; intro: string; sections: Section[] }> = {
   tr: {
     label: "KVKK",
     title: ["Aydınlatma", "metni."],
     intro: "6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında, bu sitedeki formlar aracılığıyla bize ilettiğiniz kişisel verileri nasıl işlediğimizi açıklıyoruz.",
-    updated: "Son güncelleme",
     sections: [
       {
         title: "Veri sorumlusu",
-        body: [`U+ Studio — ${address}. E-posta: ${studioInfo.email}, telefon: ${studioInfo.phoneDisplay}.`],
+        body: [`U+ Studio — ${address}.`, `E-posta: ${studioInfo.email}, telefon: ${phone}.`],
       },
       {
         title: "Hangi verileri işliyoruz",
@@ -71,11 +69,10 @@ export const PRIVACY: Record<Locale, { label: string; title: string[]; intro: st
     label: "Privacy",
     title: ["Privacy", "notice."],
     intro: "Under the Turkish Personal Data Protection Law No. 6698 (KVKK), this notice explains how we process the personal data you send us through the forms on this site.",
-    updated: "Last updated",
     sections: [
       {
         title: "Data controller",
-        body: [`U+ Studio — ${address}. E-mail: ${studioInfo.email}, phone: ${studioInfo.phoneDisplay}.`],
+        body: [`U+ Studio — ${address}.`, `E-mail: ${studioInfo.email}, phone: ${phone}.`],
       },
       {
         title: "What we process",

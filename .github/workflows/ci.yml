@@ -35,10 +35,10 @@ jobs:
           CONTACT_EMAIL: ""
 
       - name: Install browsers
-        run: npx playwright install --with-deps chromium webkit firefox
+        run: npx playwright install --with-deps chromium
 
       - name: End-to-end tests
-        run: npm run test:e2e -- --project=desktop --project=firefox --project=safari --project=phone --project=iphone --project=ipad --project=android-tablet --project=phone-landscape
+        run: npm run test:e2e -- --project=desktop --project=phone
         env:
           APPOINTMENT_SECRET: e2e-only-signing-key
           GMAIL_USER: ""

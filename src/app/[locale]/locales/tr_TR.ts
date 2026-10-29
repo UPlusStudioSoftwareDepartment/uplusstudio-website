@@ -134,7 +134,6 @@ export const studio_tr = {
     "back": "Tüm projeler",
     "category": "Tür",
     "status": "Durum",
-    "post": "Süreci LinkedIn'de izleyin",
     "scope": "Kapsam",
     "studio": "Tasarım",
     "film": "Film",

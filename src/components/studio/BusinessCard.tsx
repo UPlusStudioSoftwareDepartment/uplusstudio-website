@@ -71,7 +71,6 @@ function shareTargets(url: string, text: string) {
     { key: "telegram", label: "Telegram", href: `https://t.me/share/url?url=${u}&text=${t}`, icon: <BrandIcon d={shareIcons.telegram} /> },
     { key: "x", label: "X", href: `https://twitter.com/intent/tweet?text=${t}&url=${u}`, icon: <BrandIcon d={shareIcons.x} /> },
     { key: "facebook", label: "Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${u}`, icon: <BrandIcon d={shareIcons.facebook} /> },
-    { key: "linkedin", label: "LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`, icon: icons.linkedin },
     { key: "email", label: "E-posta", href: mailPlatform() === "desktop" ? `https://mail.google.com/mail/?view=cm&fs=1&su=${encodeURIComponent("U+ Studio")}&body=${t}%0A${u}` : `mailto:?subject=${encodeURIComponent("U+ Studio")}&body=${t}%0A${u}`, icon: icons.email },
   ];
 }

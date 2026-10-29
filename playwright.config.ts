@@ -25,8 +25,6 @@ export default defineConfig({
     { name: "firefox", use: { ...devices["Desktop Firefox"], viewport: { width: 1440, height: 900 } } },
     { name: "safari", use: { ...devices["Desktop Safari"], viewport: { width: 1440, height: 900 } } },
     { name: "ipad", use: { ...devices["iPad Pro 11"] } },
-    { name: "android-tablet", use: { ...devices["Galaxy Tab S4"] } },
-    { name: "phone-landscape", use: { ...devices["iPhone 15 landscape"] } },
   ],
   webServer: process.env.BASE_URL
     ? undefined

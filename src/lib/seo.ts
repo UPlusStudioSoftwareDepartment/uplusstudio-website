@@ -276,7 +276,6 @@ export function siteGraph(locale: Locale): JsonLdNode {
             name: "Hacer Uyar",
             jobTitle: locale === "en" ? "Master Architect" : "Yüksek Mimar",
             url: absoluteUrl(localePath(locale, PAGE_PATH.about)),
-            sameAs: [studioInfo.founderLinkedIn.hacer],
           },
           {
             "@type": "Person",
@@ -284,7 +283,6 @@ export function siteGraph(locale: Locale): JsonLdNode {
             name: "Rıdvan Uyar",
             jobTitle: locale === "en" ? "Civil Engineer" : "İnşaat Mühendisi",
             url: absoluteUrl(localePath(locale, PAGE_PATH.about)),
-            sameAs: [studioInfo.founderLinkedIn.ridvan],
           },
         ],
         knowsAbout: SERVICES[locale],

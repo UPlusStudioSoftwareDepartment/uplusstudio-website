@@ -47,7 +47,6 @@ export function projectLd(locale: Locale, project: Project) {
     description: project.description[locale],
     inLanguage: locale === "en" ? "en-US" : "tr-TR",
     ...(project.status ? { creativeWorkStatus: project.status[locale] } : {}),
-    ...(project.post ? { subjectOf: { "@type": "SocialMediaPosting", url: project.post } } : {}),
     keywords: project.scope.map((s) => s[locale]).join(", "),
     creator: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },

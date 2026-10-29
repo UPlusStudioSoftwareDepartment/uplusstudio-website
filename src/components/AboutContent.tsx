@@ -12,8 +12,6 @@ import { MascotDuo } from "@/components/mascots/Mascots";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
 import { useAppointment } from "@/contexts/AppointmentContext";
 import { studioInfo } from "@/lib/studio-info";
-import { icons } from "@/components/studio/SocialLinks";
-import { openInLinkedInApp } from "@/lib/appLinks";
 import ShowcaseModal, { type Showcase } from "@/components/studio/ShowcaseModal";
 import { getProject } from "@/lib/projects";
 import { examplePair, type ExamplePair } from "@/lib/showcase";
@@ -103,10 +101,8 @@ function FounderProfile({
   labels,
   flip = false,
   locale,
-  linkedin,
 }: Readonly<{
   person: Person;
-  linkedin: string;
   image: string;
   index: string;
   labels: { experience: string; focus: string; work: string };
@@ -120,16 +116,6 @@ function FounderProfile({
         <MaskReveal className="relative aspect-[4/5] w-full overflow-hidden bg-paper-2" from={flip ? "bottom" : "left"}>
           <Image src={image} alt={person.imageAlt} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover object-top" />
         </MaskReveal>
-        <a
-          href={linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={openInLinkedInApp}
-          aria-label={`${person.name} — LinkedIn`}
-          className="absolute right-2 top-2 z-10 flex h-[22px] w-[22px] items-center justify-center rounded-full border border-black text-black transition-colors after:absolute after:-inset-3 after:content-[''] hover:bg-black/10 sm:right-3 sm:top-3 [&_svg]:h-2.5 [&_svg]:w-2.5"
-        >
-          {icons.linkedin}
-        </a>
         <Caption fig={index}>{person.name}</Caption>
       </figure>
 
@@ -286,7 +272,6 @@ export default function AboutContent() {
         <div className="mt-20 space-y-28 sm:mt-28 sm:space-y-40">
           <FounderProfile
             person={people.hacer}
-            linkedin={studioInfo.founderLinkedIn.hacer}
             locale={lang}
             image="/images/persons/founders/hacer_uyar/hacer-uyar-portre.jpg"
             index="01"
@@ -294,7 +279,6 @@ export default function AboutContent() {
           />
           <FounderProfile
             person={people.ridvan}
-            linkedin={studioInfo.founderLinkedIn.ridvan}
             locale={lang}
             image="/images/persons/founders/ridvan_uyar/ridvanuyar_face.jpeg"
             index="02"

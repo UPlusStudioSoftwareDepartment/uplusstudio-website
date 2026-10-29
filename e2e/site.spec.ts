@@ -186,7 +186,7 @@ test("the curtain plays once per visit, and internal links fade with a view tran
     });
   const curtainGone = () => expect(page.locator(".page-curtain")).toHaveCount(0, { timeout: 8000 });
 
-  await page.goto("/tr/about");
+  await page.goto("/tr/about", { waitUntil: "commit" });
   await expect(page.locator(".page-curtain")).toBeVisible();
   await curtainGone();
   await page.reload();
@@ -269,8 +269,7 @@ test("home continues past the film with the studio, every service, featured work
   await expect(page.getByRole("contentinfo")).toBeInViewport();
 });
 
-test("the home film plays silently until the visitor turns the music on, and only the film icon controls it", async ({ page, browserName }) => {
-  test.skip(browserName === "webkit" && process.platform === "linux", "WebKit on Linux (GStreamer) stalls the film after it resumes; Safari is covered by the macOS job");
+test("the home film plays silently until the visitor turns the music on, and only the film icon controls it", async ({ page }) => {
   await page.goto("/tr");
   const video = page.locator("#home video");
   const music = page.locator("#home audio");
@@ -299,11 +298,10 @@ test("founders, the villa story and the service area are on the page", async ({ 
   await page.goto("/tr");
   await expect(page.getByText("Türkiye", { exact: true })).toBeVisible();
   await page.goto("/tr/about");
-  await expect(page.getByRole("link", { name: "Hacer Uyar — LinkedIn" })).toHaveAttribute("href", studioInfo.founderLinkedIn.hacer);
-  await expect(page.getByRole("link", { name: "Rıdvan Uyar — LinkedIn" })).toHaveAttribute("href", studioInfo.founderLinkedIn.ridvan);
+  await expect(page.getByRole("heading", { level: 3, name: "Hacer Uyar" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 3, name: "Rıdvan Uyar" })).toBeVisible();
   await page.goto("/tr/projects/villa-donusumu");
   await expect(page.getByText("Uygulama büyük ölçüde tamamlandı, peyzaj sürüyor")).toBeVisible();
-  await expect(page.getByRole("link", { name: /Süreci LinkedIn'de izleyin/ })).toHaveAttribute("href", /activity:7510727589314015232/);
 });
 
 test("business card opens as a dialog and closes", async ({ page }) => {

@@ -3,7 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import JsonLd from "@/components/seo/JsonLd";
 import PageHeader from "@/components/studio/PageHeader";
 import { breadcrumbLd, pageMetadata, resolveLocale, SEO_COPY, webPageLd } from "@/lib/seo";
-import { PRIVACY, PRIVACY_UPDATED } from "@/lib/privacy";
+import { PRIVACY } from "@/lib/privacy";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -15,7 +15,6 @@ export default async function Page({ params }: Props) {
   const locale = resolveLocale((await params).locale);
   setRequestLocale(locale);
   const copy = PRIVACY[locale];
-  const updated = new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "Europe/Istanbul" }).format(new Date(PRIVACY_UPDATED));
 
   return (
     <>
@@ -29,9 +28,6 @@ export default async function Page({ params }: Props) {
       />
       <article className="mx-auto max-w-[2560px] px-4 pb-28 pt-16 sm:px-8 sm:pt-24 lg:px-12">
         <div className="max-w-3xl">
-          <p className="font-mono text-[12px] uppercase tracking-[0.12em] text-mute">
-            {copy.updated}: <time dateTime={PRIVACY_UPDATED}>{updated}</time>
-          </p>
           {copy.sections.map((section) => (
             <section key={section.title} className="mt-12 border-t border-line pt-8">
               <h2 className="display text-[clamp(1.75rem,4vw,2.5rem)] text-ink">{section.title}</h2>
