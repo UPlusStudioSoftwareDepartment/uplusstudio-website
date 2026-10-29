@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "seo:audit": "node scripts/seo-audit.mjs --render"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.2",
