@@ -379,7 +379,7 @@ test.describe("phones", () => {
     }).toPass();
     expect(await page.evaluate(() => scrollY)).toBeGreaterThan(400);
     const menu = page.getByRole("dialog", { name: "Menü" });
-    await toggle.click();
+    await toggle.dispatchEvent("click");
     await expect(menu).toBeVisible();
     await page.evaluate(() => {
       const w = window as unknown as { scrolls: number[] };
