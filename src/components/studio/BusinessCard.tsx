@@ -37,7 +37,7 @@ const COPY = {
   en: {
     title: "Digital business card",
     tagline: "Architecture begins with thinking.",
-    discipline: "Architecture & Interior Architecture & Engineering",
+    discipline: "Architecture, Interiors & Engineering",
     share: "Share",
     download: "Download",
     save: "Save contact",
@@ -49,7 +49,7 @@ const COPY = {
     imageCopied: "Card copied — paste it into any chat",
     holdToSave: "Press and hold the image to save it",
     shareHint: "Copy the card image and paste it into WhatsApp, Instagram and other apps, or share the link.",
-    message: "U+ Studio — Architecture & Interior Architecture & Engineering · İncek, Gölbaşı / Ankara",
+    message: "U+ Studio — Architecture, Interiors & Engineering · İncek, Gölbaşı / Ankara",
     failed: "Something went wrong, please try again",
   },
 };

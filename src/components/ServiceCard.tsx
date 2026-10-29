@@ -39,7 +39,7 @@ const COPY = {
     ],
   },
   en: {
-    discipline: "Architecture & Interior Architecture & Engineering",
+    discipline: "Architecture, Interiors & Engineering",
     tagline: "Architecture begins with thinking.",
     contact: "Contact",
     findUs: "Find us on",

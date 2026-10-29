@@ -240,8 +240,9 @@ export default function AboutContent() {
           {
             label: t("meta.contactLabel"),
             value: (
-              <a href={`mailto:${studioInfo.email}`} className="text-[13px] transition-colors [overflow-wrap:anywhere] hover:text-clay sm:text-[15px]">
-                {studioInfo.email}
+              <a href={`mailto:${studioInfo.email}`} className="text-[13px] transition-colors hover:text-clay sm:text-[15px]">
+                {studioInfo.email.split("@")[0]}@<wbr />
+                <span className="whitespace-nowrap">{studioInfo.email.split("@")[1]}</span>
               </a>
             ),
           },

@@ -13,7 +13,7 @@
 
 ## Uygulanan değişiklikler
 
-- Mobil menü, dairesel `clip-path` yerine kil rengi ön katman ve koyu ana panelle açılıyor. Büyük katmanlar yalnızca `transform`/`opacity` kullanıyor.
+- Mobil menü, dairesel `clip-path` yerine sade koyu yüzeyle açılıyor. Son kullanıcı talebiyle turuncu ön katman tamamen kaldırıldı. Apple ve Aesop'un resmi mobil menüleri tarayıcıda incelenerek büyük perde yerine kısa mesafeli geçiş seçildi: zemin 240 ms solma; panel 18 px / 420 ms; linkler 16 px / 360 ms ve 28 ms aralık. Kapanış 260 ms; linklerin dönüş hareketi yok. Yalnızca `transform`/`opacity` kullanılıyor. Referanslar: [Apple](https://www.apple.com/), [Aesop](https://www.aesop.com/).
 - Açık Chrome'da 375 px genişlikte erken kapatma tıklamasının boşa gittiği gözlendi. Menü başlığı ve kapatma düğmesi hareketli panelin dışına alındı; aynı noktaya hızlı ikinci tıklama Chromium ve WebKit'te ayrıca test edildi.
 - Menü UI'ı `MobileMenu.tsx`, ikon `MenuIcon.tsx`, saf hareket tanımları `mobileMenuMotion.ts` içinde ayrıldı. Gereksiz ekran yarıçapı state'i ve resize dinleyicisi kaldırıldı.
 - Azaltılmış hareket ayarında büyük paneller kaymıyor; menü kısa bir solmayla açılıp kapanıyor.
@@ -46,7 +46,7 @@ Kullanıcının son talebi doğrultusunda öncelik iPhone/Safari ve Samsung Gala
 
 `completed-phones.json`: iyileştirme öncesindeki 5 ekran × 2 CPU yavaşlatma seviyesinde 130 kayıt; 0 uygulama hatası. `turkey-common-final.json`: son sürümde 360/390/430 px, 4× CPU; 39 kayıt ve 0 uygulama hatası. Üç sürükleme de kaydırıcıyı 50'den 90'a taşıdı. İlk, belge dönüşünde tek kare kaydeden eski çalışma geçerli sonuç sayılmadı.
 
-Son sürüm, headless Chromium; süreler milisaniyedir:
+`aa9f79d` sürümü (son tek yüzeyli animasyon ayarından önce), headless Chromium; süreler milisaniyedir:
 
 | Genişlik | Açılış ortalama / p95 | Kapanış ortalama / p95 | Menüden sayfaya en uzun aralık |
 | --- | --- | --- | --- |
@@ -62,5 +62,25 @@ Menü CPU profilleri: orijinal inline SVG sürümünde 85 layout; son profilde 1
 
 - Fiziksel iPhone veya Android cihaz kullanılmadı. Açık masaüstü Chrome'daki responsive kontrol ile CPU yavaşlatmalı headless emülasyon farklı kontrollerdir.
 - `globalNotFound`, kullanılan Next.js sürümünde experimental bir özelliktir. [Resmi dokümanda](https://nextjs.org/docs/app/api-reference/file-conventions/not-found) dinamik kök layout'lar için açıklanan routing-level 404 mekanizması kullanıldı; ham HTML ve tarayıcı regresyon testleri eklendi.
-- `fra1` ayarı dosyada mevcut. Bu rapor commit öncesi doğrulamaları kaydeder; yayın, yeni commit canlı `X-Release` başlığında görüldükten ve canlı akışlar kontrol edildikten sonra doğrulanmış sayılır.
+- İlk yayın `aa9f79d` canlı `X-Release` başlığında ve `fra1` bölgesinde doğrulandı; bu sürümün CI ve production smoke işleri başarılı. Aşağıdaki son tasarım değişiklikleri ayrıca doğrulandı; yeni yayın kendi commit kimliğiyle kontrol edilir.
 - Başlangıçta mevcut `seo-audit/` çıktıları, `.claude/` oturum dosyaları ve `motion-audit/final-2.json` bu çalışma tarafından sahiplenilmedi veya commit edilmedi.
+
+## Son tasarım ve iki dilde yerleşim doğrulaması
+
+- Turuncu menü perdesi kaldırıldı. Tek koyu yüzey, 18 px kısa hareket, 0,42 sn panel açılışı ve 0,26 sn kapanış kullanılıyor; bağlantılar küçük hareketle sırayla beliriyor. Azaltılmış hareket tercihi korunuyor.
+- İngilizce mobil menüde yalnızca `Glossary` gösteriliyor. Ana sayfadaki disiplin yazısının boyutu, ağırlığı ve kontrastı artırıldı.
+- İngilizce disiplin ifadesi görünür UI, kart ve ilgili metadata kaynaklarında `Architecture, Interiors & Engineering` olarak sadeleştirildi.
+- Hakkımızda iletişim alanı kurucuların yanında kaldı. E-posta adresinin tamamı korunuyor; gerektiğinde yalnızca `@` sonrasında satır kırılabiliyor, `uplusstudio.com.tr` bölünmüyor. Ayrı satıra alma denemesi kullanıcı geri bildirimiyle kaldırıldı.
+- Açık Work Chrome profilinde iki dilde Hakkımızda, İngilizce Hizmetler ve İletişim bannerları, form ve iletişim bilgileri kontrol edildi. 393 px Hakkımızda başlığının iki dilde üst/alt koordinatları eşit ölçüldü: 437,45 / 528,63 px. Son production menüsü aynı profilde açılıp Escape ile kapatıldı; odak menü düğmesine döndü.
+- 60 statik TR/EN adresin ilk ekran görüntüsü alınıp görsel olarak incelendi. Chromium'da 320, 393, 768, 844×390, 1440 ve 2560 px; WebKit'te 12 ana adres için 320, 393 ve 844×390 px: **396 kontrol, 0 uygulama hatası, 0 yatay/metin taşması, 0 kesilen görünür başlık** (`layout-audit.json`). Kapalı bakım adreslerinin 404 olması beklendiği gibidir. Bu tarama otomatik geometri kontrolü ile görsel incelemenin kapsamını kaydeder; fiziksel cihaz testi değildir.
+- Son menü/404 dosyasında 46 Chromium/WebKit E2E geçti. Yeni e-posta/sütun/Glossary regresyon dosyasında 12 test geçti. Yatay ekran testinde e-posta aşağı kaydırılarak görünür hale getirilir; ilk ekranın dışında olmak hata sayılmaz.
+- Son unit: 115 test geçti. TypeScript ve production build başarılı. Lint: 0 hata; mevcut `ContactContent.tsx:153` React Hook Form `watch` uyarısı devam ediyor.
+- Son menü videosu `menu-motion-final.webm`; son production önizleme kaydında 0 hata ve 0 unload/Permissions-Policy uyarısı var (`release-final.json`).
+
+## `inspector.b9415ea5.js` uyarısının kesin kaynağı
+
+Açık Chrome DevTools Console bağlantısının erişilebilirlik açıklamasında şu kaynak doğrudan okundu:
+
+`chrome-extension://mbnbehikldjhnfehhnaidhjhoofhpehk/inspector.b9415ea5.js:406`
+
+Bu kimlik [CSS Peeper](https://chromewebstore.google.com/detail/css-peeper/mbnbehikldjhnfehhnaidhjhoofhpehk) Chrome eklentisine aittir. Site kaynaklarında `unload` kaydı veya bu inspector dosyası yoktur. Eklentisiz canlı tarayıcı kaydında aynı uyarı görülmedi (`live-unload-check.json`). Site güvenlik başlıkları bu eklentinin eski olay dinleyicisini çalıştırmak için gevşetilmedi. Üçüncü taraf eklenti kodunun kalıcı düzeltmesi yayıncısına aittir; mevcut tarayıcıda uyarıyı kaldırmak için eklentinin güncellenmesi veya kullanıcı tarafından devre dışı bırakılması gerekir. Uyarının kaynağı artık belirsiz değildir; eklenti kodunun düzeltildiği iddia edilmez.

@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = locale === "en" ? "Digital business card" : "Dijital kartvizit";
   const description =
     locale === "en"
-      ? "U+ Studio — Architecture & Interior Architecture & Engineering · İncek, Gölbaşı / Ankara. Call, WhatsApp, directions and booking."
+      ? "U+ Studio — Architecture, Interiors & Engineering · İncek, Gölbaşı / Ankara. Call, WhatsApp, directions and booking."
       : "U+ Studio — Mimarlık & İç Mimarlık & Mühendislik · İncek, Gölbaşı / Ankara. Arayın, WhatsApp'tan yazın, yol tarifi alın, randevu planlayın.";
   return {
     title,

@@ -186,7 +186,7 @@ export default function Navigation() {
           <MobileMenu
             links={primary.map((item) => ({
               ...item,
-              label: item.href.endsWith("/glossary")
+              label: item.href.endsWith("/glossary") && locale !== "en"
                 ? t("glossary")
                 : item.label,
               active: isActive(item.href),

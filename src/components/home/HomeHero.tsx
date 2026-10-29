@@ -179,7 +179,7 @@ export default function HomeHero() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:items-end [@media(max-height:560px)]:justify-between [@media(max-height:560px)]:gap-4">
           <h1 className="display min-w-0 text-[clamp(1.9rem,min(8vw,10dvh),9rem)] max-sm:flex max-sm:flex-col">
             <span className="sr-only">U+ Studio — </span>
-            <span className="eyebrow mb-5 block animate-[rise_0.9s_var(--ease-out-studio)_backwards] font-normal leading-normal text-bone/75 [--rise:12px] motion-reduce:animate-none max-sm:order-last max-sm:mb-0 max-sm:mt-4 max-sm:[animation-delay:0.9s] sm:mb-8 [@media(max-height:560px)]:mb-2">
+            <span className="mb-5 block animate-[rise_0.9s_var(--ease-out-studio)_backwards] font-sans text-[clamp(0.875rem,1.3vw,1.125rem)] font-medium leading-relaxed tracking-[0.025em] text-bone [text-shadow:0_2px_12px_rgb(0_0_0/0.65)] [--rise:12px] motion-reduce:animate-none max-sm:order-last max-sm:mb-0 max-sm:mt-4 max-sm:[animation-delay:0.9s] sm:mb-8 [@media(max-height:560px)]:mb-2">
               {t("hero.eyebrow")}
             </span>
             <LineReveal

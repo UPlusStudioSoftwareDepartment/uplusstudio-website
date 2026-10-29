@@ -4,13 +4,13 @@ export const EASE_OUT = [0.22, 1, 0.36, 1] as const; // out: fades, rises, small
 export const EASE_MENU = [0.65, 0, 0.35, 1] as const; // the menu and the page curtain
 
 export const MENU_MOTION = {
-  open: 0.7,
-  close: 0.37,
-  layerDelay: 0.08,
-  linkDelay: 0.18,
-  stagger: 0.05,
-  icon: 0.3,
-  photo: 1.5,
+  open: 0.42,
+  close: 0.26,
+  link: 0.36,
+  linkDelay: 0.08,
+  stagger: 0.028,
+  icon: 0.24,
+  photo: 0.6,
 } as const;
 
 // Seconds. Reveals stay cinematic but short enough that text is readable while it settles.

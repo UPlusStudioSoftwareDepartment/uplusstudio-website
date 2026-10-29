@@ -11,7 +11,7 @@ export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 export const OG_IMAGE: Record<Locale, { url: string; width: number; height: number; alt: string }> = {
   tr: { url: "/og/uplus-studio-tr.jpg", width: 1200, height: 630, alt: "U+ Studio — Mimarlık & İç Mimarlık & Mühendislik, İncek · Gölbaşı / Ankara" },
-  en: { url: "/og/uplus-studio-en.jpg", width: 1200, height: 630, alt: "U+ Studio — Architecture & Interior Architecture & Engineering, İncek · Gölbaşı / Ankara" },
+  en: { url: "/og/uplus-studio-en.jpg", width: 1200, height: 630, alt: "U+ Studio — Architecture, Interiors & Engineering, İncek · Gölbaşı / Ankara" },
 };
 
 const OG_LOCALE: Record<Locale, string> = { tr: "tr_TR", en: "en_US" };
@@ -87,19 +87,19 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
     home: {
       title: "U+ Studio | Ankara Architecture, Design & Engineering · İncek",
       description:
-        "Architecture & interior architecture & engineering studio in İncek, Ankara, working across Türkiye: villas, homes, offices, cafés, renovation, 3D, turnkey.",
+        "Architecture, interiors & engineering studio in İncek, Ankara, working across Türkiye: villas, homes, offices, cafés, renovation, 3D, turnkey.",
       crumb: "Home",
     },
     about: {
       title: "About: Hacer Uyar and Rıdvan Uyar",
       description:
-        "U+ Studio is the architecture & interior architecture & engineering practice of architect Hacer Uyar and civil engineer Rıdvan Uyar in İncek, Gölbaşı / Ankara.",
+        "U+ Studio is the architecture, interiors & engineering practice of architect Hacer Uyar and civil engineer Rıdvan Uyar in İncek, Gölbaşı / Ankara.",
       crumb: "About",
     },
     services: {
       title: "Architecture, Interiors & Engineering Services",
       description:
-        "Architecture & interior architecture & engineering from İncek, Ankara, across Türkiye: design, renovation, 3D visualisation, project management, turnkey.",
+        "Architecture, interiors & engineering from İncek, Ankara, across Türkiye: design, renovation, 3D visualisation, project management, turnkey.",
       crumb: "Services",
     },
     projects: {
@@ -117,7 +117,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
     glossary: {
       title: "Architecture Glossary: 500+ Terms Explained",
       description:
-        "Plain-language explanations of 500+ architecture & interior architecture & engineering terms, A to Z. By U+ Studio in İncek, Gölbaşı / Ankara.",
+        "Plain-language explanations of 500+ architecture, interiors & engineering terms, A to Z. By U+ Studio in İncek, Gölbaşı / Ankara.",
       crumb: "Glossary",
     },
     privacy: {
@@ -232,7 +232,7 @@ const SERVICES: Record<Locale, string[]> = {
 
 const ORG_DESCRIPTION: Record<Locale, string> = {
   tr: "İncek, Gölbaşı / Ankara merkezli mimarlık & iç mimarlık & mühendislik ofisi. Mimari tasarım, iç mimarlık, tadilat ve dönüşüm, 3D görselleştirme ve anahtar teslim uygulama.",
-  en: "Architecture & interior architecture & engineering studio based in İncek, Gölbaşı / Ankara: architectural design, interiors, renovation, 3D visualisation and turnkey delivery.",
+  en: "Architecture, interiors & engineering studio based in İncek, Gölbaşı / Ankara: architectural design, interiors, renovation, 3D visualisation and turnkey delivery.",
 };
 
 export function siteGraph(locale: Locale): JsonLdNode {

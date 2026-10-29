@@ -7,6 +7,7 @@ const csp = ["frame-ancestors 'self'", "base-uri 'self'", "form-action 'self'", 
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  devIndicators: false,
   experimental: {
     globalNotFound: true,
   },

@@ -18,7 +18,7 @@ export const BUSINESS_CARD_COPY = {
     address: ["Merkez İncek Plaza", "Reyhan Cd. No:3, Kat:1 D:2", "İncek · Gölbaşı / Ankara"],
   },
   en: {
-    discipline: "ARCHITECTURE & INTERIOR ARCHITECTURE & ENGINEERING",
+    discipline: "ARCHITECTURE, INTERIORS & ENGINEERING",
     tagline: "Architecture begins with thinking.",
     services: "SERVICES",
     contact: "CONTACT",

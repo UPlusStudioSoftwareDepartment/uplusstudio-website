@@ -1,5 +1,5 @@
 // Motion & loading measurements against a running build (default http://localhost:3100, start it with `npm run start -- -p 3100`).
-// Usage: node scripts/motion-audit.mjs [--label before] [--only scroll,idle,load,nav,slow,phone,flows] [--browsers chromium,webkit,firefox]
+// Usage: node scripts/motion-audit.mjs [--label before] [--only scroll,idle,load,nav,slow,phone,profile,preview,flows] [--browsers chromium,webkit,firefox]
 // Writes motion-audit/<label>.json and prints a summary. Chromium numbers come from headless, software-rastered Chromium
 // with CDP CPU throttling: compare runs with each other, never read them as real-device frame rates.
 import { mkdir, writeFile } from "node:fs/promises";
@@ -26,7 +26,7 @@ const DEVICES = { "phone-390": PHONE, "phone-320": SMALL_PHONE, "tablet-820": TA
 const SCROLL_PAGES = ["/tr", "/tr/projects", "/tr/projects/villa-donusumu", "/tr/about", "/tr/services", "/tr/contact"];
 const IDLE_PAGES = ["/tr", "/tr/projects", "/tr/about"];
 
-const results = { label: LABEL, base: BASE, at: new Date().toISOString(), scroll: [], idle: [], load: [], nav: [], slow: [], phone: [], profile: [], flows: [], errors: [] };
+const results = { label: LABEL, base: BASE, at: new Date().toISOString(), scroll: [], idle: [], load: [], nav: [], slow: [], phone: [], profile: [], flows: [], errors: [], warnings: [] };
 
 const pct = (values, p) => {
   if (!values.length) return 0;
@@ -35,9 +35,9 @@ const pct = (values, p) => {
 };
 const round = (n) => Math.round(n * 10) / 10;
 
-async function context(engine, device, { curtain = false, reduce = false } = {}) {
+async function context(engine, device, { curtain = false, reduce = false, recordVideo } = {}) {
   const browser = await ENGINES[engine].launch();
-  const ctx = await browser.newContext({ ...device, ...(engine === "firefox" ? { isMobile: undefined } : {}), locale: "tr-TR", reducedMotion: reduce ? "reduce" : "no-preference" });
+  const ctx = await browser.newContext({ ...device, ...(engine === "firefox" ? { isMobile: undefined } : {}), locale: "tr-TR", reducedMotion: reduce ? "reduce" : "no-preference", ...(recordVideo ? { recordVideo } : {}) });
   if (!curtain) await ctx.addInitScript(() => sessionStorage.setItem("u-curtain", "1"));
   await ctx.addInitScript(() => {
     globalThis.__cls = 0;
@@ -83,7 +83,15 @@ async function context(engine, device, { curtain = false, reduce = false } = {})
   page.on("pageerror", (err) => results.errors.push({ engine, url: page.url(), error: String(err) }));
   page.on("console", (msg) => msg.type() === "error" && results.errors.push({ engine, url: page.url(), console: msg.text().slice(0, 300) }));
   let cdp = null;
-  if (engine === "chromium") cdp = await ctx.newCDPSession(page);
+  if (engine === "chromium") {
+    cdp = await ctx.newCDPSession(page);
+    await cdp.send("Log.enable");
+    cdp.on("Log.entryAdded", ({ entry }) => {
+      if (/unload|permissions policy/i.test(entry.text)) {
+        results.warnings.push({ engine, url: entry.url, text: entry.text, frames: entry.stackTrace?.callFrames });
+      }
+    });
+  }
   return { browser, ctx, page, cdp };
 }
 
@@ -478,6 +486,30 @@ async function runProfile() {
   await browser.close();
 }
 
+async function runPreview() {
+  const { browser, ctx, page } = await context("chromium", PHONE, {
+    recordVideo: { dir: "test-results/menu-preview", size: PHONE.viewport },
+  });
+  await page.goto(BASE + "/tr/about");
+  await settle(page);
+  const toggle = page.getByRole("button", { name: "Menü", exact: true });
+  await toggle.tap();
+  await page.waitForTimeout(1200);
+  await page.getByRole("dialog").getByRole("button", { name: "Kapat", exact: true }).tap();
+  await page.waitForTimeout(650);
+  await toggle.tap();
+  await page.waitForTimeout(1000);
+  await page.getByRole("dialog").getByRole("link", { name: /Hizmetler/ }).tap();
+  await page.waitForURL(/\/tr\/services$/);
+  await page.waitForTimeout(900);
+  const video = page.video();
+  await ctx.close();
+  await mkdir("motion-audit", { recursive: true });
+  await video.saveAs("motion-audit/menu-motion-final.webm");
+  await browser.close();
+  console.log("wrote motion-audit/menu-motion-final.webm (emulated phone preview)");
+}
+
 // Back/forward scroll restore, rapid double navigation, menu → page on phones, reduced-motion navigation.
 async function runFlows() {
   for (const engine of BROWSERS) {
@@ -573,6 +605,7 @@ if (ONLY.has("nav")) await runNav();
 if (ONLY.has("slow")) await runSlow();
 if (ONLY.has("phone")) await runPhone();
 if (ONLY.has("profile")) await runProfile();
+if (ONLY.has("preview")) await runPreview();
 if (ONLY.has("flows")) await runFlows();
 
 await mkdir("motion-audit", { recursive: true });

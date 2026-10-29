@@ -1,0 +1,3967 @@
+{
+  "base": "http://localhost:3311",
+  "at": "2026-10-29T17:19:47.380Z",
+  "checks": [
+    {
+      "engine": "chromium",
+      "route": "/en",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/contact",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/about",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kartvizit",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kvkk",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/glossary",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/maintenance",
+      "status": 404,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/butik-kafe",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/evox-gym-center",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-projeleri",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/modern-villa",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/pastane",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/tek-katli-ev",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/about",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/contact",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/glossary",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kvkk",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kartvizit",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/maintenance",
+      "status": 404,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/butik-kafe",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/evox-gym-center",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-projeleri",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/modern-villa",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/pastane",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/tek-katli-ev",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 320,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/contact",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/about",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kvkk",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kartvizit",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/glossary",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/maintenance",
+      "status": 404,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/butik-kafe",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/evox-gym-center",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-projeleri",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/modern-villa",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/pastane",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/tek-katli-ev",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/about",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/contact",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kvkk",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kartvizit",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/glossary",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/maintenance",
+      "status": 404,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/butik-kafe",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/evox-gym-center",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-projeleri",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/modern-villa",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/pastane",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/tek-katli-ev",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 393,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/contact",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/about",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kartvizit",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kvkk",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/glossary",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/maintenance",
+      "status": 404,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/butik-kafe",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/evox-gym-center",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-projeleri",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/modern-villa",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/pastane",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/tek-katli-ev",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/about",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/contact",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kvkk",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kartvizit",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/glossary",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/maintenance",
+      "status": 404,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/butik-kafe",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/evox-gym-center",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-projeleri",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/modern-villa",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/pastane",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/tek-katli-ev",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 768,
+      "documentWidth": 768,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/about",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/contact",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kvkk",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kartvizit",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/glossary",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/maintenance",
+      "status": 404,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/butik-kafe",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/evox-gym-center",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-projeleri",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/modern-villa",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/pastane",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/tek-katli-ev",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/about",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/contact",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kvkk",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kartvizit",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/glossary",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/maintenance",
+      "status": 404,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/butik-kafe",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/evox-gym-center",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-projeleri",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/modern-villa",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/pastane",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/tek-katli-ev",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 844,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/contact",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/about",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kartvizit",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kvkk",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/glossary",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/maintenance",
+      "status": 404,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/butik-kafe",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/evox-gym-center",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-projeleri",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/modern-villa",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/pastane",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/tek-katli-ev",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/contact",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/about",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kartvizit",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kvkk",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/glossary",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/maintenance",
+      "status": 404,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/butik-kafe",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/evox-gym-center",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-projeleri",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/modern-villa",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/tek-katli-ev",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/pastane",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 1440,
+      "documentWidth": 1440,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/contact",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/about",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kvkk",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/kartvizit",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/glossary",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/maintenance",
+      "status": 404,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/butik-kafe",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/evox-gym-center",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-projeleri",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/modern-villa",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/pastane",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/tek-katli-ev",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/en/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/contact",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/about",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kvkk",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/kartvizit",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/glossary",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/maintenance",
+      "status": 404,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/butik-kafe",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/evox-gym-center",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-ic-mekan/video",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-projeleri",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama/video",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/konut-uygulama",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/modern-villa",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/ofis-yenileme/video",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/pastane",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/tek-katli-ev",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-ic-mekan",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/yonetici-ofisi",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/projects/villa-donusumu/video",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/incek-golbasi-mimarlik-ofisi",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ic-mimarlik-ankara",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/tadilat-donusum-ankara",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/villa-mimari-proje-ankara",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/tr/services/ticari-mekan-tasarimi-ankara",
+      "status": 200,
+      "width": 2560,
+      "documentWidth": 2560,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/contact",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/about",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/projects",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/services",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/glossary",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/contact",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/about",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/glossary",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/projects",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/services",
+      "status": 200,
+      "width": 320,
+      "documentWidth": 316,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/contact",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/about",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/projects",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/services",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/glossary",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/about",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/contact",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/projects",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/services",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/glossary",
+      "status": 200,
+      "width": 393,
+      "documentWidth": 389,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/contact",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/about",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/services",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/projects",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/en/glossary",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "en",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/about",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/contact",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/projects",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/services",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/tr/glossary",
+      "status": 200,
+      "width": 844,
+      "documentWidth": 840,
+      "lang": "tr",
+      "clippedHeadings": [],
+      "overflowingText": []
+    }
+  ],
+  "errors": []
+}

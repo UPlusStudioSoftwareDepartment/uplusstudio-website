@@ -18,7 +18,7 @@ export const studio_en = {
     "follow": "Follow"
   },
   "hero": {
-    "eyebrow": "Architecture & Interior Architecture & Engineering",
+    "eyebrow": "Architecture, Interiors & Engineering",
     "line1": "Architecture",
     "line2": "begins with",
     "line3": "thinking.",

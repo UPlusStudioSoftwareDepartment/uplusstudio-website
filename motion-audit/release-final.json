@@ -1,0 +1,15 @@
+{
+  "label": "release-final",
+  "base": "http://localhost:3311",
+  "at": "2026-10-29T17:22:19.221Z",
+  "scroll": [],
+  "idle": [],
+  "load": [],
+  "nav": [],
+  "slow": [],
+  "phone": [],
+  "profile": [],
+  "flows": [],
+  "errors": [],
+  "warnings": []
+}

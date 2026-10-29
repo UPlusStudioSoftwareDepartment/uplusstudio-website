@@ -14,6 +14,7 @@
 /coverage
 /test-results/
 /playwright-report/
+/motion-audit/layout/
 
 # next.js
 /.next/

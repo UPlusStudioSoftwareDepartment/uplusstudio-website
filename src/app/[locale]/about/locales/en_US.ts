@@ -1,7 +1,7 @@
 export const about_en = {
     "title": "About Us",
     "subtitle": "Learn more about our story and mission",
-    "description": "U+ Studio is a studio in İncek, Gölbaşı / Ankara bringing architecture & interior architecture & engineering under one roof.",
+    "description": "U+ Studio is a studio in İncek, Gölbaşı / Ankara bringing architecture, interiors & engineering under one roof.",
     "mission": "Our mission is to create spaces that enhance quality of life by combining aesthetics, functionality, and sustainability.",
     "vision": "To create human-centric and nature-respecting living spaces by designing the architecture of the future today.",
     "header": {
@@ -15,7 +15,7 @@ export const about_en = {
         "locationLabel": "Location",
         "location": "İncek, Gölbaşı / Ankara",
         "practiceLabel": "Practice",
-        "practice": "Architecture & Interior Architecture & Engineering",
+        "practice": "Architecture, Interiors & Engineering",
         "foundersLabel": "Founders",
         "founders": "<name>Hacer Uyar</name> and <name>Rıdvan Uyar</name>",
         "contactLabel": "Contact"

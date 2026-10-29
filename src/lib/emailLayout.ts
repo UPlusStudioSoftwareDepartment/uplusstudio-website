@@ -5,7 +5,7 @@ import { studioInfo } from "./studio-info";
 export type Locale = "tr" | "en";
 
 export const STUDIO = {
-  disciplines: { tr: "Mimarlık & İç Mimarlık & Mühendislik", en: "Architecture & Interior Architecture & Engineering" },
+  disciplines: { tr: "Mimarlık & İç Mimarlık & Mühendislik", en: "Architecture, Interiors & Engineering" },
   address: STUDIO_ADDRESS,
   phone: studioInfo.phoneDisplay,
   phoneHref: studioInfo.phoneHref,

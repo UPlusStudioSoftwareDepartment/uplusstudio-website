@@ -45,7 +45,8 @@ export default function MobileMenu({ links, onClose }: MobileMenuProps) {
     <m.div
       key="menu"
       ref={menuRef}
-      className="fixed inset-0 z-[60] h-[100dvh] overflow-hidden text-bone"
+      className="fixed inset-0 z-[60] h-[100dvh] overflow-hidden bg-night text-bone"
+      style={{ willChange: "opacity" }}
       initial="initial"
       animate="open"
       exit="closed"
@@ -98,13 +99,7 @@ export default function MobileMenu({ links, onClose }: MobileMenuProps) {
         </button>
       </div>
       <m.div
-        className="absolute inset-0 bg-clay"
-        style={{ willChange: "transform" }}
-        variants={motion.clay}
-        aria-hidden
-      />
-      <m.div
-        className="absolute inset-0 bg-night"
+        className="absolute inset-0"
         style={{ willChange: "transform" }}
         variants={motion.panel}
       >
