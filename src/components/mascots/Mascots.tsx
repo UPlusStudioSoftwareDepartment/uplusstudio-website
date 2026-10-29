@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import { m, useInView, useReducedMotion, type Transition } from "framer-motion";
-import { EASE_OUT } from "@/lib/motion";
 
 
 export const HIGH_FIVE = {
@@ -271,19 +270,13 @@ interface DuoProps {
 const SIZES = { sm: "h-11 w-11 sm:h-20 sm:w-20", md: "h-11 w-11 sm:h-32 sm:w-32" };
 
 export function MascotDuo({ pose = "idle", message, className = "", size = "md" }: Readonly<DuoProps>) {
-  const reduce = useReducedMotion();
   const [hovered, setHovered] = useState(false);
   return (
     <div className={`relative inline-flex flex-col items-center ${className}`}>
       {message && (
-        <m.p
-          className="mb-3 max-w-[18rem] text-center font-serif text-[15px] italic leading-snug text-current opacity-90 sm:text-[17px]"
-          initial={reduce ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 0.9, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: EASE_OUT }}
-        >
+        <p className="mb-3 max-w-[18rem] animate-[rise_0.6s_var(--ease-out-studio)_0.4s_backwards] text-center font-serif text-[15px] italic leading-snug text-current opacity-90 [--rise:8px] motion-reduce:animate-none sm:text-[17px]">
           {message}
-        </m.p>
+        </p>
       )}
       <div className="flex items-end -space-x-3 sm:-space-x-5" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
         <DesignerMascot pose={pose} joy={hovered} className={SIZES[size]} offset={0} />

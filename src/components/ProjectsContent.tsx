@@ -208,7 +208,8 @@ export default function ProjectsContent() {
       <section className="mx-auto max-w-[2560px] px-4 pb-24 pt-16 sm:px-8 sm:pt-24 lg:px-12">
         {view === "grid" ? (
           <ul className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 md:gap-y-20">
-            <AnimatePresence mode="popLayout">
+            {/* initial={false}: the first render is the final state, so the cards are in the HTML visible; filter changes still animate. */}
+            <AnimatePresence mode="popLayout" initial={false}>
               {visible.map((project) => (
                 <GridCard key={project.slug} project={project} />
               ))}

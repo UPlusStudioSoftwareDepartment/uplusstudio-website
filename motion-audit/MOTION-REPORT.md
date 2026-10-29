@@ -16,7 +16,10 @@ One report instead of six: audit, motion system, transition matrix, before/after
 | P2 | Long waits before reading: line reveals 1 s + 0.09 s/line, image masks 1.2/1.6 s, mobile menu 0.8 s + links from 0.3 s (last link at ~1.35 s), page fade 0.5 s, which also blocks taps | timings in code | **Tuned** (still cinematic): lines 0.8 s + 0.08 s/line, fades 0.7 s, masks 1.0/1.3 s, menu 0.6 s with links from 0.2 s, page fade 0.4 s |
 | P2 | Same easing curves copied into ten files | grep | **Centralised** in `src/lib/motion.ts` + CSS variables |
 | — | Backdrop glow blur, grain blend, blurred photo frames, nav blur suspected as scroll cost | A/B switching each off: differences within run-to-run noise | **Kept**: no evidence they cause jank |
-| — | `html { overscroll-behavior: none }` disables pull-to-refresh and the iOS rubber band | code | **Left as is**: a deliberate design choice; yours to change |
+| P1 | `html { overscroll-behavior: none }` disabled pull-to-refresh and the iOS rubber band | code | **Fixed (second round)**: native overscroll back; `html` carries the dark ground so the bounce area never flashes light |
+| P1 | Every 404 showed a bare page with no header or footer: unmatched URLs and `notFound()` both fall back to the root `app/not-found.tsx`, which sits outside the locale layout | live site: `nav` 0 on `/tr/bu-sayfa-yok` and `/tr/projects/yok` | **Fixed (second round)**: the layout's providers + header/main/footer became `SiteFrame`, used by the layout and by the root 404, which now shows the locale 404 in the language of the path (`/en/…` → English). Unmatched URLs are fully server-rendered; for routes that call `notFound()` (unknown slug, `/maintenance`) Next 16 sends its empty recovery shell and the browser draws the same page — status 404 and `noindex` are in the response either way |
+| P1 | Content hidden until JavaScript runs: the 12 project cards on `/tr/projects` were in the HTML at `opacity:0` (animated in on mount), as were the 404 texts and the mascot speech bubbles; scroll reveals (`FadeUp`, line and image masks, 35+ blocks on About) never appear without JavaScript | server HTML: `style="opacity:0…"` counts per page | **Fixed (second round)**: project grid renders its final state first (`AnimatePresence initial={false}`; filter changes still fade); 404 and speech bubble use CSS keyframes like the page headers; a `<noscript>` style shows the end state of every scroll reveal when JavaScript is off (reveals unchanged with JavaScript) |
+| — | Header icon tooltips stick out past the right edge on desktop | Chrome sweep | **No change needed**: hidden at rest, `html` clips x-overflow, and `keepTipOnScreen` shifts each tooltip onto the screen when it appears |
 
 Checked and fine: no CLS on any of the 59 routes (0 in both engines), headings render without waiting for JS, reduced motion shows all text immediately and every flow still works, the first-visit curtain lifts (about 2.4 s) and does not replay in the session, the menu locks and unlocks scroll and closes on navigation, the project detail opens at the top.
 
@@ -86,8 +89,8 @@ The desktop numbers are the headless software rasteriser painting large photos, 
 | Route transition pairs | 8 | 8 | 8 | 0 | 0 |
 | Flows (back/forward, menu, rapid, reduced motion, curtain) × 2 engines | 20 | 20 | 20 | 0 | 0 |
 | Viewports (320, 390, 820, 1366, 1440, 2560) | 6 | 6 | see Chrome sweep below | | |
-| Browsers | 4 | 3 (Chromium headless, WebKit, your Chrome) | | | Firefox BLOCKED (won't launch on this machine); real iOS/Android NOT_RUN |
-| Playwright e2e suite | — | — | — | — | NOT_RUN locally by your rule; CI runs it on push |
+| Browsers | 4 | 4 | | | Locally: Chromium headless, WebKit, your Chrome. Firefox cannot start on this PC (Windows 10.0.26200 refuses its `mozglue` side-by-side assembly, even after a fresh `playwright install --force firefox`), so Firefox runs in GitHub CI instead: the e2e suite covers Chrome, Edge, Firefox (windows-2025) and Safari, iPhone, iPad (macos-15). Real iOS/Android hardware NOT_RUN |
+| Playwright e2e suite | — | — | — | — | NOT_RUN locally by your rule. CI on `36111eb`: lint-and-build, e2e Windows (Chrome/Edge/Firefox), e2e macOS (Safari/iPhone/iPad), production smoke — all success. New `e2e/motion.spec.ts` (idle mascots, instant Back, rapid taps, pending line, 404 frame) runs there on every push |
 
 ## Chrome (Claude extension) sweep, your real Chrome
 
@@ -123,5 +126,12 @@ Side notes, not changed: the 404 page has no header on the live site either; a h
 | `src/components/studio/SiteFooter.tsx` | back-to-top respects reduced motion |
 | 10 components | local easing copies → `@/lib/motion` / `ease-out-studio` |
 | `scripts/motion-audit.mjs` | new measurement script |
+| `src/components/SiteFrame.tsx` | new: providers + header/main/footer, shared by the locale layout and the root 404 |
+| `src/app/not-found.tsx` | full site frame and the locale 404, language from the request |
+| `src/app/[locale]/layout.tsx` | uses `SiteFrame` |
+| `e2e/motion.spec.ts` | new e2e tests for the behaviour above |
+| `src/components/ProjectsContent.tsx` | grid cards visible in the HTML (`initial={false}`) |
+| `src/app/[locale]/not-found.tsx`, `src/components/mascots/Mascots.tsx` | 404 texts and speech bubble animate with CSS keyframes |
+| `src/app/[locale]/layout.tsx` | `<noscript>` end state for scroll reveals |
 
 Possible regressions to watch: the menu and reveals are a bit quicker (revert in `DURATION`); the header no longer fades during page changes; a page change slower than 600 ms finishes without the fade, under the pending line.

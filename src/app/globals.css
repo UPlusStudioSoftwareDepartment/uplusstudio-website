@@ -32,7 +32,8 @@ html {
   overflow-y: auto;
   -webkit-text-size-adjust: 100%;
   /* No global smooth scroll: it made Back/Forward slide from the top to the restored position. Smooth scrolls are opted into per call. */
-  overscroll-behavior: none;
+  /* Native overscroll stays on (pull-to-refresh, iOS bounce); the dark ground keeps the bounce area from flashing light. */
+  background-color: var(--color-paper);
 }
 
 body {
