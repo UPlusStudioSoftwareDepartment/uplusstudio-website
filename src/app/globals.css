@@ -618,10 +618,11 @@ a[class*="bg-bone"]:not([class*="rounded-full"]) {
   .explainer svg * { animation: none !important; }
 }
 
-#home .directions-icon,
-body:has(#home) nav .directions-icon {
-  animation: directions-pulse 2.4s ease-in-out infinite;
-  transform-origin: center;
+@media (max-width: 639px) {
+  #home .directions-icon {
+    animation: directions-pulse 2.4s ease-in-out infinite;
+    transform-origin: center;
+  }
 }
 
 @keyframes directions-pulse {
@@ -630,8 +631,7 @@ body:has(#home) nav .directions-icon {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #home .directions-icon,
-  body:has(#home) nav .directions-icon { animation: none; }
+  #home .directions-icon { animation: none; }
 }
 
 /* Ringing handset: a short ring, sound waves from the earpiece and two ripples, then a calm pause. */

@@ -29,6 +29,19 @@ test("menu mascots loop their facial smile without moving the body", async ({ pa
   }
 });
 
+for (const width of [768, 1440]) {
+  test(`home directions stays still at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await skipCurtain(page);
+    await page.goto("/tr");
+    const icon = page.locator(width < 1024 ? "#home .directions-icon" : "nav .directions-icon").first();
+    await expect(icon).toBeVisible();
+    await expect(icon).toHaveCSS("animation-name", "none");
+    await expect(icon).toHaveCSS("transform", "none");
+  });
+}
+
 test("home directions pulse stays within its link and stops for reduced motion", async ({ page }) => {
   await page.setViewportSize({ width: 393, height: 852 });
   await page.emulateMedia({ reducedMotion: "no-preference" });
