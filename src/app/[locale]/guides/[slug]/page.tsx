@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import CallCta from "@/components/studio/CallCta";
 import JsonLd from "@/components/seo/JsonLd";
 import { guides, getGuide, guideLabels } from "@/lib/guides";
 import { locales } from "@/lib/i18n-config";
+import { getProject } from "@/lib/projects";
 import { absoluteUrl, breadcrumbLd, buildMetadata, localePath, ORG_ID, resolveLocale } from "@/lib/seo";
 
 type Props = Readonly<{ params: Promise<{ locale: string; slug: string }> }>;
@@ -20,7 +22,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = resolveLocale(raw);
   const guide = getGuide(slug);
   if (!guide) return {};
-  return buildMetadata({ locale, path: `/guides/${slug}`, title: guide.copy[locale].title, description: guide.copy[locale].description, type: "article" });
+  const project = getProject(guide.project);
+  return buildMetadata({ locale, path: `/guides/${slug}`, title: guide.copy[locale].title, description: guide.copy[locale].description, type: "article", image: project ? { url: project.cover.src, alt: project.cover.alt[locale] } : undefined });
 }
 
 export default async function GuidePage({ params }: Props) {
@@ -31,12 +34,13 @@ export default async function GuidePage({ params }: Props) {
   if (!guide) notFound();
   const copy = guide.copy[locale];
   const labels = guideLabels[locale];
+  const project = getProject(guide.project);
   const next = guides.find((item) => item.slug !== slug);
   return (
     <article className="mx-auto max-w-4xl px-4 pb-24 pt-32 text-ink sm:px-8 sm:pt-40">
       <JsonLd data={[
         breadcrumbLd(locale, [[labels.label, "/guides"], [copy.title, `/guides/${slug}`]]),
-        { "@context": "https://schema.org", "@type": "Article", headline: copy.title, description: copy.description, inLanguage: locale, author: { "@id": ORG_ID }, publisher: { "@id": ORG_ID }, mainEntityOfPage: absoluteUrl(localePath(locale, `/guides/${slug}`)) },
+        { "@context": "https://schema.org", "@type": "Article", headline: copy.title, description: copy.description, inLanguage: locale, author: { "@id": ORG_ID }, publisher: { "@id": ORG_ID }, mainEntityOfPage: absoluteUrl(localePath(locale, `/guides/${slug}`)), ...(project ? { image: absoluteUrl(project.cover.src) } : {}) },
       ]} />
       <Link href={`/${locale}/guides`} className="inline-flex min-h-11 items-center text-[15px] text-mute underline underline-offset-4 hover:text-clay">← {labels.all}</Link>
       <header className="mt-8 border-b border-line pb-10">
@@ -44,6 +48,14 @@ export default async function GuidePage({ params }: Props) {
         <h1 className="mt-5 font-serif text-[clamp(2.5rem,7vw,4.75rem)] leading-[1.05]">{copy.title}</h1>
         <p className="mt-8 text-[20px] leading-relaxed text-mute">{copy.intro}</p>
       </header>
+      {project && <figure className="mt-10">
+        <Link href={`/${locale}/projects/${project.slug}`} className="block">
+          <div className="relative aspect-[3/2] overflow-hidden bg-paper-2">
+            <Image src={project.cover.src} alt={project.cover.alt[locale]} fill sizes="(min-width: 896px) 832px, 100vw" className="object-cover" />
+          </div>
+          <figcaption className="mt-3 text-sm leading-relaxed text-mute">{locale === "tr" ? "İlgili U+ Studio projesini inceleyin" : "Explore the related U+ Studio project"}: {project.title[locale]} →</figcaption>
+        </Link>
+      </figure>}
       <div className="space-y-12 py-12">
         {copy.sections.map((section) => (
           <section key={section.title}>

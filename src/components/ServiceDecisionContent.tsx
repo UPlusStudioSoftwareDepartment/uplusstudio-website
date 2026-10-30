@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { serviceDecisions } from "@/lib/marketingContent";
 import type { Locale } from "@/lib/i18n-config";
+import ProjectScope from "./ProjectScope";
 
 export default function ServiceDecisionContent({ slug, locale }: Readonly<{ slug: string; locale: Locale }>) {
   const copy = serviceDecisions[slug]?.[locale];
   if (!copy) return null;
   return (
-    <section aria-labelledby="service-decisions" className="mx-auto max-w-[2560px] px-4 pt-20 sm:px-8 sm:pt-28 lg:px-12">
+    <div className="mx-auto max-w-[2560px] px-4 pt-20 sm:px-8 sm:pt-28 lg:px-12">
+    <section aria-labelledby="service-decisions">
       <div className="border-t border-line pt-10">
         <h2 id="service-decisions" className="max-w-4xl font-serif text-[clamp(2rem,5vw,4rem)] leading-tight">{copy.heading}</h2>
         <p className="mt-6 max-w-3xl text-[18px] leading-relaxed">{copy.introduction}</p>
@@ -20,5 +22,7 @@ export default function ServiceDecisionContent({ slug, locale }: Readonly<{ slug
         </aside>
       </div>
     </section>
+    <div className="mt-16"><ProjectScope locale={locale} /></div>
+    </div>
   );
 }

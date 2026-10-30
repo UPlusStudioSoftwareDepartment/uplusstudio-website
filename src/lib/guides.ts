@@ -1,10 +1,12 @@
 import type { Locale } from "./i18n-config";
+import { renovationGuide } from "./renovationGuide";
 
 type GuideSection = Readonly<{ title: string; body: string; points?: readonly string[] }>;
 export type GuideCopy = Readonly<{ title: string; description: string; intro: string; sections: readonly GuideSection[]; takeaway: string }>;
 export type StudioGuide = Readonly<{ slug: string; service: string; project: string; copy: Record<Locale, GuideCopy> }>;
 
 export const guides: readonly StudioGuide[] = [
+  renovationGuide,
   {
     slug: "ilk-mimarlik-gorusmesi", service: "incek-golbasi-mimarlik-ofisi", project: "villa-donusumu",
     copy: {

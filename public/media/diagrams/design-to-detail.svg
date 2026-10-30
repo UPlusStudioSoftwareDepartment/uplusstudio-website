@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" fill="none">
+  <rect width="640" height="320" rx="3" fill="#262522"/>
+  <g stroke="#91877a" stroke-width="1" opacity=".25">
+    <path d="M40 40H600M40 80H600M40 120H600M40 160H600M40 200H600M40 240H600M40 280H600M80 40V280M160 40V280M240 40V280M320 40V280M400 40V280M480 40V280M560 40V280"/>
+  </g>
+  <g stroke="#eee5d6" stroke-width="2" stroke-linejoin="round">
+    <path d="m53 151 78-46 79 46-79 46Z" fill="#37332d"/>
+    <path d="M53 151v48l78 46 79-46v-48M131 197v48M53 151v-48l78-46 79 46v48"/>
+    <path d="m53 103 78 46 79-46M131 149v48" stroke-dasharray="4 6"/>
+    <path d="m255 151 78-46 79 46-79 46Z" fill="#37332d"/>
+    <path d="M255 151v48l78 46 79-46v-48M333 197v48M255 151v-48l78-46 79 46v48"/>
+    <path d="m255 103 78 46 79-46M333 149v48" stroke-dasharray="4 6"/>
+    <path d="m457 151 78-46 79 46-79 46Z" fill="#37332d"/>
+    <path d="M457 151v48l78 46 79-46v-48M535 197v48M457 151v-48l78-46 79 46v48"/>
+    <path d="m457 103 78 46 79-46M535 149v48" stroke-dasharray="4 6"/>
+  </g>
+  <g stroke="#d5a17d" stroke-width="2" stroke-linejoin="round">
+    <path d="m87 156 44-26 45 26-45 26Z"/>
+    <path d="m273 163 60 34 61-35M295 175v-34l38-22M354 185v-35l39-23"/>
+    <path d="m475 163 60 34 61-35M497 175v-34l38-22M556 185v-35l39-23M497 141l59 34M475 163v-24l22-13M575 174v-24l21-12"/>
+    <path d="M220 151h22m-7-7 7 7-7 7M422 151h22m-7-7 7 7-7 7"/>
+  </g>
+  <g fill="#d5a17d" font-family="monospace" font-size="12" letter-spacing="2"><text x="121" y="287">01</text><text x="323" y="287">02</text><text x="525" y="287">03</text></g>
+</svg>

@@ -8,6 +8,7 @@ import type { Locale } from "@/lib/i18n-config";
 import HomeDecisionSupport from "./HomeDecisionSupport";
 import HomeProjectPaths from "./HomeProjectPaths";
 import GuideLinks from "@/components/GuideLinks";
+import ProjectScope from "@/components/ProjectScope";
 
 const MORE_LINK = "group inline-flex min-h-11 items-center gap-3 border-b border-ink/40 pb-1 text-[15px] transition-colors hover:border-clay hover:text-clay";
 const ARROW = <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>;
@@ -32,6 +33,7 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
         </section>
 
         <HomeProjectPaths locale={locale} />
+        <ProjectScope locale={locale} />
         <section className="border-t border-line py-20 sm:py-28">
           <Eyebrow>{t("nav.services")}</Eyebrow>
           <h2 className="display -ml-[0.075em] mt-5 text-[clamp(2.5rem,9vw,5.5rem)]">{t("disciplines.title")}</h2>

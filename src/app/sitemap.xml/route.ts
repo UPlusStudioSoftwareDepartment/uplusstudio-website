@@ -21,6 +21,7 @@ const PATHS = [
 ];
 
 const IMAGES: Record<string, string[]> = Object.fromEntries([
+  ...guides.map((guide) => [`/guides/${guide.slug}`, [getProject(guide.project)?.cover.src].filter((src): src is string => Boolean(src))]),
   ...projects.map((p) => [`/projects/${p.slug}`, [...new Set([p.cover, ...p.gallery, ...(p.beforeAfter ? [p.beforeAfter.before, p.beforeAfter.after] : [])].map((i) => i.src))]]),
   ...SERVICE_LANDINGS.map((s) => [`/services/${s.slug}`, [s.image]]),
 ]);

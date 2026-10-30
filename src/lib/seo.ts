@@ -48,7 +48,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
     home: {
       title: "U+ Studio | Ankara Mimarlık, Tasarım ve Mühendislik · İncek, Gölbaşı",
       description:
-        "İncek, Gölbaşı / Ankara'da mimarlık & iç mimarlık & mühendislik ofisi; Türkiye geneline hizmet. Villa, konut, ofis, kafe, tadilat, 3D ve anahtar teslim.",
+        "Ankara İncek’te mimarlık, iç mimarlık ve mühendislik. Villa, ev yenileme ve ticari mekân projelerini inceleyin; projenizin kapsamını birlikte konuşalım.",
       crumb: "Ana Sayfa",
     },
     about: {
@@ -91,7 +91,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
     home: {
       title: "U+ Studio | Ankara Architecture, Design & Engineering · İncek",
       description:
-        "Architecture, interiors & engineering studio in İncek, Ankara, working across Türkiye: villas, homes, offices, cafés, renovation, 3D, turnkey.",
+        "Architecture, interiors and engineering in İncek, Ankara. Explore villa, home renovation and commercial projects, then discuss the scope of your own.",
       crumb: "Home",
     },
     about: {
