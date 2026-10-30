@@ -98,7 +98,7 @@ export default function HomeHero() {
       if (!motionPreference.matches) video.play().catch(() => {});
     };
     const start = () => {
-      idle = "requestIdleCallback" in globalThis ? requestIdleCallback(play, { timeout: 1500 }) : globalThis.setTimeout(play, 300);
+      idle = "requestIdleCallback" in globalThis ? requestIdleCallback(play, { timeout: 1500 }) : Number(globalThis.setTimeout(play, 300));
     };
     motionPreference.addEventListener("change", syncMotionPreference);
     if (document.readyState === "complete") start();
@@ -202,10 +202,10 @@ export default function HomeHero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-linear-to-t from-night/90 via-night/45 to-transparent" aria-hidden />
 
       <div className="relative z-10 mx-auto flex h-full max-w-[2560px] flex-col px-4 pb-6 pt-[8.75rem] [justify-content:safe_flex-end] sm:px-8 sm:pb-10 sm:pt-32 lg:px-12 [@media(max-height:560px)]:pb-3 [@media(max-height:560px)]:pt-28">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:items-end [@media(max-height:560px)]:justify-between [@media(max-height:560px)]:gap-4">
+        <div className="flex flex-col gap-6 max-sm:gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-12 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:items-end [@media(max-height:560px)]:justify-between [@media(max-height:560px)]:gap-4">
           <h1 className="display min-w-0 text-[clamp(1.9rem,min(8vw,10dvh),9rem)] max-sm:flex max-sm:flex-col">
             <span className="sr-only">U+ Studio — </span>
-            <span className="mb-5 block animate-[rise_0.9s_var(--ease-out-studio)_backwards] font-sans text-[clamp(0.875rem,1.3vw,1.125rem)] font-medium leading-relaxed tracking-[0.025em] text-bone [text-shadow:0_2px_12px_rgb(0_0_0/0.65)] [--rise:12px] motion-reduce:animate-none max-sm:order-last max-sm:mb-0 max-sm:mt-4 max-sm:[animation-delay:0.9s] sm:mb-8 [@media(max-height:560px)]:mb-2">
+            <span className="mb-5 block animate-[rise_0.9s_var(--ease-out-studio)_backwards] font-sans text-[clamp(0.875rem,1.3vw,1.125rem)] font-medium leading-relaxed tracking-[0.025em] text-bone [text-shadow:0_2px_12px_rgb(0_0_0/0.65)] [--rise:12px] motion-reduce:animate-none max-sm:order-last max-sm:mb-0 max-sm:mt-2 max-sm:[animation-delay:0.9s] sm:mb-8 [@media(max-height:560px)]:mb-2">
               {t("hero.eyebrow")}
             </span>
             {" "}
@@ -272,7 +272,7 @@ export default function HomeHero() {
           </div>
         </div>
 
-        <div className="mt-8 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start xl:grid-cols-[auto_minmax(auto,calc(33.333%_-_16px))_auto_auto_auto] xl:items-stretch xl:justify-between xl:gap-x-10 [@media(max-height:560px)]:mt-4 [@media(max-height:560px)]:pt-3">
+        <div className="mt-8 max-sm:mt-4 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start xl:grid-cols-[auto_minmax(auto,calc(33.333%_-_16px))_auto_auto_auto] xl:items-stretch xl:justify-between xl:gap-x-10 [@media(max-height:560px)]:mt-4 [@media(max-height:560px)]:pt-3">
           <p className="eyebrow flex flex-col gap-1 md:col-span-5 xl:col-span-1 xl:gap-2">
             <Link href={`/${locale}/services/incek-golbasi-mimarlik-ofisi`} className="w-fit text-bone transition-colors hover:text-bone/70 xl:flex xl:h-6 xl:items-center">{t("hero.place")}</Link>
             <span className="text-bone/60 xl:flex xl:h-6 xl:items-center">{t("hero.country")}</span>
