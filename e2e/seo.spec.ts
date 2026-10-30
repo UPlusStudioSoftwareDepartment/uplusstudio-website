@@ -41,11 +41,18 @@ test("the indexed home film is discoverable in HTML without autoplaying for redu
 });
 
 for (const project of projects.filter((project) => project.video)) {
-  test(`${project.slug}: watch page loads the poster first and plays on demand`, async ({ page }) => {
+  test(`${project.slug}: watch page loads the poster first and plays on demand`, async ({ page, request }) => {
     await page.goto(`/en/projects/${project.slug}/video`);
     const video = page.locator("main video");
     await expect(video).toHaveAttribute("preload", "none");
     await expect(video).toHaveAttribute("controls", "");
+    const poster = new URL((await video.getAttribute("poster"))!, page.url());
+    expect(poster.searchParams.get("url")).toBe(project.video?.poster.replace(/\.jpg$/, ".webp"));
+    for (const format of ["image/avif", "image/webp"]) {
+      const image = await request.get(poster.href, { headers: { Accept: format } });
+      expect(image.status()).toBe(200);
+      expect(image.headers()["content-type"]).toBe(format);
+    }
     await video.evaluate(async (element: HTMLVideoElement) => {
       element.muted = true;
       await element.play();
@@ -71,7 +78,8 @@ test("an unavailable video leaves its poster and project navigation available", 
     return element.play().then(() => true, () => false);
   });
   expect(played).toBe(false);
-  await expect(video).toHaveAttribute("poster", /office-before-after\.webp$/);
+  const poster = new URL((await video.getAttribute("poster"))!, page.url());
+  expect(poster.searchParams.get("url")).toBe("/media/video/office-before-after.webp");
   await expect(page.getByRole("link", { name: "Project details" })).toBeVisible();
   await page.getByRole("link", { name: "Project details" }).click();
   await expect(page).toHaveURL(/\/en\/projects\/ofis-yenileme$/);

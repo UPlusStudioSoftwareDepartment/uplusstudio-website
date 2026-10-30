@@ -1,0 +1,702 @@
+{
+  "phase": "retry",
+  "base": "http://localhost:3300",
+  "buildId": "AbUZ6_Aazt9t7vOKYONrc",
+  "throttlingMethod": "simulate",
+  "runsPerUrl": 3,
+  "paths": [
+    "/en/projects/butik-kafe"
+  ],
+  "profiles": [
+    "mobile"
+  ],
+  "labOnly": true,
+  "cache": "cold (Lighthouse storage reset)",
+  "warmCache": "UNVERIFIED",
+  "fieldINP": "UNVERIFIED",
+  "startedAt": "2026-10-30T07:09:41.317Z",
+  "browser": "Chrome/156.0.8078.74",
+  "measuredAt": "2026-10-30T07:10:35.861Z",
+  "rows": [
+    {
+      "path": "/en/projects/butik-kafe",
+      "profile": "mobile",
+      "status": "PASS",
+      "runs": 3,
+      "expectedRuns": 3,
+      "performance": 0.93,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 1096.5369,
+      "fcp": 1096.5369,
+      "cls": 0,
+      "tbt": 202,
+      "speedIndex": 3749.161162139867,
+      "transferBytes": 737697,
+      "requests": 53,
+      "mainThreadMs": 3397.215999999982,
+      "ttfb": 14
+    }
+  ],
+  "samples": [
+    {
+      "path": "/en/projects/butik-kafe",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:09:42.010Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/en__projects__butik-kafe-mobile-1.html",
+      "performance": 0.93,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 1151.6574,
+      "fcp": 1151.6574,
+      "cls": 0,
+      "tbt": 202,
+      "speedIndex": 4870.89640003387,
+      "transferBytes": 742959,
+      "requests": 54,
+      "mainThreadMs": 2860.215999999994,
+      "ttfb": 89,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.2 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.66,
+          "displayValue": "4.9 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.89,
+          "displayValue": "200 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.45,
+          "displayValue": "270 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.78,
+          "displayValue": "4.9 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.9 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 48 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 150 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 1069.0960000000014
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 829.887999999994
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 586.4239999999999
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 178.41199999999873
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 134.37200000000004
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 38.644000000000005
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 23.37999999999999
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3300/en/projects/butik-kafe",
+            "total": 1136.476000000001,
+            "scripting": 24.396,
+            "scriptParseCompile": 12.207999999999998
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 958.2600000000011,
+            "scripting": 790.8000000000012,
+            "scriptParseCompile": 28.22
+          },
+          {
+            "url": "Unattributable",
+            "total": 346.6320000000014,
+            "scripting": 20.448,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 125.31599999999997,
+            "scripting": 91.18399999999997,
+            "scriptParseCompile": 19.060000000000002
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 97.91599999999993,
+            "scripting": 47.63999999999994,
+            "scriptParseCompile": 2.616
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 93.34600012207031
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 1222.0929998779297
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-P",
+              "path": "1,HTML,1,BODY,4,MAIN,1,ARTICLE,0,HEADER,2,DIV,3,P",
+              "selector": "article.text-ink > header.relative > div.relative > p.mt-8",
+              "boundingRect": {
+                "top": 717,
+                "bottom": 783,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 66
+              },
+              "snippet": "<p class=\"mt-8 animate-[rise_1s_var(--ease-out-studio)_backwards] font-serif text-2x…\">",
+              "nodeLabel": "From sketch to signature: space, material and brand as one story."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/projects/butik-kafe",
+      "profile": "mobile",
+      "run": 2,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:10:05.159Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/en__projects__butik-kafe-mobile-2.html",
+      "performance": 0.97,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 1091.2825000000003,
+      "fcp": 1091.2825000000003,
+      "cls": 0,
+      "tbt": 152.85875000000033,
+      "speedIndex": 3685.8456292964265,
+      "transferBytes": 737697,
+      "requests": 53,
+      "mainThreadMs": 3397.215999999982,
+      "ttfb": 14,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.85,
+          "displayValue": "3.7 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.94,
+          "displayValue": "150 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.31,
+          "displayValue": "320 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.78,
+          "displayValue": "4.9 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.4 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 48 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 70 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 1220.2919999999942
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 953.8079999999923
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 786.8919999999995
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 206.61599999999586
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 140.29200000000003
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 61.400000000000006
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 27.915999999999986
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3300/en/projects/butik-kafe",
+            "total": 1378.3799999999983,
+            "scripting": 25.37599999999999,
+            "scriptParseCompile": 19.515999999999995
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 1152.7120000000034,
+            "scripting": 902.8720000000033,
+            "scriptParseCompile": 21.544000000000004
+          },
+          {
+            "url": "Unattributable",
+            "total": 394.1680000000018,
+            "scripting": 22.900000000000002,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 150.31600000000006,
+            "scripting": 118.70800000000007,
+            "scriptParseCompile": 13.672
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 110.00399999999992,
+            "scripting": 52.891999999999946,
+            "scriptParseCompile": 5.084
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 16.713999877929687
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 336.2270001220703
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-P",
+              "path": "1,HTML,1,BODY,4,MAIN,1,ARTICLE,0,HEADER,2,DIV,3,P",
+              "selector": "article.text-ink > header.relative > div.relative > p.mt-8",
+              "boundingRect": {
+                "top": 717,
+                "bottom": 783,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 66
+              },
+              "snippet": "<p class=\"mt-8 animate-[rise_1s_var(--ease-out-studio)_backwards] font-serif text-2x…\">",
+              "nodeLabel": "From sketch to signature: space, material and brand as one story."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/projects/butik-kafe",
+      "profile": "mobile",
+      "run": 3,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:10:17.854Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/en__projects__butik-kafe-mobile-3.html",
+      "performance": 0.92,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 1096.5369,
+      "fcp": 1096.5369,
+      "cls": 0,
+      "tbt": 304.7315500000009,
+      "speedIndex": 3749.161162139867,
+      "transferBytes": 737697,
+      "requests": 53,
+      "mainThreadMs": 3967.507999999967,
+      "ttfb": 11,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.85,
+          "displayValue": "3.7 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.78,
+          "displayValue": "300 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.24,
+          "displayValue": "350 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.76,
+          "displayValue": "5.0 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "4.0 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.5 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 48 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0.5,
+          "displayValue": "Est savings of 20 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 1528.5999999999788
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 1043.3839999999946
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 927.264
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 241.59599999999432
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 139.616
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 56.11999999999999
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 30.927999999999994
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3300/en/projects/butik-kafe",
+            "total": 1586.6479999999967,
+            "scripting": 24.28799999999999,
+            "scriptParseCompile": 19.784
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 1508.8279999999897,
+            "scripting": 1209.6719999999898,
+            "scriptParseCompile": 24.848
+          },
+          {
+            "url": "Unattributable",
+            "total": 395.39600000000235,
+            "scripting": 22.695999999999998,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 159.23200000000008,
+            "scripting": 126.49200000000008,
+            "scriptParseCompile": 15.579999999999998
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 111.8519999999999,
+            "scripting": 48.35999999999992,
+            "scriptParseCompile": 3.8160000000000003
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/2_fsuj0w7pu_8.js",
+            "total": 50.684,
+            "scripting": 41.007999999999996,
+            "scriptParseCompile": 8.948
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 14.887000122070312
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 361.3789998779297
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-P",
+              "path": "1,HTML,1,BODY,4,MAIN,1,ARTICLE,0,HEADER,2,DIV,3,P",
+              "selector": "article.text-ink > header.relative > div.relative > p.mt-8",
+              "boundingRect": {
+                "top": 717,
+                "bottom": 783,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 66
+              },
+              "snippet": "<p class=\"mt-8 animate-[rise_1s_var(--ease-out-studio)_backwards] font-serif text-2x…\">",
+              "nodeLabel": "From sketch to signature: space, material and brand as one story."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

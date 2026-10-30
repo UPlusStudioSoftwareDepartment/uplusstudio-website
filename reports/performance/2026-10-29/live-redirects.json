@@ -1,0 +1,133 @@
+{
+  "checkedAt": "2026-10-29T19:54:47.332Z",
+  "rows": [
+    {
+      "url": "https://www.uplusstudio.com.tr/",
+      "finalUrl": "https://www.uplusstudio.com.tr/tr",
+      "status": 200,
+      "canonical": "https://www.uplusstudio.com.tr/tr",
+      "chain": [
+        {
+          "url": "https://www.uplusstudio.com.tr/",
+          "status": 308,
+          "location": "/tr"
+        },
+        {
+          "url": "https://www.uplusstudio.com.tr/tr",
+          "status": 200,
+          "location": null
+        }
+      ]
+    },
+    {
+      "url": "https://uplusstudio.com.tr/",
+      "finalUrl": "https://www.uplusstudio.com.tr/tr",
+      "status": 200,
+      "canonical": "https://www.uplusstudio.com.tr/tr",
+      "chain": [
+        {
+          "url": "https://uplusstudio.com.tr/",
+          "status": 308,
+          "location": "https://www.uplusstudio.com.tr/"
+        },
+        {
+          "url": "https://www.uplusstudio.com.tr/",
+          "status": 308,
+          "location": "/tr"
+        },
+        {
+          "url": "https://www.uplusstudio.com.tr/tr",
+          "status": 200,
+          "location": null
+        }
+      ]
+    },
+    {
+      "url": "http://uplusstudio.com.tr/",
+      "finalUrl": "https://www.uplusstudio.com.tr/tr",
+      "status": 200,
+      "canonical": "https://www.uplusstudio.com.tr/tr",
+      "chain": [
+        {
+          "url": "http://uplusstudio.com.tr/",
+          "status": 308,
+          "location": "https://uplusstudio.com.tr/"
+        },
+        {
+          "url": "https://uplusstudio.com.tr/",
+          "status": 308,
+          "location": "https://www.uplusstudio.com.tr/"
+        },
+        {
+          "url": "https://www.uplusstudio.com.tr/",
+          "status": 308,
+          "location": "/tr"
+        },
+        {
+          "url": "https://www.uplusstudio.com.tr/tr",
+          "status": 200,
+          "location": null
+        }
+      ]
+    },
+    {
+      "url": "http://www.uplusstudio.com.tr/",
+      "finalUrl": "https://www.uplusstudio.com.tr/tr",
+      "status": 200,
+      "canonical": "https://www.uplusstudio.com.tr/tr",
+      "chain": [
+        {
+          "url": "http://www.uplusstudio.com.tr/",
+          "status": 308,
+          "location": "https://www.uplusstudio.com.tr/"
+        },
+        {
+          "url": "https://www.uplusstudio.com.tr/",
+          "status": 308,
+          "location": "/tr"
+        },
+        {
+          "url": "https://www.uplusstudio.com.tr/tr",
+          "status": 200,
+          "location": null
+        }
+      ]
+    },
+    {
+      "url": "https://uplusstudio.com.tr/en",
+      "finalUrl": "https://www.uplusstudio.com.tr/en",
+      "status": 200,
+      "canonical": "https://www.uplusstudio.com.tr/en",
+      "chain": [
+        {
+          "url": "https://uplusstudio.com.tr/en",
+          "status": 308,
+          "location": "https://www.uplusstudio.com.tr/en"
+        },
+        {
+          "url": "https://www.uplusstudio.com.tr/en",
+          "status": 200,
+          "location": null
+        }
+      ]
+    },
+    {
+      "url": "https://uplusstudio.com.tr/tr",
+      "finalUrl": "https://www.uplusstudio.com.tr/tr",
+      "status": 200,
+      "canonical": "https://www.uplusstudio.com.tr/tr",
+      "chain": [
+        {
+          "url": "https://uplusstudio.com.tr/tr",
+          "status": 308,
+          "location": "https://www.uplusstudio.com.tr/tr"
+        },
+        {
+          "url": "https://www.uplusstudio.com.tr/tr",
+          "status": 200,
+          "location": null
+        }
+      ]
+    }
+  ]
+}

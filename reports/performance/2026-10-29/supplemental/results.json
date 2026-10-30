@@ -1,0 +1,1090 @@
+{
+  "phase": "supplemental",
+  "base": "http://localhost:3300",
+  "buildId": "AbUZ6_Aazt9t7vOKYONrc",
+  "throttlingMethod": "simulate",
+  "runsPerUrl": 1,
+  "paths": [
+    "/tr/kartvizit",
+    "/en/kartvizit"
+  ],
+  "profiles": [
+    "mobile",
+    "desktop"
+  ],
+  "labOnly": true,
+  "cache": "cold (Lighthouse storage reset)",
+  "warmCache": "UNVERIFIED",
+  "fieldINP": "UNVERIFIED",
+  "startedAt": "2026-10-30T07:10:38.697Z",
+  "browser": "Chrome/156.0.8078.74",
+  "measuredAt": "2026-10-30T07:11:34.297Z",
+  "rows": [
+    {
+      "path": "/tr/kartvizit",
+      "profile": "mobile",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.64,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 0.66,
+      "lcp": 5127.643999999998,
+      "fcp": 1083.4576,
+      "cls": 0,
+      "tbt": 637.7711999999995,
+      "speedIndex": 3339.8955559957494,
+      "transferBytes": 544965,
+      "requests": 43,
+      "mainThreadMs": 3999.3199999999747,
+      "ttfb": 60
+    },
+    {
+      "path": "/tr/kartvizit",
+      "profile": "desktop",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 0.66,
+      "lcp": 317.8921,
+      "fcp": 317.8921,
+      "cls": 0,
+      "tbt": 4.946050000000014,
+      "speedIndex": 1206.544382087605,
+      "transferBytes": 786915,
+      "requests": 62,
+      "mainThreadMs": 942.4519999999933,
+      "ttfb": 14
+    },
+    {
+      "path": "/en/kartvizit",
+      "profile": "mobile",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.83,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 0.66,
+      "lcp": 4388.6368,
+      "fcp": 1087.8184,
+      "cls": 0,
+      "tbt": 161.09079999999994,
+      "speedIndex": 2591.057463598656,
+      "transferBytes": 551163,
+      "requests": 43,
+      "mainThreadMs": 3267.6279999999806,
+      "ttfb": 28
+    },
+    {
+      "path": "/en/kartvizit",
+      "profile": "desktop",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.98,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 0.66,
+      "lcp": 946.083,
+      "fcp": 314.0332,
+      "cls": 0,
+      "tbt": 8.016599999999869,
+      "speedIndex": 1173.2265852878643,
+      "transferBytes": 792634,
+      "requests": 62,
+      "mainThreadMs": 869.176999999993,
+      "ttfb": 9
+    }
+  ],
+  "samples": [
+    {
+      "path": "/tr/kartvizit",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:10:39.438Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/tr__kartvizit-mobile-1.html",
+      "performance": 0.64,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 0.66,
+      "lcp": 5127.643999999998,
+      "fcp": 1083.4576,
+      "cls": 0,
+      "tbt": 637.7711999999995,
+      "speedIndex": 3339.8955559957494,
+      "transferBytes": 544965,
+      "requests": 43,
+      "mainThreadMs": 3999.3199999999747,
+      "ttfb": 60,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.24,
+          "displayValue": "5.1 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.9,
+          "displayValue": "3.3 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.47,
+          "displayValue": "640 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.14,
+          "displayValue": "430 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.68,
+          "displayValue": "5.7 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "4.0 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.8 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 27 KiB"
+        },
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing",
+          "score": 0
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 250 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 1799.6839999999793
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 953.687999999997
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 797.5760000000007
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 210.11999999999787
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 134.83599999999998
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 62.576
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 40.84
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3300/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 1626.571999999986,
+            "scripting": 1423.895999999986,
+            "scriptParseCompile": 28.596
+          },
+          {
+            "url": "http://localhost:3300/tr/kartvizit",
+            "total": 1430.5999999999988,
+            "scripting": 25.791999999999994,
+            "scriptParseCompile": 14.687999999999997
+          },
+          {
+            "url": "Unattributable",
+            "total": 392.06400000000036,
+            "scripting": 28.264,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 194.664,
+            "scripting": 158.688,
+            "scriptParseCompile": 18.44
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 125.81199999999997,
+            "scripting": 53.755999999999965,
+            "scriptParseCompile": 3.8120000000000003
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 65.681
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 33.914
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 53.381
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 911.553
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-IMG",
+              "path": "1,HTML,1,BODY,4,MAIN,0,SECTION,1,DIV,2,DIV,0,DIV,0,IMG",
+              "selector": "div.@container > div.relative > div.flex > img.h-auto",
+              "boundingRect": {
+                "top": 121,
+                "bottom": 227,
+                "left": 33,
+                "right": 165,
+                "width": 132,
+                "height": 106
+              },
+              "snippet": "<img alt=\"U+ Studio\" fetchpriority=\"high\" width=\"300\" height=\"120\" decoding=\"async\" data-nimg=\"1\" class=\"h-auto w-[132px] mix-blend-screen @md:w-[150px]\" style=\"color:transparent\" srcset=\"/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg&amp;w=384&amp;q=75 1x, /_nex…\" src=\"/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg&amp;w=640&amp;q=75\">",
+              "nodeLabel": "U+ Studio"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-IMG",
+              "path": "1,HTML,1,BODY,4,MAIN,0,SECTION,1,DIV,2,DIV,0,DIV,0,IMG",
+              "selector": "div.@container > div.relative > div.flex > img.h-auto",
+              "boundingRect": {
+                "top": 121,
+                "bottom": 227,
+                "left": 33,
+                "right": 165,
+                "width": 132,
+                "height": 106
+              },
+              "snippet": "<img alt=\"U+ Studio\" fetchpriority=\"high\" width=\"300\" height=\"120\" decoding=\"async\" data-nimg=\"1\" class=\"h-auto w-[132px] mix-blend-screen @md:w-[150px]\" style=\"color:transparent\" srcset=\"/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg&amp;w=384&amp;q=75 1x, /_nex…\" src=\"/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg&amp;w=640&amp;q=75\">",
+              "nodeLabel": "U+ Studio"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/tr/kartvizit",
+      "profile": "desktop",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:10:56.520Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "desktop",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "report": "raw/tr__kartvizit-desktop-1.html",
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 0.66,
+      "lcp": 317.8921,
+      "fcp": 317.8921,
+      "cls": 0,
+      "tbt": 4.946050000000014,
+      "speedIndex": 1206.544382087605,
+      "transferBytes": 786915,
+      "requests": 62,
+      "mainThreadMs": 942.4519999999933,
+      "ttfb": 14,
+      "findings": [
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.93,
+          "displayValue": "1.2 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 101 KiB"
+        },
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing",
+          "score": 0
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 40 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 402.38699999999506
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 245.44899999999853
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 185.4
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 45.203
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 42.455999999999705
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 14.177999999999999
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 7.378999999999995
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3300/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 314.6959999999985,
+            "scripting": 259.16899999999845,
+            "scriptParseCompile": 5.821
+          },
+          {
+            "url": "http://localhost:3300/tr/kartvizit",
+            "total": 304.50000000000034,
+            "scripting": 4.493999999999999,
+            "scriptParseCompile": 3.2270000000000003
+          },
+          {
+            "url": "Unattributable",
+            "total": 109.57000000000029,
+            "scripting": 10.229999999999999,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 103.44500000000009,
+            "scripting": 78.90000000000009,
+            "scriptParseCompile": 3.4499999999999997
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 17.444
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 302.578
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-P",
+              "path": "1,HTML,1,BODY,4,MAIN,0,SECTION,1,DIV,2,DIV,2,P",
+              "selector": "section.mx-auto > div.@container > div.relative > p.mt-2",
+              "boundingRect": {
+                "top": 330,
+                "bottom": 367,
+                "left": 426,
+                "right": 920,
+                "width": 494,
+                "height": 37
+              },
+              "snippet": "<p class=\"mt-2 font-serif text-[clamp(1.5rem,5.2vw,2.1rem)] italic leading-[1.1]\">",
+              "nodeLabel": "Mimarlık, önce düşünmekle başlar."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/kartvizit",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:11:09.005Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/en__kartvizit-mobile-1.html",
+      "performance": 0.83,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 0.66,
+      "lcp": 4388.6368,
+      "fcp": 1087.8184,
+      "cls": 0,
+      "tbt": 161.09079999999994,
+      "speedIndex": 2591.057463598656,
+      "transferBytes": 551163,
+      "requests": 43,
+      "mainThreadMs": 3267.6279999999806,
+      "ttfb": 28,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.4,
+          "displayValue": "4.4 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.97,
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.93,
+          "displayValue": "160 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.46,
+          "displayValue": "260 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.79,
+          "displayValue": "4.7 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.3 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 26 KiB"
+        },
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing",
+          "score": 0
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 70 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 1255.9519999999864
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 884.067999999995
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 741.8720000000002
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 179.5559999999992
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 123.45999999999997
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 54.903999999999996
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 27.816000000000003
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3300/en/kartvizit",
+            "total": 1323.1480000000006,
+            "scripting": 20.57199999999999,
+            "scriptParseCompile": 17.923999999999996
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 1195.2760000000037,
+            "scripting": 983.7480000000035,
+            "scriptParseCompile": 20.14
+          },
+          {
+            "url": "Unattributable",
+            "total": 330.22400000000164,
+            "scripting": 22.044,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 113.80000000000008,
+            "scripting": 81.15200000000009,
+            "scriptParseCompile": 15.496
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 109.53199999999991,
+            "scripting": 54.29199999999992,
+            "scriptParseCompile": 4.108
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 31.573
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 29.898
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 55.626
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 229.997
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-IMG",
+              "path": "1,HTML,1,BODY,4,MAIN,0,SECTION,1,DIV,2,DIV,0,DIV,0,IMG",
+              "selector": "div.@container > div.relative > div.flex > img.h-auto",
+              "boundingRect": {
+                "top": 121,
+                "bottom": 227,
+                "left": 33,
+                "right": 165,
+                "width": 132,
+                "height": 106
+              },
+              "snippet": "<img alt=\"U+ Studio\" fetchpriority=\"high\" width=\"300\" height=\"120\" decoding=\"async\" data-nimg=\"1\" class=\"h-auto w-[132px] mix-blend-screen @md:w-[150px]\" style=\"color:transparent\" srcset=\"/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg&amp;w=384&amp;q=75 1x, /_nex…\" src=\"/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg&amp;w=640&amp;q=75\">",
+              "nodeLabel": "U+ Studio"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-IMG",
+              "path": "1,HTML,1,BODY,4,MAIN,0,SECTION,1,DIV,2,DIV,0,DIV,0,IMG",
+              "selector": "div.@container > div.relative > div.flex > img.h-auto",
+              "boundingRect": {
+                "top": 121,
+                "bottom": 227,
+                "left": 33,
+                "right": 165,
+                "width": 132,
+                "height": 106
+              },
+              "snippet": "<img alt=\"U+ Studio\" fetchpriority=\"high\" width=\"300\" height=\"120\" decoding=\"async\" data-nimg=\"1\" class=\"h-auto w-[132px] mix-blend-screen @md:w-[150px]\" style=\"color:transparent\" srcset=\"/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg&amp;w=384&amp;q=75 1x, /_nex…\" src=\"/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg&amp;w=640&amp;q=75\">",
+              "nodeLabel": "U+ Studio"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/kartvizit",
+      "profile": "desktop",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:11:23.293Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "desktop",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "report": "raw/en__kartvizit-desktop-1.html",
+      "performance": 0.98,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 0.66,
+      "lcp": 946.083,
+      "fcp": 314.0332,
+      "cls": 0,
+      "tbt": 8.016599999999869,
+      "speedIndex": 1173.2265852878643,
+      "transferBytes": 792634,
+      "requests": 62,
+      "mainThreadMs": 869.176999999993,
+      "ttfb": 9,
+      "findings": [
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.96,
+          "displayValue": "0.9 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.93,
+          "displayValue": "1.2 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 100 KiB"
+        },
+        {
+          "id": "is-crawlable",
+          "title": "Page is blocked from indexing",
+          "score": 0
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 30 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 345.6929999999946
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 227.11199999999872
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 190.258
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 44.314000000000014
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 40.685999999999844
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 14.728
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 6.386000000000001
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3300/en/kartvizit",
+            "total": 312.49900000000054,
+            "scripting": 4.674999999999998,
+            "scriptParseCompile": 4.415
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 291.11700000000087,
+            "scripting": 234.26900000000091,
+            "scriptParseCompile": 5.984999999999999
+          },
+          {
+            "url": "Unattributable",
+            "total": 93.52800000000022,
+            "scripting": 7.7170000000000005,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3300/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 79.51000000000003,
+            "scripting": 61.101000000000035,
+            "scriptParseCompile": 3.556
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 12.616
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 19.469
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 44.755
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 238.569
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-IMG",
+              "path": "1,HTML,1,BODY,4,MAIN,0,SECTION,1,DIV,2,DIV,0,DIV,0,IMG",
+              "selector": "div.@container > div.relative > div.flex > img.h-auto",
+              "boundingRect": {
+                "top": 165,
+                "bottom": 285,
+                "left": 426,
+                "right": 576,
+                "width": 150,
+                "height": 120
+              },
+              "snippet": "<img alt=\"U+ Studio\" fetchpriority=\"high\" width=\"300\" height=\"120\" decoding=\"async\" data-nimg=\"1\" class=\"h-auto w-[132px] mix-blend-screen @md:w-[150px]\" style=\"color:transparent\" srcset=\"/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg&amp;w=384&amp;q=75 1x, /_nex…\" src=\"http://localhost:3300/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg…\">",
+              "nodeLabel": "U+ Studio"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-IMG",
+              "path": "1,HTML,1,BODY,4,MAIN,0,SECTION,1,DIV,2,DIV,0,DIV,0,IMG",
+              "selector": "div.@container > div.relative > div.flex > img.h-auto",
+              "boundingRect": {
+                "top": 165,
+                "bottom": 285,
+                "left": 426,
+                "right": 576,
+                "width": 150,
+                "height": 120
+              },
+              "snippet": "<img alt=\"U+ Studio\" fetchpriority=\"high\" width=\"300\" height=\"120\" decoding=\"async\" data-nimg=\"1\" class=\"h-auto w-[132px] mix-blend-screen @md:w-[150px]\" style=\"color:transparent\" srcset=\"/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg&amp;w=384&amp;q=75 1x, /_nex…\" src=\"http://localhost:3300/_next/image?url=%2Fimages%2Fgeneral_black_cuted.jpeg…\">",
+              "nodeLabel": "U+ Studio"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

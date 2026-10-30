@@ -262,12 +262,14 @@ for (const loc of sitemap.keys()) if (!loc.startsWith(`${CANONICAL_ORIGIN}/`) &&
 
 // ---------- assets ----------
 const imageUse = new Map();
+const originalImageUrl = (url) => {
+  const parsed = new URL(url, CANONICAL_ORIGIN);
+  return parsed.pathname === "/_next/image" ? new URL(parsed.searchParams.get("url"), CANONICAL_ORIGIN).href : parsed.href;
+};
 const addImage = (url, page, how, extra = {}) => {
   if (!url || url.startsWith("data:")) return;
   const abs = new URL(url, CANONICAL_ORIGIN).href;
-  let original = abs;
-  const u = new URL(abs);
-  if (u.pathname === "/_next/image") original = new URL(u.searchParams.get("url"), CANONICAL_ORIGIN).href;
+  const original = originalImageUrl(abs);
   const entry = imageUse.get(original) ?? { url: original, pages: new Set(), how: new Set(), alts: new Set(), fetchUrl: abs, sitemapPages: new Set() };
   if (page) entry.pages.add(page);
   entry.how.add(how);
@@ -300,10 +302,8 @@ await pool([...imageUse.values()], 8, async (entry) => {
   if (!entry.robotsAllowed) flag("FAIL", entry.url, "image disallowed by robots.txt");
   for (const sp of entry.sitemapPages) {
     const page = pages.get(BASE + sp);
-    const onPage = page?.images?.some((i) => {
-      const u = new URL(i.src, CANONICAL_ORIGIN);
-      return (u.pathname === "/_next/image" ? new URL(u.searchParams.get("url"), CANONICAL_ORIGIN).href : u.href) === entry.url;
-    }) || page?.videos?.some((v) => v.poster && new URL(v.poster, CANONICAL_ORIGIN).href === entry.url) || page?.ogImage === entry.url;
+    const onPage = page?.images?.some((i) => originalImageUrl(i.src) === entry.url)
+      || page?.videos?.some((v) => v.poster && originalImageUrl(v.poster) === entry.url) || page?.ogImage === entry.url;
     if (!onPage) flag("WARN", entry.url, `listed in sitemap for ${sp} but not in that page's HTML <img>`);
   }
   if (entry.how.has("img") && [...entry.alts].every((a) => !a) && !entry.how.has("sitemap")) entry.decorative = true;

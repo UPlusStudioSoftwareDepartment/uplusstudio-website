@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getImageProps } from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { preload } from "react-dom";
@@ -44,7 +45,13 @@ export default async function Page({ params }: Params) {
   const { video } = project;
   const c = COPY[locale];
   const portrait = video.height > video.width;
-  preload(screenPoster(video), { as: "image", fetchPriority: "high" });
+  const { props: { src: poster } } = getImageProps({
+    src: screenPoster(video),
+    alt: "",
+    width: video.width,
+    height: video.height,
+  });
+  preload(poster, { as: "image", fetchPriority: "high" });
 
   return (
     <>
@@ -67,7 +74,7 @@ export default async function Page({ params }: Params) {
             className={`mx-auto mt-10 overflow-hidden bg-black ${portrait ? "aspect-[9/16] w-[min(100%,calc(min(78svh,900px)*9/16))]" : "w-full"}`}
             style={portrait ? undefined : { aspectRatio: `${video.width} / ${video.height}` }}
           >
-            <video src={video.src} poster={screenPoster(video)} controls playsInline preload="none" className="h-full w-full object-contain" aria-label={project.title[locale]} />
+            <video src={video.src} poster={poster} controls playsInline preload="none" className="h-full w-full object-contain" aria-label={project.title[locale]} />
           </div>
           <p className="mt-10 max-w-3xl text-[17px] leading-relaxed text-bone/85">{project.description[locale]}</p>
           <Link href={`/${locale}/projects/${slug}`} className="mt-8 inline-flex min-h-11 items-center gap-3 border border-bone/40 px-5 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors hover:border-bone hover:bg-bone/10">

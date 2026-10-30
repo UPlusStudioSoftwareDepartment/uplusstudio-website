@@ -1,0 +1,48 @@
+{
+  "checkedAt": "2026-10-30T07:23:48.800Z",
+  "poster": "/_next/image?url=%2Fmedia%2Fvideo%2Fvilla-transformation.webp&w=1920&q=75",
+  "status": 200,
+  "type": "image/avif",
+  "originalBytes": 58584,
+  "optimizedBytes": 41549,
+  "original": {
+    "format": "webp",
+    "mediaType": "image/webp",
+    "size": 58584,
+    "width": 1280,
+    "height": 716,
+    "space": "srgb",
+    "channels": 3,
+    "depth": "uchar",
+    "isProgressive": false,
+    "isPalette": false,
+    "hasProfile": false,
+    "hasAlpha": false,
+    "autoOrient": {
+      "width": 1280,
+      "height": 716
+    }
+  },
+  "optimized": {
+    "format": "heif",
+    "mediaType": "image/avif",
+    "size": 41549,
+    "width": 1280,
+    "height": 716,
+    "space": "srgb",
+    "channels": 3,
+    "depth": "uchar",
+    "isProgressive": false,
+    "isPalette": false,
+    "bitsPerSample": 8,
+    "pages": 1,
+    "pagePrimary": 0,
+    "compression": "av1",
+    "hasProfile": false,
+    "hasAlpha": false,
+    "autoOrient": {
+      "width": 1280,
+      "height": 716
+    }
+  }
+}

@@ -6,6 +6,8 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const csp = ["frame-ancestors 'self'", "base-uri 'self'", "form-action 'self'", "object-src 'none'", ...(process.env.VERCEL ? ["upgrade-insecure-requests"] : [])].join("; ");
 
 const nextConfig: NextConfig = {
+  // Keep production QA builds separate from an active development server.
+  distDir: process.env.NEXT_DIST_DIR ?? ".next",
   reactStrictMode: true,
   devIndicators: false,
   experimental: {

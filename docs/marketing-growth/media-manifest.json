@@ -1,0 +1,1599 @@
+{
+  "generatedAt": "2026-10-29T19:45:37.322Z",
+  "assets": [
+    {
+      "src": "/media/projects/villa-donusumu/after.jpg",
+      "uses": [
+        {
+          "project": "villa-donusumu",
+          "width": 1280,
+          "height": 716,
+          "alt": {
+            "tr": "Yenilenmiş villa cephesi",
+            "en": "Renovated villa façade"
+          },
+          "role": "project-image"
+        },
+        {
+          "project": "villa-donusumu",
+          "width": 1280,
+          "height": 716,
+          "alt": {
+            "tr": "Villanın yeni hali",
+            "en": "The villa after"
+          },
+          "role": "project-image"
+        },
+        {
+          "service": "tadilat-donusum-ankara",
+          "role": "service-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 153382,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/villa-donusumu/during.jpg",
+      "uses": [
+        {
+          "project": "villa-donusumu",
+          "width": 1280,
+          "height": 716,
+          "alt": {
+            "tr": "Dönüşüm sürecinde villa",
+            "en": "The villa mid-transformation"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 150375,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/villa-donusumu/before.jpg",
+      "uses": [
+        {
+          "project": "villa-donusumu",
+          "width": 1280,
+          "height": 716,
+          "alt": {
+            "tr": "Villanın önceki hali",
+            "en": "The villa before"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 171564,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/villa-transformation.mp4",
+      "uses": [
+        {
+          "project": "villa-donusumu",
+          "src": "/media/video/villa-transformation.mp4",
+          "poster": "/media/video/villa-transformation.jpg",
+          "width": 1280,
+          "height": 716,
+          "duration": 10,
+          "uploadDate": "2026-10-27T22:07:11+03:00",
+          "role": "project-video"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 2230610,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/villa-transformation.webp",
+      "uses": [
+        {
+          "project": "villa-donusumu",
+          "role": "video-poster",
+          "alt": {
+            "tr": "Villa Dönüşümü",
+            "en": "Villa Transformation"
+          }
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 58584,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/evox-gym/training-floor.jpg",
+      "uses": [
+        {
+          "project": "evox-gym-center",
+          "width": 1439,
+          "height": 959,
+          "alt": {
+            "tr": "Evox Gym antrenman salonu",
+            "en": "Evox Gym training floor"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 175019,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/evox-gym/strength-zone.jpg",
+      "uses": [
+        {
+          "project": "evox-gym-center",
+          "width": 1440,
+          "height": 966,
+          "alt": {
+            "tr": "Kuvvet alanı",
+            "en": "Strength zone"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 207465,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/evox-gym/mural.jpg",
+      "uses": [
+        {
+          "project": "evox-gym-center",
+          "width": 1439,
+          "height": 959,
+          "alt": {
+            "tr": "Duvar resmi ve ekipman alanı",
+            "en": "Mural and equipment area"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 113037,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/evox-gym/lockers.jpg",
+      "uses": [
+        {
+          "project": "evox-gym-center",
+          "width": 1279,
+          "height": 959,
+          "alt": {
+            "tr": "Soyunma odası",
+            "en": "Locker room"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 103017,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/evox-gym/boxing.jpg",
+      "uses": [
+        {
+          "project": "evox-gym-center",
+          "width": 1439,
+          "height": 959,
+          "alt": {
+            "tr": "Boks alanı",
+            "en": "Boxing area"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 117545,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/evox-gym/pilates.jpg",
+      "uses": [
+        {
+          "project": "evox-gym-center",
+          "width": 1440,
+          "height": 967,
+          "alt": {
+            "tr": "Pilates stüdyosu",
+            "en": "Pilates studio"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 175660,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/evox-gym/lounge.jpg",
+      "uses": [
+        {
+          "project": "evox-gym-center",
+          "width": 1440,
+          "height": 967,
+          "alt": {
+            "tr": "Lounge ve karşılama",
+            "en": "Lounge and reception"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 133422,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/butik-kafe/bar.jpg",
+      "uses": [
+        {
+          "project": "butik-kafe",
+          "width": 1440,
+          "height": 1018,
+          "alt": {
+            "tr": "Kedi maskotlu butik kafenin barı",
+            "en": "The bar of the cat-themed boutique café"
+          },
+          "role": "project-image"
+        },
+        {
+          "project": "butik-kafe",
+          "width": 1440,
+          "height": 1018,
+          "alt": {
+            "tr": "Kedi maskotlu kafenin barı ve oturma alanı",
+            "en": "The cat-themed café: bar and seating"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 164778,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/butik-kafe/moodboard.jpg",
+      "uses": [
+        {
+          "project": "butik-kafe",
+          "width": 1440,
+          "height": 1018,
+          "alt": {
+            "tr": "Malzeme moodboard'u",
+            "en": "Material moodboard"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 200047,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/butik-kafe/materials.jpg",
+      "uses": [
+        {
+          "project": "butik-kafe",
+          "width": 1440,
+          "height": 1440,
+          "alt": {
+            "tr": "Malzeme numuneleri",
+            "en": "Material samples"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 236443,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/butik-kafe/mascot-sketch.jpg",
+      "uses": [
+        {
+          "project": "butik-kafe",
+          "width": 1440,
+          "height": 1018,
+          "alt": {
+            "tr": "Eskizden maskota",
+            "en": "From sketch to mascot"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 122476,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/butik-kafe/merchandise.jpg",
+      "uses": [
+        {
+          "project": "butik-kafe",
+          "width": 1440,
+          "height": 1018,
+          "alt": {
+            "tr": "Ürün koleksiyonu",
+            "en": "Merchandise collection"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 171437,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/modern-villa/exterior-dusk.jpg",
+      "uses": [
+        {
+          "project": "modern-villa",
+          "width": 1440,
+          "height": 960,
+          "alt": {
+            "tr": "Alacakaranlıkta modern villa",
+            "en": "Modern villa at dusk"
+          },
+          "role": "project-image"
+        },
+        {
+          "service": "villa-mimari-proje-ankara",
+          "role": "service-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 154188,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/modern-villa/exterior-pool-hd.jpg",
+      "uses": [
+        {
+          "project": "modern-villa",
+          "width": 2000,
+          "height": 1333,
+          "alt": {
+            "tr": "Havuz terasından villa",
+            "en": "The villa from the pool terrace"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 289881,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/ofis-yenileme/after.jpg",
+      "uses": [
+        {
+          "project": "ofis-yenileme",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Yenilenmiş ofis",
+            "en": "Renovated office"
+          },
+          "role": "project-image"
+        },
+        {
+          "project": "ofis-yenileme",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Ofisin yeni hali",
+            "en": "The office after"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 77641,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/ofis-yenileme/after-2.jpg",
+      "uses": [
+        {
+          "project": "ofis-yenileme",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Balkona açılan yeni doğramalar",
+            "en": "New balcony frames"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 54856,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/ofis-yenileme/after-3.jpg",
+      "uses": [
+        {
+          "project": "ofis-yenileme",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Çalışma alanı",
+            "en": "Workspace"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 63551,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/ofis-yenileme/before-2.jpg",
+      "uses": [
+        {
+          "project": "ofis-yenileme",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Ofisin önceki hali",
+            "en": "The office before"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 52557,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/ofis-yenileme/site-banner.jpg",
+      "uses": [
+        {
+          "project": "ofis-yenileme",
+          "width": 1200,
+          "height": 1600,
+          "alt": {
+            "tr": "Şantiye pankartı: 30 yıllık villadan modern ofise",
+            "en": "Site banner: from a 30-year-old villa to a modern office"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 280003,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/ofis-yenileme/before.jpg",
+      "uses": [
+        {
+          "project": "ofis-yenileme",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Ofisin önceki hali",
+            "en": "The office before"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 39383,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/office-before-after.mp4",
+      "uses": [
+        {
+          "project": "ofis-yenileme",
+          "src": "/media/video/office-before-after.mp4",
+          "poster": "/media/video/office-before-after.jpg",
+          "width": 540,
+          "height": 960,
+          "duration": 18,
+          "uploadDate": "2026-10-27T22:07:11+03:00",
+          "role": "project-video"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 2787132,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/office-before-after.webp",
+      "uses": [
+        {
+          "project": "ofis-yenileme",
+          "role": "video-poster",
+          "alt": {
+            "tr": "Villadan Ofise Dönüşüm",
+            "en": "Villa-to-Office Conversion"
+          }
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 17448,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-uygulama/entrance.jpg",
+      "uses": [
+        {
+          "project": "konut-uygulama",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Giriş holü",
+            "en": "Entrance hall"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 71015,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-uygulama/stair.jpg",
+      "uses": [
+        {
+          "project": "konut-uygulama",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Cam korkuluklu merdiven",
+            "en": "Glass-balustrade stair"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 70093,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-uygulama/hall.jpg",
+      "uses": [
+        {
+          "project": "konut-uygulama",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Ahşap kaplama ve lineer aydınlatma",
+            "en": "Timber cladding and linear light"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 73609,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-uygulama/doors.jpg",
+      "uses": [
+        {
+          "project": "konut-uygulama",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Gizli kasa kapılar",
+            "en": "Flush concealed doors"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 60082,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-uygulama/stair-2.jpg",
+      "uses": [
+        {
+          "project": "konut-uygulama",
+          "width": 720,
+          "height": 1280,
+          "alt": {
+            "tr": "Merdiven boşluğu",
+            "en": "Stairwell"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 76379,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/residence-walkthrough.mp4",
+      "uses": [
+        {
+          "project": "konut-uygulama",
+          "src": "/media/video/residence-walkthrough.mp4",
+          "poster": "/media/video/residence-walkthrough.jpg",
+          "width": 540,
+          "height": 960,
+          "duration": 21,
+          "uploadDate": "2026-10-27T22:07:11+03:00",
+          "role": "project-video"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 2875667,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/residence-walkthrough.webp",
+      "uses": [
+        {
+          "project": "konut-uygulama",
+          "role": "video-poster",
+          "alt": {
+            "tr": "Konut Uygulaması",
+            "en": "Residential Fit-out"
+          }
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 14718,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-ic-mekan/living-2.jpg",
+      "uses": [
+        {
+          "project": "konut-ic-mekan",
+          "width": 720,
+          "height": 480,
+          "alt": {
+            "tr": "Salon",
+            "en": "Living room"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 68127,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-ic-mekan/living-1.jpg",
+      "uses": [
+        {
+          "project": "konut-ic-mekan",
+          "width": 720,
+          "height": 480,
+          "alt": {
+            "tr": "TV duvarı",
+            "en": "Media wall"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 62480,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-ic-mekan/living-3.jpg",
+      "uses": [
+        {
+          "project": "konut-ic-mekan",
+          "width": 720,
+          "height": 480,
+          "alt": {
+            "tr": "Yemek alanı",
+            "en": "Dining area"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 64616,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-ic-mekan/living-4.jpg",
+      "uses": [
+        {
+          "project": "konut-ic-mekan",
+          "width": 720,
+          "height": 480,
+          "alt": {
+            "tr": "Salon ve yemek alanı",
+            "en": "Living and dining"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 61423,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-ic-mekan/bedroom-1.jpg",
+      "uses": [
+        {
+          "project": "konut-ic-mekan",
+          "width": 720,
+          "height": 540,
+          "alt": {
+            "tr": "Yatak odası",
+            "en": "Bedroom"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 73989,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/living-room.mp4",
+      "uses": [
+        {
+          "project": "konut-ic-mekan",
+          "src": "/media/video/living-room.mp4",
+          "poster": "/media/video/living-room.jpg",
+          "width": 720,
+          "height": 480,
+          "duration": 17,
+          "uploadDate": "2026-10-27T22:07:11+03:00",
+          "role": "project-video"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 1968811,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/living-room.webp",
+      "uses": [
+        {
+          "project": "konut-ic-mekan",
+          "role": "video-poster",
+          "alt": {
+            "tr": "Konut İç Mekân",
+            "en": "Residential Interior"
+          }
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 23094,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/tek-katli-ev/exterior.jpg",
+      "uses": [
+        {
+          "project": "tek-katli-ev",
+          "width": 1536,
+          "height": 1024,
+          "alt": {
+            "tr": "Tek katlı modern ev ve bahçesi",
+            "en": "Single-storey modern house and garden"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 250497,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-projeleri/complex.jpg",
+      "uses": [
+        {
+          "project": "konut-projeleri",
+          "width": 1536,
+          "height": 1024,
+          "alt": {
+            "tr": "Gün batımında konut sitesi",
+            "en": "Residential complex at sunset"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 254347,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/konut-projeleri/apartment.jpg",
+      "uses": [
+        {
+          "project": "konut-projeleri",
+          "width": 1079,
+          "height": 720,
+          "alt": {
+            "tr": "Köşe parselde apartman bloğu",
+            "en": "Apartment block on a corner plot"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 136890,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/villa-ic-mekan/kitchen-island.jpg",
+      "uses": [
+        {
+          "project": "villa-ic-mekan",
+          "width": 1536,
+          "height": 1024,
+          "alt": {
+            "tr": "Adalı açık mutfak",
+            "en": "Open kitchen with island"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 186176,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/villa-ic-mekan/living.jpg",
+      "uses": [
+        {
+          "project": "villa-ic-mekan",
+          "width": 1024,
+          "height": 491,
+          "alt": {
+            "tr": "Taş şömine duvarlı salon",
+            "en": "Living room with stone fireplace wall"
+          },
+          "role": "project-image"
+        },
+        {
+          "service": "ic-mimarlik-ankara",
+          "role": "service-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 89326,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/villa-ic-mekan/kitchen.jpg",
+      "uses": [
+        {
+          "project": "villa-ic-mekan",
+          "width": 1024,
+          "height": 543,
+          "alt": {
+            "tr": "Mermer adalı mutfak",
+            "en": "Kitchen with marble island"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 78047,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/villa-ic-mekan/bedroom.jpg",
+      "uses": [
+        {
+          "project": "villa-ic-mekan",
+          "width": 1024,
+          "height": 494,
+          "alt": {
+            "tr": "Bahçeye bakan yatak odası",
+            "en": "Bedroom overlooking the garden"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 89114,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/pastane/interior.jpg",
+      "uses": [
+        {
+          "project": "pastane",
+          "width": 1536,
+          "height": 1024,
+          "alt": {
+            "tr": "Pastane iç mekânı ve vitrin tezgâhı",
+            "en": "Patisserie interior and display counter"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 198277,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/yonetici-ofisi/study.jpg",
+      "uses": [
+        {
+          "project": "yonetici-ofisi",
+          "width": 1536,
+          "height": 1024,
+          "alt": {
+            "tr": "Chesterfield koltuklu yönetici odası",
+            "en": "Executive study with Chesterfield armchairs"
+          },
+          "role": "project-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 162454,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/images/persons/founders/hacer_uyar/hacer-uyar-u-plus-studio-ofis.jpg",
+      "uses": [
+        {
+          "service": "incek-golbasi-mimarlik-ofisi",
+          "role": "service-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 661616,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/butik-kafe/interior-hd.jpg",
+      "uses": [
+        {
+          "service": "ticari-mekan-tasarimi-ankara",
+          "role": "service-image"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 158064,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/diagrams/process-brief.svg",
+      "uses": [
+        {
+          "page": "/tr and /en",
+          "role": "schematic-process-illustration",
+          "alt": ""
+        }
+      ],
+      "source": "Bu çalışma: özgün SVG çizimi",
+      "rights": "Original project asset; no third-party source",
+      "mediaKind": "diagram",
+      "approval": "Yerel uygulama; müşteri/proje fotoğrafı değildir",
+      "version": 1,
+      "bytes": 490,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/diagrams/process-concept.svg",
+      "uses": [
+        {
+          "page": "/tr and /en",
+          "role": "schematic-process-illustration",
+          "alt": ""
+        }
+      ],
+      "source": "Bu çalışma: özgün SVG çizimi",
+      "rights": "Original project asset; no third-party source",
+      "mediaKind": "diagram",
+      "approval": "Yerel uygulama; müşteri/proje fotoğrafı değildir",
+      "version": 1,
+      "bytes": 479,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/diagrams/process-detail.svg",
+      "uses": [
+        {
+          "page": "/tr and /en",
+          "role": "schematic-process-illustration",
+          "alt": ""
+        }
+      ],
+      "source": "Bu çalışma: özgün SVG çizimi",
+      "rights": "Original project asset; no third-party source",
+      "mediaKind": "diagram",
+      "approval": "Yerel uygulama; müşteri/proje fotoğrafı değildir",
+      "version": 1,
+      "bytes": 525,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/diagrams/process-coordination.svg",
+      "uses": [
+        {
+          "page": "/tr and /en",
+          "role": "schematic-process-illustration",
+          "alt": ""
+        }
+      ],
+      "source": "Bu çalışma: özgün SVG çizimi",
+      "rights": "Original project asset; no third-party source",
+      "mediaKind": "diagram",
+      "approval": "Yerel uygulama; müşteri/proje fotoğrafı değildir",
+      "version": 1,
+      "bytes": 542,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 2380,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/icon-192.png",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 2509,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/images/general_black_cuted.jpeg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 19810,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/images/persons/founders/hacer_uyar/hacer-uyar-portre.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 95516,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/images/persons/founders/hacer_uyar/haceruyar_face_2.png",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 233737,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/images/persons/founders/ridvan_uyar/ridvanuyar_face.jpeg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 750906,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/logo/uplusstudioblacklogo.png",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 16284,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/audio/villa-transformation.aac",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 158927,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/icons/peyzajrehber.png",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 11865,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/mascots/builder-menu.svg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 3656,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/mascots/designer-menu.svg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 4466,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/brand/lapel-logo.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 163741,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/butik-kafe/interior.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 134852,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/projects/modern-villa/exterior-pool.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 160987,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/bedroom.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 43165,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/bedroom.mp4",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 318395,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/bedroom.webp",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 13724,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/living-room.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 58857,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/office-before-after.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 49122,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/residence-walkthrough.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 43039,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/villa-transformation-sm.mp4",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 971982,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/media/video/villa-transformation.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 171460,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/og/uplus-studio-en.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 105882,
+      "fileStatus": "EXISTS"
+    },
+    {
+      "src": "/og/uplus-studio-tr.jpg",
+      "uses": [
+        {
+          "role": "repository-asset; usage not established by these content models"
+        }
+      ],
+      "source": "Mevcut repository varlığı",
+      "rights": "NEEDS_OWNER_CONFIRMATION",
+      "mediaKind": "UNVERIFIED",
+      "approval": "Mevcut kullanım korundu; yeni hak iddiası yok",
+      "version": 1,
+      "bytes": 106594,
+      "fileStatus": "EXISTS"
+    }
+  ]
+}

@@ -18,6 +18,10 @@
 
 # next.js
 /.next/
+/.next-qa/
+/.next-qa-current/
+/reports/performance/**/raw/
+/reports/performance/**/*.png
 /out/
 
 # production

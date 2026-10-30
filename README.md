@@ -28,6 +28,8 @@ Gizli değerler yalnızca `.env.local` dosyasında (git'e girmez) ve Vercel → 
 
 ## Testler
 
+Pazarlama içerik/medya envanteri: `npm run marketing:inventory`. Lighthouse ve ayrı production QA derlemesi: [docs/performance.md](docs/performance.md). Son çalışma raporu: [docs/marketing-growth/MASTER-EXECUTION-REPORT.md](docs/marketing-growth/MASTER-EXECUTION-REPORT.md).
+
 ```bash
 npm run lint
 npm run test

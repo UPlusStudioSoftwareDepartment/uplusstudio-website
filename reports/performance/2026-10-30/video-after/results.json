@@ -1,0 +1,4420 @@
+{
+  "phase": "poster-after",
+  "base": "http://localhost:3301",
+  "buildId": "091H0EFQ44AZ3MrTmlqQ9",
+  "throttlingMethod": "simulate",
+  "runsPerUrl": 1,
+  "paths": [
+    "/tr/projects/villa-donusumu/video",
+    "/en/projects/villa-donusumu/video",
+    "/tr/projects/ofis-yenileme/video",
+    "/en/projects/ofis-yenileme/video",
+    "/tr/projects/konut-uygulama/video",
+    "/en/projects/konut-uygulama/video",
+    "/tr/projects/konut-ic-mekan/video",
+    "/en/projects/konut-ic-mekan/video"
+  ],
+  "profiles": [
+    "mobile",
+    "desktop"
+  ],
+  "labOnly": true,
+  "cache": "cold (Lighthouse storage reset)",
+  "warmCache": "UNVERIFIED",
+  "fieldINP": "UNVERIFIED",
+  "startedAt": "2026-10-30T07:22:47.124Z",
+  "browser": "Chrome/156.0.8078.74",
+  "measuredAt": "2026-10-30T07:25:09.588Z",
+  "rows": [
+    {
+      "path": "/tr/projects/villa-donusumu/video",
+      "profile": "mobile",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.75,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4980.472,
+      "fcp": 1084.3887999999997,
+      "cls": 0,
+      "tbt": 288,
+      "speedIndex": 3171.558587100064,
+      "transferBytes": 588258,
+      "requests": 50,
+      "mainThreadMs": 3323.5439999999808,
+      "ttfb": 13
+    },
+    {
+      "path": "/tr/projects/villa-donusumu/video",
+      "profile": "desktop",
+      "status": "PASS",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.98,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 959.4544999999998,
+      "fcp": 318.303,
+      "cls": 0,
+      "tbt": 6,
+      "speedIndex": 979.2306961247986,
+      "transferBytes": 833191,
+      "requests": 70,
+      "mainThreadMs": 994.0509999999933,
+      "ttfb": 12
+    },
+    {
+      "path": "/en/projects/villa-donusumu/video",
+      "profile": "mobile",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.84,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4342.7904,
+      "fcp": 1080.3952,
+      "cls": 0,
+      "tbt": 96.5,
+      "speedIndex": 2191.3724582607992,
+      "transferBytes": 594364,
+      "requests": 50,
+      "mainThreadMs": 2948.9439999999954,
+      "ttfb": 6
+    },
+    {
+      "path": "/en/projects/villa-donusumu/video",
+      "profile": "desktop",
+      "status": "PASS",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 970.1612500000001,
+      "fcp": 318.1075000000001,
+      "cls": 0,
+      "tbt": 12.526875000000132,
+      "speedIndex": 956.4119886968981,
+      "transferBytes": 838820,
+      "requests": 70,
+      "mainThreadMs": 1005.9109999999971,
+      "ttfb": 9
+    },
+    {
+      "path": "/tr/projects/ofis-yenileme/video",
+      "profile": "mobile",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.85,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4287.840200000001,
+      "fcp": 1075.9201,
+      "cls": 0,
+      "tbt": 78.5,
+      "speedIndex": 2501.160007234073,
+      "transferBytes": 530212,
+      "requests": 46,
+      "mainThreadMs": 2527.491999999995,
+      "ttfb": 8
+    },
+    {
+      "path": "/tr/projects/ofis-yenileme/video",
+      "profile": "desktop",
+      "status": "PASS",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 948.9350999999998,
+      "fcp": 306.62339999999995,
+      "cls": 0,
+      "tbt": 9.500000000000057,
+      "speedIndex": 611.2549592334108,
+      "transferBytes": 775145,
+      "requests": 66,
+      "mainThreadMs": 769.0399999999976,
+      "ttfb": 6
+    },
+    {
+      "path": "/en/projects/ofis-yenileme/video",
+      "profile": "mobile",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.84,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4198.3315999999995,
+      "fcp": 1076.1658,
+      "cls": 0,
+      "tbt": 149.9170999999999,
+      "speedIndex": 2545.5172761641816,
+      "transferBytes": 536323,
+      "requests": 46,
+      "mainThreadMs": 2788.3279999999972,
+      "ttfb": 11
+    },
+    {
+      "path": "/en/projects/ofis-yenileme/video",
+      "profile": "desktop",
+      "status": "PASS",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 926.6071000000001,
+      "fcp": 303.07140000000004,
+      "cls": 0,
+      "tbt": 0.9999999999999432,
+      "speedIndex": 597.9393645274207,
+      "transferBytes": 780779,
+      "requests": 66,
+      "mainThreadMs": 722.8099999999981,
+      "ttfb": 9
+    },
+    {
+      "path": "/tr/projects/konut-uygulama/video",
+      "profile": "mobile",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.86,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4105.215,
+      "fcp": 1068.6075,
+      "cls": 0,
+      "tbt": 68,
+      "speedIndex": 2432.156438531224,
+      "transferBytes": 527407,
+      "requests": 46,
+      "mainThreadMs": 2264.071999999996,
+      "ttfb": 7
+    },
+    {
+      "path": "/tr/projects/konut-uygulama/video",
+      "profile": "desktop",
+      "status": "PASS",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 931.39895,
+      "fcp": 305.59929999999997,
+      "cls": 0,
+      "tbt": 1.5,
+      "speedIndex": 626.2398519599622,
+      "transferBytes": 772340,
+      "requests": 66,
+      "mainThreadMs": 740.3549999999984,
+      "ttfb": 6
+    },
+    {
+      "path": "/en/projects/konut-uygulama/video",
+      "profile": "mobile",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.86,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4105.5242,
+      "fcp": 1069.2621,
+      "cls": 0,
+      "tbt": 62,
+      "speedIndex": 2847.4474818310873,
+      "transferBytes": 533545,
+      "requests": 46,
+      "mainThreadMs": 2207.059999999996,
+      "ttfb": 9
+    },
+    {
+      "path": "/en/projects/konut-uygulama/video",
+      "profile": "desktop",
+      "status": "PASS",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 923.3108000000002,
+      "fcp": 302.20720000000006,
+      "cls": 0,
+      "tbt": 0,
+      "speedIndex": 601.1125247768351,
+      "transferBytes": 778001,
+      "requests": 66,
+      "mainThreadMs": 672.9979999999982,
+      "ttfb": 8
+    },
+    {
+      "path": "/tr/projects/konut-ic-mekan/video",
+      "profile": "mobile",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.84,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4336.1558,
+      "fcp": 1072.5779,
+      "cls": 0,
+      "tbt": 105.5,
+      "speedIndex": 2328.9097865970293,
+      "transferBytes": 560930,
+      "requests": 50,
+      "mainThreadMs": 2470.0359999999996,
+      "ttfb": 5
+    },
+    {
+      "path": "/tr/projects/konut-ic-mekan/video",
+      "profile": "desktop",
+      "status": "PASS",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 935.756,
+      "fcp": 304.504,
+      "cls": 0,
+      "tbt": 4.500000000000057,
+      "speedIndex": 922.1519032176145,
+      "transferBytes": 775425,
+      "requests": 66,
+      "mainThreadMs": 730.8119999999982,
+      "ttfb": 6
+    },
+    {
+      "path": "/en/projects/konut-ic-mekan/video",
+      "profile": "mobile",
+      "status": "FAIL",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.85,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4223.229600000001,
+      "fcp": 1072.6148,
+      "cls": 0,
+      "tbt": 122.5,
+      "speedIndex": 2073.5038714908014,
+      "transferBytes": 567048,
+      "requests": 50,
+      "mainThreadMs": 2618.3999999999987,
+      "ttfb": 9
+    },
+    {
+      "path": "/en/projects/konut-ic-mekan/video",
+      "profile": "desktop",
+      "status": "PASS",
+      "runs": 1,
+      "expectedRuns": 1,
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 929.1953000000002,
+      "fcp": 302.13020000000006,
+      "cls": 0,
+      "tbt": 2.999999999999943,
+      "speedIndex": 884.4465149304455,
+      "transferBytes": 781101,
+      "requests": 66,
+      "mainThreadMs": 682.1159999999985,
+      "ttfb": 6
+    }
+  ],
+  "samples": [
+    {
+      "path": "/tr/projects/villa-donusumu/video",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:22:47.782Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/tr__projects__villa-donusumu__video-mobile-1.html",
+      "performance": 0.75,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4980.472,
+      "fcp": 1084.3887999999997,
+      "cls": 0,
+      "tbt": 288,
+      "speedIndex": 3171.558587100064,
+      "transferBytes": 588258,
+      "requests": 50,
+      "mainThreadMs": 3323.5439999999808,
+      "ttfb": 13,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.27,
+          "displayValue": "5.0 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.92,
+          "displayValue": "3.2 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.8,
+          "displayValue": "290 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.4,
+          "displayValue": "280 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.75,
+          "displayValue": "5.1 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "3.3 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "score": 0,
+          "displayValue": "1.3 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 26 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0,
+          "displayValue": "Est savings of 37 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0.5,
+          "displayValue": "Est savings of 20 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 1323.4439999999881
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 821.7319999999993
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 774.931999999995
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 187.67999999999867
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 134.68399999999997
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 54.42000000000001
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 26.651999999999994
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/tr/projects/villa-donusumu/video",
+            "total": 1307.411999999999,
+            "scripting": 25.287999999999993,
+            "scriptParseCompile": 15.852
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 1241.3560000000025,
+            "scripting": 1021.7120000000025,
+            "scriptParseCompile": 28.720000000000002
+          },
+          {
+            "url": "Unattributable",
+            "total": 326.7840000000007,
+            "scripting": 20.215999999999998,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 161.00800000000012,
+            "scripting": 122.75200000000012,
+            "scriptParseCompile": 17.448
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 76.99199999999999,
+            "scripting": 40.41999999999999,
+            "scriptParseCompile": 3.2
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 18.873
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 36.517
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 62.029
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 799.218
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 291,
+                "bottom": 503,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 213
+              },
+              "snippet": "<video src=\"/media/video/villa-transformation.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fvilla-transformation.webp&amp;w=1920&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa Dönüşümü\">",
+              "nodeLabel": "Villa Dönüşümü"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 291,
+                "bottom": 503,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 213
+              },
+              "snippet": "<video src=\"/media/video/villa-transformation.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fvilla-transformation.webp&amp;w=1920&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa Dönüşümü\">",
+              "nodeLabel": "Villa Dönüşümü"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/tr/projects/villa-donusumu/video",
+      "profile": "desktop",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:22:58.596Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "desktop",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "report": "raw/tr__projects__villa-donusumu__video-desktop-1.html",
+      "performance": 0.98,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 959.4544999999998,
+      "fcp": 318.303,
+      "cls": 0,
+      "tbt": 6,
+      "speedIndex": 979.2306961247986,
+      "transferBytes": 833191,
+      "requests": 70,
+      "mainThreadMs": 994.0509999999933,
+      "ttfb": 12,
+      "findings": [
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.95,
+          "displayValue": "1.0 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.97,
+          "displayValue": "1.0 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 100 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 8 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 50 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 386.47199999999617
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 275.25899999999797
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 201.97400000000007
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 65.56999999999923
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 46.237000000000016
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 13.214999999999998
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 5.323999999999999
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/tr/projects/villa-donusumu/video",
+            "total": 360.5729999999993,
+            "scripting": 5.931999999999993,
+            "scriptParseCompile": 3.621
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 292.6280000000003,
+            "scripting": 231.78000000000034,
+            "scriptParseCompile": 5.380999999999999
+          },
+          {
+            "url": "Unattributable",
+            "total": 119.97000000000061,
+            "scripting": 10.734000000000002,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 114.98999999999995,
+            "scripting": 92.84299999999995,
+            "scriptParseCompile": 3.5460000000000003
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 14.945
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 22.104
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 58.354
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 222.056
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 982,
+                "left": 97,
+                "right": 1249,
+                "width": 1152,
+                "height": 644
+              },
+              "snippet": "<video src=\"/media/video/villa-transformation.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fvilla-transformation.webp&amp;w=1920&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa Dönüşümü\">",
+              "nodeLabel": "Villa Dönüşümü"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 982,
+                "left": 97,
+                "right": 1249,
+                "width": 1152,
+                "height": 644
+              },
+              "snippet": "<video src=\"/media/video/villa-transformation.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fvilla-transformation.webp&amp;w=1920&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa Dönüşümü\">",
+              "nodeLabel": "Villa Dönüşümü"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/projects/villa-donusumu/video",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:23:08.084Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/en__projects__villa-donusumu__video-mobile-1.html",
+      "performance": 0.84,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4342.7904,
+      "fcp": 1080.3952,
+      "cls": 0,
+      "tbt": 96.5,
+      "speedIndex": 2191.3724582607992,
+      "transferBytes": 594364,
+      "requests": 50,
+      "mainThreadMs": 2948.9439999999954,
+      "ttfb": 6,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.41,
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.99,
+          "displayValue": "2.2 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.98,
+          "displayValue": "100 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.55,
+          "displayValue": "230 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.81,
+          "displayValue": "4.6 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.9 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 26 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0,
+          "displayValue": "Est savings of 37 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 100 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 974.9560000000017
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 855.4119999999958
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 701.0559999999999
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 236.50399999999743
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 114.55600000000003
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 55.831999999999994
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 10.627999999999995
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/en/projects/villa-donusumu/video",
+            "total": 1328.2319999999977,
+            "scripting": 23.07199999999998,
+            "scriptParseCompile": 19.188000000000002
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 886.0200000000024,
+            "scripting": 684.9640000000022,
+            "scriptParseCompile": 17.368000000000002
+          },
+          {
+            "url": "Unattributable",
+            "total": 311.42800000000125,
+            "scripting": 18.764000000000003,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 174.21200000000005,
+            "scripting": 133.74800000000005,
+            "scriptParseCompile": 16.296
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 73.27999999999999,
+            "scripting": 35.22799999999999,
+            "scriptParseCompile": 2.9360000000000004
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 8.178
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 23.504
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 50.29
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 203.932
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 291,
+                "bottom": 503,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 213
+              },
+              "snippet": "<video src=\"/media/video/villa-transformation.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fvilla-transformation.webp&amp;w=1920&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa Transformation\">",
+              "nodeLabel": "Villa Transformation"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 291,
+                "bottom": 503,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 213
+              },
+              "snippet": "<video src=\"/media/video/villa-transformation.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fvilla-transformation.webp&amp;w=1920&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa Transformation\">",
+              "nodeLabel": "Villa Transformation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/projects/villa-donusumu/video",
+      "profile": "desktop",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:23:17.147Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "desktop",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "report": "raw/en__projects__villa-donusumu__video-desktop-1.html",
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 970.1612500000001,
+      "fcp": 318.1075000000001,
+      "cls": 0,
+      "tbt": 12.526875000000132,
+      "speedIndex": 956.4119886968981,
+      "transferBytes": 838820,
+      "requests": 70,
+      "mainThreadMs": 1005.9109999999971,
+      "ttfb": 9,
+      "findings": [
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.95,
+          "displayValue": "1.0 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.98,
+          "displayValue": "1.0 s"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.99,
+          "displayValue": "70 ms"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 100 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 8 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0.5,
+          "displayValue": "Est savings of 20 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 337.72399999999794
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 290.8489999999983
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 237.25600000000006
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 76.41400000000074
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 45.98100000000003
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 16.134000000000004
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 1.5529999999999993
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/en/projects/villa-donusumu/video",
+            "total": 436.85999999999984,
+            "scripting": 7.036999999999996,
+            "scriptParseCompile": 5.371999999999999
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 264.57500000000005,
+            "scripting": 206.08600000000004,
+            "scriptParseCompile": 5.464
+          },
+          {
+            "url": "Unattributable",
+            "total": 115.91600000000042,
+            "scripting": 10.270999999999999,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 99.29600000000002,
+            "scripting": 79.68800000000002,
+            "scriptParseCompile": 3.331
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 12.699
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 24.378
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 50.084
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 285.315
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 982,
+                "left": 97,
+                "right": 1249,
+                "width": 1152,
+                "height": 644
+              },
+              "snippet": "<video src=\"/media/video/villa-transformation.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fvilla-transformation.webp&amp;w=1920&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa Transformation\">",
+              "nodeLabel": "Villa Transformation"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 982,
+                "left": 97,
+                "right": 1249,
+                "width": 1152,
+                "height": 644
+              },
+              "snippet": "<video src=\"/media/video/villa-transformation.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fvilla-transformation.webp&amp;w=1920&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa Transformation\">",
+              "nodeLabel": "Villa Transformation"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/tr/projects/ofis-yenileme/video",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:23:26.852Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/tr__projects__ofis-yenileme__video-mobile-1.html",
+      "performance": 0.85,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4287.840200000001,
+      "fcp": 1075.9201,
+      "cls": 0,
+      "tbt": 78.5,
+      "speedIndex": 2501.160007234073,
+      "transferBytes": 530212,
+      "requests": 46,
+      "mainThreadMs": 2527.491999999995,
+      "ttfb": 8,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.42,
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.98,
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.99,
+          "displayValue": "80 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.71,
+          "displayValue": "190 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.82,
+          "displayValue": "4.5 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 26 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0,
+          "displayValue": "Est savings of 8 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 190 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 835.5160000000014
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 729.5119999999956
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 608.9400000000004
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 192.32399999999782
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 96.25199999999995
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 48.58
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 16.367999999999995
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/tr/projects/ofis-yenileme/video",
+            "total": 1118.0999999999995,
+            "scripting": 18.027999999999977,
+            "scriptParseCompile": 13.351999999999999
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 829.5800000000017,
+            "scripting": 637.0520000000017,
+            "scriptParseCompile": 18.124
+          },
+          {
+            "url": "Unattributable",
+            "total": 260.7800000000009,
+            "scripting": 10.811999999999998,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 94.04400000000001,
+            "scripting": 68.39200000000002,
+            "scriptParseCompile": 11.308
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 70.384,
+            "scripting": 29.308,
+            "scriptParseCompile": 2.536
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 10.98
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 26.51
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 39.69
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 197.52
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 263,
+                "bottom": 905,
+                "left": 25,
+                "right": 387,
+                "width": 361,
+                "height": 642
+              },
+              "snippet": "<video src=\"/media/video/office-before-after.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Foffice-before-after.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villadan Ofise Dönüşüm\">",
+              "nodeLabel": "Villadan Ofise Dönüşüm"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 263,
+                "bottom": 905,
+                "left": 25,
+                "right": 387,
+                "width": 361,
+                "height": 642
+              },
+              "snippet": "<video src=\"/media/video/office-before-after.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Foffice-before-after.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villadan Ofise Dönüşüm\">",
+              "nodeLabel": "Villadan Ofise Dönüşüm"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/tr/projects/ofis-yenileme/video",
+      "profile": "desktop",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:23:35.235Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "desktop",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "report": "raw/tr__projects__ofis-yenileme__video-desktop-1.html",
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 948.9350999999998,
+      "fcp": 306.62339999999995,
+      "cls": 0,
+      "tbt": 9.500000000000057,
+      "speedIndex": 611.2549592334108,
+      "transferBytes": 775145,
+      "requests": 66,
+      "mainThreadMs": 769.0399999999976,
+      "ttfb": 6,
+      "findings": [
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.95,
+          "displayValue": "0.9 s"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.99,
+          "displayValue": "70 ms"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 100 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 6 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 40 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 278.47299999999973
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 208.89199999999843
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 173.35300000000007
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 51.90899999999945
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 40.13499999999999
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 13.002000000000004
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 3.2759999999999994
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/tr/projects/ofis-yenileme/video",
+            "total": 313.3409999999996,
+            "scripting": 4.580999999999994,
+            "scriptParseCompile": 3.3669999999999995
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 221.6930000000004,
+            "scripting": 178.57700000000042,
+            "scriptParseCompile": 6.38
+          },
+          {
+            "url": "Unattributable",
+            "total": 86.62800000000038,
+            "scripting": 6.708999999999996,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 70.409,
+            "scripting": 56.03100000000001,
+            "scriptParseCompile": 3.13
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 8.778999877929687
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 18.736000122070312
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 41.182
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 221.834
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1071,
+                "left": 467,
+                "right": 879,
+                "width": 412,
+                "height": 733
+              },
+              "snippet": "<video src=\"/media/video/office-before-after.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Foffice-before-after.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villadan Ofise Dönüşüm\">",
+              "nodeLabel": "Villadan Ofise Dönüşüm"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1071,
+                "left": 467,
+                "right": 879,
+                "width": 412,
+                "height": 733
+              },
+              "snippet": "<video src=\"/media/video/office-before-after.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Foffice-before-after.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villadan Ofise Dönüşüm\">",
+              "nodeLabel": "Villadan Ofise Dönüşüm"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/projects/ofis-yenileme/video",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:23:44.044Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/en__projects__ofis-yenileme__video-mobile-1.html",
+      "performance": 0.84,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4198.3315999999995,
+      "fcp": 1076.1658,
+      "cls": 0,
+      "tbt": 149.9170999999999,
+      "speedIndex": 2545.5172761641816,
+      "transferBytes": 536323,
+      "requests": 46,
+      "mainThreadMs": 2788.3279999999972,
+      "ttfb": 11,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.44,
+          "displayValue": "4.2 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.97,
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.94,
+          "displayValue": "150 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.51,
+          "displayValue": "250 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.82,
+          "displayValue": "4.5 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 26 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 8 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 150 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 946.8720000000036
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 768.7159999999951
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 679.5640000000003
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 221.81599999999807
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 108.84000000000003
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 55.74400000000001
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 6.775999999999999
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/en/projects/ofis-yenileme/video",
+            "total": 1301.459999999999,
+            "scripting": 50.779999999999994,
+            "scriptParseCompile": 21.676000000000002
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 911.8880000000019,
+            "scripting": 736.036000000002,
+            "scriptParseCompile": 20.868000000000002
+          },
+          {
+            "url": "Unattributable",
+            "total": 286.86400000000094,
+            "scripting": 11.931999999999997,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 92.132,
+            "scripting": 63.72800000000001,
+            "scriptParseCompile": 14.812
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 59.016,
+            "scripting": 28.155999999999995,
+            "scriptParseCompile": 2.6
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 15.91
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 34.249
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 51.124
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 221.847
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 291,
+                "bottom": 933,
+                "left": 25,
+                "right": 387,
+                "width": 361,
+                "height": 642
+              },
+              "snippet": "<video src=\"/media/video/office-before-after.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Foffice-before-after.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa-to-Office Conversion\">",
+              "nodeLabel": "Villa-to-Office Conversion"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 291,
+                "bottom": 933,
+                "left": 25,
+                "right": 387,
+                "width": 361,
+                "height": 642
+              },
+              "snippet": "<video src=\"/media/video/office-before-after.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Foffice-before-after.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa-to-Office Conversion\">",
+              "nodeLabel": "Villa-to-Office Conversion"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/projects/ofis-yenileme/video",
+      "profile": "desktop",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:23:52.763Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "desktop",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "report": "raw/en__projects__ofis-yenileme__video-desktop-1.html",
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 926.6071000000001,
+      "fcp": 303.07140000000004,
+      "cls": 0,
+      "tbt": 0.9999999999999432,
+      "speedIndex": 597.9393645274207,
+      "transferBytes": 780779,
+      "requests": 66,
+      "mainThreadMs": 722.8099999999981,
+      "ttfb": 9,
+      "findings": [
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.96,
+          "displayValue": "0.9 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 100 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 6 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 50 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 239.1730000000001
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 221.26099999999863
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 155.524
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 53.44399999999934
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 38.682
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 11.488000000000007
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 3.2379999999999987
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/en/projects/ofis-yenileme/video",
+            "total": 301.9769999999994,
+            "scripting": 5.6209999999999996,
+            "scriptParseCompile": 4.5169999999999995
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 192.94400000000013,
+            "scripting": 147.84300000000013,
+            "scriptParseCompile": 5.027
+          },
+          {
+            "url": "Unattributable",
+            "total": 92.47200000000049,
+            "scripting": 7.216999999999999,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 65.31100000000006,
+            "scripting": 50.54200000000006,
+            "scriptParseCompile": 3.565
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 13.082
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 22.544
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 40.5
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 183.194
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1071,
+                "left": 467,
+                "right": 879,
+                "width": 412,
+                "height": 733
+              },
+              "snippet": "<video src=\"/media/video/office-before-after.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Foffice-before-after.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa-to-Office Conversion\">",
+              "nodeLabel": "Villa-to-Office Conversion"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1071,
+                "left": 467,
+                "right": 879,
+                "width": 412,
+                "height": 733
+              },
+              "snippet": "<video src=\"/media/video/office-before-after.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Foffice-before-after.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Villa-to-Office Conversion\">",
+              "nodeLabel": "Villa-to-Office Conversion"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/tr/projects/konut-uygulama/video",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:24:01.538Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/tr__projects__konut-uygulama__video-mobile-1.html",
+      "performance": 0.86,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4105.215,
+      "fcp": 1068.6075,
+      "cls": 0,
+      "tbt": 68,
+      "speedIndex": 2432.156438531224,
+      "transferBytes": 527407,
+      "requests": 46,
+      "mainThreadMs": 2264.071999999996,
+      "ttfb": 7,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.47,
+          "displayValue": "4.1 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.98,
+          "displayValue": "2.4 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.99,
+          "displayValue": "70 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.78,
+          "displayValue": "170 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.84,
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.3 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 26 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 6 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 200 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 707.5640000000021
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 687.3319999999957
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 548.2280000000001
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 186.64799999999806
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 86.79199999999996
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 42.728
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 4.779999999999998
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/tr/projects/konut-uygulama/video",
+            "total": 1048.515999999998,
+            "scripting": 14.539999999999976,
+            "scriptParseCompile": 10.548
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 714.4160000000029,
+            "scripting": 550.9760000000028,
+            "scriptParseCompile": 17.516
+          },
+          {
+            "url": "Unattributable",
+            "total": 249.10000000000113,
+            "scripting": 10.244,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 82.904,
+            "scripting": 57.05599999999999,
+            "scriptParseCompile": 13.767999999999999
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 9.663
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 24.342
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 39.088
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 172.243
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 263,
+                "bottom": 905,
+                "left": 25,
+                "right": 387,
+                "width": 361,
+                "height": 642
+              },
+              "snippet": "<video src=\"/media/video/residence-walkthrough.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fresidence-walkthrough.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Konut Uygulaması\">",
+              "nodeLabel": "Konut Uygulaması"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 263,
+                "bottom": 905,
+                "left": 25,
+                "right": 387,
+                "width": 361,
+                "height": 642
+              },
+              "snippet": "<video src=\"/media/video/residence-walkthrough.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fresidence-walkthrough.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Konut Uygulaması\">",
+              "nodeLabel": "Konut Uygulaması"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/tr/projects/konut-uygulama/video",
+      "profile": "desktop",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:24:09.931Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "desktop",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "report": "raw/tr__projects__konut-uygulama__video-desktop-1.html",
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 931.39895,
+      "fcp": 305.59929999999997,
+      "cls": 0,
+      "tbt": 1.5,
+      "speedIndex": 626.2398519599622,
+      "transferBytes": 772340,
+      "requests": 66,
+      "mainThreadMs": 740.3549999999984,
+      "ttfb": 6,
+      "findings": [
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.96,
+          "displayValue": "0.9 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 100 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 5 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 40 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 252.2810000000003
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 215.02199999999854
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 168.46800000000005
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 50.96499999999943
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 38.042
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 12.312000000000001
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 3.2649999999999983
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/tr/projects/konut-uygulama/video",
+            "total": 303.03199999999975,
+            "scripting": 4.861999999999995,
+            "scriptParseCompile": 3.471999999999999
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 215.45800000000028,
+            "scripting": 165.8570000000003,
+            "scriptParseCompile": 5.2829999999999995
+          },
+          {
+            "url": "Unattributable",
+            "total": 88.86300000000047,
+            "scripting": 6.743999999999997,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 62.671000000000035,
+            "scripting": 48.522000000000034,
+            "scriptParseCompile": 2.7319999999999998
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 8.357
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 20.383
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 41.413
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 181.593
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1071,
+                "left": 467,
+                "right": 879,
+                "width": 412,
+                "height": 733
+              },
+              "snippet": "<video src=\"/media/video/residence-walkthrough.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fresidence-walkthrough.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Konut Uygulaması\">",
+              "nodeLabel": "Konut Uygulaması"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1071,
+                "left": 467,
+                "right": 879,
+                "width": 412,
+                "height": 733
+              },
+              "snippet": "<video src=\"/media/video/residence-walkthrough.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fresidence-walkthrough.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Konut Uygulaması\">",
+              "nodeLabel": "Konut Uygulaması"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/projects/konut-uygulama/video",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:24:18.707Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/en__projects__konut-uygulama__video-mobile-1.html",
+      "performance": 0.86,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4105.5242,
+      "fcp": 1069.2621,
+      "cls": 0,
+      "tbt": 62,
+      "speedIndex": 2847.4474818310873,
+      "transferBytes": 533545,
+      "requests": 46,
+      "mainThreadMs": 2207.059999999996,
+      "ttfb": 9,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.47,
+          "displayValue": "4.1 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.95,
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.78,
+          "displayValue": "170 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.84,
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.2 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 26 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 6 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 140 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 665.8919999999953
+          },
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 653.9920000000029
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 559.4919999999993
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 177.9159999999985
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 98.31599999999997
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 46.028000000000006
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 5.423999999999998
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/en/projects/konut-uygulama/video",
+            "total": 1055.8199999999988,
+            "scripting": 14.679999999999977,
+            "scriptParseCompile": 15.835999999999999
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 678.3200000000041,
+            "scripting": 505.4880000000041,
+            "scriptParseCompile": 23.58
+          },
+          {
+            "url": "Unattributable",
+            "total": 232.42400000000114,
+            "scripting": 10.991999999999997,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 76.17599999999999,
+            "scripting": 48.41999999999999,
+            "scriptParseCompile": 16.04
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 11.564
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 23.274
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 40.073
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 162.812
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 263,
+                "bottom": 905,
+                "left": 25,
+                "right": 387,
+                "width": 361,
+                "height": 642
+              },
+              "snippet": "<video src=\"/media/video/residence-walkthrough.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fresidence-walkthrough.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Residential Fit-out\">",
+              "nodeLabel": "Residential Fit-out"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 263,
+                "bottom": 905,
+                "left": 25,
+                "right": 387,
+                "width": 361,
+                "height": 642
+              },
+              "snippet": "<video src=\"/media/video/residence-walkthrough.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fresidence-walkthrough.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Residential Fit-out\">",
+              "nodeLabel": "Residential Fit-out"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/projects/konut-uygulama/video",
+      "profile": "desktop",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:24:26.896Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "desktop",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "report": "raw/en__projects__konut-uygulama__video-desktop-1.html",
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 923.3108000000002,
+      "fcp": 302.20720000000006,
+      "cls": 0,
+      "tbt": 0,
+      "speedIndex": 601.1125247768351,
+      "transferBytes": 778001,
+      "requests": 66,
+      "mainThreadMs": 672.9979999999982,
+      "ttfb": 8,
+      "findings": [
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.96,
+          "displayValue": "0.9 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 100 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 5 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 50 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 218.8860000000001
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 200.02499999999887
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 152.38799999999995
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 50.461999999999364
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 36.557
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 12.256000000000002
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 2.4239999999999995
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/en/projects/konut-uygulama/video",
+            "total": 287.06299999999965,
+            "scripting": 5.275999999999995,
+            "scriptParseCompile": 4.267
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 142.69400000000053,
+            "scripting": 94.85400000000053,
+            "scriptParseCompile": 6.167
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 104.87300000000019,
+            "scripting": 92.13100000000018,
+            "scriptParseCompile": 2.747
+          },
+          {
+            "url": "Unattributable",
+            "total": 78.49900000000041,
+            "scripting": 5.580999999999998,
+            "scriptParseCompile": 0
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 10.948
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 16.216
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 38.829
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 173.742
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1071,
+                "left": 467,
+                "right": 879,
+                "width": 412,
+                "height": 733
+              },
+              "snippet": "<video src=\"/media/video/residence-walkthrough.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fresidence-walkthrough.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Residential Fit-out\">",
+              "nodeLabel": "Residential Fit-out"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1071,
+                "left": 467,
+                "right": 879,
+                "width": 412,
+                "height": 733
+              },
+              "snippet": "<video src=\"/media/video/residence-walkthrough.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fresidence-walkthrough.webp&amp;w=1200&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Residential Fit-out\">",
+              "nodeLabel": "Residential Fit-out"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/tr/projects/konut-ic-mekan/video",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:24:35.535Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/tr__projects__konut-ic-mekan__video-mobile-1.html",
+      "performance": 0.84,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4336.1558,
+      "fcp": 1072.5779,
+      "cls": 0,
+      "tbt": 105.5,
+      "speedIndex": 2328.9097865970293,
+      "transferBytes": 560930,
+      "requests": 50,
+      "mainThreadMs": 2470.0359999999996,
+      "ttfb": 5,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.41,
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.98,
+          "displayValue": "2.3 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.98,
+          "displayValue": "110 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.52,
+          "displayValue": "240 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.81,
+          "displayValue": "4.6 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 26 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0,
+          "displayValue": "Est savings of 10 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 120 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 816.0800000000044
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 719.8519999999967
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 592.4800000000002
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 172.37199999999845
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 111.17600000000002
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 45.24799999999999
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 12.827999999999994
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/tr/projects/konut-ic-mekan/video",
+            "total": 1083.1680000000001,
+            "scripting": 17.07999999999997,
+            "scriptParseCompile": 12.612
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 795.1000000000035,
+            "scripting": 618.9680000000036,
+            "scriptParseCompile": 23.872
+          },
+          {
+            "url": "Unattributable",
+            "total": 275.58800000000156,
+            "scripting": 13.431999999999995,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 104.21600000000001,
+            "scripting": 76.376,
+            "scriptParseCompile": 12.052
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 58.483999999999995,
+            "scripting": 27.135999999999992,
+            "scriptParseCompile": 3.8040000000000003
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 7.972
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 24.807
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 39.005
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 189.922
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 263,
+                "bottom": 516,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 253
+              },
+              "snippet": "<video src=\"/media/video/living-room.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fliving-room.webp&amp;w=1440&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Konut İç Mekân\">",
+              "nodeLabel": "Konut İç Mekân"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 263,
+                "bottom": 516,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 253
+              },
+              "snippet": "<video src=\"/media/video/living-room.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fliving-room.webp&amp;w=1440&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Konut İç Mekân\">",
+              "nodeLabel": "Konut İç Mekân"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/tr/projects/konut-ic-mekan/video",
+      "profile": "desktop",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:24:43.779Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "desktop",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "report": "raw/tr__projects__konut-ic-mekan__video-desktop-1.html",
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 935.756,
+      "fcp": 304.504,
+      "cls": 0,
+      "tbt": 4.500000000000057,
+      "speedIndex": 922.1519032176145,
+      "transferBytes": 775425,
+      "requests": 66,
+      "mainThreadMs": 730.8119999999982,
+      "ttfb": 6,
+      "findings": [
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.96,
+          "displayValue": "0.9 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.98,
+          "displayValue": "0.9 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 100 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 50 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 259.47599999999954
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 205.35299999999918
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 161.61300000000003
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 51.190999999999356
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 37.959999999999994
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 10.783000000000001
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 4.435999999999999
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/tr/projects/konut-ic-mekan/video",
+            "total": 293.4679999999995,
+            "scripting": 4.014999999999996,
+            "scriptParseCompile": 2.8740000000000006
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 220.15600000000066,
+            "scripting": 172.76700000000065,
+            "scriptParseCompile": 5.561
+          },
+          {
+            "url": "Unattributable",
+            "total": 82.43400000000025,
+            "scripting": 6.274,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 64.65200000000003,
+            "scripting": 50.215000000000025,
+            "scriptParseCompile": 3.077
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 8.98
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 16.399
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 37.977
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 177.468
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1106,
+                "left": 97,
+                "right": 1249,
+                "width": 1152,
+                "height": 768
+              },
+              "snippet": "<video src=\"/media/video/living-room.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fliving-room.webp&amp;w=1440&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Konut İç Mekân\">",
+              "nodeLabel": "Konut İç Mekân"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1106,
+                "left": 97,
+                "right": 1249,
+                "width": 1152,
+                "height": 768
+              },
+              "snippet": "<video src=\"/media/video/living-room.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fliving-room.webp&amp;w=1440&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Konut İç Mekân\">",
+              "nodeLabel": "Konut İç Mekân"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/projects/konut-ic-mekan/video",
+      "profile": "mobile",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:24:52.624Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "mobile",
+      "throttling": {
+        "rttMs": 150,
+        "throughputKbps": 1638.4,
+        "requestLatencyMs": 562.5,
+        "downloadThroughputKbps": 1474.5600000000002,
+        "uploadThroughputKbps": 675,
+        "cpuSlowdownMultiplier": 4
+      },
+      "report": "raw/en__projects__konut-ic-mekan__video-mobile-1.html",
+      "performance": 0.85,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 4223.229600000001,
+      "fcp": 1072.6148,
+      "cls": 0,
+      "tbt": 122.5,
+      "speedIndex": 2073.5038714908014,
+      "transferBytes": 567048,
+      "requests": 50,
+      "mainThreadMs": 2618.3999999999987,
+      "ttfb": 9,
+      "findings": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "score": 0.99,
+          "displayValue": "1.1 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.44,
+          "displayValue": "4.2 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.99,
+          "displayValue": "2.1 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "score": 0.97,
+          "displayValue": "120 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "score": 0.41,
+          "displayValue": "280 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "score": 0.81,
+          "displayValue": "4.6 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "score": 0,
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 26 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "score": 0.5,
+          "displayValue": "Est savings of 10 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0.5,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 180 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 912.9800000000033
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 727.6999999999973
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 611.6959999999998
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 189.21199999999803
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 117.16000000000004
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 48.08400000000002
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 11.567999999999994
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/en/projects/konut-ic-mekan/video",
+            "total": 1132.5799999999988,
+            "scripting": 16.759999999999973,
+            "scriptParseCompile": 16.799999999999997
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 876.8200000000021,
+            "scripting": 703.572000000002,
+            "scriptParseCompile": 26.188000000000002
+          },
+          {
+            "url": "Unattributable",
+            "total": 277.0360000000008,
+            "scripting": 13.879999999999999,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 126.504,
+            "scripting": 94.94000000000001,
+            "scriptParseCompile": 13.836
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/1m_zznhsyv7s1.js",
+            "total": 57.612,
+            "scripting": 26.388000000000005,
+            "scriptParseCompile": 3.3000000000000003
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 11.778
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 24.252
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 38.922
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 195.342
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 291,
+                "bottom": 544,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 253
+              },
+              "snippet": "<video src=\"/media/video/living-room.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fliving-room.webp&amp;w=1440&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Residential Interior\">",
+              "nodeLabel": "Residential Interior"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 291,
+                "bottom": 544,
+                "left": 16,
+                "right": 396,
+                "width": 380,
+                "height": 253
+              },
+              "snippet": "<video src=\"/media/video/living-room.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fliving-room.webp&amp;w=1440&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Residential Interior\">",
+              "nodeLabel": "Residential Interior"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "path": "/en/projects/konut-ic-mekan/video",
+      "profile": "desktop",
+      "run": 1,
+      "status": "TESTED",
+      "measuredAt": "2026-10-30T07:25:00.932Z",
+      "lighthouseVersion": "13.6.0",
+      "formFactor": "desktop",
+      "throttling": {
+        "rttMs": 40,
+        "throughputKbps": 10240,
+        "requestLatencyMs": 0,
+        "downloadThroughputKbps": 0,
+        "uploadThroughputKbps": 0,
+        "cpuSlowdownMultiplier": 1
+      },
+      "report": "raw/en__projects__konut-ic-mekan__video-desktop-1.html",
+      "performance": 0.99,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcp": 929.1953000000002,
+      "fcp": 302.13020000000006,
+      "cls": 0,
+      "tbt": 2.999999999999943,
+      "speedIndex": 884.4465149304455,
+      "transferBytes": 781101,
+      "requests": 66,
+      "mainThreadMs": 682.1159999999985,
+      "ttfb": 6,
+      "findings": [
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "score": 0.96,
+          "displayValue": "0.9 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "score": 0.98,
+          "displayValue": "0.9 s"
+        },
+        {
+          "id": "unused-javascript",
+          "title": "Reduce unused JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 100 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow",
+          "score": 0
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "score": 0,
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree",
+          "score": 0
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render-blocking requests",
+          "score": 0,
+          "displayValue": "Est savings of 40 ms"
+        }
+      ],
+      "warnings": [],
+      "diagnostics": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 224.64800000000025
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 198.50199999999876
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 159.67900000000006
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 49.35599999999939
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 35.091
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 13.808
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 1.0319999999999996
+          }
+        ],
+        "scriptExecution": [
+          {
+            "url": "http://localhost:3301/en/projects/konut-ic-mekan/video",
+            "total": 293.53399999999976,
+            "scripting": 4.828999999999995,
+            "scriptParseCompile": 4.438
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/3laf0p3zs8nt2.js",
+            "total": 187.25400000000016,
+            "scripting": 146.17600000000013,
+            "scriptParseCompile": 5.199
+          },
+          {
+            "url": "Unattributable",
+            "total": 82.2180000000003,
+            "scripting": 5.160000000000001,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://localhost:3301/_next/static/chunks/0v2azvilwavbo.js",
+            "total": 58.83500000000004,
+            "scripting": 45.990000000000045,
+            "scriptParseCompile": 3.287
+          }
+        ],
+        "lcpBreakdown": {
+          "type": "list",
+          "items": [
+            {
+              "type": "table",
+              "headings": [
+                {
+                  "key": "label",
+                  "valueType": "text",
+                  "label": "Subpart"
+                },
+                {
+                  "key": "duration",
+                  "valueType": "ms",
+                  "label": "Duration"
+                }
+              ],
+              "items": [
+                {
+                  "subpart": "timeToFirstByte",
+                  "label": "Time to first byte",
+                  "duration": 8.593999877929688
+                },
+                {
+                  "subpart": "resourceLoadDelay",
+                  "label": "Resource load delay",
+                  "duration": 17.874000122070314
+                },
+                {
+                  "subpart": "resourceLoadDuration",
+                  "label": "Resource load duration",
+                  "duration": 39.887
+                },
+                {
+                  "subpart": "elementRenderDelay",
+                  "label": "Element render delay",
+                  "duration": 198.448
+                }
+              ]
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1106,
+                "left": 97,
+                "right": 1249,
+                "width": 1152,
+                "height": 768
+              },
+              "snippet": "<video src=\"/media/video/living-room.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fliving-room.webp&amp;w=1440&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Residential Interior\">",
+              "nodeLabel": "Residential Interior"
+            }
+          ]
+        },
+        "lcpDiscovery": {
+          "type": "list",
+          "items": [
+            {
+              "type": "checklist",
+              "items": {
+                "priorityHinted": {
+                  "label": "fetchpriority=high applied",
+                  "value": true
+                },
+                "requestDiscoverable": {
+                  "label": "Request is discoverable in initial document",
+                  "value": true
+                },
+                "eagerlyLoaded": {
+                  "label": "LCP resources shouldn’t use loading=lazy",
+                  "value": true
+                }
+              }
+            },
+            {
+              "type": "node",
+              "lhId": "page-0-VIDEO",
+              "path": "1,HTML,1,BODY,4,MAIN,1,SECTION,0,DIV,3,DIV,0,VIDEO",
+              "selector": "section.min-h-[100svh] > div.mx-auto > div.mx-auto > video.h-full",
+              "boundingRect": {
+                "top": 338,
+                "bottom": 1106,
+                "left": 97,
+                "right": 1249,
+                "width": 1152,
+                "height": 768
+              },
+              "snippet": "<video src=\"/media/video/living-room.mp4\" poster=\"/_next/image?url=%2Fmedia%2Fvideo%2Fliving-room.webp&amp;w=1440&amp;q=75\" controls=\"\" playsinline=\"\" preload=\"none\" class=\"h-full w-full object-contain\" aria-label=\"Residential Interior\">",
+              "nodeLabel": "Residential Interior"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
