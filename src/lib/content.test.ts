@@ -1,11 +1,20 @@
 import { describe, it, expect } from "vitest";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { gmailComposeUrl, mailPlatform, mailtoUrl } from "./gmailCompose";
 import { STUDIO_SERVICES } from "./services";
-import { SERVICE_LANDINGS, LANDING_BY_BOOKING } from "./serviceLandings";
+import { OFFICE_LANDING, SERVICE_ORDER, SERVICE_LANDINGS, LANDINGS_BY_BOOKING } from "./serviceLandings";
 import { getProject } from "./projects";
 import { appointmentSchema } from "./validations";
 import { guides } from "./guides";
 import { homeMarketing, serviceDecisions } from "./marketingContent";
+import { explainers } from "./explainers";
+import { AUDIENCES } from "./serviceAudiences";
+import { AUDIENCE_LANDINGS } from "./serviceLandingsExtra";
+import { projectDiagram, projectInsights } from "./projectInsights";
+import { projects } from "./projects";
+
+const publicFile = (url: string) => join(process.cwd(), "public", url);
 
 describe("mail links", () => {
   it("encodes Turkish text and line breaks in mailto links", () => {
@@ -42,7 +51,62 @@ describe("service architecture", () => {
   });
 
   it("maps each landing page to a bookable service", () => {
-    for (const landing of SERVICE_LANDINGS) expect(LANDING_BY_BOOKING[landing.booking]).toBe(landing.slug);
+    for (const landing of SERVICE_LANDINGS) expect(LANDINGS_BY_BOOKING[landing.booking]).toContain(landing.slug);
+    for (const [booking, slugs] of Object.entries(LANDINGS_BY_BOOKING)) expect(slugs.length, booking).toBeGreaterThan(0);
+  });
+
+  it("lists every service page once in the home order, apart from the office page", () => {
+    expect(new Set(SERVICE_ORDER).size).toBe(SERVICE_ORDER.length);
+    const audiencePages = new Set<string>(AUDIENCE_LANDINGS);
+    const services = SERVICE_LANDINGS.map((l) => l.slug).filter((slug) => slug !== OFFICE_LANDING && !audiencePages.has(slug));
+    expect([...SERVICE_ORDER].sort()).toEqual(services.sort());
+  });
+
+  it("gives every project matching insight copy and a shipped diagram", () => {
+    for (const project of projects) {
+      const insight = projectInsights[project.slug];
+      expect(insight, project.slug).toBeDefined();
+      expect(existsSync(publicFile(projectDiagram(project.slug))), project.slug).toBe(true);
+      for (const key of ["items", "gains", "decisions", "goodFor", "questions"] as const) {
+        expect(insight.tr[key].length, `${project.slug} ${key}`).toBe(insight.en[key].length);
+        expect(insight.tr[key].length, `${project.slug} ${key}`).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it("links each audience only to published service pages", () => {
+    const slugs = new Set(SERVICE_LANDINGS.map((l) => l.slug));
+    for (const audience of AUDIENCES) {
+      expect(audience.services.length, audience.key).toBeGreaterThan(0);
+      for (const slug of audience.services) expect(slugs.has(slug), `${audience.key} → ${slug}`).toBe(true);
+      expect(audience.copy.tr.gains.length).toBe(audience.copy.en.gains.length);
+    }
+  });
+
+  it("gives every explainer complete, matching copy in both languages", () => {
+    const used = [...guides.flatMap((g) => g.explainers ?? []), ...SERVICE_LANDINGS.flatMap((l) => l.explainers ?? [])];
+    expect(used.length).toBeGreaterThan(0);
+    for (const id of Object.keys(explainers) as (keyof typeof explainers)[]) {
+      const { tr, en } = explainers[id];
+      expect(tr.legend.length, id).toBe(en.legend.length);
+      for (const copy of [tr, en]) {
+        for (const field of [copy.step, copy.title, copy.short, copy.simple, copy.example, copy.ankara]) expect(field.trim(), id).not.toBe("");
+      }
+    }
+    for (const id of used) expect(explainers[id], id).toBeDefined();
+  });
+
+  it("only references diagram files that ship in public/", () => {
+    for (const landing of SERVICE_LANDINGS.filter((l) => l.diagram)) {
+      expect(existsSync(publicFile(landing.diagram!)), `${landing.slug} → ${landing.diagram}`).toBe(true);
+      expect(landing.copy.tr.diagramCaption, `${landing.slug} tr caption`).toBeTruthy();
+      expect(landing.copy.en.diagramCaption, `${landing.slug} en caption`).toBeTruthy();
+    }
+    for (const guide of guides.filter((g) => g.diagram)) {
+      expect(existsSync(publicFile(guide.diagram!.src)), `${guide.slug} → ${guide.diagram!.src}`).toBe(true);
+      expect(guide.diagram!.caption.tr).toBeTruthy();
+      expect(guide.diagram!.caption.en).toBeTruthy();
+    }
   });
 });
 

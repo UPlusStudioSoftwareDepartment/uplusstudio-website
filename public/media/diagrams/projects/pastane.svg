@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img"><title>Pastane konsepti: cam cephe, ışıklı vitrin ve kasa bankosu</title><style>
+*{transform-box:fill-box;transform-origin:center}
+.s1{animation:s1 5s cubic-bezier(.22,1,.36,1) infinite}.s2{animation:s2 5s cubic-bezier(.22,1,.36,1) infinite}
+.s3{animation:s3 5s cubic-bezier(.22,1,.36,1) infinite}.s4{animation:s4 5s cubic-bezier(.22,1,.36,1) infinite}
+.s5{animation:s5 5s cubic-bezier(.22,1,.36,1) infinite}.x2{animation:x2 5s ease infinite}
+.glow{animation:glow 1.5s ease-in-out infinite}.ray{stroke-dasharray:8 8;animation:ray 0.6s linear infinite}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(8px)}11%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,19%{opacity:0;transform:translateY(8px)}27%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,35%{opacity:0;transform:translateY(8px)}43%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s4{0%,51%{opacity:0;transform:translateY(8px)}59%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s5{0%,67%{opacity:0;transform:translateY(8px)}75%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes x2{0%,19%{opacity:1}27%,100%{opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes ray{to{stroke-dashoffset:-16}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect width="640" height="400" fill="#1d1c19"/>
+    <path d="M30 70h580M30 330h580" stroke="#a29d93" stroke-width="3"/>
+    <g class="s1"><rect x="40" y="80" width="22" height="250" fill="#7fa6c9" fill-opacity=".6"/><path d="M40 80h22v250H40zM40 200h22" fill="none" stroke="#121110" stroke-width="3"/></g>
+    <g class="s2"><rect x="180" y="230" width="220" height="100" fill="#b07a4f"/><rect x="180" y="186" width="220" height="44" fill="#7fa6c9" fill-opacity=".3" stroke="#7fa6c9" stroke-width="2"/><g class="glow" fill="#f2c46b"><circle cx="215" cy="214" r="9"/><circle cx="255" cy="214" r="9"/><circle cx="295" cy="214" r="9"/><circle cx="335" cy="214" r="9"/><circle cx="370" cy="214" r="9"/></g></g>
+    <g class="s3"><rect x="450" y="250" width="130" height="80" fill="#d8d3cb"/><path d="M466 262l30 26M530 258l30 46" stroke="#a9a39a" stroke-width="1.5"/></g>
+    <g class="s4"><path d="M140 84h460" stroke="#ede9e1" stroke-width="4"/><g fill="#ede9e1"><rect x="226" y="84" width="14" height="18"/><rect x="326" y="84" width="14" height="18"/><rect x="506" y="84" width="14" height="18"/></g><g class="glow" fill="#f2c46b" fill-opacity=".16"><path d="M226 102h14l40 84h-94z"/><path d="M326 102h14l40 84h-94z"/><path d="M506 102h14l50 148h-114z"/></g></g>
+    <g class="s1"><circle cx="62" cy="80" r="14" fill="#c4825c"/><text x="62" y="85" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">1</text></g><g class="s2"><circle cx="180" cy="186" r="14" fill="#c4825c"/><text x="180" y="191" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">2</text></g><g class="s3"><circle cx="580" cy="250" r="14" fill="#c4825c"/><text x="580" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">3</text></g><g class="s4"><circle cx="140" cy="84" r="14" fill="#c4825c"/><text x="140" y="89" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">4</text></g></svg>

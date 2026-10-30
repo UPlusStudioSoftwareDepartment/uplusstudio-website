@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img"><title>Villa Dönüşümü: korunan yapı, yenilenen cephe</title><style>
+*{transform-box:fill-box;transform-origin:center}
+.s1{animation:s1 5s cubic-bezier(.22,1,.36,1) infinite}.s2{animation:s2 5s cubic-bezier(.22,1,.36,1) infinite}
+.s3{animation:s3 5s cubic-bezier(.22,1,.36,1) infinite}.s4{animation:s4 5s cubic-bezier(.22,1,.36,1) infinite}
+.s5{animation:s5 5s cubic-bezier(.22,1,.36,1) infinite}.x2{animation:x2 5s ease infinite}
+.glow{animation:glow 1.5s ease-in-out infinite}.ray{stroke-dasharray:8 8;animation:ray 0.6s linear infinite}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(8px)}11%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,19%{opacity:0;transform:translateY(8px)}27%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,35%{opacity:0;transform:translateY(8px)}43%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s4{0%,51%{opacity:0;transform:translateY(8px)}59%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s5{0%,67%{opacity:0;transform:translateY(8px)}75%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes x2{0%,19%{opacity:1}27%,100%{opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes ray{to{stroke-dashoffset:-16}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect width="640" height="400" fill="#1d1c19"/>
+    <g class="s4"><rect y="330" width="640" height="70" fill="#2c3324"/><path d="M80 310v26" stroke="#8a8478" stroke-width="4"/><circle cx="80" cy="304" r="22" fill="#4f6b3a"/><path d="M565 305v26" stroke="#8a8478" stroke-width="4"/><circle cx="565" cy="299" r="26" fill="#4f6b3a"/><circle cx="140" cy="330" r="12" fill="#4f6b3a"/><circle cx="510" cy="332" r="14" fill="#4f6b3a"/></g>
+    <path d="M0 330h640" stroke="#a29d93" stroke-width="2"/>
+    <rect class="s3" x="160" y="130" width="320" height="200" fill="#e9e4da" fill-opacity=".92"/>
+    <g class="x2" opacity="0" fill="#3b4a52"><rect x="200" y="160" width="30" height="40"/><rect x="300" y="160" width="30" height="40"/><rect x="410" y="160" width="30" height="40"/><rect x="200" y="262" width="30" height="40"/><rect x="410" y="262" width="30" height="40"/></g>
+    <g class="s2" fill="#3b4a52" stroke="#121110" stroke-width="5"><rect x="186" y="150" width="120" height="58"/><rect x="334" y="150" width="120" height="58"/><rect x="186" y="250" width="86" height="80"/><rect x="300" y="256" width="154" height="62"/></g>
+    <g class="s3" fill="#b07a4f"><rect x="290" y="238" width="176" height="10"/><rect x="460" y="130" width="20" height="200"/></g>
+    <g class="s1" fill="none" stroke="#ede9e1" stroke-width="3"><rect x="160" y="130" width="320" height="200"/><path d="M160 230h320M150 130h340"/></g>
+    <g class="s1"><circle cx="160" cy="130" r="14" fill="#c4825c"/><text x="160" y="135" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">1</text></g><g class="s2"><circle cx="306" cy="150" r="14" fill="#c4825c"/><text x="306" y="155" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">2</text></g><g class="s3"><circle cx="470" cy="120" r="14" fill="#c4825c"/><text x="470" y="125" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">3</text></g><g class="s4"><circle cx="565" cy="262" r="14" fill="#c4825c"/><text x="565" y="267" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">4</text></g></svg>

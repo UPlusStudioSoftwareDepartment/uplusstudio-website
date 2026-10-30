@@ -1,6 +1,7 @@
 import type { Locale } from "@/lib/i18n-config";
 import { projects, screenPoster, type Project, type ProjectVideo } from "@/lib/projects";
 import { absoluteUrl, localePath, ORG_ID, SEO_COPY, WEBSITE_ID } from "@/lib/seo";
+import { projectDiagram, projectInsights } from "@/lib/projectInsights";
 
 const projectUrl = (locale: Locale, slug: string) => absoluteUrl(localePath(locale, `/projects/${slug}`));
 
@@ -37,6 +38,7 @@ export function projectVideoLd(locale: Locale, project: Project, video: ProjectV
 export function projectLd(locale: Locale, project: Project) {
   const url = projectUrl(locale, project.slug);
   const images = [project.cover, ...project.gallery].slice(0, 12);
+  const insight = projectInsights[project.slug]?.[locale];
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
@@ -52,12 +54,17 @@ export function projectLd(locale: Locale, project: Project) {
     creator: { "@id": ORG_ID },
     publisher: { "@id": ORG_ID },
     isPartOf: { "@id": WEBSITE_ID },
-    image: images.map((img) => ({
-      "@type": "ImageObject",
-      contentUrl: absoluteUrl(img.src),
-      width: img.width,
-      height: img.height,
-      caption: img.alt[locale],
-    })),
+    image: [
+      ...images.map((img) => ({
+        "@type": "ImageObject",
+        contentUrl: absoluteUrl(img.src),
+        width: img.width,
+        height: img.height,
+        caption: img.alt[locale],
+      })),
+      ...(insight
+        ? [{ "@type": "ImageObject", contentUrl: absoluteUrl(projectDiagram(project.slug)), width: 640, height: 400, encodingFormat: "image/svg+xml", caption: insight.diagramAlt }]
+        : []),
+    ],
   };
 }

@@ -12,11 +12,15 @@ import Fullscreenable from "@/components/studio/Fullscreenable";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
 import { getAdjacentProject, getProject, projectNumber, screenPoster, type ProjectImage } from "@/lib/projects";
 import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
+import { insightLabels, projectDiagram, projectInsights } from "@/lib/projectInsights";
 import type { Locale } from "@/lib/i18n-config";
 
 const isPortrait = (img: { width: number; height: number }) => img.height > img.width;
 
-export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
+export default function ProjectDetail({
+  slug,
+  guides = [],
+}: Readonly<{ slug: string; guides?: readonly { slug: string; title: string; description: string }[] }>) {
   const project = getProject(slug)!;
   const nextProject = getAdjacentProject(slug);
   const locale = useLocale() as Locale;
@@ -26,6 +30,8 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
   const portraitCover = isPortrait(project.cover);
   const category = t(`work.categories.${project.category}`);
   const landings = SERVICE_LANDINGS.filter((s) => s.projects.includes(slug));
+  const insight = projectInsights[slug]?.[locale];
+  const labels = insightLabels[locale];
 
   return (
     <article className="text-ink">
@@ -106,6 +112,94 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
         </div>
       </section>
 
+      {insight && (
+        <>
+          <section aria-labelledby="project-diagram" className="mx-auto max-w-[2560px] px-4 pb-16 sm:px-8 sm:pb-24 lg:px-12">
+            <div className="grid grid-cols-1 gap-10 border-t border-line pt-12 lg:grid-cols-12 lg:gap-14">
+              <figure className="lg:col-span-7">
+                <Image
+                  src={projectDiagram(slug)}
+                  alt={insight.diagramAlt}
+                  width={640}
+                  height={400}
+                  unoptimized
+                  className="h-auto w-full rounded-[3px] bg-paper-2"
+                />
+                <figcaption className="mt-3 text-[13px] leading-relaxed text-mute">{labels.diagramNote}</figcaption>
+              </figure>
+              <div className="lg:col-span-5">
+                <p className="eyebrow text-clay">{labels.diagramEyebrow}</p>
+                <h2 id="project-diagram" className="mt-4 font-serif text-[clamp(1.9rem,3.6vw,3rem)] leading-tight">{project.title[locale]}</h2>
+                <ol className="mt-8 space-y-5">
+                  {insight.items.map(([label, detail], i) => (
+                    <li key={label} className="flex gap-3">
+                      <span aria-hidden className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-clay font-mono text-[12px] font-bold text-paper">{i + 1}</span>
+                      <span className="min-w-0">
+                        <span className="block text-[17px] leading-snug text-ink">{label}</span>
+                        <span className="mt-1 block text-[15px] leading-relaxed text-mute">{detail}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="project-gains" className="mx-auto max-w-[2560px] px-4 pb-16 sm:px-8 sm:pb-24 lg:px-12">
+            <div className="border-t border-line pt-12">
+              <p className="eyebrow text-clay">{labels.gainsEyebrow}</p>
+              <h2 id="project-gains" className="mt-4 max-w-3xl font-serif text-[clamp(2rem,4.4vw,3.5rem)] leading-tight">{labels.gainsTitle}</h2>
+              <ol className="mt-10 grid gap-x-8 gap-y-10 md:grid-cols-3">
+                {insight.gains.map(([title, body], i) => (
+                  <li key={title} className="border-t-2 border-clay/70 pt-5">
+                    <span className="font-mono text-[12px] tracking-[0.12em] text-clay">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="mt-3 text-[21px] leading-snug">{title}</h3>
+                    <p className="mt-3 text-[16px] leading-relaxed text-mute">{body}</p>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="mt-16 grid gap-12 lg:grid-cols-3">
+                <div>
+                  <h3 className="eyebrow text-mute">{labels.decisionsEyebrow}</h3>
+                  <dl className="mt-5 space-y-5">
+                    {insight.decisions.map(([decision, reason]) => (
+                      <div key={decision} className="border-l-2 border-clay pl-4">
+                        <dt className="text-[17px] leading-snug text-ink">{decision}</dt>
+                        <dd className="mt-1 text-[15px] leading-relaxed text-mute">{reason}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+                <div>
+                  <h3 className="eyebrow text-mute">{labels.goodFor}</h3>
+                  <ul className="mt-5 space-y-3">
+                    {insight.goodFor.map((item) => (
+                      <li key={item} className="flex gap-3 text-[16px] leading-relaxed text-ink">
+                        <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-clay" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-[3px] bg-paper-2 p-6">
+                  <h3 className="eyebrow text-mute">{labels.questions}</h3>
+                  <ol className="mt-5 space-y-3">
+                    {insight.questions.map((item, i) => (
+                      <li key={item} className="flex gap-3 text-[16px] leading-relaxed text-ink">
+                        <span className="font-mono text-[12px] text-clay">{String(i + 1).padStart(2, "0")}</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ol>
+                  <CallCta className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-3 border border-ink px-5 py-3 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone" />
+                </div>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
+
       {project.video && (
         <section className="bg-night py-20 text-bone sm:py-28">
           <div className="mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12">
@@ -159,6 +253,22 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
         </section>
       )}
 
+      {guides.length > 0 && (
+        <section aria-labelledby="project-guides" className="mx-auto max-w-[2560px] px-4 pb-16 sm:px-8 sm:pb-24 lg:px-12">
+          <h2 id="project-guides" className="eyebrow text-mute">{locale === "tr" ? "Benzer bir iş düşünüyorsanız okuyun" : "Planning something similar? Read"}</h2>
+          <ul className="mt-6 grid gap-x-8 gap-y-6 border-t border-line pt-6 md:grid-cols-2">
+            {guides.map((guide) => (
+              <li key={guide.slug}>
+                <Link href={`/${locale}/guides/${guide.slug}`} className="group block">
+                  <span className="block text-[clamp(1.15rem,2vw,1.4rem)] font-light leading-snug transition-colors group-hover:text-clay">{guide.title} →</span>
+                  <span className="mt-2 block text-[15px] leading-relaxed text-mute">{guide.description}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section className="mx-auto max-w-[2560px] px-4 pb-24 sm:px-8 lg:px-12">
         <div className="flex flex-col gap-6 border-y border-line py-10 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:gap-6">
@@ -198,14 +308,18 @@ export default function ProjectDetail({ slug }: Readonly<{ slug: string }>) {
 function Gallery({ images, locale }: Readonly<{ images: ProjectImage[]; locale: Locale }>) {
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-      {images.map((img, i) => (
-        <MaskReveal key={img.src} delay={(i % 2) * 0.1}>
-          <Fullscreenable className="relative aspect-[3/2]">
-            <FramedImage src={img.src} alt={img.alt[locale]} sizes="(min-width:768px) 50vw, 100vw" />
+      {images.map((img, i) => {
+        // An odd last image spans both columns in a wider frame instead of leaving an empty cell.
+        const wide = images.length % 2 === 1 && i === images.length - 1;
+        return (
+        <MaskReveal key={img.src} delay={(i % 2) * 0.1} className={wide ? "md:col-span-2" : undefined}>
+          <Fullscreenable className={`relative aspect-[3/2] ${wide ? "md:aspect-[21/9]" : ""}`}>
+            <FramedImage src={img.src} alt={img.alt[locale]} sizes={wide ? "100vw" : "(min-width:768px) 50vw, 100vw"} />
           </Fullscreenable>
           <p className="mt-3 font-mono text-[12px] text-mute">{img.alt[locale]}</p>
         </MaskReveal>
-      ))}
+        );
+      })}
     </div>
   );
 }

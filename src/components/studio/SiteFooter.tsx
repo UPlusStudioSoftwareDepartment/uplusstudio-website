@@ -29,7 +29,7 @@ export default function SiteFooter({ services }: Readonly<{ services: readonly F
       <div className="mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-12 border-b border-bone/10 py-20 md:grid-cols-12 xl:grid-cols-[repeat(5,auto)] xl:justify-between">
           <div className="md:col-span-5 xl:col-span-1">
-            <p className="eyebrow text-bone/60">{t("footer.studio")}</p>
+            <p className="eyebrow text-bone/85">{t("footer.studio")}</p>
             <p className="mt-6 max-w-md font-serif text-4xl leading-[1.05] sm:text-5xl">
               {t.rich("footer.tagline", { br: () => <br /> })}
             </p>
@@ -40,29 +40,29 @@ export default function SiteFooter({ services }: Readonly<{ services: readonly F
           </div>
 
           <div className="md:col-span-2 md:col-start-10 md:row-start-1 xl:col-span-1 xl:col-start-auto xl:row-start-auto">
-            <p className="eyebrow text-bone/60">{t("footer.pages")}</p>
+            <p className="eyebrow text-bone/85">{t("footer.pages")}</p>
             <ul className="mt-6 space-y-2 text-[15px]">
               {pages.map((p) => (
                 <li key={p.href}>
-                  <Link href={p.href} className="text-bone/80 hover:text-bone">{p.label}</Link>
+                  <Link href={p.href} className="text-bone/95 hover:text-clay">{p.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className="md:col-span-2 xl:col-span-1">
-            <p className="eyebrow text-bone/60">{t("nav.services")}</p>
+            <p className="eyebrow text-bone/85">{t("nav.services")}</p>
             <ul className="mt-6 space-y-2 text-[15px]">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`${prefix}/services/${s.slug}`} className="text-bone/80 hover:text-bone">{s.label}</Link>
+                  <Link href={`${prefix}/services/${s.slug}`} className="text-bone/95 hover:text-clay">{s.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className="md:col-span-2 xl:col-span-1">
-            <p className="eyebrow text-bone/60">{t("footer.social")}</p>
+            <p className="eyebrow text-bone/85">{t("footer.social")}</p>
             <ul className="mt-6 space-y-2 text-[15px]">
               <li>
                 <a href={studioInfo.instagramUrl} target="_blank" rel="noopener noreferrer" className="text-bone/80 hover:text-bone">
@@ -93,8 +93,8 @@ export default function SiteFooter({ services }: Readonly<{ services: readonly F
           </div>
 
           <div className="md:col-span-3 md:col-start-7 md:row-start-1 xl:col-span-1 xl:col-start-auto xl:row-start-auto">
-            <p className="eyebrow text-bone/60">{t("footer.contact")}</p>
-            <address className="mt-6 space-y-1 not-italic text-[15px] leading-relaxed text-bone/80">
+            <p className="eyebrow text-bone/85">{t("footer.contact")}</p>
+            <address className="mt-6 space-y-1 not-italic text-[16px] leading-relaxed text-bone/95">
               <a href={studioInfo.mapsUrl} target="_blank" rel="noopener noreferrer" className="block whitespace-pre-line hover:text-bone">
                 {t("footer.address")}
               </a>
@@ -106,11 +106,11 @@ export default function SiteFooter({ services }: Readonly<{ services: readonly F
         </div>
 
         <div className="pointer-events-none select-none pt-10" aria-hidden>
-          <p aria-hidden className="display whitespace-nowrap text-[24vw] leading-[0.78] text-bone/[0.06] -mb-[3vw] before:content-['U+_Studio']" />
+          <p aria-hidden className="display whitespace-nowrap text-[24vw] leading-[0.78] text-bone/20 -mb-[3vw] before:content-['U+_Studio']" />
         </div>
 
-        <div className="relative flex flex-col-reverse gap-4 border-t border-bone/10 py-6 font-mono text-[12px] uppercase tracking-[0.12em] text-bone/55 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {year} U+ Studio — {t("footer.rights")}</span>
+        <div className="relative flex flex-col-reverse gap-4 border-t border-bone/25 py-6 font-mono text-[min(13px,3.15vw)] uppercase tracking-[0.05em] text-bone/85 sm:flex-row sm:items-center sm:justify-between sm:text-[13px] sm:tracking-[0.1em]">
+          <span className="whitespace-nowrap">© {year} U+ Studio — {t("footer.rights")}</span>
           <Link href={`${prefix}/kvkk`} className="hover:text-bone">{t("footer.privacy")}</Link>
           <button
             type="button"

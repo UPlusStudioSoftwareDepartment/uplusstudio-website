@@ -1,6 +1,6 @@
 "use client";
 
-import { m, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 import { DURATION, EASE_OUT, EASE_STUDIO } from "@/lib/motion";
 
@@ -13,28 +13,18 @@ interface MaskRevealProps {
   from?: "bottom" | "left";
 }
 
-export function MaskReveal({ children, className = "", delay = 0, from = "bottom" }: Readonly<MaskRevealProps>) {
+export function MaskReveal({ children, className = "", delay = 0 }: Readonly<MaskRevealProps>) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.15 });
-  const hidden = from === "bottom" ? "inset(100% 0% 0% 0%)" : "inset(0% 100% 0% 0%)";
 
   return (
     <div ref={ref} className={className}>
-      <m.div
-        className="relative h-full w-full overflow-hidden motion-reduce:![clip-path:none]"
-        initial={{ clipPath: hidden }}
-        animate={inView ? { clipPath: "inset(0% 0% 0% 0%)" } : undefined}
-        transition={{ duration: DURATION.mask, ease: EASE_STUDIO, delay }}
+      <div
+        className="relative h-full w-full overflow-hidden motion-reduce:!opacity-100 motion-reduce:transition-none"
+        style={{ opacity: inView ? 1 : 0, transition: `opacity ${DURATION.fade}s var(--ease-out-studio) ${delay}s` }}
       >
-        <m.div
-          className="relative h-full w-full motion-reduce:![transform:none]"
-          initial={{ scale: 1.12 }}
-          animate={inView ? { scale: 1 } : undefined}
-          transition={{ duration: DURATION.mask * 1.3, ease: EASE_OUT, delay }}
-        >
-          {children}
-        </m.div>
-      </m.div>
+        {children}
+      </div>
     </div>
   );
 }
@@ -63,14 +53,12 @@ export function LineReveal({ lines, className = "", lineClassName = "", delay = 
               {line}
             </span>
           ) : (
-            <m.span
-              className={`block motion-reduce:![transform:none] ${lineClassName}`}
-              initial={{ y: "105%" }}
-              animate={inView ? { y: "0%" } : undefined}
-              transition={{ duration: DURATION.line, ease: EASE_STUDIO, delay: delay + i * 0.08 }}
+            <span
+              className={`block motion-reduce:![transform:none] motion-reduce:transition-none ${lineClassName}`}
+              style={{ transform: inView ? "none" : "translateY(105%)", transition: `transform ${DURATION.line}s var(--ease-studio) ${delay + i * 0.08}s` }}
             >
               {line}
-            </m.span>
+            </span>
           )}
           {i < lines.length - 1 ? " " : null}
         </span>
@@ -86,16 +74,16 @@ interface FadeUpProps {
 }
 
 export function FadeUp({ children, className = "", delay = 0 }: Readonly<FadeUpProps>) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.3 });
   return (
-    <m.div
-      className={`motion-reduce:!opacity-100 motion-reduce:![transform:none] ${className}`}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: DURATION.fade, ease: EASE_OUT, delay }}
+    <div
+      ref={ref}
+      className={`motion-reduce:!opacity-100 motion-reduce:![transform:none] motion-reduce:transition-none ${className}`}
+      style={{ opacity: inView ? 1 : 0, transform: inView ? "none" : "translateY(24px)", transition: `opacity ${DURATION.fade}s var(--ease-out-studio) ${delay}s, transform ${DURATION.fade}s var(--ease-out-studio) ${delay}s` }}
     >
       {children}
-    </m.div>
+    </div>
   );
 }
 

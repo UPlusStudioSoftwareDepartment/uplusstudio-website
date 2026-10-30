@@ -3,7 +3,7 @@ import { Hanken_Grotesk, Instrument_Serif, IBM_Plex_Mono } from "next/font/googl
 const sans = Hanken_Grotesk({
   subsets: ["latin", "latin-ext"],
   variable: "--font-sans-family",
-  weight: ["300", "400", "500", "600"],
+  weight: "variable",
   display: "swap",
 });
 
@@ -13,6 +13,7 @@ const serif = Instrument_Serif({
   weight: ["400"],
   style: ["normal", "italic"],
   display: "swap",
+  preload: false,
 });
 
 const mono = IBM_Plex_Mono({
@@ -20,6 +21,7 @@ const mono = IBM_Plex_Mono({
   variable: "--font-mono-family",
   weight: ["400"],
   display: "swap",
+  preload: false,
 });
 
 export const fontVariables = `${sans.variable} ${serif.variable} ${mono.variable}`;

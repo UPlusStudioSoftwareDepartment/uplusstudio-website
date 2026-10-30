@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img"><title>Kafe akış şeması: giriş ve sipariş, salon, bar, mutfak, müşteri WC ve depo</title><style>
+*{transform-box:fill-box;transform-origin:center}
+.s1{animation:s1 5s cubic-bezier(.22,1,.36,1) infinite}.s2{animation:s2 5s cubic-bezier(.22,1,.36,1) infinite}
+.s3{animation:s3 5s cubic-bezier(.22,1,.36,1) infinite}.s4{animation:s4 5s cubic-bezier(.22,1,.36,1) infinite}
+.s5{animation:s5 5s cubic-bezier(.22,1,.36,1) infinite}.x2{animation:x2 5s ease infinite}
+.glow{animation:glow 1.5s ease-in-out infinite}.ray{stroke-dasharray:8 8;animation:ray 0.6s linear infinite}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(8px)}11%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,19%{opacity:0;transform:translateY(8px)}27%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,35%{opacity:0;transform:translateY(8px)}43%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s4{0%,51%{opacity:0;transform:translateY(8px)}59%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s5{0%,67%{opacity:0;transform:translateY(8px)}75%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes x2{0%,19%{opacity:1}27%,100%{opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes ray{to{stroke-dashoffset:-16}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect width="640" height="400" fill="#1d1c19"/>
+    <rect x="40" y="70" width="560" height="260" fill="#211f1c"/>
+    <g class="s2" fill="#2a2824" stroke="#ede9e1" stroke-width="1.5"><circle cx="110" cy="120" r="16"/><circle cx="200" cy="120" r="16"/><circle cx="290" cy="120" r="16"/><circle cx="200" cy="200" r="16"/><circle cx="290" cy="200" r="16"/><rect x="230" y="258" width="80" height="22" rx="3"/></g>
+    <g class="s3"><rect x="380" y="100" width="26" height="150" fill="#b07a4f"/><path d="M372 100v150" stroke="#ede9e1" stroke-width="2"/></g>
+    <g class="s4" stroke="#a29d93" stroke-width="1" opacity=".8"><path d="M460 90v100M480 90v100M500 90v100M520 90v100M540 90v100M560 90v100M580 90v100"/></g>
+    <g class="s5"><rect x="460" y="246" width="30" height="40" rx="10" fill="#2a2824" stroke="#ede9e1" stroke-width="1.5"/><path d="M536 236h50M536 256h50M536 276h50" stroke="#a29d93" stroke-width="5"/></g>
+    <path d="M40 70h560v160M600 270v60H150M110 330H40V70" fill="none" stroke="#ede9e1" stroke-width="4" stroke-linecap="square"/>
+    <path d="M440 70v60M440 170v40h110M575 210h25M440 230v100M440 230h28M500 230h20M520 210v120" fill="none" stroke="#ede9e1" stroke-width="4" stroke-linecap="square"/>
+    
+    <path d="M440 132v18" stroke="#f2c46b" stroke-width="4"/>
+    <path d="M130 352v-18" stroke="#c4825c" stroke-width="3"/><path d="M0 0l-10-5v10z" transform="translate(130 330) rotate(-90)" fill="#c4825c"/>
+    <path class="ray" d="M130 324v-20h230v-84" stroke="#c4825c" stroke-width="2.5" fill="none"/>
+    <path class="ray" d="M360 264h52v-44h40v14" stroke="#c4825c" stroke-width="2" fill="none"/>
+    <path class="ray" d="M622 250h-20M562 240v-40M420 160h40" stroke="#a29d93" stroke-width="2" fill="none"/>
+    <g class="s1"><circle cx="130" cy="300" r="14" fill="#c4825c"/><text x="130" y="305" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">1</text></g><g class="s2"><circle cx="110" cy="160" r="14" fill="#c4825c"/><text x="110" y="165" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">2</text></g><g class="s3"><circle cx="393" cy="86" r="14" fill="#c4825c"/><text x="393" y="91" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">3</text></g><g class="s4"><circle cx="520" cy="130" r="14" fill="#c4825c"/><text x="520" y="135" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">4</text></g><g class="s5"><circle cx="470" cy="306" r="14" fill="#c4825c"/><text x="470" y="311" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">5</text></g><g class="s5"><circle cx="568" cy="306" r="14" fill="#c4825c"/><text x="568" y="311" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">6</text></g></svg>

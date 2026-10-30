@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import CallCta from "@/components/studio/CallCta";
 import ProjectPreparation from "@/components/ProjectPreparation";
+import HomeBudgetTimeline from "./HomeBudgetTimeline";
+import HomeExplainers from "./HomeExplainers";
 import { services_tr } from "@/app/[locale]/services/locales/tr_TR";
 import { services_en } from "@/app/[locale]/services/locales/en_US";
 import { projectPlanning } from "@/lib/projectPlanning";
@@ -28,6 +30,8 @@ export default function HomeDecisionSupport({ locale }: Readonly<{ locale: Local
           ))}
         </ol>
       </section>
+      <div className="mt-16"><HomeExplainers locale={locale} /></div>
+      <div className="mt-16"><HomeBudgetTimeline locale={locale} /></div>
       <div className="mt-16"><ProjectPreparation locale={locale} /></div>
       <section aria-labelledby="home-faq" className="pt-16">
         <h2 id="home-faq" className="font-serif text-[clamp(2rem,5vw,4rem)] leading-tight">{copy.faqTitle}</h2>

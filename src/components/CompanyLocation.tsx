@@ -49,23 +49,24 @@ export default function CompanyLocation({
           src={publicMapUrl}
           width="100%"
           height="100%"
-          style={{ border: 0, filter: 'grayscale(1) contrast(0.92) brightness(1.04)' }}
+          style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           className="h-full w-full"
           title={title}
         />}
-        <div className="pointer-events-none absolute inset-0 bg-paper mix-blend-multiply opacity-40" aria-hidden />
-
         <a
           href={directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group absolute right-0 top-0 inline-flex items-center gap-3 border-b border-l border-line bg-paper px-5 py-3 font-mono text-[12px] uppercase tracking-[0.14em] text-ink transition-colors hover:bg-night hover:text-bone"
+          className="group absolute right-[5px] top-[5px] inline-flex min-h-11 items-center gap-3 border border-line bg-paper py-1.5 pl-4 pr-1.5 font-mono text-[12px] uppercase tracking-[0.14em] text-ink shadow-[0_10px_30px_-12px_rgb(0_0_0/0.7)] transition-colors duration-300 hover:border-night hover:bg-night hover:text-bone"
         >
+          <span className="h-1.5 w-1.5 rounded-full bg-clay" aria-hidden />
           {directionsLabel}
-          <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+          <span aria-hidden className="flex h-8 w-8 items-center justify-center rounded-[2px] border border-line transition-[transform,border-color] duration-300 group-hover:border-bone/40">
+            <span className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+          </span>
         </a>
       </div>
     </div>

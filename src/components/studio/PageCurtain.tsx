@@ -86,11 +86,12 @@ function pageReady() {
 }
 
 export default function PageCurtain() {
-  return <Curtain key={usePathname()} />;
+  const pathname = usePathname();
+  return <Curtain key={pathname} intro={/^\/(tr|en)\/?$/.test(pathname)} />;
 }
 
-function Curtain() {
-  const [phase, setPhase] = useState<"cover" | "leave" | "done">(() => (booted ? "done" : "cover"));
+function Curtain({ intro }: Readonly<{ intro: boolean }>) {
+  const [phase, setPhase] = useState<"cover" | "leave" | "done">(() => (booted || !intro ? "done" : "cover"));
   const router = useRouter();
 
   useLayoutEffect(() => {
@@ -117,7 +118,7 @@ function Curtain() {
   useEffect(() => {
     if (booted) return;
     const root = document.documentElement;
-    const skip = stillMotion() || seenThisSession();
+    const skip = !intro || stillMotion() || seenThisSession();
     if (!skip) root.dataset.curtain = "";
     let alive = true;
     (skip ? Promise.resolve() : pageReady()).then(() => {
@@ -130,7 +131,7 @@ function Curtain() {
       alive = false;
       delete root.dataset.curtain;
     };
-  }, []);
+  }, [intro]);
 
   useEffect(() => {
     if (phase !== "leave") return;

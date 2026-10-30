@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" fill="none" role="img">
+  <rect width="640" height="320" rx="3" fill="#262522"/>
+  <text x="40" y="50" fill="#91877a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2.4">RUHSAT VE UYGULAMA AKIŞI</text>
+  <path d="M40 66h560" stroke="#34312c" stroke-width="1"/>
+
+  <path d="M76 150h488" stroke="#4a453d" stroke-width="1"/>
+  <path d="M76 150h488" stroke="#d5a17d" stroke-width="1" stroke-dasharray="6 6"/>
+
+  <g fill="#262522" stroke="#d5a17d" stroke-width="2">
+    <circle cx="76" cy="150" r="6"/>
+    <circle cx="198" cy="150" r="6"/>
+    <circle cx="320" cy="150" r="6"/>
+    <circle cx="442" cy="150" r="6"/>
+    <circle cx="564" cy="150" r="6"/>
+  </g>
+  <circle cx="564" cy="150" r="2.5" fill="#d5a17d" stroke="none"/>
+
+  <g fill="#d5a17d" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1.4" text-anchor="middle">
+    <text x="76" y="130">01</text>
+    <text x="198" y="130">02</text>
+    <text x="320" y="130">03</text>
+    <text x="442" y="130">04</text>
+    <text x="564" y="130">05</text>
+  </g>
+
+  <g fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle">
+    <text x="76" y="182">Arsa &amp; imar</text>
+    <text x="76" y="200">durumu</text>
+    <text x="198" y="182">Konsept &amp;</text>
+    <text x="198" y="200">avan proje</text>
+    <text x="320" y="182">Ruhsat</text>
+    <text x="320" y="200">başvurusu</text>
+    <text x="442" y="182">Uygulama</text>
+    <text x="442" y="200">projeleri</text>
+    <text x="564" y="182">Şantiye &amp;</text>
+    <text x="564" y="200">iskân</text>
+  </g>
+
+  <g fill="#91877a" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle">
+    <text x="76" y="220">belge &amp; ölçüm</text>
+    <text x="198" y="220">ihtiyaç programı</text>
+    <text x="320" y="220">belediye onayı</text>
+    <text x="442" y="220">detay &amp; metraj</text>
+    <text x="564" y="220">denetim</text>
+  </g>
+
+  <path d="M76 246h488" stroke="#4a453d" stroke-dasharray="3 5"/>
+  <text x="40" y="276" fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="13">Sıra ve süreler belediyeye, parsele ve yapı türüne göre değişir.</text>
+  <text x="40" y="296" fill="#91877a" font-family="Helvetica, Arial, sans-serif" font-size="12">Bu şema bir süre taahhüdü değil, görüşmede kullanılacak bir yol haritasıdır.</text>
+</svg>

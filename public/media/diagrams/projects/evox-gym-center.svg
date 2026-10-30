@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img"><title>Evox Gym Center: alanlar ve ışık dili</title><style>
+*{transform-box:fill-box;transform-origin:center}
+.s1{animation:s1 5s cubic-bezier(.22,1,.36,1) infinite}.s2{animation:s2 5s cubic-bezier(.22,1,.36,1) infinite}
+.s3{animation:s3 5s cubic-bezier(.22,1,.36,1) infinite}.s4{animation:s4 5s cubic-bezier(.22,1,.36,1) infinite}
+.s5{animation:s5 5s cubic-bezier(.22,1,.36,1) infinite}.x2{animation:x2 5s ease infinite}
+.glow{animation:glow 1.5s ease-in-out infinite}.ray{stroke-dasharray:8 8;animation:ray 0.6s linear infinite}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(8px)}11%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,19%{opacity:0;transform:translateY(8px)}27%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,35%{opacity:0;transform:translateY(8px)}43%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s4{0%,51%{opacity:0;transform:translateY(8px)}59%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s5{0%,67%{opacity:0;transform:translateY(8px)}75%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes x2{0%,19%{opacity:1}27%,100%{opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes ray{to{stroke-dashoffset:-16}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect width="640" height="400" fill="#1d1c19"/>
+    <rect x="60" y="60" width="520" height="280" fill="none" stroke="#ede9e1" stroke-width="4"/>
+    <g class="s1"><rect x="70" y="70" width="280" height="170" fill="#2a2824"/><path d="M130 160h160" stroke="#a29d93" stroke-width="5"/><rect x="118" y="142" width="12" height="36" fill="#a29d93"/><rect x="290" y="142" width="12" height="36" fill="#a29d93"/></g>
+    <g class="s2"><rect x="360" y="70" width="210" height="110" fill="#2a2824"/><rect x="415" y="90" width="100" height="70" fill="none" stroke="#c4825c" stroke-width="3"/></g>
+    <g class="s3"><rect x="360" y="190" width="210" height="140" fill="#2a2824"/><rect x="390" y="230" width="60" height="22" rx="3" fill="#a29d93" fill-opacity=".6"/><rect x="480" y="230" width="60" height="22" rx="3" fill="#a29d93" fill-opacity=".6"/><rect x="390" y="275" width="60" height="22" rx="3" fill="#a29d93" fill-opacity=".6"/><rect x="480" y="275" width="60" height="22" rx="3" fill="#a29d93" fill-opacity=".6"/></g>
+    <g class="s4"><rect x="70" y="250" width="130" height="80" fill="#2a2824"/><path d="M90 262v56M110 262v56M130 262v56M150 262v56M170 262v56" stroke="#a29d93" stroke-width="3"/></g>
+    <g class="s5"><rect x="210" y="250" width="140" height="80" fill="#2a2824"/><path d="M232 312v-26h96v26M232 298h96" fill="none" stroke="#b07a4f" stroke-width="6" stroke-linejoin="round"/></g>
+    <g class="glow" stroke="#f2c46b" stroke-width="3" stroke-linecap="round"><path d="M90 88h240M90 222h240M380 82h170M380 318h170"/></g>
+    <g class="s1"><circle cx="70" cy="70" r="14" fill="#c4825c"/><text x="70" y="75" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">1</text></g><g class="s2"><circle cx="360" cy="70" r="14" fill="#c4825c"/><text x="360" y="75" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">2</text></g><g class="s3"><circle cx="360" cy="190" r="14" fill="#c4825c"/><text x="360" y="195" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">3</text></g><g class="s4"><circle cx="70" cy="250" r="14" fill="#c4825c"/><text x="70" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">4</text></g><g class="s5"><circle cx="210" cy="250" r="14" fill="#c4825c"/><text x="210" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">5</text></g></svg>

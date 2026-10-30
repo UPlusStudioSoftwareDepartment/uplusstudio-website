@@ -4,10 +4,9 @@ import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { m, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import LanguageSelector from "./LanguageSelector";
 import SocialLinks from "./studio/SocialLinks";
-import { EASE_STUDIO as EASE } from "@/lib/motion";
 import MobileMenu from "./navigation/MobileMenu";
 import MenuIcon from "./navigation/MenuIcon";
 
@@ -39,6 +38,7 @@ export default function Navigation() {
     { href: `${prefix}/projects`, label: t("work") },
     { href: `${prefix}/about`, label: t("studio") },
     { href: `${prefix}/services`, label: t("services") },
+    { href: `${prefix}/guides`, label: t("guidesShort") },
     { href: `${prefix}/glossary`, label: t("glossaryShort") },
     { href: `${prefix}/contact`, label: t("contact") },
   ];
@@ -103,14 +103,13 @@ export default function Navigation() {
 
   return (
     <>
-      <m.nav
-        className={`fixed inset-x-0 top-0 z-50 ${menuMounted ? "" : "[view-transition-name:site-nav]"} ${settling ? "" : "transition-[background-color,border-color,padding] duration-500"} ${
+      <nav
+        className={`fixed inset-x-0 top-0 z-50 motion-reduce:transition-none ${menuMounted ? "" : "[view-transition-name:site-nav]"} ${settling ? "" : "transition-[transform,background-color,border-color,padding] duration-500 ease-studio"} ${
           isScrolled
             ? "bg-paper/85 backdrop-blur-md border-b border-line py-3"
             : "bg-transparent border-b border-transparent py-5 sm:py-6"
         }`}
-        animate={{ y: isHidden && !isMenuOpen ? "-100%" : "0%" }}
-        transition={{ duration: settling ? 0 : 0.5, ease: EASE }}
+        style={{ transform: isHidden && !isMenuOpen ? "translateY(-100%)" : "none" }}
       >
         <div className="mx-auto flex max-w-[2560px] items-center justify-between px-4 sm:px-8 lg:px-12">
           <Link
@@ -133,6 +132,7 @@ export default function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 className="group relative py-1 text-[14px]"
               >
                 <span
@@ -161,7 +161,7 @@ export default function Navigation() {
             </div>
             <div className="hidden items-center gap-4 lg:flex">
               <span className="h-5 w-px bg-current opacity-25" aria-hidden />
-              <SocialLinks className="-mx-2" />
+              <SocialLinks only={["directions", "whatsapp", "instagram", "card"]} className="-mx-2" />
             </div>
 
             <div className="lg:hidden">
@@ -179,7 +179,7 @@ export default function Navigation() {
             </button>
           </div>
         </div>
-      </m.nav>
+      </nav>
 
       <AnimatePresence onExitComplete={() => setMenuMounted(false)}>
         {isMenuOpen && (

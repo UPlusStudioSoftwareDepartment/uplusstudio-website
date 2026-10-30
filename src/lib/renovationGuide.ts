@@ -4,6 +4,9 @@ export const renovationGuide: StudioGuide = {
   slug: "ankara-ev-yenileme-hazirlik",
   service: "tadilat-donusum-ankara",
   project: "villa-donusumu",
+  topic: "renovation",
+  audiences: ["homeowner", "villa"],
+  card: "/media/projects/villa-donusumu/before.jpg",
   copy: {
     tr: {
       title: "Ankara’da ev yenilemeye başlamadan önce 5 karar",

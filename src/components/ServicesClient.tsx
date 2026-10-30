@@ -1,11 +1,13 @@
 "use client";
 
 import { studioInfo } from "@/lib/studio-info";
+import PhoneRing from "@/components/studio/PhoneRing";
 
 import Link from "next/link";
 import { Fragment, useRef, useState, type ReactNode } from "react";
 import { m, useScroll, useTransform } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 import PageHeader from "@/components/studio/PageHeader";
 import FramedImage from "@/components/studio/FramedImage";
 import BeforeAfter from "@/components/studio/BeforeAfter";
@@ -15,8 +17,11 @@ import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Rev
 import ShowcaseModal, { type Showcase } from "@/components/studio/ShowcaseModal";
 import { examplePair, type ExamplePair } from "@/lib/showcase";
 import { priceRange } from "@/lib/pricing";
-import { STUDIO_SERVICES } from "@/lib/services";
-import { LANDING_BY_BOOKING } from "@/lib/serviceLandings";
+import { SERVICE_LANDINGS, SERVICE_ORDER } from "@/lib/serviceLandings";
+import { getProject, screenPoster } from "@/lib/projects";
+import InViewVideo from "@/components/studio/InViewVideo";
+import Fullscreenable from "@/components/studio/Fullscreenable";
+import { AUDIENCES, audienceLabels } from "@/lib/serviceAudiences";
 import { services_tr } from "@/app/[locale]/services/locales/tr_TR";
 import { services_en } from "@/app/[locale]/services/locales/en_US";
 
@@ -57,6 +62,7 @@ const CENTERED = "text-center lg:col-span-12 [&>span>span]:ml-0";
 
 function DisciplineBlock({
   index,
+  number,
   service,
   image,
   imageAlt,
@@ -66,7 +72,10 @@ function DisciplineBlock({
   exampleLabel,
   onExample,
 }: Readonly<{
+  /** Position in the list, used to alternate the layout. */
   index: number;
+  /** Discipline number shown as 01 / 04. */
+  number: number;
   service: ServicesCopy["services"][DisciplineKey];
   image: string;
   imageAlt: string;
@@ -98,7 +107,7 @@ function DisciplineBlock({
       </MaskReveal>
 
       <div className={`flex flex-col lg:col-span-6 ${flipped ? "lg:order-1" : ""}`}>
-        <span className="font-mono text-[12px] tracking-[0.14em] text-clay">{String(index + 1).padStart(2, "0")} / 04</span>
+        <span className="font-mono text-[12px] tracking-[0.14em] text-clay">{String(number + 1).padStart(2, "0")} / 04</span>
         <h3 className="display mt-6 text-[clamp(2.25rem,4.4vw,4rem)] leading-[1.02]! text-ink">{service.title}</h3>
         <p className="mt-4 font-serif text-xl italic text-mute sm:text-2xl">{service.subtitle}</p>
         <p className="mt-8 max-w-[60ch] text-[17px] leading-relaxed text-ink/85">{service.description}</p>
@@ -118,7 +127,7 @@ function DisciplineBlock({
             href={studioInfo.phoneHref}
             className="group inline-flex min-h-12 items-center justify-between gap-6 border border-ink bg-transparent px-6 py-3.5 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone"
           >
-            {callLabel}
+            <span className="inline-flex items-center gap-2"><PhoneRing />{callLabel}</span>
             <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
           </a>
           {onExample && (
@@ -131,6 +140,76 @@ function DisciplineBlock({
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </button>
           )}
+        </div>
+      </div>
+    </li>
+  );
+}
+
+type FeaturedWork = Readonly<{ project: string; landing: string }>;
+
+// Real project films shown in the discipline card layout, ahead of the disciplines.
+const FEATURED_WORK: readonly FeaturedWork[] = [
+  { project: "villa-donusumu", landing: "tadilat-donusum-ankara" },
+  { project: "konut-ic-mekan", landing: "ic-mimarlik-ankara" },
+  { project: "ofis-yenileme", landing: "ofis-ic-mimarlik-ankara" },
+];
+
+const FEATURED_LABELS = {
+  tr: { eyebrow: "Örnek proje", project: "Projeyi inceleyin", service: "Hizmet sayfası" },
+  en: { eyebrow: "Featured project", project: "Explore the project", service: "Service page" },
+} as const;
+
+function FeaturedWorkBlock({ item, index, lang, callLabel }: Readonly<{ item: FeaturedWork; index: number; lang: "tr" | "en"; callLabel: string }>) {
+  const project = getProject(item.project);
+  const landing = SERVICE_LANDINGS.find((l) => l.slug === item.landing);
+  if (!project?.video || !landing) return null;
+  const flipped = index % 2 === 1;
+  const portrait = project.video.height > project.video.width;
+  const labels = FEATURED_LABELS[lang];
+  return (
+    <li className="grid grid-cols-1 items-center gap-10 border-b border-line py-14 lg:grid-cols-12 lg:gap-16 lg:py-20">
+      <MaskReveal from={flipped ? "left" : "bottom"} className={`relative aspect-[4/3] w-full overflow-hidden bg-night lg:col-span-6 ${flipped ? "lg:order-2" : ""}`}>
+        <Fullscreenable className="absolute inset-0">
+          <InViewVideo
+            src={project.video.src}
+            poster={screenPoster(project.video)}
+            label={project.title[lang]}
+            className={`h-full w-full ${portrait ? "object-contain" : "object-cover"}`}
+          />
+        </Fullscreenable>
+      </MaskReveal>
+
+      <div className={`flex flex-col lg:col-span-6 ${flipped ? "lg:order-1" : ""}`}>
+        <span className="font-mono text-[12px] tracking-[0.14em] text-clay">{labels.eyebrow} · {landing.copy[lang].label}</span>
+        <h3 className="display mt-6 text-[clamp(2.25rem,4.4vw,4rem)] leading-[1.02]! text-ink">{project.title[lang]}</h3>
+        <p className="mt-4 font-serif text-xl italic text-mute sm:text-2xl">{project.tagline[lang]}</p>
+        <p className="mt-8 max-w-[60ch] text-[17px] leading-relaxed text-ink/85">{project.description[lang]}</p>
+
+        <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-2 text-[16px] text-ink sm:grid-cols-2">
+          {landing.copy[lang].scope.slice(0, 6).map((f) => (
+            <li key={f} className="flex gap-3 border-b border-line pb-2">
+              <span aria-hidden className="text-clay">—</span>
+              {f}
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <a
+            href={studioInfo.phoneHref}
+            className="group inline-flex min-h-12 items-center justify-between gap-6 border border-ink bg-transparent px-6 py-3.5 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone"
+          >
+            <span className="inline-flex items-center gap-2"><PhoneRing />{callLabel}</span>
+            <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+          </a>
+          <Link href={`/${lang}/projects/${project.slug}`} className="group inline-flex min-h-11 items-center gap-3 border-b border-ink/40 pb-1 text-[15px] text-ink transition-colors hover:border-clay hover:text-clay">
+            {labels.project}
+            <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+          </Link>
+          <Link href={`/${lang}/services/${landing.slug}`} className="inline-flex min-h-11 items-center text-[15px] text-mute underline-offset-4 hover:text-ink hover:underline">
+            {labels.service} →
+          </Link>
         </div>
       </div>
     </li>
@@ -157,6 +236,17 @@ function Marquee({ items }: Readonly<{ items: string[] }>) {
   );
 }
 
+/** Lets the last card fill its row in the 2-column (sm) and 3-column (xl) service list. */
+function lastRowSpan(i: number, n: number) {
+  if (i !== n - 1) return "";
+  const sm = n % 2 === 1 ? "sm:col-span-2" : "";
+  const xl = n % 3 === 1 ? "xl:col-span-3" : sm ? "xl:col-span-1" : "";
+  return `${sm} ${xl}`.trim();
+}
+
+// One drawing per step: brief, massing concept, dimensioned detail, structure on site.
+const PROCESS_DRAWINGS = ["/media/diagrams/process-brief.svg", "/media/diagrams/process-concept.svg", "/media/diagrams/process-detail.svg", "/media/diagrams/process-coordination.svg"];
+
 function ProcessTimeline({ steps }: Readonly<{ steps: ServicesCopy["process"]["steps"] }>) {
   const ref = useRef<HTMLOListElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 80%", "end 60%"] });
@@ -181,6 +271,9 @@ function ProcessTimeline({ steps }: Readonly<{ steps: ServicesCopy["process"]["s
             <span className="h-2 w-2 rounded-full bg-clay" />
           </span>
           <FadeUp delay={i * 0.08}>
+            {PROCESS_DRAWINGS[i] && (
+              <Image src={PROCESS_DRAWINGS[i]} alt="" width={320} height={160} unoptimized className="mb-6 h-auto w-full max-w-[260px] rounded-[3px] border border-line bg-paper-2/60" />
+            )}
             <span className="font-serif text-6xl italic leading-none text-ink/40 sm:text-7xl" aria-hidden>{step.step}</span>
             <h3 className="display mt-4 text-3xl text-ink">{step.title}</h3>
             <p className="mt-3 max-w-xs text-[16px] leading-relaxed text-mute">{step.description}</p>
@@ -204,6 +297,10 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
   const ts = useTranslations("studio");
   const lang = locale === "en" ? "en" : "tr";
   const [showcase, setShowcase] = useState<Showcase | null>(null);
+  const audience = audienceLabels[lang];
+  const landings = SERVICE_ORDER.map((slug) => SERVICE_LANDINGS.find((landing) => landing.slug === slug)).filter(
+    (landing): landing is (typeof SERVICE_LANDINGS)[number] => Boolean(landing),
+  );
 
   return (
     <>
@@ -232,10 +329,14 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
         </div>
 
         <ol className="mt-12 border-t border-line lg:mt-16">
+          {FEATURED_WORK.map((item, i) => (
+            <FeaturedWorkBlock key={item.project} item={item} index={i} lang={lang} callLabel={ts("nav.callNow")} />
+          ))}
           {DISCIPLINE_KEYS.map((key, i) => (
             <DisciplineBlock
               key={key}
-              index={i}
+              index={i + FEATURED_WORK.length}
+              number={i}
               service={copy.services[key]}
               image={DISCIPLINE_IMAGES[key]}
               imageAlt={page.disciplineImages[key]}
@@ -274,41 +375,8 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
         />
       </section>
 
-      <section aria-labelledby="all-services-title" className={`${CONTAINER} pt-24 sm:pt-32`}>
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <Eyebrow>{page.allEyebrow}</Eyebrow>
-            <p className="mt-6 max-w-sm text-[16px] leading-relaxed text-mute">{page.allIntro}</p>
-          </div>
-          <h2 id="all-services-title" className={`text-[clamp(2.25rem,5vw,4.5rem)] ${CENTERED} ${HEADING}`}>
-            <LineReveal lines={[withEm(page.allTitle.join(" "))]} />
-          </h2>
-        </div>
-        <ol className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:mt-16 xl:grid-cols-5">
-          {STUDIO_SERVICES[lang].map((service, i) => (
-            <li key={service.title} className="flex flex-col border-b border-r border-line p-5 sm:p-6">
-              <span className="font-mono text-[12px] tracking-[0.14em] text-clay">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="mt-4 text-[19px] font-medium leading-snug text-ink">{service.title}</h3>
-              <p className="mt-2 flex-1 text-[15px] leading-relaxed text-mute">{service.desc}</p>
-              <a
-                href={studioInfo.phoneHref}
-                className="group mt-6 inline-flex min-h-11 items-center justify-between gap-3 border-t border-line pt-4 text-left font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:text-clay"
-              >
-                {ts("nav.callNow")}
-                <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </a>
-              {LANDING_BY_BOOKING[service.booking] && (
-                <Link
-                  href={`/${lang}/services/${LANDING_BY_BOOKING[service.booking]}`}
-                  className="mt-3 inline-flex min-h-11 items-center font-mono text-[12px] uppercase tracking-[0.12em] text-mute underline-offset-4 hover:text-ink hover:underline"
-                >
-                  {page.allDetail} →
-                </Link>
-              )}
-            </li>
-          ))}
-        </ol>
-      </section>
+      {/* Sales order: what we do → the packages and prices → real before/after proof → everything else. */}
+      {children}
 
       <section aria-labelledby="services-transform" className={`${CONTAINER} pt-24 sm:pt-32`}>
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
@@ -340,6 +408,91 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
         </div>
       </section>
 
+      <section aria-labelledby="all-services-title" className={`${CONTAINER} pt-24 sm:pt-32`}>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Eyebrow>{page.allEyebrow}</Eyebrow>
+            <p className="mt-6 max-w-sm text-[16px] leading-relaxed text-mute">{page.allIntro}</p>
+          </div>
+          <h2 id="all-services-title" className={`text-[clamp(2.25rem,5vw,4.5rem)] ${CENTERED} ${HEADING}`}>
+            <LineReveal lines={[withEm(page.allTitle.join(" "))]} />
+          </h2>
+        </div>
+        <ol className="mt-12 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:mt-16 xl:grid-cols-3">
+          {landings.map((landing, i) => (
+            <li key={landing.slug} className={`flex flex-col border-b border-r border-line p-5 sm:p-7 ${lastRowSpan(i, landings.length)}`}>
+              <span className="font-mono text-[12px] tracking-[0.14em] text-clay">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="mt-4 text-[21px] font-medium leading-snug text-ink">
+                <Link href={`/${lang}/services/${landing.slug}`} className="hover:text-clay">{landing.copy[lang].crumb}</Link>
+              </h3>
+              <p className="mt-3 flex-1 text-[15px] leading-relaxed text-mute">{landing.copy[lang].description}</p>
+              <Link
+                href={`/${lang}/services/${landing.slug}`}
+                className="group mt-6 inline-flex min-h-11 items-center justify-between gap-3 border-t border-line pt-4 text-[15px] text-ink transition-colors hover:text-clay"
+              >
+                {page.allDetail}
+                <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </Link>
+              <a
+                href={studioInfo.phoneHref}
+                className="mt-2 inline-flex min-h-11 items-center gap-2 font-mono text-[12px] uppercase tracking-[0.12em] text-mute transition-colors hover:text-ink"
+              >
+                <PhoneRing />{ts("nav.callNow")}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section aria-labelledby="audiences-title" className={`${CONTAINER} pt-24 sm:pt-32`}>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Eyebrow>{audience.eyebrow}</Eyebrow>
+            <p className="mt-6 max-w-sm text-[16px] leading-relaxed text-mute">{audience.intro}</p>
+          </div>
+          <h2 id="audiences-title" className={`text-[clamp(2.25rem,5vw,4.5rem)] ${CENTERED} ${HEADING}`}>
+            <LineReveal lines={[audience.title]} />
+          </h2>
+        </div>
+        <ol className="mt-12 border-t border-line lg:mt-16">
+          {AUDIENCES.map((group, i) => (
+            <li key={group.key} className="grid grid-cols-1 gap-6 border-b border-line py-10 lg:grid-cols-12 lg:gap-10">
+              <div className="lg:col-span-4">
+                <span className="font-mono text-[12px] tracking-[0.14em] text-clay">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-3 font-serif text-[clamp(1.75rem,3.4vw,2.6rem)] leading-tight text-ink">{group.copy[lang].title}</h3>
+                <p className="mt-4 text-[16px] leading-relaxed text-ink/85">{group.copy[lang].situation}</p>
+              </div>
+              <div className="lg:col-span-4">
+                <p className="eyebrow text-mute">{audience.gains}</p>
+                <ul className="mt-4 space-y-3">
+                  {group.copy[lang].gains.map((gain) => (
+                    <li key={gain} className="flex gap-3 text-[16px] leading-relaxed text-ink">
+                      <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-clay" />
+                      {gain}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="lg:col-span-4">
+                <p className="eyebrow text-mute">{audience.services}</p>
+                <ul className="mt-4 flex flex-wrap gap-2.5">
+                  {group.services.map((slug) => {
+                    const landing = landings.find((item) => item.slug === slug);
+                    return landing ? (
+                      <li key={slug}>
+                        <Link href={`/${lang}/services/${slug}`} className="inline-flex min-h-11 items-center border border-line px-4 py-2 text-[15px] text-ink transition-colors hover:border-clay hover:text-clay">
+                          {landing.copy[lang].crumb}
+                        </Link>
+                      </li>
+                    ) : null;
+                  })}
+                </ul>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       <div className="mt-24 sm:mt-32">
         <Marquee items={DISCIPLINE_KEYS.map((k) => copy.services[k].title)} />
       </div>
@@ -359,11 +512,9 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
         <ProcessTimeline steps={copy.process.steps} />
       </section>
 
-      {children}
-
       <section aria-labelledby="services-cta-title" className="relative isolate mt-28 overflow-hidden text-bone sm:mt-40">
         <FramedImage src="/media/projects/pastane/interior.jpg" alt="" sizes="100vw" className="-z-10 opacity-60" />
-        <div className="absolute inset-0 -z-10 bg-linear-to-r from-night via-night/80 to-night/30" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-linear-to-b from-night/85 via-night/90 to-night sm:bg-linear-to-r sm:from-night sm:via-night/80 sm:to-night/30" aria-hidden />
         <div className={`${CONTAINER} grid grid-cols-1 gap-12 py-28 sm:py-40 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-16`}>
           <div>
             <Eyebrow tone="light">{page.ctaEyebrow}</Eyebrow>
@@ -379,7 +530,7 @@ export default function ServicesClient({ children }: Readonly<ServicesClientProp
                 href={studioInfo.phoneHref}
                 className="group inline-flex min-h-12 items-center justify-between gap-6 border border-bone bg-transparent px-6 py-4 text-[15px] text-bone transition-colors hover:bg-night hover:text-bone sm:justify-start"
               >
-                {ts("nav.callNow")}
+                <span className="inline-flex items-center gap-2"><PhoneRing />{ts("nav.callNow")}</span>
                 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <Link

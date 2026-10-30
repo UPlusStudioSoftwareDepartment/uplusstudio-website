@@ -1,6 +1,7 @@
 "use client";
 
 import { studioInfo } from "@/lib/studio-info";
+import PhoneRing from "@/components/studio/PhoneRing";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -170,8 +171,8 @@ export default function ProjectsContent() {
       />
 
       <div className="sticky top-0 z-30 mt-16 border-y border-line bg-paper/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-[2560px] items-center justify-between gap-6 px-4 sm:px-8 lg:px-12">
-          <div className="no-scrollbar -mx-1 flex overflow-x-auto">
+        <div className="mx-auto flex max-w-[2560px] flex-col gap-1 px-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-8 lg:px-12">
+          <div className="no-scrollbar -mx-1 flex w-full overflow-x-auto [mask-image:linear-gradient(to_right,#000_88%,transparent)] sm:w-auto sm:[mask-image:none]">
             {filters.map((f) => {
               const active = filter === f;
               return (
@@ -191,7 +192,7 @@ export default function ProjectsContent() {
               );
             })}
           </div>
-          <div className="flex shrink-0 items-center gap-1 font-mono text-[12px] uppercase tracking-[0.12em]">
+          <div className="flex shrink-0 items-center gap-1 self-end pb-2 font-mono text-[12px] uppercase tracking-[0.12em] sm:self-auto sm:pb-0">
             {(["grid", "list"] as const).map((v) => (
               <button
                 key={v}
@@ -229,7 +230,7 @@ export default function ProjectsContent() {
             href={studioInfo.phoneHref}
             className="group inline-flex min-h-12 w-full items-center justify-between gap-4 border border-ink bg-transparent px-7 py-4 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone sm:w-auto sm:justify-start"
           >
-            {nav("callNow")}
+            <span className="inline-flex items-center gap-2"><PhoneRing />{nav("callNow")}</span>
             <span className="transition-transform group-hover:translate-x-1" aria-hidden>→</span>
           </a>
         </div>

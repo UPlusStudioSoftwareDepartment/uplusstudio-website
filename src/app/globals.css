@@ -29,6 +29,8 @@ html {
   position: relative;
   max-width: 100vw;
   overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
   overflow-y: auto;
   -webkit-text-size-adjust: 100%;
   /* No global smooth scroll: it made Back/Forward slide from the top to the restored position. Smooth scrolls are opted into per call. */
@@ -39,6 +41,8 @@ html {
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
   overflow-y: visible;
   position: relative;
   font-family: var(--font-sans);
@@ -92,6 +96,11 @@ html::-webkit-scrollbar-thumb:hover {
     font-family: var(--font-serif);
     font-weight: 400;
     letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 
   a,
@@ -513,13 +522,6 @@ a[class*="bg-bone"]:not([class*="rounded-full"]) {
   border-radius: 3px;
 }
 
-@keyframes phone-ring {
-  0%, 22%, 100% { transform: rotate(0deg); }
-  3%, 11% { transform: rotate(-16deg); }
-  7%, 15% { transform: rotate(16deg); }
-  19% { transform: rotate(-6deg); }
-}
-
 @keyframes scope-drawing-focus {
   from { opacity: 0.65; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
@@ -531,29 +533,129 @@ a[class*="bg-bone"]:not([class*="rounded-full"]) {
   }
 }
 
-@keyframes phone-pulse {
-  0% { transform: scale(0.6); opacity: 0.55; }
-  60%, 100% { transform: scale(1.9); opacity: 0; }
+/* Explainer drawings: the finished drawing is the default; data-play (set in view) replays it as a 5s story. */
+.explainer svg * {
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
-.phone-ring > svg {
-  transform-origin: 50% 60%;
-  animation: phone-ring 2.6s ease-in-out infinite;
+.explainer[data-play] .ex-s1 { animation: ex-s1 5s var(--ease-out-studio) infinite; }
+.explainer[data-play] .ex-s2 { animation: ex-s2 5s var(--ease-out-studio) infinite; }
+.explainer[data-play] .ex-s3 { animation: ex-s3 5s var(--ease-out-studio) infinite; }
+.explainer[data-play] .ex-s4 { animation: ex-s4 5s var(--ease-out-studio) infinite; }
+.explainer[data-play] .ex-s5 { animation: ex-s5 5s var(--ease-out-studio) infinite; }
+.explainer[data-play] .ex-grow { transform-origin: top; animation: ex-grow 5s var(--ease-out-studio) infinite; }
+.explainer[data-play] .ex-path { stroke-dasharray: 1; animation: ex-path 5s linear infinite; }
+.explainer[data-play] .ex-shake { animation: ex-shake 5s linear infinite; }
+.explainer[data-play] .ex-slide { animation: ex-slide 3s ease-in-out infinite; }
+.explainer[data-play] .ex-snow { animation: ex-snow 2s linear infinite backwards; }
+.explainer[data-play] .ex-leak { animation: ex-leak 1.2s ease-out infinite backwards; }
+.explainer[data-play] .ex-bounce { animation: ex-bounce 0.8s ease-in-out infinite; }
+.explainer[data-play] .ex-pulse { animation: ex-pulse 0.9s ease-out infinite; }
+.explainer[data-paused] * { animation-play-state: paused !important; }
+
+@keyframes ex-s1 { 0%, 3% { opacity: 0; transform: translateY(10px); } 11%, 90% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes ex-s2 { 0%, 19% { opacity: 0; transform: translateY(10px); } 27%, 90% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes ex-s3 { 0%, 35% { opacity: 0; transform: translateY(10px); } 43%, 90% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes ex-s4 { 0%, 51% { opacity: 0; transform: translateY(10px); } 59%, 90% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes ex-s5 { 0%, 67% { opacity: 0; transform: translateY(10px); } 75%, 90% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes ex-grow { 0%, 6% { transform: scaleY(0); } 24%, 90% { transform: scaleY(1); opacity: 1; } 97%, 100% { opacity: 0; } }
+@keyframes ex-path { 0%, 4% { stroke-dashoffset: 1; } 80%, 90% { stroke-dashoffset: 0; opacity: 1; } 97%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes ex-shake {
+  0%, 62%, 82%, 100% { transform: none; }
+  64% { transform: translateX(-5px); }
+  66% { transform: translateX(5px); }
+  68% { transform: translateX(-4px); }
+  70% { transform: translateX(4px); }
+  72% { transform: translateX(-3px); }
+  74% { transform: translateX(3px); }
+  76% { transform: translateX(-1px); }
+}
+@keyframes ex-slide { 0%, 20%, 100% { transform: none; } 45%, 75% { transform: translateX(-44px); } }
+@keyframes ex-snow { from { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } to { transform: translateY(230px); opacity: 0; } }
+@keyframes ex-leak { from { transform: none; opacity: 1; } to { transform: translate(var(--dx), var(--dy)); opacity: 0; } }
+@keyframes ex-bounce { 0%, 100% { transform: none; } 50% { transform: translateY(-6px); } }
+@keyframes ex-pulse { from { transform: scale(0.8); opacity: 0.9; } to { transform: scale(1.6); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .explainer svg * { animation: none !important; }
 }
 
+/* Ringing handset: a short ring, sound waves from the earpiece and two ripples, then a calm pause. */
+.phone-ring {
+  isolation: isolate;
+  --ring-cycle: 3.2s;
+}
+
+.phone-ring::before,
 .phone-ring::after {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -1px;
+  z-index: -1;
   border-radius: 9999px;
   border: 1px solid currentColor;
-  animation: phone-pulse 2.6s ease-out infinite;
+  opacity: 0;
   pointer-events: none;
+  animation: phone-ripple var(--ring-cycle) cubic-bezier(0.2, 0.7, 0.3, 1) infinite;
+}
+
+.phone-ring::after {
+  animation-delay: 0.35s;
+}
+
+.phone-ring__handset {
+  transform-origin: 50% 60%;
+  animation: phone-ring var(--ring-cycle) cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+}
+
+.phone-ring__wave {
+  opacity: 0;
+  animation: phone-wave var(--ring-cycle) ease-out infinite;
+}
+
+.phone-ring__wave--far {
+  animation-delay: 0.12s;
+}
+
+a:hover .phone-ring,
+button:hover .phone-ring,
+a:focus-visible .phone-ring {
+  --ring-cycle: 1.6s;
+}
+
+@keyframes phone-ring {
+  0%, 26%, 100% { transform: rotate(0deg) scale(1); }
+  2% { transform: rotate(-18deg) scale(1.08); }
+  5% { transform: rotate(16deg) scale(1.08); }
+  8% { transform: rotate(-14deg) scale(1.08); }
+  11% { transform: rotate(12deg) scale(1.06); }
+  14% { transform: rotate(-8deg) scale(1.04); }
+  17% { transform: rotate(5deg) scale(1.02); }
+  20% { transform: rotate(-2deg) scale(1); }
+}
+
+@keyframes phone-wave {
+  0%, 2% { opacity: 0; transform: translate(-1.5px, 1.5px); }
+  8%, 18% { opacity: 1; transform: none; }
+  30%, 100% { opacity: 0; transform: translate(1px, -1px); }
+}
+
+@keyframes phone-ripple {
+  0% { transform: scale(0.75); opacity: 0; }
+  6% { opacity: 0.55; }
+  45%, 100% { transform: scale(2.1); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .phone-ring > svg,
-  .phone-ring::after {
+  .phone-ring::before,
+  .phone-ring::after,
+  .phone-ring__handset,
+  .phone-ring__wave {
     animation: none;
+  }
+
+  .phone-ring__wave {
+    opacity: 1;
   }
 }

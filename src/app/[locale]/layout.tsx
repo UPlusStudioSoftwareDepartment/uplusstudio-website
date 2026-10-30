@@ -6,9 +6,10 @@ import { siteGraph } from "@/lib/seo";
 import { fontVariables } from "@/app/fonts";
 import JsonLd from "@/components/seo/JsonLd";
 import Telemetry from "@/components/Telemetry";
+import HeadOrphans from "@/components/HeadOrphans";
 import SiteFrame from "@/components/SiteFrame";
 
-const CURTAIN_BOOT = `try{var r=document.documentElement;if(sessionStorage.getItem("u-curtain")==="1"){r.dataset.curtainSeen=""}else if(!matchMedia("(prefers-reduced-motion: reduce)").matches){r.dataset.curtain="";setTimeout(function(){delete r.dataset.curtain},4000)}}catch(e){}`;
+const CURTAIN_BOOT = `try{var r=document.documentElement;if(sessionStorage.getItem("u-curtain")==="1"){r.dataset.curtainSeen=""}else if(/^\\/(tr|en)\\/?$/.test(location.pathname)&&!matchMedia("(prefers-reduced-motion: reduce)").matches){r.dataset.curtain="";setTimeout(function(){delete r.dataset.curtain},4000)}}catch(e){}`;
 
 // Scroll reveals start hidden in the HTML (framer's initial styles); without JavaScript they would never run, so show their end state.
 const NO_JS_REVEALS = `main [style*="opacity:0;"]:not(g),main [style="opacity:0"]:not(g){opacity:1!important;transform:none!important}main [style*="translateY(105%)"],main [style*="scale(1.12)"]{transform:none!important}main [style*="clip-path:inset("]{clip-path:none!important}`;
@@ -48,6 +49,7 @@ export default async function LocaleLayout({
           {children}
         </SiteFrame>
         <Telemetry />
+        <HeadOrphans />
       </body>
     </html>
   );

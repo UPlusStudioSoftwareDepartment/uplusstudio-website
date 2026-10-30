@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img"><title>Yönetici odası: koyu duvarlar, masif masa ve görüşme koltukları</title><style>
+*{transform-box:fill-box;transform-origin:center}
+.s1{animation:s1 5s cubic-bezier(.22,1,.36,1) infinite}.s2{animation:s2 5s cubic-bezier(.22,1,.36,1) infinite}
+.s3{animation:s3 5s cubic-bezier(.22,1,.36,1) infinite}.s4{animation:s4 5s cubic-bezier(.22,1,.36,1) infinite}
+.s5{animation:s5 5s cubic-bezier(.22,1,.36,1) infinite}.x2{animation:x2 5s ease infinite}
+.glow{animation:glow 1.5s ease-in-out infinite}.ray{stroke-dasharray:8 8;animation:ray 0.6s linear infinite}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(8px)}11%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,19%{opacity:0;transform:translateY(8px)}27%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,35%{opacity:0;transform:translateY(8px)}43%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s4{0%,51%{opacity:0;transform:translateY(8px)}59%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s5{0%,67%{opacity:0;transform:translateY(8px)}75%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes x2{0%,19%{opacity:1}27%,100%{opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes ray{to{stroke-dashoffset:-16}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect width="640" height="400" fill="#1d1c19"/>
+    <rect x="80" y="50" width="480" height="300" fill="none" stroke="#a29d93" stroke-width="2"/>
+    <rect class="s1" x="80" y="50" width="480" height="300" fill="#2a2320" stroke="#5a4636" stroke-width="12"/>
+    <g class="s2"><rect x="250" y="96" width="140" height="62" rx="3" fill="#6b4a32"/><circle cx="320" cy="78" r="14" fill="#3a2a22"/></g>
+    <g class="s3" fill="#6b3b2a"><rect x="196" y="214" width="76" height="66" rx="16"/><rect x="368" y="214" width="76" height="66" rx="16"/><g fill="#8a5a44"><circle cx="216" cy="236" r="2.5"/><circle cx="234" cy="236" r="2.5"/><circle cx="252" cy="236" r="2.5"/><circle cx="388" cy="236" r="2.5"/><circle cx="406" cy="236" r="2.5"/><circle cx="424" cy="236" r="2.5"/></g><circle cx="320" cy="248" r="22" fill="#4a3428"/></g>
+    <g class="s4 glow" fill="#f2c46b" fill-opacity=".22"><circle cx="320" cy="126" r="70"/><circle cx="120" cy="90" r="40"/><circle cx="520" cy="90" r="40"/><circle cx="120" cy="310" r="40"/><circle cx="520" cy="310" r="40"/></g>
+    <g class="s1"><circle cx="80" cy="50" r="14" fill="#c4825c"/><text x="80" y="55" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">1</text></g><g class="s2"><circle cx="390" cy="96" r="14" fill="#c4825c"/><text x="390" y="101" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">2</text></g><g class="s3"><circle cx="444" cy="214" r="14" fill="#c4825c"/><text x="444" y="219" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">3</text></g><g class="s4"><circle cx="520" cy="130" r="14" fill="#c4825c"/><text x="520" y="135" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">4</text></g></svg>

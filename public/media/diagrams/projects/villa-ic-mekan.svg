@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img"><title>Villa iç mekânı: taş şömine, mermer ada ve büyük pencereler</title><style>
+*{transform-box:fill-box;transform-origin:center}
+.s1{animation:s1 5s cubic-bezier(.22,1,.36,1) infinite}.s2{animation:s2 5s cubic-bezier(.22,1,.36,1) infinite}
+.s3{animation:s3 5s cubic-bezier(.22,1,.36,1) infinite}.s4{animation:s4 5s cubic-bezier(.22,1,.36,1) infinite}
+.s5{animation:s5 5s cubic-bezier(.22,1,.36,1) infinite}.x2{animation:x2 5s ease infinite}
+.glow{animation:glow 1.5s ease-in-out infinite}.ray{stroke-dasharray:8 8;animation:ray 0.6s linear infinite}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(8px)}11%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,19%{opacity:0;transform:translateY(8px)}27%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,35%{opacity:0;transform:translateY(8px)}43%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s4{0%,51%{opacity:0;transform:translateY(8px)}59%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s5{0%,67%{opacity:0;transform:translateY(8px)}75%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes x2{0%,19%{opacity:1}27%,100%{opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes ray{to{stroke-dashoffset:-16}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect width="640" height="400" fill="#1d1c19"/>
+    <path d="M30 70h580M30 330h580" stroke="#a29d93" stroke-width="3"/>
+    <g class="s1"><rect x="60" y="90" width="150" height="240" fill="#5a554d"/><g fill="#8a8478"><rect x="66" y="96" width="44" height="22"/><rect x="114" y="96" width="44" height="22"/><rect x="162" y="96" width="42" height="22"/><rect x="66" y="122" width="62" height="22"/><rect x="132" y="122" width="72" height="22"/><rect x="66" y="148" width="40" height="22"/><rect x="110" y="148" width="50" height="22"/><rect x="164" y="148" width="40" height="22"/></g><rect x="90" y="240" width="90" height="70" fill="#121110"/><ellipse class="glow" cx="135" cy="296" rx="30" ry="12" fill="#f2c46b" fill-opacity=".7"/></g>
+    <g class="s2"><rect x="270" y="250" width="180" height="80" fill="#d8d3cb"/><path d="M290 262l40 30M360 258l30 50M410 270l20 20" stroke="#a9a39a" stroke-width="1.5"/></g>
+    <g class="s3"><rect x="490" y="80" width="110" height="250" fill="#2f3d47"/><path d="M490 80h110v250H490zM545 80v250" fill="none" stroke="#121110" stroke-width="4"/><path class="ray" d="M490 120L380 330M490 200L330 330" stroke="#f2c46b" stroke-width="2"/></g>
+    <g class="s4"><rect x="30" y="330" width="580" height="12" fill="#b07a4f"/><rect x="230" y="336" width="200" height="6" rx="3" fill="#d9c7a7"/></g>
+    <g class="s1"><circle cx="60" cy="90" r="14" fill="#c4825c"/><text x="60" y="95" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">1</text></g><g class="s2"><circle cx="450" cy="250" r="14" fill="#c4825c"/><text x="450" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">2</text></g><g class="s3"><circle cx="490" cy="80" r="14" fill="#c4825c"/><text x="490" y="85" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">3</text></g><g class="s4"><circle cx="300" cy="360" r="14" fill="#c4825c"/><text x="300" y="365" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">4</text></g></svg>

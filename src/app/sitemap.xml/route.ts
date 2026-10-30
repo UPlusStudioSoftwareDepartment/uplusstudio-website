@@ -4,6 +4,7 @@ import { getProject, projects, screenPoster, type Project } from "@/lib/projects
 import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
 import { localePath, PAGE_PATH, SITE_URL } from "@/lib/seo";
 import { guides } from "@/lib/guides";
+import { projectDiagram, projectInsights } from "@/lib/projectInsights";
 
 const PATHS = [
   PAGE_PATH.home,
@@ -20,10 +21,16 @@ const PATHS = [
   ...guides.map(({ slug }) => `/guides/${slug}`),
 ];
 
+const present = (src: string | undefined): src is string => Boolean(src);
+
+// Photos plus the explanatory drawings published on each page (project, service and guide diagrams).
 const IMAGES: Record<string, string[]> = Object.fromEntries([
-  ...guides.map((guide) => [`/guides/${guide.slug}`, [getProject(guide.project)?.cover.src].filter((src): src is string => Boolean(src))]),
-  ...projects.map((p) => [`/projects/${p.slug}`, [...new Set([p.cover, ...p.gallery, ...(p.beforeAfter ? [p.beforeAfter.before, p.beforeAfter.after] : [])].map((i) => i.src))]]),
-  ...SERVICE_LANDINGS.map((s) => [`/services/${s.slug}`, [s.image]]),
+  ...guides.map((guide) => [`/guides/${guide.slug}`, [getProject(guide.project)?.cover.src, guide.diagram?.src].filter(present)]),
+  ...projects.map((p) => [
+    `/projects/${p.slug}`,
+    [...new Set([p.cover, ...p.gallery, ...(p.beforeAfter ? [p.beforeAfter.before, p.beforeAfter.after] : [])].map((i) => i.src)), ...(projectInsights[p.slug] ? [projectDiagram(p.slug)] : [])],
+  ]),
+  ...SERVICE_LANDINGS.map((s) => [`/services/${s.slug}`, [s.image, s.diagram].filter(present)]),
 ]);
 
 // The home film fills the first screen; Google has indexed its English version as a video.

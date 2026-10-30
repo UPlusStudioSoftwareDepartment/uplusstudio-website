@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" fill="none" role="img">
+  <rect width="640" height="360" rx="3" fill="#262522"/>
+  <text x="40" y="50" fill="#91877a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="2.4">PROJE BÜTÇESİ · AYRI KALEMLER</text>
+  <path d="M40 66h560" stroke="#34312c" stroke-width="1"/>
+
+  <g>
+    <rect x="40" y="86" width="125" height="190" fill="#302d28" stroke="#4a453d"/>
+    <path d="M40 86h125" stroke="#d5a17d" stroke-width="2"/>
+    <text x="56" y="112" fill="#d5a17d" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1.6">01</text>
+    <g stroke="#eee5d6" stroke-width="1.6" stroke-linejoin="round">
+      <circle cx="102" cy="150" r="17"/>
+      <path d="M102 133v-5M102 172v5M85 150h-5M124 150h5"/>
+      <path d="m96 158 6-12 6 12"/>
+    </g>
+    <text x="56" y="204" fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="14">Tasarım &amp;</text>
+    <text x="56" y="222" fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="14">çizim hizmeti</text>
+    <text x="56" y="248" fill="#91877a" font-family="Helvetica, Arial, sans-serif" font-size="10">konsept, 3D</text>
+    <text x="56" y="262" fill="#91877a" font-family="Helvetica, Arial, sans-serif" font-size="10">teknik çizim</text>
+  </g>
+
+  <g>
+    <rect x="185" y="86" width="125" height="190" fill="#302d28" stroke="#4a453d"/>
+    <path d="M185 86h125" stroke="#d5a17d" stroke-width="2"/>
+    <text x="201" y="112" fill="#d5a17d" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1.6">02</text>
+    <g stroke="#eee5d6" stroke-width="1.6" stroke-linejoin="round">
+      <path d="M227 168v-34h38v34"/>
+      <path d="M221 168h50"/>
+      <path d="M227 148h38M227 158h38M240 134v34M252 134v34"/>
+    </g>
+    <text x="201" y="204" fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="14">Uygulama</text>
+    <text x="201" y="222" fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="14">&amp; işçilik</text>
+    <text x="201" y="248" fill="#91877a" font-family="Helvetica, Arial, sans-serif" font-size="10">söküm, imalat</text>
+    <text x="201" y="262" fill="#91877a" font-family="Helvetica, Arial, sans-serif" font-size="10">montaj</text>
+  </g>
+
+  <g>
+    <rect x="330" y="86" width="125" height="190" fill="#302d28" stroke="#4a453d"/>
+    <path d="M330 86h125" stroke="#d5a17d" stroke-width="2"/>
+    <text x="346" y="112" fill="#d5a17d" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1.6">03</text>
+    <g stroke="#eee5d6" stroke-width="1.6" stroke-linejoin="round">
+      <path d="M372 140v28h28v-28Z"/>
+      <path d="M372 140h28M372 154h28"/>
+      <path d="M386 154v14M372 133h28M392 126v7"/>
+    </g>
+    <text x="346" y="204" fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="14">Mobilya &amp;</text>
+    <text x="346" y="222" fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="14">ekipman</text>
+    <text x="346" y="248" fill="#91877a" font-family="Helvetica, Arial, sans-serif" font-size="10">özel üretim</text>
+    <text x="346" y="262" fill="#91877a" font-family="Helvetica, Arial, sans-serif" font-size="10">satın alma</text>
+  </g>
+
+  <g>
+    <rect x="475" y="86" width="125" height="190" fill="#302d28" stroke="#4a453d"/>
+    <path d="M475 86h125" stroke="#d5a17d" stroke-width="2"/>
+    <text x="491" y="112" fill="#d5a17d" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="1.6">04</text>
+    <g stroke="#eee5d6" stroke-width="1.6" stroke-linejoin="round">
+      <path d="M519 132h20l10 10v26h-30Z"/>
+      <path d="M539 132v10h10"/>
+      <path d="M525 152h18M525 160h12"/>
+    </g>
+    <text x="491" y="204" fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="14">İzin, harç &amp;</text>
+    <text x="491" y="222" fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="14">danışmanlık</text>
+    <text x="491" y="248" fill="#91877a" font-family="Helvetica, Arial, sans-serif" font-size="10">belediye, denetim</text>
+    <text x="491" y="262" fill="#91877a" font-family="Helvetica, Arial, sans-serif" font-size="10">harçlar</text>
+  </g>
+
+  <path d="M40 300h560" stroke="#4a453d" stroke-dasharray="3 5"/>
+  <text x="40" y="326" fill="#eee5d6" font-family="Helvetica, Arial, sans-serif" font-size="13">Her kalem ayrı kapsam ve ayrı tekliftir.</text>
+</svg>

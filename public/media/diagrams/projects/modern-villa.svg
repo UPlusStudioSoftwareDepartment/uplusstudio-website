@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img"><title>Modern Villa: iki kütle, cam yüzeyler ve havuz terası</title><style>
+*{transform-box:fill-box;transform-origin:center}
+.s1{animation:s1 5s cubic-bezier(.22,1,.36,1) infinite}.s2{animation:s2 5s cubic-bezier(.22,1,.36,1) infinite}
+.s3{animation:s3 5s cubic-bezier(.22,1,.36,1) infinite}.s4{animation:s4 5s cubic-bezier(.22,1,.36,1) infinite}
+.s5{animation:s5 5s cubic-bezier(.22,1,.36,1) infinite}.x2{animation:x2 5s ease infinite}
+.glow{animation:glow 1.5s ease-in-out infinite}.ray{stroke-dasharray:8 8;animation:ray 0.6s linear infinite}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(8px)}11%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,19%{opacity:0;transform:translateY(8px)}27%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,35%{opacity:0;transform:translateY(8px)}43%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s4{0%,51%{opacity:0;transform:translateY(8px)}59%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s5{0%,67%{opacity:0;transform:translateY(8px)}75%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes x2{0%,19%{opacity:1}27%,100%{opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes ray{to{stroke-dashoffset:-16}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect width="640" height="400" fill="#1d1c19"/>
+    <path d="M56 270v26" stroke="#8a8478" stroke-width="4"/><circle cx="56" cy="264" r="28" fill="#4f6b3a"/><path d="M590 262v26" stroke="#8a8478" stroke-width="4"/><circle cx="590" cy="256" r="30" fill="#4f6b3a"/>
+    <path d="M0 300h640" stroke="#a29d93" stroke-width="2"/>
+    <g class="s1" fill="#e9e4da" fill-opacity=".9" stroke="#ede9e1" stroke-width="3" stroke-linejoin="round"><path d="M120 300V180l90-58 90 58v120z"/><path d="M320 300V160l90-66 90 66v140z"/></g>
+    <g class="s2" fill="#2f3d47" stroke="#121110" stroke-width="4"><rect x="140" y="210" width="140" height="80"/><rect x="340" y="190" width="140" height="100"/><rect x="390" y="128" width="40" height="40"/></g>
+    <g class="s4"><rect class="glow" x="144" y="214" width="132" height="72" fill="#f2c46b" fill-opacity=".55"/><rect class="glow" x="344" y="194" width="132" height="92" fill="#f2c46b" fill-opacity=".55"/></g>
+    <g class="s3"><rect x="90" y="300" width="440" height="12" fill="#8a8478"/><rect x="150" y="312" width="320" height="34" fill="#3e6f8a"/><path d="M175 328h40M260 322h50M360 332h60" stroke="#9fc4d8" stroke-width="2" opacity=".8"/></g>
+    <g class="s1"><circle cx="300" cy="104" r="14" fill="#c4825c"/><text x="300" y="109" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">1</text></g><g class="s2"><circle cx="280" cy="206" r="14" fill="#c4825c"/><text x="280" y="211" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">2</text></g><g class="s3"><circle cx="480" cy="330" r="14" fill="#c4825c"/><text x="480" y="335" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">3</text></g><g class="s4"><circle cx="486" cy="186" r="14" fill="#c4825c"/><text x="486" y="191" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">4</text></g></svg>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import FramedImage from "@/components/studio/FramedImage";
 import { Eyebrow } from "@/components/studio/Reveal";
-import { SERVICE_LANDINGS } from "@/lib/serviceLandings";
+import { SERVICE_LANDINGS, SERVICE_ORDER } from "@/lib/serviceLandings";
 import { projects, coverSizes } from "@/lib/projects";
 import type { Locale } from "@/lib/i18n-config";
 import HomeDecisionSupport from "./HomeDecisionSupport";
@@ -17,6 +17,9 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
   const t = await getTranslations({ locale, namespace: "studio" });
   const prefix = `/${locale}`;
   const featured = projects.filter((p) => p.featured);
+  const services = SERVICE_ORDER.map((slug) => SERVICE_LANDINGS.find((landing) => landing.slug === slug)).filter(
+    (landing): landing is (typeof SERVICE_LANDINGS)[number] => Boolean(landing),
+  );
 
   return (
     <div className="relative bg-paper text-ink">
@@ -32,17 +35,17 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
           </Link>
         </section>
 
+        {/* Sales order: the visitor's need → what we offer → real work as proof → what the scope includes. */}
         <HomeProjectPaths locale={locale} />
-        <ProjectScope locale={locale} />
         <section className="border-t border-line py-20 sm:py-28">
           <Eyebrow>{t("nav.services")}</Eyebrow>
           <h2 className="display -ml-[0.075em] mt-5 text-[clamp(2.5rem,9vw,5.5rem)]">{t("disciplines.title")}</h2>
           <ul className="mt-10 border-t border-line">
-            {SERVICE_LANDINGS.map((service, i) => (
+            {services.map((service, i) => (
               <li key={service.slug} className="border-b border-line">
                 <Link href={`${prefix}/services/${service.slug}`} className="group flex min-h-16 items-center gap-4 py-4">
-                  <span className="font-mono text-[12px] text-mute">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="flex-1 text-[clamp(1.25rem,4.5vw,2rem)] font-light tracking-[-0.02em] transition-colors group-hover:text-clay">
+                  <span className="w-6 font-mono text-[12px] text-mute">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="min-w-0 flex-1 text-[clamp(1.25rem,4.5vw,2rem)] font-light leading-snug tracking-[-0.02em] transition-colors group-hover:text-clay">
                     {service.copy[locale].crumb}
                   </span>
                   {ARROW}
@@ -84,6 +87,7 @@ export default async function HomeStudio({ locale }: Readonly<{ locale: Locale }
             {t("work.viewAll")} {ARROW}
           </Link>
         </section>
+        <ProjectScope locale={locale} />
         <HomeDecisionSupport locale={locale} />
         <GuideLinks locale={locale} />
       </div>

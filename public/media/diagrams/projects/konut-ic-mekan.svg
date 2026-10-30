@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img"><title>Konut iç mekân: salon, yemek alanı ve yatak odası</title><style>
+*{transform-box:fill-box;transform-origin:center}
+.s1{animation:s1 5s cubic-bezier(.22,1,.36,1) infinite}.s2{animation:s2 5s cubic-bezier(.22,1,.36,1) infinite}
+.s3{animation:s3 5s cubic-bezier(.22,1,.36,1) infinite}.s4{animation:s4 5s cubic-bezier(.22,1,.36,1) infinite}
+.s5{animation:s5 5s cubic-bezier(.22,1,.36,1) infinite}.x2{animation:x2 5s ease infinite}
+.glow{animation:glow 1.5s ease-in-out infinite}.ray{stroke-dasharray:8 8;animation:ray 0.6s linear infinite}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(8px)}11%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,19%{opacity:0;transform:translateY(8px)}27%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,35%{opacity:0;transform:translateY(8px)}43%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s4{0%,51%{opacity:0;transform:translateY(8px)}59%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s5{0%,67%{opacity:0;transform:translateY(8px)}75%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes x2{0%,19%{opacity:1}27%,100%{opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes ray{to{stroke-dashoffset:-16}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect width="640" height="400" fill="#1d1c19"/>
+    <rect x="60" y="60" width="520" height="280" fill="none" stroke="#ede9e1" stroke-width="5"/>
+    <path d="M340 60v280M340 195h240" stroke="#a29d93" stroke-width="4"/>
+    <g class="s1"><rect x="90" y="250" width="200" height="50" rx="10" fill="#6b5a4a"/><rect x="72" y="90" width="14" height="140" fill="#d8d3cb"/></g>
+    <g class="s2" fill="#6b5a4a"><rect x="400" y="100" width="120" height="50" rx="4"/><circle cx="420" cy="88" r="9"/><circle cx="460" cy="88" r="9"/><circle cx="500" cy="88" r="9"/><circle cx="420" cy="162" r="9"/><circle cx="460" cy="162" r="9"/><circle cx="500" cy="162" r="9"/></g>
+    <g class="s3"><rect x="410" y="225" width="110" height="90" rx="6" fill="#6b5a4a"/><rect x="420" y="232" width="40" height="22" rx="4" fill="#e9e4da" fill-opacity=".7"/><rect x="470" y="232" width="40" height="22" rx="4" fill="#e9e4da" fill-opacity=".7"/></g>
+    <g class="s4 glow" stroke="#f2c46b" stroke-width="3" stroke-linecap="round"><path d="M74 72h254M352 72h216M352 208h216"/></g>
+    <g class="s5"><rect x="86" y="90" width="20" height="140" fill="#b07a4f"/><path d="M74 120l10 30M76 180l8 20" stroke="#a9a39a" stroke-width="1.5"/></g>
+    <g class="s1"><circle cx="190" cy="236" r="14" fill="#c4825c"/><text x="190" y="241" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">1</text></g><g class="s2"><circle cx="400" cy="100" r="14" fill="#c4825c"/><text x="400" y="105" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">2</text></g><g class="s3"><circle cx="410" cy="225" r="14" fill="#c4825c"/><text x="410" y="230" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">3</text></g><g class="s4"><circle cx="200" cy="72" r="14" fill="#c4825c"/><text x="200" y="77" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">4</text></g><g class="s5"><circle cx="106" cy="250" r="14" fill="#c4825c"/><text x="106" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">5</text></g></svg>

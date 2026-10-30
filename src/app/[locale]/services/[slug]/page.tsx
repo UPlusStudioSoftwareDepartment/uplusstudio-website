@@ -74,6 +74,18 @@ export default async function Page({ params }: Params) {
             [c.crumb, `/services/${slug}`],
           ]),
           serviceLd,
+          ...(c.faq?.length
+            ? [{
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "@id": `${url}#faq`,
+                mainEntity: c.faq.map(([question, answer]) => ({
+                  "@type": "Question",
+                  name: question,
+                  acceptedAnswer: { "@type": "Answer", text: answer },
+                })),
+              }]
+            : []),
         ]}
       />
       <ServiceLandingContent slug={slug} locale={locale}>

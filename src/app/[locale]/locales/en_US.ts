@@ -8,6 +8,7 @@ export const studio_en = {
     "contact": "Contact",
     "glossaryShort": "Glossary",
     "guides": "Project guides",
+    "guidesShort": "Guides",
     "glossary": "Architecture Glossary",
     "home": "Home",
     "call": "Call",
@@ -76,8 +77,8 @@ export const studio_en = {
   },
   "motion": {
     "label": "In Motion",
-    "title": "From site to render, the studio's agenda",
-    "body": "Short cuts from construction, renovation processes and 3D animations.",
+    "title": "From render to site, the studio's agenda",
+    "body": "First the design in 3D animation, then the renovation process and short cuts from construction.",
     "items": {
       "villa": "Villa transformation — before / after",
       "residence": "Residential fit-out",
@@ -154,7 +155,11 @@ export const studio_en = {
     "menu": "Where shall we go?",
     "projectsCta": "Let's talk about your project",
     "hello": "Hi! We'd love to hear about your project.",
-    "hero": "Shall we talk about your project over a coffee?",
+    "guides": "What's your question? Let's find the right guide together.",
+    "guide": "You've read it, now it's your project's turn!",
+    "service": "This is right up our street. Let's talk!",
+    "heroKicker": "Coffee's on us",
+    "hero": "Shall we talk about your project?",
     "notFound": "Hmm… we couldn't find this page either. Shall we head home?",
     "success": "Great! Your request reached us — we'll be in touch soon."
   }

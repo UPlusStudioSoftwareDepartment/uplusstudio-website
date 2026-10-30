@@ -23,6 +23,7 @@ import { studioInfo } from "@/lib/studio-info";
 import { APPOINTMENT_SERVICES } from "@/lib/services";
 import { buildContactEmail } from "@/lib/contactEmail";
 import { type ComposedMail, followLink, gmailAppUrl, mailPlatform, mailtoUrl, openGmail, openUrl } from "@/lib/gmailCompose";
+import PhoneRing from "@/components/studio/PhoneRing";
 
 const CONTAINER = "mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12";
 const INPUT =
@@ -235,7 +236,7 @@ export default function ContactContent() {
                 intro={<p>{copy.header.intro}</p>}
             />
 
-            <section className={`${CONTAINER} pb-28 pt-20 sm:pb-40 sm:pt-28`} aria-label={t("heading")}>
+            <section id="form" className={`${CONTAINER} scroll-mt-24 pb-28 pt-20 sm:pb-40 sm:pt-28`} aria-label={t("heading")}>
                 <div className="grid grid-cols-1 gap-20 border-t border-line pt-14 lg:grid-cols-12 lg:gap-8">
                     <FadeUp className="lg:col-span-6 lg:col-start-7 lg:row-start-1" delay={0.15}>
                         <Eyebrow>{copy.formLabel}</Eyebrow>
@@ -404,7 +405,7 @@ export default function ContactContent() {
                                     href={studioInfo.phoneHref}
                                     className="group mt-6 inline-flex min-h-12 w-full items-center justify-between gap-6 rounded-[3px] border border-ink/50 bg-transparent px-6 font-mono text-[12px] uppercase tracking-[0.12em] text-ink transition-colors hover:border-bone hover:bg-night hover:text-bone sm:w-auto"
                                 >
-                                    {locale === "en" ? "Call now" : "Şimdi Ara"}
+                                    <span className="inline-flex items-center gap-2"><PhoneRing />{locale === "en" ? "Call now" : "Şimdi Ara"}</span>
                                     <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                                 </a>
                             </div>

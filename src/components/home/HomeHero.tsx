@@ -11,6 +11,7 @@ import { LineReveal } from "@/components/studio/Reveal";
 import { DesignerMascot, BuilderMascot, HIGH_FIVE } from "@/components/mascots/Mascots";
 import { projects } from "@/lib/projects";
 import type { Locale } from "@/lib/i18n-config";
+import { useVideoVisibility } from "@/hooks/useVideoVisibility";
 
 const CELEBRATION_S = HIGH_FIVE.duration;
 const JUMP = {
@@ -71,6 +72,7 @@ export default function HomeHero() {
     setTimeout(() => setCelebrating(false), CELEBRATION_S * 1000);
   };
   const videoRef = useRef<HTMLVideoElement>(null);
+  useVideoVisibility(videoRef);
   const stalledRef = useRef(false);
   const musicRef = useRef<HTMLAudioElement>(null);
   const progressRef = useRef<HTMLSpanElement>(null);
@@ -105,7 +107,10 @@ export default function HomeHero() {
 
   useEffect(() => {
     if (!playing) return;
+    const video = videoRef.current;
+    if (!video) return;
     let raf = 0;
+    let frame = 0;
     const sync = () => {
       const video = videoRef.current;
       if (video?.duration && progressRef.current) {
@@ -114,11 +119,13 @@ export default function HomeHero() {
     };
     const tick = () => {
       sync();
-      raf = requestAnimationFrame(tick);
+      if (typeof video.requestVideoFrameCallback === "function") frame = video.requestVideoFrameCallback(tick);
+      else raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
+    tick();
     return () => {
       cancelAnimationFrame(raf);
+      if (frame) video.cancelVideoFrameCallback(frame);
       sync();
     };
   }, [playing]);
@@ -199,17 +206,24 @@ export default function HomeHero() {
             <LineReveal
               immediate
               delay={0.35}
-              lines={[t("hero.line1"), t("hero.line2"), <em key="l3" className="font-serif font-normal italic tracking-normal">{t("hero.line3")}</em>]}
+              lines={[t("hero.line1"), t("hero.line2"), <em key="l3" className="font-serif font-normal italic tracking-normal text-[#e2a882] [text-shadow:0_2px_16px_rgb(0_0_0/0.6)]">{t("hero.line3")}</em>]}
             />
           </h1>
 
           <div className="inline-flex w-fit shrink-0 flex-col items-stretch self-start lg:mb-5 lg:self-end">
             <m.p
-              className="w-0 min-w-full animate-[rise_0.9s_var(--ease-out-studio)_backwards] text-center font-serif text-[15px] italic leading-snug text-bone/90 [--rise:12px] motion-reduce:animate-none [@media(max-height:600px)]:hidden"
+              className="flex animate-[rise_0.9s_var(--ease-out-studio)_backwards] flex-col items-center text-center [--rise:12px] motion-reduce:animate-none [@media(max-height:600px)]:hidden"
               animate={celebrating ? { y: JUMP.y } : { y: 0 }}
               transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
             >
-              {t("mascots.hero")}
+              <span className="flex items-center gap-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-[#e2a882] [text-shadow:0_1px_8px_rgb(0_0_0/0.8)]">
+                <span className="h-px w-4 bg-current opacity-70" aria-hidden />
+                {t("mascots.heroKicker")}
+                <span className="h-px w-4 bg-current opacity-70" aria-hidden />
+              </span>
+              <span className="mt-2 w-0 min-w-full font-serif text-[clamp(1.0625rem,1.25vw,1.25rem)] italic leading-[1.25] text-bone [text-shadow:0_2px_14px_rgb(0_0_0/0.75)]">
+                {t("mascots.hero")}
+              </span>
             </m.p>
             <div className="relative z-10 -mb-[3px] mt-1 flex w-[4.75rem] animate-[rise_0.9s_var(--ease-out-studio)_1s_backwards] justify-between self-center [--rise:12px] motion-reduce:animate-none sm:mx-auto sm:w-28" aria-hidden onMouseEnter={() => setMascotsHovered(true)} onMouseLeave={() => setMascotsHovered(false)}>
               <m.div
@@ -247,7 +261,7 @@ export default function HomeHero() {
             </div>
             <CallCta
               onMouseEnter={celebrate}
-              className="inline-flex min-h-11 animate-[rise_0.9s_var(--ease-out-studio)_1s_backwards] items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors [--rise:12px] motion-reduce:animate-none hover:border-bone hover:bg-night"
+              className="-mr-[10px] inline-flex lg:-mx-[5px] min-h-11 animate-[rise_0.9s_var(--ease-out-studio)_1s_backwards] items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors [--rise:12px] motion-reduce:animate-none hover:border-bone hover:bg-night"
             />
           </div>
         </div>
@@ -279,8 +293,8 @@ export default function HomeHero() {
               </button>
               <span className="eyebrow block text-bone/55">{t("hero.featured")}</span>
             </span>
-            <div className="mt-2 flex items-center justify-between gap-2 xl:h-6">
-              <Link href={`/${locale}/projects/villa-donusumu`} className="group whitespace-nowrap text-[15px] max-[359px]:text-[13px]">
+            <div className="mt-2 flex flex-wrap items-center justify-between gap-x-2 gap-y-1 xl:h-6">
+              <Link href={`/${locale}/projects/villa-donusumu`} className="group min-w-0 text-[15px] max-[359px]:text-[13px] sm:whitespace-nowrap">
                 {t("hero.featuredProject")}
                 <span className="ml-2 inline-block transition-transform duration-500 group-hover:translate-x-1" aria-hidden>→</span>
               </Link>

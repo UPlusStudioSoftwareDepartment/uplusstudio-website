@@ -12,8 +12,11 @@ import { MascotDuo } from "@/components/mascots/Mascots";
 import { Eyebrow, FadeUp, LineReveal, MaskReveal } from "@/components/studio/Reveal";
 import { studioInfo } from "@/lib/studio-info";
 import ShowcaseModal, { type Showcase } from "@/components/studio/ShowcaseModal";
-import { getProject } from "@/lib/projects";
+import { getProject, projects } from "@/lib/projects";
+import { ExplainerScene } from "@/components/explainers/ExplainerScenes";
+import PlayWhenVisible from "@/components/explainers/PlayWhenVisible";
 import { examplePair, type ExamplePair } from "@/lib/showcase";
+import PhoneRing from "@/components/studio/PhoneRing";
 
 const CONTAINER = "mx-auto max-w-[2560px] px-4 sm:px-8 lg:px-12";
 const EM = "[&_em]:font-serif [&_em]:font-normal [&_em]:italic [&_em]:tracking-normal";
@@ -195,8 +198,23 @@ export default function AboutContent() {
   const people = t.raw("people") as People;
   const offer = t.raw("offer") as Offer;
   const why = t.raw("why") as { label: string; items: { title: string; desc: string }[] };
+  const process = t.raw("process") as { label: string; titleLine1: string; titleAccent: string; lead: string; outputLabel: string; drawingCaption: string; drawingLink: string; steps: { title: string; body: string; output: string }[] };
+  const studio = t.raw("studio") as { label: string; titleLine1: string; titleAccent: string; body: string; bringLabel: string; bring: string[]; addressLabel: string; directions: string; imageAlt: string; reviewsLabel: string };
   const [showcase, setShowcase] = useState<Showcase | null>(null);
   const lang = locale === "en" ? "en" : "tr";
+  const facts = [
+    { value: t("facts.foundersValue"), label: t("facts.founders"), note: t("facts.foundersNote") },
+    { value: String(projects.length), label: t("facts.projects"), note: t("facts.projectsNote"), href: `/${locale}/projects` },
+    { value: studioInfo.googleRating, label: t("facts.rating"), note: t("facts.ratingNote", { count: studioInfo.googleReviewCount }), href: studioInfo.mapsUrl, external: true },
+    { value: t("facts.areaValue"), label: t("facts.area"), note: t("facts.areaNote"), href: `/${locale}/services/incek-golbasi-mimarlik-ofisi` },
+  ];
+  const profiles = [
+    { label: t("studio.google", { rating: studioInfo.googleRating, count: studioInfo.googleReviewCount }), href: studioInfo.mapsUrl },
+    { label: t("studio.armut"), href: studioInfo.armutUrl },
+    { label: t("studio.yandex"), href: studioInfo.yandexMapsUrl },
+    { label: t("studio.peyzaj"), href: studioInfo.peyzajRehberUrl },
+    { label: t("studio.instagram"), href: studioInfo.instagramUrl },
+  ];
 
   const openExample = (item: Offer["items"][number], i: number) => {
     const pair = EXAMPLE_FOR[item.key];
@@ -249,6 +267,34 @@ export default function AboutContent() {
         image={{ src: "/images/persons/founders/hacer_uyar/hacer-uyar-u-plus-studio-ofis.jpg", alt: t("header.imageAlt") }}
       />
 
+      <section className={`${CONTAINER} pt-16 sm:pt-24`} aria-label={t("header.label")}>
+        <ul className="grid grid-cols-2 border-y border-line lg:grid-cols-4">
+          {facts.map((fact, i) => {
+            const body = (
+              <>
+                <span className="block font-sans text-[clamp(2.5rem,5vw,4.5rem)] font-light leading-none tracking-[-0.03em] text-ink tabular-nums">{fact.value}</span>
+                <span className="eyebrow mt-4 block text-clay">{fact.label}</span>
+                <span className="mt-2 block text-[14px] leading-snug text-mute sm:text-[15px]">{fact.note}</span>
+              </>
+            );
+            const cell = `block h-full min-w-0 px-4 py-8 sm:px-6 sm:py-10 ${i % 2 === 1 ? "border-l border-line" : ""} ${i > 1 ? "border-t border-line lg:border-t-0" : ""} ${i === 2 ? "lg:border-l" : ""}`;
+            return (
+              <li key={fact.label}>
+                <FadeUp delay={i * 0.06} className="h-full">
+                  {fact.href ? (
+                    <a href={fact.href} {...(fact.external ? { target: "_blank", rel: "noopener noreferrer" } : {})} className={`${cell} transition-colors hover:bg-paper-2/60`}>
+                      {body}
+                    </a>
+                  ) : (
+                    <div className={cell}>{body}</div>
+                  )}
+                </FadeUp>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
       <section className={`${CONTAINER} py-28 sm:py-40`} aria-labelledby="about-people">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end lg:gap-8">
           <div className="lg:col-span-7">
@@ -288,47 +334,10 @@ export default function AboutContent() {
         </div>
       </section>
 
-      <section className={`${CONTAINER} py-28 sm:py-40`} aria-labelledby="about-statement">
-        <div className="grid grid-cols-1 items-center gap-16 border-t border-line pt-28 sm:pt-40 lg:grid-cols-12 lg:gap-8">
-          <div className="flex flex-col lg:col-span-6">
-            <Eyebrow>02 — {t("intro.label")}</Eyebrow>
-            <ScrubText
-              as="h2"
-              id="about-statement"
-              text={t("intro.statement")}
-              className="mt-10 font-sans text-[clamp(1.875rem,3.4vw,3.25rem)] font-light leading-[1.08] tracking-[-0.025em] text-ink"
-            />
-            <dl className="mt-14 grid grid-cols-1 gap-10 border-t border-line pt-8 sm:grid-cols-2 sm:gap-8">
-              <FadeUp>
-                <dt className="eyebrow text-mute">{t("labels.mission")}</dt>
-                <dd className="mt-4 text-[16px] leading-relaxed text-ink/80">{t("mission")}</dd>
-              </FadeUp>
-              <FadeUp delay={0.1}>
-                <dt className="eyebrow text-mute">{t("labels.vision")}</dt>
-                <dd className="mt-4 text-[16px] leading-relaxed text-ink/80">{t("vision")}</dd>
-              </FadeUp>
-            </dl>
-          </div>
-
-          <figure className="lg:col-span-5 lg:col-start-8">
-            <MaskReveal className="relative aspect-[4/5] max-h-[78svh] w-full" from="left">
-              <Image
-                src="/media/projects/konut-uygulama/stair.jpg"
-                alt={t("labels.introImageAlt")}
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
-              />
-            </MaskReveal>
-            <Caption fig="01">{t("gallery.residence")}</Caption>
-          </figure>
-        </div>
-      </section>
-
       <section className={`${CONTAINER} py-28 sm:py-40`} aria-labelledby="about-offer">
         <div className="grid grid-cols-1 gap-10 border-t border-line pt-28 sm:pt-40 lg:grid-cols-12 lg:items-end lg:gap-8">
           <div className="lg:col-span-7">
-            <Eyebrow>03 — {offer.label}</Eyebrow>
+            <Eyebrow>02 — {offer.label}</Eyebrow>
             <h2 id="about-offer" className={`display mt-8 text-[clamp(2.5rem,6.5vw,6.5rem)] text-ink ${EM}`}>
               <LineReveal lines={[offer.titleLine1, <em key="a">{offer.titleAccent}</em>]} />
             </h2>
@@ -392,7 +401,7 @@ export default function AboutContent() {
                     </button>
                   ) : (
                     <a href={studioInfo.phoneHref} className="mt-auto inline-flex min-h-11 items-center justify-between gap-4 border-t border-line pt-5 text-[15px] text-ink hover:text-clay">
-                      {ts("nav.callNow")} <span aria-hidden>→</span>
+                      <span className="inline-flex items-center gap-2"><PhoneRing />{ts("nav.callNow")}</span> <span aria-hidden>→</span>
                     </a>
                   )}
                 </div>
@@ -436,8 +445,114 @@ export default function AboutContent() {
         }}
       />
 
-      <section className={`${CONTAINER} py-28 sm:py-40`} aria-labelledby="about-values">
-        <Eyebrow>04 — {t("values.title")}</Eyebrow>
+      <section className={`${CONTAINER} pb-28 sm:pb-40`} aria-labelledby="about-transform">
+        <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end">
+          <Eyebrow className="lg:col-span-3">{ts("transform.label")}</Eyebrow>
+          <h2 id="about-transform" className="display text-[clamp(2.25rem,5vw,4.5rem)] text-ink lg:col-span-5">
+            <LineReveal lines={[ts("transform.title")]} />
+          </h2>
+          <p className="max-w-sm text-[16px] leading-relaxed text-mute lg:col-span-4">{ts("transform.body")}</p>
+        </div>
+        <FadeUp>
+          <BeforeAfter
+            before={{ src: "/media/projects/villa-donusumu/before.jpg", alt: ts("transform.before") }}
+            after={{ src: "/media/projects/villa-donusumu/after.jpg", alt: ts("transform.after") }}
+            beforeLabel={ts("transform.before")}
+            afterLabel={ts("transform.after")}
+            dragLabel={ts("transform.drag")}
+            aspectClass="aspect-[4/3] sm:aspect-video"
+          />
+        </FadeUp>
+        <Link
+          href={`/${locale}/projects/villa-donusumu`}
+          className="group mt-6 inline-flex items-center gap-3 border-b border-ink/40 pb-1 text-[15px] transition-colors hover:border-clay hover:text-clay"
+        >
+          {ts("motion.items.villa")}
+          <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+        </Link>
+      </section>
+
+      <section className={`${CONTAINER} pb-28 sm:pb-40`} aria-labelledby="about-process">
+        <div className="grid grid-cols-1 gap-14 border-t border-line pt-28 sm:pt-40 lg:grid-cols-12 lg:gap-8">
+          <div className="min-w-0 lg:col-span-5">
+            <Eyebrow>03 — {process.label}</Eyebrow>
+            <h2 id="about-process" className={`display mt-8 text-[clamp(2.5rem,5.5vw,5.5rem)] text-ink ${EM}`}>
+              <LineReveal lines={[process.titleLine1, <em key="a">{process.titleAccent}</em>]} />
+            </h2>
+            <p className="mt-8 max-w-md text-[17px] leading-relaxed text-mute">{process.lead}</p>
+            <figure className="mt-12 lg:sticky lg:top-28">
+              <PlayWhenVisible className="overflow-hidden rounded-[3px]">
+                <div role="img" aria-label={process.drawingCaption}>
+                  <ExplainerScene id="projeler" />
+                </div>
+              </PlayWhenVisible>
+              <figcaption className="mt-4 text-[14px] leading-relaxed text-mute">
+                {process.drawingCaption}{" "}
+                <Link href={`/${locale}/guides/ankara-ev-yaptirma-adim-adim#projeler`} className="whitespace-nowrap text-ink underline underline-offset-4 hover:text-clay">
+                  {process.drawingLink} →
+                </Link>
+              </figcaption>
+            </figure>
+          </div>
+          <ol className="min-w-0 border-t border-line lg:col-span-6 lg:col-start-7">
+            {process.steps.map((step, i) => (
+              <li key={step.title} className="border-b border-line">
+                <FadeUp delay={i * 0.05} className="grid grid-cols-[2.75rem_minmax(0,1fr)] gap-x-3 py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:py-10">
+                  <span className="pt-1.5 font-mono text-[12px] tracking-[0.14em] text-clay tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3 className="font-sans text-[clamp(1.4rem,2.3vw,2rem)] font-light leading-[1.15] tracking-[-0.02em] text-ink">{step.title}</h3>
+                    <p className="mt-3 max-w-xl text-[16px] leading-relaxed text-ink/80">{step.body}</p>
+                    <p className="mt-4 font-mono text-[12px] uppercase leading-relaxed tracking-[0.12em] text-clay">
+                      <span className="text-mute">{process.outputLabel} · </span>
+                      {step.output}
+                    </p>
+                  </div>
+                </FadeUp>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className={`${CONTAINER} py-28 sm:py-40`} aria-labelledby="about-statement">
+        <div className="grid grid-cols-1 items-center gap-16 border-t border-line pt-28 sm:pt-40 lg:grid-cols-12 lg:gap-8">
+          <div className="flex flex-col lg:col-span-6">
+            <Eyebrow>04 — {t("intro.label")}</Eyebrow>
+            <ScrubText
+              as="h2"
+              id="about-statement"
+              text={t("intro.statement")}
+              className="mt-10 font-sans text-[clamp(1.875rem,3.4vw,3.25rem)] font-light leading-[1.08] tracking-[-0.025em] text-ink"
+            />
+            <dl className="mt-14 grid grid-cols-1 gap-10 border-t border-line pt-8 sm:grid-cols-2 sm:gap-8">
+              <FadeUp>
+                <dt className="eyebrow text-mute">{t("labels.mission")}</dt>
+                <dd className="mt-4 text-[16px] leading-relaxed text-ink/80">{t("mission")}</dd>
+              </FadeUp>
+              <FadeUp delay={0.1}>
+                <dt className="eyebrow text-mute">{t("labels.vision")}</dt>
+                <dd className="mt-4 text-[16px] leading-relaxed text-ink/80">{t("vision")}</dd>
+              </FadeUp>
+            </dl>
+          </div>
+
+          <figure className="lg:col-span-5 lg:col-start-8">
+            <MaskReveal className="relative aspect-[4/5] max-h-[78svh] w-full" from="left">
+              <Image
+                src="/media/projects/konut-uygulama/stair.jpg"
+                alt={t("labels.introImageAlt")}
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+            </MaskReveal>
+            <Caption fig="01">{t("gallery.residence")}</Caption>
+          </figure>
+        </div>
+      </section>
+
+      <section className={`${CONTAINER} pb-28 sm:pb-40`} aria-labelledby="about-values">
+        <Eyebrow>05 — {t("values.title")}</Eyebrow>
         <h2 id="about-values" className={`display mt-8 text-[clamp(2.5rem,6.5vw,6.5rem)] text-ink ${EM}`}>
           <LineReveal lines={accentLines(t("values.label"))} />
         </h2>
@@ -464,31 +579,78 @@ export default function AboutContent() {
         </ol>
       </section>
 
-      <section className={`${CONTAINER} pb-28 sm:pb-40`} aria-labelledby="about-transform">
-        <div className="mb-10 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end">
-          <Eyebrow className="lg:col-span-3">{ts("transform.label")}</Eyebrow>
-          <h2 id="about-transform" className="display text-[clamp(2.25rem,5vw,4.5rem)] text-ink lg:col-span-5">
-            <LineReveal lines={[ts("transform.title")]} />
-          </h2>
-          <p className="max-w-sm text-[16px] leading-relaxed text-mute lg:col-span-4">{ts("transform.body")}</p>
+      <section className={`${CONTAINER} pb-28 sm:pb-40`} aria-labelledby="about-studio">
+        <div className="grid grid-cols-1 gap-12 border-t border-line pt-28 sm:pt-40 lg:grid-cols-12 lg:items-center lg:gap-8">
+          <figure className="min-w-0 lg:col-span-6">
+            <MaskReveal className="relative aspect-[1264/842] w-full overflow-hidden bg-paper-2" from="left">
+              <Image
+                src="/images/persons/founders/hacer_uyar/hacer-uyar-u-plus-studio-ofis.jpg"
+                alt={studio.imageAlt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </MaskReveal>
+            <Caption fig="02">Merkez İncek Plaza</Caption>
+          </figure>
+          <div className="flex min-w-0 flex-col lg:col-span-5 lg:col-start-8">
+            <Eyebrow>06 — {studio.label}</Eyebrow>
+            <h2 id="about-studio" className={`display mt-8 text-[clamp(2.5rem,5.5vw,5rem)] text-ink ${EM}`}>
+              <LineReveal lines={[studio.titleLine1, <em key="a">{studio.titleAccent}</em>]} />
+            </h2>
+            <p className="mt-8 max-w-lg text-[17px] leading-relaxed text-ink/85">{studio.body}</p>
+            <p className="eyebrow mt-10 text-mute">{studio.bringLabel}</p>
+            <ul className="mt-4 space-y-2.5 text-[15px] text-ink/80">
+              {studio.bring.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <svg className="mt-[0.35em] h-3.5 w-3.5 shrink-0 text-clay" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={1.6} aria-hidden>
+                    <path d="m3 8.5 3 3 7-7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <address className="mt-10 border-t border-line pt-6 text-[15px] not-italic leading-relaxed text-ink/80">
+              <span className="eyebrow mb-2 block text-mute">{studio.addressLabel}</span>
+              {studioInfo.address[0]}
+              <br />
+              {studioInfo.address[1]}
+            </address>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8">
+              <a
+                href={studioInfo.directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex min-h-12 items-center justify-between gap-6 rounded-[5px] border border-ink px-6 py-3 text-[15px] text-ink transition-colors hover:border-clay hover:bg-clay hover:text-night"
+              >
+                {studio.directions}
+                <span aria-hidden className="transition-transform group-hover:translate-x-1">↗</span>
+              </a>
+              <CallCta
+                arrow={<span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>}
+                className="group inline-flex min-h-11 items-center gap-3 self-start whitespace-nowrap border-b border-ink/40 pb-1 text-[15px] transition-colors hover:border-clay hover:text-clay sm:self-auto"
+              />
+            </div>
+          </div>
         </div>
-        <FadeUp>
-          <BeforeAfter
-            before={{ src: "/media/projects/villa-donusumu/before.jpg", alt: ts("transform.before") }}
-            after={{ src: "/media/projects/villa-donusumu/after.jpg", alt: ts("transform.after") }}
-            beforeLabel={ts("transform.before")}
-            afterLabel={ts("transform.after")}
-            dragLabel={ts("transform.drag")}
-            aspectClass="aspect-[4/3] sm:aspect-video"
-          />
-        </FadeUp>
-        <Link
-          href={`/${locale}/projects/villa-donusumu`}
-          className="group mt-6 inline-flex items-center gap-3 border-b border-ink/40 pb-1 text-[15px] transition-colors hover:border-clay hover:text-clay"
-        >
-          {ts("motion.items.villa")}
-          <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-        </Link>
+        <div className="mt-16 border-t border-line pt-8">
+          <p className="eyebrow text-mute">{studio.reviewsLabel}</p>
+          <ul className="mt-5 flex flex-wrap gap-3">
+            {profiles.map((profile) => (
+              <li key={profile.href}>
+                <a
+                  href={profile.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full border border-line px-4 py-2 text-[14px] text-ink/85 transition-colors hover:border-clay hover:text-clay"
+                >
+                  {profile.label}
+                  <span aria-hidden>↗</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section className="relative bg-night text-bone" aria-labelledby="about-quote">
@@ -527,7 +689,7 @@ export default function AboutContent() {
       <section className={`${CONTAINER} py-32 sm:py-48`} aria-labelledby="about-cta">
         <Eyebrow>{t("cta.label")}</Eyebrow>
         <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
-          <h2 id="about-cta" className={`display text-[clamp(2.75rem,8.5vw,8.5rem)] text-ink ${EM}`}>
+          <h2 id="about-cta" className={`display text-[clamp(2.75rem,8.5vw,8.5rem)] text-ink ${EM} [&_em]:inline-block [&_em]:pl-[0.1em]`}>
             <LineReveal
               lines={[
                 t("cta.line1"),
@@ -538,8 +700,8 @@ export default function AboutContent() {
             />
           </h2>
           <FadeUp delay={0.2}>
-            <div className="mb-8 flex justify-center">
-              <MascotDuo pose="wave" size="sm" message={tm("about")} />
+            <div className="mb-8 flex justify-start lg:justify-center">
+              <MascotDuo pose="wave" size="md" message={tm("about")} />
             </div>
             <p className="max-w-sm text-[17px] leading-relaxed text-mute">{t("cta.note")}</p>
             <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-10">

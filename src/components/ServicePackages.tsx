@@ -1,6 +1,7 @@
 "use client";
 
 import { studioInfo } from "@/lib/studio-info";
+import PhoneRing from "@/components/studio/PhoneRing";
 
 import Image from "next/image";
 
@@ -188,7 +189,7 @@ export default function ServicePackages() {
         aria-label={`${callLabel} — ${pkg.name}`}
         className={`group/btn inline-flex w-full items-center justify-between gap-4 rounded-[3px] border bg-transparent px-5 py-4 font-mono text-[12px] uppercase tracking-[0.12em] transition-colors duration-300 ${tone}`}
       >
-        {callLabel}
+        <span className="inline-flex items-center gap-2"><PhoneRing />{callLabel}</span>
         <span aria-hidden className="transition-transform duration-300 group-hover/btn:translate-x-1">→</span>
       </a>
     );
@@ -241,23 +242,24 @@ export default function ServicePackages() {
             return (
               <li
                 key={pkg.id}
-                className={`group relative row-span-5 grid grid-rows-subgrid overflow-hidden rounded-[6px] border bg-paper-2/50 transition-[border-color,box-shadow,translate] duration-700 ease-out-studio hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${
+                className={`group relative row-span-5 grid grid-rows-subgrid overflow-hidden rounded-[6px] border bg-paper-2/50 transition-[border-color,box-shadow] duration-500 ease-out-studio motion-reduce:transition-none ${
                   featured
                     ? 'border-clay/60 shadow-[0_30px_90px_-40px_rgba(196,130,92,0.55)]'
                     : 'border-line hover:border-ink/30 hover:shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]'
                 }`}
               >
-                <div className="relative h-[clamp(11rem,15vw,15rem)] overflow-hidden bg-night">
+                {/* Own compositing layer and clip so the zooming photo never shows a seam at its edges. */}
+                <div className="relative isolate h-[clamp(11rem,15vw,15rem)] overflow-hidden bg-night [transform:translateZ(0)]">
                   {photo && (
                     <Image
                       src={photo.src}
                       alt={photo.alt[locale === 'en' ? 'en' : 'tr']}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      className="object-cover grayscale transition-[filter,transform,scale] duration-[1400ms] ease-out-studio will-change-transform group-hover:scale-[1.06] group-hover:grayscale-0 motion-reduce:transition-none"
+                      className="scale-[1.01] object-cover grayscale transition-[scale,filter] duration-700 ease-out-studio [backface-visibility:hidden] will-change-[scale,filter] group-hover:scale-[1.04] group-hover:grayscale-0 motion-reduce:transition-none"
                     />
                   )}
-                  <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-night/85 via-night/10 to-transparent" aria-hidden />
+                  <div className="pointer-events-none absolute -inset-px bg-linear-to-t from-night/85 via-night/10 to-transparent" aria-hidden />
                   <span className="absolute bottom-4 left-6 font-mono text-[11px] tracking-[0.16em] text-bone/80 sm:left-8">
                     P—{String(i + 1).padStart(2, '0')}
                   </span>
@@ -365,7 +367,7 @@ export default function ServicePackages() {
               href={studioInfo.phoneHref}
               className="group inline-flex items-center gap-3 border-b border-ink pb-1 text-[15px] text-ink hover:border-clay hover:text-clay"
             >
-              {callLabel}
+              <span className="inline-flex items-center gap-2"><PhoneRing />{callLabel}</span>
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>

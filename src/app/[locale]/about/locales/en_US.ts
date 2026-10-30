@@ -2,8 +2,8 @@ export const about_en = {
     "title": "About Us",
     "subtitle": "Learn more about our story and mission",
     "description": "U+ Studio is a studio in İncek, Gölbaşı / Ankara bringing architecture, interiors & engineering under one roof.",
-    "mission": "Our mission is to create spaces that enhance quality of life by combining aesthetics, functionality, and sustainability.",
-    "vision": "To create human-centric and nature-respecting living spaces by designing the architecture of the future today.",
+    "mission": "To make clear from the start what can be done, which decisions affect the budget and how the work will be built; and to produce designs that are built on site exactly as drawn, not left on paper.",
+    "vision": "To be an approachable, open and trusted design office in Ankara that brings architecture, interiors and engineering to one table.",
     "header": {
         "label": "Studio",
         "line1": "Architecture, interiors",
@@ -40,7 +40,7 @@ export const about_en = {
     "intro": {
         "label": "Introduction",
         "statement": "We merge the silent power of architecture with the absolute precision of engineering.",
-        "quote": "Every project tells a unique story. We create timeless and functional spaces by analyzing context, culture, and user needs."
+        "quote": "From our office in İncek, a master architect and a civil engineer carry your project together from the first meeting to handover: design you can see, structure you can trust, one point of contact."
     },
     "philosophy": {
         "title": "Design Philosophy",
@@ -49,10 +49,60 @@ export const about_en = {
     "values": {
         "title": "Our Values",
         "label": "Disciplined Creativity",
-        "v1": { "title": "Spatial Intelligence", "desc": "Designs that dialogue with place, nourished by context and adding value to it." },
-        "v2": { "title": "Engineering Precision", "desc": "Technical depth that transforms the most complex architectural forms into structural works of art." },
-        "v3": { "title": "Timelessness", "desc": "Design languages beyond trends, gaining value over the years and never aging." },
-        "v4": { "title": "User Experience", "desc": "Spatial compositions that center human scale, uniting emotional and physical comfort." }
+        "v1": { "title": "Listen first", "desc": "We start drawing from your brief, budget frame and the existing conditions. Your daily life and the way your business runs shape the design." },
+        "v2": { "title": "Engineering reality", "desc": "Every idea is considered together with structure, services and regulations. We do not produce drawings that look good on paper but cannot be built." },
+        "v3": { "title": "Openness", "desc": "We share scope, uncertainties and decisions in writing. We never present something still unknown as certain." },
+        "v4": { "title": "Design that ages well", "desc": "Instead of short-lived trends we choose easy-care materials, simple details and layouts that stay useful for years." }
+    },
+    "facts": {
+        "foundersValue": "2",
+        "founders": "Founding partners",
+        "foundersNote": "Master architect and civil engineer",
+        "projects": "Projects",
+        "projectsNote": "Explore each one in detail on the site",
+        "rating": "Google rating",
+        "ratingNote": "{count} client reviews",
+        "areaValue": "Ankara",
+        "area": "İncek, Gölbaşı",
+        "areaNote": "Projects across Türkiye"
+    },
+    "process": {
+        "label": "How we work",
+        "titleLine1": "From the first coffee",
+        "titleAccent": "to handover.",
+        "lead": "Every project moves through the same five steps. You know from the start which step you are in, what is expected of you and what you receive at the end.",
+        "outputLabel": "Output",
+        "drawingCaption": "Architectural, structural, electrical and mechanical designs are prepared in the same office so that they agree.",
+        "drawingLink": "See the drawing set in the guide",
+        "steps": [
+            { "title": "First meeting", "body": "We listen to your needs, budget frame and timeline. At our office, by phone or on site; the coffee is on us.", "output": "Scope and next steps" },
+            { "title": "Site visit and survey", "body": "We see and measure the plot or existing building on site and review the zoning status, documents and technical constraints.", "output": "Existing conditions and constraints" },
+            { "title": "Concept and 3D", "body": "We present layout options, the material language and light in 3D images. You see the space before you decide.", "output": "Approved concept" },
+            { "title": "Technical design and permits", "body": "Architectural, structural and services designs are prepared so that they agree, and we support you through the permits required.", "output": "Buildable drawing set" },
+            { "title": "Construction and handover", "body": "If you wish, we coordinate the site and follow materials and the programme. At handover we check every detail together.", "output": "Handover and snagging list" }
+        ]
+    },
+    "studio": {
+        "label": "Our office",
+        "titleLine1": "A table in İncek,",
+        "titleAccent": "and a coffee.",
+        "body": "Our office is in Merkez İncek Plaza. You are welcome to visit by appointment to talk about your project. We work on projects in Ankara, first of all İncek, Gölbaşı and Çankaya, and across Türkiye.",
+        "bringLabel": "Useful to bring along",
+        "bring": [
+            "Title deed, zoning status or approved drawings if available",
+            "Photos or measurements of the existing building",
+            "Examples of spaces and materials you like",
+            "Your budget and timeline expectations"
+        ],
+        "addressLabel": "Address",
+        "directions": "Get directions",
+        "imageAlt": "Meeting area in the U+ Studio office: two armchairs and a coffee table",
+        "reviewsLabel": "Find us elsewhere",
+        "google": "Google · {rating} ({count} reviews)",
+        "armut": "Armut",
+        "yandex": "Yandex Maps",
+        "peyzaj": "Peyzaj Rehber",
+        "instagram": "Instagram"
     },
     "disciplines": {
         "label": "Expertise",

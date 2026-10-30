@@ -194,7 +194,8 @@ test("the curtain plays once per visit, and internal links fade with a view tran
     });
   const curtainGone = () => expect(page.locator(".page-curtain")).toHaveCount(0, { timeout: 8000 });
 
-  await page.goto("/tr/about", { waitUntil: "commit" });
+  // The curtain plays on the home page only.
+  await page.goto("/tr", { waitUntil: "commit" });
   await expect(page.locator(".page-curtain")).toBeVisible();
   await curtainGone();
   await page.reload();
@@ -251,7 +252,7 @@ test("project pages link to the service landing that lists them", async ({ page 
 test("page header intro shows before the app hydrates", async ({ page }) => {
   await page.route(/\/_next\/static\/chunks\/.+\.js$/, (route) => route.abort());
   await page.goto("/tr/about");
-  const intro = page.locator("header:has(h1)").getByText("Her proje benzersiz bir hikaye anlatır");
+  const intro = page.locator("header:has(h1)").getByText("İncek'teki ofisimizde bir yüksek mimar ve bir inşaat mühendisi");
   await expect(intro).toBeVisible();
   await expect
     .poll(() =>
@@ -267,7 +268,9 @@ test("page header intro shows before the app hydrates", async ({ page }) => {
 test("home continues past the film with the studio, every service, featured work and the footer", async ({ page }) => {
   await page.goto("/tr");
   const studio = page.locator("main > div").last();
-  for (const service of SERVICE_LANDINGS) {
+  // The home list shows the services in SERVICE_ORDER; the office and audience pages are linked elsewhere.
+  for (const slug of SERVICE_ORDER) {
+    const service = SERVICE_LANDINGS.find((s) => s.slug === slug)!;
     await expect(studio.getByRole("link", { name: new RegExp(`^\\d{2} ${service.copy.tr.crumb}$`) })).toHaveAttribute("href", `/tr/services/${service.slug}`);
   }
   for (const project of projects.filter((p) => p.featured)) {

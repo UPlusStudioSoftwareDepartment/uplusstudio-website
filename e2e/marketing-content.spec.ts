@@ -40,10 +40,12 @@ for (const locale of ["tr", "en"] as const) {
       const html = await (await request.get(path)).text();
       expect(html).toContain(guide.copy[locale].sections[0].title);
       await page.goto(`/${locale}/guides`);
-      await page.getByRole("article").filter({ hasText: guide.copy[locale].title }).getByRole("link").click();
+      await page.locator("#guide-library").getByRole("link", { name: guide.copy[locale].title, exact: true }).first().click();
       await expect(page).toHaveURL(new RegExp(`${path}$`));
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(guide.copy[locale].title);
-      await expect(page.locator("main article section h2")).toHaveCount(guide.copy[locale].sections.length + 1);
+      // Sections, FAQ and official links, then the closing call section with its related-guides list.
+      const extra = (guide.copy[locale].faq ? 1 : 0) + (guide.links ? 1 : 0) + 2;
+      await expect(page.locator("main article section h2")).toHaveCount(guide.copy[locale].sections.length + extra);
       const canonical = page.locator('link[rel="canonical"]');
       await expect(canonical).toHaveCount(1);
       await expect(canonical).toHaveAttribute("href", new RegExp(`${path}$`));

@@ -8,6 +8,7 @@ export const studio_tr = {
     "contact": "İletişim",
     "glossaryShort": "Sözlük",
     "guides": "Proje rehberleri",
+    "guidesShort": "Rehber",
     "glossary": "Mimarlık Sözlüğü",
     "home": "Ana Sayfa",
     "call": "Ara",
@@ -76,8 +77,8 @@ export const studio_tr = {
   },
   "motion": {
     "label": "Hareket Hâlinde",
-    "title": "Şantiyeden render'a, stüdyonun gündemi",
-    "body": "Uygulamadan kısa kesitler, yenileme süreçleri ve 3D animasyonlar.",
+    "title": "Render'dan şantiyeye, stüdyonun gündemi",
+    "body": "Önce 3D animasyonlarla tasarım, sonra yenileme süreci ve uygulamadan kısa kesitler.",
     "items": {
       "villa": "Villa dönüşümü — önce / sonra",
       "residence": "Konut uygulaması",
@@ -154,7 +155,11 @@ export const studio_tr = {
     "menu": "Nereye gidelim?",
     "projectsCta": "Projenizi konuşalım",
     "hello": "Merhaba! Projenizi dinlemeye hazırız.",
-    "hero": "Bir kahve içip projenizi konuşalım mı?",
+    "guides": "Sorunuz hangisi? Doğru rehberi birlikte bulalım.",
+    "guide": "Okudunuz, şimdi sıra sizin projenizde!",
+    "service": "Bu iş tam bize göre. Hadi konuşalım!",
+    "heroKicker": "Kahve bizden",
+    "hero": "Projenizi birlikte konuşalım mı?",
     "notFound": "Hmm… Bu sayfayı biz de bulamadık. Ana sayfaya dönelim mi?",
     "success": "Harika! Talebiniz bize ulaştı, en kısa sürede dönüyoruz."
   }

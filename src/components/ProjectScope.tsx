@@ -22,7 +22,7 @@ export default function ProjectScope({ locale }: Readonly<{ locale: Locale }>) {
             <details key={stage.title} className="group border-b border-line" open={index === 0}>
               <summary className="flex min-h-16 cursor-pointer list-none items-start gap-4 py-5 [&::-webkit-details-marker]:hidden">
                 <span className="pt-1 font-mono text-xs text-clay">0{index + 1}</span>
-                <span className="flex-1 text-xl leading-snug">{stage.title}<span className="mt-2 block text-sm text-mute">{stage.summary}</span></span>
+                <span className="flex-1 min-w-0 text-xl leading-snug">{stage.title}<span className="mt-2 block text-sm text-mute">{stage.summary}</span></span>
                 <span aria-hidden="true" className="text-xl group-open:rotate-45">+</span>
               </summary>
               <p className="pb-6 text-[16px] leading-relaxed text-mute">{stage.detail}</p>

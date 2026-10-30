@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img"><title>Villadan ofise: gün ışığı, cam bölme ve depolama</title><style>
+*{transform-box:fill-box;transform-origin:center}
+.s1{animation:s1 5s cubic-bezier(.22,1,.36,1) infinite}.s2{animation:s2 5s cubic-bezier(.22,1,.36,1) infinite}
+.s3{animation:s3 5s cubic-bezier(.22,1,.36,1) infinite}.s4{animation:s4 5s cubic-bezier(.22,1,.36,1) infinite}
+.s5{animation:s5 5s cubic-bezier(.22,1,.36,1) infinite}.x2{animation:x2 5s ease infinite}
+.glow{animation:glow 1.5s ease-in-out infinite}.ray{stroke-dasharray:8 8;animation:ray 0.6s linear infinite}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(8px)}11%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,19%{opacity:0;transform:translateY(8px)}27%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,35%{opacity:0;transform:translateY(8px)}43%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s4{0%,51%{opacity:0;transform:translateY(8px)}59%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s5{0%,67%{opacity:0;transform:translateY(8px)}75%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes x2{0%,19%{opacity:1}27%,100%{opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes ray{to{stroke-dashoffset:-16}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect width="640" height="400" fill="#1d1c19"/>
+    <path d="M30 90h560M30 320h560" stroke="#a29d93" stroke-width="3"/>
+    <path d="M80 90v40M80 290v30M560 90v230" stroke="#ede9e1" stroke-width="5"/>
+    <g class="s5"><rect x="80" y="320" width="480" height="12" fill="#bdb8ae"/><path class="glow" d="M150 98h360" stroke="#f2c46b" stroke-width="4" stroke-linecap="round"/></g>
+    <g class="s2"><path class="ray" d="M90 150L330 318M90 200L380 318M90 250L420 318" stroke="#f2c46b" stroke-width="2.5"/><ellipse cx="360" cy="316" rx="90" ry="8" fill="#f2c46b" fill-opacity=".35"/></g>
+    <g class="s1"><rect x="72" y="130" width="16" height="160" fill="#7fa6c9"/><path d="M72 130h16v160H72zM72 210h16" fill="none" stroke="#121110" stroke-width="3"/><path d="M28 230h44M28 230v60M44 230v60M58 230v60" stroke="#a29d93" stroke-width="2"/></g>
+    <g class="s3"><rect x="430" y="118" width="10" height="202" fill="#7fa6c9" fill-opacity=".45"/><path d="M430 118h10v202h-10zM430 220h10" fill="none" stroke="#121110" stroke-width="3"/></g>
+    <g class="s4"><rect x="490" y="110" width="66" height="210" fill="#2a2824" stroke="#ede9e1" stroke-width="2"/><path d="M512 110v210M534 110v210" stroke="#a29d93" stroke-width="2"/></g>
+    <rect class="x2" opacity="0" x="80" y="90" width="480" height="230" fill="#0b0a09" fill-opacity=".8"/>
+    <g class="s1"><circle cx="80" cy="118" r="14" fill="#c4825c"/><text x="80" y="123" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">1</text></g><g class="s2"><circle cx="250" cy="250" r="14" fill="#c4825c"/><text x="250" y="255" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">2</text></g><g class="s3"><circle cx="435" cy="106" r="14" fill="#c4825c"/><text x="435" y="111" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">3</text></g><g class="s4"><circle cx="523" cy="98" r="14" fill="#c4825c"/><text x="523" y="103" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">4</text></g><g class="s5"><circle cx="150" cy="344" r="14" fill="#c4825c"/><text x="150" y="349" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">5</text></g></svg>

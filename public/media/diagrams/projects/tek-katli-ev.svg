@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img"><title>Tek katlı modern ev: tek seviyede yaşam ve bahçe</title><style>
+*{transform-box:fill-box;transform-origin:center}
+.s1{animation:s1 5s cubic-bezier(.22,1,.36,1) infinite}.s2{animation:s2 5s cubic-bezier(.22,1,.36,1) infinite}
+.s3{animation:s3 5s cubic-bezier(.22,1,.36,1) infinite}.s4{animation:s4 5s cubic-bezier(.22,1,.36,1) infinite}
+.s5{animation:s5 5s cubic-bezier(.22,1,.36,1) infinite}.x2{animation:x2 5s ease infinite}
+.glow{animation:glow 1.5s ease-in-out infinite}.ray{stroke-dasharray:8 8;animation:ray 0.6s linear infinite}
+@keyframes s1{0%,3%{opacity:0;transform:translateY(8px)}11%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s2{0%,19%{opacity:0;transform:translateY(8px)}27%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s3{0%,35%{opacity:0;transform:translateY(8px)}43%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s4{0%,51%{opacity:0;transform:translateY(8px)}59%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes s5{0%,67%{opacity:0;transform:translateY(8px)}75%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes x2{0%,19%{opacity:1}27%,100%{opacity:0}}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes ray{to{stroke-dashoffset:-16}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style><rect width="640" height="400" fill="#1d1c19"/>
+    <rect y="300" width="640" height="100" fill="#2c3324"/><path d="M60 282v26" stroke="#8a8478" stroke-width="4"/><circle cx="60" cy="276" r="26" fill="#4f6b3a"/><path d="M590 276v26" stroke="#8a8478" stroke-width="4"/><circle cx="590" cy="270" r="28" fill="#4f6b3a"/>
+    <path d="M0 300h640" stroke="#a29d93" stroke-width="2"/>
+    <rect class="s1" x="120" y="200" width="400" height="100" fill="#e9e4da" fill-opacity=".92" stroke="#ede9e1" stroke-width="3"/>
+    <path class="s2" d="M100 202l80-62h280l80 62z" fill="#3a3833" stroke="#ede9e1" stroke-width="3" stroke-linejoin="round"/>
+    <g class="s3" fill="#2f3d47" stroke="#121110" stroke-width="4"><rect x="300" y="216" width="90" height="76"/><rect x="400" y="216" width="100" height="76"/></g>
+    <rect class="s4" x="160" y="214" width="76" height="86" fill="#b07a4f"/>
+    <g class="s5" fill="#8a8478"><rect x="182" y="310" width="34" height="12" rx="3"/><rect x="172" y="330" width="34" height="12" rx="3"/><rect x="186" y="350" width="34" height="12" rx="3"/><rect x="176" y="370" width="34" height="12" rx="3"/></g>
+    <g class="s1"><circle cx="120" cy="200" r="14" fill="#c4825c"/><text x="120" y="205" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">1</text></g><g class="s2"><circle cx="320" cy="140" r="14" fill="#c4825c"/><text x="320" y="145" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">2</text></g><g class="s3"><circle cx="500" cy="216" r="14" fill="#c4825c"/><text x="500" y="221" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">3</text></g><g class="s4"><circle cx="160" cy="214" r="14" fill="#c4825c"/><text x="160" y="219" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">4</text></g><g class="s5"><circle cx="232" cy="344" r="14" fill="#c4825c"/><text x="232" y="349" text-anchor="middle" font-size="15" font-weight="700" fill="#121110" font-family="ui-monospace,Menlo,monospace">5</text></g></svg>

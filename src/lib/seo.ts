@@ -48,7 +48,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
     home: {
       title: "U+ Studio | Ankara Mimarlık, Tasarım ve Mühendislik · İncek, Gölbaşı",
       description:
-        "Ankara İncek’te mimarlık, iç mimarlık ve mühendislik. Villa, ev yenileme ve ticari mekân projelerini inceleyin; projenizin kapsamını birlikte konuşalım.",
+        "Ankara İncek’te mimarlık, iç mimarlık ve mühendislik. Daire ve ev iç mekânı, villa, yenileme ve ticari mekân projelerini inceleyin; kapsamı birlikte konuşalım.",
       crumb: "Ana Sayfa",
     },
     about: {
@@ -64,9 +64,9 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
       crumb: "Hizmetler",
     },
     projects: {
-      title: "Projeler: Villa, Konut, Ofis & Kafe Tasarımı",
+      title: "Projeler: Konut, Apartman, Villa, Ofis & Kafe",
       description:
-        "Villa dönüşümü, konut iç mimarisi, ofis yenileme, kafe, pastane ve spor salonu projeleri; öncesi ve sonrası örnekleriyle. U+ Studio, İncek · Gölbaşı / Ankara.",
+        "Konut iç mimarisi, apartman projeleri, villa dönüşümü, ofis yenileme, kafe, pastane ve spor salonu; öncesi ve sonrası örnekleriyle. U+ Studio, İncek · Ankara.",
       crumb: "Projeler",
     },
     contact: {
@@ -91,7 +91,7 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
     home: {
       title: "U+ Studio | Ankara Architecture, Design & Engineering · İncek",
       description:
-        "Architecture, interiors and engineering in İncek, Ankara. Explore villa, home renovation and commercial projects, then discuss the scope of your own.",
+        "Architecture, interiors and engineering in İncek, Ankara. Explore flat and home interiors, villas, renovation and commercial projects, then discuss your own.",
       crumb: "Home",
     },
     about: {
@@ -107,9 +107,9 @@ export const SEO_COPY: Record<Locale, Record<PageKey, { title: string; descripti
       crumb: "Services",
     },
     projects: {
-      title: "Projects: Villas, Homes, Offices & Cafés",
+      title: "Projects: Homes, Apartments, Villas, Offices & Cafés",
       description:
-        "Villa transformation, residential interiors, office renovation, café, patisserie and gym projects, with before/after views. U+ Studio, İncek · Gölbaşı / Ankara.",
+        "Residential interiors, apartment buildings, villa transformation, office renovation, café, patisserie and gym projects with before/after views. U+ Studio, Ankara.",
       crumb: "Projects",
     },
     contact: {

@@ -2,8 +2,8 @@ export const about_tr = {
     "title": "Hakkımızda",
     "subtitle": "Hikayemiz ve misyonumuz hakkında daha fazla bilgi edinin",
     "description": "U+ Studio; İncek, Gölbaşı / Ankara'da mimarlık, iç mimarlık ve mühendisliği tek çatı altında buluşturan bir tasarım ofisidir.",
-    "mission": "Misyonumuz, estetiği, işlevselliği ve sürdürülebilirliği birleştirerek yaşam kalitesini artıran mekanlar yaratmaktır.",
-    "vision": "Bugün geleceğin mimarisini tasarlayarak insan odaklı ve doğaya saygı duyan yaşam alanları yaratmak.",
+    "mission": "Ne yapılabileceğini, hangi kararların bütçeyi etkileyeceğini ve işin nasıl uygulanacağını baştan görünür kılmak; kâğıtta kalan değil, sahada aynen uygulanabilen projeler üretmek.",
+    "vision": "Ankara'da mimarlık, iç mimarlık ve mühendisliği tek masada buluşturan; ulaşılabilir, açık ve güvenilir bir tasarım ofisi olmak.",
     "header": {
         "label": "Stüdyo",
         "line1": "Mimarlık, iç mimarlık",
@@ -40,7 +40,7 @@ export const about_tr = {
     "intro": {
         "label": "Giriş",
         "statement": "Mimarlığın sessiz gücünü mühendisliğin mutlak hassasiyetiyle birleştiriyoruz.",
-        "quote": "Her proje benzersiz bir hikaye anlatır. Bağlamı, kültürü ve kullanıcı ihtiyaçlarını analiz ederek zamansız ve işlevsel mekanlar yaratıyoruz."
+        "quote": "İncek'teki ofisimizde bir yüksek mimar ve bir inşaat mühendisi olarak projenizi ilk görüşmeden teslime kadar birlikte yürütüyoruz: tasarımı görerek, yapıyı güvenle, süreci tek muhatapla."
     },
     "philosophy": {
         "title": "Tasarım Felsefesi",
@@ -49,10 +49,60 @@ export const about_tr = {
     "values": {
         "title": "Değerlerimiz",
         "label": "Disiplinli Yaratıcılık",
-        "v1": { "title": "Mekânsal Zeka", "desc": "Bulunduğu yerle diyalog kuran, bağlamından beslenen ve ona değer katan tasarımlar." },
-        "v2": { "title": "Mühendislik Hassasiyeti", "desc": "En karmaşık mimari formları strüktürel sanat eserlerine dönüştüren teknik derinlik." },
-        "v3": { "title": "Zamansızlık", "desc": "Trendlerin ötesinde, yıllar geçtikçe değer kazanan ve eskimeyen tasarım dilleri." },
-        "v4": { "title": "Kullanıcı Deneyimi", "desc": "İnsan ölçeğini merkeze alan, duygusal ve fiziksel konforu birleştiren mekan kurguları." }
+        "v1": { "title": "Önce dinlemek", "desc": "Çizime ihtiyaç listesinden, bütçe çerçevesinden ve mevcut durumdan başlarız. Tasarımı sizin günlük hayatınız ve işinizin akışı belirler." },
+        "v2": { "title": "Mühendislik gerçekliği", "desc": "Her fikir taşıyıcı sistem, tesisat ve yönetmelikle birlikte düşünülür. Kâğıtta güzel ama sahada yapılamayan çizim çıkarmayız." },
+        "v3": { "title": "Açıklık", "desc": "Kapsamı, belirsizlikleri ve kararları yazılı paylaşırız. Henüz bilinmeyen bir şeyi kesinmiş gibi söylemeyiz." },
+        "v4": { "title": "İyi eskiyen tasarım", "desc": "Kısa ömürlü trendler yerine bakımı kolay malzemeler, sade detaylar ve yıllarca kullanılabilecek mekân kurguları seçeriz." }
+    },
+    "facts": {
+        "foundersValue": "2",
+        "founders": "Kurucu ortak",
+        "foundersNote": "Yüksek mimar ve inşaat mühendisi",
+        "projects": "Proje",
+        "projectsNote": "Sitede ayrıntısıyla incelenebilir",
+        "rating": "Google puanı",
+        "ratingNote": "{count} müşteri yorumu",
+        "areaValue": "Ankara",
+        "area": "İncek, Gölbaşı",
+        "areaNote": "Türkiye genelinde projeler"
+    },
+    "process": {
+        "label": "Nasıl çalışıyoruz",
+        "titleLine1": "İlk kahveden",
+        "titleAccent": "anahtar teslimine.",
+        "lead": "Her proje aynı beş adımda ilerler. Hangi adımda olduğunuzu, sizden ne beklendiğini ve sonunda elinize ne geçeceğini baştan bilirsiniz.",
+        "outputLabel": "Çıktı",
+        "drawingCaption": "Mimari, statik, elektrik ve mekanik projeler aynı ofiste, birbirini tutacak şekilde hazırlanır.",
+        "drawingLink": "Proje setini rehberde inceleyin",
+        "steps": [
+            { "title": "Tanışma ve ilk görüşme", "body": "İhtiyaçlarınızı, bütçe çerçevenizi ve takviminizi dinleriz. Ofisimizde, telefonda ya da sahada; kahve bizden.", "output": "Kapsam ve sonraki adımlar" },
+            { "title": "Yerinde keşif ve ölçüm", "body": "Arsayı ya da mevcut yapıyı yerinde görür ve ölçeriz; imar durumunu, belgeleri ve teknik kısıtları inceleriz.", "output": "Mevcut durum ve kısıtlar listesi" },
+            { "title": "Konsept ve 3D", "body": "Plan seçeneklerini, malzeme dilini ve ışığı 3D görsellerle sunarız. Karar vermeden önce mekânı görürsünüz.", "output": "Onaylanan konsept" },
+            { "title": "Teknik projeler ve izinler", "body": "Mimari, statik ve tesisat projeleri birbirini tutacak şekilde hazırlanır; gereken izin süreçlerinde yanınızda oluruz.", "output": "Uygulanabilir proje seti" },
+            { "title": "Uygulama ve teslim", "body": "İsterseniz şantiyeyi koordine eder, malzemeyi ve iş programını takip ederiz. Teslimde her detayı birlikte kontrol ederiz.", "output": "Teslim ve kontrol listesi" }
+        ]
+    },
+    "studio": {
+        "label": "Ofisimiz",
+        "titleLine1": "İncek'te bir masa,",
+        "titleAccent": "bir kahve.",
+        "body": "Ofisimiz Merkez İncek Plaza'da. Projenizi konuşmak için randevuyla uğrayabilirsiniz. Başta İncek, Gölbaşı ve Çankaya olmak üzere Ankara'da ve Türkiye genelindeki projelere hizmet veriyoruz.",
+        "bringLabel": "Yanınızda getirmeniz faydalı olanlar",
+        "bring": [
+            "Tapu, imar durumu ya da varsa onaylı proje",
+            "Mevcut yapının fotoğrafları veya ölçüleri",
+            "Beğendiğiniz mekân ve malzeme örnekleri",
+            "Bütçe ve takvim beklentiniz"
+        ],
+        "addressLabel": "Adres",
+        "directions": "Yol tarifi al",
+        "imageAlt": "U+ Studio ofisinde görüşme alanı: iki koltuk ve kahve sehpası",
+        "reviewsLabel": "Bizi başka nerelerde bulabilirsiniz",
+        "google": "Google · {rating} ({count} yorum)",
+        "armut": "Armut",
+        "yandex": "Yandex Haritalar",
+        "peyzaj": "Peyzaj Rehber",
+        "instagram": "Instagram"
     },
     "disciplines": {
         "label": "Uzmanlık Alanlarımız",

@@ -159,7 +159,6 @@ export function DesignerMascot({ pose = "idle", joy = false, className = "", off
           </g>
         </m.g>
       </m.g>
-      {pose === "think" && <ThinkMark y={8} offset={offset} reduce={reduce} live={live} />}
     </svg>
   );
 }
@@ -244,18 +243,7 @@ export function BuilderMascot({ pose = "idle", joy = false, className = "", offs
           </g>
         </m.g>
       </m.g>
-      {pose === "think" && <ThinkMark y={9} offset={offset} reduce={reduce} live={live} />}
     </svg>
-  );
-}
-
-function ThinkMark({ y, offset, reduce, live }: Readonly<{ y: number; offset: number; reduce: boolean | null; live: boolean }>) {
-  return (
-    <m.g {...(reduce ? {} : play(live, { y: [0, -3, 0], opacity: [0.85, 1, 0.85] }, loop(2, offset)))}>
-      <text x={70} y={y} textAnchor="middle" fontSize="16" fontWeight="700" fill="#fff" fontFamily="sans-serif">
-        ?
-      </text>
-    </m.g>
   );
 }
 
@@ -272,9 +260,9 @@ const SIZES = { sm: "h-11 w-11 sm:h-20 sm:w-20", md: "h-11 w-11 sm:h-32 sm:w-32"
 export function MascotDuo({ pose = "idle", message, className = "", size = "md" }: Readonly<DuoProps>) {
   const [hovered, setHovered] = useState(false);
   return (
-    <div className={`relative inline-flex flex-col items-center ${className}`}>
+    <div className={`relative inline-flex flex-col items-start sm:items-center ${className}`}>
       {message && (
-        <p className="mb-3 max-w-[18rem] animate-[rise_0.6s_var(--ease-out-studio)_0.4s_backwards] text-center font-serif text-[15px] italic leading-snug text-current opacity-90 [--rise:8px] motion-reduce:animate-none sm:text-[17px]">
+        <p className="mb-3 max-w-[18rem] animate-[rise_0.6s_var(--ease-out-studio)_0.4s_backwards] text-left font-serif text-[15px] italic leading-snug text-current opacity-90 [--rise:8px] motion-reduce:animate-none sm:text-center sm:text-[17px]">
           {message}
         </p>
       )}

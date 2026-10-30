@@ -6,6 +6,7 @@ import { getProject, projects, type ProjectCategory } from "@/lib/projects";
 import { locales, type Locale } from "@/lib/i18n-config";
 import { breadcrumbLd, buildMetadata, resolveLocale, SEO_COPY } from "@/lib/seo";
 import { projectLd } from "@/lib/seo-projects";
+import { guidesForProject } from "@/lib/guides";
 import { setRequestLocale } from "next-intl/server";
 
 interface Params {
@@ -61,7 +62,10 @@ export default async function ProjectPage({ params }: Params) {
           ]),
         ]}
       />
-      <ProjectDetail slug={slug} />
+      <ProjectDetail
+        slug={slug}
+        guides={guidesForProject(slug).map((g) => ({ slug: g.slug, title: g.copy[l].title, description: g.copy[l].description }))}
+      />
     </>
   );
 }
