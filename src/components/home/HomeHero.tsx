@@ -31,7 +31,6 @@ const FILM_LABEL = { stopped: "playFilm", silent: "unmuteFilm", audible: "stopFi
 const PROJECT_COLUMNS = [["villa-donusumu", "evox-gym-center"], ["butik-kafe", "modern-villa"], ["konut-uygulama", "pastane"]];
 const heroProjectNumber = (slug: string) => String(PROJECT_COLUMNS.flat().indexOf(slug) + 1).padStart(2, "0");
 
-const videoSource = () => (globalThis.innerWidth < 768 ? VIDEO.small : VIDEO.large);
 const MUSIC_KEY = "u-film-music";
 
 function musicWanted() {
@@ -91,15 +90,22 @@ export default function HomeHero() {
       video.pause();
       musicRef.current?.pause();
     };
+    // The <source> media queries already pick the file, so playing never swaps src (which used to
+    // abort and reload the element). Waiting for an idle moment after load keeps the first decode
+    // away from hydration work, where it showed as a stutter.
+    let idle = 0;
+    const play = () => {
+      if (!motionPreference.matches) video.play().catch(() => {});
+    };
     const start = () => {
-      if (motionPreference.matches) return;
-      video.src = videoSource();
-      video.play().catch(() => {});
+      idle = "requestIdleCallback" in globalThis ? requestIdleCallback(play, { timeout: 1500 }) : globalThis.setTimeout(play, 300);
     };
     motionPreference.addEventListener("change", syncMotionPreference);
     if (document.readyState === "complete") start();
     else globalThis.addEventListener("load", start, { once: true });
     return () => {
+      if ("cancelIdleCallback" in globalThis) cancelIdleCallback(idle);
+      else globalThis.clearTimeout(idle);
       globalThis.removeEventListener("load", start);
       motionPreference.removeEventListener("change", syncMotionPreference);
     };
@@ -144,7 +150,6 @@ export default function HomeHero() {
       playMusic();
       return;
     }
-    if (!video.src) video.src = videoSource();
     if (video.ended) video.currentTime = 0;
     video.play().catch(() => {});
     playMusic();
@@ -178,6 +183,7 @@ export default function HomeHero() {
             musicRef.current?.pause();
           }}
         >
+          <source src={VIDEO.small} type="video/mp4" media="(max-width: 767px)" />
           <source src={VIDEO.large} type="video/mp4" />
         </video>
         <audio
@@ -206,7 +212,7 @@ export default function HomeHero() {
             <LineReveal
               immediate
               delay={0.35}
-              lines={[t("hero.line1"), t("hero.line2"), <em key="l3" className="font-serif font-normal italic tracking-normal text-[#e2a882] [text-shadow:0_2px_16px_rgb(0_0_0/0.6)]">{t("hero.line3")}</em>]}
+              lines={[t("hero.line1"), t("hero.line2"), <em key="l3" className="font-serif font-normal italic tracking-normal text-[#e2a882]">{t("hero.line3")}</em>]}
             />
           </h1>
 
