@@ -8,6 +8,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import Telemetry from "@/components/Telemetry";
 import HeadOrphans from "@/components/HeadOrphans";
 import SiteFrame from "@/components/SiteFrame";
+import ScrollIndicator from "@/components/studio/ScrollIndicator";
 
 const CURTAIN_BOOT = `try{var r=document.documentElement;if(sessionStorage.getItem("u-curtain")==="1"){r.dataset.curtainSeen=""}else if(/^\\/(tr|en)\\/?$/.test(location.pathname)&&!matchMedia("(prefers-reduced-motion: reduce)").matches){r.dataset.curtain="";setTimeout(function(){delete r.dataset.curtain},4000)}}catch(e){}`;
 
@@ -48,6 +49,7 @@ export default async function LocaleLayout({
         <SiteFrame locale={locale} messages={messages} bare={isInMaintenance}>
           {children}
         </SiteFrame>
+        <ScrollIndicator />
         <Telemetry />
         <HeadOrphans />
       </body>

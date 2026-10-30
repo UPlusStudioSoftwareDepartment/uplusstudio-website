@@ -35,9 +35,11 @@ interface LineRevealProps {
   lineClassName?: string;
   delay?: number;
   immediate?: boolean;
+  /** CSS length added to every line's delay in immediate mode, e.g. "var(--hero-offset, 0s)". */
+  delayOffset?: string;
 }
 
-export function LineReveal({ lines, className = "", lineClassName = "", delay = 0, immediate = false }: Readonly<LineRevealProps>) {
+export function LineReveal({ lines, className = "", lineClassName = "", delay = 0, immediate = false, delayOffset }: Readonly<LineRevealProps>) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
 
@@ -48,7 +50,7 @@ export function LineReveal({ lines, className = "", lineClassName = "", delay = 
           {immediate ? (
             <span
               className={`block animate-[line-up_var(--duration-line)_var(--ease-studio)_backwards] motion-reduce:animate-none ${lineClassName}`}
-              style={{ animationDelay: `${delay + i * 0.08}s` }}
+              style={{ animationDelay: delayOffset ? `calc(${delay + i * 0.08}s + ${delayOffset})` : `${delay + i * 0.08}s` }}
             >
               {line}
             </span>

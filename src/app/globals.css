@@ -57,29 +57,35 @@ html {
   color-scheme: dark;
 }
 
+/* The native page scrollbar is hidden on every screen; ScrollIndicator draws a thin bar only while the
+   visitor scrolls, so nothing appears or flickers while a page opens. */
+html {
+  scrollbar-width: none;
+}
+
 html::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  right: 2px;
+  z-index: 90;
   width: 4px;
-  height: 4px;
-}
-
-html::-webkit-scrollbar-track {
-  background: var(--color-paper);
-}
-
-html::-webkit-scrollbar-thumb {
-  background: var(--color-line);
-  border-radius: 10px;
-}
-
-html::-webkit-scrollbar-thumb:hover {
+  border-radius: 4px;
   background: var(--color-mute);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition: opacity 0.4s ease;
 }
 
-@supports not selector(::-webkit-scrollbar) {
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-line) var(--color-paper);
-  }
+.scroll-indicator.is-active {
+  opacity: 0.55;
+  transition-duration: 0.15s;
 }
 
 ::selection {
@@ -368,10 +374,15 @@ select:focus-visible {
   }
 }
 
-/* The home hero waits under the first-visit curtain (from the first paint, before hydration),
-   then plays top to bottom as soon as the curtain has gone. */
-html:has(.page-curtain) .hero-stage {
+/* The home hero waits while the first-visit curtain covers the page (from the first paint, before
+   hydration). Once the curtain starts dropping, data-intro adds a short offset so each line rises as
+   the curtain uncovers it; it stays set for this view, so delays never change mid-animation. */
+html:not([data-curtain-seen]):has(.page-curtain:not(.is-leaving)) .hero-stage {
   animation-play-state: paused;
+}
+
+html[data-intro] {
+  --hero-offset: 0.4s;
 }
 
 @keyframes line-up {
@@ -389,22 +400,24 @@ html:has(.page-curtain) .hero-stage {
 .page-curtain {
   --curtain-ease: cubic-bezier(0.65, 0, 0.35, 1);
   --curtain-fade: 45vh;
+  /* The curtain drops away downwards with a soft top edge, uncovering the page from the top,
+     the same direction the home hero then enters in. */
   position: fixed;
-  inset: 0 0 calc(var(--curtain-fade) * -1);
+  inset: calc(var(--curtain-fade) * -1) 0 0;
   z-index: 80;
   display: grid;
   place-items: center;
-  padding-bottom: var(--curtain-fade);
+  padding-top: var(--curtain-fade);
   background: var(--color-night);
   color: var(--color-bone);
-  mask-image: linear-gradient(to bottom, #000 calc(100% - var(--curtain-fade)), transparent);
+  mask-image: linear-gradient(to top, #000 calc(100% - var(--curtain-fade)), transparent);
   will-change: transform;
   transition: transform 1.3s var(--curtain-ease) 0.1s;
   animation: curtain-out 1.3s var(--curtain-ease) 4s forwards;
 }
 
 .page-curtain.is-leaving {
-  transform: translateY(-100%);
+  transform: translateY(100%);
   pointer-events: none;
 }
 
@@ -414,7 +427,7 @@ html:has(.page-curtain) .hero-stage {
 
 .page-curtain.is-leaving .curtain-mark {
   opacity: 0;
-  transform: translateY(-2rem);
+  transform: translateY(2rem);
 }
 
 ::view-transition-old(root) {
@@ -525,7 +538,7 @@ html[data-curtain-seen] .page-curtain {
 
 @keyframes curtain-out {
   to {
-    transform: translateY(-100%);
+    transform: translateY(100%);
     visibility: hidden;
   }
 }

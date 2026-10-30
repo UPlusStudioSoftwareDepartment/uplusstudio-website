@@ -124,12 +124,17 @@ function Curtain({ intro }: Readonly<{ intro: boolean }>) {
     (skip ? Promise.resolve() : pageReady()).then(() => {
       booted = true;
       delete root.dataset.curtain;
-      if (!skip) markSeen();
+      if (!skip) {
+        markSeen();
+        // Read by the home hero (globals.css) to time its entrance to the dropping curtain.
+        root.dataset.intro = "";
+      }
       if (alive) setPhase(skip ? "done" : "leave");
     });
     return () => {
       alive = false;
       delete root.dataset.curtain;
+      delete root.dataset.intro;
     };
   }, [intro]);
 
