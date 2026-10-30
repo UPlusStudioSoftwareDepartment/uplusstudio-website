@@ -60,7 +60,7 @@ export default function DiagramFigure({
         <figcaption className="mt-4 max-w-2xl text-[14px] leading-relaxed text-mute">
           {caption}
           {hasItems && !numbered && (
-            <span className="mt-1 block text-[12px] text-mute/70 sm:hidden">
+            <span className="mt-1 block text-[12px] text-mute sm:hidden">
               {locale === "tr" ? "Şema, masaüstünde çizim olarak görünür." : "The drawing appears on larger screens."}
             </span>
           )}

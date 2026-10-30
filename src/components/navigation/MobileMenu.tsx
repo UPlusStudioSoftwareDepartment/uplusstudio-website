@@ -8,12 +8,14 @@ import Link from "next/link";
 import Image from "next/image";
 import CallCta from "@/components/studio/CallCta";
 import LanguageSelector from "@/components/LanguageSelector";
-import SocialLinks from "@/components/studio/SocialLinks";
+import SocialLinks, { icons } from "@/components/studio/SocialLinks";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { studioInfo } from "@/lib/studio-info";
 import { getMobileMenuMotion } from "./mobileMenuMotion";
 import MenuIcon from "./MenuIcon";
+
+const MENU_ACTION_CLASS = "flex min-h-[clamp(2.75rem,7dvh,3.5rem)] items-center justify-between border border-bone px-5 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:bg-night active:bg-night";
 
 export type MenuLink = Readonly<{
   href: string;
@@ -28,7 +30,8 @@ type MobileMenuProps = Readonly<{
 
 export default function MobileMenu({ links, onClose }: MobileMenuProps) {
   const t = useTranslations("studio.nav");
-  const prefix = "/" + useLocale();
+  const locale = useLocale();
+  const prefix = "/" + locale;
   const pathname = usePathname();
 
   const menuRef = useRef<HTMLDivElement>(null);
@@ -65,37 +68,18 @@ export default function MobileMenu({ links, onClose }: MobileMenuProps) {
           </span>
           <span className="text-[17px] font-medium tracking-tight">Studio</span>
         </Link>
-        <m.div
-          className="flex min-w-0 items-end"
-          aria-hidden
-          variants={motion.mascots}
-        >
-          <Image
-            src="/media/mascots/designer-menu.svg"
-            alt=""
-            width={140}
-            height={150}
-            loading="eager"
-            className="h-11 w-11 sm:h-12 sm:w-12"
-          />
-          <Image
-            src="/media/mascots/builder-menu.svg"
-            alt=""
-            width={140}
-            height={150}
-            loading="eager"
-            className="-ml-2 h-11 w-11 sm:h-12 sm:w-12"
-          />
-        </m.div>
-        <button
-          ref={closeRef}
-          type="button"
-          onClick={onClose}
-          aria-label={t("close")}
-          className="group -mr-2 ml-1 flex h-11 items-center px-2"
-        >
-          <MenuIcon open={present} />
-        </button>
+        <div className="ml-auto flex items-center gap-3 sm:gap-5">
+          <LanguageSelector isDarkText={false} />
+          <button
+            ref={closeRef}
+            type="button"
+            onClick={onClose}
+            aria-label={t("close")}
+            className="group -mr-2 ml-1 flex h-11 items-center px-2"
+          >
+            <MenuIcon open={present} />
+          </button>
+        </div>
       </div>
       <m.div
         className="absolute inset-0"
@@ -123,23 +107,23 @@ export default function MobileMenu({ links, onClose }: MobileMenuProps) {
           />
 
           <nav
-            className="flex min-h-0 flex-1 flex-col justify-center overflow-hidden py-[1.5dvh]"
+            className="flex min-h-0 flex-1 flex-col overflow-hidden pt-4 [container-type:size] [@media(max-height:700px)]:pt-2"
             aria-label={t("menu")}
           >
-            <ul className="flex flex-col [@media(max-height:520px)]:grid [@media(max-height:520px)]:grid-cols-2 [@media(max-height:520px)]:gap-x-8">
+            <ul className="flex min-h-0 flex-1 flex-col [@media(max-height:520px)]:grid [@media(max-height:520px)]:grid-cols-2 [@media(max-height:520px)]:gap-x-8">
               {links.map((item, i) => {
                 const active = item.active;
                 return (
                   <li
                     key={item.href}
-                    className="overflow-hidden border-b border-bone/10 first:border-t [@media(max-height:520px)]:[&:nth-child(2)]:border-t"
+                    className="flex min-h-0 flex-1 flex-col justify-center overflow-hidden border-b border-bone/10 first:border-t [@media(max-height:520px)]:[&:nth-child(2)]:border-t"
                   >
                     <m.div variants={motion.link(i)}>
                       <Link
                         href={item.href}
                         prefetch={false}
                         onClick={() => closeIfCurrent(item.href)}
-                        className="group flex items-baseline gap-4 py-[clamp(0.25rem,1.1dvh,1rem)] active:text-clay"
+                        className="group flex items-center gap-4 py-[clamp(0.25rem,0.8dvh,1rem)] active:text-clay [@media(max-height:700px)]:py-[0.4dvh]"
                       >
                         <m.span
                           className="w-7 font-mono text-[12px] text-bone/60"
@@ -148,7 +132,7 @@ export default function MobileMenu({ links, onClose }: MobileMenuProps) {
                           {String(i + 1).padStart(2, "0")}
                         </m.span>
                         <span
-                          className={`font-sans text-[clamp(1.1rem,min(8.5vw,4.6dvh),3.75rem)] font-light leading-[1.05] tracking-[-0.035em] ${
+                          className={`font-sans text-[clamp(1rem,min(8.5vw,9cqh),3.2rem)] font-light leading-[1.05] tracking-[-0.035em] ${
                             active ? "text-bone" : "text-bone/65"
                           }`}
                         >
@@ -161,7 +145,7 @@ export default function MobileMenu({ links, onClose }: MobileMenuProps) {
                           )}
                         </span>
                         <span
-                          className={`ml-auto self-center text-lg transition-transform group-active:translate-x-1 ${active ? "text-clay" : "text-bone/30"}`}
+                          className={`ml-auto self-center text-lg leading-none transition-transform group-active:translate-x-1 ${active ? "text-clay" : "text-bone/30"}`}
                           aria-hidden
                         >
                           {active ? "●" : "→"}
@@ -175,10 +159,10 @@ export default function MobileMenu({ links, onClose }: MobileMenuProps) {
           </nav>
 
           <m.div
-            className="border-t border-bone/10 pb-[max(clamp(0.5rem,2dvh,1.25rem),env(safe-area-inset-bottom))] pt-[clamp(0.5rem,2dvh,1.25rem)]"
+            className="pb-[max(clamp(0.5rem,2dvh,1.25rem),env(safe-area-inset-bottom))] pt-[clamp(0.5rem,2dvh,1.25rem)]"
             variants={motion.footer}
           >
-            <div className="flex items-start justify-between gap-6 text-[13px] text-bone/70 [@media(max-height:520px)]:justify-end">
+            <div className="flex items-center justify-between gap-3 text-[13px] text-bone/70 [@media(max-height:520px)]:justify-end">
               <div className="-my-1 [@media(max-height:520px)]:hidden">
                 <a
                   href={`mailto:${studioInfo.email}`}
@@ -193,17 +177,57 @@ export default function MobileMenu({ links, onClose }: MobileMenuProps) {
                   {studioInfo.phoneDisplay}
                 </a>
               </div>
-              <LanguageSelector isDarkText={false} />
+              <m.div className="flex shrink-0 items-end [@media(max-height:520px)_and_(max-width:479px)]:hidden" aria-hidden variants={motion.mascots}>
+                <Image
+                  src="/media/mascots/designer-menu.svg?v=smile-loop"
+                  alt=""
+                  width={140}
+                  height={150}
+                  loading="eager"
+                  className="h-11 w-11 sm:h-12 sm:w-12 [@media(max-height:520px)]:h-7 [@media(max-height:520px)]:w-7"
+                />
+                <Image
+                  src="/media/mascots/builder-menu.svg?v=smile-loop"
+                  alt=""
+                  width={140}
+                  height={150}
+                  loading="eager"
+                  className="-ml-2 h-11 w-11 sm:h-12 sm:w-12 [@media(max-height:520px)]:h-7 [@media(max-height:520px)]:w-7"
+                />
+              </m.div>
             </div>
             <SocialLinks
               className="mt-3 w-full justify-between"
               tooltip="above"
+              only={["email", "google", "instagram", "yandex", "armut", "peyzaj", "card"]}
             />
+            <div className="mt-[clamp(0.5rem,2dvh,1.25rem)] grid gap-2 [@media(max-height:520px)_and_(min-width:480px)]:grid-cols-3">
+            <a
+              href={studioInfo.directionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+              className={MENU_ACTION_CLASS}
+            >
+              <span className="inline-flex items-center gap-2">{icons.directions}{locale === "tr" ? "Yol tarifi" : "Get directions"}</span>
+              <span aria-hidden>→</span>
+            </a>
+            <a
+              href={studioInfo.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+              className={MENU_ACTION_CLASS}
+            >
+              <span className="inline-flex items-center gap-2">{icons.whatsapp}{locale === "tr" ? "WhatsApp’tan yaz" : "Write on WhatsApp"}</span>
+              <span aria-hidden>→</span>
+            </a>
             <CallCta
               onClick={onClose}
               arrow={<span aria-hidden>→</span>}
-              className="mt-[clamp(0.5rem,2dvh,1.25rem)] flex min-h-[clamp(2.75rem,7dvh,3.5rem)] w-full items-center justify-between border border-bone bg-transparent px-5 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors hover:bg-night hover:text-bone active:bg-night active:text-bone"
+              className={MENU_ACTION_CLASS}
             />
+            </div>
           </m.div>
         </div>
       </m.div>

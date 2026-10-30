@@ -27,15 +27,16 @@ export default function ScrollIndicator() {
     const draw = () => {
       raf = 0;
       const view = globalThis.innerHeight;
+      const track = bar.parentElement?.clientHeight ?? view;
       const total = document.documentElement.scrollHeight;
       if (total <= view + 1) {
         bar.classList.remove("is-active");
         return;
       }
-      const thumb = Math.max(MIN_THUMB, (view * view) / total);
+      const thumb = Math.min(track, Math.max(MIN_THUMB, (view / total) * track));
       const progress = globalThis.scrollY / (total - view);
       bar.style.height = `${thumb}px`;
-      bar.style.transform = `translate3d(0, ${Math.min(1, Math.max(0, progress)) * (view - thumb)}px, 0)`;
+      bar.style.transform = `translate3d(0, ${Math.min(1, Math.max(0, progress)) * (track - thumb)}px, 0)`;
     };
 
     const onScroll = () => {
@@ -61,5 +62,9 @@ export default function ScrollIndicator() {
     };
   }, []);
 
-  return <div ref={ref} className="scroll-indicator motion-reduce:transition-none" aria-hidden />;
+  return (
+    <div className="scroll-indicator-track" aria-hidden>
+      <div ref={ref} className="scroll-indicator motion-reduce:transition-none" />
+    </div>
+  );
 }

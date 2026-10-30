@@ -446,8 +446,7 @@ test.describe("phones", () => {
     const menu = page.getByRole("dialog", { name: "Menü" });
     const links: [string, string][] = [
       ["Yol tarifi", studioInfo.directionsUrl],
-      ["Ara", studioInfo.phoneHref],
-      ["WhatsApp", studioInfo.whatsappUrl],
+      ["WhatsApp’tan yaz", studioInfo.whatsappUrl],
       ["E-posta", `mailto:${studioInfo.email}`],
       ["Google Maps", studioInfo.mapsUrl],
       ["Instagram", studioInfo.instagramUrl],

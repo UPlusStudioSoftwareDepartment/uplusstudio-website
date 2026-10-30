@@ -1,7 +1,9 @@
 import { expect, test } from "@playwright/test";
 
 const screens = [
+  { width: 320, height: 480 },
   { width: 320, height: 568 },
+  { width: 360, height: 640 },
   { width: 360, height: 800 },
   { width: 375, height: 812 },
   { width: 384, height: 832 },
@@ -9,13 +11,19 @@ const screens = [
   { width: 393, height: 873 },
   { width: 412, height: 915 },
   { width: 430, height: 932 },
+  { width: 568, height: 320 },
+  { width: 667, height: 375 },
   { width: 844, height: 390 },
+  { width: 915, height: 412 },
+  { width: 768, height: 1024 },
+  { width: 820, height: 1180 },
+  { width: 1023, height: 768 },
 ];
 
 for (const screen of screens) {
   test(`curtain menu keeps controls usable at ${screen.width}x${screen.height}`, async ({
     page,
-  }) => {
+  }, testInfo) => {
     await page.setViewportSize(screen);
     await page.addInitScript(() => sessionStorage.setItem("u-curtain", "1"));
     await page.goto("/tr/about");
@@ -28,6 +36,15 @@ for (const screen of screens) {
       // WebKit rounds the masked row's border by a subpixel; still require virtually the whole tap target.
       if (await control.isVisible())
         await expect(control).toBeInViewport({ ratio: 0.98 });
+    }
+    const rowAlignment = await menu.locator("nav ul a").evaluateAll((links) => links.map((link) => {
+      const [number, title] = [...link.children].map((child) => child.getBoundingClientRect());
+      return Math.abs(number.top + number.height / 2 - (title.top + title.height / 2));
+    }));
+    for (const offset of rowAlignment) expect(offset).toBeLessThanOrEqual(1);
+    if (testInfo.project.name === "desktop") {
+      await expect(menu).toHaveCSS("opacity", "1");
+      await page.screenshot({ path: `reports/console-seo-2026-10-30/menu-${screen.width}x${screen.height}.png` });
     }
     await close.press("Tab");
     expect(
@@ -76,6 +93,15 @@ test("reduced motion menu fades without sliding the page-sized layers", async ({
   await page.keyboard.press("Escape");
   await expect(menu).toBeHidden();
 });
+
+for (const width of [1024, 1280, 1440, 1920]) {
+  test(`desktop navigation replaces the menu at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/tr/about");
+    await expect(page.getByRole("button", { name: "Menü", exact: true })).toBeHidden();
+    await expect(page.locator("nav").first().getByRole("link", { name: "Projeler", exact: true })).toBeVisible();
+  });
+}
 
 test("the close button stays under the same finger during the opening curtain", async ({
   page,

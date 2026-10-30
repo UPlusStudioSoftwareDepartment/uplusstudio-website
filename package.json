@@ -11,7 +11,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "test:audits": "node --test scripts/lighthouse-results.test.mjs",
+    "test:audits": "node --test scripts/lighthouse-results.test.mjs scripts/seo-media.test.mjs",
     "performance:audit": "node scripts/lighthouse-audit.mjs",
     "marketing:inventory": "node scripts/marketing-inventory.mjs",
     "indexnow": "node scripts/indexnow.mjs",

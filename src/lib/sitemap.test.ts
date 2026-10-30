@@ -6,6 +6,8 @@ import { projects, screenPoster } from "./projects";
 import { SITE_URL } from "./seo";
 import { projectLd, projectVideoLd } from "./seo-projects";
 import { guides } from "./guides";
+import { SERVICE_LANDINGS } from "./serviceLandings";
+import { PAGE_PATH } from "./seo";
 
 const publicFile = (url: string) => join(process.cwd(), "public", new URL(url, SITE_URL).pathname);
 
@@ -42,6 +44,25 @@ describe("sitemap", async () => {
     for (const locale of ["tr", "en"]) {
       for (const path of ["/guides", ...guides.map(({ slug }) => `/guides/${slug}`)]) {
         expect(entries.some(({ loc }) => loc === `${SITE_URL}/${locale}${path}`)).toBe(true);
+      }
+    }
+  });
+
+  it("covers every public content route in both languages and excludes private helpers", () => {
+    const paths = [
+      ...Object.values(PAGE_PATH),
+      ...SERVICE_LANDINGS.map(({ slug }) => `/services/${slug}`),
+      ...projects.map(({ slug }) => `/projects/${slug}`),
+      ...projects.filter(({ video }) => video).map(({ slug }) => `/projects/${slug}/video`),
+      "/guides",
+      ...guides.map(({ slug }) => `/guides/${slug}`),
+    ];
+    const expected = paths.flatMap((path) => ["tr", "en"].map((locale) => `${SITE_URL}/${locale}${path}`));
+    expect(entries.map(({ loc }) => loc).sort()).toEqual(expected.sort());
+    expect(xml).not.toMatch(/\/(kartvizit|randevu-kart|randevu-yanit|api)\b/);
+    for (const path of paths) {
+      for (const locale of ["tr", "en", "x-default"]) {
+        expect(xml).toContain(`hreflang="${locale}" href="${SITE_URL}/${locale === "x-default" ? "tr" : locale}${path}"`);
       }
     }
   });

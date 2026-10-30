@@ -26,6 +26,18 @@ async function violations(page: Page, include?: string, exceptions: string[] = [
 }
 
 for (const locale of LOCALES) {
+  for (const slug of ["mimarlik-ucreti-ve-butce", "ankara-yapi-ruhsati-sureci"]) {
+    test(`${locale}/${slug}: the mobile drawing explanation remains readable`, async ({ page }) => {
+      await page.setViewportSize({ width: 393, height: 851 });
+      await page.goto(`/${locale}/guides/${slug}`);
+      const explanation = page.getByText(locale === "tr" ? "Şema, masaüstünde çizim olarak görünür." : "The drawing appears on larger screens.", { exact: true });
+      await expect(explanation).toBeVisible();
+      await explanation.scrollIntoViewIfNeeded();
+      await opaque(explanation);
+      expect(await violations(page, "figure")).toEqual([]);
+    });
+  }
+
   for (const path of PATHS) {
     test(`/${locale}${path} passes axe WCAG 2.2 AA`, async ({ page }) => {
       await page.goto(`/${locale}${path}`);

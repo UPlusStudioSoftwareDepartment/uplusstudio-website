@@ -4,6 +4,57 @@ import { expect, test, type Page } from "@playwright/test";
 
 const skipCurtain = (page: Page) => page.addInitScript(() => sessionStorage.setItem("u-curtain", "1"));
 
+test("menu mascots loop their facial smile without moving the body", async ({ page }) => {
+  for (const name of ["designer", "builder"]) {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await page.goto(`/media/mascots/${name}-menu.svg?v=smile-loop`);
+    const smile = page.locator(".menu-smile").first();
+    const expression = await smile.evaluate((element) => {
+      const animation = element.getAnimations()[0];
+      const timing = animation.effect!.getTiming();
+      animation.pause();
+      animation.currentTime = Number(timing.delay);
+      const neutral = Number(getComputedStyle(element).opacity);
+      animation.currentTime = Number(timing.delay) + Number(timing.duration) / 2;
+      const happy = Number(getComputedStyle(element).opacity);
+      animation.currentTime = Number(timing.delay) + Number(timing.duration);
+      const repeated = Number(getComputedStyle(element).opacity);
+      return { neutral, happy, repeated, loops: timing.iterations === Infinity,
+        movesBody: document.getAnimations().some((item) => (item.effect as KeyframeEffect).getKeyframes().some((frame) => frame.transform && frame.transform !== "none")) };
+    });
+    expect(expression).toEqual({ neutral: 0, happy: 1, repeated: 0, loops: true, movesBody: false });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await expect(smile).toHaveCSS("animation-name", "none");
+    await expect(smile).toHaveCSS("opacity", "1");
+  }
+});
+
+test("home directions pulse stays within its link and stops for reduced motion", async ({ page }) => {
+  await page.setViewportSize({ width: 393, height: 852 });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await skipCurtain(page);
+  await page.goto("/tr");
+  const icon = page.locator("#home .directions-icon");
+  await expect(icon).toBeVisible();
+  await expect(icon).toHaveCSS("animation-name", "directions-pulse");
+  const pulse = await icon.evaluate((element) => {
+    const animation = element.getAnimations()[0];
+    animation.pause();
+    animation.currentTime = 1200;
+    const rect = element.getBoundingClientRect();
+    const link = element.closest("a")!.getBoundingClientRect();
+    return {
+      scale: new DOMMatrix(getComputedStyle(element).transform).a,
+      contained: rect.left >= link.left && rect.right <= link.right && rect.top >= link.top && rect.bottom <= link.bottom,
+    };
+  });
+  expect(pulse.scale).toBeCloseTo(1.5);
+  expect(pulse.contained).toBe(true);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(icon).toHaveCSS("animation-name", "none");
+  await expect(icon).toHaveCSS("transform", "none");
+});
+
 const styleWrites = (page: Page, ms: number) =>
   page.evaluate(
     (duration) =>

@@ -13,7 +13,7 @@ const ICON = "h-[18px] w-[18px]";
 
 export const icons = {
   directions: (
-    <svg className={ICON} viewBox="2 2 20 20" fill="currentColor" aria-hidden>
+    <svg className={`${ICON} directions-icon`} viewBox="2 2 20 20" fill="currentColor" aria-hidden>
       <path d="M21.71 11.29l-9-9a1 1 0 0 0-1.41 0l-9 9a1 1 0 0 0 0 1.41l9 9a1 1 0 0 0 1.41 0l9-9a1 1 0 0 0 0-1.41ZM14 14.5V12h-4v3H8v-4a1 1 0 0 1 1-1h5V7.5l3.5 3.5-3.5 3.5Z" />
     </svg>
   ),

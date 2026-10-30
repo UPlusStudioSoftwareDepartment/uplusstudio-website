@@ -2,6 +2,7 @@
 // Usage: node scripts/seo-audit.mjs [--out seo-audit] ; BASE_URL=http://localhost:3000 to audit a local build.
 // Writes URL-, IMAGE- and VIDEO-INVENTORY.csv plus audit.json, prints FAIL/WARN lines, exits 1 on any FAIL.
 import { mkdir, writeFile } from "node:fs/promises";
+import { videoSources } from "./seo-media.mjs";
 
 const BASE = (process.env.BASE_URL ?? "https://www.uplusstudio.com.tr").replace(/\/$/, "");
 const CANONICAL_ORIGIN = process.env.CANONICAL_ORIGIN ?? "https://www.uplusstudio.com.tr";
@@ -179,8 +180,8 @@ while (queue.length && pages.size < MAX_PAGES) {
     }));
     page.videos = [...html.matchAll(/<video\b[^>]*>([\s\S]*?)<\/video>/gi)].map((m) => {
       const t = m[0].match(/<video\b[^>]*>/i)[0];
-      const source = tags(m[1], "source")[0];
-      return { src: attr(t, "src") ?? (source && attr(source, "src")) ?? "", poster: attr(t, "poster") ?? "", controls: /\scontrols(\s|=|>)/i.test(t), autoplay: /\sautoplay/i.test(t), loop: /\sloop/i.test(t), muted: /\smuted/i.test(t), label: attr(t, "aria-label") ?? "" };
+      const sources = videoSources(m[0]).map(decode);
+      return { src: sources[0] ?? "", sources, poster: attr(t, "poster") ?? "", controls: /\scontrols(\s|=|>)/i.test(t), autoplay: /\sautoplay/i.test(t), loop: /\sloop/i.test(t), muted: /\smuted/i.test(t), label: attr(t, "aria-label") ?? "" };
     });
     page.iframes = tags(html, "iframe").map((t) => attr(t, "src") ?? "");
     page.cssBackgrounds = [...html.matchAll(/background-image:\s*url\(([^)]+)\)/gi)].map((m) => m[1].replace(/["']/g, ""));
@@ -313,7 +314,7 @@ const videoUse = new Map();
 for (const page of pages.values()) {
   if (page.class !== "INDEXABLE_REQUIRED" && page.class !== "INDEXABLE_OPTIONAL") continue;
   const where = page.url.replace(BASE, "");
-  for (const v of page.videos ?? []) {
+  for (const v of (page.videos ?? []).flatMap((video) => video.sources.length ? video.sources.map((src) => ({ ...video, src })) : [video])) {
     const key = v.src || `${where}#${v.label || "video"}`;
     const entry = videoUse.get(key) ?? { src: v.src, label: v.label, uses: [] };
     entry.uses.push({ page: where, ...v, videoObject: page.videoObjects?.find((o) => v.src && new URL(o.contentUrl ?? "", CANONICAL_ORIGIN).pathname === v.src) });
@@ -327,7 +328,7 @@ for (const [loc, entry] of sitemap) {
     (e.sitemap ??= []).push({ page: loc.replace(CANONICAL_ORIGIN, ""), ...v });
     videoUse.set(src, e);
     const page = pages.get(toLocal(loc));
-    if (!page?.videos?.some((pv) => pv.src === src)) flag("WARN", loc.replace(CANONICAL_ORIGIN, ""), `sitemap lists video ${src} but the page HTML has no <video src> for it (only after JS / scroll)`);
+    if (!page?.videos?.some((pv) => pv.sources.includes(src))) flag("WARN", loc.replace(CANONICAL_ORIGIN, ""), `sitemap lists video ${src} but the page HTML has no video source for it (only after JS / scroll)`);
   }
 }
 await pool([...videoUse.values()].filter((v) => v.src), 4, async (entry) => {

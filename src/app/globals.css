@@ -69,14 +69,23 @@ html::-webkit-scrollbar {
   height: 0;
 }
 
-.scroll-indicator {
+.scroll-indicator-track {
   position: fixed;
-  top: 0;
-  right: 2px;
-  z-index: 90;
-  width: 4px;
-  border-radius: 4px;
-  background: var(--color-mute);
+  top: calc(96px + env(safe-area-inset-top, 0px));
+  right: max(4px, env(safe-area-inset-right, 0px));
+  bottom: max(12px, env(safe-area-inset-bottom, 0px));
+  z-index: 40;
+  width: 3px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.scroll-indicator {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  border-radius: 2px;
+  background: var(--color-clay);
   opacity: 0;
   pointer-events: none;
   will-change: transform, opacity;
@@ -84,7 +93,7 @@ html::-webkit-scrollbar {
 }
 
 .scroll-indicator.is-active {
-  opacity: 0.55;
+  opacity: 0.8;
   transition-duration: 0.15s;
 }
 
@@ -607,6 +616,22 @@ a[class*="bg-bone"]:not([class*="rounded-full"]) {
 
 @media (prefers-reduced-motion: reduce) {
   .explainer svg * { animation: none !important; }
+}
+
+#home .directions-icon,
+body:has(#home) nav .directions-icon {
+  animation: directions-pulse 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes directions-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #home .directions-icon,
+  body:has(#home) nav .directions-icon { animation: none; }
 }
 
 /* Ringing handset: a short ring, sound waves from the earpiece and two ripples, then a calm pause. */

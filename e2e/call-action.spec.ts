@@ -1,6 +1,25 @@
 import { expect, test } from "@playwright/test";
 
 for (const locale of ["tr", "en"] as const) {
+  test(`${locale}: the menu WhatsApp action opens a chat and closes the menu`, async ({ page, context }) => {
+    await page.setViewportSize({ width: 393, height: 852 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    // Keep this UI test local: never contact WhatsApp or a real customer.
+    await context.route("https://wa.me/**", (route) => route.fulfill({ contentType: "text/html", body: "<title>WhatsApp chat</title>" }));
+    await page.goto(`/${locale}/about`);
+    const label = locale === "tr" ? "Menü" : "Menu";
+    await page.getByRole("button", { name: label, exact: true }).click();
+    const menu = page.getByRole("dialog", { name: label, exact: true });
+    const chat = menu.getByRole("link", { name: locale === "tr" ? "WhatsApp’tan yaz" : "Write on WhatsApp", exact: true });
+    const popupPromise = page.waitForEvent("popup");
+    await chat.click();
+    const popup = await popupPromise;
+    await expect(popup).toHaveURL("https://wa.me/905453204007");
+    await popup.close();
+    await page.bringToFront();
+    await expect(menu).toBeHidden();
+  });
+
   test(`${locale}: primary call action targets the studio without opening a form`, async ({ page, isMobile }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.addInitScript(() => {
