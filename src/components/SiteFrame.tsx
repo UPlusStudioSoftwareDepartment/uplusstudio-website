@@ -31,7 +31,7 @@ export default function SiteFrame({
               <SkipToContent />
               <ArchitecturalBackdrop />
               <Navigation />
-              <main id="main-content" tabIndex={-1} className="relative outline-none">{children}</main>
+              <main id="main-content" tabIndex={-1} className="relative outline-none no-scrollbar">{children}</main>
               <SiteFooter services={services} />
             </>
           )}
