@@ -383,15 +383,13 @@ select:focus-visible {
   }
 }
 
-/* The home hero waits while the first-visit curtain covers the page (from the first paint, before
-   hydration). Once the curtain starts dropping, data-intro adds a short offset so each line rises as
-   the curtain uncovers it; it stays set for this view, so delays never change mid-animation. */
+/* Keep the hero entrance behind the opaque intro, then reveal it as the panel lifts. */
 html:not([data-curtain-seen]):has(.page-curtain:not(.is-leaving)) .hero-stage {
   animation-play-state: paused;
 }
 
 html[data-intro] {
-  --hero-offset: 0.4s;
+  --hero-offset: 0.12s;
 }
 
 @keyframes line-up {
@@ -406,37 +404,51 @@ html[data-intro] {
   }
 }
 
+/* A solid panel with a crisp edge: no gradient mask or translucent page overlap. */
 .page-curtain {
-  --curtain-ease: cubic-bezier(0.65, 0, 0.35, 1);
-  --curtain-fade: 45vh;
-  /* The curtain drops away downwards with a soft top edge, uncovering the page from the top,
-     the same direction the home hero then enters in. */
+  --curtain-ease: cubic-bezier(0.76, 0, 0.24, 1);
   position: fixed;
-  inset: calc(var(--curtain-fade) * -1) 0 0;
-  z-index: 80;
+  inset: 0;
+  z-index: 100;
   display: grid;
   place-items: center;
-  padding-top: var(--curtain-fade);
   background: var(--color-night);
   color: var(--color-bone);
-  mask-image: linear-gradient(to top, #000 calc(100% - var(--curtain-fade)), transparent);
   will-change: transform;
-  transition: transform 1.3s var(--curtain-ease) 0.1s;
-  animation: curtain-out 1.3s var(--curtain-ease) 4s forwards;
+  transition: transform 0.65s var(--curtain-ease);
+  /* Release the page even if hydration fails. */
+  animation: curtain-out 0.65s var(--curtain-ease) 3s forwards;
 }
 
 .page-curtain.is-leaving {
-  transform: translateY(100%);
-  pointer-events: none;
+  transform: translate3d(0, -100%, 0);
 }
 
 .page-curtain .curtain-mark {
-  transition: opacity 0.45s ease, transform 1.3s var(--curtain-ease) 0.1s;
+  transition: opacity 0.18s ease, transform 0.3s ease;
 }
 
 .page-curtain.is-leaving .curtain-mark {
   opacity: 0;
-  transform: translateY(2rem);
+  transform: translateY(-8px);
+}
+
+.curtain-activity {
+  position: relative;
+  margin-top: 28px;
+  width: 48px;
+  height: 2px;
+  overflow: hidden;
+  background: rgb(255 255 255 / 15%);
+}
+
+.curtain-activity::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-clay);
+  transform-origin: left;
+  animation: curtain-sweep 1.2s var(--curtain-ease) infinite;
 }
 
 ::view-transition-old(root) {
@@ -530,24 +542,20 @@ html[data-curtain-seen] .page-curtain {
 }
 
 @keyframes curtain-sweep {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(400%);
-  }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 @keyframes curtain-letter {
   from {
-    opacity: 0.35;
-    transform: translateY(55%);
+    opacity: 0;
+    transform: translateY(6px);
   }
 }
 
 @keyframes curtain-out {
   to {
-    transform: translateY(100%);
+    transform: translate3d(0, -100%, 0);
     visibility: hidden;
   }
 }

@@ -4,9 +4,9 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 const LETTERS = "STUDIO".split("");
-const FIRST_VISIT_MIN_MS = 900;
-const FIRST_VISIT_MAX_MS = 2600;
-const LEAVE_MS = 1500;
+const FIRST_VISIT_MIN_MS = 650;
+const FIRST_VISIT_MAX_MS = 1800;
+const LEAVE_MS = 650;
 // Longest the screen stays frozen waiting for the next route; slower routes finish without the fade, under the pending line.
 const SWAP_TIMEOUT_MS = 600;
 const PENDING_MAX_MS = 10000;
@@ -126,7 +126,7 @@ function Curtain({ intro }: Readonly<{ intro: boolean }>) {
       delete root.dataset.curtain;
       if (!skip) {
         markSeen();
-        // Read by the home hero (globals.css) to time its entrance to the dropping curtain.
+        // Read by the home hero (globals.css) to time its entrance to the lifting panel.
         root.dataset.intro = "";
       }
       if (alive) setPhase(skip ? "done" : "leave");
@@ -165,10 +165,7 @@ function Curtain({ intro }: Readonly<{ intro: boolean }>) {
           </g>
         </svg>
 
-        <span className="relative mt-[7%] block h-[2px] w-full overflow-hidden">
-          <span className="absolute inset-0 animate-[curtain-grow-x_0.45s_var(--ease-studio)_0.05s_backwards] bg-current" />
-          <span className="absolute inset-y-0 left-0 w-1/4 animate-[curtain-sweep_1.4s_var(--ease-studio)_0.3s_infinite_backwards] bg-linear-to-r from-transparent via-clay to-transparent" />
-        </span>
+        <span className="mt-[7%] block h-px w-full bg-current opacity-40" />
 
         <span className="mt-[6%] flex w-full justify-between font-sans text-[clamp(1.6rem,3.4vw,2.6rem)] font-light leading-none">
           {LETTERS.map((letter, i) => (
@@ -179,6 +176,7 @@ function Curtain({ intro }: Readonly<{ intro: boolean }>) {
             </span>
           ))}
         </span>
+        <span className="curtain-activity" />
       </div>
     </div>
   );

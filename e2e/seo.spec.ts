@@ -138,3 +138,25 @@ test("the fullscreen fallback traps focus, closes with Escape and returns focus"
   await expect(dialog).toBeHidden();
   await expect(opener).toBeFocused();
 });
+
+test("touch devices enlarge photos without entering browser fullscreen", async ({ page, isMobile }) => {
+  test.skip(!isMobile, "Photo overlays replace browser fullscreen on touch devices.");
+  await page.addInitScript(() => {
+    Element.prototype.requestFullscreen = async () => {
+      document.documentElement.dataset.nativeFullscreenRequested = "true";
+    };
+  });
+  await page.goto("/en/projects/ofis-yenileme");
+  const photo = page.locator('[class~="group/fs"]').filter({
+    has: page.locator("img"),
+    hasNot: page.locator("video"),
+  }).first();
+  const opener = photo.getByRole("button", { name: "Full screen", exact: true });
+  await opener.click();
+  const dialog = page.getByRole("dialog", { name: "Full screen", exact: true });
+  await expect(dialog).toBeVisible();
+  expect(await page.locator("html").getAttribute("data-native-fullscreen-requested")).toBeNull();
+  await dialog.getByRole("button", { name: "Exit full screen" }).click();
+  await expect(dialog).toBeHidden();
+  await expect(opener).toBeFocused();
+});

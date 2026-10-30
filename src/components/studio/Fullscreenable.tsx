@@ -44,6 +44,12 @@ export default function Fullscreenable({ children, className = "" }: Readonly<{ 
       setFallback(false);
       return;
     }
+    // Keep photos inside the page on touch devices so the browser does not
+    // enter immersive mode and display its swipe/back-to-exit notification.
+    if (matchMedia("(pointer: coarse)").matches && !el.querySelector("video")) {
+      setFallback(true);
+      return;
+    }
     if (typeof el.requestFullscreen === "function") {
       el.requestFullscreen().catch(() => setFallback(true));
       return;

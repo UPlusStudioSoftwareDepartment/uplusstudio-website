@@ -93,7 +93,7 @@ export default function HomeHero() {
     // The <source> media queries already pick the file, so playing never swaps src (which used to
     // abort and reload the element). Waiting for an idle moment after load keeps the first decode
     // away from hydration work, where it showed as a stutter.
-    // On the first visit the intro curtain lifts after load; starting the film under that slide made
+    // On the first visit the intro panel lifts after load; starting the film under that transition made
     // both stutter, so the film waits until the curtain has left the page.
     let idle = 0;
     let curtainWatch: MutationObserver | undefined;
