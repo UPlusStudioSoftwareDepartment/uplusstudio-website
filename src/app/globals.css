@@ -59,14 +59,35 @@ html {
 
 /* The native page scrollbar is hidden on every screen; ScrollIndicator draws a thin bar only while the
    visitor scrolls, so nothing appears or flickers while a page opens. */
-html {
-  scrollbar-width: none;
+:root,
+html,
+body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
-html::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
+:root::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  -webkit-appearance: none !important;
+  background: transparent !important;
+}
+
+:root::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  display: none !important;
+  background: transparent !important;
+}
+
+:root::-webkit-scrollbar-track,
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  display: none !important;
+  background: transparent !important;
 }
 
 .scroll-indicator-track {
@@ -280,12 +301,16 @@ select:focus-visible {
 }
 
 .no-scrollbar::-webkit-scrollbar {
-  display: none;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  -webkit-appearance: none !important;
+  background: transparent !important;
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }
 
 @keyframes liquid-blob-1 {

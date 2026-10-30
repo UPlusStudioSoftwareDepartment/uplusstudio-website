@@ -1,6 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import type { GuideTopic } from "@/lib/guides";
+import type { GuideAudience, GuideTopic } from "@/lib/guides";
 import type { Locale } from "@/lib/i18n-config";
 
 export type GuideCardData = Readonly<{
@@ -8,6 +11,7 @@ export type GuideCardData = Readonly<{
   title: string;
   description: string;
   topic: GuideTopic;
+  audiences: readonly GuideAudience[];
   minutes: number;
   image: string;
 }>;
@@ -32,24 +36,44 @@ function spanClass(i: number, n: number) {
   return `${md} ${xl}`;
 }
 
-/** Every guide, always visible, grouped by topic. */
+/** All guides render initially; reader choices narrow the topic shelves. */
 export default function GuideLibrary({
   locale,
   cards,
   topics,
   topicLabels,
+  audiences,
+  audienceLabels,
   labels,
 }: Readonly<{
   locale: Locale;
   cards: readonly GuideCardData[];
   topics: readonly GuideTopic[];
   topicLabels: Record<GuideTopic, string>;
+  audiences: readonly GuideAudience[];
+  audienceLabels: Record<GuideAudience, string>;
   labels: Labels;
 }>) {
+  const [audience, setAudience] = useState<GuideAudience | "all">("all");
+  const visibleCards = audience === "all" ? cards : cards.filter((card) => card.audiences.includes(audience));
+  const tr = locale === "tr";
   return (
     <section id="guide-library" aria-label={topics.map((topic) => topicLabels[topic]).join(", ")} className="scroll-mt-24 border-b border-line pb-16 sm:pb-20">
+      <fieldset className="pt-10">
+        <legend className="font-serif text-2xl">{tr ? "Size uygun rehberleri bulun" : "Find guides for your situation"}</legend>
+        <div className="mt-5 flex flex-wrap gap-3">
+          {(["all", ...audiences] as const).map((key) => (
+            <button key={key} type="button" aria-pressed={audience === key} onClick={() => setAudience(key)} aria-controls="guide-shelves"
+              className={audience === key ? "min-h-11 border border-ink bg-ink px-4 py-2 text-[15px] text-paper" : "min-h-11 border border-line px-4 py-2 text-[15px] transition-colors hover:border-clay hover:text-clay"}>
+              {key === "all" ? (tr ? "Tüm rehberler" : "All guides") : audienceLabels[key]}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+      <p role="status" className="mt-5 text-sm text-mute">{visibleCards.length} {tr ? "rehber" : "guides"}</p>
+      <div id="guide-shelves">
       {topics.map((topic) => {
-        const items = cards.filter((card) => card.topic === topic);
+        const items = visibleCards.filter((card) => card.topic === topic);
         if (!items.length) return null;
         return (
           <div key={topic} className="mt-14 border-t border-line pt-10 first:border-t-0">
@@ -87,6 +111,7 @@ export default function GuideLibrary({
           </div>
         );
       })}
+      </div>
     </section>
   );
 }

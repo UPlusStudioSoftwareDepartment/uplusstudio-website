@@ -10,7 +10,7 @@ import { ExplainerCards } from "@/components/explainers/ExplainerStory";
 import { ExplainerScene } from "@/components/explainers/ExplainerScenes";
 import PlayWhenVisible from "@/components/explainers/PlayWhenVisible";
 import GuideLibrary from "@/components/GuideLibrary";
-import { GUIDE_TOPICS, guideLabels, guides, guideTaxonomy, type StudioGuide } from "@/lib/guides";
+import { GUIDE_AUDIENCES, GUIDE_TOPICS, guideLabels, guides, guideTaxonomy, type StudioGuide } from "@/lib/guides";
 import type { Locale } from "@/lib/i18n-config";
 import { absoluteUrl, breadcrumbLd, buildMetadata, localePath, resolveLocale } from "@/lib/seo";
 
@@ -163,11 +163,14 @@ export default async function GuidesPage({ params }: Props) {
             title: g.copy[locale].title,
             description: g.copy[locale].description,
             topic: g.topic,
+            audiences: g.audiences,
             minutes: readingMinutes(g, locale),
             image: g.card,
           }))}
           topics={GUIDE_TOPICS}
           topicLabels={taxonomy.topics}
+          audiences={GUIDE_AUDIENCES}
+          audienceLabels={taxonomy.audiences}
           labels={{ minutes: copy.minutes, read: labels.read }}
         />
 

@@ -10,12 +10,16 @@ for (const locale of ["tr", "en"] as const) {
     for (const label of Object.values(taxonomy.topics)) expect(html).toContain(label.replace(/'/g, "&#x27;"));
   });
 
-  test(`${locale}: every guide is always visible, without a reader filter`, async ({ page }) => {
+  test(`${locale}: readers can narrow the library and restore every guide`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(`/${locale}/guides`);
     const library = page.locator("#guide-library");
     await expect(library.locator("h3 a")).toHaveCount(guides.length);
-    await expect(library.getByRole("button")).toHaveCount(0);
+    await library.getByRole("button", { name: taxonomy.audiences.business, exact: true }).click();
+    await expect(library.locator("h3 a")).toHaveCount(guides.filter((guide) => guide.audiences.includes("business")).length);
+    await expect(library.getByRole("button", { name: taxonomy.audiences.business, exact: true })).toHaveAttribute("aria-pressed", "true");
+    await library.getByRole("button", { name: locale === "tr" ? "Tüm rehberler" : "All guides", exact: true }).click();
+    await expect(library.locator("h3 a")).toHaveCount(guides.length);
     expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
   });
 

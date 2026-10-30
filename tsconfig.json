@@ -39,7 +39,9 @@
     ".next-qa/types/**/*.ts",
     ".next-qa/dev/types/**/*.ts",
     ".next-qa-current/types/**/*.ts",
-    ".next-qa-current/dev/types/**/*.ts"
+    ".next-qa-current/dev/types/**/*.ts",
+    ".next-master-qa/types/**/*.ts",
+    ".next-master-qa/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

@@ -20,6 +20,7 @@
 /.next/
 /.next-qa/
 /.next-qa-current/
+/.next-master-qa/
 /reports/performance/**/raw/
 /reports/performance/**/*.png
 /out/

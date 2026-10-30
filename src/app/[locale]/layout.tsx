@@ -36,7 +36,7 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale} className={fontVariables} suppressHydrationWarning>
+    <html lang={locale} className={`${fontVariables} no-scrollbar`} suppressHydrationWarning>
       <head>
         <meta name="theme-color" content="#121110" />
         <script dangerouslySetInnerHTML={{ __html: CURTAIN_BOOT }} />
@@ -45,7 +45,7 @@ export default async function LocaleLayout({
         </noscript>
         <JsonLd data={siteGraph(locale)} />
       </head>
-      <body className="font-sans antialiased bg-paper text-ink">
+      <body className="font-sans antialiased bg-paper text-ink no-scrollbar">
         <SiteFrame locale={locale} messages={messages} bare={isInMaintenance}>
           {children}
         </SiteFrame>
