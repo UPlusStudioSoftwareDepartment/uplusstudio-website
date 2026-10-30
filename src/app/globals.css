@@ -17,6 +17,7 @@
 
   --ease-studio: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-out-studio: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-hero: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Durations shared with src/lib/motion.ts (DURATION). */
@@ -357,6 +358,20 @@ select:focus-visible {
     opacity: 0.01;
     transform: translateY(var(--rise, 0));
   }
+}
+
+@keyframes hero-rise {
+  from {
+    /* 0.01, not 0: fully transparent text does not count as the largest contentful paint. */
+    opacity: 0.01;
+    transform: translate3d(0, var(--rise, 14px), 0);
+  }
+}
+
+/* The home hero waits under the first-visit curtain (from the first paint, before hydration),
+   then plays top to bottom as soon as the curtain has gone. */
+html:has(.page-curtain) .hero-stage {
+  animation-play-state: paused;
 }
 
 @keyframes line-up {
