@@ -1,5 +1,5 @@
 import { expect, test, type Locator, type Page } from "@playwright/test";
-import { SERVICE_LANDINGS } from "../src/lib/serviceLandings";
+import { SERVICE_LANDINGS, SERVICE_ORDER } from "../src/lib/serviceLandings";
 import { projects } from "../src/lib/projects";
 import { studioInfo } from "../src/lib/studio-info";
 import { LOCALES, PATHS } from "./pages";
