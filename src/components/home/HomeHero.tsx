@@ -93,17 +93,34 @@ export default function HomeHero() {
     // The <source> media queries already pick the file, so playing never swaps src (which used to
     // abort and reload the element). Waiting for an idle moment after load keeps the first decode
     // away from hydration work, where it showed as a stutter.
+    // On the first visit the intro curtain lifts after load; starting the film under that slide made
+    // both stutter, so the film waits until the curtain has left the page.
     let idle = 0;
+    let curtainWatch: MutationObserver | undefined;
     const play = () => {
       if (!motionPreference.matches) video.play().catch(() => {});
     };
-    const start = () => {
+    const whenIdle = () => {
       idle = "requestIdleCallback" in globalThis ? requestIdleCallback(play, { timeout: 1500 }) : Number(globalThis.setTimeout(play, 300));
+    };
+    const start = () => {
+      if (motionPreference.matches) return;
+      if (!document.querySelector(".page-curtain")) return whenIdle();
+      // Fetch and decode the opening frames while the curtain still covers the page.
+      video.preload = "auto";
+      video.load();
+      curtainWatch = new MutationObserver(() => {
+        if (document.querySelector(".page-curtain")) return;
+        curtainWatch?.disconnect();
+        whenIdle();
+      });
+      curtainWatch.observe(document.body, { childList: true, subtree: true });
     };
     motionPreference.addEventListener("change", syncMotionPreference);
     if (document.readyState === "complete") start();
     else globalThis.addEventListener("load", start, { once: true });
     return () => {
+      curtainWatch?.disconnect();
       if ("cancelIdleCallback" in globalThis) cancelIdleCallback(idle);
       else globalThis.clearTimeout(idle);
       globalThis.removeEventListener("load", start);
@@ -202,23 +219,23 @@ export default function HomeHero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-linear-to-t from-night/90 via-night/45 to-transparent" aria-hidden />
 
       <div className="relative z-10 mx-auto flex h-full max-w-[2560px] flex-col px-4 pb-6 pt-[8.75rem] [justify-content:safe_flex-end] sm:px-8 sm:pb-10 sm:pt-32 lg:px-12 [@media(max-height:560px)]:pb-3 [@media(max-height:560px)]:pt-28">
-        <div className="flex flex-col gap-6 max-sm:gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-12 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:items-end [@media(max-height:560px)]:justify-between [@media(max-height:560px)]:gap-4">
-          <h1 className="display min-w-0 text-[clamp(1.9rem,min(8vw,10dvh),9rem)] max-sm:flex max-sm:flex-col">
+        <div className="flex flex-col gap-6 max-sm:gap-1.5 lg:flex-row lg:items-end lg:justify-between lg:gap-12 [@media(max-height:560px)]:flex-row [@media(max-height:560px)]:items-end [@media(max-height:560px)]:justify-between [@media(max-height:560px)]:gap-4">
+          <h1 className="display min-w-0 text-[clamp(1.9rem,min(8vw,10dvh),9rem)] [--duration-line:0.6s] max-sm:flex max-sm:flex-col">
             <span className="sr-only">U+ Studio — </span>
-            <span className="mb-5 block animate-[rise_0.9s_var(--ease-out-studio)_backwards] font-sans text-[clamp(0.875rem,1.3vw,1.125rem)] font-medium leading-relaxed tracking-[0.025em] text-bone [text-shadow:0_2px_12px_rgb(0_0_0/0.65)] [--rise:12px] motion-reduce:animate-none max-sm:order-last max-sm:mb-0 max-sm:mt-2 max-sm:[animation-delay:0.9s] sm:mb-8 [@media(max-height:560px)]:mb-2">
+            <span className="mb-5 block animate-[rise_0.6s_var(--ease-out-studio)_0.04s_backwards] max-sm:animate-[rise_0.6s_var(--ease-out-studio)_0.36s_backwards] font-sans text-[clamp(0.875rem,1.3vw,1.125rem)] font-medium leading-relaxed tracking-[0.025em] text-bone [text-shadow:0_2px_12px_rgb(0_0_0/0.65)] [--rise:12px] motion-reduce:animate-none max-sm:order-last max-sm:mb-0 max-sm:mt-1 sm:mb-8 [@media(max-height:560px)]:mb-2">
               {t("hero.eyebrow")}
             </span>
             {" "}
             <LineReveal
               immediate
-              delay={0.35}
+              delay={0.12}
               lines={[t("hero.line1"), t("hero.line2"), <em key="l3" className="font-serif font-normal italic tracking-normal text-[#e2a882]">{t("hero.line3")}</em>]}
             />
           </h1>
 
           <div className="inline-flex w-fit shrink-0 flex-col items-stretch self-start lg:mb-5 lg:self-end">
             <m.p
-              className="flex animate-[rise_0.9s_var(--ease-out-studio)_backwards] flex-col items-center text-center [--rise:12px] motion-reduce:animate-none [@media(max-height:600px)]:hidden"
+              className="flex animate-[rise_0.6s_var(--ease-out-studio)_0.36s_backwards] max-sm:animate-[rise_0.6s_var(--ease-out-studio)_0.44s_backwards] flex-col items-center text-center [--rise:12px] motion-reduce:animate-none [@media(max-height:600px)]:hidden"
               animate={celebrating ? { y: JUMP.y } : { y: 0 }}
               transition={{ duration: CELEBRATION_S, times: HIGH_FIVE.times, ease: "easeInOut" }}
             >
@@ -231,7 +248,7 @@ export default function HomeHero() {
                 {t("mascots.hero")}
               </span>
             </m.p>
-            <div className="relative z-10 -mb-[3px] mt-1 flex w-[4.75rem] animate-[rise_0.9s_var(--ease-out-studio)_1s_backwards] justify-between self-center [--rise:12px] motion-reduce:animate-none sm:mx-auto sm:w-28" aria-hidden onMouseEnter={() => setMascotsHovered(true)} onMouseLeave={() => setMascotsHovered(false)}>
+            <div className="relative z-10 -mb-[3px] mt-1 flex w-[4.75rem] animate-[rise_0.6s_var(--ease-out-studio)_0.44s_backwards] max-sm:animate-[rise_0.6s_var(--ease-out-studio)_0.52s_backwards] justify-between self-center [--rise:12px] motion-reduce:animate-none sm:mx-auto sm:w-28" aria-hidden onMouseEnter={() => setMascotsHovered(true)} onMouseLeave={() => setMascotsHovered(false)}>
               <m.div
                 style={{ originY: 1 }}
                 animate={celebrating ? { ...JUMP, x: [0, 0, 0, 0, 0, 0, 0, 0, 0], rotate: [0, -3, 17, 19, 19, 17, 0, 0, 0] } : { y: 0, x: 0, scaleX: 1, scaleY: 1, rotate: 0 }}
@@ -267,12 +284,12 @@ export default function HomeHero() {
             </div>
             <CallCta
               onMouseEnter={celebrate}
-              className="-mr-[10px] inline-flex lg:-mx-[5px] min-h-11 animate-[rise_0.9s_var(--ease-out-studio)_1s_backwards] items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors [--rise:12px] motion-reduce:animate-none hover:border-bone hover:bg-night"
+              className="-mr-[10px] inline-flex lg:-mx-[5px] min-h-11 animate-[rise_0.6s_var(--ease-out-studio)_0.52s_backwards] max-sm:animate-[rise_0.6s_var(--ease-out-studio)_0.6s_backwards] items-center justify-center gap-2 border border-bone/50 px-4 py-2 font-mono text-[12px] uppercase tracking-[0.12em] text-bone transition-colors [--rise:12px] motion-reduce:animate-none hover:border-bone hover:bg-night"
             />
           </div>
         </div>
 
-        <div className="mt-8 max-sm:mt-4 grid animate-[rise_1s_ease_1.2s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start xl:grid-cols-[auto_minmax(auto,calc(33.333%_-_16px))_auto_auto_auto] xl:items-stretch xl:justify-between xl:gap-x-10 [@media(max-height:560px)]:mt-4 [@media(max-height:560px)]:pt-3">
+        <div className="mt-8 max-sm:mt-4 grid animate-[rise_0.6s_var(--ease-out-studio)_0.6s_backwards] max-sm:animate-[rise_0.6s_var(--ease-out-studio)_0.68s_backwards] grid-cols-1 gap-4 border-t border-bone/25 pt-5 motion-reduce:animate-none sm:mt-12 md:grid-cols-12 md:gap-6 md:items-start xl:grid-cols-[auto_minmax(auto,calc(33.333%_-_16px))_auto_auto_auto] xl:items-stretch xl:justify-between xl:gap-x-10 [@media(max-height:560px)]:mt-4 [@media(max-height:560px)]:pt-3">
           <p className="eyebrow flex flex-col gap-1 md:col-span-5 xl:col-span-1 xl:gap-2">
             <Link href={`/${locale}/services/incek-golbasi-mimarlik-ofisi`} className="w-fit text-bone transition-colors hover:text-bone/70 xl:flex xl:h-6 xl:items-center">{t("hero.place")}</Link>
             <span className="text-bone/60 xl:flex xl:h-6 xl:items-center">{t("hero.country")}</span>
