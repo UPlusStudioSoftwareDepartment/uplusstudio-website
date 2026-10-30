@@ -32,7 +32,6 @@ html {
   overflow-x: hidden;
   overflow-x: clip;
   overscroll-behavior-x: none;
-  overflow-y: auto;
   -webkit-text-size-adjust: 100%;
   /* No global smooth scroll: it made Back/Forward slide from the top to the restored position. Smooth scrolls are opted into per call. */
   /* Native overscroll stays on (pull-to-refresh, iOS bounce); the dark ground keeps the bounce area from flashing light. */
@@ -44,7 +43,6 @@ body {
   overflow-x: hidden;
   overflow-x: clip;
   overscroll-behavior-x: none;
-  overflow-y: visible;
   position: relative;
   font-family: var(--font-sans);
   font-weight: 400;
@@ -59,14 +57,9 @@ html {
 
 /* The native page scrollbar is hidden on every screen; ScrollIndicator draws a thin bar only while the
    visitor scrolls, so nothing appears or flickers while a page opens. */
-:root,
-html,
-body {
-  scrollbar-width: none !important;
-  scrollbar-color: transparent transparent !important;
-  -ms-overflow-style: none !important;
-}
-
+/* Hide native scrollbars on every engine, device, and in-app browser (including Instagram / Android WebView) */
+::-webkit-scrollbar,
+*::-webkit-scrollbar,
 :root::-webkit-scrollbar,
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
@@ -77,18 +70,29 @@ body::-webkit-scrollbar {
   background: transparent !important;
 }
 
+::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb,
 :root::-webkit-scrollbar-thumb,
 html::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
-  display: none !important;
-  background: transparent !important;
-}
-
+body::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track,
 :root::-webkit-scrollbar-track,
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
   display: none !important;
   background: transparent !important;
+}
+
+*,
+*::before,
+*::after,
+:root,
+html,
+body {
+  scrollbar-width: none !important;
+  scrollbar-color: transparent transparent !important;
+  -ms-overflow-style: none !important;
 }
 
 .scroll-indicator-track {
@@ -228,24 +232,28 @@ select:focus-visible {
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
+  display: block !important;
+  width: 4px !important;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+  display: block !important;
+  background: transparent !important;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #e7e5e4;
-  border-radius: 10px;
+  display: block !important;
+  background: #e7e5e4 !important;
+  border-radius: 10px !important;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #d6d3d1;
+  background: #d6d3d1 !important;
 }
 
 .services-modal-scroll::-webkit-scrollbar {
-  width: 6px;
+  display: block !important;
+  width: 6px !important;
 }
 
 .services-modal-scroll::-webkit-scrollbar-track {
@@ -255,17 +263,18 @@ select:focus-visible {
 }
 
 .services-modal-scroll::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.12) 100%);
-  border-radius: 10px;
+  display: block !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+  border-radius: 10px !important;
 }
 
 .services-modal-scroll::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%) !important;
 }
 
 .services-modal-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05) !important;
   scroll-behavior: smooth;
 }
 
