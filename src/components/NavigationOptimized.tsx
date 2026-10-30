@@ -11,6 +11,10 @@ import MobileMenu from "./navigation/MobileMenu";
 import MenuIcon from "./navigation/MenuIcon";
 
 const SCROLL_THRESHOLD = 40;
+// Scroll jitter (trackpad inertia, touch bounce) must not flip the bar: it only hides or shows after
+// this much travel in one direction, and the solid background has a small dead band around the threshold.
+const HIDE_DELTA = 12;
+const SCROLLED_BAND = 24;
 
 function startsOverDark(pathname: string, prefix: string): boolean {
   if (pathname === "/" || pathname === prefix) return true;
@@ -51,9 +55,14 @@ export default function Navigation() {
       rafId = requestAnimationFrame(() => {
         if (document.body.style.position === "fixed") return;
         const y = globalThis.scrollY;
-        setIsScrolled(y > SCROLL_THRESHOLD);
-        setIsHidden(y > 400 && y > lastY);
-        lastY = y;
+        setIsScrolled((was) => (was ? y > SCROLL_THRESHOLD - SCROLLED_BAND : y > SCROLL_THRESHOLD));
+        if (y <= 400) {
+          setIsHidden(false);
+          lastY = y;
+        } else if (Math.abs(y - lastY) >= HIDE_DELTA) {
+          setIsHidden(y > lastY);
+          lastY = y;
+        }
       });
     };
     globalThis.addEventListener("scroll", onScroll, { passive: true });
@@ -104,13 +113,16 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`fixed inset-x-0 top-0 z-50 motion-reduce:transition-none ${menuMounted ? "" : "[view-transition-name:site-nav]"} ${settling ? "" : "transition-[transform,background-color,border-color,padding] duration-500 ease-studio"} ${
-          isScrolled
-            ? "bg-paper/85 backdrop-blur-md border-b border-line py-3"
-            : "bg-transparent border-b border-transparent py-5 sm:py-6"
+        className={`fixed inset-x-0 top-0 z-50 will-change-transform motion-reduce:transition-none ${menuMounted ? "" : "[view-transition-name:site-nav]"} ${settling ? "" : "transition-[transform,padding] duration-500 ease-studio"} ${
+          isScrolled ? "py-3" : "py-5 sm:py-6"
         }`}
         style={{ transform: isHidden && !isMenuOpen ? "translateY(-100%)" : "none" }}
       >
+        {/* The solid bar fades in as its own layer, so the blur never pops on or off over the hero film. */}
+        <span
+          aria-hidden
+          className={`pointer-events-none absolute inset-0 -z-10 border-b border-line bg-paper/85 backdrop-blur-md motion-reduce:transition-none ${settling ? "" : "transition-opacity duration-500 ease-studio"} ${isScrolled ? "opacity-100" : "opacity-0"}`}
+        />
         <div className="mx-auto flex max-w-[2560px] items-center justify-between px-4 sm:px-8 lg:px-12">
           <Link
             href={prefix}
